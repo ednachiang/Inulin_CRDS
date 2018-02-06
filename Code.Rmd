@@ -1,0 +1,29 @@
+---
+title: "Code"
+author: "Edna Chiang"
+date: "February 5, 2018"
+output: html_document
+---
+
+### Load Packages
+```{r}
+
+```
+
+
+### Load Data
+```{r}
+x <- 'CSV'
+  # This is the folder where all of your csv files for each squirrel (1 file per squirrel) are located
+n <- as.numeric(length(list.files(x)))
+
+
+
+for (i in 1:n){
+  filename <- list.files(x)[i]
+  id <- substr(filename, 1,4)
+  wd <- paste0(x,"/",filename)
+  print(assign(paste0("crds.", id), read.csv(wd, header=T)))
+}
+
+```
