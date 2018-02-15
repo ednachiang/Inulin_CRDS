@@ -65,28 +65,28 @@ crds <- crds[-which(is.na(crds[,2])),]
 ### Summarize by Substrate + ABX
 ```{r}
 crds.sum <- crds %>%
-  group_by(Substrate, ABX, Season) %>%
+  group_by(Substrate, ABX, Season, RelTime) %>%
   summarize(Mean = mean(Delta),
             Median = median(Delta),
             SD = sd(Delta),
             SE = se(Delta),
             iqr = IQR(Delta))
 
-phy.sum <- phy.df %>%
-  group_by(Lake_Type, Phylum, Fraction, Season) %>%
-  summarize(Mean = mean(Abundance),
-            Median = median(Abundance),
-            SD = sd(Abundance),
-            SE = se(Abundance),
-            iqr = IQR(Abundance))
 
 ```
 
 ### Plot
 ```{r}
+## All individuals
 ggplot(crds, aes(x=RelTime, y=Delta, color=ID)) +
   geom_line() +
   geom_point()
+
+## Substrate/ABX
+ggplot(crds.sum, aes(x=RelTime, y=Mean, color=Substrate)) +
+  geom_line() +
+  geom_point() +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE))
 
 ```
 
