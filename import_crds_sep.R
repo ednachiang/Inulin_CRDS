@@ -2,12 +2,12 @@
 # y = This is your metadata.csv file
 # USE ' ' AROUND BOTH X & Y!!!
 
-import.crds.sep <- function(x,y) {
+import.test <- function(x,y) {
   
   # Load in all outside variables before you start the 'for' loop
   n <- as.numeric(length(list.files(x)))
   meta <- read.csv(y, fileEncoding="UTF-8-BOM")
-  crds <- data.frame(matrix(ncol=9, nrow=0))
+  crds <- vector("list", n)
   print(n)
   print(meta)
   
@@ -31,17 +31,10 @@ import.crds.sep <- function(x,y) {
     }
     
     print(df)
-    crds <- vector("list", n)
+    crds[[i]] <- assign(paste0("crds.", id), df)
+    print(crds)
     
-    if (i < 2){
-      crds[[i]] <- assign(paste0("crds.", id), df)
-      #crds <- list[assign(paste0("crds.", id), df)]
-      return(crds)
-    } else {
-      crds[[i]] <- assign(paste0("crds.", id), df)
-      return(crds)
-    }
-    
+  }
   
-    }
+  return(crds)
 }
