@@ -2,14 +2,12 @@
 # y = This is your metadata.csv file
 # USE ' ' AROUND BOTH X & Y!!!
 
-import.test <- function(x,y) {
+import.crds.sep <- function(x,y) {
   
   # Load in all outside variables before you start the 'for' loop
   n <- as.numeric(length(list.files(x)))
   meta <- read.csv(y, fileEncoding="UTF-8-BOM")
   crds <- vector("list", n)
-  print(n)
-  print(meta)
   
   # Import in each squirrel as its own dataframe
   for (i in 1:n){
@@ -18,10 +16,6 @@ import.test <- function(x,y) {
     wd <- paste0(x,"/",filename)
     df <- assign(paste0("crds.", id), read.csv(wd, header=T, fileEncoding="UTF-8-BOM"))
     rw <- which(meta[,1] == id)
-    print(filename)
-    print(id)
-    print(wd)
-    print(i)
     
     for (j in 1:6){
       cl = j
@@ -30,9 +24,7 @@ import.test <- function(x,y) {
       print(j)
     }
     
-    print(df)
     crds[[i]] <- assign(paste0("crds.", id), df)
-    print(crds)
     
   }
   
