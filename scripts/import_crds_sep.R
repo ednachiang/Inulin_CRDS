@@ -12,7 +12,7 @@ import.crds.sep <- function(x,y) {
   # Import in each squirrel as its own dataframe
   for (i in 1:n){
     filename <- list.files(x)[i]
-    id <- substr(filename, 1,4)
+    id <- substr(filename, 1,3)
     wd <- paste0(x,"/",filename)
     df <- assign(paste0("crds.", id), read.csv(wd, header=T, fileEncoding="UTF-8-BOM"))
     rw <- which(meta[,1] == id)
