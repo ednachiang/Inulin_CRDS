@@ -15,13 +15,12 @@ import.crds.sep <- function(x,y) {
     id <- substr(filename, 1,3)
     wd <- paste0(x,"/",filename)
     df <- assign(paste0("crds.", id), read.csv(wd, header=T, fileEncoding="UTF-8-BOM"))
-    rw <- which(meta[,1] == id)
+    rw <- which(meta[,2] == id)
     
     for (j in 1:6){
       cl = j
       df[,j+3] <- rep(meta[rw,cl],nrow(df))
       colnames(df)[j+3] <- colnames(meta)[cl]
-      print(j)
     }
     
     crds[[i]] <- assign(paste0("crds.", id), df)

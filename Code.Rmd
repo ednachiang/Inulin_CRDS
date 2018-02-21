@@ -16,13 +16,13 @@ library(dplyr)
 ```{r}
 source('scripts/import_crds.R')
 source('scripts/import_crds_sep.R')
-crds <- import.crds('CSV', 'metadata_practice.csv')
-crds.all <- import.crds.sep('CSV', 'metadata_practice.csv')
+crds <- import.crds('CSV', 'metadata.csv')
+crds.all <- import.crds.sep('CSV', 'metadata.csv')
 ```
 
-### Organize RelTime
+### Bin RelTime
 ```{r}
-crds.std <- 
+crds.bin <- 
 
 
 
