@@ -18,25 +18,17 @@ import.crds <- function(x,y) {
     wd <- paste0(x,"/",filename)
     df <- assign(paste0("crds.", id), read.csv(wd, header=T, fileEncoding="UTF-8-BOM"))
     rw <- which(meta[,1] == id)
-    print(filename)
-    print(id)
-    print(wd)
-    print(i)
     
     for (j in 1:6){
       cl = j
       df[,j+3] <- rep(meta[rw,cl],nrow(df))
       colnames(df)[j+3] <- colnames(meta)[cl]
-      print(j)
     }
     
     if (i < 2){
       crds <- df
-      print(crds)
     } else {
-      #crds[(nrow(crds)+1):(nrow(crds) + rownum),] <- df
       crds <- rbind(crds, df)
-      print(crds)
     }
     
   }
