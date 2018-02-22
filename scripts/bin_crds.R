@@ -4,6 +4,7 @@ bin.crds <- function(x){
   crds <- x
   bin.time <- seq(from=-1, to=5, by=0.25)
   crds$BinTime <- findInterval(x$RelTime, bin.time)
+    # Closed on lower cutoff, open on upper cutoff
   
   for(i in 1:length(bin.time)){
     time <- bin.time[i]
