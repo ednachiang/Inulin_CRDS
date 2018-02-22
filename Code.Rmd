@@ -16,6 +16,7 @@ se <- function(x){
   sd(x)/sqrt(length(x))
 }
 set.seed(1)
+theme_set(theme_bw())
 ```
 
 ### Load Data
@@ -40,7 +41,7 @@ crds.rem <- crds.rem[-which(crds.rem$Number == 3982),]
 
 # Summarize
 crds.sum <- crds.rem %>%
-  group_by(Substrate, ABX, Season, BinTime) %>%
+  group_by(Substrate, Antibiotics, Season, BinTime) %>%
   summarize(Mean = mean(Delta),
             Median = median(Delta),
             SD = sd(Delta),
@@ -67,30 +68,42 @@ ggplot(crds.bin, aes(x=BinTime, y=Delta, color=ID)) +
 
 ## Substrate/ABX
 ggplot(crds.sum, aes(x=BinTime, y=Mean, color=Substrate)) +
-  geom_line(aes(linetype=ABX)) +
+  geom_line(aes(linetype=Antibiotics)) +
   geom_point() +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE))
 
 ## Inulin
 ggplot(inu.all, aes(x=BinTime, y=Mean, color=Season)) +
-  geom_line(aes(linetype=ABX)) +
-  geom_point() +
-  scale_color_manual(name="Season", values=c("red", "Blue")) +
-  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE))
+  geom_line(aes(linetype=Antibiotics), size=1) +
+  geom_point(size=3) +
+  scale_color_manual(name="Season", values=c("red", "blue")) +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
+  ggtitle("Inulin 13C:12C") +
+  xlab("Time") +
+  ylab("Mean 13C:12C")+
+  theme(plot.title=element_text(hjust=0.5))
 
 ## Mannitol
 ggplot(man.all, aes(x=BinTime, y=Mean, color=Season)) +
-  geom_line(aes(linetype=ABX)) +
-  geom_point() +
-  scale_color_manual(name="Season", values=c("red", "Blue")) +
-  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE))
+  geom_line(aes(linetype=Antibiotics), size=1) +
+  geom_point(size=3) +
+  scale_color_manual(name="Season", values=c("red", "blue")) +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
+  ggtitle("Mannitol 13C:12C") +
+  xlab("Time") +
+  ylab("Mean 13C:12C")+
+  theme(plot.title=element_text(hjust=0.5))
 
 ## Saline
 ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
-  geom_line(aes(linetype=ABX)) +
-  geom_point() +
-  scale_color_manual(name="Season", values=c("red", "Blue")) +
-  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE))
+  geom_line(aes(linetype=Antibiotics), size=1) +
+  geom_point(size=3) +
+  scale_color_manual(name="Season", values=c("red", "blue")) +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
+  ggtitle("Saline 13C:12C") +
+  xlab("Time") +
+  ylab("Mean 13C:12C")+
+  theme(plot.title=element_text(hjust=0.5))
 ```
 
 ### Inulin Plots
