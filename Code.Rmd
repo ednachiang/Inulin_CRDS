@@ -5,34 +5,42 @@ date: "February 5, 2018"
 output: html_document
 ---
 
-### Load Packages
+### Load Packages, scripts, and functions
 ```{r}
 library(ggplot2)
 library(dplyr)
+source('scripts/import_crds.R')
+source('scripts/import_crds_sep.R')
+source('scripts/bin_crds.R')
+se <- function(x){
+  sd(x)/sqrt(length(x))
+}
+set.seed(1)
 ```
-
 
 ### Load Data
 ```{r}
-source('scripts/import_crds.R')
-source('scripts/import_crds_sep.R')
 crds <- import.crds('CSV', 'metadata.csv')
 crds.all <- import.crds.sep('CSV', 'metadata.csv')
 ```
 
 ### Bin RelTime
 ```{r}
-crds.bin <- 
-
-
-
-
+crds.bin <- bin.crds(crds)
 ```
 
 ### Summarize by Substrate + ABX
 ```{r}
-crds.sum <- crds %>%
-  group_by(Substrate, ABX, Season, RelTime) %>%
+# Remove NA's (gavage time)
+rem <- which(is.na(crds.bin$Delta))
+crds.rem <- crds.bin[-rem,]
+
+# Remove 3982 because it may be incorrectly labeled
+crds.rem <- crds.rem[-which(crds.rem$Number == 3982),]
+
+# Summarize
+crds.sum <- crds.rem %>%
+  group_by(Substrate, ABX, Season, BinTime) %>%
   summarize(Mean = mean(Delta),
             Median = median(Delta),
             SD = sd(Delta),
@@ -40,27 +48,75 @@ crds.sum <- crds %>%
             iqr = IQR(Delta))
 ```
 
+### Separate by substrate
+```{r}
+inu.all <- crds.sum[which(crds.sum$Substrate == "Inulin"),]
+
+man.all <- crds.sum[which(crds.sum$Substrate == "Mannitol"),]
+
+sal.all <- crds.sum[which(crds.sum$Substrate == "Saline"),]
+```
 
 
 ### Plot
 ```{r}
 ## All individuals
-ggplot(crds, aes(x=RelTime, y=Delta, color=ID)) +
+ggplot(crds.bin, aes(x=BinTime, y=Delta, color=ID)) +
   geom_line() +
   geom_point()
 
 ## Substrate/ABX
-ggplot(crds.sum, aes(x=RelTime, y=Mean, color=Substrate)) +
-  geom_line() +
+ggplot(crds.sum, aes(x=BinTime, y=Mean, color=Substrate)) +
+  geom_line(aes(linetype=ABX)) +
   geom_point() +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE))
 
+## Inulin
+ggplot(inu.all, aes(x=BinTime, y=Mean, color=Season)) +
+  geom_line(aes(linetype=ABX)) +
+  geom_point() +
+  scale_color_manual(name="Season", values=c("red", "Blue")) +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE))
+
+## Mannitol
+ggplot(man.all, aes(x=BinTime, y=Mean, color=Season)) +
+  geom_line(aes(linetype=ABX)) +
+  geom_point() +
+  scale_color_manual(name="Season", values=c("red", "Blue")) +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE))
+
+## Saline
+ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
+  geom_line(aes(linetype=ABX)) +
+  geom_point() +
+  scale_color_manual(name="Season", values=c("red", "Blue")) +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE))
 ```
 
-
-### Extra Functions
+### Inulin Plots
 ```{r}
-se <- function(x){
-  sd(x)/sqrt(length(x))
-}
+## All individuals
+inu.ind <- crds.rem[which(crds.rem$Substrate == "Inulin"),]
+ggplot(inu.ind, aes(x=BinTime, y=Delta, color=Season)) +
+  geom_line(aes(linetype=ABX)) +
+  geom_point() +
+  scale_color_manual(name="Season", values=c("red", "Blue"))
+
+## Summer
+inu.sum <- crds.rem[which(crds.rem$Substrate == "Inulin" & crds.rem$Season == "Summer"),]
+ggplot(inu.sum, aes(x=BinTime, y=Delta, color=ABX)) +
+  geom_line(aes(linetype=ABX)) +
+  geom_point() +
+  scale_color_manual(name="ABX", values=c("red", "Blue"))
+
+## Summer ABX
+inu.sum.abx <- crds.rem[which(crds.rem$Substrate == "Inulin" & crds.rem$Season == "Summer" & crds.rem$ABX == "Yes"),]
+ggplot(inu.sum.abx, aes(x=BinTime, y=Delta, color=ID)) +
+  geom_line(aes(linetype=ABX)) +
+  geom_point()
+  # 3982 is an outlier -- is it actually ABX?
+  # Until confirmed, remove from data
 ```
+
+
+
