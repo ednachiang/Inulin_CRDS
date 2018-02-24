@@ -9,12 +9,11 @@ output: html_document
 ```{r}
 library(ggplot2)
 library(dplyr)
+library(grid)
 source('scripts/import_crds.R')
 source('scripts/import_crds_sep.R')
 source('scripts/bin_crds.R')
-se <- function(x){
-  sd(x)/sqrt(length(x))
-}
+source('scripts/misc.R')
 set.seed(1)
 theme_set(theme_bw())
 ```
@@ -73,38 +72,73 @@ ggplot(crds.sum, aes(x=BinTime, y=Mean, color=Substrate)) +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE))
 
 ## Inulin
-ggplot(inu.all, aes(x=BinTime, y=Mean, color=Season)) +
+inu.plot <- ggplot(inu.all, aes(x=BinTime, y=Mean, color=Season)) +
   geom_line(aes(linetype=Antibiotics), size=1) +
-  geom_point(size=3) +
-  scale_color_manual(name="Season", values=c("red", "blue")) +
+   geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3")) +
+  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3"), na.value="white", guide="none") +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
   ggtitle("Inulin 13C:12C") +
   xlab("Time") +
   ylab("Mean 13C:12C")+
-  theme(plot.title=element_text(hjust=0.5))
+  theme(plot.title=element_text(hjust=0.5)) +
+  guides(colour=F, linetype=F)
 
 ## Mannitol
-ggplot(man.all, aes(x=BinTime, y=Mean, color=Season)) +
+man.plot <- ggplot(man.all, aes(x=BinTime, y=Mean, color=Season)) +
   geom_line(aes(linetype=Antibiotics), size=1) +
-  geom_point(size=3) +
-  scale_color_manual(name="Season", values=c("red", "blue")) +
+  geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3")) +
+  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3"), na.value="white", guide="none") +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
   ggtitle("Mannitol 13C:12C") +
   xlab("Time") +
   ylab("Mean 13C:12C")+
-  theme(plot.title=element_text(hjust=0.5))
+  theme(plot.title=element_text(hjust=0.5)) +
+  guides(colour=F, linetype=F)
 
 ## Saline
-ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
+sal.plot <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
+  geom_line(aes(linetype=Antibiotics), size=1) +
+  geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3")) +
+  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3"), na.value="white", guide="none") +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
+  ggtitle("Saline 13C:12C") +
+  xlab("Time") +
+  ylab("Mean 13C:12C")+
+  theme(plot.title=element_text(hjust=0.5)) +
+  guides(colour=F, linetype=F)
+
+
+## Steal legend
+steal.legend <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
   geom_line(aes(linetype=Antibiotics), size=1) +
   geom_point(size=3) +
-  scale_color_manual(name="Season", values=c("red", "blue")) +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3")) +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
   ggtitle("Saline 13C:12C") +
   xlab("Time") +
   ylab("Mean 13C:12C")+
   theme(plot.title=element_text(hjust=0.5))
+legend <- g_legend(steal.legend)
 ```
+
+
+### BTP Poster Plots
+```{r}
+tiff("crds2.tiff", width = 11, height = 3.5, units = "in", res = 300)
+grid.newpage()
+pushViewport(viewport(layout=(grid.layout(1,4, widths=c(1,1,1,0.25), heights=c(1,1,1,1)))))
+print(inu.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
+print(man.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
+print(sal.plot, vp=viewport(layout.pos.row=1, layout.pos.col=3))
+legend$vp <- viewport(layout.pos.row=1, layout.pos.col=4)
+grid.draw(legend)
+dev.off()
+
+```
+
 
 ### Inulin Plots
 ```{r}
@@ -131,5 +165,10 @@ ggplot(inu.sum.abx, aes(x=BinTime, y=Delta, color=ID)) +
   # Until confirmed, remove from data
 ```
 
+
+### ANOVA
+```{r}
+
+```
 
 
