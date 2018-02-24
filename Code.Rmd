@@ -127,7 +127,7 @@ legend <- g_legend(steal.legend)
 
 ### BTP Poster Plots
 ```{r}
-tiff("crds2.tiff", width = 11, height = 3.5, units = "in", res = 300)
+tiff("crds2.tiff", width = 11, height = 5.5, units = "in", res = 300)
 grid.newpage()
 pushViewport(viewport(layout=(grid.layout(1,4, widths=c(1,1,1,0.25), heights=c(1,1,1,1)))))
 print(inu.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
