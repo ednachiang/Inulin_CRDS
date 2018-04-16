@@ -46,6 +46,7 @@ crds.sum <- crds.rem %>%
             SD = sd(Delta),
             SE = se(Delta),
             iqr = IQR(Delta))
+crds.sum$Season <- ordered(crds.sum$Season, levels=c("Summer", "Winter", "Spring"))
 ```
 
 ### Separate by substrate
@@ -55,6 +56,8 @@ inu.all <- crds.sum[which(crds.sum$Substrate == "Inulin"),]
 man.all <- crds.sum[which(crds.sum$Substrate == "Mannitol"),]
 
 sal.all <- crds.sum[which(crds.sum$Substrate == "Saline"),]
+
+ure.all <- crds.sum[which(crds.sum$Substrate == "Urea"),]
 ```
 
 
@@ -75,41 +78,53 @@ ggplot(crds.sum, aes(x=BinTime, y=Mean, color=Substrate)) +
 inu.plot <- ggplot(inu.all, aes(x=BinTime, y=Mean, color=Season)) +
   geom_line(aes(linetype=Antibiotics), size=1) +
    geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
-  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3")) +
-  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3"), na.value="white", guide="none") +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
   ggtitle("Inulin 13C:12C") +
   xlab("Time") +
   ylab("Mean 13C:12C")+
-  theme(plot.title=element_text(hjust=0.5)) +
-  guides(colour=F, linetype=F)
+  theme(plot.title=element_text(hjust=0.5)) #+
+  #guides(colour=F, linetype=F)
 
 ## Mannitol
 man.plot <- ggplot(man.all, aes(x=BinTime, y=Mean, color=Season)) +
   geom_line(aes(linetype=Antibiotics), size=1) +
   geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
-  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3")) +
-  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3"), na.value="white", guide="none") +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
   ggtitle("Mannitol 13C:12C") +
   xlab("Time") +
   ylab("Mean 13C:12C")+
-  theme(plot.title=element_text(hjust=0.5)) +
-  guides(colour=F, linetype=F)
+  theme(plot.title=element_text(hjust=0.5)) #+
+  #guides(colour=F, linetype=F)
 
 ## Saline
 sal.plot <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
   geom_line(aes(linetype=Antibiotics), size=1) +
   geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
-  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3")) +
-  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3"), na.value="white", guide="none") +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
   ggtitle("Saline 13C:12C") +
   xlab("Time") +
   ylab("Mean 13C:12C")+
-  theme(plot.title=element_text(hjust=0.5)) +
-  guides(colour=F, linetype=F)
+  theme(plot.title=element_text(hjust=0.5)) #+
+  #guides(colour=F, linetype=F)
 
+## Urea
+ure.plot <- ggplot(ure.all, aes(x=BinTime, y=Mean, color=Season)) +
+  geom_line(aes(linetype=Antibiotics), size=1) +
+  geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
+  ggtitle("Saline 13C:12C") +
+  xlab("Time") +
+  ylab("Mean 13C:12C")+
+  theme(plot.title=element_text(hjust=0.5)) #+
+  #guides(colour=F, linetype=F)
 
 ## Steal legend
 steal.legend <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
@@ -127,7 +142,7 @@ legend <- g_legend(steal.legend)
 
 ### BTP Poster Plots
 ```{r}
-tiff("crds2.tiff", width = 11, height = 5.5, units = "in", res = 300)
+tiff("crds2.tiff", width = 11, height = 3, units = "in", res = 300)
 grid.newpage()
 pushViewport(viewport(layout=(grid.layout(1,4, widths=c(1,1,1,0.25), heights=c(1,1,1,1)))))
 print(inu.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
