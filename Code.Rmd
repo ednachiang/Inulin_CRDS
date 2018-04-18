@@ -84,7 +84,9 @@ inu.plot <- ggplot(inu.all, aes(x=BinTime, y=Mean, color=Season)) +
   ggtitle("Inulin Exhaled CO2 13C:12C") +
   xlab("Time Since Gavage") +
   ylab("Mean 13C:12C")+
-  theme(plot.title=element_text(hjust=0.5)) +
+  theme(plot.title=element_text(hjust=0.5, size=10),
+        axis.title.x=element_text(size=9),
+        axis.title.y=element_text(size=9)) +
   guides(colour=F, linetype=F)
 
 ## Mannitol
@@ -97,7 +99,9 @@ man.plot <- ggplot(man.all, aes(x=BinTime, y=Mean, color=Season)) +
   ggtitle("Mannitol Exhaled CO2 13C:12C") +
   xlab("Time Since Gavage") +
   ylab("Mean 13C:12C")+
-  theme(plot.title=element_text(hjust=0.5)) +
+  theme(plot.title=element_text(hjust=0.5, size=10),
+        axis.title.x=element_text(size=9),
+        axis.title.y=element_text(size=9)) +
   guides(colour=F, linetype=F)
 
 ## Saline
@@ -110,7 +114,9 @@ sal.plot <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
   ggtitle("Saline Exhaled CO2 13C:12C") +
   xlab("Time Since Gavage") +
   ylab("Mean 13C:12C")+
-  theme(plot.title=element_text(hjust=0.5)) +
+  theme(plot.title=element_text(hjust=0.5, size=10),
+        axis.title.x=element_text(size=9),
+        axis.title.y=element_text(size=9)) +
   guides(colour=F, linetype=F)
 
 ## Urea
@@ -142,9 +148,9 @@ legend <- g_legend(steal.legend)
 
 ### Poster Plots
 ```{r}
-tiff("mmm.crds.tiff", width = 11, height = 3, units = "in", res = 300)
+tiff("mmm.crds.tiff", width = 9, height = 3, units = "in", res = 300)
 grid.newpage()
-pushViewport(viewport(layout=(grid.layout(1,4, widths=c(1,1,1,0.25), heights=c(1,1,1,1)))))
+pushViewport(viewport(layout=(grid.layout(1,4, widths=c(1,1,1,0.4), heights=c(1,1,1,1)))))
 print(inu.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
 print(man.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
 print(sal.plot, vp=viewport(layout.pos.row=1, layout.pos.col=3))
