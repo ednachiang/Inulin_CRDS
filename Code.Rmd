@@ -81,11 +81,11 @@ inu.plot <- ggplot(inu.all, aes(x=BinTime, y=Mean, color=Season)) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
-  ggtitle("Inulin 13C:12C") +
-  xlab("Time") +
+  ggtitle("Inulin Exhaled CO2 13C:12C") +
+  xlab("Time Since Gavage") +
   ylab("Mean 13C:12C")+
-  theme(plot.title=element_text(hjust=0.5)) #+
-  #guides(colour=F, linetype=F)
+  theme(plot.title=element_text(hjust=0.5)) +
+  guides(colour=F, linetype=F)
 
 ## Mannitol
 man.plot <- ggplot(man.all, aes(x=BinTime, y=Mean, color=Season)) +
@@ -94,11 +94,11 @@ man.plot <- ggplot(man.all, aes(x=BinTime, y=Mean, color=Season)) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
-  ggtitle("Mannitol 13C:12C") +
-  xlab("Time") +
+  ggtitle("Mannitol Exhaled CO2 13C:12C") +
+  xlab("Time Since Gavage") +
   ylab("Mean 13C:12C")+
-  theme(plot.title=element_text(hjust=0.5)) #+
-  #guides(colour=F, linetype=F)
+  theme(plot.title=element_text(hjust=0.5)) +
+  guides(colour=F, linetype=F)
 
 ## Saline
 sal.plot <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
@@ -107,11 +107,11 @@ sal.plot <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
-  ggtitle("Saline 13C:12C") +
-  xlab("Time") +
+  ggtitle("Saline Exhaled CO2 13C:12C") +
+  xlab("Time Since Gavage") +
   ylab("Mean 13C:12C")+
-  theme(plot.title=element_text(hjust=0.5)) #+
-  #guides(colour=F, linetype=F)
+  theme(plot.title=element_text(hjust=0.5)) +
+  guides(colour=F, linetype=F)
 
 ## Urea
 ure.plot <- ggplot(ure.all, aes(x=BinTime, y=Mean, color=Season)) +
@@ -130,19 +130,19 @@ ure.plot <- ggplot(ure.all, aes(x=BinTime, y=Mean, color=Season)) +
 steal.legend <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
   geom_line(aes(linetype=Antibiotics), size=1) +
   geom_point(size=3) +
-  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3")) +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
-  ggtitle("Saline 13C:12C") +
-  xlab("Time") +
+  ggtitle("Saline Exhaled CO2 13C:12C") +
+  xlab("Time Since Gavage") +
   ylab("Mean 13C:12C")+
   theme(plot.title=element_text(hjust=0.5))
 legend <- g_legend(steal.legend)
 ```
 
 
-### BTP Poster Plots
+### Poster Plots
 ```{r}
-tiff("crds2.tiff", width = 11, height = 3, units = "in", res = 300)
+tiff("mmm.crds.tiff", width = 11, height = 3, units = "in", res = 300)
 grid.newpage()
 pushViewport(viewport(layout=(grid.layout(1,4, widths=c(1,1,1,0.25), heights=c(1,1,1,1)))))
 print(inu.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
