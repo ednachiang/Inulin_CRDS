@@ -148,7 +148,7 @@ legend <- g_legend(steal.legend)
 
 ### Poster Plots
 ```{r}
-tiff("mmm.crds.tiff", width = 9, height = 3, units = "in", res = 300)
+tiff("mmm.crds.tiff", width = 9, height = 3.5, units = "in", res = 300)
 grid.newpage()
 pushViewport(viewport(layout=(grid.layout(1,4, widths=c(1,1,1,0.4), heights=c(1,1,1,1)))))
 print(inu.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
