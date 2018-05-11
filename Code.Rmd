@@ -81,9 +81,9 @@ inu.plot <- ggplot(inu.all, aes(x=BinTime, y=Mean, color=Season)) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
-  ggtitle("Inulin Exhaled CO2 13C:12C") +
+  ggtitle(expression("Inulin"~~delta^13~"C")) +
   xlab("Time Since Gavage") +
-  ylab("Mean 13C:12C")+
+  ylab(expression("Mean"~~delta^13~"C"))+
   theme(plot.title=element_text(hjust=0.5, size=10),
         axis.title.x=element_text(size=9),
         axis.title.y=element_text(size=9)) +
@@ -96,9 +96,9 @@ man.plot <- ggplot(man.all, aes(x=BinTime, y=Mean, color=Season)) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
-  ggtitle("Mannitol Exhaled CO2 13C:12C") +
+  ggtitle(expression("Mannitol"~~delta^13~"C")) +
   xlab("Time Since Gavage") +
-  ylab("Mean 13C:12C")+
+  ylab(expression("Mean"~~delta^13~"C"))+
   theme(plot.title=element_text(hjust=0.5, size=10),
         axis.title.x=element_text(size=9),
         axis.title.y=element_text(size=9)) +
@@ -111,9 +111,9 @@ sal.plot <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
-  ggtitle("Saline Exhaled CO2 13C:12C") +
+  ggtitle(expression("Saline"~~delta^13~"C")) +
   xlab("Time Since Gavage") +
-  ylab("Mean 13C:12C")+
+  ylab(expression("Mean"~~delta^13~"C"))+
   theme(plot.title=element_text(hjust=0.5, size=10),
         axis.title.x=element_text(size=9),
         axis.title.y=element_text(size=9)) +
@@ -126,9 +126,9 @@ ure.plot <- ggplot(ure.all, aes(x=BinTime, y=Mean, color=Season)) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
-  ggtitle("Saline 13C:12C") +
-  xlab("Time") +
-  ylab("Mean 13C:12C")+
+  ggtitle(expression("Urea"~~delta^13~"C")) +
+  xlab("Time Since Gavage") +
+  ylab(expression("Mean"~~delta^13~"C"))+
   theme(plot.title=element_text(hjust=0.5)) #+
   #guides(colour=F, linetype=F)
 
@@ -138,9 +138,9 @@ steal.legend <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
   geom_point(size=3) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
-  ggtitle("Saline Exhaled CO2 13C:12C") +
+  ggtitle(expression("Saline"~~delta^13~"C")) +
   xlab("Time Since Gavage") +
-  ylab("Mean 13C:12C")+
+  ylab(expression("Mean"~~delta^13~"C"))+
   theme(plot.title=element_text(hjust=0.5))
 legend <- g_legend(steal.legend)
 ```
