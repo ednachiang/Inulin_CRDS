@@ -1,0 +1,40 @@
+﻿Sample,Season,Squirrel,ID,Ex_Date,Substrate,Antibiotics,Sex,Euthenasia,Body_Mass,Body_Temp,DNA_Yield
+CC1_S02,Summer,S02,3972,7/17/2017,Mannitol,No Antibiotics,Female,Isoflurane,99.1,36,92.93062091
+CC1_S03,Summer,S03,3981,7/19/2017,Inulin,No Antibiotics,Female,Isoflurane,148,36,133.814005
+CC1_S04,Summer,S04,3995,7/24/2017,Urea,No Antibiotics,Female,Isoflurane,118,37,110
+CC1_S05,Summer,S05,4022,7/25/2017,Saline,No Antibiotics,Male,Isoflurane,148,39,97.61417105
+CC1_S06,Summer,S06,3991,7/26/2017,Inulin,No Antibiotics,Male,Isoflurane,163,37,62.8
+CC1_S07,Summer,S07,4016,7/27/2017,Inulin,No Antibiotics,Female,Isoflurane,144,36,62.4
+CC1_S08,Summer,S08,4029,7/28/2017,Saline,No Antibiotics,Female,Isoflurane,157,36,37.2
+CC1_S09,Summer,S09,3994,7/31/2017,Cellobiose,No Antibiotics,Female,Isoflurane,146,36,98.10314605
+CC1_S10,Summer,S10,3992,8/1/2017,Inulin,Antibiotics,Female,Isoflurane,124,36,0
+CC1_S11,Summer,S11,4026,8/2/2017,Saline,No Antibiotics,Female,Isoflurane,167,37,77.4
+CC1_S12,Summer,S12,3967,8/3/2017,Saline,Antibiotics,Male,Isoflurane,156,35,0
+CC1_S13,Summer,S13,4031,8/4/2017,Mannitol,No Antibiotics,Female,Isoflurane,190,35,125.1263954
+CC1_S15,Summer,S15,4027,8/7/2017,Cellobiose,No Antibiotics,Female,Isoflurane,181,36,84.3
+CC1_S16,Summer,S16,3978,8/8/2017,Urea,Antibiotics,Female,Isoflurane,141,34,0
+CC1_S17,Summer,S17,4049,8/9/2017,Cellobiose,Antibiotics,Female,Isoflurane,156,35,0.063197712
+CC1_S18,Summer,S18,3966,8/10/2017,Mannitol,Antibiotics,Male,Isoflurane,193,36,0
+CC1_S19,Summer,S19,3983,8/10/2017,Mannitol,Antibiotics,Male,Isoflurane,177,34,0
+CC1_S20,Summer,S20,3965,8/11/2017,Cellobiose,No Antibiotics,Male,Isoflurane,188,34,127.0232494
+CC2_S21,Summer,S21,4045,8/14/2017,Inulin,Antibiotics,Female,Isoflurane,172,38.5,0
+CC1_S22,Summer,S22,4032,8/15/2017,Urea,Antibiotics,Female,Isoflurane,194,33,0
+CC1_S23,Summer,S23,4002,8/16/2017,Saline,Antibiotics,Female,Isoflurane,183,34,0
+CC1_S24,Summer,S24,4043,8/17/2017,Saline,No Antibiotics,Male,Isoflurane,175,36,102.7534828
+CC1_S25,Summer,S25,3988,8/18/2017,Cellobiose,Antibiotics,Female,Isoflurane,189,32.5,10.4
+CC1_S26,Summer,S26,4009,8/21/2017,Cellobiose,No Antibiotics,Male,Isoflurane,200,34,58.9
+CC1_S27,Summer,S27,4030,8/22/2017,Mannitol,Antibiotics,Male,Isoflurane,208,33.5,0.028600424
+CC1_S28,Summer,S28,4037,8/22/2017,Mannitol,No Antibiotics,Male,Isoflurane,212,33.5,68.7
+CC1_S29,Summer,S29,4000,8/23/2017,Inulin,No Antibiotics,Female,Isoflurane,225,35,139.0271243
+CC1_S30,Summer,S30,4010,8/24/2017,Inulin,Antibiotics,Male,Isoflurane,213,33,0
+CC1_S31,Summer,S31,4038,8/25/2017,Saline,Antibiotics,Female,Isoflurane,207,31,0
+CC1_S32,Summer,S32,4036,8/28/2017,Saline,No Antibiotics,Female,Isoflurane,211,34,167
+CC1_S33,Summer,S33,4052,8/29/2017,Cellobiose,Antibiotics,Female,Isoflurane,180,36,0.606605775
+CC1_S34,Summer,S34,4007,8/30/2017,Inulin,No Antibiotics,Female,Isoflurane,213,36,147.8471261
+CC1_S35,Summer,S35,3973,8/31/2017,Mannitol,Antibiotics,Female,Isoflurane,133,32,0.968724052
+CC1_S36,Summer,S36,4008,8/31/2017,Mannitol,No Antibiotics,Male,Isoflurane,205,31.5,128.4214411
+CC2_S37,Summer,S37,3982,9/1/2017,Inulin,Antibiotics,Male,Isoflurane,158,35,72.7520989
+CC2_S38,Summer,S38,4001,9/4/2017,Cellobiose,No Antibiotics,Male,Isoflurane,220,36,165.7602177
+CC1_S39,Summer,S39,4019,9/5/2017,Saline,Antibiotics,Female,Isoflurane,211,33.5,0
+CC1_S40,Summer,S40,3958,9/7/2017,Inulin,No Antibiotics,Female,CO2,216,35.5,131
+CC1_S41,Summer,S41,3955,9/11/2017,Cellobiose,No Antibiotics,Female,Isoflurane,167,32,104

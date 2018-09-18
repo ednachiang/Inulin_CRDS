@@ -1036,13 +1036,102 @@ otus <- data.frame(t(otus))
 
 ### OTU vs CRDS Correlation
 ```{r}
+### AUC
 auc.cor <- cor(otus, dna.keep$AUC, method="kendall")
-summary(auc.cor)
+top5.auc <- rownames(auc.cor)[order(auc.cor, decreasing=T)[1:5]]
+bot5.auc <- rownames(auc.cor)[order(auc.cor, decreasing=F)[1:5]]
+top5.auc.df <- data.frame(tax_table(physeq.keep))[1,2:7]
+bot5.auc.df <- data.frame(tax_table(physeq.keep))[1,2:7]
+for(i in 1:5){
+  OTU <- top5.auc[i]
+  pick <- which(data.frame(tax_table(physeq.keep))$Species == OTU)
+  taxon <- data.frame(tax_table(physeq.keep))[pick,]
+  top5.auc.df[i,] <- taxon[2:7]
+}
+for(i in 1:5){
+  OTU <- bot5.auc[i]
+  pick <- which(data.frame(tax_table(physeq.keep))$Species == OTU)
+  taxon <- data.frame(tax_table(physeq.keep))[pick,]
+  bot5.auc.df[i,] <- taxon[2:7]
+}
+rownames(top5.auc.df) <- top5.auc.df$Species
+rownames(bot5.auc.df) <- bot5.auc.df$Species
+top5.auc.df$Kendalls_Tau <- auc.cor[order(auc.cor, decreasing=T)[1:5]]
+bot5.auc.df$Kendalls_Tau <- auc.cor[order(auc.cor, decreasing=F)[1:5]]
+#write.csv(top5.auc.df, file="top5.auc.csv")
+#write.csv(bot5.auc.df, file="bot5.auc.csv")
 
+
+
+### Max Delta
 del.cor <- cor(otus, dna.keep$MaxDelta, method="kendall")
-summary(del.cor)
+top5.del <- rownames(del.cor)[order(del.cor, decreasing=T)[1:5]]
+bot5.del <- rownames(del.cor)[order(del.cor, decreasing=F)[1:5]]
+top5.del.df <- data.frame(tax_table(physeq.keep))[1,2:7]
+bot5.del.df <- data.frame(tax_table(physeq.keep))[1,2:7]
+for(i in 1:5){
+  OTU <- top5.del[i]
+  pick <- which(data.frame(tax_table(physeq.keep))$Species == OTU)
+  taxon <- data.frame(tax_table(physeq.keep))[pick,]
+  top5.del.df[i,] <- taxon[2:7]
+}
+for(i in 1:5){
+  OTU <- bot5.del[i]
+  pick <- which(data.frame(tax_table(physeq.keep))$Species == OTU)
+  taxon <- data.frame(tax_table(physeq.keep))[pick,]
+  bot5.del.df[i,] <- taxon[2:7]
+}
+rownames(top5.del.df) <- top5.del.df$Species
+rownames(bot5.del.df) <- bot5.del.df$Species
+top5.del.df$Kendalls_Tau <- del.cor[order(del.cor, decreasing=T)[1:5]]
+bot5.del.df$Kendalls_Tau <- del.cor[order(del.cor, decreasing=F)[1:5]]
+#write.csv(top5.del.df, file="top5.del.csv")
+#write.csv(bot5.del.df, file="bot5.del.csv")
 
+
+
+### Peak Time
 tim.cor <- cor(otus, dna.keep$PeakTime, method="kendall")
-summary(tim.cor)
+top5.tim <- rownames(tim.cor)[order(tim.cor, decreasing=T)[1:5]]
+bot5.tim <- rownames(tim.cor)[order(tim.cor, decreasing=F)[1:5]]
+top5.tim.df <- data.frame(tax_table(physeq.keep))[1,2:7]
+bot5.tim.df <- data.frame(tax_table(physeq.keep))[1,2:7]
+for(i in 1:5){
+  OTU <- top5.tim[i]
+  pick <- which(data.frame(tax_table(physeq.keep))$Species == OTU)
+  taxon <- data.frame(tax_table(physeq.keep))[pick,]
+  top5.tim.df[i,] <- taxon[2:7]
+}
+for(i in 1:5){
+  OTU <- bot5.tim[i]
+  pick <- which(data.frame(tax_table(physeq.keep))$Species == OTU)
+  taxon <- data.frame(tax_table(physeq.keep))[pick,]
+  bot5.tim.df[i,] <- taxon[2:7]
+}
+rownames(top5.tim.df) <- top5.tim.df$Species
+rownames(bot5.tim.df) <- bot5.tim.df$Species
+top5.tim.df$Kendalls_Tau <- tim.cor[order(tim.cor, decreasing=T)[1:5]]
+bot5.tim.df$Kendalls_Tau <- tim.cor[order(tim.cor, decreasing=F)[1:5]]
+#write.csv(top5.tim.df, file="top5.tim.csv")
+#write.csv(bot5.tim.df, file="bot5.tim.csv")
+
+
+#auc.cor.abs <- data.frame(abs(auc.cor))
+  # Calculate absolute values
+#top10.auc <- rownames(auc.cor.abs)[order(auc.cor.abs, decreasing=T)[1:10]]
+
+
+
+
+
+### Test with linear regression
+xyplot(otus$Otu00109 ~ dna.keep$AUC)
+  # Damn that's one crazy outlier
+summary(lm(otus$Otu00109 ~ dna.keep$AUC))
+  # Outlier is definitely driving the significance
+  # p-value = 0.000122
+  # R2 = 0.5448
+confint(lm(otus$Otu00109 ~ dna.keep$AUC), level=0.95)
+rownames(otus)[which(otus$Otu00109 == max(otus$Otu00109))]
 
 ```
