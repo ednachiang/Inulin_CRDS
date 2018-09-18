@@ -68,6 +68,108 @@ sal.all <- crds.sum[which(crds.sum$Substrate == "Saline"),]
 ure.all <- crds.sum[which(crds.sum$Substrate == "Urea"),]
 ```
 
+### Calculate AUC
+```{r}
+# AUC = Area Under Curve
+# https://stackoverflow.com/questions/4954507/calculate-the-area-under-a-curve
+
+### Remove unwanted substrates
+crds.auc <- crds.rem[-which(crds.rem$Substrate == "Urea"),]
+crds.auc <- crds.auc[-which(crds.auc$Substrate == "Acetate"),]
+crds.auc$Substrate <- droplevels(crds.auc$Substrate)
+crds.auc$ID <- droplevels(crds.auc$ID)
+
+### Calculate AUC
+ids <- levels(crds.auc$ID)
+auc.df <- data.frame(crds.auc[1,])
+auc.df <- auc.df[,-2:-3]
+auc.df <- auc.df[,-8]
+colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate")
+for(i in 1:length(ids)){
+  ID <- ids[i]
+  select <- crds.auc[which(crds.auc$ID == ID),]
+  baseline <- which(select$RelTime < 0)
+  baseline.reltime <- mean(select$RelTime[baseline])
+  baseline.delta <- mean(select$Delta[baseline])
+  baseline.co2 <- mean(select$CO2[baseline])
+  baseline.bintime <- mean(select$BinTime[baseline])
+  select.norm <- data.frame(RelTime=baseline.reltime, Delta=0, CO2=baseline.co2,
+                            Number=select$Number[1], ID=select$ID[1], Season=select$Season[1],
+                            Sex=select$Sex[1], Antibiotics=select$Antibiotics[1],
+                            Substrate=select$Substrate[1], BinTime=baseline.bintime)
+    # Delta = 0 because we want to normalize everything to baseline. Any neg Deltas will decrease the AUC (subtracted from AUC), which is not what we want.
+  exp <- which(select$RelTime>0)
+  for(j in 1:(nrow(select)-length(baseline))){
+    select.norm[j+1,] <- select[exp[j],]
+  }
+  select.norm[2:nrow(select.norm),2] <- (select.norm[2:nrow(select.norm),2]-baseline.delta)
+  x <- select.norm$RelTime
+  y <- select.norm$Delta
+  AUC <- auc(x, y, type = 'spline')
+  auc.df[i,1] <- AUC
+  auc.df[i,2:7] <- select.norm[1,4:9]
+}
+
+### Subset by Substrate & ABX
+auc.inu <- auc.df[which(auc.df$Substrate == "Inulin"),]
+auc.man <- auc.df[which(auc.df$Substrate == "Mannitol"),]
+auc.sal <- auc.df[which(auc.df$Substrate == "Saline"),]
+auc.abx <- auc.df[which(auc.df$Antibiotics == "Yes"),]
+auc.noabx <- auc.df[which(auc.df$Antibiotics == "No"),]
+auc.inu.abx <- auc.inu[which(auc.inu$Antibiotics == "Yes"),]
+auc.inu.noabx <- auc.inu[which(auc.inu$Antibiotics == "No"),]
+auc.man.abx <- auc.man[which(auc.man$Antibiotics == "Yes"),]
+auc.man.noabx <- auc.man[which(auc.man$Antibiotics == "No"),]
+auc.sal.abx <- auc.sal[which(auc.sal$Antibiotics == "Yes"),]
+auc.sal.noabx <- auc.sal[which(auc.sal$Antibiotics == "No"),]
+```
+
+
+
+### Calculate Max Delta Change & RelTime Peak
+```{r}
+### Remove unwanted substrates
+crds.max <- crds.rem[-which(crds.rem$Substrate == "Urea"),]
+crds.max <- crds.max[-which(crds.max$Substrate == "Acetate"),]
+crds.max$Substrate <- droplevels(crds.max$Substrate)
+crds.max$ID <- droplevels(crds.max$ID)
+
+### Pull out max delta value
+ids <- levels(crds.max$ID)
+max.df <- data.frame(crds.max[1,])
+max.df <- max.df[,-3]
+max.df <- max.df[,-9]
+for(i in 1:length(ids)){
+  ID <- ids[i]  
+  select <- crds.max[which(crds.max$ID == ID),]
+  baseline <- which(select$RelTime < 0)
+  baseline.delta <- mean(select$Delta[baseline])
+  Max <- (max(select$Delta)-baseline.delta)
+  Max.time <- select$RelTime[which(select$Delta == max(select$Delta))]
+  max.df[i,1:3] <- c(Max.time, Max, select$Number[1])
+  max.df[i, 4] <- as.character(select$ID[1])
+  max.df[i, 5] <- as.character(select$Season[1])
+  max.df[i, 6] <- as.character(select$Sex[1])
+  max.df[i, 7] <- as.character(select$Antibiotics[1])
+  max.df[i, 8] <- as.character(select$Substrate[1])
+}
+
+
+
+
+### Subset by Substrate & ABX
+max.inu <- max.df[which(max.df$Substrate == "Inulin"),]
+max.man <- max.df[which(max.df$Substrate == "Mannitol"),]
+max.sal <- max.df[which(max.df$Substrate == "Saline"),]
+max.abx <- max.df[which(max.df$Antibiotics == "Yes"),]
+max.noabx <- max.df[which(max.df$Antibiotics == "No"),]
+max.inu.abx <- max.inu[which(max.inu$Antibiotics == "Yes"),]
+max.inu.noabx <- max.inu[which(max.inu$Antibiotics == "No"),]
+max.man.abx <- max.man[which(max.man$Antibiotics == "Yes"),]
+max.man.noabx <- max.man[which(max.man$Antibiotics == "No"),]
+max.sal.abx <- max.sal[which(max.sal$Antibiotics == "Yes"),]
+max.sal.noabx <- max.sal[which(max.sal$Antibiotics == "No"),]
+```
 
 ### Plot
 ```{r}
@@ -154,6 +256,7 @@ legend <- g_legend(steal.legend)
 ```
 
 
+
 ### Poster Plots
 ```{r}
 tiff("prelim.fig3.tiff", width = 9, height = 3.5, units = "in", res = 300)
@@ -167,6 +270,7 @@ grid.draw(legend)
 dev.off()
 
 ```
+
 
 
 ### Inulin Plots
@@ -195,61 +299,9 @@ ggplot(inu.sum.abx, aes(x=BinTime, y=Delta, color=ID)) +
 ```
 
 
+
 ### AUC
 ```{r}
-# AUC = Area Under Curve
-# https://stackoverflow.com/questions/4954507/calculate-the-area-under-a-curve
-
-### Remove unwanted substrates
-crds.auc <- crds.rem[-which(crds.rem$Substrate == "Urea"),]
-crds.auc <- crds.auc[-which(crds.auc$Substrate == "Acetate"),]
-crds.auc$Substrate <- droplevels(crds.auc$Substrate)
-crds.auc$ID <- droplevels(crds.auc$ID)
-
-### Calculate AUC
-ids <- levels(crds.auc$ID)
-auc.df <- data.frame(crds.auc[1,])
-auc.df <- auc.df[,-2:-3]
-auc.df <- auc.df[,-8]
-colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate")
-for(i in 1:length(ids)){
-  ID <- ids[i]
-  select <- crds.auc[which(crds.auc$ID == ID),]
-  baseline <- which(select$RelTime < 0)
-  baseline.reltime <- mean(select$RelTime[baseline])
-  baseline.delta <- mean(select$Delta[baseline])
-  baseline.co2 <- mean(select$CO2[baseline])
-  baseline.bintime <- mean(select$BinTime[baseline])
-  select.norm <- data.frame(RelTime=baseline.reltime, Delta=0, CO2=baseline.co2,
-                            Number=select$Number[1], ID=select$ID[1], Season=select$Season[1],
-                            Sex=select$Sex[1], Antibiotics=select$Antibiotics[1],
-                            Substrate=select$Substrate[1], BinTime=baseline.bintime)
-    # Delta = 0 because we want to normalize everything to baseline. Any neg Deltas will decrease the AUC (subtracted from AUC), which is not what we want.
-  exp <- which(select$RelTime>0)
-  for(j in 1:(nrow(select)-length(baseline))){
-    select.norm[j+1,] <- select[exp[j],]
-  }
-  select.norm[2:nrow(select.norm),2] <- (select.norm[2:nrow(select.norm),2]-baseline.delta)
-  x <- select.norm$RelTime
-  y <- select.norm$Delta
-  AUC <- auc(x, y, type = 'spline')
-  auc.df[i,1] <- AUC
-  auc.df[i,2:7] <- select.norm[1,4:9]
-}
-
-### Subset by Substrate & ABX
-auc.inu <- auc.df[which(auc.df$Substrate == "Inulin"),]
-auc.man <- auc.df[which(auc.df$Substrate == "Mannitol"),]
-auc.sal <- auc.df[which(auc.df$Substrate == "Saline"),]
-auc.abx <- auc.df[which(auc.df$Antibiotics == "Yes"),]
-auc.noabx <- auc.df[which(auc.df$Antibiotics == "No"),]
-auc.inu.abx <- auc.inu[which(auc.inu$Antibiotics == "Yes"),]
-auc.inu.noabx <- auc.inu[which(auc.inu$Antibiotics == "No"),]
-auc.man.abx <- auc.man[which(auc.man$Antibiotics == "Yes"),]
-auc.man.noabx <- auc.man[which(auc.man$Antibiotics == "No"),]
-auc.sal.abx <- auc.sal[which(auc.sal$Antibiotics == "Yes"),]
-auc.sal.noabx <- auc.sal[which(auc.sal$Antibiotics == "No"),]
-
 ### Check Normality
 hist(auc.df$AUC)
 qqnorm(auc.df$AUC)
@@ -369,6 +421,7 @@ p.adjust(c(0.9168, 0.09011, 0.8836, 0.2792, 0.06287, 0.6906), method="BH")
   # Saline No ABX = 0.91680
 
 ```
+
 
 
 ### AUC 2
@@ -559,50 +612,7 @@ p.adjust(c(0.9168, 0.06794, 0.7697, 0.2523, 0.05411, 0.07628), method="BH")
 ```
 
 
-### Calculate Max Delta Change & RelTime Peak
-```{r}
-### Remove unwanted substrates
-crds.max <- crds.rem[-which(crds.rem$Substrate == "Urea"),]
-crds.max <- crds.max[-which(crds.max$Substrate == "Acetate"),]
-crds.max$Substrate <- droplevels(crds.max$Substrate)
-crds.max$ID <- droplevels(crds.max$ID)
 
-### Pull out max delta value
-ids <- levels(crds.max$ID)
-max.df <- data.frame(crds.max[1,])
-max.df <- max.df[,-3]
-max.df <- max.df[,-9]
-for(i in 1:length(ids)){
-  ID <- ids[i]  
-  select <- crds.max[which(crds.max$ID == ID),]
-  baseline <- which(select$RelTime < 0)
-  baseline.delta <- mean(select$Delta[baseline])
-  Max <- (max(select$Delta)-baseline.delta)
-  Max.time <- select$RelTime[which(select$Delta == max(select$Delta))]
-  max.df[i,1:3] <- c(Max.time, Max, select$Number[1])
-  max.df[i, 4] <- as.character(select$ID[1])
-  max.df[i, 5] <- as.character(select$Season[1])
-  max.df[i, 6] <- as.character(select$Sex[1])
-  max.df[i, 7] <- as.character(select$Antibiotics[1])
-  max.df[i, 8] <- as.character(select$Substrate[1])
-}
-
-
-
-
-### Subset by Substrate & ABX
-max.inu <- max.df[which(max.df$Substrate == "Inulin"),]
-max.man <- max.df[which(max.df$Substrate == "Mannitol"),]
-max.sal <- max.df[which(max.df$Substrate == "Saline"),]
-max.abx <- max.df[which(max.df$Antibiotics == "Yes"),]
-max.noabx <- max.df[which(max.df$Antibiotics == "No"),]
-max.inu.abx <- max.inu[which(max.inu$Antibiotics == "Yes"),]
-max.inu.noabx <- max.inu[which(max.inu$Antibiotics == "No"),]
-max.man.abx <- max.man[which(max.man$Antibiotics == "Yes"),]
-max.man.noabx <- max.man[which(max.man$Antibiotics == "No"),]
-max.sal.abx <- max.sal[which(max.sal$Antibiotics == "Yes"),]
-max.sal.noabx <- max.sal[which(max.sal$Antibiotics == "No"),]
-```
 
 ### Test Max Delta Change
 ```{r}
@@ -887,9 +897,104 @@ p.adjust(c(0.0472, 0.9413, 0.01901, 0.1658, 0.0139, 0.004845), method="BH")
   # Saline No ABX = 0.02907
 ```
 
-### ANOVA
+### Subset Summer
 ```{r}
+sum.all <- crds.sum[which(crds.sum$Season == "Summer"),]
+sum.all <- sum.all[which(sum.all$Substrate != "Acetate"),]
+sum.all <- sum.all[which(sum.all$Substrate != "Butyrate"),]
+sum.all <- sum.all[which(sum.all$Substrate != "Urea"),]
 
+
+sum.inu <- sum.all[which(sum.all$Substrate == "Inulin"),]
+
+sum.man <- sum.all[which(sum.all$Substrate == "Mannitol"),]
+
+sum.sal <- sum.all[which(sum.all$Substrate == "Saline"),]
+
+sum.abx <- sum.all[which(sum.all$Antibiotics == "Yes"),]
 ```
 
+### Summer Correlate [DNA] & CRDS
+```{r}
+dna <- read.csv('dna.csv', fileEncoding="UTF-8-BOM")
+auc.sum <- auc.df[which(auc.df$Season == "Summer"),]
 
+# Pull out shared squirrels
+both <- intersect(dna$Squirrel, auc.sum$ID)
+dna.sum <- dna[1,]
+dna.sum$AUC <- NA
+dna.sum$MaxDelta <- NA
+dna.sum$PeakTime <- NA
+for(i in 1:length(both)){
+  ID <- both[i]
+  dna.sum[i,1:ncol(dna)] <- dna[which(dna$Squirrel == ID),]
+  dna.sum[i,(ncol(dna)+1)] <- auc.df$AUC[which(auc.df$ID == ID)]
+  dna.sum[i,(ncol(dna)+2)] <- max.df$Delta[which(max.df$ID == ID)]
+  dna.sum[i,(ncol(dna)+3)] <- max.df$RelTime[which(max.df$ID == ID)]
+}
+
+
+
+# Model = Water Consumption --> DNA Yield --> CRDS
+
+
+
+### Test Normality
+hist(dna.sum$DNA_Yield)
+qqnorm(dna.sum$DNA_Yield)
+qqline(dna.sum$DNA_Yield)
+shapiro.test(dna.sum$DNA_Yield)
+  # p-value = 0.0007067
+  # Not Normal
+
+hist(dna.sum$AUC)
+qqnorm(dna.sum$AUC)
+qqline(dna.sum$AUC)
+shapiro.test(dna.sum$AUC)
+  # p-value = 1.321e-06
+  # Not Normal
+
+hist(dna.sum$MaxDelta)
+qqnorm(dna.sum$MaxDelta)
+qqline(dna.sum$MaxDelta)
+shapiro.test(dna.sum$MaxDelta)
+  # p-value = 1.363e-05
+  # Not Normal
+
+hist(dna.sum$PeakTime)
+qqnorm(dna.sum$PeakTime)
+qqline(dna.sum$PeakTime)
+shapiro.test(dna.sum$PeakTime)
+  # p-value = 0.113
+  # Normal
+
+
+
+### Look for cross-correlations
+pairs(dna.sum[,12:15])
+
+
+
+### Linear Correlation
+xyplot(AUC ~ DNA_Yield, dna.sum)
+summary(lm(AUC ~ DNA_Yield, dna.sum))
+  # p-value = 0.0238
+  # R2 = 0.1754
+confint(lm(AUC ~ DNA_Yield, dna.sum), level=0.95)
+
+xyplot(MaxDelta ~ DNA_Yield, dna.sum)
+summary(lm(MaxDelta ~ DNA_Yield, dna.sum))
+  # p-value = 0.00626
+  # Adj R2 = 0.2613
+confint(lm(MaxDelta ~ DNA_Yield, dna.sum), level=0.95)
+
+xyplot(PeakTime ~ DNA_Yield, dna.sum)
+summary(lm(PeakTime ~ DNA_Yield, dna.sum))
+  # p-value = 0.00615
+  # Adj R2 = 0.2623
+confint(lm(PeakTime ~ DNA_Yield, dna.sum), level=0.95)
+
+
+
+
+```
