@@ -323,6 +323,8 @@ kruskalmc(resp = AUC ~ Substrate, data=auc.abx)
   # Mannitol-Saline
 kruskal.test(formula = AUC ~ Season, data=auc.abx)
   # p-value = 0.1231
+wilcox.test(AUC~Sex, data=auc.df)
+  # p-value = 0.3964
 
 # Inulin
 wilcox.test(AUC~Antibiotics, data=auc.inu)
@@ -510,6 +512,8 @@ kruskalmc(resp = AUC ~ Substrate, data=auc2.abx)
   # Mannitol-Saline
 kruskal.test(formula = AUC ~ Season, data=auc2.abx)
   # p-value = 0.1093
+wilcox.test(AUC~Sex, data=auc2.df)
+  # p-value = 0.4494
 
 # Inulin
 wilcox.test(AUC~Antibiotics, data=auc2.inu)
@@ -566,24 +570,18 @@ crds.max$ID <- droplevels(crds.max$ID)
 ### Pull out max delta value
 ids <- levels(crds.max$ID)
 max.df <- data.frame(crds.max[1,])
-max.df <- max.df[,-2:-3]
-max.df <- max.df[,-8]
-colnames(max.df) <- c("Delta", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate")
-select.max <- data.frame(Delta=NA, RelTime=NA, Number=NA, ID=NA,
-                         Season=NA, Sex=NA,
-                         Antibiotics=NA, Substrate=NA)
+max.df <- max.df[,-3]
+max.df <- max.df[,-9]
 for(i in 1:length(ids)){
-  ID <- ids[i]
-  print(ID)
-  select <- crds.max[which(crds.max$ID == ID),]
+  ID <- ids[i]  select <- crds.max[which(crds.max$ID == ID),]
   Max <- max(select$Delta)
   Max.time <- select$RelTime[which(select$Delta == max(select$Delta))]
-  select.max[i,1:3] <- c(Max, Max.time, select$Number[1])
-  select.max[i, 4] <- as.character(select$ID[1])
-  select.max[i, 5] <- as.character(select$Season[1])
-  select.max[i, 6] <- as.character(select$Sex[1])
-  select.max[i, 7] <- as.character(select$Antibiotics[1])
-  select.max[i, 8] <- as.character(select$Substrate[1])
+  max.df[i,1:3] <- c(Max, Max.time, select$Number[1])
+  max.df[i, 4] <- as.character(select$ID[1])
+  max.df[i, 5] <- as.character(select$Season[1])
+  max.df[i, 6] <- as.character(select$Sex[1])
+  max.df[i, 7] <- as.character(select$Antibiotics[1])
+  max.df[i, 8] <- as.character(select$Substrate[1])
 }
 
 
