@@ -559,7 +559,7 @@ p.adjust(c(0.9168, 0.06794, 0.7697, 0.2523, 0.05411, 0.07628), method="BH")
 ```
 
 
-### Max Val
+### Calculate Max Delta Change & RelTime Peak
 ```{r}
 ### Remove unwanted substrates
 crds.max <- crds.rem[-which(crds.rem$Substrate == "Urea"),]
@@ -573,10 +573,13 @@ max.df <- data.frame(crds.max[1,])
 max.df <- max.df[,-3]
 max.df <- max.df[,-9]
 for(i in 1:length(ids)){
-  ID <- ids[i]  select <- crds.max[which(crds.max$ID == ID),]
-  Max <- max(select$Delta)
+  ID <- ids[i]  
+  select <- crds.max[which(crds.max$ID == ID),]
+  baseline <- which(select$RelTime < 0)
+  baseline.delta <- mean(select$Delta[baseline])
+  Max <- (max(select$Delta)-baseline.delta)
   Max.time <- select$RelTime[which(select$Delta == max(select$Delta))]
-  max.df[i,1:3] <- c(Max, Max.time, select$Number[1])
+  max.df[i,1:3] <- c(Max.time, Max, select$Number[1])
   max.df[i, 4] <- as.character(select$ID[1])
   max.df[i, 5] <- as.character(select$Season[1])
   max.df[i, 6] <- as.character(select$Sex[1])
@@ -587,107 +590,301 @@ for(i in 1:length(ids)){
 
 
 
-
-
-
-
-
-
 ### Subset by Substrate & ABX
-auc.inu <- auc.df[which(auc.df$Substrate == "Inulin"),]
-auc.man <- auc.df[which(auc.df$Substrate == "Mannitol"),]
-auc.sal <- auc.df[which(auc.df$Substrate == "Saline"),]
-auc.abx <- auc.df[which(auc.df$Antibiotics == "Yes"),]
-auc.noabx <- auc.df[which(auc.df$Antibiotics == "No"),]
-auc.inu.abx <- auc.inu[which(auc.inu$Antibiotics == "Yes"),]
-auc.inu.noabx <- auc.inu[which(auc.inu$Antibiotics == "No"),]
-auc.man.abx <- auc.man[which(auc.man$Antibiotics == "Yes"),]
-auc.man.noabx <- auc.man[which(auc.man$Antibiotics == "No"),]
-auc.sal.abx <- auc.sal[which(auc.sal$Antibiotics == "Yes"),]
-auc.sal.noabx <- auc.sal[which(auc.sal$Antibiotics == "No"),]
+max.inu <- max.df[which(max.df$Substrate == "Inulin"),]
+max.man <- max.df[which(max.df$Substrate == "Mannitol"),]
+max.sal <- max.df[which(max.df$Substrate == "Saline"),]
+max.abx <- max.df[which(max.df$Antibiotics == "Yes"),]
+max.noabx <- max.df[which(max.df$Antibiotics == "No"),]
+max.inu.abx <- max.inu[which(max.inu$Antibiotics == "Yes"),]
+max.inu.noabx <- max.inu[which(max.inu$Antibiotics == "No"),]
+max.man.abx <- max.man[which(max.man$Antibiotics == "Yes"),]
+max.man.noabx <- max.man[which(max.man$Antibiotics == "No"),]
+max.sal.abx <- max.sal[which(max.sal$Antibiotics == "Yes"),]
+max.sal.noabx <- max.sal[which(max.sal$Antibiotics == "No"),]
+```
 
-### Check Normality
-hist(auc.df$AUC)
-qqnorm(auc.df$AUC)
-qqline(auc.df$AUC)
-shapiro.test(auc.df$AUC)
-  # p-value = 5.601e-15
+### Test Max Delta Change
+```{r}
+### Check Max Delta Normality
+hist(max.df$Delta)
+qqnorm(max.df$Delta)
+qqline(max.df$Delta)
+shapiro.test(max.df$Delta)
+  # p-value = 4.088e-14
   # Not Normal
 
-hist(auc.inu$AUC)
-qqnorm(auc.inu$AUC)
-qqline(auc.inu$AUC)
-shapiro.test(auc.inu$AUC)
-  # p-value = 0.0002643
+hist(max.inu$Delta)
+qqnorm(max.inu$Delta)
+qqline(max.inu$Delta)
+shapiro.test(max.inu$Delta)
+  # p-value = 0.0008221
   # Not Normal
 
-hist(auc.man$AUC)
-qqnorm(auc.man$AUC)
-qqline(auc.man$AUC)
-shapiro.test(auc.man$AUC)
-  # p-value = 1.582e-08
+hist(max.man$Delta)
+qqnorm(max.man$Delta)
+qqline(max.man$Delta)
+shapiro.test(max.man$Delta)
+  # p-value = 2.408e-07
   # Not Normal
 
-hist(auc.sal$AUC)
-qqnorm(auc.sal$AUC)
-qqline(auc.sal$AUC)
-shapiro.test(auc.sal$AUC)
-  # p-value = 4.957e-05
+hist(max.sal$Delta)
+qqnorm(max.sal$Delta)
+qqline(max.sal$Delta)
+shapiro.test(max.sal$Delta)
+  # p-value = 2.809e-08
   # Not Normal
 
-hist(auc.abx$AUC)
-qqnorm(auc.abx$AUC)
-qqline(auc.abx$AUC)
-shapiro.test(auc.abx$AUC)
-  # p-value = 3.16e-08
+hist(max.abx$Delta)
+qqnorm(max.abx$Delta)
+qqline(max.abx$Delta)
+shapiro.test(max.abx$Delta)
+  # p-value = 6.738e-08
+  # Normal
+
+hist(max.noabx$Delta)
+qqnorm(max.noabx$Delta)
+qqline(max.noabx$Delta)
+shapiro.test(max.noabx$Delta)
+  # p-value = 4.564e-08
   # Not Normal
 
-hist(auc.noabx$AUC)
-qqnorm(auc.noabx$AUC)
-qqline(auc.noabx$AUC)
-shapiro.test(auc.noabx$AUC)
-  # p-value = 2.481e-09
-  # Not Normal
 
 
 
 ### Boxplots
-ggplot(auc.df, aes(x=Season, y=AUC, fill = Antibiotics)) +
+ggplot(max.df, aes(x=Season, y=Delta, fill = Antibiotics)) +
   geom_boxplot(position=position_dodge(1)) +
   geom_point() + 
   facet_grid(.~Substrate) 
-ggplot(auc.inu, aes(x=Season, y=AUC, fill = Antibiotics)) +
+ggplot(max.inu, aes(x=Season, y=Delta, fill = Antibiotics)) +
   geom_boxplot(position=position_dodge(1)) +
   geom_point()
-ggplot(auc.man, aes(x=Season, y=AUC, fill = Antibiotics)) +
+ggplot(max.man, aes(x=Season, y=Delta, fill = Antibiotics)) +
   geom_boxplot(position=position_dodge(1)) +
   geom_point()
-ggplot(auc.sal, aes(x=Season, y=AUC, fill = Antibiotics)) +
+ggplot(max.sal, aes(x=Season, y=Delta, fill = Antibiotics)) +
   geom_boxplot(position=position_dodge(1)) +
   geom_point()
+
 
 
 
 ### Kruskal-Wallis
-wilcox.test(AUC~Antibiotics, data=auc.df)
-  # p-value = 0.0008937
-kruskal.test(formula = AUC ~ Substrate, data=auc.abx)
-  # p-value = 8.831e-07
-kruskalmc(resp = AUC ~ Substrate, data=auc.abx)
+wilcox.test(Delta ~ Antibiotics, data=max.df)
+  # p-value = 0.00107
+kruskal.test(formula = Delta ~ Substrate, data=max.abx)
+  # p-value = 6.25e-06
+kruskalmc(resp = Delta ~ Substrate, data=max.abx)
   # Inulin-Mannitol
   # Inulin-Saline
-  # Mannitol-Saline
-kruskal.test(formula = AUC ~ Season, data=auc.abx)
-  # p-value = 0.1231
+kruskal.test(formula = Delta ~ Season, data=max.abx)
+  # p-value = 0.04308
+wilcox.test(Delta~Sex, data=max.inu)
+  # p-value = 0.9807
+
 
 # Inulin
-wilcox.test(AUC~Antibiotics, data=auc.inu)
-  # p-value = 0.0001171
-kruskal.test(formula = AUC ~ Season, data=auc.inu.abx)
-  # p-value = 0.9168
-kruskal.test(formula = AUC ~ Season, data=auc.inu.noabx)
-  # p-value = 0.09011
+wilcox.test(Delta~Antibiotics, data=max.inu)
+  # p-value = 3.295e-05
+kruskal.test(formula = Delta ~ Season, data=max.inu.abx)
+  # p-value = 0.6015
+kruskal.test(formula = Delta ~ Season, data=max.inu.noabx)
+  # p-value = 0.005072
+kruskalmc(resp = Delta ~ Season, data=max.inu.noabx)
+  # Spring-Winter
+  # Summer-Winter
+pairwise.wilcox.test(max.inu.noabx$Delta, max.inu.noabx$Season)
+  # Summer-Spring = 0.3434
+  # Winter-Spring = 0.0159
+  # Summer-Winter = 0.0076
 
+
+# Mannitol
+wilcox.test(Delta~Antibiotics, data=max.man)
+  # p-value = 5.631e-05
+kruskal.test(formula = Delta ~ Season, data=max.man.abx)
+  # p-value = 0.3055
+kruskal.test(formula = Delta ~ Season, data=max.man.noabx)
+  # p-value = 0.2295
+
+
+# Saline
+wilcox.test(Delta~Antibiotics, data=max.sal)
+  # p-value = 0.275
+kruskal.test(formula = Delta ~ Season, data=max.sal.abx)
+  # p-value = 0.2656
+kruskal.test(formula = Delta ~ Season, data=max.sal.noabx)
+  # p-value = 0.0335
+kruskalmc(resp = Delta ~ Season, data=max.sal.noabx)
+  # Summer-Winter
+pairwise.wilcox.test(max.sal.noabx$Delta, max.sal.noabx$Season)
+  # Summer-Spring = 0.093
+  # Winter-Spring = 0.042
+  # Summer-Winter = 0.945
+
+
+
+### Kruskal-Wallis BH-adjusted p-values
+# Within-substrate ABX wilcoxon test
+p.adjust(c(3.295e-05, 5.631e-05, 0.275), method="BH")
+  # Inulin = 8.4465e-05
+  # Mannitol = 8.4465e-05
+  # Saline = 0.275
+# Within-substrate season kruskal-wallis test
+p.adjust(c(0.6015, 0.005072, 0.3055, 0.2295, 0.2656, 0.0335), method="BH")
+  # Inulin ABX = 0.601500
+  # Inulin No ABX = 0.030432
+  # Mannitol ABX = 0.366600
+  # Mannitol No ABX = 0.366600
+  # Saline ABX = 0.366600
+  # Saline No ABX = 0.100500
+```
+
+
+### Test Max Peak Time
+```{r}
+### Check Max RelTime Normality
+hist(max.df$RelTime)
+qqnorm(max.df$RelTime)
+qqline(max.df$RelTime)
+shapiro.test(max.df$RelTime)
+  # p-value = 0.1365
+  # Normal
+
+hist(max.inu$RelTime)
+qqnorm(max.inu$RelTime)
+qqline(max.inu$RelTime)
+shapiro.test(max.inu$RelTime)
+  # p-value = 0.002164
+  # Not Normal
+
+hist(max.man$RelTime)
+qqnorm(max.man$RelTime)
+qqline(max.man$RelTime)
+shapiro.test(max.man$RelTime)
+  # p-value = 0.002208
+  # Not Normal
+
+hist(max.sal$RelTime)
+qqnorm(max.sal$RelTime)
+qqline(max.sal$RelTime)
+shapiro.test(max.sal$RelTime)
+  # p-value = 0.003141
+  # Not Normal
+
+hist(max.abx$RelTime)
+qqnorm(max.abx$RelTime)
+qqline(max.abx$RelTime)
+shapiro.test(max.abx$RelTime)
+  # p-value = 0.4276
+  # Normal
+
+hist(max.noabx$RelTime)
+qqnorm(max.noabx$RelTime)
+qqline(max.noabx$RelTime)
+shapiro.test(max.noabx$RelTime)
+  # p-value = 0.003662
+  # Not Normal
+
+
+
+
+### Boxplots
+ggplot(max.df, aes(x=Season, y=RelTime, fill = Antibiotics)) +
+  geom_boxplot(position=position_dodge(1)) +
+  geom_point() + 
+  facet_grid(.~Substrate) 
+ggplot(max.inu, aes(x=Season, y=RelTime, fill = Antibiotics)) +
+  geom_boxplot(position=position_dodge(1)) +
+  geom_point()
+ggplot(max.man, aes(x=Season, y=RelTime, fill = Antibiotics)) +
+  geom_boxplot(position=position_dodge(1)) +
+  geom_point()
+ggplot(max.sal, aes(x=Season, y=RelTime, fill = Antibiotics)) +
+  geom_boxplot(position=position_dodge(1)) +
+  geom_point()
+
+
+
+
+### Kruskal-Wallis
+t.test(RelTime ~ Antibiotics, data=max.df)
+  # p-value = 0.0003384
+summary(aov(RelTime ~ Substrate, data=max.abx))
+  # p-value = 0.0262
+TukeyHSD(aov(RelTime ~ Substrate, data=max.abx))
+  # Mannitol-Inulin = 0.1685152
+  # Saline-Inulin = 0.7582566
+  # Saline-Mannitol = 0.02229182
+summary(aov(RelTime ~ Season, data=max.abx))
+  # p-value = 0.000141
+TukeyHSD(aov(RelTime ~ Season, data=max.abx))
+  # Summer-Spring = 0.7122043
+  # Winter-Spring = 0.0080773
+  # Winter-Summer = 0.0002553
+t.test(RelTime ~ Sex, data=max.df)
+  # p-value = 0.9617
+
+
+# Inulin
+wilcox.test(RelTime~Antibiotics, data=max.inu)
+  # p-value = 3.295e-05
+kruskal.test(formula = RelTime ~ Season, data=max.inu.abx)
+  # p-value = 0.0472
+pairwise.wilcox.test(max.inu.abx$RelTime, max.inu.abx$Season)
+  # Summer-Winter = 0.056
+kruskal.test(formula = RelTime ~ Season, data=max.inu.noabx)
+  # p-value = 0.9413
+
+
+# Mannitol
+wilcox.test(RelTime~Antibiotics, data=max.man)
+  # p-value = 0.009409
+kruskal.test(formula = RelTime ~ Season, data=max.man.abx)
+  # p-value = 0.01901
+pairwise.wilcox.test(max.man.abx$RelTime, max.man.abx$Season)
+  # Summer-Winter = 0.023
+kruskal.test(formula = RelTime ~ Season, data=max.man.noabx)
+  # p-value = 0.1658
+
+
+# Saline
+wilcox.test(RelTime~Antibiotics, data=max.sal)
+  # p-value = 0.8582
+kruskal.test(formula = RelTime ~ Season, data=max.sal.abx)
+  # p-value = 0.0139
+kruskalmc(resp = RelTime ~ Season, data=max.sal.abx)
+  # Summer-Winter
+pairwise.wilcox.test(max.sal.abx$RelTime, max.sal.abx$Season)
+  # Summer-Spring = 0.383
+  # Winter-Spring = 0.114
+  # Summer-Winter = 0.018
+kruskal.test(formula = RelTime ~ Season, data=max.sal.noabx)
+  # p-value = 0.004845
+kruskalmc(resp = RelTime ~ Season, data=max.sal.noabx)
+  # Spring-Winter
+pairwise.wilcox.test(max.sal.noabx$RelTime, max.sal.noabx$Season)
+  # Summer-Spring = 0.109
+  # Winter-Spring = 0.024
+  # Summer-Winter = 0.024
+
+
+
+### Kruskal-Wallis BH-adjusted p-values
+# Within-substrate ABX wilcoxon test
+p.adjust(c(3.295e-05, 0.009409, 0.8582), method="BH")
+  # Inulin = 0.00009885
+  # Mannitol = 0.01411350
+  # Saline = 0.85820000
+# Within-substrate season kruskal-wallis test
+p.adjust(c(0.0472, 0.9413, 0.01901, 0.1658, 0.0139, 0.004845), method="BH")
+  # Inulin ABX = 0.07080
+  # Inulin No ABX = 0.94130
+  # Mannitol ABX = 0.03802
+  # Mannitol No ABX = 0.19896
+  # Saline ABX = 0.03802
+  # Saline No ABX = 0.02907
 ```
 
 ### ANOVA
