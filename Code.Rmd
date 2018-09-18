@@ -13,6 +13,7 @@ library(grid)
 library(MESS)
 library(pgirmess)
 library(Bolstad2)
+library(phyloseq)
 source('scripts/import_crds.R')
 source('scripts/import_crds_sep.R')
 source('scripts/bin_crds.R')
@@ -1006,4 +1007,42 @@ cor(dna.sum$MaxDelta, dna.sum$DNA_Yield, method="kendall")
 
 cor(dna.sum$PeakTime, dna.sum$DNA_Yield, method="kendall")
   # 0.4554219
+```
+
+### Import & Prep Summer OTUs
+```{r}
+# Import phyloseq object
+load("Physeq.RData")
+
+# Pull out common samples
+both <- intersect(dna.sum$Squirrel, data.frame(sample_data(physeq))$Squirrel)
+dna.keep <- dna.sum[1,]
+for(i in 1:length(both)){
+  ID <- both[i]
+  dna.keep[i,] <- dna.sum[which(dna.sum$Squirrel == ID),]
+}
+physeq.keep <- subset_samples(physeq, Squirrel != "S11")
+physeq.keep <- subset_samples(physeq.keep, Squirrel != "S37")
+physeq.keep <- subset_samples(physeq.keep, Squirrel != "S40")
+
+
+# Alpha Div
+adiv <- data.frame(sample_data(physeq.keep))
+
+# OTU Table
+otus <- data.frame(otu_table(physeq.keep))
+otus <- data.frame(t(otus))
+```
+
+### OTU vs CRDS Correlation
+```{r}
+auc.cor <- cor(otus, dna.keep$AUC, method="kendall")
+summary(auc.cor)
+
+del.cor <- cor(otus, dna.keep$MaxDelta, method="kendall")
+summary(del.cor)
+
+tim.cor <- cor(otus, dna.keep$PeakTime, method="kendall")
+summary(tim.cor)
+
 ```
