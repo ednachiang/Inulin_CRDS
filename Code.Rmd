@@ -993,8 +993,17 @@ summary(lm(PeakTime ~ DNA_Yield, dna.sum))
   # p-value = 0.00615
   # Adj R2 = 0.2623
 confint(lm(PeakTime ~ DNA_Yield, dna.sum), level=0.95)
+```
 
 
+### DNA vs. CRDS Kendall Correlation
+```{r}
+cor(dna.sum$AUC, dna.sum$DNA_Yield, method="kendall")
+  # 0.4118563
 
+cor(dna.sum$MaxDelta, dna.sum$DNA_Yield, method="kendall")
+  # 0.3885437
 
+cor(dna.sum$PeakTime, dna.sum$DNA_Yield, method="kendall")
+  # 0.4554219
 ```
