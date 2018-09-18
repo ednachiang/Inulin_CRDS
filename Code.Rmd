@@ -10,6 +10,8 @@ output: html_document
 library(ggplot2)
 library(dplyr)
 library(grid)
+library(MESS)
+library(pgirmess)
 source('scripts/import_crds.R')
 source('scripts/import_crds_sep.R')
 source('scripts/bin_crds.R')
@@ -190,17 +192,25 @@ ggplot(inu.sum.abx, aes(x=BinTime, y=Delta, color=ID)) +
 
 ### AUC
 ```{r}
+# AUC = Area Under Curve
 # https://stackoverflow.com/questions/4954507/calculate-the-area-under-a-curve
 
-ids <- levels(crds.rem$ID)
-auc.df <- data.frame(crds.rem[1,])
+### Remove unwanted substrates
+crds.auc <- crds.rem[-which(crds.rem$Substrate == "Urea"),]
+crds.auc <- crds.auc[-which(crds.auc$Substrate == "Acetate"),]
+crds.auc$Substrate <- droplevels(crds.auc$Substrate)
+crds.auc$ID <- droplevels(crds.auc$ID)
+
+### Calculate AUC
+ids <- levels(crds.auc$ID)
+auc.df <- data.frame(crds.auc[1,])
 auc.df <- auc.df[,-2:-3]
 auc.df <- auc.df[,-8]
 colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate")
 for(i in 1:length(ids)){
   ID <- ids[i]
   print(ID)
-  select <- crds.rem[which(crds.rem$ID == ID),]
+  select <- crds.auc[which(crds.auc$ID == ID),]
   baseline <- which(select$RelTime < 0)
   baseline.reltime <- mean(select$RelTime[baseline])
   baseline.delta <- mean(select$Delta[baseline])
@@ -220,6 +230,119 @@ for(i in 1:length(ids)){
   auc.df[i,2:7] <- select.norm[1,4:9]
 }
 
+
+
+### Subset by Substrate
+auc.inu <- auc.df[which(auc.df$Substrate == "Inulin"),]
+auc.man <- auc.df[which(auc.df$Substrate == "Mannitol"),]
+auc.sal <- auc.df[which(auc.df$Substrate == "Saline"),]
+auc.abx <- auc.df[which(auc.df$Antibiotics == "Yes"),]
+auc.noabx <- auc.df[which(auc.df$Antibiotics == "No"),]
+
+### Check Normality
+hist(auc.df$AUC)
+qqnorm(auc.df$AUC)
+qqline(auc.df$AUC)
+shapiro.test(auc.df$AUC)
+  # p-value = 5.601e-15
+  # Not Normal
+
+hist(auc.inu$AUC)
+qqnorm(auc.inu$AUC)
+qqline(auc.inu$AUC)
+shapiro.test(auc.inu$AUC)
+  # p-value = 0.0002643
+  # Not Normal
+
+hist(auc.man$AUC)
+qqnorm(auc.man$AUC)
+qqline(auc.man$AUC)
+shapiro.test(auc.man$AUC)
+  # p-value = 1.582e-08
+  # Not Normal
+
+hist(auc.sal$AUC)
+qqnorm(auc.sal$AUC)
+qqline(auc.sal$AUC)
+shapiro.test(auc.sal$AUC)
+  # p-value = 4.957e-05
+  # Not Normal
+
+hist(auc.abx$AUC)
+qqnorm(auc.abx$AUC)
+qqline(auc.abx$AUC)
+shapiro.test(auc.abx$AUC)
+  # p-value = 3.16e-08
+  # Not Normal
+
+hist(auc.noabx$AUC)
+qqnorm(auc.noabx$AUC)
+qqline(auc.noabx$AUC)
+shapiro.test(auc.noabx$AUC)
+  # p-value = 2.481e-09
+  # Not Normal
+
+
+
+### Kruskal-Wallis
+wilcox.test(AUC~Antibiotics, data=auc.df)
+  # p-value = 0.0008937
+
+kruskal.test(formula = AUC ~ Substrate, data=auc.abx)
+  # p-value = 8.831e-07
+kruskalmc(resp = AUC ~ Substrate, data=auc.abx)
+  # Inulin-Mannitol
+  # Inulin-Saline
+  # Mannitol-Saline
+
+kruskal.test(formula = AUC ~ Season, data=auc.abx)
+  # p-value = 0.1231
+
+# Inulin
+wilcox.test(AUC~Antibiotics, data=auc.inu)
+  # p-value = 0.0001171
+kruskal.test(formula = AUC ~ Season, data=auc.inu, subset = Antibiotics=="Yes")
+  # p-value = 0.9168
+kruskal.test(formula = AUC ~ Season, data=auc.inu, subset = Antibiotics=="No")
+  # p-value = 0.09011
+kruskalmc(resp = AUC ~ Season, data=auc.inu, subset = Antibiotics=="No")
+  # Spring-Winter
+
+# Mannitol
+wilcox.test(AUC~Antibiotics, data=auc.man)
+  # p-value = 7.173e-05
+kruskal.test(formula = AUC ~ Season, data=auc.man, subset = Antibiotics=="Yes")
+  # p-value = 0.8836
+kruskal.test(formula = AUC ~ Season, data=auc.man, subset = Antibiotics=="No")
+  # p-value = 0.2792
+
+# Saline
+wilcox.test(AUC~Antibiotics, data=auc.sal)
+  # p-value = 0.0001171
+kruskal.test(formula = AUC ~ Season, data=auc.sal, subset = Antibiotics=="Yes")
+  # p-value = 0.06287
+kruskalmc(resp = AUC ~ Season, data=auc.inu, subset = Antibiotics=="Yes")
+  # Spring-Winter
+kruskal.test(formula = AUC ~ Season, data=auc.sal, subset = Antibiotics=="No")
+  # p-value = 0.06906
+kruskalmc(resp = AUC ~ Season, data=auc.inu, subset = Antibiotics=="No")
+  # Spring-Winter
+
+
+### Kruskal-Wallis BH-adjusted p-values
+# Within-substrate ABX wilcoxon test
+p.adjust(c(0.0001171, 7.173e-05, 0.0001171), method="BH")
+  # Inulin = 0.0001171
+  # Mannitol = 0.0001171
+  # Saline = 0.0001171
+# Within-substrate season kruskal-wallis test
+p.adjust(c(0.9168,0.09011,0.8836, 0.2792, 0.06287, 0.06906), method="BH")
+  # Inulin ABX = 0.91680
+  # Inulin No ABX = 0.18022
+  # Mannitol ABX = 0.91680
+  # Mannitol No ABX = 0.41880
+  # Saline ABX = 0.18022
+  # Saline No ABX = 0.18022
 
 ```
 
