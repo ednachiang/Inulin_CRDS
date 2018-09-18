@@ -12,6 +12,7 @@ library(dplyr)
 library(grid)
 library(MESS)
 library(pgirmess)
+library(Bolstad2)
 source('scripts/import_crds.R')
 source('scripts/import_crds_sep.R')
 source('scripts/bin_crds.R')
@@ -292,6 +293,23 @@ shapiro.test(auc.noabx$AUC)
 
 
 
+### Boxplots
+ggplot(auc.df, aes(x=Season, y=AUC, fill = Antibiotics)) +
+  geom_boxplot(position=position_dodge(1)) +
+  geom_point() + 
+  facet_grid(.~Substrate) 
+ggplot(auc.inu, aes(x=Season, y=AUC, fill = Antibiotics)) +
+  geom_boxplot(position=position_dodge(1)) +
+  geom_point()
+ggplot(auc.man, aes(x=Season, y=AUC, fill = Antibiotics)) +
+  geom_boxplot(position=position_dodge(1)) +
+  geom_point()
+ggplot(auc.sal, aes(x=Season, y=AUC, fill = Antibiotics)) +
+  geom_boxplot(position=position_dodge(1)) +
+  geom_point()
+
+
+
 ### Kruskal-Wallis
 wilcox.test(AUC~Antibiotics, data=auc.df)
   # p-value = 0.0008937
@@ -307,100 +325,27 @@ kruskal.test(formula = AUC ~ Season, data=auc.abx)
 # Inulin
 wilcox.test(AUC~Antibiotics, data=auc.inu)
   # p-value = 0.0001171
-kruskal.test(formula = AUC ~ Season, data=auc.inu, subset = Antibiotics=="Yes")
-  # p-value = 0.9168
-kruskalmc(resp = AUC ~ Season, data = auc.inu, subset = Antibiotics=="Yes")
-  # Spring-Winter
-pairwise.wilcox.test(auc.inu$AUC, auc.inu$Season, subset = Antibiotics=="Yes")
-  # Summer-Spring = 0.054
-  # Winter-Spring = 0.024
-  # Summer-Winter = 0.180
 kruskal.test(formula = AUC ~ Season, data=auc.inu.abx)
   # p-value = 0.9168
-
-kruskal.test(formula = AUC ~ Season, data=auc.inu, subset = Antibiotics=="No")
-  # p-value = 0.09011
-kruskalmc(resp = AUC ~ Season, data=auc.inu, subset = Antibiotics=="No")
-  # Spring-Winter
-pairwise.wilcox.test(auc.inu$AUC, auc.inu$Season, subset = Antibiotics=="No")
-  # Summer-Spring = 0.054
-  # Winter-Spring = 0.024
-  # Summer-Winter = 0.180
 kruskal.test(formula = AUC ~ Season, data=auc.inu.noabx)
-  # p-value = 0.06794
-kruskalmc(resp = AUC ~ Season, data=auc.inu.noabx)
-  # None
-pairwise.wilcox.test(auc.inu.noabx$AUC, auc.inu.noabx$Season)
-  # Summer-Spring = 0.30
-  # Winter-Spring = 0.29
-  # Summer-Winter = 0.30
-
-
-
-
+  # p-value = 0.09011
 
 # Mannitol
 wilcox.test(AUC~Antibiotics, data=auc.man)
   # p-value = 7.173e-05
-kruskal.test(formula = AUC ~ Season, data=auc.man, subset = Antibiotics=="Yes")
-  # p-value = 0.8836
-pairwise.wilcox.test(auc.man$AUC, auc.man$Season, subset = Antibiotics=="Yes")
-  # Summer-Spring = 0.66
-  # Winter-Spring = 0.66
-  # Summer-Winter = 0.66
 kruskal.test(formula = AUC ~ Season, data=auc.man.abx)
   # p-value = 0.8836
-
-kruskal.test(formula = AUC ~ Season, data=auc.man, subset = Antibiotics=="No")
-  # p-value = 0.2792
-pairwise.wilcox.test(auc.man$AUC, auc.man$Season, subset = Antibiotics=="No")
-  # Summer-Spring = 0.66
-  # Winter-Spring = 0.66
-  # Summer-Winter = 0.66
 kruskal.test(formula = AUC ~ Season, data=auc.man.noabx)
   # p-value = 0.2792
-pairwise.wilcox.test(auc.man.noabx$AUC, auc.man.noabx$Season)
-  # Summer-Spring = 1.0
-  # Winter-Spring = 1.0
-  # Summer-Winter = 0.3
-
-
-
 
 # Saline
 wilcox.test(AUC~Antibiotics, data=auc.sal)
   # p-value = 0.0001171
-kruskal.test(formula = AUC ~ Season, data=auc.sal, subset = Antibiotics=="Yes")
-  # p-value = 0.06287
-kruskalmc(resp = AUC ~ Season, data=auc.sal, subset = Antibiotics=="Yes")
-  # None
-pairwise.wilcox.test(auc.sal$AUC, auc.sal$Season, subset = Antibiotics=="Yes")
-  # Summer-Spring = 0.742
-  # Winter-Spring = 0.075
-  # Summer-Winter = 0.742
 kruskal.test(formula = AUC ~ Season, data=auc.sal.abx)
   # p-value = 0.06287
-pairwise.wilcox.test(auc.sal.abx$AUC, auc.sal.abx$Season)
-  # Summer-Spring = 0.23
-  # Winter-Spring = 0.23
-  # Summer-Winter = 0.22
-
-kruskal.test(formula = AUC ~ Season, data=auc.sal, subset = Antibiotics=="No")
-  # p-value = 0.06906
-kruskalmc(resp = AUC ~ Season, data=auc.sal, subset = Antibiotics=="No")
-  # None
-pairwise.wilcox.test(auc.sal$AUC, auc.sal$Season, subset = Antibiotics=="No")
-  # Summer-Spring = 0.742
-  # Winter-Spring = 0.075
-  # Summer-Winter = 0.742
 kruskal.test(formula = AUC ~ Season, data=auc.sal.noabx)
   # p-value = 0.6906
-kruskalmc(resp = AUC ~ Season, data=auc.sal.noabx)
-  # None
-pairwise.wilcox.test(auc.sal.noabx$AUC, auc.sal.noabx$Season)
-  # Summer-Spring = 0.13
-  # Winter-Spring = 0.13
-  # Summer-Winter = 0.63
+
 
 
 
@@ -411,13 +356,13 @@ p.adjust(c(0.0001171, 7.173e-05, 0.0001171), method="BH")
   # Mannitol = 0.0001171
   # Saline = 0.0001171
 # Within-substrate season kruskal-wallis test
-p.adjust(c(0.9168,0.09011,0.8836, 0.2792, 0.06287, 0.06906), method="BH")
+p.adjust(c(0.9168, 0.09011, 0.8836, 0.2792, 0.06287, 0.6906), method="BH")
   # Inulin ABX = 0.91680
-  # Inulin No ABX = 0.18022
+  # Inulin No ABX = 0.27033
   # Mannitol ABX = 0.91680
-  # Mannitol No ABX = 0.41880
-  # Saline ABX = 0.18022
-  # Saline No ABX = 0.18022
+  # Mannitol No ABX = 0.55840
+  # Saline ABX = 0.27033
+  # Saline No ABX = 0.91680
 
 ```
 
@@ -477,71 +422,125 @@ auc2.inu <- auc2.df[which(auc2.df$Substrate == "Inulin"),]
 auc2.man <- auc2.df[which(auc2.df$Substrate == "Mannitol"),]
 auc2.sal <- auc2.df[which(auc2.df$Substrate == "Saline"),]
 auc2.abx <- auc2.df[which(auc2.df$Antibiotics == "Yes"),]
-auc2.noabx <- auc2.df[which(auc2.df$Antibiotics == "No"),]
-auc2.inu.abx <- auc2.df[which(auc2.inu$Antibiotics == "Yes"),]
-auc2.inu.noabx <- auc2.df[which(auc2.inu$Antibiotics == "No"),]
-auc2.man.abx <- auc2.df[which(auc2.man$Antibiotics == "Yes"),]
-auc2.man.noabx <- auc2.df[which(auc2.man$Antibiotics == "No"),]
-auc2.sal.abx <- auc2.df[which(auc2.sal$Antibiotics == "Yes"),]
-auc2.sal.noabx <- auc2.df[which(auc2.sal$Antibiotics == "No"),]
+auc2.noabx <- auc2.df[which(auc2.inu$Antibiotics == "No"),]
+auc2.inu.abx <- auc2.inu[which(auc2.inu$Antibiotics == "Yes"),]
+auc2.inu.noabx <- auc2.inu[which(auc2.inu$Antibiotics == "No"),]
+auc2.man.abx <- auc2.man[which(auc2.man$Antibiotics == "Yes"),]
+auc2.man.noabx <- auc2.man[which(auc2.man$Antibiotics == "No"),]
+auc2.sal.abx <- auc2.sal[which(auc2.sal$Antibiotics == "Yes"),]
+auc2.sal.noabx <- auc2.sal[which(auc2.sal$Antibiotics == "No"),]
+
+
+### Check Normality
+hist(auc2.df$AUC)
+qqnorm(auc2.df$AUC)
+qqline(auc2.df$AUC)
+shapiro.test(auc2.df$AUC)
+  # p-value = 6.356e-15
+  # Not Normal
+
+hist(auc2.inu$AUC)
+qqnorm(auc2.inu$AUC)
+qqline(auc2.inu$AUC)
+shapiro.test(auc2.inu$AUC)
+  # p-value = 0.0002609
+  # Not Normal
+
+hist(auc2.man$AUC)
+qqnorm(auc2.man$AUC)
+qqline(auc2.man$AUC)
+shapiro.test(auc2.man$AUC)
+  # p-value = 1.17e-08
+  # Not Normal
+
+hist(auc2.sal$AUC)
+qqnorm(auc2.sal$AUC)
+qqline(auc2.sal$AUC)
+shapiro.test(auc2.sal$AUC)
+  # p-value = 0.0001006
+  # Not Normal
+
+hist(auc2.abx$AUC)
+qqnorm(auc2.abx$AUC)
+qqline(auc2.abx$AUC)
+shapiro.test(auc2.abx$AUC)
+  # p-value = 3.136e-08
+  # Not Normal
+
+hist(auc2.noabx$AUC)
+qqnorm(auc2.noabx$AUC)
+qqline(auc2.noabx$AUC)
+shapiro.test(auc2.noabx$AUC)
+  # p-value = 2.767e-09
+  # Not Normal
+
+
+
+### Boxplots
+ggplot(auc2.df, aes(x=Season, y=AUC, fill = Antibiotics)) +
+  geom_boxplot(position=position_dodge(1)) +
+  geom_point() + 
+  facet_grid(.~Substrate) 
+ggplot(auc2.inu, aes(x=Season, y=AUC, fill = Antibiotics)) +
+  geom_boxplot(position=position_dodge(1)) +
+  geom_point()
+ggplot(auc2.man, aes(x=Season, y=AUC, fill = Antibiotics)) +
+  geom_boxplot(position=position_dodge(1)) +
+  geom_point()
+ggplot(auc2.sal, aes(x=Season, y=AUC, fill = Antibiotics)) +
+  geom_boxplot(position=position_dodge(1)) +
+  geom_point()
+
 
 
 ### Kruskal-Wallis
 wilcox.test(AUC~Antibiotics, data=auc2.df)
   # p-value = 0.001071
-
 kruskal.test(formula = AUC ~ Substrate, data=auc2.abx)
   # p-value = 7.341e-07
 kruskalmc(resp = AUC ~ Substrate, data=auc2.abx)
   # Inulin-Mannitol
   # Inulin-Saline
   # Mannitol-Saline
-
 kruskal.test(formula = AUC ~ Season, data=auc2.abx)
   # p-value = 0.1093
 
 # Inulin
 wilcox.test(AUC~Antibiotics, data=auc2.inu)
   # p-value = 0.0001171
-kruskal.test(formula = AUC ~ Season, data=auc2.inu, subset = Antibiotics=="Yes")
+kruskal.test(formula = AUC ~ Season, data=auc2.inu.abx)
   # p-value = 0.9168
-kruskal.test(formula = AUC ~ Season, data=auc2.inu, subset = Antibiotics=="No")
+kruskal.test(formula = AUC ~ Season, data=auc2.inu.noabx)
   # p-value = 0.06794
-kruskalmc(resp = AUC ~ Season, data=auc2.inu, subset = Antibiotics=="No")
-  # Spring-Winter
 
 # Mannitol
 wilcox.test(AUC~Antibiotics, data=auc2.man)
   # p-value = 7.173e-05
-kruskal.test(formula = AUC ~ Season, data=auc2.man, subset = Antibiotics=="Yes")
+kruskal.test(formula = AUC ~ Season, data=auc2.man.abx)
   # p-value = 0.7697
-kruskal.test(formula = AUC ~ Season, data=auc2.man, subset = Antibiotics=="No")
+kruskal.test(formula = AUC ~ Season, data=auc2.man.noabx)
   # p-value = 0.2523
-
-
 
 # Saline
 wilcox.test(AUC~Antibiotics, data=auc2.sal)
   # p-value = 0.02334
-kruskal.test(formula = AUC ~ Season, data=auc2.sal, subset = Antibiotics=="Yes")
+kruskal.test(formula = AUC ~ Season, data=auc2.sal.abx)
   # p-value = 0.05411
-kruskalmc(resp = AUC ~ Season, data=auc2.inu, subset = Antibiotics=="Yes")
-  # Spring-Winter
-kruskal.test(formula = AUC ~ Season, data=auc2.sal, subset = Antibiotics=="No")
+kruskal.test(formula = AUC ~ Season, data=auc2.sal.noabx)
   # p-value = 0.07628
-kruskalmc(resp = AUC ~ Season, data=auc2.inu, subset = Antibiotics=="No")
-  # Spring-Winter
+
+
 
 
 ### Kruskal-Wallis BH-adjusted p-values
 # Within-substrate ABX wilcoxon test
-p.adjust(c(0.0001171, 7.173e-050, 02334), method="BH")
-  # Inulin = 1.7565e-04
-  # Mannitol = 2.1519e-49
-  # Saline = 1
+p.adjust(c(0.0001171, 7.173e-05, 0.02334), method="BH")
+  # Inulin = 0.00017565
+  # Mannitol = 0.00017565
+  # Saline = 0.02334000
 # Within-substrate season kruskal-wallis test
 p.adjust(c(0.9168, 0.06794, 0.7697, 0.2523, 0.05411, 0.07628), method="BH")
-  # Inulin ABX = 0.91680
+  # Inulin ABX = 0.9168
   # Inulin No ABX = 0.15256
   # Mannitol ABX = 0.91680
   # Mannitol No ABX = 0.37845
