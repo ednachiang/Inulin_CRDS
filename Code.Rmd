@@ -18,6 +18,10 @@ source('scripts/bin_crds.R')
 source('scripts/misc.R')
 set.seed(1)
 theme_set(theme_bw())
+
+### Stats Notes
+# Use 'subset' in kruskal.test
+# Do NOT use 'subset' in kruskalmc or pairwise.wilcox.test; it doesn't work!
 ```
 
 ### Load Data
@@ -230,12 +234,18 @@ for(i in 1:length(ids)){
   auc.df[i,2:7] <- select.norm[1,4:9]
 }
 
-### Subset by Substrate
+### Subset by Substrate & ABX
 auc.inu <- auc.df[which(auc.df$Substrate == "Inulin"),]
 auc.man <- auc.df[which(auc.df$Substrate == "Mannitol"),]
 auc.sal <- auc.df[which(auc.df$Substrate == "Saline"),]
 auc.abx <- auc.df[which(auc.df$Antibiotics == "Yes"),]
 auc.noabx <- auc.df[which(auc.df$Antibiotics == "No"),]
+auc.inu.abx <- auc.inu[which(auc.inu$Antibiotics == "Yes"),]
+auc.inu.noabx <- auc.inu[which(auc.inu$Antibiotics == "No"),]
+auc.man.abx <- auc.man[which(auc.man$Antibiotics == "Yes"),]
+auc.man.noabx <- auc.man[which(auc.man$Antibiotics == "No"),]
+auc.sal.abx <- auc.sal[which(auc.sal$Antibiotics == "Yes"),]
+auc.sal.noabx <- auc.sal[which(auc.sal$Antibiotics == "No"),]
 
 ### Check Normality
 hist(auc.df$AUC)
@@ -285,14 +295,12 @@ shapiro.test(auc.noabx$AUC)
 ### Kruskal-Wallis
 wilcox.test(AUC~Antibiotics, data=auc.df)
   # p-value = 0.0008937
-
 kruskal.test(formula = AUC ~ Substrate, data=auc.abx)
   # p-value = 8.831e-07
 kruskalmc(resp = AUC ~ Substrate, data=auc.abx)
   # Inulin-Mannitol
   # Inulin-Saline
   # Mannitol-Saline
-
 kruskal.test(formula = AUC ~ Season, data=auc.abx)
   # p-value = 0.1231
 
@@ -301,30 +309,99 @@ wilcox.test(AUC~Antibiotics, data=auc.inu)
   # p-value = 0.0001171
 kruskal.test(formula = AUC ~ Season, data=auc.inu, subset = Antibiotics=="Yes")
   # p-value = 0.9168
+kruskalmc(resp = AUC ~ Season, data = auc.inu, subset = Antibiotics=="Yes")
+  # Spring-Winter
+pairwise.wilcox.test(auc.inu$AUC, auc.inu$Season, subset = Antibiotics=="Yes")
+  # Summer-Spring = 0.054
+  # Winter-Spring = 0.024
+  # Summer-Winter = 0.180
+kruskal.test(formula = AUC ~ Season, data=auc.inu.abx)
+  # p-value = 0.9168
+
 kruskal.test(formula = AUC ~ Season, data=auc.inu, subset = Antibiotics=="No")
   # p-value = 0.09011
 kruskalmc(resp = AUC ~ Season, data=auc.inu, subset = Antibiotics=="No")
   # Spring-Winter
+pairwise.wilcox.test(auc.inu$AUC, auc.inu$Season, subset = Antibiotics=="No")
+  # Summer-Spring = 0.054
+  # Winter-Spring = 0.024
+  # Summer-Winter = 0.180
+kruskal.test(formula = AUC ~ Season, data=auc.inu.noabx)
+  # p-value = 0.06794
+kruskalmc(resp = AUC ~ Season, data=auc.inu.noabx)
+  # None
+pairwise.wilcox.test(auc.inu.noabx$AUC, auc.inu.noabx$Season)
+  # Summer-Spring = 0.30
+  # Winter-Spring = 0.29
+  # Summer-Winter = 0.30
+
+
+
+
 
 # Mannitol
 wilcox.test(AUC~Antibiotics, data=auc.man)
   # p-value = 7.173e-05
 kruskal.test(formula = AUC ~ Season, data=auc.man, subset = Antibiotics=="Yes")
   # p-value = 0.8836
+pairwise.wilcox.test(auc.man$AUC, auc.man$Season, subset = Antibiotics=="Yes")
+  # Summer-Spring = 0.66
+  # Winter-Spring = 0.66
+  # Summer-Winter = 0.66
+kruskal.test(formula = AUC ~ Season, data=auc.man.abx)
+  # p-value = 0.8836
+
 kruskal.test(formula = AUC ~ Season, data=auc.man, subset = Antibiotics=="No")
   # p-value = 0.2792
+pairwise.wilcox.test(auc.man$AUC, auc.man$Season, subset = Antibiotics=="No")
+  # Summer-Spring = 0.66
+  # Winter-Spring = 0.66
+  # Summer-Winter = 0.66
+kruskal.test(formula = AUC ~ Season, data=auc.man.noabx)
+  # p-value = 0.2792
+pairwise.wilcox.test(auc.man.noabx$AUC, auc.man.noabx$Season)
+  # Summer-Spring = 1.0
+  # Winter-Spring = 1.0
+  # Summer-Winter = 0.3
+
+
+
 
 # Saline
 wilcox.test(AUC~Antibiotics, data=auc.sal)
   # p-value = 0.0001171
 kruskal.test(formula = AUC ~ Season, data=auc.sal, subset = Antibiotics=="Yes")
   # p-value = 0.06287
-kruskalmc(resp = AUC ~ Season, data=auc.inu, subset = Antibiotics=="Yes")
-  # Spring-Winter
+kruskalmc(resp = AUC ~ Season, data=auc.sal, subset = Antibiotics=="Yes")
+  # None
+pairwise.wilcox.test(auc.sal$AUC, auc.sal$Season, subset = Antibiotics=="Yes")
+  # Summer-Spring = 0.742
+  # Winter-Spring = 0.075
+  # Summer-Winter = 0.742
+kruskal.test(formula = AUC ~ Season, data=auc.sal.abx)
+  # p-value = 0.06287
+pairwise.wilcox.test(auc.sal.abx$AUC, auc.sal.abx$Season)
+  # Summer-Spring = 0.23
+  # Winter-Spring = 0.23
+  # Summer-Winter = 0.22
+
 kruskal.test(formula = AUC ~ Season, data=auc.sal, subset = Antibiotics=="No")
   # p-value = 0.06906
-kruskalmc(resp = AUC ~ Season, data=auc.inu, subset = Antibiotics=="No")
-  # Spring-Winter
+kruskalmc(resp = AUC ~ Season, data=auc.sal, subset = Antibiotics=="No")
+  # None
+pairwise.wilcox.test(auc.sal$AUC, auc.sal$Season, subset = Antibiotics=="No")
+  # Summer-Spring = 0.742
+  # Winter-Spring = 0.075
+  # Summer-Winter = 0.742
+kruskal.test(formula = AUC ~ Season, data=auc.sal.noabx)
+  # p-value = 0.6906
+kruskalmc(resp = AUC ~ Season, data=auc.sal.noabx)
+  # None
+pairwise.wilcox.test(auc.sal.noabx$AUC, auc.sal.noabx$Season)
+  # Summer-Spring = 0.13
+  # Winter-Spring = 0.13
+  # Summer-Winter = 0.63
+
 
 
 ### Kruskal-Wallis BH-adjusted p-values
@@ -395,13 +472,18 @@ wilcox.test(AUC~Test, data=auc.comp)
 
 
 
-### Subset by Substrate
+### Subset by Substrate & ABX
 auc2.inu <- auc2.df[which(auc2.df$Substrate == "Inulin"),]
 auc2.man <- auc2.df[which(auc2.df$Substrate == "Mannitol"),]
 auc2.sal <- auc2.df[which(auc2.df$Substrate == "Saline"),]
 auc2.abx <- auc2.df[which(auc2.df$Antibiotics == "Yes"),]
 auc2.noabx <- auc2.df[which(auc2.df$Antibiotics == "No"),]
-
+auc2.inu.abx <- auc2.df[which(auc2.inu$Antibiotics == "Yes"),]
+auc2.inu.noabx <- auc2.df[which(auc2.inu$Antibiotics == "No"),]
+auc2.man.abx <- auc2.df[which(auc2.man$Antibiotics == "Yes"),]
+auc2.man.noabx <- auc2.df[which(auc2.man$Antibiotics == "No"),]
+auc2.sal.abx <- auc2.df[which(auc2.sal$Antibiotics == "Yes"),]
+auc2.sal.noabx <- auc2.df[which(auc2.sal$Antibiotics == "No"),]
 
 
 ### Kruskal-Wallis
