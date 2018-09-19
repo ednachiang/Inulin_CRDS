@@ -1042,186 +1042,55 @@ physeq.keep <- subset_samples(physeq.keep, Squirrel != "S40")
 physeq.ra <- transform_sample_counts(physeq.keep, function(x){x/sum(x)})
 physeq.use <- prune_taxa(taxa_sums(physeq.ra)>0.01, physeq.ra)
 
-# Alpha Div
-adiv <- data.frame(sample_data(physeq.use))
-
-# OTU Table
-otus.pre <- data.frame(otu_table(physeq.use))
-otus <- otus.pre[,1:8]
-otus$CC2_S21 <- otus.pre[,20]
-otus[,10:20] <- otus.pre[,9:19]
-otus <- t(otus)
-
-
-
-
-### Genus-level
-physeq.gen <- tax_glom(physeq.keep, taxrank="Genus")
-physeq.gen99 <- transform_sample_counts(physeq.gen, function(x){(x/sum(x))*100})
-physeq.gen99 <- prune_taxa(taxa_sums(physeq.gen99) > 1, physeq.gen99)
-
-### Family-level
-physeq.fam <- tax_glom(physeq.keep, taxrank="Family")
-physeq.fam99 <- transform_sample_counts(physeq.fam, function(x){(x/sum(x))*100})
-physeq.fam99 <- prune_taxa(taxa_sums(physeq.fam99) > 1, physeq.fam99)
-
-### Order-level
-physeq.ord <- tax_glom(physeq.keep, taxrank="Order")
-physeq.ord99 <- transform_sample_counts(physeq.ord, function(x){(x/sum(x))*100})
-physeq.ord99 <- prune_taxa(taxa_sums(physeq.ord99) > 1, physeq.ord99)
-
-### Class-level
-physeq.cla <- tax_glom(physeq.keep, taxrank="Class")
-physeq.cla99 <- transform_sample_counts(physeq.cla, function(x){(x/sum(x))*100})
-physeq.cla99 <- prune_taxa(taxa_sums(physeq.cla99) > 1, physeq.cla99)
-
-### Phylum-level
-physeq.phy <- tax_glom(physeq.keep, taxrank="Phylum")
-physeq.phy99 <- transform_sample_counts(physeq.phy, function(x){(x/sum(x))*100})
-physeq.phy99 <- prune_taxa(taxa_sums(physeq.phy99) > 1, physeq.phy99)
+# Pick top 20 taxa
+cutoff <- summary(sort(taxa_sums(physeq.use), decreasing=T)[1:20])
+physeq.top <- prune_taxa(taxa_sums(physeq.use)>(cutoff[1]-0.0000001), physeq.use)
 ```
 
 ### OTU vs CRDS Correlation
 ```{r}
 ### AUC
-auc.cor <- cor(otus, dna.keep$AUC, method="kendall")
-top5.auc <- rownames(auc.cor)[order(auc.cor, decreasing=T)[1:5]]
-bot5.auc <- rownames(auc.cor)[order(auc.cor, decreasing=F)[1:5]]
-top5.auc.df <- data.frame(tax_table(physeq.use))[1,2:7]
-bot5.auc.df <- data.frame(tax_table(physeq.use))[1,2:7]
-for(i in 1:5){
-  OTU <- top5.auc[i]
-  pick <- which(data.frame(tax_table(physeq.use))$Species == OTU)
-  taxon <- data.frame(tax_table(physeq.use))[pick,]
-  top5.auc.df[i,] <- taxon[2:7]
-}
-for(i in 1:5){
-  OTU <- bot5.auc[i]
-  pick <- which(data.frame(tax_table(physeq.use))$Species == OTU)
-  taxon <- data.frame(tax_table(physeq.use))[pick,]
-  bot5.auc.df[i,] <- taxon[2:7]
-}
-rownames(top5.auc.df) <- top5.auc.df$Species
-rownames(bot5.auc.df) <- bot5.auc.df$Species
-top5.auc.df$Kendalls_Tau <- auc.cor[order(auc.cor, decreasing=T)[1:5]]
-bot5.auc.df$Kendalls_Tau <- auc.cor[order(auc.cor, decreasing=F)[1:5]]
-#write.csv(top5.auc.df, file="top5.auc.csv")
-#write.csv(bot5.auc.df, file="bot5.auc.csv")
+auc.all <- corr.test(x=dna.keep$AUC, y=t(otu_table(physeq.use)), method="kendall", use="complete", adjust="BH")
+which(auc.all$p < 0.05)
+  # None
+
+auc.all2 <- corr.test(x=dna.keep$AUC, y=t(otu_table(physeq.use)), method="kendall", use="pairwise", adjust="BH")
+which(auc.all2$p < 0.05)
+  # None
+
+auc.top <- corr.test(x=dna.keep$AUC, y=t(otu_table(physeq.top)), method="kendall", use="complete", adjust="BH")
+which(auc.top$p < 0.05)
+  # None
 
 
 
 ### Max Delta
-del.cor <- cor(otus, dna.keep$MaxDelta, method="kendall")
-top5.del <- rownames(del.cor)[order(del.cor, decreasing=T)[1:5]]
-bot5.del <- rownames(del.cor)[order(del.cor, decreasing=F)[1:5]]
-top5.del.df <- data.frame(tax_table(physeq.use))[1,2:7]
-bot5.del.df <- data.frame(tax_table(physeq.use))[1,2:7]
-for(i in 1:5){
-  OTU <- top5.del[i]
-  pick <- which(data.frame(tax_table(physeq.use))$Species == OTU)
-  taxon <- data.frame(tax_table(physeq.use))[pick,]
-  top5.del.df[i,] <- taxon[2:7]
-}
-for(i in 1:5){
-  OTU <- bot5.del[i]
-  pick <- which(data.frame(tax_table(physeq.use))$Species == OTU)
-  taxon <- data.frame(tax_table(physeq.use))[pick,]
-  bot5.del.df[i,] <- taxon[2:7]
-}
-rownames(top5.del.df) <- top5.del.df$Species
-rownames(bot5.del.df) <- bot5.del.df$Species
-top5.del.df$Kendalls_Tau <- del.cor[order(del.cor, decreasing=T)[1:5]]
-bot5.del.df$Kendalls_Tau <- del.cor[order(del.cor, decreasing=F)[1:5]]
-#write.csv(top5.del.df, file="top5.del.csv")
-#write.csv(bot5.del.df, file="bot5.del.csv")
+del.all <- corr.test(x=dna.keep$MaxDelta, y=t(otu_table(physeq.use)), method="kendall", use="complete", adjust="BH")
+which(del.all$p < 0.05)
+  # None
+
+del.all2 <- corr.test(x=dna.keep$MaxDelta, y=t(otu_table(physeq.use)), method="kendall", use="pairwise", adjust="BH")
+which(del.all2$p < 0.05)
+  # None
+
+del.top <- corr.test(x=dna.keep$MaxDelta, y=t(otu_table(physeq.top)), method="kendall", use="complete", adjust="BH")
+which(del.top$p < 0.05)
+  # None
 
 
 
-### Peak Time
-tim.cor <- cor(otus, dna.keep$PeakTime, method="kendall")
-top5.tim <- rownames(tim.cor)[order(tim.cor, decreasing=T)[1:5]]
-bot5.tim <- rownames(tim.cor)[order(tim.cor, decreasing=F)[1:5]]
-top5.tim.df <- data.frame(tax_table(physeq.use))[1,2:7]
-bot5.tim.df <- data.frame(tax_table(physeq.use))[1,2:7]
-for(i in 1:5){
-  OTU <- top5.tim[i]
-  pick <- which(data.frame(tax_table(physeq.use))$Species == OTU)
-  taxon <- data.frame(tax_table(physeq.use))[pick,]
-  top5.tim.df[i,] <- taxon[2:7]
-}
-for(i in 1:5){
-  OTU <- bot5.tim[i]
-  pick <- which(data.frame(tax_table(physeq.use))$Species == OTU)
-  taxon <- data.frame(tax_table(physeq.use))[pick,]
-  bot5.tim.df[i,] <- taxon[2:7]
-}
-rownames(top5.tim.df) <- top5.tim.df$Species
-rownames(bot5.tim.df) <- bot5.tim.df$Species
-top5.tim.df$Kendalls_Tau <- tim.cor[order(tim.cor, decreasing=T)[1:5]]
-bot5.tim.df$Kendalls_Tau <- tim.cor[order(tim.cor, decreasing=F)[1:5]]
-#write.csv(top5.tim.df, file="top5.tim.csv")
-#write.csv(bot5.tim.df, file="bot5.tim.csv")
+### Max Delta
+tim.all <- corr.test(x=dna.keep$PeakTime, y=t(otu_table(physeq.use)), method="kendall", use="complete", adjust="BH")
+which(tim.all$p < 0.05)
+  # None
 
+tim.all2 <- corr.test(x=dna.keep$PeakTime, y=t(otu_table(physeq.use)), method="kendall", use="pairwise", adjust="BH")
+which(tim.all2$p < 0.05)
+  # None
 
-#auc.cor.abs <- data.frame(abs(auc.cor))
-  # Calculate absolute values
-#top10.auc <- rownames(auc.cor.abs)[order(auc.cor.abs, decreasing=T)[1:10]]
-
-
-### Test
-auc.cor.pval <- rep(100, length(auc.cor))
-#top5.auc.pval <- rep(1,5)
-for(i in 1:length(auc.cor)){
-  test <- cor.test(otus[,which(colnames(otus) == rownames(auc.cor)[i])], dna.keep$AUC,
-                   method="kendall")
-  auc.cor.pval[i] <- test$p.value
-}
-auc.cor.pval <- data.frame(OTU = rownames(auc.cor), pval = auc.cor.pval)
-auc.cor.pval$padj <- p.adjust(auc.cor.pval$pval, method="BH")
-
-
-
-test <- corr.test(x=dna.sum$DNA_Yield, y=dna.sum$AUC, method="kendall", use="complete", adjust="BH")
-
-
-test <- corr.test(x=dna.keep$AUC, y=otus, method="kendall", use="complete", adjust="BH")
-which(test$p < 0.05)
-
-test <- corr.test(x=dna.keep$AUC, y=t(otu_table(physeq.use)), method="kendall", use="complete", adjust="BH")
-which(test$p < 0.05)
-
-test <- corr.test(x=dna.keep$AUC, y=t(otu_table(physeq.gen99)), method="kendall", use="complete", adjust="BH")
-which(test$p < 0.05)
-
-test <- corr.test(x=dna.keep$AUC, y=t(otu_table(physeq.fam99)), method="kendall", use="complete", adjust="BH")
-which(test$p < 0.05)
-
-test <- corr.test(x=dna.keep$AUC, y=t(otu_table(physeq.ord99)), method="kendall", use="complete", adjust="BH")
-which(test$p < 0.05)
-
-test <- corr.test(x=dna.keep$AUC, y=t(otu_table(physeq.cla99)), method="kendall", use="complete", adjust="BH")
-which(test$p < 0.05)
-
-test <- corr.test(x=dna.keep$AUC, y=t(otu_table(physeq.phy99)), method="kendall", use="complete", adjust="BH")
-which(test$p < 0.05)
-
-# Calculate correlation between ph and nc-bacteria  
-ph_corrs <-  corr.test(
-    x = data.frame(env_dat$pH), 
-    y = t(otu_table(nc_prune)),
-    method = "spearman",
-    use = "complete",
-    adjust = "fdr"
-)
-
-which_sigs <- which(ph_corrs$p < 0.05)  
-sig_otus <- colnames(ph_corrs$p)[which_sigs]
-
-
-ph_corrs_dat <- data.frame(tax_table(nc_prune)) %>% filter(Species %in% sig_otus)
-ph_corrs_dat$Rho <- ph_corrs$r[which_sigs]
-
-pander(ph_corrs_dat[1:10,])
+tim.top <- corr.test(x=dna.keep$PeakTime, y=t(otu_table(physeq.top)), method="kendall", use="complete", adjust="BH")
+which(tim.top$p < 0.05)
+  # None
 ```
 
 ### miLineage
