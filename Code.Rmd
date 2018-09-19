@@ -1000,14 +1000,26 @@ confint(lm(PeakTime ~ DNA_Yield, dna.sum), level=0.95)
 
 ### DNA vs. CRDS Kendall Correlation
 ```{r}
-cor(dna.sum$AUC, dna.sum$DNA_Yield, method="kendall")
-  # 0.4118563
+Kendall(dna.sum$DNA_Yield, dna.sum$AUC)
+  # p-value = 0.0073302
+  # tau = 0.412
+Kendall(dna.sum$DNA_Yield, dna.sum$MaxDelta)
+  # p-value = 0.11464
+  # tau = 0.389
+Kendall(dna.sum$DNA_Yield, dna.sum$PeakTime)
+  # p-value = 0.0030445
+  # tau = 0.455
 
-cor(dna.sum$MaxDelta, dna.sum$DNA_Yield, method="kendall")
-  # 0.3885437
 
-cor(dna.sum$PeakTime, dna.sum$DNA_Yield, method="kendall")
-  # 0.4554219
+corr.test(x=dna.sum$DNA_Yield, y=dna.sum$AUC, method="kendall", use="complete", adjust="BH")
+  # p-value = 0.05
+  # tau = 0.41
+corr.test(x=dna.sum$DNA_Yield, y=dna.sum$MaxDelta, method="kendall", use="complete", adjust="BH")
+  # p-value = 0.06
+  # tau = 0.39
+corr.test(x=dna.sum$DNA_Yield, y=dna.sum$PeakTime, method="kendall", use="complete", adjust="BH")
+  # p-value = 0.03
+  # tau = 0.46
 ```
 
 ### Import & Prep Summer OTUs
@@ -1026,10 +1038,9 @@ physeq.keep <- subset_samples(physeq, Squirrel != "S11")
 physeq.keep <- subset_samples(physeq.keep, Squirrel != "S37")
 physeq.keep <- subset_samples(physeq.keep, Squirrel != "S40")
 
-# Remove taxa < 1% rel abund in a sample
+# Remove taxa < 1% rel abund
 physeq.ra <- transform_sample_counts(physeq.keep, function(x){x/sum(x)})
-otu_table(physeq.ra)[otu_table(physeq.ra)<.01] <- 0
-physeq.use <- prune_taxa(taxa_sums(physeq.ra)>0,physeq.ra)
+physeq.use <- prune_taxa(taxa_sums(physeq.ra)>0.01, physeq.ra)
 
 # Alpha Div
 adiv <- data.frame(sample_data(physeq.use))
@@ -1040,6 +1051,34 @@ otus <- otus.pre[,1:8]
 otus$CC2_S21 <- otus.pre[,20]
 otus[,10:20] <- otus.pre[,9:19]
 otus <- t(otus)
+
+
+
+
+### Genus-level
+physeq.gen <- tax_glom(physeq.keep, taxrank="Genus")
+physeq.gen99 <- transform_sample_counts(physeq.gen, function(x){(x/sum(x))*100})
+physeq.gen99 <- prune_taxa(taxa_sums(physeq.gen99) > 1, physeq.gen99)
+
+### Family-level
+physeq.fam <- tax_glom(physeq.keep, taxrank="Family")
+physeq.fam99 <- transform_sample_counts(physeq.fam, function(x){(x/sum(x))*100})
+physeq.fam99 <- prune_taxa(taxa_sums(physeq.fam99) > 1, physeq.fam99)
+
+### Order-level
+physeq.ord <- tax_glom(physeq.keep, taxrank="Order")
+physeq.ord99 <- transform_sample_counts(physeq.ord, function(x){(x/sum(x))*100})
+physeq.ord99 <- prune_taxa(taxa_sums(physeq.ord99) > 1, physeq.ord99)
+
+### Class-level
+physeq.cla <- tax_glom(physeq.keep, taxrank="Class")
+physeq.cla99 <- transform_sample_counts(physeq.cla, function(x){(x/sum(x))*100})
+physeq.cla99 <- prune_taxa(taxa_sums(physeq.cla99) > 1, physeq.cla99)
+
+### Phylum-level
+physeq.phy <- tax_glom(physeq.keep, taxrank="Phylum")
+physeq.phy99 <- transform_sample_counts(physeq.phy, function(x){(x/sum(x))*100})
+physeq.phy99 <- prune_taxa(taxa_sums(physeq.phy99) > 1, physeq.phy99)
 ```
 
 ### OTU vs CRDS Correlation
@@ -1140,6 +1179,49 @@ for(i in 1:length(auc.cor)){
 auc.cor.pval <- data.frame(OTU = rownames(auc.cor), pval = auc.cor.pval)
 auc.cor.pval$padj <- p.adjust(auc.cor.pval$pval, method="BH")
 
+
+
+test <- corr.test(x=dna.sum$DNA_Yield, y=dna.sum$AUC, method="kendall", use="complete", adjust="BH")
+
+
+test <- corr.test(x=dna.keep$AUC, y=otus, method="kendall", use="complete", adjust="BH")
+which(test$p < 0.05)
+
+test <- corr.test(x=dna.keep$AUC, y=t(otu_table(physeq.use)), method="kendall", use="complete", adjust="BH")
+which(test$p < 0.05)
+
+test <- corr.test(x=dna.keep$AUC, y=t(otu_table(physeq.gen99)), method="kendall", use="complete", adjust="BH")
+which(test$p < 0.05)
+
+test <- corr.test(x=dna.keep$AUC, y=t(otu_table(physeq.fam99)), method="kendall", use="complete", adjust="BH")
+which(test$p < 0.05)
+
+test <- corr.test(x=dna.keep$AUC, y=t(otu_table(physeq.ord99)), method="kendall", use="complete", adjust="BH")
+which(test$p < 0.05)
+
+test <- corr.test(x=dna.keep$AUC, y=t(otu_table(physeq.cla99)), method="kendall", use="complete", adjust="BH")
+which(test$p < 0.05)
+
+test <- corr.test(x=dna.keep$AUC, y=t(otu_table(physeq.phy99)), method="kendall", use="complete", adjust="BH")
+which(test$p < 0.05)
+
+# Calculate correlation between ph and nc-bacteria  
+ph_corrs <-  corr.test(
+    x = data.frame(env_dat$pH), 
+    y = t(otu_table(nc_prune)),
+    method = "spearman",
+    use = "complete",
+    adjust = "fdr"
+)
+
+which_sigs <- which(ph_corrs$p < 0.05)  
+sig_otus <- colnames(ph_corrs$p)[which_sigs]
+
+
+ph_corrs_dat <- data.frame(tax_table(nc_prune)) %>% filter(Species %in% sig_otus)
+ph_corrs_dat$Rho <- ph_corrs$r[which_sigs]
+
+pander(ph_corrs_dat[1:10,])
 ```
 
 ### miLineage
@@ -1153,10 +1235,21 @@ otu.ml$CC2_S21 <- otu.ml.pre[,20]
 otu.ml[,10:20] <- otu.ml.pre[,9:19]
 otu.ml <- as.matrix(t(otu.ml))
 var.ml <- as.matrix(dna.keep[,13])
+  # AUC
+var2.ml <- as.matrix(dna.keep[,14])
+  # Max Delta
+var3.ml <- as.matrix(dna.keep[,15])
+  # Peak Time
 rownames(var.ml) <- dna.keep$Sample
 
 # Run test
 ml.results <- QCAT_GEE(OTU=otu.ml, Tax=tax.ml, X=var.ml, X.index = 1, Z=var.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
+  # AUC
   # No sig
-
+ml.results2 <- QCAT_GEE(OTU=otu.ml, Tax=tax.ml, X=var.ml, X.index = 1, Z=var.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
+  # Max Delta
+  # No sig
+ml.results3 <- QCAT_GEE(OTU=otu.ml, Tax=tax.ml, X=var.ml, X.index = 1, Z=var.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
+  # Peak Time
+  # No sig
 ```
