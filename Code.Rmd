@@ -14,6 +14,7 @@ library(MESS)
 library(pgirmess)
 library(Bolstad2)
 library(phyloseq)
+library(miLineage)
 source('scripts/import_crds.R')
 source('scripts/import_crds_sep.R')
 source('scripts/bin_crds.R')
@@ -1025,13 +1026,20 @@ physeq.keep <- subset_samples(physeq, Squirrel != "S11")
 physeq.keep <- subset_samples(physeq.keep, Squirrel != "S37")
 physeq.keep <- subset_samples(physeq.keep, Squirrel != "S40")
 
+# Remove taxa < 1% rel abund in a sample
+physeq.ra <- transform_sample_counts(physeq.keep, function(x){x/sum(x)})
+otu_table(physeq.ra)[otu_table(physeq.ra)<.01] <- 0
+physeq.use <- prune_taxa(taxa_sums(physeq.ra)>0,physeq.ra)
 
 # Alpha Div
-adiv <- data.frame(sample_data(physeq.keep))
+adiv <- data.frame(sample_data(physeq.use))
 
 # OTU Table
-otus <- data.frame(otu_table(physeq.keep))
-otus <- data.frame(t(otus))
+otus.pre <- data.frame(otu_table(physeq.use))
+otus <- otus.pre[,1:8]
+otus$CC2_S21 <- otus.pre[,20]
+otus[,10:20] <- otus.pre[,9:19]
+otus <- t(otus)
 ```
 
 ### OTU vs CRDS Correlation
@@ -1040,18 +1048,18 @@ otus <- data.frame(t(otus))
 auc.cor <- cor(otus, dna.keep$AUC, method="kendall")
 top5.auc <- rownames(auc.cor)[order(auc.cor, decreasing=T)[1:5]]
 bot5.auc <- rownames(auc.cor)[order(auc.cor, decreasing=F)[1:5]]
-top5.auc.df <- data.frame(tax_table(physeq.keep))[1,2:7]
-bot5.auc.df <- data.frame(tax_table(physeq.keep))[1,2:7]
+top5.auc.df <- data.frame(tax_table(physeq.use))[1,2:7]
+bot5.auc.df <- data.frame(tax_table(physeq.use))[1,2:7]
 for(i in 1:5){
   OTU <- top5.auc[i]
-  pick <- which(data.frame(tax_table(physeq.keep))$Species == OTU)
-  taxon <- data.frame(tax_table(physeq.keep))[pick,]
+  pick <- which(data.frame(tax_table(physeq.use))$Species == OTU)
+  taxon <- data.frame(tax_table(physeq.use))[pick,]
   top5.auc.df[i,] <- taxon[2:7]
 }
 for(i in 1:5){
   OTU <- bot5.auc[i]
-  pick <- which(data.frame(tax_table(physeq.keep))$Species == OTU)
-  taxon <- data.frame(tax_table(physeq.keep))[pick,]
+  pick <- which(data.frame(tax_table(physeq.use))$Species == OTU)
+  taxon <- data.frame(tax_table(physeq.use))[pick,]
   bot5.auc.df[i,] <- taxon[2:7]
 }
 rownames(top5.auc.df) <- top5.auc.df$Species
@@ -1067,18 +1075,18 @@ bot5.auc.df$Kendalls_Tau <- auc.cor[order(auc.cor, decreasing=F)[1:5]]
 del.cor <- cor(otus, dna.keep$MaxDelta, method="kendall")
 top5.del <- rownames(del.cor)[order(del.cor, decreasing=T)[1:5]]
 bot5.del <- rownames(del.cor)[order(del.cor, decreasing=F)[1:5]]
-top5.del.df <- data.frame(tax_table(physeq.keep))[1,2:7]
-bot5.del.df <- data.frame(tax_table(physeq.keep))[1,2:7]
+top5.del.df <- data.frame(tax_table(physeq.use))[1,2:7]
+bot5.del.df <- data.frame(tax_table(physeq.use))[1,2:7]
 for(i in 1:5){
   OTU <- top5.del[i]
-  pick <- which(data.frame(tax_table(physeq.keep))$Species == OTU)
-  taxon <- data.frame(tax_table(physeq.keep))[pick,]
+  pick <- which(data.frame(tax_table(physeq.use))$Species == OTU)
+  taxon <- data.frame(tax_table(physeq.use))[pick,]
   top5.del.df[i,] <- taxon[2:7]
 }
 for(i in 1:5){
   OTU <- bot5.del[i]
-  pick <- which(data.frame(tax_table(physeq.keep))$Species == OTU)
-  taxon <- data.frame(tax_table(physeq.keep))[pick,]
+  pick <- which(data.frame(tax_table(physeq.use))$Species == OTU)
+  taxon <- data.frame(tax_table(physeq.use))[pick,]
   bot5.del.df[i,] <- taxon[2:7]
 }
 rownames(top5.del.df) <- top5.del.df$Species
@@ -1094,18 +1102,18 @@ bot5.del.df$Kendalls_Tau <- del.cor[order(del.cor, decreasing=F)[1:5]]
 tim.cor <- cor(otus, dna.keep$PeakTime, method="kendall")
 top5.tim <- rownames(tim.cor)[order(tim.cor, decreasing=T)[1:5]]
 bot5.tim <- rownames(tim.cor)[order(tim.cor, decreasing=F)[1:5]]
-top5.tim.df <- data.frame(tax_table(physeq.keep))[1,2:7]
-bot5.tim.df <- data.frame(tax_table(physeq.keep))[1,2:7]
+top5.tim.df <- data.frame(tax_table(physeq.use))[1,2:7]
+bot5.tim.df <- data.frame(tax_table(physeq.use))[1,2:7]
 for(i in 1:5){
   OTU <- top5.tim[i]
-  pick <- which(data.frame(tax_table(physeq.keep))$Species == OTU)
-  taxon <- data.frame(tax_table(physeq.keep))[pick,]
+  pick <- which(data.frame(tax_table(physeq.use))$Species == OTU)
+  taxon <- data.frame(tax_table(physeq.use))[pick,]
   top5.tim.df[i,] <- taxon[2:7]
 }
 for(i in 1:5){
   OTU <- bot5.tim[i]
-  pick <- which(data.frame(tax_table(physeq.keep))$Species == OTU)
-  taxon <- data.frame(tax_table(physeq.keep))[pick,]
+  pick <- which(data.frame(tax_table(physeq.use))$Species == OTU)
+  taxon <- data.frame(tax_table(physeq.use))[pick,]
   bot5.tim.df[i,] <- taxon[2:7]
 }
 rownames(top5.tim.df) <- top5.tim.df$Species
@@ -1121,17 +1129,34 @@ bot5.tim.df$Kendalls_Tau <- tim.cor[order(tim.cor, decreasing=F)[1:5]]
 #top10.auc <- rownames(auc.cor.abs)[order(auc.cor.abs, decreasing=T)[1:10]]
 
 
+### Test
+auc.cor.pval <- rep(100, length(auc.cor))
+#top5.auc.pval <- rep(1,5)
+for(i in 1:length(auc.cor)){
+  test <- cor.test(otus[,which(colnames(otus) == rownames(auc.cor)[i])], dna.keep$AUC,
+                   method="kendall")
+  auc.cor.pval[i] <- test$p.value
+}
+auc.cor.pval <- data.frame(OTU = rownames(auc.cor), pval = auc.cor.pval)
+auc.cor.pval$padj <- p.adjust(auc.cor.pval$pval, method="BH")
 
+```
 
+### miLineage
+```{r}
+# Prep inputs
+tax.ml <- as.matrix(tax_table(physeq.keep))
+colnames(tax.ml) <- c("Rank1","Rank2","Rank3","Rank4","Rank5","Rank6","Rank7")
+otu.ml.pre <- data.frame(otu_table(physeq.keep))
+otu.ml <- otu.ml.pre[,1:8]
+otu.ml$CC2_S21 <- otu.ml.pre[,20]
+otu.ml[,10:20] <- otu.ml.pre[,9:19]
+otu.ml <- as.matrix(t(otu.ml))
+var.ml <- as.matrix(dna.keep[,13])
+rownames(var.ml) <- dna.keep$Sample
 
-### Test with linear regression
-xyplot(otus$Otu00109 ~ dna.keep$AUC)
-  # Damn that's one crazy outlier
-summary(lm(otus$Otu00109 ~ dna.keep$AUC))
-  # Outlier is definitely driving the significance
-  # p-value = 0.000122
-  # R2 = 0.5448
-confint(lm(otus$Otu00109 ~ dna.keep$AUC), level=0.95)
-rownames(otus)[which(otus$Otu00109 == max(otus$Otu00109))]
+# Run test
+ml.results <- QCAT_GEE(OTU=otu.ml, Tax=tax.ml, X=var.ml, X.index = 1, Z=var.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
+  # No sig
 
 ```
