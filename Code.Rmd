@@ -15,6 +15,7 @@ library(pgirmess)
 library(Bolstad2)
 library(phyloseq)
 library(miLineage)
+library(psych)
 source('scripts/import_crds.R')
 source('scripts/import_crds_sep.R')
 source('scripts/bin_crds.R')
@@ -1079,7 +1080,7 @@ which(del.top$p < 0.05)
 
 
 
-### Max Delta
+### Peak Time
 tim.all <- corr.test(x=dna.keep$PeakTime, y=t(otu_table(physeq.use)), method="kendall", use="complete", adjust="BH")
 which(tim.all$p < 0.05)
   # None
@@ -1115,10 +1116,109 @@ rownames(var.ml) <- dna.keep$Sample
 ml.results <- QCAT_GEE(OTU=otu.ml, Tax=tax.ml, X=var.ml, X.index = 1, Z=var.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
   # AUC
   # No sig
-ml.results2 <- QCAT_GEE(OTU=otu.ml, Tax=tax.ml, X=var.ml, X.index = 1, Z=var.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
+ml.results2 <- QCAT_GEE(OTU=otu.ml, Tax=tax.ml, X=var2.ml, X.index = 1, Z=var2.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
   # Max Delta
   # No sig
-ml.results3 <- QCAT_GEE(OTU=otu.ml, Tax=tax.ml, X=var.ml, X.index = 1, Z=var.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
+ml.results3 <- QCAT_GEE(OTU=otu.ml, Tax=tax.ml, X=var3.ml, X.index = 1, Z=var3.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
+  # Peak Time
+  # No sig
+```
+
+### Pull out summer no ABX
+```{r}
+physeq.noabx <- subset_samples(physeq.keep, Antibiotics == "No Antibiotics")
+
+# Remove taxa < 1% rel abund
+physeq.noabx.ra <- transform_sample_counts(physeq.noabx, function(x){x/sum(x)})
+physeq.noabx.use <-
+  prune_taxa(taxa_sums(physeq.noabx.ra)>0.01,
+             physeq.noabx.ra)
+
+# Pick top 20 taxa
+cutoff.noabx <- summary(sort(taxa_sums(physeq.noabx.use),
+                             decreasing=T)[1:20])
+physeq.noabx.top <- 
+  prune_taxa(taxa_sums(physeq.noabx.use)>(cutoff[1]-0.0000001), physeq.noabx.use)
+
+# Prep DNA metadata
+both <- intersect(dna.keep$Squirrel, data.frame(sample_data(physeq.noabx.use))$Squirrel)
+dna.keep.noabx <- dna.keep[1,]
+for(i in 1:length(both)){
+  ID <- both[i]
+  dna.keep.noabx[i,] <- dna.keep[which(dna.keep$Squirrel == ID),]
+}
+```
+
+
+### No ABX OTU vs CRDS Correlation
+```{r}
+### AUC
+auc.noabx <- corr.test(x=dna.keep.noabx$AUC, y=t(otu_table(physeq.noabx.use)), method="kendall", use="complete", adjust="BH")
+which(auc.noabx$p < 0.05)
+  # None
+
+auc.noabx2 <- corr.test(x=dna.keep.noabx$AUC, y=t(otu_table(physeq.noabx.use)), method="kendall", use="pairwise", adjust="BH")
+which(auc.noabx2$p < 0.05)
+  # None
+
+auc.noabx.top <- corr.test(x=dna.keep.noabx$AUC, y=t(otu_table(physeq.noabx.top)), method="kendall", use="complete", adjust="BH")
+which(auc.noabx.top$p < 0.05)
+  # None
+
+
+
+### Max Delta
+del.noabx <- corr.test(x=dna.keep.noabx$MaxDelta, y=t(otu_table(physeq.noabx.use)), method="kendall", use="complete", adjust="BH")
+which(del.noabx$p < 0.05)
+  # None
+
+del.noabx2 <- corr.test(x=dna.keep.noabx$MaxDelta, y=t(otu_table(physeq.noabx.use)), method="kendall", use="pairwise", adjust="BH")
+which(del.noabx2$p < 0.05)
+  # None
+
+del.noabx.top <- corr.test(x=dna.keep.noabx$MaxDelta, y=t(otu_table(physeq.noabx.top)), method="kendall", use="complete", adjust="BH")
+which(del.noabx.top$p < 0.05)
+  # None
+
+
+
+### Peak Time
+tim.noabx <- corr.test(x=dna.keep.noabx$PeakTime, y=t(otu_table(physeq.noabx.use)), method="kendall", use="complete", adjust="BH")
+which(tim.noabx$p < 0.05)
+  # None
+
+tim.noabx2 <- corr.test(x=dna.keep.noabx$PeakTime, y=t(otu_table(physeq.noabx.use)), method="kendall", use="pairwise", adjust="BH")
+which(tim.noabx2$p < 0.05)
+  # None
+
+tim.noabx.top <- corr.test(x=dna.keep.noabx$PeakTime, y=t(otu_table(physeq.noabx.top)), method="kendall", use="complete", adjust="BH")
+which(tim.noabx.top$p < 0.05)
+  # None
+```
+
+### miLineage
+```{r}
+# Prep inputs
+tax.noabx.ml <- as.matrix(tax_table(physeq.noabx))
+colnames(tax.noabx.ml) <-
+  c("Rank1","Rank2","Rank3","Rank4","Rank5","Rank6",
+    "Rank7")
+otu.noabx.ml <- as.matrix(t(otu_table(physeq.noabx)))
+var.noabx.ml <- as.matrix(dna.keep.noabx[,13])
+  # AUC
+var2.noabx.ml <- as.matrix(dna.keep.noabx[,14])
+  # Max Delta
+var3.noabx.ml <- as.matrix(dna.keep.noabx[,15])
+  # Peak Time
+
+# Run test
+ml.results <- QCAT_GEE(OTU=otu.noabx.ml, Tax=tax.noabx.ml, X=var.noabx.ml, X.index = 1, Z=var.noabx.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
+  # AUC
+  # No sig
+ml.results2 <- QCAT_GEE(OTU=otu.noabx.ml, Tax=tax.noabx.ml, X=var2.noabx.ml, X.index = 1, Z=var2.noabx.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
+  # Max Delta
+  # No sig
+ml.results3 <- QCAT_GEE(OTU=otu.noabx.ml, Tax=tax.noabx.ml, X=var3.noabx.ml, X.index = 1, Z=var3.noabx.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
   # Peak Time
   # No sig
 ```
