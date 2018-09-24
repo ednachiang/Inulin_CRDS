@@ -403,8 +403,8 @@ inu.plot <- ggplot(inu.all, aes(x=BinTime, y=Mean, color=Season)) +
   scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
   ggtitle(expression("Inulin"~~delta^13~"C")) +
-  xlab("Time Since Gavage") +
-  ylab(expression("Mean"~~delta^13~"C"))+
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
   theme(plot.title=element_text(hjust=0.5, size=12),
         axis.title.x=element_text(size=12),
         axis.title.y=element_text(size=12)) +
@@ -418,8 +418,8 @@ man.plot <- ggplot(man.all, aes(x=BinTime, y=Mean, color=Season)) +
   scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
   ggtitle(expression("Mannitol"~~delta^13~"C")) +
-  xlab("Time Since Gavage") +
-  ylab(expression("Mean"~~delta^13~"C"))+
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
   theme(plot.title=element_text(hjust=0.5, size=12),
         axis.title.x=element_text(size=12),
         axis.title.y=element_text(size=12)) +
@@ -433,12 +433,28 @@ sal.plot <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
   scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
   ggtitle(expression("Saline"~~delta^13~"C")) +
-  xlab("Time Since Gavage") +
-  ylab(expression("Mean"~~delta^13~"C"))+
-  theme(plot.title=element_text(hjust=0.5, size=12),
-        axis.title.x=element_text(size=12),
-        axis.title.y=element_text(size=12)) +
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.title.x=element_text(size=14),
+        axis.title.y=element_text(size=14),
+        axis.text.x=element_text(size=12),
+        axis.text.y=element_text(size=12)) +
   guides(colour=F, linetype=F)
+
+
+
+  theme(axis.text.x = element_text(size=12),
+        axis.text.y = element_text(size=12),
+        axis.title.x = element_text(size=20),
+        axis.title.y = element_text(size=20),
+        strip.text.x = element_text(size=14),
+        strip.text.y = element_text(size=14),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 14),
+        legend.text = element_text(size=12)
+  )
+
 
 ## Urea
 ure.plot <- ggplot(ure.all, aes(x=BinTime, y=Mean, color=Season)) +
@@ -448,8 +464,8 @@ ure.plot <- ggplot(ure.all, aes(x=BinTime, y=Mean, color=Season)) +
   scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
   ggtitle(expression("Urea"~~delta^13~"C")) +
-  xlab("Time Since Gavage") +
-  ylab(expression("Mean"~~delta^13~"C"))+
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
   theme(plot.title=element_text(hjust=0.5)) #+
   #guides(colour=F, linetype=F)
 
@@ -460,10 +476,39 @@ steal.legend <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
   ggtitle(expression("Saline"~~delta^13~"C")) +
-  xlab("Time Since Gavage") +
-  ylab(expression("Mean"~~delta^13~"C"))+
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
   theme(plot.title=element_text(hjust=0.5))
 legend <- g_legend(steal.legend)
+
+
+### All 3 substrates on same axis
+carb.sum <- crds.sum[which(crds.sum$Substrate != "Urea"),]
+carb.sum <- carb.sum[which(carb.sum$Substrate != "Acetate"),]
+
+carb.plot <- ggplot(carb.sum, aes(x=BinTime, y=Mean, color=Season)) +
+  geom_line(aes(linetype=Antibiotics), size=1) +
+   geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) + 
+  facet_grid(.~Substrate) +
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
+  theme(axis.text.x = element_text(size=12),
+        axis.text.y = element_text(size=12),
+        axis.title.x = element_text(size=20),
+        axis.title.y = element_text(size=20),
+        strip.text.x = element_text(size=14),
+        strip.text.y = element_text(size=14),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 14),
+        legend.text = element_text(size=12)
+  )
+
+#tiff("crds.mdtp.tiff", width = 12, height = 5.5, units = "in", res = 300)
+#carb.plot
+#dev.off()
 ```
 
 
@@ -481,13 +526,12 @@ grid.draw(legend)
 dev.off()
 
 
-tiff("crds.mdtp.tiff", width = 12, height = 3.5, units = "in", res = 300)
+tiff("inu.man.mdtp.tiff", width = 12, height = 3.5, units = "in", res = 300)
 grid.newpage()
-pushViewport(viewport(layout=(grid.layout(1,4, widths=c(1,1,1,0.4), heights=c(1,1,1,1)))))
+pushViewport(viewport(layout=(grid.layout(1,3, widths=c(1,1,0.2), heights=c(1,1,1)))))
 print(inu.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
 print(man.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
-print(sal.plot, vp=viewport(layout.pos.row=1, layout.pos.col=3))
-legend$vp <- viewport(layout.pos.row=1, layout.pos.col=4)
+legend$vp <- viewport(layout.pos.row=1, layout.pos.col=3)
 grid.draw(legend)
 dev.off()
 ```
@@ -676,6 +720,8 @@ auc.sum <- auc.df %>%
             SE = se(AUC),
             iqr = IQR(AUC))
 auc.sum$Season <- ordered(auc.sum$Season, levels=c("Summer", "Winter", "Spring"))
+
+
 
 
 ```
