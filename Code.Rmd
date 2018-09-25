@@ -63,6 +63,59 @@ crds.sum <- crds.rem %>%
 crds.sum$Season <- ordered(crds.sum$Season, levels=c("Summer", "Winter", "Spring"))
 ```
 
+### Test crds values for ABX
+```{r}
+crds.val <- crds.rem[which(crds.rem$Substrate != "Urea"),]
+crds.val <- crds.val[which(crds.val$Substrate != "Acetate"),]
+crds.inu.val <- crds.val[which(crds.val$Substrate == "Inulin"),]
+crds.man.val <- crds.val[which(crds.val$Substrate == "Mannitol"),]
+crds.inu.end.val <- crds.inu.val[which(crds.inu.val$RelTime > 0),]
+crds.man.end.val <- crds.man.val[which(crds.man.val$RelTime > 0),]
+
+### Check Normality
+hist(crds.val$Delta)
+qqnorm(crds.val$Delta)
+qqline(crds.val$Delta)
+shapiro.test(crds.val$Delta)
+  # p-value < 2.2e-16
+hist(crds.inu.val$Delta)
+qqnorm(crds.inu.val$Delta)
+qqline(crds.inu.val$Delta)
+shapiro.test(crds.inu.val$Delta)
+  # p-value < 2.2e-16
+hist(crds.man.val$Delta)
+qqnorm(crds.man.val$Delta)
+qqline(crds.man.val$Delta)
+shapiro.test(crds.man.val$Delta)
+  # p-value < 2.2e-16
+hist(crds.inu.end.val$Delta)
+qqnorm(crds.inu.end.val$Delta)
+qqline(crds.inu.end.val$Delta)
+shapiro.test(crds.inu.end.val$Delta)
+  # p-value < 2.2e-16
+hist(crds.man.end.val$Delta)
+qqnorm(crds.man.end.val$Delta)
+qqline(crds.man.end.val$Delta)
+shapiro.test(crds.man.end.val$Delta)
+  # p-value < 2.2e-16
+
+### Test
+wilcox.test(Delta~Antibiotics, data=crds.val)
+  # p-value < 2.2e-16
+wilcox.test(Delta~Antibiotics, data=crds.inu.val)
+  # p-value < 2.2e=16
+wilcox.test(Delta~Antibiotics, data=crds.man.val)
+  # p-value = 8.223e-12
+wilcox.test(Delta~Antibiotics, data=crds.inu.end.val)
+  # p-value < 2.2e-16
+wilcox.test(Delta~Antibiotics, data=crds.man.end.val)
+  # p-value = 9.664e-13
+
+p.adjust(c(2.2e-16, 9.664e-13), method="BH")
+  # Inulin End = 4.400e-16
+  # Mannitol End = 9.664e-13
+```
+
 ### Separate by substrate
 ```{r}
 inu.all <- crds.sum[which(crds.sum$Substrate == "Inulin"),]
@@ -633,10 +686,19 @@ inu.plot <- ggplot(inu.all, aes(x=BinTime, y=Mean, color=Season)) +
   ggtitle(expression("Inulin"~~delta^13~"C")) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  theme(plot.title=element_text(hjust=0.5, size=12),
-        axis.title.x=element_text(size=12),
-        axis.title.y=element_text(size=12)) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.title.x=element_text(size=14,
+                                  margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y=element_text(size=14),
+        axis.text.x=element_text(size=12),
+        axis.text.y=element_text(size=12),
+        plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm")
+          #top, right, bottom, left
+  ) +
   guides(colour=F, linetype=F)
+
+
+
 
 ## Mannitol
 man.plot <- ggplot(man.all, aes(x=BinTime, y=Mean, color=Season)) +
@@ -648,10 +710,21 @@ man.plot <- ggplot(man.all, aes(x=BinTime, y=Mean, color=Season)) +
   ggtitle(expression("Mannitol"~~delta^13~"C")) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  theme(plot.title=element_text(hjust=0.5, size=12),
-        axis.title.x=element_text(size=12),
-        axis.title.y=element_text(size=12)) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.title.x=element_text(size=14, 
+                                  margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y=element_text(size=14),
+        axis.text.x=element_text(size=12),
+        axis.text.y=element_text(size=12),
+        plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm")
+          #top, right, bottom, left
+  ) +
   guides(colour=F, linetype=F)
+
+
+
+
+
 
 ## Saline
 sal.plot <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
@@ -669,19 +742,6 @@ sal.plot <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
         axis.text.x=element_text(size=12),
         axis.text.y=element_text(size=12)) +
   guides(colour=F, linetype=F)
-
-
-
-  theme(axis.text.x = element_text(size=12),
-        axis.text.y = element_text(size=12),
-        axis.title.x = element_text(size=20),
-        axis.title.y = element_text(size=20),
-        strip.text.x = element_text(size=14),
-        strip.text.y = element_text(size=14),
-        panel.spacing=unit(1, "lines"),
-        legend.title = element_text(size = 14),
-        legend.text = element_text(size=12)
-  )
 
 
 ## Urea
@@ -706,8 +766,17 @@ steal.legend <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
   ggtitle(expression("Saline"~~delta^13~"C")) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  theme(plot.title=element_text(hjust=0.5))
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.title.x=element_text(size=14),
+        axis.title.y=element_text(size=14),
+        axis.text.x=element_text(size=12),
+        axis.text.y=element_text(size=12),
+        legend.title = element_text(size=14),
+        legend.text = element_text(size=12)
+        )
 legend <- g_legend(steal.legend)
+
+
 
 
 ### All 3 substrates on same axis
@@ -723,20 +792,20 @@ carb.plot <- ggplot(carb.sum, aes(x=BinTime, y=Mean, color=Season)) +
   facet_grid(.~Substrate) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  theme(axis.text.x = element_text(size=12),
-        axis.text.y = element_text(size=12),
-        axis.title.x = element_text(size=20),
-        axis.title.y = element_text(size=20),
-        strip.text.x = element_text(size=14),
+  theme(axis.text.x = element_text(size=14),
+        axis.text.y = element_text(size=14),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
+        strip.text.x = element_text(size=20),
         strip.text.y = element_text(size=14),
         panel.spacing=unit(1, "lines"),
-        legend.title = element_text(size = 14),
-        legend.text = element_text(size=12)
+        legend.title = element_text(size = 18),
+        legend.text = element_text(size=16)
   )
 
-#tiff("crds.mdtp.tiff", width = 12, height = 5.5, units = "in", res = 300)
-#carb.plot
-#dev.off()
+tiff("crds.mdtp.tiff", width = 12, height = 3.75, units = "in", res = 300)
+carb.plot
+dev.off()
 ```
 
 
@@ -754,7 +823,7 @@ grid.draw(legend)
 dev.off()
 
 
-tiff("inu.man.mdtp.tiff", width = 12, height = 3.5, units = "in", res = 300)
+tiff("inu.man.mdtp.tiff", width = 12, height = 3.25, units = "in", res = 300)
 grid.newpage()
 pushViewport(viewport(layout=(grid.layout(1,3, widths=c(1,1,0.2), heights=c(1,1,1)))))
 print(inu.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
@@ -844,6 +913,33 @@ shapiro.test(auc.noabx$AUC)
 
 
 ### Boxplots
+auc.carb.df <- auc.df[which(auc.df$Substrate != "Saline"),]
+auc.carb.df <- auc.carb.df[which(auc.carb.df$Antibiotics == "No"),]
+auc.carb.plot <- ggplot(auc.carb.df, aes(x=Season, y=AUC, fill=Season)) +
+  geom_boxplot(position=position_dodge(1)) +
+  geom_point() +
+  facet_grid(.~Substrate) +
+  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  ylab(expression("Area Under"~~delta^13~"C"~~"Curve"~"(%"[o]^2~")")) +
+  theme(axis.text.x = element_text(size=14),
+        axis.text.y = element_text(size=14),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
+        strip.text.x = element_text(size=20),
+        #strip.text.y = element_text(size=14),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 18),
+        legend.text = element_text(size=16)
+  )
+
+tiff("auc.mdtp.tiff", width = 12, height = 3.90, units = "in", res = 300)
+auc.carb.plot
+dev.off()
+
+
+
+
+
 ggplot(auc.df, aes(x=Season, y=AUC, fill=Season)) +
   geom_boxplot(position=position_dodge(1)) +
   geom_point() +
@@ -1195,10 +1291,37 @@ shapiro.test(max.noabx$Delta)
 
 
 ### Boxplots
+max.carb.df <- max.df[which(max.df$Substrate != "Saline"),]
+max.carb.df <- max.carb.df[which(max.carb.df$Antibiotics == "No"),]
+max.carb.plot <- ggplot(max.carb.df, aes(x=Season, y=Delta, fill=Season)) +
+  geom_boxplot(position=position_dodge(1)) +
+  geom_point() +
+  facet_grid(.~Substrate) +
+  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  ylab(expression("Max"~~delta^13~"C"~~"(%"[o]~")")) +
+  theme(axis.text.x = element_text(size=14),
+        axis.text.y = element_text(size=14),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
+        strip.text.x = element_text(size=20),
+        #strip.text.y = element_text(size=14),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 18),
+        legend.text = element_text(size=16)
+  )
+
+tiff("max.mdtp.tiff", width = 12, height = 3.90, units = "in", res = 300)
+max.carb.plot
+dev.off()
+
+
+
+
+
 ggplot(max.df, aes(x=Season, y=Delta, fill = Antibiotics)) +
   geom_boxplot(position=position_dodge(1)) +
   geom_point() + 
-  facet_grid(.~Substrate) 
+  facet_grid(Antibiotics~Substrate) 
 ggplot(max.inu, aes(x=Season, y=Delta, fill = Antibiotics)) +
   geom_boxplot(position=position_dodge(1)) +
   geom_point()
@@ -1742,7 +1865,7 @@ which(tim.noabx.top$p < 0.05)
 
 ### miLineage
 ```{r}
-# Prep inputs
+#### Prep inputs
 tax.noabx.ml <- as.matrix(tax_table(physeq.noabx))
 colnames(tax.noabx.ml) <-
   c("Rank1","Rank2","Rank3","Rank4","Rank5","Rank6",
@@ -1755,7 +1878,72 @@ var2.noabx.ml <- as.matrix(dna.keep.noabx[,14])
 var3.noabx.ml <- as.matrix(dna.keep.noabx[,15])
   # Peak Time
 
-# Run test
+
+#### Prep Inulin No ABX
+physeq.inu.noabx <- subset_samples(physeq.noabx, Substrate == "Inulin")
+
+# Remove taxa < 1% rel abund
+physeq.inu.noabx.ra <- transform_sample_counts(physeq.inu.noabx, function(x){x/sum(x)})
+physeq.inu.noabx.use <-
+  prune_taxa(taxa_sums(physeq.inu.noabx.ra)>0.01,
+             physeq.inu.noabx.ra)
+
+# Prep DNA metadata
+both <- intersect(dna.keep$Squirrel, data.frame(sample_data(physeq.inu.noabx.use))$Squirrel)
+dna.inu.keep.noabx <- dna.keep[1,]
+for(i in 1:length(both)){
+  ID <- both[i]
+  dna.inu.keep.noabx[i,] <- dna.keep[which(dna.keep$Squirrel == ID),]
+}
+
+# Prep Inputs
+tax.inu.noabx.ml <- as.matrix(tax_table(physeq.inu.noabx))
+colnames(tax.inu.noabx.ml) <-
+  c("Rank1","Rank2","Rank3","Rank4","Rank5","Rank6",
+    "Rank7")
+otu.inu.noabx.ml <- as.matrix(t(otu_table(physeq.inu.noabx)))
+var.inu.noabx.ml <- as.matrix(dna.inu.keep.noabx[,13])
+  # AUC
+var2.inu.noabx.ml <- as.matrix(dna.inu.keep.noabx[,14])
+  # Max Delta
+var3.inu.noabx.ml <- as.matrix(dna.inu.keep.noabx[,15])
+  # Peak Time
+
+
+
+### Prep Mannitol No ABX
+physeq.man.noabx <- subset_samples(physeq.noabx, Substrate == "Mannitol")
+# Remove taxa < 1% rel abund
+physeq.man.noabx.ra <- transform_sample_counts(physeq.man.noabx, function(x){x/sum(x)})
+physeq.man.noabx.use <-
+  prune_taxa(taxa_sums(physeq.man.noabx.ra)>0.01,
+             physeq.man.noabx.ra)
+
+# Prep DNA metadata
+both <- intersect(dna.keep$Squirrel, data.frame(sample_data(physeq.man.noabx.use))$Squirrel)
+dna.man.keep.noabx <- dna.keep[1,]
+for(i in 1:length(both)){
+  ID <- both[i]
+  dna.man.keep.noabx[i,] <- dna.keep[which(dna.keep$Squirrel == ID),]
+}
+
+# Prep Inputs
+tax.man.noabx.ml <- as.matrix(tax_table(physeq.man.noabx))
+colnames(tax.man.noabx.ml) <-
+  c("Rank1","Rank2","Rank3","Rank4","Rank5","Rank6",
+    "Rank7")
+otu.man.noabx.ml <- as.matrix(t(otu_table(physeq.man.noabx)))
+var.man.noabx.ml <- as.matrix(dna.man.keep.noabx[,13])
+  # AUC
+var2.man.noabx.ml <- as.matrix(dna.man.keep.noabx[,14])
+  # Max Delta
+var3.man.noabx.ml <- as.matrix(dna.man.keep.noabx[,15])
+  # Peak Time
+
+
+
+
+### Run test
 ml.results <- QCAT_GEE(OTU=otu.noabx.ml, Tax=tax.noabx.ml, X=var.noabx.ml, X.index = 1, Z=var.noabx.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
   # AUC
   # No sig
@@ -1763,6 +1951,36 @@ ml.results2 <- QCAT_GEE(OTU=otu.noabx.ml, Tax=tax.noabx.ml, X=var2.noabx.ml, X.i
   # Max Delta
   # No sig
 ml.results3 <- QCAT_GEE(OTU=otu.noabx.ml, Tax=tax.noabx.ml, X=var3.noabx.ml, X.index = 1, Z=var3.noabx.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
+  # Peak Time
+  # No sig
+
+
+
+
+### Run Inulin test
+ml.inu.results <- QCAT_GEE(OTU=otu.inu.noabx.ml, Tax=tax.inu.noabx.ml, X=var.inu.noabx.ml, X.index = 1, Z=var.inu.noabx.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
+  # AUC
+  # No sig
+ml.inu.results2 <- QCAT_GEE(OTU=otu.inu.noabx.ml, Tax=tax.inu.noabx.ml, X=var2.inu.noabx.ml, X.index = 1, Z=var2.inu.noabx.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
+  # Max Delta
+  # No sig
+ml.inu.results3 <- QCAT_GEE(OTU=otu.inu.noabx.ml, Tax=tax.inu.noabx.ml, X=var3.inu.noabx.ml, X.index = 1, Z=var3.inu.noabx.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
+  # Peak Time
+  # No sig
+
+
+
+
+
+
+### Run Mannitol test
+ml.man.results <- QCAT_GEE(OTU=otu.man.noabx.ml, Tax=tax.man.noabx.ml, X=var.man.noabx.ml, X.index = 1, Z=var.man.noabx.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
+  # AUC
+  # No sig
+ml.man.results2 <- QCAT_GEE(OTU=otu.man.noabx.ml, Tax=tax.man.noabx.ml, X=var2.man.noabx.ml, X.index = 1, Z=var2.man.noabx.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
+  # Max Delta
+  # No sig
+ml.man.results3 <- QCAT_GEE(OTU=otu.man.noabx.ml, Tax=tax.man.noabx.ml, X=var3.man.noabx.ml, X.index = 1, Z=var3.man.noabx.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
   # Peak Time
   # No sig
 ```
