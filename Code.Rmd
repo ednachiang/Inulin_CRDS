@@ -16,6 +16,9 @@ library(Bolstad2)
 library(phyloseq)
 library(miLineage)
 library(psych)
+# library(RVAideMemoire)
+    # mood.medtest
+    # Mood's Median Test
 source('scripts/import_crds.R')
 source('scripts/import_crds_sep.R')
 source('scripts/bin_crds.R')
@@ -38,6 +41,104 @@ crds.all <- import.crds.sep('CSV', 'metadata.csv')
 ```{r}
 crds.bin <- bin.crds(crds)
 ```
+
+### AUC with raw Rel Time
+```{r}
+### Separate by Substrate
+inu.ind.raw <- crds[which(crds$Substrate == "Inulin"),]
+man.ind.raw <- crds[which(crds$Substrate == "Mannitol"),]
+sal.ind.raw <- crds[which(crds$Substrate == "Saline"),]
+
+### Separate by Substrate & ABX
+inu.noabx.ind.raw <- inu.ind.raw[which(inu.ind.raw$Antibiotics == "No"),]
+inu.abx.ind.raw <- inu.ind.raw[which(inu.ind.raw$Antibiotics == "Yes"),]
+man.noabx.ind.raw <- man.ind.raw[which(man.ind.raw$Antibiotics == "No"),]
+man.abx.ind.raw <- man.ind.raw[which(man.ind.raw$Antibiotics == "Yes"),]
+sal.noabx.ind.raw <- sal.ind.raw[which(sal.ind.raw$Antibiotics == "No"),]
+sal.abx.ind.raw <- sal.ind.raw[which(sal.ind.raw$Antibiotics == "Yes"),]
+
+
+### Separate by Substrate & ABX & Season
+inu.noabx.sum.ind.raw <- inu.noabx.ind.raw[which(inu.noabx.ind.raw$Season == "Summer"),]
+inu.noabx.win.ind.raw <- inu.noabx.ind.raw[which(inu.noabx.ind.raw$Season == "Winter"),]
+inu.noabx.spr.ind.raw <- inu.noabx.ind.raw[which(inu.noabx.ind.raw$Season == "Spring"),]
+man.noabx.sum.ind.raw <- man.noabx.ind.raw[which(man.noabx.ind.raw$Season == "Summer"),]
+man.noabx.win.ind.raw <- man.noabx.ind.raw[which(man.noabx.ind.raw$Season == "Winter"),]
+man.noabx.spr.ind.raw <- man.noabx.ind.raw[which(man.noabx.ind.raw$Season == "Spring"),]
+sal.noabx.sum.ind.raw <- sal.noabx.ind.raw[which(sal.noabx.ind.raw$Season == "Summer"),]
+sal.noabx.win.ind.raw <- sal.noabx.ind.raw[which(sal.noabx.ind.raw$Season == "Winter"),]
+sal.noabx.spr.ind.raw <- sal.noabx.ind.raw[which(sal.noabx.ind.raw$Season == "Spring"),]
+```
+
+### Plot raw individuals
+```{r}
+ggplot(inu.ind.raw, aes(x=RelTime, y=Delta, color=ID)) +
+  geom_line() +
+  geom_point() +
+  facet_grid(Antibiotics~Season)
+
+ggplot(inu.ind.raw, aes(x=RelTime, y=Delta, color=Season)) +
+  geom_line() +
+  geom_point() +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  facet_grid(Antibiotics~Season)
+
+ggplot(inu.noabx.ind.raw, aes(x=RelTime, y=Delta, color=Season)) +
+  geom_line() +
+  geom_point() +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  facet_grid(.~Season)
+
+
+ggplot(inu.noabx.sum.ind.raw, aes(x=RelTime, y=Delta, color=ID)) +
+  geom_line() +
+  geom_point()
+
+ggplot(inu.noabx.win.ind.raw, aes(x=RelTime, y=Delta, color=ID)) +
+  geom_line() +
+  geom_point()
+
+ggplot(inu.noabx.spr.ind.raw, aes(x=RelTime, y=Delta, color=ID)) +
+  geom_line() +
+  geom_point()
+
+
+
+
+
+
+
+ggplot(man.ind.raw, aes(x=RelTime, y=Delta, color=ID)) +
+  geom_line() +
+  geom_point() +
+  facet_grid(Antibiotics~Season)
+
+
+ggplot(man.ind.raw, aes(x=RelTime, y=Delta, color=Season)) +
+  geom_line() +
+  geom_point() +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  facet_grid(Antibiotics~Season)
+
+
+
+
+
+
+ggplot(sal.ind.raw, aes(x=RelTime, y=Delta, color=ID)) +
+  geom_line() +
+  geom_point() +
+  facet_grid(Antibiotics~Season)
+
+
+ggplot(sal.ind.raw, aes(x=RelTime, y=Delta, color=Season)) +
+  geom_line() +
+  geom_point() +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  facet_grid(Antibiotics~Season)
+
+```
+
 
 ### Summarize by Substrate + ABX
 ```{r}
@@ -449,7 +550,7 @@ kruskal.test(formula = AUC ~ Season, data=auc.inu.end2.noabx)
   # p-value = 0.02651
 kruskalmc(resp = AUC ~ Season, data=auc.inu.end2.noabx)
   # Spring-Winter
-pairwise.wilcox.test(auc.inu.end2.noabx$AUC, auc.inu.end2.noabx$Season)
+pairwise.wilcox.test(auc.inu.end2.noabx$AUC, auc.inu.end2.noabx$Season, p.adjust.method="BH")
   # Summer-Spring = 0.298
   # Winter-Spring = 0.024
   # Summer-Winter = 0.298
@@ -861,10 +962,6 @@ ggplot(inu.sum.abx, aes(x=BinTime, y=Delta, color=ID)) +
 ```
 
 
-
-
-
-
 ### AUC
 ```{r}
 ### Check Normality
@@ -943,7 +1040,8 @@ dev.off()
 ggplot(auc.df, aes(x=Season, y=AUC, fill=Season)) +
   geom_boxplot(position=position_dodge(1)) +
   geom_point() +
-  facet_grid(Antibiotics~Substrate)
+  facet_grid(Antibiotics~Substrate) +
+  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3"))
 ggplot(auc.df, aes(x=Season, y=AUC, fill = Antibiotics)) +
   geom_boxplot(position=position_dodge(1)) +
   geom_point() + 
@@ -1359,7 +1457,7 @@ kruskal.test(formula = Delta ~ Season, data=max.inu.noabx)
 kruskalmc(resp = Delta ~ Season, data=max.inu.noabx)
   # Spring-Winter
   # Summer-Winter
-pairwise.wilcox.test(max.inu.noabx$Delta, max.inu.noabx$Season)
+pairwise.wilcox.test(max.inu.noabx$Delta, max.inu.noabx$Season, method="BH")
   # Summer-Spring = 0.3434
   # Winter-Spring = 0.0159
   # Summer-Winter = 0.0076
@@ -1404,6 +1502,11 @@ p.adjust(c(0.6015, 0.005072, 0.3055, 0.2295, 0.2656, 0.0335), method="BH")
   # Mannitol No ABX = 0.366600
   # Saline ABX = 0.366600
   # Saline No ABX = 0.100500
+
+
+p.adjust(c(0.6015, 0.005072), method="BH")
+  # 
+
 ```
 
 
