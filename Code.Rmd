@@ -31,6 +31,79 @@ theme_set(theme_bw())
 # Do NOT use 'subset' in kruskalmc or pairwise.wilcox.test; it doesn't work!
 ```
 
+### Urea
+```{r}
+# Load data
+crds.urea.csv <- import.crds('urea.csv','urea.metadata.csv')
+crds.all.urea <- import.crds.sep('urea.csv', 'urea.metadata.csv')
+
+# Bin Rel Time
+crds.bin.urea <- bin.crds(crds.urea.csv)
+
+
+# Pull out L-Urea
+ure.ind.raw <- crds.urea.csv[which(crds.urea.csv$Substrate == "L-Urea"),]
+
+# Separate by ABX
+ure.noabx.ind.raw <- ure.ind.raw[which(ure.ind.raw$Antibiotics == "No"),]
+ure.abx.ind.raw <- ure.ind.raw[which(ure.ind.raw$Antibiotics == "Yes"),]
+
+# Separate by ABX and Season
+ure.noabx.sum.ind.raw <- ure.noabx.ind.raw[which(ure.noabx.ind.raw$Season == "Summer"),]
+ure.noabx.win.ind.raw <- ure.noabx.ind.raw[which(ure.noabx.ind.raw$Season == "Early Winter"),]
+ure.noabx.spr.ind.raw <- ure.noabx.ind.raw[which(ure.noabx.ind.raw$Season == "Winter"),]
+
+
+# Clean up urea data
+rem.urea <- which(is.na(crds.urea.csv$Delta))
+crds.rem.urea <- crds.bin.urea[-rem.urea,]
+crds.rem.urea <- crds.rem.urea[which(crds.rem.urea$Substrate == "L-Urea"),]
+
+# Summarize
+crds.sum.urea <- crds.rem.urea %>%
+  group_by(Substrate, Antibiotics, Season, BinTime) %>%
+  summarize(Mean = mean(Delta),
+            Median = median(Delta),
+            SD = sd(Delta),
+            SE = se(Delta),
+            iqr = IQR(Delta))
+crds.sum.urea$Season <- ordered(crds.sum.urea$Season, levels=c("Summer", "Early Winter", "Winter"))
+
+# Calculate AUC
+crds.auc.urea <- crds.rem.urea
+crds.auc.urea$Substrate <- droplevels(crds.rem.urea$Substrate)
+crds.auc.urea$ID <- droplevels(crds.rem.urea$ID)
+ids <- levels(crds.auc.urea$ID)
+auc.urea.df <- data.frame(crds.auc.urea[1,])
+auc.urea.df <- auc.urea.df[,-2:-3]
+auc.urea.df <- auc.urea.df[,-8]
+colnames(auc.urea.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate")
+for(i in 1:length(ids)){
+  ID <- ids[i]
+  select <- crds.auc.urea[which(crds.auc.urea$ID == ID),]
+  baseline <- which(select$RelTime < 0)
+  baseline.reltime <- mean(select$RelTime[baseline])
+  baseline.delta <- mean(select$Delta[baseline])
+  baseline.co2 <- mean(select$CO2[baseline])
+  baseline.bintime <- mean(select$BinTime[baseline])
+  select.norm <- data.frame(RelTime=baseline.reltime, Delta=0, CO2=baseline.co2,
+                            Number=select$Number[1], ID=select$ID[1], Season=select$Season[1],
+                            Sex=select$Sex[1], Antibiotics=select$Antibiotics[1],
+                            Substrate=select$Substrate[1], BinTime=baseline.bintime)
+    # Delta = 0 because we want to normalize everything to baseline. Any neg Deltas will decrease the AUC (subtracted from AUC), which is not what we want.
+  exp <- which(select$RelTime>0)
+  for(j in 1:(nrow(select)-length(baseline))){
+    select.norm[j+1,] <- select[exp[j],]
+  }
+  select.norm[2:nrow(select.norm),2] <- (select.norm[2:nrow(select.norm),2]-baseline.delta)
+  x <- select.norm$RelTime
+  y <- select.norm$Delta
+  AUC <- auc(x, y, type = 'spline')
+  auc.urea.df[i,1] <- AUC
+  auc.urea.df[i,2:7] <- select.norm[1,4:9]
+}
+```
+
 ### Load Data
 ```{r}
 crds <- import.crds('CSV', 'metadata.csv')
@@ -48,6 +121,7 @@ crds.bin <- bin.crds(crds)
 inu.ind.raw <- crds[which(crds$Substrate == "Inulin"),]
 man.ind.raw <- crds[which(crds$Substrate == "Mannitol"),]
 sal.ind.raw <- crds[which(crds$Substrate == "Saline"),]
+
 
 ### Separate by Substrate & ABX
 inu.noabx.ind.raw <- inu.ind.raw[which(inu.ind.raw$Antibiotics == "No"),]
@@ -150,7 +224,6 @@ crds.rem <- crds.bin[-rem,]
 crds.rem <- crds.rem[-which(crds.rem$Number == 3982),]
 crds.rem$ID <- droplevels(crds.rem$ID)
 crds.rem$Season <- ordered(crds.rem$Season, levels=c("Summer", "Winter", "Spring"))
-
 
 
 # Summarize
