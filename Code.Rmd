@@ -241,6 +241,7 @@ crds.sum$Season <- ordered(crds.sum$Season, levels=c("Summer", "Winter", "Spring
 ```{r}
 crds.val <- crds.rem[which(crds.rem$Substrate != "Urea"),]
 crds.val <- crds.val[which(crds.val$Substrate != "Acetate"),]
+crds.val <- crds.val[which(crds.val$Substrate != "Butyrate"),]
 crds.inu.val <- crds.val[which(crds.val$Substrate == "Inulin"),]
 crds.man.val <- crds.val[which(crds.val$Substrate == "Mannitol"),]
 crds.inu.end.val <- crds.inu.val[which(crds.inu.val$RelTime > 0),]
@@ -298,13 +299,13 @@ man.all <- crds.sum[which(crds.sum$Substrate == "Mannitol"),]
 
 sal.all <- crds.sum[which(crds.sum$Substrate == "Saline"),]
 
-ure.all <- crds.sum[which(crds.sum$Substrate == "Urea"),]
+#ure.all <- crds.sum[which(crds.sum$Substrate == "Urea"),]
 ```
 
 ### Calculate AUC
 ```{r}
 # AUC = Area Under Curve
-# https://stackoverflow.com/questions/4954507/calculate-the-area-under-a-curve
+# Rectangle Method
 
 ### Remove unwanted substrates
 #crds.auc <- crds.rem[-which(crds.rem$Substrate == "Urea"),]
@@ -313,36 +314,52 @@ crds.auc <- crds.auc[-which(crds.auc$Substrate == "Butyrate"),]
 crds.auc$Substrate <- droplevels(crds.auc$Substrate)
 crds.auc$ID <- droplevels(crds.auc$ID)
 
+
 ### Calculate AUC
 ids <- levels(crds.auc$ID)
 auc.df <- data.frame(crds.auc[1,])
 auc.df <- auc.df[,-2:-3]
+  # Remove Delta and CO2 cols
 auc.df <- auc.df[,-8]
+  # Remove BinTime col
 colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate")
-for(i in 1:length(ids)){
+  # Rename cols
+for (i in 1:length(ids)){
   ID <- ids[i]
   select <- crds.auc[which(crds.auc$ID == ID),]
-  baseline <- which(select$RelTime < 0)
-  baseline.reltime <- mean(select$RelTime[baseline])
-  baseline.delta <- mean(select$Delta[baseline])
-  baseline.co2 <- mean(select$CO2[baseline])
-  baseline.bintime <- mean(select$BinTime[baseline])
-  select.norm <- data.frame(RelTime=baseline.reltime, Delta=0, CO2=baseline.co2,
-                            Number=select$Number[1], ID=select$ID[1], Season=select$Season[1],
-                            Sex=select$Sex[1], Antibiotics=select$Antibiotics[1],
-                            Substrate=select$Substrate[1], BinTime=baseline.bintime)
-    # Delta = 0 because we want to normalize everything to baseline. Any neg Deltas will decrease the AUC (subtracted from AUC), which is not what we want.
-  exp <- which(select$RelTime>0)
-  for(j in 1:(nrow(select)-length(baseline))){
-    select.norm[j+1,] <- select[exp[j],]
+    # Dataframe with CRDS values for 1 squirrel
+
+  # Normalize delta value to baseline
+  select$Delta <- select$Delta - select$Delta[1]
+  
+  # Normalize RelTime to baseline
+  select$RelTime <- select$RelTime - select$RelTime[1]
+  
+  # Calculate total time
+  totTime <- select$RelTime[nrow(select)]
+    # RelTime for the very last delta value
+  
+  # Calculate total number of values
+  n <- (nrow(select)-1)
+    # Baseline is the start of our curve, so we don't need to calculate a rectangle for it
+  
+  # Calculate interval
+  int <- totTime/n
+  
+  # Create auc variable
+  AUC <- 0
+  
+  # Run rectangle method integration
+  for (j in 1:n){
+    AUC <- AUC + (int*select$Delta[j+1])
   }
-  select.norm[2:nrow(select.norm),2] <- (select.norm[2:nrow(select.norm),2]-baseline.delta)
-  x <- select.norm$RelTime
-  y <- select.norm$Delta
-  AUC <- auc(x, y, type = 'spline')
+    
   auc.df[i,1] <- AUC
-  auc.df[i,2:7] <- select.norm[1,4:9]
+  auc.df[i, 2:7] <- select[1, 4:9]
 }
+
+write.csv(auc.df, "auc.csv", row.names=F)
+
 
 ### Subset by Substrate & ABX
 auc.inu <- auc.df[which(auc.df$Substrate == "Inulin"),]
@@ -359,315 +376,6 @@ auc.sal.noabx <- auc.sal[which(auc.sal$Antibiotics == "No"),]
 ```
 
 
-### Calculate AUC after 1 h
-```{r}
-### Calculate AUC
-ids <- levels(crds.auc$ID)
-auc.beg1.df <- data.frame(crds.auc[1,])
-auc.beg1.df <- auc.beg1.df[,-2:-3]
-auc.beg1.df <- auc.beg1.df[,-8]
-colnames(auc.beg1.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate")
-auc.end1.df <- data.frame(crds.auc[1,])
-auc.end1.df <- auc.end1.df[,-2:-3]
-auc.end1.df <- auc.end1.df[,-8]
-colnames(auc.end1.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate")
-for(i in 1:length(ids)){
-  ID <- ids[i]
-  select <- crds.auc[which(crds.auc$ID == ID),]
-  baseline <- which(select$RelTime < 0)
-  baseline.reltime <- mean(select$RelTime[baseline])
-  baseline.delta <- mean(select$Delta[baseline])
-  baseline.co2 <- mean(select$CO2[baseline])
-  baseline.bintime <- mean(select$BinTime[baseline])
-  select.norm <- data.frame(RelTime=baseline.reltime, Delta=0,
-                            CO2=baseline.co2, Number=select$Number[1],
-                            ID=select$ID[1], Season=select$Season[1],
-                            Sex=select$Sex[1], 
-                            Antibiotics=select$Antibiotics[1],
-                            Substrate=select$Substrate[1], 
-                            BinTime=baseline.bintime)
-    # Delta = 0 because we want to normalize everything to baseline. Any neg Deltas will decrease the AUC (subtracted from AUC), which is not what we want.
-  exp <- which(select$RelTime>0)
-  for(j in 1:(nrow(select)-length(baseline))){
-    select.norm[j+1,] <- select[exp[j],]
-  }
-  select.norm[2:nrow(select.norm),2] <-
-    (select.norm[2:nrow(select.norm),2]-baseline.delta)
-  x <- select.norm$RelTime
-  y <- select.norm$Delta
-  #x2 <- x[which(x > 1.999)]
-  #y2 <- y[which(x > 1.999)]
-  #x3 <- x[which(x < 2)]
-  #y3 <- y[which(x < 2)]
-  AUC <- auc(x, y, from = 1, to = max(x), type='spline')
-  #AUC <- auc(x2, y2, type = 'spline')
-  auc.end1.df[i,1] <- AUC
-  auc.end1.df[i,2:7] <- select.norm[1,4:9]
-  AUC <- auc(x, y, from = min(x), to = 0.999999, type='spline')
-  #AUC <- auc(x3, y3, type = 'spline')
-  auc.beg1.df[i,1] <- AUC
-  auc.beg1.df[i, 2:7] <- select.norm[1,4:9]
-}
-
-
-
-
-### Check Normality
-hist(auc.beg1.df$AUC)
-qqnorm(auc.beg1.df$AUC)
-qqline(auc.beg1.df$AUC)
-shapiro.test(auc.beg1.df$AUC)
-  # p-value = 6.333e-12
-hist(auc.end1.df$AUC)
-qqnorm(auc.end1.df$AUC)
-qqline(auc.end1.df$AUC)
-shapiro.test(auc.end1.df$AUC)
-  # p-value = 3.35e-15
-
-### Boxplots
-ggplot(auc.beg1.df, aes(x=Season, y=AUC, fill=Season)) +
-  geom_boxplot(position=position_dodge(1)) +
-  geom_point() +
-  facet_grid(Antibiotics~Substrate)
-ggplot(auc.end1.df, aes(x=Season, y=AUC, fill=Season)) +
-  geom_boxplot(position=position_dodge(1)) +
-  geom_point() +
-  facet_grid(Antibiotics~Substrate)
-
-### Separate
-auc.inu.beg1 <- auc.beg1.df[which(auc.beg1.df$Substrate == "Inulin"),]
-auc.inu.beg1.abx <- auc.inu.beg1[which(auc.inu.beg1$Antibiotics == "Yes"),]
-auc.inu.beg1.noabx <- auc.inu.beg1[which(auc.inu.beg1$Antibiotics == "No"),]
-auc.man.beg1 <- auc.beg1.df[which(auc.beg1.df$Substrate == "Mannitol"),]
-auc.man.beg1.abx <- auc.man.beg1[which(auc.man.beg1$Antibiotics == "Yes"),]
-auc.man.beg1.noabx <- auc.man.beg1[which(auc.man.beg1$Antibiotics == "No"),]
-auc.inu.end1 <- auc.end1.df[which(auc.end1.df$Substrate == "Inulin"),]
-auc.inu.end1.abx <- auc.inu.end1[which(auc.inu.end1$Antibiotics == "Yes"),]
-auc.inu.end1.noabx <- auc.inu.end1[which(auc.inu.end1$Antibiotics == "No"),]
-auc.man.end1 <- auc.end1.df[which(auc.end1.df$Substrate == "Mannitol"),]
-auc.man.end1.abx <- auc.man.end1[which(auc.man.end1$Antibiotics == "Yes"),]
-auc.man.end1.noabx <- auc.man.end1[which(auc.man.end1$Antibiotics == "No"),]
-
-
-# Inulin
-wilcox.test(AUC~Antibiotics, data=auc.inu.beg1)
-  # p-value = 0.05204
-kruskal.test(formula = AUC ~ Season, data=auc.inu.beg1.abx)
-  # p-value = 0.4647
-kruskal.test(formula = AUC ~ Season, data=auc.inu.beg1.noabx)
-  # p-value = 0.08275
-kruskalmc(resp = AUC ~ Season, data=auc.inu.beg1.noabx)
-  # Spring-Winter
-pairwise.wilcox.test(auc.inu.beg1.noabx$AUC, auc.inu.beg1.noabx$Season)
-  # Summer-Spring = 0.091
-  # Winter-Spring = 0.530
-  # Summer-Winter = 0.444
-wilcox.test(AUC~Antibiotics, data=auc.inu.beg1)
-  # p-value = 0.05204
-kruskal.test(formula = AUC ~ Season, data=auc.inu.end1.abx)
-  # p-value = 0.3472
-kruskal.test(formula = AUC ~ Season, data=auc.inu.end1.noabx)
-  # p-value = 0.09011
-kruskalmc(resp = AUC ~ Season, data=auc.inu.end1.noabx)
-  # Spring-Winter
-pairwise.wilcox.test(auc.inu.end1.noabx$AUC, auc.inu.end1.noabx$Season)
-  # Summer-Spring = 0.030
-  # Winter-Spring = 0.030
-  # Summer-Winter = 0.29
-
-
-# Mannitol
-wilcox.test(AUC~Antibiotics, data=auc.man.beg1)
-  # p-value = 0.3851
-kruskal.test(formula = AUC ~ Season, data=auc.man.beg1.abx)
-  # p-value = 0.3798
-kruskal.test(formula = AUC ~ Season, data=auc.man.beg1.noabx)
-  # p-value = 0.7867
-kruskalmc(resp = AUC ~ Season, data=auc.man.beg1.noabx)
-  # Spring-Winter
-pairwise.wilcox.test(auc.man.beg1.noabx$AUC, auc.man.beg1.noabx$Season)
-  # Summer-Spring = 1
-  # Winter-Spring = 1
-  # Summer-Winter = 1
-wilcox.test(AUC~Antibiotics, data=auc.man.end1)
-  # p-value = 4.395e-05
-kruskal.test(formula = AUC ~ Season, data=auc.man.end1.abx)
-  # p-value = 0.4642
-kruskal.test(formula = AUC ~ Season, data=auc.man.end1.noabx)
-  # p-value = 0.3005
-kruskalmc(resp = AUC ~ Season, data=auc.man.end1.noabx)
-  # Spring-Winter
-pairwise.wilcox.test(auc.man.end1.noabx$AUC, auc.man.end1.noabx$Season)
-  # Summer-Spring = 1
-  # Winter-Spring = 1
-  # Summer-Winter = 0.3
-
-
-### Kruskal-Wallis BH-adjust
-p.adjust(c(0.4647, 0.08275, 0.3472, 0.09011, 0.3798, 0.7867, 0.4642, 0.3005), method="BH")
-  # Inulin Beg ABX Season = 0.5310857
-  # Inulin Beg No ABX Season = 0.3604400
-  # Inulin End ABX Season = 0.5310857
-  # Inulin End No ABX Season = 0.3604400
-  # Mannitol Beg ABX Season = 0.5310857
-  # Mannitol Beg No ABX Season = 0.7867000
-  # Mannitol End ABX Season = 0.5310857
-  # Mannitol End No ABX Season = 0.5310857
-```
-### Calculate AUC after 2 h
-```{r}
-### Calculate AUC
-ids <- levels(crds.auc$ID)
-auc.beg2.df <- data.frame(crds.auc[1,])
-auc.beg2.df <- auc.beg2.df[,-2:-3]
-auc.beg2.df <- auc.beg2.df[,-8]
-colnames(auc.beg2.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate")
-auc.end2.df <- data.frame(crds.auc[1,])
-auc.end2.df <- auc.end2.df[,-2:-3]
-auc.end2.df <- auc.end2.df[,-8]
-colnames(auc.end2.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate")
-for(i in 1:length(ids)){
-  ID <- ids[i]
-  select <- crds.auc[which(crds.auc$ID == ID),]
-  baseline <- which(select$RelTime < 0)
-  baseline.reltime <- mean(select$RelTime[baseline])
-  baseline.delta <- mean(select$Delta[baseline])
-  baseline.co2 <- mean(select$CO2[baseline])
-  baseline.bintime <- mean(select$BinTime[baseline])
-  select.norm <- data.frame(RelTime=baseline.reltime, Delta=0,
-                            CO2=baseline.co2, Number=select$Number[1],
-                            ID=select$ID[1], Season=select$Season[1],
-                            Sex=select$Sex[1], 
-                            Antibiotics=select$Antibiotics[1],
-                            Substrate=select$Substrate[1], 
-                            BinTime=baseline.bintime)
-    # Delta = 0 because we want to normalize everything to baseline. Any neg Deltas will decrease the AUC (subtracted from AUC), which is not what we want.
-  exp <- which(select$RelTime>0)
-  for(j in 1:(nrow(select)-length(baseline))){
-    select.norm[j+1,] <- select[exp[j],]
-  }
-  select.norm[2:nrow(select.norm),2] <-
-    (select.norm[2:nrow(select.norm),2]-baseline.delta)
-  x <- select.norm$RelTime
-  y <- select.norm$Delta
-  #x2 <- x[which(x > 1.999)]
-  #y2 <- y[which(x > 1.999)]
-  #x3 <- x[which(x < 2)]
-  #y3 <- y[which(x < 2)]
-  AUC <- auc(x, y, from = 2, to = max(x), type='spline')
-  #AUC <- auc(x2, y2, type = 'spline')
-  auc.end2.df[i,1] <- AUC
-  auc.end2.df[i,2:7] <- select.norm[1,4:9]
-  AUC <- auc(x, y, from = min(x), to = 1.999999, type='spline')
-  #AUC <- auc(x3, y3, type = 'spline')
-  auc.beg2.df[i,1] <- AUC
-  auc.beg2.df[i, 2:7] <- select.norm[1,4:9]
-}
-
-
-
-
-### Check Normality
-hist(auc.beg2.df$AUC)
-qqnorm(auc.beg2.df$AUC)
-qqline(auc.beg2.df$AUC)
-shapiro.test(auc.beg2.df$AUC)
-  # p-value = 2.864e-14
-hist(auc.end2.df$AUC)
-qqnorm(auc.end2.df$AUC)
-qqline(auc.end2.df$AUC)
-shapiro.test(auc.end2.df$AUC)
-  # p-value = 8.118e-16
-
-### Boxplots
-ggplot(auc.beg2.df, aes(x=Season, y=AUC, fill=Season)) +
-  geom_boxplot(position=position_dodge(1)) +
-  geom_point() +
-  facet_grid(Antibiotics~Substrate)
-ggplot(auc.end2.df, aes(x=Season, y=AUC, fill=Season)) +
-  geom_boxplot(position=position_dodge(1)) +
-  geom_point() +
-  facet_grid(Antibiotics~Substrate)
-
-### Separate
-auc.inu.beg2 <- auc.beg2.df[which(auc.beg2.df$Substrate == "Inulin"),]
-auc.inu.beg2.abx <- auc.inu.beg2[which(auc.inu.beg2$Antibiotics == "Yes"),]
-auc.inu.beg2.noabx <- auc.inu.beg2[which(auc.inu.beg2$Antibiotics == "No"),]
-auc.man.beg2 <- auc.beg2.df[which(auc.beg2.df$Substrate == "Mannitol"),]
-auc.man.beg2.abx <- auc.man.beg2[which(auc.man.beg2$Antibiotics == "Yes"),]
-auc.man.beg2.noabx <- auc.man.beg2[which(auc.man.beg2$Antibiotics == "No"),]
-auc.inu.end2 <- auc.end2.df[which(auc.end2.df$Substrate == "Inulin"),]
-auc.inu.end2.abx <- auc.inu.end2[which(auc.inu.end2$Antibiotics == "Yes"),]
-auc.inu.end2.noabx <- auc.inu.end2[which(auc.inu.end2$Antibiotics == "No"),]
-auc.man.end2 <- auc.end2.df[which(auc.end2.df$Substrate == "Mannitol"),]
-auc.man.end2.abx <- auc.man.end2[which(auc.man.end2$Antibiotics == "Yes"),]
-auc.man.end2.noabx <- auc.man.end2[which(auc.man.end2$Antibiotics == "No"),]
-
-# Inulin
-wilcox.test(AUC~Antibiotics, data=auc.inu.beg2)
-  # p-value = 0.011
-kruskal.test(formula = AUC ~ Season, data=auc.inu.beg2.abx)
-  # p-value = 0.6015
-kruskal.test(formula = AUC ~ Season, data=auc.inu.beg2.noabx)
-  # p-value = 0.8821
-kruskalmc(resp = AUC ~ Season, data=auc.inu.beg2.noabx)
-  # Spring-Winter
-pairwise.wilcox.test(auc.inu.beg2.noabx$AUC, auc.inu.beg2.noabx$Season)
-  # Summer-Spring = 1
-  # Winter-Spring = 1
-  # Summer-Winter = 1
-wilcox.test(AUC~Antibiotics, data=auc.inu.end2)
-  # p-value = 7.112e-06
-kruskal.test(formula = AUC ~ Season, data=auc.inu.end2.abx)
-  # p-value = 0.0758
-kruskal.test(formula = AUC ~ Season, data=auc.inu.end2.noabx)
-  # p-value = 0.02651
-kruskalmc(resp = AUC ~ Season, data=auc.inu.end2.noabx)
-  # Spring-Winter
-pairwise.wilcox.test(auc.inu.end2.noabx$AUC, auc.inu.end2.noabx$Season, p.adjust.method="BH")
-  # Summer-Spring = 0.298
-  # Winter-Spring = 0.024
-  # Summer-Winter = 0.298
-
-# Mannitol
-wilcox.test(AUC~Antibiotics, data=auc.man.beg)
-  # p-value = 0.0002716
-kruskal.test(formula = AUC ~ Season, data=auc.man.beg2.abx)
-  # p-value = 0.7697
-kruskal.test(formula = AUC ~ Season, data=auc.man.beg2.noabx)
-  # p-value = 0.3315
-kruskalmc(resp = AUC ~ Season, data=auc.man.beg2.noabx)
-  # Spring-Winter
-pairwise.wilcox.test(auc.man.beg2.noabx$AUC, auc.man.beg2.noabx$Season)
-  # Summer-Spring = 1
-  # Winter-Spring = 1
-  # Summer-Winter = 0.41
-wilcox.test(AUC~Antibiotics, data=auc.man.end2)
-  # p-value = 4.395e-05
-kruskal.test(formula = AUC ~ Season, data=auc.man.end2.abx)
-  # p-value = 0.01283
-kruskal.test(formula = AUC ~ Season, data=auc.man.end2.noabx)
-  # p-value = 0.5263
-kruskalmc(resp = AUC ~ Season, data=auc.man.end2.noabx)
-  # Spring-Winter
-pairwise.wilcox.test(auc.man.end2.noabx$AUC, auc.man.end2.noabx$Season)
-  # Summer-Spring = 1
-  # Winter-Spring = 1
-  # Summer-Winter = 0.88
-
-
-### Kruskal-Wallis BH-Adjust
-p.adjust(c(0.6015, 0.8821, 0.0758, 0.02651, 0.7697, 0.3315, 0.01283, 0.5263), method="BH")
-  # Inulin Beg ABX Season = 0.8020000
-  # Inulin Beg No ABX Season = 0.8821000
-  # Inulin End ABX Season = 0.2021333
-  # Inulin End No ABX Season = 0.1060400
-  # Mannitol Beg ABX Season = 0.8796571
-  # Mannitol Beg No ABX Season = 0.6630000
-  # Mannitol End ABX Season = 0.1026400
-  # Mannitol End No ABX Season = 0.8020000
-
-```
 
 ### Test Delta & Rel Time
 ```{r}
@@ -2374,4 +2082,62 @@ ml.man.results2 <- QCAT_GEE(OTU=otu.man.noabx.ml, Tax=tax.man.noabx.ml, X=var2.m
 ml.man.results3 <- QCAT_GEE(OTU=otu.man.noabx.ml, Tax=tax.man.noabx.ml, X=var3.man.noabx.ml, X.index = 1, Z=var3.man.noabx.ml, Z.index=1,  fdr.alpha=0.05, n.resample = 100)
   # Peak Time
   # No sig
+```
+
+
+
+
+
+### Old AUC calculation (spline integration)
+```{r}
+# AUC = Area Under Curve
+# https://stackoverflow.com/questions/4954507/calculate-the-area-under-a-curve
+### Remove unwanted substrates
+#crds.auc <- crds.rem[-which(crds.rem$Substrate == "Urea"),]
+crds.auc <- crds.rem[-which(crds.rem$Substrate == "Acetate"),]
+crds.auc <- crds.auc[-which(crds.auc$Substrate == "Butyrate"),]
+crds.auc$Substrate <- droplevels(crds.auc$Substrate)
+crds.auc$ID <- droplevels(crds.auc$ID)
+### Calculate AUC
+ids <- levels(crds.auc$ID)
+auc.df <- data.frame(crds.auc[1,])
+auc.df <- auc.df[,-2:-3]
+auc.df <- auc.df[,-8]
+colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate")
+for(i in 1:length(ids)){
+  ID <- ids[i]
+  select <- crds.auc[which(crds.auc$ID == ID),]
+  baseline.delta <- select$Delta[1]
+  select.norm <- data.frame(RelTime=select$RelTime[1], Delta=0, CO2=select$CO2[1],
+                            Number=select$Number[1], ID=select$ID[1], Season=select$Season[1],
+                            Sex=select$Sex[1], Antibiotics=select$Antibiotics[1],
+                            Substrate=select$Substrate[1], BinTime=select$BinTime[1])
+    # Delta = 0 because we want to normalize everything to baseline. Any neg Deltas will decrease the AUC (subtracted from AUC), which is not what we want.
+  exp <- which(select$RelTime>0)
+  for(j in 1:(nrow(select)-1)){
+    select.norm[j+1,] <- select[exp[j],]
+  }
+  select.norm[2:nrow(select.norm),2] <- (select.norm[2:nrow(select.norm),2]-baseline.delta)
+  x <- select.norm$RelTime
+  y <- select.norm$Delta
+  AUC <- auc(x, y, type = 'spline')
+  auc.df[i,1] <- AUC
+  auc.df[i,2:7] <- select.norm[1,4:9]
+}
+
+write.csv(auc.df, "auc.old.csv", row.names=F)
+
+
+### Subset by Substrate & ABX
+#auc.inu <- auc.df[which(auc.df$Substrate == "Inulin"),]
+#auc.man <- auc.df[which(auc.df$Substrate == "Mannitol"),]
+#auc.sal <- auc.df[which(auc.df$Substrate == "Saline"),]
+#auc.abx <- auc.df[which(auc.df$Antibiotics == "Yes"),]
+#auc.noabx <- auc.df[which(auc.df$Antibiotics == "No"),]
+#auc.inu.abx <- auc.inu[which(auc.inu$Antibiotics == "Yes"),]
+#auc.inu.noabx <- auc.inu[which(auc.inu$Antibiotics == "No"),]
+#auc.man.abx <- auc.man[which(auc.man$Antibiotics == "Yes"),]
+#auc.man.noabx <- auc.man[which(auc.man$Antibiotics == "No"),]
+#auc.sal.abx <- auc.sal[which(auc.sal$Antibiotics == "Yes"),]
+#auc.sal.noabx <- auc.sal[which(auc.sal$Antibiotics == "No"),]
 ```
