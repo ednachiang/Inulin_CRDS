@@ -786,6 +786,13 @@ shapiro.test(auc.man$AUC)
   # p-value = 2.868e-10
   # Not Normal
 
+hist(auc.man.noabx$AUC)
+qqnorm(auc.man.noabx$AUC)
+qqline(auc.man.noabx$AUC)
+shapiro.test(auc.man.noabx$AUC)
+  # p-value = 8.613e-05
+  # Not Normal
+
 hist(auc.sal$AUC)
 qqnorm(auc.sal$AUC)
 qqline(auc.sal$AUC)
@@ -817,6 +824,18 @@ fligner.test(AUC ~ Season, data=auc.inu.noabx)
   # p-value = 0.2768
 
 
+bartlett.test(AUC ~ Season, data=auc.man.noabx)
+  # p-value = 0.0009218
+  # Not appropriate for man due to distribution not being Normal
+leveneTest(AUC ~ Season, data=auc.man.noabx)
+  # p-value = 0.1505
+fligner.test(AUC ~ Season, data=auc.man.noabx)
+  # p-value = 0.06714
+
+
+
+
+
 ### Boxplots
 auc.carb.df <- auc.df[which(auc.df$Substrate != "Saline"),]
 auc.carb.df <- auc.carb.df[which(auc.carb.df$Antibiotics == "No"),]
@@ -827,7 +846,7 @@ auc.carb.plot <- ggplot(auc.carb.df, aes(x=Season, y=AUC, fill=Season)) +
   scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   ylab(expression("Area Under"~~delta^13~"C"~~"Curve"~"(%"[o]^2~")")) +
   scale_y_continuous(breaks=c(0, 2500, 5000, 7500, 10000), limits=c(0, 10000)) +
-  theme(axis.text.x = element_text(size=14),
+  theme(axis.text.x = element_text(size=20),
         axis.text.y = element_text(size=14),
         axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
         axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
@@ -835,7 +854,7 @@ auc.carb.plot <- ggplot(auc.carb.df, aes(x=Season, y=AUC, fill=Season)) +
         #strip.text.y = element_text(size=14),
         panel.spacing=unit(2, "lines"),
         legend.title = element_text(size = 18, face="bold"),
-        legend.text = element_text(size=18),
+        legend.text = element_text(size=16),
         panel.grid.minor = element_blank(),
         panel.grid.major.x = element_blank(),
         strip.background = element_blank()
@@ -999,10 +1018,6 @@ kruskal.test(formula = AUC ~ Season, data=auc.man.noabx)
   # p-value = 0.0962
 kruskalmc(resp = AUC ~ Season, data=auc.man.noabx)
   # No diff
-pairwise.wilcox.test(auc.man.noabx$AUC, auc.man.noabx$Season)
-  # Summer-Spring = 1.0
-  # Winter-Spring = 0.19
-  # Summer-Winter = 0.16
 
 
 # Saline
@@ -1081,11 +1096,25 @@ shapiro.test(max.inu$Delta)
   # p-value = 7.558e-06
   # Not Normal
 
+hist(max.inu.noabx$Delta)
+qqnorm(max.inu.noabx$Delta)
+qqline(max.inu.noabx$Delta)
+shapiro.test(max.inu.noabx$Delta)
+  # p-value = 0.1429
+  # Normal
+
 hist(max.man$Delta)
 qqnorm(max.man$Delta)
 qqline(max.man$Delta)
 shapiro.test(max.man$Delta)
   # p-value = 5.542e-09
+  # Not Normal
+
+hist(max.man.noabx$Delta)
+qqnorm(max.man.noabx$Delta)
+qqline(max.man.noabx$Delta)
+shapiro.test(max.man.noabx$Delta)
+  # p-value = 0.001635
   # Not Normal
 
 hist(max.sal$Delta)
@@ -1116,23 +1145,27 @@ shapiro.test(max.noabx$Delta)
 max.carb.df <- max.df[which(max.df$Substrate != "Saline"),]
 max.carb.df <- max.carb.df[which(max.carb.df$Antibiotics == "No"),]
 max.carb.plot <- ggplot(max.carb.df, aes(x=Season, y=Delta, fill=Season)) +
-  geom_boxplot(position=position_dodge(1)) +
-  geom_point() +
+  geom_boxplot(outlier.size=-1) +
+  geom_point(position=position_jitterdodge(jitter.width=0.75)) +
   facet_grid(.~Substrate) +
   scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   ylab(expression("Max"~~delta^13~"C"~~"(%"[o]~")")) +
-  theme(axis.text.x = element_text(size=14),
+  scale_y_continuous(breaks=c(0, 1125, 2250, 3375, 4500), limits=c(0, 4500)) +
+  theme(axis.text.x = element_text(size=20),
         axis.text.y = element_text(size=14),
         axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
         axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
-        strip.text.x = element_text(size=20),
+        strip.text.x = element_text(size=20, face="bold"),
         #strip.text.y = element_text(size=14),
-        panel.spacing=unit(1, "lines"),
-        legend.title = element_text(size = 18),
-        legend.text = element_text(size=16)
+        panel.spacing=unit(2, "lines"),
+        legend.title = element_text(size = 18, face="bold"),
+        legend.text = element_text(size=16),
+        panel.grid.minor = element_blank(),
+        panel.grid.major.x = element_blank(),
+        strip.background = element_blank()
   )
 
-tiff("max.mdtp.tiff", width = 12, height = 3.90, units = "in", res = 300)
+tiff("max.mdtp.tiff", width = 12.5, height = 4, units = "in", res = 300)
 max.carb.plot
 dev.off()
 
