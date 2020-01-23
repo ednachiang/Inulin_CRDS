@@ -216,12 +216,8 @@ ggplot(sal.ind.raw, aes(x=RelTime, y=Delta, color=Season)) +
 
 ### Summarize by Substrate + ABX
 ```{r}
-# Remove NA's (gavage time)
-rem <- which(is.na(crds.bin$Delta))
-crds.rem <- crds.bin[-rem,]
-
 # Remove 3982 because it may be incorrectly labeled
-crds.rem <- crds.rem[-which(crds.rem$Number == 3982),]
+crds.rem <- crds.bin[-which(crds.bin$Number == 3982),]
 crds.rem$ID <- droplevels(crds.rem$ID)
 crds.rem$Season <- ordered(crds.rem$Season, levels=c("Summer", "Winter", "Spring"))
 
