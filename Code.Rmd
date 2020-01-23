@@ -274,7 +274,7 @@ shapiro.test(crds.man.end.val$Delta)
 wilcox.test(Delta~Antibiotics, data=crds.val)
   # p-value < 2.2e-16
 wilcox.test(Delta~Antibiotics, data=crds.inu.val)
-  # p-value < 2.2e=16
+  # p-value < 2.2e-16
 wilcox.test(Delta~Antibiotics, data=crds.man.val)
   # p-value = 2.002e-15
 wilcox.test(Delta~Antibiotics, data=crds.inu.end.val)
@@ -388,18 +388,16 @@ hist(inu.beg$Delta)
 qqnorm(inu.beg$Delta)
 qqline(inu.beg$Delta)
 shapiro.test(inu.beg$Delta)
-  # p-value = 2.567e-10
+  # p-value = 7.876e-10
 
 
 ### Test
 kruskal.test(formula = Delta ~ ID, data=inu.beg)
-  # p-value = 0.7006
+  # p-value = 0.9486
 kruskal.test(formula = Delta ~ RelTime, data=inu.beg)
-  # p-value = 0.03874
+  # p-value = 0.01868
 kruskal.test(formula = Delta ~ Season, data=inu.beg)
-  # p-value = 0.05678
-kruskalmc(resp = Delta ~ Season, data=inu.beg)
-  # No diff
+  # p-value = 0.2358
 
 ```
 
@@ -565,6 +563,8 @@ inu.plot <- ggplot(inu.all, aes(x=BinTime, y=Mean, color=Season)) +
   ggtitle(expression("Inulin"~~delta^13~"C")) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
+  xlim(-0.6,4.1) +
+  scale_y_continuous(breaks=c(0, 625, 1250, 1875, 2500), limits=c(-30, 2700)) +
   theme(plot.title=element_text(hjust=0.5, size=20),
         axis.title.x=element_text(size=20, 
                                   margin=margin(t=10, r=0, b=0, l=0)),
@@ -573,7 +573,8 @@ inu.plot <- ggplot(inu.all, aes(x=BinTime, y=Mean, color=Season)) +
         axis.text.y=element_text(size=16),
         plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
           #top, right, bottom, left
-        panel.grid.major = element_blank()
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
   ) +
   guides(colour=F, linetype=F)
 
@@ -590,6 +591,8 @@ man.plot <- ggplot(man.all, aes(x=BinTime, y=Mean, color=Season)) +
   ggtitle(expression("Mannitol"~~delta^13~"C")) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
+  xlim(-0.6,2.6) +
+  scale_y_continuous(breaks=c(0, 250, 500, 750, 1000), limits=c(-30, 760)) +
   theme(plot.title=element_text(hjust=0.5, size=20),
         axis.title.x=element_text(size=20, 
                                   margin=margin(t=10, r=0, b=0, l=0)),
@@ -598,7 +601,8 @@ man.plot <- ggplot(man.all, aes(x=BinTime, y=Mean, color=Season)) +
         axis.text.y=element_text(size=16),
         plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
           #top, right, bottom, left
-        panel.grid.major = element_blank()
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
   ) +
   guides(colour=F, linetype=F)
 
@@ -685,6 +689,8 @@ carb.plot <- ggplot(carb.sum, aes(x=BinTime, y=Mean, color=Season)) +
   facet_grid(.~Substrate) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
+  xlim(-0.6,4.1) +
+  scale_y_continuous(breaks=c(0, 500, 1000, 1500, 2000, 2500), limits=c(-30, 2700)) +
   theme(axis.text.x = element_text(size=16),
         axis.text.y = element_text(size=16),
         axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
@@ -694,13 +700,14 @@ carb.plot <- ggplot(carb.sum, aes(x=BinTime, y=Mean, color=Season)) +
         panel.spacing=unit(1, "lines"),
         legend.title = element_text(size = 20, face="bold"),
         legend.text = element_text(size=18),
-        panel.grid.major = element_blank()
-        #panel.grid.minor = element_blank()
+        panel.grid.minor = element_blank(),
+        #panel.grid.major = element_blank(),
+        strip.background = element_blank()
   )
 
 
 
-tiff("crds.mdtp2.tiff", width = 12.75, height = 5, units = "in", res = 300)
+tiff("crds.mdtp.tiff", width = 12.75, height = 5, units = "in", res = 300)
 carb.plot
 dev.off()
 ```
@@ -720,7 +727,7 @@ grid.draw(legend)
 dev.off()
 
 
-tiff("inu.man.mdtp.tiff", width = 12.5, height = 3.25, units = "in", res = 300)
+tiff("inu.man.mdtp2.tiff", width = 12.5, height = 3.25, units = "in", res = 300)
 grid.newpage()
 pushViewport(viewport(layout=(grid.layout(1,3, widths=c(1,1,0.35), heights=c(1,1,1)))))
 print(inu.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
@@ -772,7 +779,7 @@ hist(auc.inu$AUC)
 qqnorm(auc.inu$AUC)
 qqline(auc.inu$AUC)
 shapiro.test(auc.inu$AUC)
-  # p-value = 3.752e-06
+  # p-value = 4.169e-06
   # Not Normal
 
 hist(auc.man$AUC)
@@ -786,7 +793,7 @@ hist(auc.sal$AUC)
 qqnorm(auc.sal$AUC)
 qqline(auc.sal$AUC)
 shapiro.test(auc.sal$AUC)
-  # p-value = 1.036e-12
+  # p-value = 7.385e-13
   # Not Normal
 
 hist(auc.abx$AUC)
@@ -809,8 +816,8 @@ shapiro.test(auc.noabx$AUC)
 auc.carb.df <- auc.df[which(auc.df$Substrate != "Saline"),]
 auc.carb.df <- auc.carb.df[which(auc.carb.df$Antibiotics == "No"),]
 auc.carb.plot <- ggplot(auc.carb.df, aes(x=Season, y=AUC, fill=Season)) +
-  geom_boxplot(position=position_dodge(1)) +
-  geom_point() +
+  geom_boxplot(position=position_dodge(1), outlier.size=-1) +
+  geom_point(position="jitter") +
   facet_grid(.~Substrate) +
   scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   ylab(expression("Area Under"~~delta^13~"C"~~"Curve"~"(%"[o]^2~")")) +
@@ -968,17 +975,11 @@ wilcox.test(AUC~Sex, data=auc.df)
 
 # Inulin
 wilcox.test(AUC~Antibiotics, data=auc.inu)
-  # p-value = 2.4e-06
+  # p-value = 8.695e-08
 kruskal.test(formula = AUC ~ Season, data=auc.inu.abx)
   # p-value = 0.309
 kruskal.test(formula = AUC ~ Season, data=auc.inu.noabx)
-  # p-value = 0.03649
-kruskalmc(resp = AUC ~ Season, data=auc.inu.noabx)
-  # Winter-Spring
-pairwise.wilcox.test(auc.inu.noabx$AUC, auc.inu.noabx$Season)
-  # Summer-Spring = 0.535
-  # Winter-Spring = 0.087
-  # Summer-Winter = 0.087
+  # p-value = 0.07149
 
 # Mannitol
 wilcox.test(AUC~Antibiotics, data=auc.man)
@@ -997,29 +998,35 @@ pairwise.wilcox.test(auc.man.noabx$AUC, auc.man.noabx$Season)
 
 # Saline
 wilcox.test(AUC~Antibiotics, data=auc.sal)
-  # p-value = 0.1882
+  # p-value = 0.1362
 kruskal.test(formula = AUC ~ Season, data=auc.sal.abx)
   # p-value = 0.03039
+kruskalmc(resp = AUC ~ Season, data=auc.sal.abx)
+  # No diff
+pairwise.wilcox.test(auc.sal.abx$AUC, auc.sal.abx$Season)
+  # Summer-Spring = 0.021
+  # Winter-Spring = 0.779
+  # Summer-Winter = 0.108
 kruskal.test(formula = AUC ~ Season, data=auc.sal.noabx)
-  # p-value = 0.2256
+  # p-value = 0.1202
 
 
 
 
 ### Kruskal-Wallis BH-adjusted p-values
 # Within-substrate ABX wilcoxon test
-p.adjust(c(2.4e-06, 3.018e-06, 0.1882), method="BH")
-  # Inulin = 4.527e-06
+p.adjust(c(8.695e-08, 3.018e-06, 0.1362), method="BH")
+  # Inulin = 2.6085e-07
   # Mannitol = 4.527e-06
-  # Saline = 0.1882
+  # Saline = 0.13620
 # Within-substrate season kruskal-wallis test
-p.adjust(c(0.309, 0.03649, 0.2487, 0.0962, 0.03039, 0.2256), method="BH")
+p.adjust(c(0.309, 0.07149, 0.2487, 0.0962, 0.03039, 0.1202), method="BH")
   # Inulin ABX = 0.30900
-  # Inulin No ABX = 0.10947
+  # Inulin No ABX = 0.18030
   # Mannitol ABX = 0.29844
-  # Mannitol No ABX = 0.19240
-  # Saline ABX = 0.10947
-  # Saline No ABX = 0.29844
+  # Mannitol No ABX = 0.18030
+  # Saline ABX = 0.18030
+  # Saline No ABX = 0.18030
 
 
 
@@ -1062,7 +1069,7 @@ hist(max.inu$Delta)
 qqnorm(max.inu$Delta)
 qqline(max.inu$Delta)
 shapiro.test(max.inu$Delta)
-  # p-value = 5.52e-06
+  # p-value = 7.558e-06
   # Not Normal
 
 hist(max.man$Delta)
@@ -1076,7 +1083,7 @@ hist(max.sal$Delta)
 qqnorm(max.sal$Delta)
 qqline(max.sal$Delta)
 shapiro.test(max.sal$Delta)
-  # p-value = 4.593e-13
+  # p-value = 5.269e-13
   # Not Normal
 
 hist(max.abx$Delta)
@@ -1194,7 +1201,7 @@ steal.legend <- ggplot(max.man, aes(x=Season, y=Delta, fill=Season)) +
         panel.spacing=unit(1, "lines"),
         legend.title = element_text(size = 20, face="bold"),
         legend.text = element_text(size=18),
-        panel.grid.major = element_blank()
+        panel.grid.major = element_blank(),
   )
 legend <- g_legend(steal.legend)
 
@@ -1252,24 +1259,24 @@ kruskalmc(resp = Delta ~ Substrate, data=max.abx)
   # Mannitol-Saline
 kruskal.test(formula = Delta ~ Season, data=max.abx)
   # p-value = 0.3582
-wilcox.test(Delta~Sex, data=max.inu)
-  # p-value = 0.8807
+wilcox.test(Delta~Sex, data=max.abx)
+  # p-value = 0.3535
 
 
 # Inulin
 wilcox.test(Delta~Antibiotics, data=max.inu)
-  # p-value = 1.115e-06
+  # p-value = 2.935e-08
 kruskal.test(formula = Delta ~ Season, data=max.inu.abx)
   # p-value = 0.862
 kruskal.test(formula = Delta ~ Season, data=max.inu.noabx)
-  # p-value = 0.002215
+  # p-value = 0.004309
 kruskalmc(resp = Delta ~ Season, data=max.inu.noabx)
   # Spring-Winter
   # Summer-Winter
 pairwise.wilcox.test(max.inu.noabx$Delta, max.inu.noabx$Season, method="BH")
   # Summer-Spring = 0.5350
-  # Winter-Spring = 0.0075
-  # Summer-Winter = 0.0019
+  # Winter-Spring = 0.0140
+  # Summer-Winter = 0.0035
 
 
 # Mannitol
@@ -1283,30 +1290,28 @@ kruskal.test(formula = Delta ~ Season, data=max.man.noabx)
 
 # Saline
 wilcox.test(Delta~Antibiotics, data=max.sal)
-  # p-value = 0.3424
-kruskalmc(resp = Delta ~ Season, data=max.sal.abx)
+  # p-value = 0.2554
+kruskal.test(formula = Delta ~ Season, data=max.sal.abx)
   # p-value = 0.02766
-kruskalmc(resp = Delta ~ Season, data=max.sal.abx)
-  # No diff
 kruskal.test(formula = Delta ~ Season, data=max.sal.noabx)
-  # p-value = 0.4557
+  # p-value = 0.252
 
 
 
 ### Kruskal-Wallis BH-adjusted p-values
 # Within-substrate ABX wilcoxon test
-p.adjust(c(1.115e-06, 1.897e-05, 0.3424), method="BH")
-  # Inulin = 3.3450e-06
+p.adjust(c(2.935e-08, 1.897e-05, 0.2554), method="BH")
+  # Inulin = 8.8050e-08
   # Mannitol = 2.8455e-05
-  # Saline = 0.34240
+  # Saline = 0.25540
 # Within-substrate season kruskal-wallis test
-p.adjust(c(0.862, 0.002215, 0.225, 0.05701, 0.02766, 0.4557), method="BH")
+p.adjust(c(0.862, 0.004309, 0.225, 0.05701, 0.02766, 0.252), method="BH")
   # Inulin ABX = 0.86200
-  # Inulin No ABX = 0.01329
-  # Mannitol ABX = 0.33750
+  # Inulin No ABX = 0.025854
+  # Mannitol ABX = 0.302400
   # Mannitol No ABX = 0.11402
   # Saline ABX = 0.08298
-  # Saline No ABX = 0.54684
+  # Saline No ABX = 0.302400
 
 
 ```
@@ -1326,7 +1331,7 @@ hist(max.inu$RelTime)
 qqnorm(max.inu$RelTime)
 qqline(max.inu$RelTime)
 shapiro.test(max.inu$RelTime)
-  # p-value = 0.0002751
+  # p-value = 0.0002087
   # Not Normal
 
 hist(max.man$RelTime)
@@ -1340,7 +1345,7 @@ hist(max.sal$RelTime)
 qqnorm(max.sal$RelTime)
 qqline(max.sal$RelTime)
 shapiro.test(max.sal$RelTime)
-  # p-value = 0.01009
+  # p-value = 0.009691
   # Not Normal
 
 hist(max.abx$RelTime)
@@ -1399,11 +1404,11 @@ t.test(RelTime ~ Sex, data=max.df)
 
 # Inulin
 wilcox.test(RelTime~Antibiotics, data=max.inu)
-  # p-value = 1.39e-06
+  # p-value = 1.787e-06
 kruskal.test(formula = RelTime ~ Season, data=max.inu.abx)
   # p-value = 0.06165
 kruskal.test(formula = RelTime ~ Season, data=max.inu.noabx)
-  # p-value = 0.7235
+  # p-value = 0.8789
 
 
 # Mannitol
@@ -1417,30 +1422,30 @@ kruskal.test(formula = RelTime ~ Season, data=max.man.noabx)
 
 # Saline
 wilcox.test(RelTime~Antibiotics, data=max.sal)
-  # p-value = 0.7529
+  # p-value = 0.6885
 kruskal.test(formula = RelTime ~ Season, data=max.sal.abx)
   # p-value = 0.078
 kruskal.test(formula = RelTime ~ Season, data=max.sal.noabx)
-  # p-value = 0.0318
+  # p-value = 0.02704
 kruskalmc(resp = RelTime ~ Season, data=max.sal.noabx)
   # Summer-Winter
 pairwise.wilcox.test(max.sal.noabx$RelTime, max.sal.noabx$Season)
   # Summer-Spring = 0.318
-  # Winter-Spring = 0.275
-  # Summer-Winter = 0.024
+  # Winter-Spring = 0.256
+  # Summer-Winter = 0.021
 
 
 
 ### Kruskal-Wallis BH-adjusted p-values
 # Within-substrate ABX wilcoxon test
-p.adjust(c(1.39e-06, 0.00232, 0.7529), method="BH")
-  # Inulin = 4.170e-06
+p.adjust(c(1.787e-06, 0.00232, 0.6885), method="BH")
+  # Inulin = 5.361e-06
   # Mannitol = 0.003480
-  # Saline = 0.7529
+  # Saline = 0.6885
 # Within-substrate season kruskal-wallis test
-p.adjust(c(0.06165, 0.7235, 0.05151, 0.2417, 0.078, 0.0318), method="BH")
+p.adjust(c(0.06165, 0.8789, 0.05151, 0.2417, 0.078, 0.02704), method="BH")
   # Inulin ABX = 0.11700
-  # Inulin No ABX = 0.72350
+  # Inulin No ABX = 0.87890
   # Mannitol ABX = .11700
   # Mannitol No ABX = 0.29004
   # Saline ABX = 0.11700
