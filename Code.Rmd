@@ -320,6 +320,7 @@ auc.df <- auc.df[,-8]
   # Remove BinTime col
 colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate")
   # Rename cols
+
 for (i in 1:length(ids)){
   ID <- ids[i]
   select <- crds.auc[which(crds.auc$ID == ID),]
@@ -672,6 +673,8 @@ legend <- g_legend(steal.legend)
 ### All 3 substrates on same axis
 carb.sum <- crds.sum[which(crds.sum$Substrate != "Urea"),]
 carb.sum <- carb.sum[which(carb.sum$Substrate != "Acetate"),]
+carb.sum <- carb.sum[which(carb.sum$Substrate != "Butyrate"),]
+
 
 carb.plot <- ggplot(carb.sum, aes(x=BinTime, y=Mean, color=Season)) +
   geom_line(aes(linetype=Antibiotics), size=1) +
@@ -691,13 +694,13 @@ carb.plot <- ggplot(carb.sum, aes(x=BinTime, y=Mean, color=Season)) +
         panel.spacing=unit(1, "lines"),
         legend.title = element_text(size = 20, face="bold"),
         legend.text = element_text(size=18),
-        panel.grid.major = element_blank(),
+        panel.grid.major = element_blank()
         #panel.grid.minor = element_blank()
   )
 
 
 
-tiff("crds.mdtp.tiff", width = 12.75, height = 5, units = "in", res = 300)
+tiff("crds.mdtp2.tiff", width = 12.75, height = 5, units = "in", res = 300)
 carb.plot
 dev.off()
 ```
@@ -1933,4 +1936,47 @@ for(i in 1:length(ids)){
 #auc.man.noabx <- auc.man[which(auc.man$Antibiotics == "No"),]
 #auc.sal.abx <- auc.sal[which(auc.sal$Antibiotics == "Yes"),]
 #auc.sal.noabx <- auc.sal[which(auc.sal$Antibiotics == "No"),]
+```
+
+### Format AUC data for Fariba
+```{r}
+### Format auc input data
+fa.df <- data.frame(crds.auc[1,])
+fa.df <- fa.df[,-2:-3]
+  # Remove Delta and CO2 cols
+fa.df <- fa.df[,-8]
+  # Remove BinTime col
+colnames(fa.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate")
+  # Rename cols
+
+for (i in 1:length(ids)){
+  ID <- ids[i]
+  select <- crds.auc[which(crds.auc$ID == ID),]
+    # Dataframe with CRDS values for 1 squirrel
+
+  # Normalize delta value to baseline
+  select$Delta <- select$Delta - select$Delta[1]
+  
+  # Normalize RelTime to baseline
+  select$RelTime <- select$RelTime - select$RelTime[1]
+  
+  if (i < 2){
+      fa.df <- select
+      # Creates initial dataframe with the first file
+    } else {
+      fa.df <- rbind(fa.df, select)
+      # Appends onto the dataframe for all subsequent files
+    }
+}
+
+fa.df <- fa.df[,-3:-4]
+fa.df <- fa.df[,-4:-8]
+#write.csv(fa.df, "crds.csv", row.names=F)
+
+
+### Format AUC output
+crds.fariba <- crds.auc
+crds.fariba <- crds.fariba[,-3:-4]
+crds.fariba <- crds.fariba[,-4:-8]
+write.csv(crds.fariba, "crds.csv", row.names=F)
 ```
