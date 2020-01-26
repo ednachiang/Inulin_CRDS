@@ -1,0 +1,49 @@
+ 10.00	2	2	U	0	unclassified
+ 90.00	18	0	R	1	root
+ 90.00	18	1	R1	131567	  cellular organisms
+ 85.00	17	2	D	2	    Bacteria
+ 50.00	10	0	D1	1783270	      FCB group
+ 50.00	10	0	D2	68336	        Bacteroidetes/Chlorobi group
+ 50.00	10	0	P	976	          Bacteroidetes
+ 50.00	10	0	C	200643	            Bacteroidia
+ 50.00	10	0	O	171549	              Bacteroidales
+ 25.00	5	1	F	2005473	                Muribaculaceae
+ 20.00	4	1	G	1918540	                  Muribaculum
+ 15.00	3	0	G1	2622126	                    unclassified Muribaculum
+ 10.00	2	2	S	2530390	                      Muribaculum sp. TLL-A4
+  5.00	1	1	S	2530393	                      Muribaculum sp. H5
+ 20.00	4	0	F	815	                Bacteroidaceae
+ 20.00	4	0	G	816	                  Bacteroides
+ 10.00	2	2	S	820	                    Bacteroides uniformis
+  5.00	1	1	S	28116	                    Bacteroides ovatus
+  5.00	1	1	S	817	                    Bacteroides fragilis
+  5.00	1	0	F	2005525	                Tannerellaceae
+  5.00	1	0	G	375288	                  Parabacteroides
+  5.00	1	1	S	823	                    Parabacteroides distasonis
+ 20.00	4	1	D1	1783272	      Terrabacteria group
+ 10.00	2	0	P	1239	        Firmicutes
+  5.00	1	0	C	91061	          Bacilli
+  5.00	1	0	O	1385	            Bacillales
+  5.00	1	0	F	186822	              Paenibacillaceae
+  5.00	1	0	G	329857	                Cohnella
+  5.00	1	1	S	2674991	                  Cohnella candidum
+  5.00	1	0	C	186801	          Clostridia
+  5.00	1	0	O	186802	            Clostridiales
+  5.00	1	0	F	31979	              Clostridiaceae
+  5.00	1	0	G	1485	                Clostridium
+  5.00	1	0	S	1501	                  Clostridium pasteurianum
+  5.00	1	1	S1	86416	                    Clostridium pasteurianum BC1
+  5.00	1	0	P	201174	        Actinobacteria
+  5.00	1	0	C	1760	          Actinobacteria
+  5.00	1	0	O	85006	            Micrococcales
+  5.00	1	0	F	1268	              Micrococcaceae
+  5.00	1	0	G	1663	                Arthrobacter
+  5.00	1	0	G1	235627	                  unclassified Arthrobacter
+  5.00	1	1	S	2020486	                    Arthrobacter sp. YN
+  5.00	1	0	P	1224	      Proteobacteria
+  5.00	1	0	C	1236	        Gammaproteobacteria
+  5.00	1	0	O	72274	          Pseudomonadales
+  5.00	1	0	F	135621	            Pseudomonadaceae
+  5.00	1	0	G	286	              Pseudomonas
+  5.00	1	0	G1	136841	                Pseudomonas aeruginosa group
+  5.00	1	1	S	287	                  Pseudomonas aeruginosa

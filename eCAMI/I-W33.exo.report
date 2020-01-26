@@ -1,0 +1,38 @@
+ 15.38	2	2	U	0	unclassified
+ 84.62	11	0	R	1	root
+ 84.62	11	0	R1	131567	  cellular organisms
+ 84.62	11	1	D	2	    Bacteria
+ 53.85	7	0	D1	1783270	      FCB group
+ 53.85	7	0	D2	68336	        Bacteroidetes/Chlorobi group
+ 53.85	7	0	P	976	          Bacteroidetes
+ 46.15	6	0	C	200643	            Bacteroidia
+ 46.15	6	1	O	171549	              Bacteroidales
+ 15.38	2	0	F	815	                Bacteroidaceae
+ 15.38	2	0	G	816	                  Bacteroides
+  7.69	1	1	S	820	                    Bacteroides uniformis
+  7.69	1	1	S	28116	                    Bacteroides ovatus
+  7.69	1	0	F	171552	                Prevotellaceae
+  7.69	1	0	G	838	                  Prevotella
+  7.69	1	1	S	28129	                    Prevotella denticola
+  7.69	1	0	F	2005473	                Muribaculaceae
+  7.69	1	0	G	1918540	                  Muribaculum
+  7.69	1	0	G1	2622126	                    unclassified Muribaculum
+  7.69	1	1	S	2530393	                      Muribaculum sp. H5
+  7.69	1	0	F	2005525	                Tannerellaceae
+  7.69	1	0	G	375288	                  Parabacteroides
+  7.69	1	1	S	823	                    Parabacteroides distasonis
+  7.69	1	0	C	117747	            Sphingobacteriia
+  7.69	1	0	O	200666	              Sphingobacteriales
+  7.69	1	0	F	84566	                Sphingobacteriaceae
+  7.69	1	0	G	28453	                  Sphingobacterium
+  7.69	1	1	S	1010	                    Sphingobacterium mizutaii
+ 15.38	2	0	D1	1783272	      Terrabacteria group
+ 15.38	2	0	P	1239	        Firmicutes
+  7.69	1	0	C	91061	          Bacilli
+  7.69	1	0	O	1385	            Bacillales
+  7.69	1	0	F	186822	              Paenibacillaceae
+  7.69	1	0	G	329857	                Cohnella
+  7.69	1	1	S	2674991	                  Cohnella candidum
+  7.69	1	0	C	186801	          Clostridia
+  7.69	1	1	O	186802	            Clostridiales
+  7.69	1	1	P	1224	      Proteobacteria

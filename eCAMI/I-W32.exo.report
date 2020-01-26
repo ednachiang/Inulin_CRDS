@@ -1,0 +1,25 @@
+  8.33	1	1	U	0	unclassified
+ 91.67	11	0	R	1	root
+ 91.67	11	0	R1	131567	  cellular organisms
+ 91.67	11	2	D	2	    Bacteria
+ 66.67	8	0	D1	1783270	      FCB group
+ 66.67	8	0	D2	68336	        Bacteroidetes/Chlorobi group
+ 66.67	8	0	P	976	          Bacteroidetes
+ 66.67	8	0	C	200643	            Bacteroidia
+ 66.67	8	0	O	171549	              Bacteroidales
+ 33.33	4	0	F	815	                Bacteroidaceae
+ 33.33	4	0	G	816	                  Bacteroides
+ 16.67	2	2	S	820	                    Bacteroides uniformis
+  8.33	1	1	S	818	                    Bacteroides thetaiotaomicron
+  8.33	1	1	S	28116	                    Bacteroides ovatus
+ 25.00	3	1	F	2005473	                Muribaculaceae
+ 16.67	2	1	G	1918540	                  Muribaculum
+  8.33	1	0	G1	2622126	                    unclassified Muribaculum
+  8.33	1	1	S	2530393	                      Muribaculum sp. H5
+  8.33	1	0	F	2005525	                Tannerellaceae
+  8.33	1	0	G	375288	                  Parabacteroides
+  8.33	1	1	S	823	                    Parabacteroides distasonis
+  8.33	1	0	D1	1783272	      Terrabacteria group
+  8.33	1	0	P	1239	        Firmicutes
+  8.33	1	0	C	186801	          Clostridia
+  8.33	1	1	O	186802	            Clostridiales

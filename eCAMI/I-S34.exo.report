@@ -1,0 +1,39 @@
+ 13.33	2	2	U	0	unclassified
+ 86.67	13	0	R	1	root
+ 86.67	13	0	R1	131567	  cellular organisms
+ 86.67	13	2	D	2	    Bacteria
+ 53.33	8	0	D1	1783270	      FCB group
+ 53.33	8	0	D2	68336	        Bacteroidetes/Chlorobi group
+ 53.33	8	0	P	976	          Bacteroidetes
+ 46.67	7	0	C	200643	            Bacteroidia
+ 46.67	7	0	O	171549	              Bacteroidales
+ 26.67	4	0	F	815	                Bacteroidaceae
+ 26.67	4	0	G	816	                  Bacteroides
+ 13.33	2	2	S	820	                    Bacteroides uniformis
+  6.67	1	0	S	821	                    Bacteroides vulgatus
+  6.67	1	1	S1	435590	                      Bacteroides vulgatus ATCC 8482
+  6.67	1	1	S	28116	                    Bacteroides ovatus
+ 13.33	2	0	F	2005473	                Muribaculaceae
+ 13.33	2	0	G	1918540	                  Muribaculum
+ 13.33	2	0	G1	2622126	                    unclassified Muribaculum
+  6.67	1	1	S	2530390	                      Muribaculum sp. TLL-A4
+  6.67	1	1	S	2530393	                      Muribaculum sp. H5
+  6.67	1	0	F	171552	                Prevotellaceae
+  6.67	1	0	G	838	                  Prevotella
+  6.67	1	0	S	52227	                    Prevotella dentalis
+  6.67	1	1	S1	908937	                      Prevotella dentalis DSM 3688
+  6.67	1	0	C	768503	            Cytophagia
+  6.67	1	0	O	768507	              Cytophagales
+  6.67	1	0	F	563798	                Cyclobacteriaceae
+  6.67	1	0	G	280472	                  Aquiflexum
+  6.67	1	0	S	280473	                    Aquiflexum balticum
+  6.67	1	1	S1	758820	                      Aquiflexum balticum DSM 16537
+ 20.00	3	1	D1	1783272	      Terrabacteria group
+  6.67	1	0	P	1239	        Firmicutes
+  6.67	1	0	C	91061	          Bacilli
+  6.67	1	0	O	1385	            Bacillales
+  6.67	1	0	F	186822	              Paenibacillaceae
+  6.67	1	0	G	329857	                Cohnella
+  6.67	1	1	S	2674991	                  Cohnella candidum
+  6.67	1	0	P	201174	        Actinobacteria
+  6.67	1	1	C	1760	          Actinobacteria
