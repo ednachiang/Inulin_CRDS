@@ -2056,3 +2056,283 @@ crds.fariba <- crds.fariba[,-3:-4]
 crds.fariba <- crds.fariba[,-4:-8]
 write.csv(crds.fariba, "crds.csv", row.names=F)
 ```
+
+
+### Inulin MetaG Endo/Exo Total Protein
+```{r}
+### Import total Endo / Exo / Protein Counts
+endoexo <- read.csv("eCAMI/endo_exo.csv", fileEncoding="UTF-8-BOM")
+endoexo$Endo_RelAbund <- (endoexo$Endo / endoexo$Total_Protein)*100
+endoexo$Exo_RelAbund <- (endoexo$Exo / endoexo$Total_Protein)*100
+endoexo$Season <- c("Spring", "Spring", "Spring", "Summer", "Summer", "Summer", "Winter", "Winter", "Winter")
+endoexo$Season <- ordered(endoexo$Season, levels=c("Summer", "Winter", "Spring"))
+
+### Test Endo / Exo Rel Abund for Normality
+hist(endoexo$Endo_RelAbund)
+qqnorm(endoexo$Endo_RelAbund)
+qqline(endoexo$Endo_RelAbund)
+shapiro.test(endoexo$Endo_RelAbund)
+  # p-value = 0.003571
+  # Not Normal
+
+hist(endoexo$Exo_RelAbund)
+qqnorm(endoexo$Exo_RelAbund)
+qqline(endoexo$Exo_RelAbund)
+shapiro.test(endoexo$Exo_RelAbund)
+  # p-value = 0.1865
+  # Normal
+
+
+### Test Endo
+kruskal.test(formula = Endo_RelAbund ~ Season, data=endoexo)
+  # p-value = 0.9481
+
+
+### Test Exo
+summary(aov(Exo_RelAbund ~ Season, data=endoexo))
+  # p-value = 0.901
+
+
+### Plot Endo
+endo.plot <- ggplot(endoexo, aes(x=Season, y=Endo_RelAbund, fill=Season)) +
+  geom_dotplot(binaxis='y', stackdir='center') +
+  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  ggtitle("Endo-Inulinase") +
+  ylab("Relative Abundance (%)") +
+  scale_y_continuous(breaks=c(0.00, 0.0125, 0.025, 0.0375, 0.05), limits=c(0, 0.05)) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.text.x = element_text(size=14),
+        axis.text.y = element_text(size=14),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
+        strip.text.x = element_text(size=20),
+        #strip.text.y = element_text(size=14),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 18),
+        legend.text = element_text(size=16),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+  )+
+  guides(fill=F)
+
+tiff("endo.mdtp.tiff", width = 5.5, height = 3.5, units = "in", res = 300)
+endo.plot
+dev.off()
+
+
+### Plot Exo
+
+legend <- g_legend(exo.plot)
+
+exo.plot <- ggplot(endoexo, aes(x=Season, y=Exo_RelAbund, fill=Season)) +
+  geom_dotplot(binaxis='y', stackdir='center') +
+  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  ggtitle("Exo-Inulinase") +
+  ylab("Relative Abundance (%)") +
+  scale_y_continuous(breaks=c(0.00, 0.0125, 0.025, 0.0375, 0.05), limits=c(0, 0.05)) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.text.x = element_text(size=14),
+        axis.text.y = element_text(size=14),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
+        strip.text.x = element_text(size=20),
+        strip.text.y = element_text(size=14),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 18, face="bold"),
+        legend.text = element_text(size=16),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+  ) +
+  guides(fill=F)
+
+tiff("exo.mdtp.tiff", width = 5.5, height = 3.5, units = "in", res = 300)
+exo.plot
+dev.off()
+
+
+
+tiff("endo.exo.mdtp.tiff", width = 12.5, height = 3.5, units = "in", res = 300)
+grid.newpage()
+pushViewport(viewport(layout=(grid.layout(1,3, widths=c(1,1,0.25), heights=c(1,1,1)))))
+print(endo.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
+print(exo.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
+legend$vp <- viewport(layout.pos.row=1, layout.pos.col=3)
+grid.draw(legend)
+dev.off()
+
+```
+
+### Inulin MetaG Exo Taxa Import
+```{r}
+### Import Data
+exo.shared <- read.csv("eCAMI/exo.shared.csv", fileEncoding="UTF-8-BOM")
+rownames(exo.shared) <- exo.shared$X
+exo.shared <- exo.shared[,-1]
+exo.tax <- read.csv("eCAMI/exo_tax.csv", fileEncoding="UTF-8-BOM")
+rownames(exo.tax) <- exo.tax$Protein
+exo.tax <- exo.tax[,-1]
+
+### Make physeq object
+exo.otu <- otu_table(t(exo.shared), taxa_are_rows=T)
+exo.samp <- sample_data(endoexo)
+exo.tax <- tax_table(exo.tax)
+taxa_names(exo.tax) <- taxa_names(exo.otu)
+colnames(exo.tax) <- c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")
+sample_names(exo.samp) <- sample_names(exo.otu)
+exo.physeq <- merge_phyloseq(exo.otu, exo.samp, exo.tax)
+
+### Combine at diff taxa levels
+exo.gen <- tax_glom(exo.physeq, taxrank="Genus")
+exo.fam <- tax_glom(exo.physeq, taxrank="Family")
+exo.ord <- tax_glom(exo.physeq, taxrank="Order")
+exo.cla <- tax_glom(exo.physeq, taxrank="Class")
+```
+
+### Inulin MetaG Exo Rel Abund
+```{r}
+# Calculate rel abund
+exo.ra <- transform_sample_counts(exo.gen, function(x){(x/sum(x))*100})
+
+# Create rank abundance plot
+barplot(sort(taxa_sums(exo.ra),TRUE)[1:20]/nsamples(exo.ra),las=2,cex.axis=.7)
+
+# Pull out top 10 genera
+top10 <- as.data.frame(sort(taxa_sums(exo.ra),TRUE)[1:10]/nsamples(exo.ra))
+exo.df <- psmelt(exo.ra)
+
+exo.top <- exo.df[which(exo.df$OTU == rownames(top10)[1]),]
+exo.top[10:18,] <- exo.df[which(exo.df$OTU == rownames(top10)[3]),]
+exo.top[19:27,] <- exo.df[which(exo.df$OTU == rownames(top10)[5]),]
+exo.top[28:36,] <- exo.df[which(exo.df$OTU == rownames(top10)[6]),]
+exo.top[37:45,] <- exo.df[which(exo.df$OTU == rownames(top10)[7]),]
+exo.top[46:54,] <- exo.df[which(exo.df$OTU == rownames(top10)[9]),]
+exo.top$Genus <- ordered(exo.top$Genus, levels = c("Bacteroides", "Muribaculum", "Cohnella", "Prevotella", "Parabacteroides", "Asaia"))
+
+# exo.top$Genus <- factor(c(rep("Bacteroides",9), rep("Unclassified",9), rep("Muribaculum",9),
+#                           rep("Bacteria - Unclassified",9), rep("Cohnella", 9), rep("Prevotella", 9),
+#                           rep("Parabacteroides",9), rep("Muribaculaceae - Unclassified",9),
+#                           rep("Asaia", 9), rep("Clostridiales - Unclassified", 9)))
+
+
+#Summarize data
+exo.sum <- exo.top %>%
+  group_by(Genus) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+
+### Plot
+exo.gen.mdtp <- ggplot(exo.top, aes(x=Genus, y=Abundance, fill=Genus)) +
+  geom_dotplot(binaxis='y', stackdir='center', dotsize=2) +
+  facet_grid(Season~.) +
+  ylab("Relative Abundance (%)") +
+  ggtitle("Top 6 Genera") +
+  scale_fill_manual(values=c("red2", "gold", "deepskyblue1","darkorchid1", "papayawhip", "gray12")) +
+  ylim(0,30) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.title.x=element_text(size=18, 
+                                  margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y=element_text(size=18),
+        axis.text.x=element_text(size=14, angle=25, hjust=1),
+        axis.text.y=element_text(size=14),
+        plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
+          #top, right, bottom, left
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.text.y = element_text(size=14, face="bold"),
+        strip.background = element_blank(),
+        legend.title = element_text(size=14, face="bold"),
+        legend.text=element_text(size=14),
+        panel.spacing.y=unit(1,"lines")
+  )
+
+tiff("exo.genus.mdtp.tiff", width=8, height=5.9, units="in", res=600)
+exo.gen.mdtp
+dev.off()
+
+```
+
+### Inulin MetaG Exo NMDS
+```{r}
+### Bray-Curtis NMDS
+exo.nmds <- ordinate(physeq=exo.physeq, method="NMDS", distance="bray")
+  # stress = 0.1096339
+
+tiff("exo.nmds.mdtp.tiff", width=8, height=6, units="in", res=600)
+plot_ordination(physeq=exo.physeq, ordination=exo.nmds, color="Season") + 
+  scale_color_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  geom_path(data=exo.physeq.elip.df, aes(x=NMDS1, y=NMDS2, colour=group), size=1, linetype=1) +
+  ggtitle("Exo-Inulinase") +
+  geom_point(size=3) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.text.x = element_text(size=20),
+        axis.text.y = element_text(size=20),
+        axis.title.x = element_text(size=20),
+        axis.title.y = element_text(size=20),
+        legend.title = element_text(size=20, face="bold"),
+        legend.text = element_text(size=20),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+        )
+dev.off()
+
+
+### NMDS Ellipses
+sample_data(exo.physeq)$Elip <- paste(sample_data(exo.physeq)$Season)
+exo.physeq.elip <- data.frame(MDS1 = exo.nmds$points[,1], MDS2 = exo.nmds$points[,2],
+                           Group = sample_data(exo.physeq)$Season)
+plot.new()
+exo.physeq.elip.ord <- ordiellipse(exo.nmds, sample_data(exo.physeq)$Elip, display="sites", kind="se", conf=0.95, label=T)
+exo.physeq.elip.df <- data.frame()
+for(i in levels(exo.physeq.elip$Group)){
+  exo.physeq.elip.df <- rbind(exo.physeq.elip.df,
+                           cbind(as.data.frame(with(exo.physeq.elip[exo.physeq.elip$Group==i,],
+                                                    veganCovEllipse(exo.physeq.elip.ord[[i]]$cov,
+                                                                    exo.physeq.elip.ord[[i]]$center,
+                                                                    exo.physeq.elip.ord[[i]]$scale))), group=i
+                                 ))
+}
+
+### Bray-Curtis PCoA
+exo.pcoa <- ordinate(physeq=exo.physeq, method="PCoA", distance="bray")
+
+plot_ordination(physeq=exo.physeq, ordination=exo.pcoa, color="Season") + 
+  scale_color_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"))
+
+
+
+### PERMANOVA for NMDS
+exo.physeq.sampdf <- data.frame(sample_data(exo.physeq))
+exo.bray<- phyloseq::distance(physeq=exo.physeq, method="bray")
+
+## Season
+adonis(exo.bray~ Season, data=exo.physeq.sampdf)
+  # p-value = 0.902
+beta.tax = betadisper(d=exo.bray, group=exo.physeq.sampdf$Season)
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.604
+
+
+
+
+# ### Import data
+# P01 <- read.csv("eCAMI/P01_counts.csv", fileEncoding="UTF-8-BOM")
+# P07 <- read.csv("eCAMI/P07_counts.csv", fileEncoding="UTF-8-BOM")
+# P11 <- read.csv("eCAMI/P11_counts.csv", fileEncoding="UTF-8-BOM")
+# S07 <- read.csv("eCAMI/S07_counts.csv", fileEncoding="UTF-8-BOM")
+# S29 <- read.csv("eCAMI/S29_counts.csv", fileEncoding="UTF-8-BOM")
+# S34 <- read.csv("eCAMI/S34_counts.csv", fileEncoding="UTF-8-BOM")
+# W31 <- read.csv("eCAMI/W31_counts.csv", fileEncoding="UTF-8-BOM")
+# W32 <- read.csv("eCAMI/W32_counts.csv", fileEncoding="UTF-8-BOM")
+# W33 <- read.csv("eCAMI/W33_counts.csv", fileEncoding="UTF-8-BOM")
+# 
+# ### Remove endo rows
+# P07 <- P07[-1,]
+# S07 <- S07[-1,]
+# S34 <- S34[-1,]
+# W33 <- W33[-1,]
+
+
+
+```
