@@ -240,8 +240,11 @@ crds.val <- crds.val[which(crds.val$Substrate != "Acetate"),]
 crds.val <- crds.val[which(crds.val$Substrate != "Butyrate"),]
 crds.inu.val <- crds.val[which(crds.val$Substrate == "Inulin"),]
 crds.man.val <- crds.val[which(crds.val$Substrate == "Mannitol"),]
+crds.sal.val <- crds.val[which(crds.val$Substrate == "Saline"),]
 crds.inu.end.val <- crds.inu.val[which(crds.inu.val$RelTime > 0),]
 crds.man.end.val <- crds.man.val[which(crds.man.val$RelTime > 0),]
+crds.sal.end.val <- crds.sal.val[which(crds.sal.val$RelTime > 0),]
+
 
 ### Check Normality
 hist(crds.val$Delta)
@@ -277,14 +280,19 @@ wilcox.test(Delta~Antibiotics, data=crds.inu.val)
   # p-value < 2.2e-16
 wilcox.test(Delta~Antibiotics, data=crds.man.val)
   # p-value = 2.002e-15
-wilcox.test(Delta~Antibiotics, data=crds.inu.end.val)
+wilcox.test(Delta~Antibiotics, data=crds.sal.val)
+  # p-value = 3.964e-05
+wilcox.test(Delta~Antibiotics, data=crds.inu.end.val, alternative="greater")
   # p-value < 2.2e-16
-wilcox.test(Delta~Antibiotics, data=crds.man.end.val)
-  # p-value = 9.664e-13
+wilcox.test(Delta~Antibiotics, data=crds.man.end.val, alternative="greater")
+  # p-value < 2.2e-16
+wilcox.test(Delta~Antibiotics, data=crds.sal.end.val, alternative="greater")
+  # p-value = 1.249e-05
 
-p.adjust(c(2.2e-16, 9.664e-13), method="BH")
+p.adjust(c(2.2e-16, 9.664e-13, 2.499e-05), method="BH")
   # Inulin End = 4.400e-16
   # Mannitol End = 9.664e-13
+  # Saline End = 2.499e-05
 ```
 
 ### Separate by substrate
@@ -726,7 +734,7 @@ carb.plot <- ggplot(carb.sum, aes(x=BinTime, y=Mean, color=Season)) +
 
 
 
-tiff("crds.mdtp.tiff", width = 12.75, height = 5, units = "in", res = 300)
+tiff("crds.mdtp.tiff", width = 12.75, height = 3.5, units = "in", res = 300)
 carb.plot
 dev.off()
 ```
@@ -2223,7 +2231,7 @@ exo.sum <- exo.top %>%
 
 ### Plot
 exo.gen.mdtp <- ggplot(exo.top, aes(x=Genus, y=Abundance, fill=Genus)) +
-  geom_dotplot(binaxis='y', stackdir='center', dotsize=2) +
+  geom_dotplot(binaxis='y', stackdir='center', dotsize=3, stackratio=1.15) +
   facet_grid(Season~.) +
   ylab("Relative Abundance (%)") +
   ggtitle("Top 6 Genera") +
@@ -2241,13 +2249,65 @@ exo.gen.mdtp <- ggplot(exo.top, aes(x=Genus, y=Abundance, fill=Genus)) +
         panel.grid.minor = element_blank(),
         strip.text.y = element_text(size=14, face="bold"),
         strip.background = element_blank(),
-        legend.title = element_text(size=14, face="bold"),
-        legend.text=element_text(size=14),
+        legend.title = element_text(size=15, face="bold"),
+        legend.text=element_text(size=15),
         panel.spacing.y=unit(1,"lines")
   )
 
-tiff("exo.genus.mdtp.tiff", width=8, height=5.9, units="in", res=600)
+tiff("exo.genus.mdtp.tiff", width=8.45, height=6.2, units="in", res=600)
 exo.gen.mdtp
+dev.off()
+
+
+### Make plot w/ top 6 genera + 2 unclassified
+exo.top.unclass <- exo.df[which(exo.df$OTU == rownames(top10)[1]),]
+exo.top.unclass[10:18,] <- exo.df[which(exo.df$OTU == rownames(top10)[2]),]
+exo.top.unclass[19:27,] <- exo.df[which(exo.df$OTU == rownames(top10)[3]),]
+exo.top.unclass[28:36,] <- exo.df[which(exo.df$OTU == rownames(top10)[4]),]
+exo.top.unclass[37:45,] <- exo.df[which(exo.df$OTU == rownames(top10)[5]),]
+exo.top.unclass[46:54,] <- exo.df[which(exo.df$OTU == rownames(top10)[6]),]
+exo.top.unclass[55:63,] <- exo.df[which(exo.df$OTU == rownames(top10)[7]),]
+exo.top.unclass[64:72,] <- exo.df[which(exo.df$OTU == rownames(top10)[9]),]
+exo.top.unclass$Genus <- ordered(exo.top.unclass$Genus, levels = c("Bacteroides", "Muribaculum", "Cohnella", "Prevotella", "Parabacteroides", "Asaia", "Unclassified Domain", "Unclassified Bacteria"))
+exo.top.unclass$Genus[10:18] <- "Unclassified Domain"
+exo.top.unclass$Genus[28:36] <- "Unclassified Bacteria"
+
+
+
+#Summarize data
+exo.unclass.sum <- exo.top.unclass %>%
+  group_by(Genus) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+
+### Plot
+exo.gen.unclass.mdtp <- ggplot(exo.top.unclass, aes(x=Genus, y=Abundance, fill=Genus)) +
+  geom_dotplot(binaxis='y', stackdir='center', dotsize=3, stackratio=1.15) +
+  facet_grid(Season~.) +
+  ylab("Relative Abundance (%)") +
+  ggtitle("Top 6 Genera + Unclassified") +
+  scale_fill_manual(values=c("red2", "gold", "deepskyblue1","darkorchid1", "papayawhip", "gray12", "gray47", "gray86")) +
+  ylim(0,30) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.title.x=element_text(size=18, 
+                                  margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y=element_text(size=18),
+        axis.text.x=element_text(size=14, angle=25, hjust=1),
+        axis.text.y=element_text(size=14),
+        plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
+          #top, right, bottom, left
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.text.y = element_text(size=14, face="bold"),
+        strip.background = element_blank(),
+        legend.title = element_text(size=15, face="bold"),
+        legend.text=element_text(size=15),
+        panel.spacing.y=unit(1,"lines")
+  )
+
+tiff("exo.genus.unclass.mdtp.tiff", width=10.55, height=6.2, units="in", res=600)
+exo.gen.unclass.mdtp
 dev.off()
 
 ```
