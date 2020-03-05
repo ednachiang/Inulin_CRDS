@@ -16,9 +16,6 @@ library(Bolstad2)
 library(phyloseq)
 library(miLineage)
 library(psych)
-# library(RVAideMemoire)
-    # mood.medtest
-    # Mood's Median Test
 source('scripts/import_crds.R')
 source('scripts/import_crds_sep.R')
 source('scripts/bin_crds.R')
@@ -115,7 +112,7 @@ crds.all <- import.crds.sep('CSV', 'metadata.csv')
 crds.bin <- bin.crds(crds)
 ```
 
-### AUC with raw Rel Time
+### Separate Samples by Raw Rel Time for AUC
 ```{r}
 ### Separate by Substrate
 inu.ind.raw <- crds[which(crds$Substrate == "Inulin"),]
@@ -339,24 +336,13 @@ for (i in 1:length(ids)){
   
   # Normalize RelTime to baseline
   select$RelTime <- select$RelTime - select$RelTime[1]
-  
-  # Calculate total time
-  totTime <- select$RelTime[nrow(select)]
-    # RelTime for the very last delta value
-  
-  # Calculate total number of values
-  n <- (nrow(select)-1)
-    # Baseline is the start of our curve, so we don't need to calculate a rectangle for it
-  
-  # Calculate interval
-  int <- totTime/n
-  
+
   # Create auc variable
   AUC <- 0
   
   # Run rectangle method integration
-  for (j in 1:n){
-    AUC <- AUC + (int*select$Delta[j+1])
+  for (j in 1:(nrow(select)-1)){
+    AUC <- AUC + ((select$RelTime[j+1]-select$RelTime[1])*select$Delta[j+1])
   }
     
   auc.df[i,1] <- AUC
