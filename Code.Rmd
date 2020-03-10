@@ -1954,60 +1954,6 @@ ml.man.results3 <- QCAT_GEE(OTU=otu.man.noabx.ml, Tax=tax.man.noabx.ml, X=var3.m
 
 
 
-### Old AUC calculation (spline integration)
-```{r}
-# AUC = Area Under Curve
-# https://stackoverflow.com/questions/4954507/calculate-the-area-under-a-curve
-### Remove unwanted substrates
-#crds.auc <- crds.rem[-which(crds.rem$Substrate == "Urea"),]
-crds.auc <- crds.rem[-which(crds.rem$Substrate == "Acetate"),]
-crds.auc <- crds.auc[-which(crds.auc$Substrate == "Butyrate"),]
-crds.auc$Substrate <- droplevels(crds.auc$Substrate)
-crds.auc$ID <- droplevels(crds.auc$ID)
-### Calculate AUC
-ids <- levels(crds.auc$ID)
-auc.df <- data.frame(crds.auc[1,])
-auc.df <- auc.df[,-2:-3]
-auc.df <- auc.df[,-8]
-colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate")
-for(i in 1:length(ids)){
-  ID <- ids[i]
-  select <- crds.auc[which(crds.auc$ID == ID),]
-  baseline.delta <- select$Delta[1]
-  select.norm <- data.frame(RelTime=select$RelTime[1], Delta=0, CO2=select$CO2[1],
-                            Number=select$Number[1], ID=select$ID[1], Season=select$Season[1],
-                            Sex=select$Sex[1], Antibiotics=select$Antibiotics[1],
-                            Substrate=select$Substrate[1], BinTime=select$BinTime[1])
-    # Delta = 0 because we want to normalize everything to baseline. Any neg Deltas will decrease the AUC (subtracted from AUC), which is not what we want.
-  exp <- which(select$RelTime>0)
-  for(j in 1:(nrow(select)-1)){
-    select.norm[j+1,] <- select[exp[j],]
-  }
-  select.norm[2:nrow(select.norm),2] <- (select.norm[2:nrow(select.norm),2]-baseline.delta)
-  x <- select.norm$RelTime
-  y <- select.norm$Delta
-  AUC <- auc(x, y, type = 'spline')
-  auc.df[i,1] <- AUC
-  auc.df[i,2:7] <- select.norm[1,4:9]
-}
-
-#write.csv(auc.df, "auc.old.csv", row.names=F)
-
-
-### Subset by Substrate & ABX
-#auc.inu <- auc.df[which(auc.df$Substrate == "Inulin"),]
-#auc.man <- auc.df[which(auc.df$Substrate == "Mannitol"),]
-#auc.sal <- auc.df[which(auc.df$Substrate == "Saline"),]
-#auc.abx <- auc.df[which(auc.df$Antibiotics == "Yes"),]
-#auc.noabx <- auc.df[which(auc.df$Antibiotics == "No"),]
-#auc.inu.abx <- auc.inu[which(auc.inu$Antibiotics == "Yes"),]
-#auc.inu.noabx <- auc.inu[which(auc.inu$Antibiotics == "No"),]
-#auc.man.abx <- auc.man[which(auc.man$Antibiotics == "Yes"),]
-#auc.man.noabx <- auc.man[which(auc.man$Antibiotics == "No"),]
-#auc.sal.abx <- auc.sal[which(auc.sal$Antibiotics == "Yes"),]
-#auc.sal.noabx <- auc.sal[which(auc.sal$Antibiotics == "No"),]
-```
-
 ### Format AUC data for Fariba
 ```{r}
 ### Format auc input data
