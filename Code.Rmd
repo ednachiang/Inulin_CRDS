@@ -394,69 +394,69 @@ hist(auc.df$AUC)
 qqnorm(auc.df$AUC)
 qqline(auc.df$AUC)
 shapiro.test(auc.df$AUC)
-  # p-value = 2.2e-16
+  # p-value < 2.2e-16
   # Not Normal
 
 hist(auc.inu$AUC)
 qqnorm(auc.inu$AUC)
 qqline(auc.inu$AUC)
 shapiro.test(auc.inu$AUC)
-  # p-value = 1.55e-06
+  # p-value = 1.643e-06
   # Not Normal
 
 hist(auc.inu.noabx$AUC)
 qqnorm(auc.inu.noabx$AUC)
 qqline(auc.inu.noabx$AUC)
 shapiro.test(auc.inu.noabx$AUC)
-  # p-value = 0.0395
+  # p-value = 0.03835
   # Not Normal
 
 hist(auc.man$AUC)
 qqnorm(auc.man$AUC)
 qqline(auc.man$AUC)
 shapiro.test(auc.man$AUC)
-  # p-value = 9.891e-11
+  # p-value = 8.247e-11
   # Not Normal
 
 hist(auc.man.noabx$AUC)
 qqnorm(auc.man.noabx$AUC)
 qqline(auc.man.noabx$AUC)
 shapiro.test(auc.man.noabx$AUC)
-  # p-value = 2.431e-05
+  # p-value = 2.105e-05
   # Not Normal
 
 hist(auc.sal$AUC)
 qqnorm(auc.sal$AUC)
 qqline(auc.sal$AUC)
 shapiro.test(auc.sal$AUC)
-  # p-value = 2.653e-09
+  # p-value = 2.104e-09
   # Not Normal
 
 hist(auc.abx$AUC)
 qqnorm(auc.abx$AUC)
 qqline(auc.abx$AUC)
 shapiro.test(auc.abx$AUC)
-  # p-value = 7.397e-10
+  # p-value = 8e-10
   # Not Normal
 
 hist(auc.noabx$AUC)
 qqnorm(auc.noabx$AUC)
 qqline(auc.noabx$AUC)
 shapiro.test(auc.noabx$AUC)
-  # p-value = 1.455e-10
+  # p-value = 1.577e-10
   # Not Normal
 
 
 ### Test homogeneity of variance
 # http://www.sthda.com/english/wiki/compare-multiple-sample-variances-in-r
 fligner.test(AUC ~ Season, data=auc.inu.noabx)
-  # p-value = 0.0395
+  # p-value = 0.05289
 fligner.test(AUC ~ Season, data=auc.inu.noabx[which(auc.inu.noabx$Season != "Summer"),])
   # Winter vs. Spring
   # p-value = 0.0245
 fligner.test(AUC ~ Season, data=auc.inu.noabx[which(auc.inu.noabx$Season != "Winter"),])
   # Summer vs. Spring
-  # p-value = 0.07724
+  # p-value = 0.1112
 fligner.test(AUC ~ Season, data=auc.inu.noabx[which(auc.inu.noabx$Season != "Spring"),])
   # Summer vs. Winter
   # p-value = 0.6508
@@ -599,59 +599,59 @@ dev.off()
 
 ### Kruskal-Wallis
 wilcox.test(AUC~Antibiotics, data=auc.df)
-  # p-value = 0.0008417
+  # p-value = 0.0008119
 kruskal.test(formula = AUC ~ Substrate, data=auc.abx)
-  # p-value = 3.002e-11
+  # p-value = 4.366e-11
 kruskalmc(resp = AUC ~ Substrate, data=auc.abx)
   # Inulin-Mannitol
   # Inulin-Saline
   # Mannitol-Saline
 kruskal.test(formula = AUC ~ Season, data=auc.abx)
-  # p-value = 0.4577
+  # p-value = 0.4128
 wilcox.test(AUC~Sex, data=auc.df)
   # p-value = 0.5471
 
 # Inulin
 wilcox.test(AUC~Antibiotics, data=auc.inu)
-  # p-value = 1.407e-07
+  # p-value = 1.113e-07
 kruskal.test(formula = AUC ~ Season, data=auc.inu.abx)
-  # p-value = 0.5463
+  # p-value = 0.4876
 kruskal.test(formula = AUC ~ Season, data=auc.inu.noabx)
   # p-value = 0.1063
 
 # Mannitol
 wilcox.test(AUC~Antibiotics, data=auc.man)
-  # p-value = 2.509e-05
+  # p-value = 3.306e-05
 kruskal.test(formula = AUC ~ Season, data=auc.man.abx)
-  # p-value = 0.6277
+  # p-value = 0.606
 kruskal.test(formula = AUC ~ Season, data=auc.man.noabx)
-  # p-value = 0.1983
+  # p-value = 0.1947
 
 
 # Saline
 wilcox.test(AUC~Antibiotics, data=auc.sal)
-  # p-value = 0.03583
+  # p-value = 0.0407
 kruskal.test(formula = AUC ~ Season, data=auc.sal.abx)
   # p-value = 0.06838
 kruskal.test(formula = AUC ~ Season, data=auc.sal.noabx)
-  # p-value = 0.1124
+  # p-value = 0.1641
 
 
 
 ### Kruskal-Wallis BH-adjusted p-values
 # Within-substrate ABX wilcoxon test
-p.adjust(c(1.407e-07, 2.509e-05, 0.03583), method="BH")
-  # Inulin = 4.2210e-07
-  # Mannitol = 3.7635e-05
-  # Saline = 3.5830e-02
+p.adjust(c(1.113e-07, 3.306e-05, 0.0407), method="BH")
+  # Inulin = 3.339e-07
+  # Mannitol = 4.959e-05
+  # Saline = 0.04070
 # Within-substrate season kruskal-wallis test
-p.adjust(c(0.5463, 0.1063, 0.6277, 0.1983, 0.06838, 0.1124), method="BH")
-  # Inulin ABX = 0.62770
-  # Inulin No ABX = 0.22480
-  # Mannitol ABX = 0.62770
-  # Mannitol No ABX = 0.29745
-  # Saline ABX = 0.22480
-  # Saline No ABX = 0.22480
+p.adjust(c(0.4876, 0.1063, 0.606, 0.1947, 0.6838, 0.1641), method="BH")
+  # Inulin ABX = 0.6838
+  # Inulin No ABX = 0.3894
+  # Mannitol ABX = 0.6838
+  # Mannitol No ABX = 0.3894
+  # Saline ABX = 0.6838
+  # Saline No ABX = 0.3894
 
 
 
@@ -684,78 +684,76 @@ hist(auc.inu$AUC)
 qqnorm(auc.inu$AUC)
 qqline(auc.inu$AUC)
 shapiro.test(auc.inu$AUC)
-  # p-value = 1.55e-06
+  # p-value = 1.643e-06
   # Not Normal
 
 hist(auc.inu.noabx$AUC)
 qqnorm(auc.inu.noabx$AUC)
 qqline(auc.inu.noabx$AUC)
 shapiro.test(auc.inu.noabx$AUC)
-  # p-value = 0.0395
+  # p-value = 0.03835
   # Not Normal
 
 hist(auc.inu.abx$AUC)
 qqnorm(auc.inu.abx$AUC)
 qqline(auc.inu.abx$AUC)
 shapiro.test(auc.inu.abx$AUC)
-  # p-value = 0.9476
+  # p-value = 0.9259
   # Normal
+
 
 hist(auc.sal$AUC)
 qqnorm(auc.sal$AUC)
 qqline(auc.sal$AUC)
 shapiro.test(auc.sal$AUC)
-  # p-value = 2.653e-09
+  # p-value = 2.104e-09
   # Not Normal
 
 hist(auc.sal.noabx$AUC)
 qqnorm(auc.sal.noabx$AUC)
 qqline(auc.sal.noabx$AUC)
 shapiro.test(auc.sal.noabx$AUC)
-  # p-value = 3.141e-06
+  # p-value = 2.164e-06
   # Not Normal
 
 hist(auc.sal.abx$AUC)
 qqnorm(auc.sal.abx$AUC)
 qqline(auc.sal.abx$AUC)
 shapiro.test(auc.sal.abx$AUC)
-  # p-value = 1.433e-06
+  # p-value = 1.171e-06
   # Not Normal
 
 
 ### Test homogeneity of variance
 # http://www.sthda.com/english/wiki/compare-multiple-sample-variances-in-r
 fligner.test(AUC ~ Season, data=auc.inu.noabx)
-  # p-value = 0.0395
+  # p-value = 0.05289
 fligner.test(AUC ~ Season, data=auc.inu.noabx[which(auc.inu.noabx$Season != "Summer"),])
   # Winter vs. Spring
   # p-value = 0.0245
 fligner.test(AUC ~ Season, data=auc.inu.noabx[which(auc.inu.noabx$Season != "Winter"),])
   # Summer vs. Spring
-  # p-value = 0.07724
+  # p-value = 0.1112
 fligner.test(AUC ~ Season, data=auc.inu.noabx[which(auc.inu.noabx$Season != "Spring"),])
   # Summer vs. Winter
   # p-value = 0.6508
 
-fligner.test(AUC ~ Season, data=auc.inu.abx)
-  # p-value = 0.3151
-
 fligner.test(AUC ~ Season, data=auc.sal.noabx)
-  # p-value = 0.3938
+  # p-value = 0.4567
 
-fligner.test(AUC ~ Season, data=auc.sal.abx)
-  # p-value = 0.3774
 
-### Pairwise Fligner-Killeen BH-adjusted p-values - Inulin No ABX
-p.adjust(c(0.0245, 0.07724, 0.6508), method="BH")
-  # Winter vs. Spring = 0.07350
-  # Summer vs. Spring = 0.11586
-  # Summer vs. Winter = 0.65080
+### Fligner-Killeen P-val Adjust w/ BH
+p.adjust(c(0.0245, 0.1112, 0.6508), method="BH")
+  # Winter vs. Spring = 0.0735
+  # Summer vs. Spring = 0.1668
+  # Summer vs Winter = 0.6508
+
+
 
 ### Boxplots
-auc.carb.df <- auc.df[which(auc.df$Substrate != "Mannitol"),]
-auc.carb.df <- auc.carb.df[which(auc.carb.df$Antibiotics == "No"),]
-auc.carb.plot <- ggplot(auc.carb.df, aes(x=Season, y=AUC, fill=Season)) +
+auc.inu.sal.df <- auc.df[which(auc.df$Substrate != "Mannitol"),]
+auc.inu.sal.df <- auc.inu.sal.df[which(auc.inu.sal.df$Antibiotics == "No"),]
+auc.inu.sal.plot <- ggplot(auc.inu.sal.df, aes(x=Season, y=AUC, fill=Season)) +
   geom_boxplot(outlier.size=-1) +
   geom_point(position=position_jitterdodge(jitter.width=0.75)) +
   facet_grid(.~Substrate) +
@@ -776,11 +774,9 @@ auc.carb.plot <- ggplot(auc.carb.df, aes(x=Season, y=AUC, fill=Season)) +
         strip.background = element_blank()
   )
 
-tiff("auc.mdtp.tiff", width = 12.5, height = 4, units = "in", res = 300)
+tiff("auc.inu.sal.tiff", width = 12.5, height = 4, units = "in", res = 300)
 auc.carb.plot
 dev.off()
-
-
 
 
 
@@ -804,11 +800,6 @@ inu.auc.plot <- ggplot(auc.inu, aes(x=Season, y=AUC, fill=Season)) +
         panel.grid.major = element_blank()
   ) +
   guides(fill=F)
-
-
-
-    
- 
 
 
 
@@ -854,32 +845,49 @@ dev.off()
 
 
 ### Kruskal-Wallis
-
 # Inulin
 wilcox.test(AUC~Antibiotics, data=auc.inu)
-  # p-value = 1.407e-07
+  # p-value = 1.113e-07
 kruskal.test(formula = AUC ~ Season, data=auc.inu.abx)
-  # p-value = 0.5463
+  # p-value = 0.4876
 kruskal.test(formula = AUC ~ Season, data=auc.inu.noabx)
   # p-value = 0.1063
 
 # Saline
 wilcox.test(AUC~Antibiotics, data=auc.sal)
-  # p-value = 0.03583
+  # p-value = 0.0407
 kruskal.test(formula = AUC ~ Season, data=auc.sal.abx)
   # p-value = 0.06838
 kruskal.test(formula = AUC ~ Season, data=auc.sal.noabx)
-  # p-value = 0.1124
-
+  # p-value = 0.1641
 
 
 ### Kruskal-Wallis BH-adjusted p-values
+# Within-substrate ABX wilcoxon test
 # Within-substrate season kruskal-wallis test
-p.adjust(c(0.5463, 0.1063, 0.06838, 0.1124), method="BH")
-  # Inulin ABX = 0.5463000
-  # Inulin No ABX = 0.1498667
-  # Saline ABX = 0.1498667
-  # Saline No ABX = 0.1498667
+p.adjust(c(0.4876, 0.1063, 0.6838, 0.1641), method="BH")
+  # Inulin ABX = 0.6501333
+  # Inulin No ABX = 0.3282000
+  # Saline ABX = 0.6838000
+  # Saline No ABX = 0.3282000
+
+
+
+
+
+
+
+
+
+### Summarize
+auc.sum <- auc.df %>%
+  group_by(Substrate, Antibiotics, Season) %>%
+  summarize(Mean = mean(AUC),
+            Median = median(AUC),
+            SD = sd(AUC),
+            SE = se(AUC),
+            iqr = IQR(AUC))
+auc.sum$Season <- ordered(auc.sum$Season, levels=c("Summer", "Winter", "Spring"))
 
 
 
