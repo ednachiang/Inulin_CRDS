@@ -338,7 +338,8 @@ for (i in 1:length(ids)){
   
   # Remove baseline from AUC calculation because we care about the AUC after gavage
   # Since we already normalized delta value to baseline, we don't need that value anymore
-  select <- select[-1,]
+  # Set baseline to gavage time = 0
+  select[1,1] <- 0
   
   # Normalize AUC end time
   # Since length of experiment varies for each individual, we don't want experimental length to bias our AUC calculations
