@@ -302,6 +302,9 @@ man.all <- crds.sum[which(crds.sum$Substrate == "Mannitol"),]
 sal.all <- crds.sum[which(crds.sum$Substrate == "Saline"),]
 
 #ure.all <- crds.sum[which(crds.sum$Substrate == "Urea"),]
+
+### Calculate x-error bars
+
 ```
 
 ### Calculate AUC
@@ -679,25 +682,30 @@ auc.sum$Season <- ordered(auc.sum$Season, levels=c("Summer", "Winter", "Spring")
 
 ### AUC Stats - Summer 2020 Poster
 ```{r}
+### Remove Inulin summer outlier - S34 has a crazy high AUC
+auc.inu.rem <- auc.inu[which(auc.inu$ID != "S34"),]
+auc.inu.rem.noabx <- auc.inu.rem[which(auc.inu.rem$Antibiotics == "No"),]
+auc.inu.rem.abx <- auc.inu.rem[which(auc.inu.rem$Antibiotics == "Yes"),]
+
 ### Check Normality
-hist(auc.inu$AUC)
-qqnorm(auc.inu$AUC)
-qqline(auc.inu$AUC)
-shapiro.test(auc.inu$AUC)
-  # p-value = 1.643e-06
+hist(auc.inu.rem$AUC)
+qqnorm(auc.inu.rem$AUC)
+qqline(auc.inu.rem$AUC)
+shapiro.test(auc.inu.rem$AUC)
+  # p-value = 1.231e-06
   # Not Normal
 
-hist(auc.inu.noabx$AUC)
-qqnorm(auc.inu.noabx$AUC)
-qqline(auc.inu.noabx$AUC)
-shapiro.test(auc.inu.noabx$AUC)
-  # p-value = 0.03835
+hist(auc.inu.rem.noabx$AUC)
+qqnorm(auc.inu.rem.noabx$AUC)
+qqline(auc.inu.rem.noabx$AUC)
+shapiro.test(auc.inu.rem.noabx$AUC)
+  # p-value = 0.02492
   # Not Normal
 
-hist(auc.inu.abx$AUC)
-qqnorm(auc.inu.abx$AUC)
-qqline(auc.inu.abx$AUC)
-shapiro.test(auc.inu.abx$AUC)
+hist(auc.inu.rem.abx$AUC)
+qqnorm(auc.inu.rem.abx$AUC)
+qqline(auc.inu.rem.abx$AUC)
+shapiro.test(auc.inu.rem.abx$AUC)
   # p-value = 0.9259
   # Normal
 
@@ -723,30 +731,30 @@ shapiro.test(auc.sal.abx$AUC)
   # p-value = 1.171e-06
   # Not Normal
 
-
 ### Test homogeneity of variance
 # http://www.sthda.com/english/wiki/compare-multiple-sample-variances-in-r
-fligner.test(AUC ~ Season, data=auc.inu.noabx)
-  # p-value = 0.05289
-fligner.test(AUC ~ Season, data=auc.inu.noabx[which(auc.inu.noabx$Season != "Summer"),])
+fligner.test(AUC ~ Season, data=auc.inu.rem.noabx)
+  # p-value = 0.01797
+fligner.test(AUC ~ Season, data=auc.inu.rem.noabx[which(auc.inu.rem.noabx$Season != "Summer"),])
   # Winter vs. Spring
   # p-value = 0.0245
-fligner.test(AUC ~ Season, data=auc.inu.noabx[which(auc.inu.noabx$Season != "Winter"),])
+fligner.test(AUC ~ Season, data=auc.inu.rem.noabx[which(auc.inu.rem.noabx$Season != "Winter"),])
   # Summer vs. Spring
-  # p-value = 0.1112
-fligner.test(AUC ~ Season, data=auc.inu.noabx[which(auc.inu.noabx$Season != "Spring"),])
+  # p-value = 0.02858
+fligner.test(AUC ~ Season, data=auc.inu.rem.noabx[which(auc.inu.rem.noabx$Season != "Spring"),])
   # Summer vs. Winter
-  # p-value = 0.6508
+  # p-value = 0.6735
 
 fligner.test(AUC ~ Season, data=auc.sal.noabx)
   # p-value = 0.4567
 
 
 ### Fligner-Killeen P-val Adjust w/ BH
-p.adjust(c(0.0245, 0.1112, 0.6508), method="BH")
-  # Winter vs. Spring = 0.0735
-  # Summer vs. Spring = 0.1668
-  # Summer vs Winter = 0.6508
+p.adjust(c(0.01797, 0.0245, 0.02858, 0.6735), method="BH")
+  # All Seasons = 0.03810667
+  # Winter vs. Spring = 0.03810667
+  # Summer vs. Spring = 0.03810667
+  # Summer vs Winter = 0.67350000
 
 
 
@@ -846,14 +854,19 @@ dev.off()
 
 ### Kruskal-Wallis
 # Inulin
-wilcox.test(AUC~Antibiotics, data=auc.inu)
-  # p-value = 1.113e-07
-kruskal.test(formula = AUC ~ Season, data=auc.inu.abx)
+fligner.test(AUC ~ Antibiotics, auc.inu.rem)
+  # p-value = 3.402e-05
+  # Can't follow-up with Wilcoxon test because data violates assumption of equal variances
+kruskal.test(AUC~Antibiotics, data=auc.inu.rem)
+  # p-value = 3.098e-06
+kruskal.test(formula = AUC ~ Season, data=auc.inu.rem.abx)
   # p-value = 0.4876
-kruskal.test(formula = AUC ~ Season, data=auc.inu.noabx)
-  # p-value = 0.1063
+kruskal.test(formula = AUC ~ Season, data=auc.inu.rem.noabx)
+  # p-value = 0.1341
 
 # Saline
+fligner.test(AUC ~ Antibiotics, auc.sal)
+  # p-value = 0.3349
 wilcox.test(AUC~Antibiotics, data=auc.sal)
   # p-value = 0.0407
 kruskal.test(formula = AUC ~ Season, data=auc.sal.abx)
@@ -893,6 +906,246 @@ auc.sum$Season <- ordered(auc.sum$Season, levels=c("Summer", "Winter", "Spring")
 
 ```
 
+### Summer 2020 - CRDS Plots
+
+### Summer 2020 - Inulinase Genes (metaG)
+```{r}
+### Import total Endo / Exo / Protein Counts
+endoexo <- read.csv("eCAMI/endo_exo.csv", fileEncoding="UTF-8-BOM")
+endoexo$Endo_RelAbund <- (endoexo$Endo / endoexo$Total_Protein)*100
+endoexo$Exo_RelAbund <- (endoexo$Exo / endoexo$Total_Protein)*100
+endoexo$Season <- c("Spring", "Spring", "Spring", "Summer", "Summer", "Summer", "Winter", "Winter", "Winter")
+endoexo$Season <- ordered(endoexo$Season, levels=c("Summer", "Winter", "Spring"))
+
+### Test Endo / Exo Rel Abund for Normality
+hist(endoexo$Endo_RelAbund)
+qqnorm(endoexo$Endo_RelAbund)
+qqline(endoexo$Endo_RelAbund)
+shapiro.test(endoexo$Endo_RelAbund)
+  # p-value = 0.003571
+  # Not Normal
+
+hist(endoexo$Exo_RelAbund)
+qqnorm(endoexo$Exo_RelAbund)
+qqline(endoexo$Exo_RelAbund)
+shapiro.test(endoexo$Exo_RelAbund)
+  # p-value = 0.1865
+  # Normal
+
+
+### Test for Variance - Levene's Test
+leveneTest(Endo_RelAbund ~ Season, data=endoexo)
+  # p-value = 0.9934
+
+leveneTest(Exo_RelAbund ~ Season, data=endoexo)
+  # p-value = 0.9145
+
+
+### Test Endo - Kruskal-Wallis
+kruskal.test(formula = Endo_RelAbund ~ Season, data=endoexo)
+  # p-value = 0.9481
+
+
+### Test Exo - Kruskal-Wallis
+summary(aov(Exo_RelAbund ~ Season, data=endoexo))
+  # p-value = 0.901
+
+
+### Import Data - Taxonomic Composition
+exo.shared <- read.csv("eCAMI/exo.shared.csv", fileEncoding="UTF-8-BOM")
+rownames(exo.shared) <- exo.shared$X
+exo.shared <- exo.shared[,-1]
+exo.tax <- read.csv("eCAMI/exo_tax.csv", fileEncoding="UTF-8-BOM")
+rownames(exo.tax) <- exo.tax$Protein
+exo.tax <- exo.tax[,-1]
+
+### Make physeq object
+exo.otu <- otu_table(t(exo.shared), taxa_are_rows=T)
+exo.samp <- sample_data(endoexo)
+exo.tax <- tax_table(exo.tax)
+taxa_names(exo.tax) <- taxa_names(exo.otu)
+colnames(exo.tax) <- c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")
+sample_names(exo.samp) <- sample_names(exo.otu)
+exo.physeq <- merge_phyloseq(exo.otu, exo.samp, exo.tax)
+
+### Combine at diff taxa levels
+exo.gen <- tax_glom(exo.physeq, taxrank="Genus")
+exo.fam <- tax_glom(exo.physeq, taxrank="Family")
+exo.ord <- tax_glom(exo.physeq, taxrank="Order")
+exo.cla <- tax_glom(exo.physeq, taxrank="Class")
+
+
+
+### Bray-Curtis NMDS
+exo.nmds <- ordinate(physeq=exo.physeq, method="NMDS", distance="bray")
+  # stress = 0.1096339
+
+#tiff("exo.nmds.mdtp.tiff", width=8, height=6, units="in", res=600)
+plot_ordination(physeq=exo.physeq, ordination=exo.nmds, color="Season") + 
+  scale_color_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  geom_path(data=exo.physeq.elip.df, aes(x=NMDS1, y=NMDS2, colour=group), size=1, linetype=1) +
+  ggtitle("Exo-Inulinase") +
+  geom_point(size=3) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.text.x = element_text(size=20),
+        axis.text.y = element_text(size=20),
+        axis.title.x = element_text(size=20),
+        axis.title.y = element_text(size=20),
+        legend.title = element_text(size=20, face="bold"),
+        legend.text = element_text(size=20),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+        )
+#dev.off()
+
+
+### NMDS Ellipses
+sample_data(exo.physeq)$Elip <- paste(sample_data(exo.physeq)$Season)
+exo.physeq.elip <- data.frame(MDS1 = exo.nmds$points[,1], MDS2 = exo.nmds$points[,2],
+                           Group = sample_data(exo.physeq)$Season)
+plot.new()
+exo.physeq.elip.ord <- ordiellipse(exo.nmds, sample_data(exo.physeq)$Elip, display="sites", kind="se", conf=0.95, label=T)
+exo.physeq.elip.df <- data.frame()
+for(i in levels(exo.physeq.elip$Group)){
+  exo.physeq.elip.df <- rbind(exo.physeq.elip.df,
+                           cbind(as.data.frame(with(exo.physeq.elip[exo.physeq.elip$Group==i,],
+                                                    veganCovEllipse(exo.physeq.elip.ord[[i]]$cov,
+                                                                    exo.physeq.elip.ord[[i]]$center,
+                                                                    exo.physeq.elip.ord[[i]]$scale))), group=i
+                                 ))
+}
+
+### Bray-Curtis PCoA
+exo.pcoa <- ordinate(physeq=exo.physeq, method="PCoA", distance="bray")
+
+plot_ordination(physeq=exo.physeq, ordination=exo.pcoa, color="Season") + 
+  scale_color_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"))
+
+
+
+### PERMANOVA for NMDS
+exo.physeq.sampdf <- data.frame(sample_data(exo.physeq))
+exo.bray<- phyloseq::distance(physeq=exo.physeq, method="bray")
+
+## Season
+adonis(exo.bray~ Season, data=exo.physeq.sampdf)
+  # p-value = 0.902
+beta.tax = betadisper(d=exo.bray, group=exo.physeq.sampdf$Season)
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.604
+
+
+```
+### Plot
+```{r}
+### Inulin
+inu.plot <- ggplot(inu.all, aes(x=BinTime, y=Mean, color=Season)) +
+  geom_line(aes(linetype=Antibiotics), size=1) +
+   geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
+  ggtitle(expression("Inulin"~~delta^13~"C")) +
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
+  xlim(-0.6,4.1) +
+  scale_y_continuous(breaks=c(0, 625, 1250, 1875, 2500), limits=c(-30, 2700)) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.title.x=element_text(size=20, 
+                                  margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y=element_text(size=18),
+        axis.text.x=element_text(size=16),
+        axis.text.y=element_text(size=16),
+        plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
+          #top, right, bottom, left
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+  ) +
+  guides(colour=F, linetype=F)
+
+
+
+## Saline
+sal.plot <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
+  geom_line(aes(linetype=Antibiotics), size=1) +
+  geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
+  ggtitle(expression("Saline"~~delta^13~"C")) +
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.title.x=element_text(size=14),
+        axis.title.y=element_text(size=14),
+        axis.text.x=element_text(size=12),
+        axis.text.y=element_text(size=12)) +
+  guides(colour=F, linetype=F)
+
+
+## Steal legend
+steal.legend <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
+  geom_line(aes(linetype=Antibiotics), size=1) +
+  geom_point(size=3) +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
+  ggtitle(expression("Saline"~~delta^13~"C")) +
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.title.x=element_text(size=14),
+        axis.title.y=element_text(size=14),
+        axis.text.x=element_text(size=12),
+        axis.text.y=element_text(size=12),
+        legend.title = element_text(size=20, face="bold"),
+        legend.text = element_text(size=18)
+        )
+legend <- g_legend(steal.legend)
+
+
+
+
+
+
+### All 3 substrates on same axis
+inu.sal.sum <- crds.sum[which(crds.sum$Substrate != "Urea"),]
+inu.sal.sum <- inu.sal.sum[which(inu.sal.sum$Substrate != "Acetate"),]
+inu.sal.sum <- inu.sal.sum[which(inu.sal.sum$Substrate != "Butyrate"),]
+inu.sal.sum <- inu.sal.sum[which(inu.sal.sum$Substrate != "Mannitol"),]
+
+
+inu.sal.plot <- ggplot(inu.sal.sum, aes(x=BinTime, y=Mean, color=Season)) +
+  geom_line(aes(linetype=Antibiotics), size=1) +
+   geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) + 
+  facet_grid(.~Substrate) +
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
+  xlim(-0.6,4.1) +
+  scale_y_continuous(breaks=c(0, 500, 1000, 1500, 2000, 2500), limits=c(-30, 2700)) +
+  theme(axis.text.x = element_text(size=16),
+        axis.text.y = element_text(size=16),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
+        strip.text.x = element_text(size=20, face="bold"),
+        #strip.text.y = element_text(size=14),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 20, face="bold"),
+        legend.text = element_text(size=18),
+        panel.grid.minor = element_blank(),
+        #panel.grid.major = element_blank(),
+        strip.background = element_blank()
+  )
+
+
+
+tiff("crds.mdtp.tiff", width = 12.75, height = 3.5, units = "in", res = 300)
+carb.plot
+dev.off()
+```
 
 ### Test Delta & Rel Time
 ```{r}
