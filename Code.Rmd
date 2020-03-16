@@ -120,6 +120,8 @@ inu.ind.raw <- crds[which(crds$Substrate == "Inulin"),]
 man.ind.raw <- crds[which(crds$Substrate == "Mannitol"),]
 sal.ind.raw <- crds[which(crds$Substrate == "Saline"),]
 
+#write.csv(inu.ind.raw, file="inulin.raw.csv")
+  # For Hannah
 
 ### Separate by Substrate & ABX
 inu.noabx.ind.raw <- inu.ind.raw[which(inu.ind.raw$Antibiotics == "No"),]
@@ -388,6 +390,9 @@ auc.man.abx <- auc.man[which(auc.man$Antibiotics == "Yes"),]
 auc.man.noabx <- auc.man[which(auc.man$Antibiotics == "No"),]
 auc.sal.abx <- auc.sal[which(auc.sal$Antibiotics == "Yes"),]
 auc.sal.noabx <- auc.sal[which(auc.sal$Antibiotics == "No"),]
+
+#write.csv(auc.inu, "inulin.auc.peak.csv")
+  # For Hannah
 ```
 
 ### AUC Stats & Plots
@@ -1272,6 +1277,9 @@ max.man.abx <- max.man[which(max.man$Antibiotics == "Yes"),]
 max.man.noabx <- max.man[which(max.man$Antibiotics == "No"),]
 max.sal.abx <- max.sal[which(max.sal$Antibiotics == "Yes"),]
 max.sal.noabx <- max.sal[which(max.sal$Antibiotics == "No"),]
+
+#write.csv(max.inu, "inulin.peak.csv")
+  # For Hannah
 ```
 
 
@@ -1634,14 +1642,14 @@ hist(max.inu$Delta)
 qqnorm(max.inu$Delta)
 qqline(max.inu$Delta)
 shapiro.test(max.inu$Delta)
-  # p-value = 7.558e-06
+  # p-value = 4.136e-06
   # Not Normal
 
 hist(max.inu.noabx$Delta)
 qqnorm(max.inu.noabx$Delta)
 qqline(max.inu.noabx$Delta)
 shapiro.test(max.inu.noabx$Delta)
-  # p-value = 0.1429
+  # p-value = 0.1428
   # Normal
 
 hist(max.man$Delta)
@@ -1662,7 +1670,7 @@ hist(max.sal$Delta)
 qqnorm(max.sal$Delta)
 qqline(max.sal$Delta)
 shapiro.test(max.sal$Delta)
-  # p-value = 5.269e-13
+  # p-value = 1.054e-10
   # Not Normal
 
 hist(max.abx$Delta)
@@ -1835,7 +1843,7 @@ ggplot(max.sal, aes(x=Season, y=Delta, fill = Antibiotics)) +
 wilcox.test(Delta ~ Antibiotics, data=max.df)
   # p-value = 0.0001069
 kruskal.test(formula = Delta ~ Substrate, data=max.abx)
-  # p-value = 1.325e-09
+  # p-value = 2.319e-10
 kruskalmc(resp = Delta ~ Substrate, data=max.abx)
   # Inulin-Mannitol
   # Inulin-Saline
@@ -1848,9 +1856,9 @@ wilcox.test(Delta~Sex, data=max.abx)
 
 # Inulin
 wilcox.test(Delta~Antibiotics, data=max.inu)
-  # p-value = 2.935e-08
+  # p-value = 1.394e-08
 kruskal.test(formula = Delta ~ Season, data=max.inu.abx)
-  # p-value = 0.862
+  # p-value = 0.8532
 kruskal.test(formula = Delta ~ Season, data=max.inu.noabx)
   # p-value = 0.004309
 kruskalmc(resp = Delta ~ Season, data=max.inu.noabx)
