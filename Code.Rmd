@@ -20,6 +20,7 @@ library(car)
 source('scripts/import_crds.R')
 source('scripts/import_crds_sep.R')
 source('scripts/bin_crds.R')
+source('scripts/bin_crds2.R')
 source('scripts/misc.R')
 set.seed(1)
 theme_set(theme_bw())
@@ -110,8 +111,13 @@ crds.all <- import.crds.sep('CSV', 'metadata.csv')
 
 ### Bin RelTime
 ```{r}
-crds.bin <- bin.crds(crds)
+#crds.bin <- bin.crds(crds)
+
+crds.bin <- bin.crds2(crds)
+
+
 ```
+
 
 ### Separate Samples by Raw Rel Time for AUC
 ```{r}
@@ -225,11 +231,17 @@ crds.rem$Season <- ordered(crds.rem$Season, levels=c("Summer", "Winter", "Spring
 # Summarize
 crds.sum <- crds.rem %>%
   group_by(Substrate, Antibiotics, Season, BinTime) %>%
-  summarize(Mean = mean(Delta),
-            Median = median(Delta),
-            SD = sd(Delta),
-            SE = se(Delta),
-            iqr = IQR(Delta))
+  summarize(Y_Mean = mean(Delta),
+            Y_Median = median(Delta),
+            Y_SD = sd(Delta),
+            Y_SE = se(Delta),
+            Y_IQR = IQR(Delta),
+            X_Mean = mean(RelTime),
+            X_Median = median(RelTime),
+            X_SD = sd(RelTime),
+            X_SE = se(RelTime),
+            X_IQR = IQR(RelTime),
+            SampSize = n())
 crds.sum$Season <- ordered(crds.sum$Season, levels=c("Summer", "Winter", "Spring"))
 ```
 
@@ -912,6 +924,73 @@ auc.sum$Season <- ordered(auc.sum$Season, levels=c("Summer", "Winter", "Spring")
 ```
 
 ### Summer 2020 - CRDS Plots
+```{r}
+### Subset out Inulin & Saline
+inu.sal.sum <- crds.sum[which(crds.sum$Substrate != "Urea"),]
+inu.sal.sum <- inu.sal.sum[which(inu.sal.sum$Substrate != "Acetate"),]
+inu.sal.sum <- inu.sal.sum[which(inu.sal.sum$Substrate != "Butyrate"),]
+inu.sal.sum <- inu.sal.sum[which(inu.sal.sum$Substrate != "Mannitol"),]
+
+# Plot Inulin & Saline CRDS curves
+inu.sal.plot <- ggplot(inu.sal.sum, aes(x=X_Mean, y=Y_Mean, color=Season)) +
+  geom_line(aes(linetype=Antibiotics), size=1) +
+   geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
+  geom_errorbar(aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125, position=position_dodge(0.1)) + 
+  geom_errorbarh(aes(xmin = X_Mean-X_SE, xmax = X_Mean+X_SE)) +
+  facet_grid(.~Substrate) +
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
+  xlim(-0.6,4.3) +
+  scale_y_continuous(breaks=c(0, 500, 1000, 1500, 2000, 2500), limits=c(-30, 2700)) +
+  theme(axis.text.x = element_text(size=16),
+        axis.text.y = element_text(size=16),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
+        strip.text.x = element_text(size=20, face="bold"),
+        #strip.text.y = element_text(size=14),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 20, face="bold"),
+        legend.text = element_text(size=18),
+        panel.grid.minor = element_blank(),
+        #panel.grid.major = element_blank(),
+        strip.background = element_blank()
+  )
+
+
+
+
+
+ggplot(inu.all, aes(x=BinTime, y=Mean, color=Season)) +
+  geom_line(aes(linetype=Antibiotics), size=1) +
+   geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
+  ggtitle(expression("Inulin"~~delta^13~"C")) +
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
+  xlim(-0.6,4.1) +
+  scale_y_continuous(breaks=c(0, 625, 1250, 1875, 2500), limits=c(-30, 2700)) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.title.x=element_text(size=20, 
+                                  margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y=element_text(size=18),
+        axis.text.x=element_text(size=16),
+        axis.text.y=element_text(size=16),
+        plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
+          #top, right, bottom, left
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+  ) +
+  guides(colour=F, linetype=F)
+
+
+
+
+
+```
 
 ### Summer 2020 - Inulinase Genes (metaG)
 ```{r}
@@ -1621,11 +1700,6 @@ ggplot(inu.sum.abx, aes(x=BinTime, y=Delta, color=ID)) +
   # 3982 is an outlier -- is it actually ABX?
   # Until confirmed, remove from data
 ```
-
-
-
-
-
 
 
 ### Test Max Delta Change
