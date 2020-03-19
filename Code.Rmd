@@ -22,6 +22,7 @@ source('scripts/import_crds.R')
 source('scripts/import_crds_sep.R')
 source('scripts/bin_crds.R')
 source('scripts/bin_crds2.R')
+source('scripts/bin_crds3.R')
 source('scripts/misc.R')
 set.seed(1)
 theme_set(theme_bw())
@@ -114,7 +115,10 @@ crds.all <- import.crds.sep('CSV', 'metadata.csv')
 ```{r}
 #crds.bin <- bin.crds(crds)
 
-crds.bin <- bin.crds2(crds)
+#crds.bin <- bin.crds2(crds)
+  # Only includes inulin, mannitol, and saline
+
+crds.bin <- bin.crds3(crds)
   # Only includes inulin, mannitol, and saline
 ```
 
@@ -331,10 +335,11 @@ sal.all <- crds.sum[which(crds.sum$Substrate == "Saline"),]
 
 ### Remove unwanted substrates
 #crds.auc <- crds.rem[-which(crds.rem$Substrate == "Urea"),]
-crds.auc <- crds.rem[-which(crds.rem$Substrate == "Acetate"),]
-crds.auc <- crds.auc[-which(crds.auc$Substrate == "Butyrate"),]
-crds.auc$Substrate <- droplevels(crds.auc$Substrate)
-crds.auc$ID <- droplevels(crds.auc$ID)
+#crds.auc <- crds.rem[-which(crds.rem$Substrate == "Acetate"),]
+#crds.auc <- crds.auc[-which(crds.auc$Substrate == "Butyrate"),]
+#crds.auc$Substrate <- droplevels(crds.auc$Substrate)
+#crds.auc$ID <- droplevels(crds.auc$ID)
+crds.auc <- crds.rem
 
 
 ### Calculate AUC
@@ -938,7 +943,7 @@ inu.sal.plot <- ggplot(inu.sal.sum, aes(x=X_Mean, y=Y_Mean, color=Season)) +
    geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
-  geom_errorbar(aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125, position=position_dodge2(width=10)) + 
+  geom_errorbar(aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125, position=position_dodge(0.1)) + 
   geom_errorbarh(aes(xmin = X_Mean-X_SE, xmax = X_Mean+X_SE)) +
   facet_grid(.~Substrate) +
   xlab("Time Since Gavage (hr)") +
