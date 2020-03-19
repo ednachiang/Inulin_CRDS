@@ -32,79 +32,6 @@ theme_set(theme_bw())
 # Do NOT use 'subset' in kruskalmc or pairwise.wilcox.test; it doesn't work!
 ```
 
-### Urea
-```{r}
-# Load data
-crds.urea.csv <- import.crds('urea.csv','urea.metadata.csv')
-crds.all.urea <- import.crds.sep('urea.csv', 'urea.metadata.csv')
-
-# Bin Rel Time
-crds.bin.urea <- bin.crds(crds.urea.csv)
-
-
-# Pull out L-Urea
-ure.ind.raw <- crds.urea.csv[which(crds.urea.csv$Substrate == "L-Urea"),]
-
-# Separate by ABX
-ure.noabx.ind.raw <- ure.ind.raw[which(ure.ind.raw$Antibiotics == "No"),]
-ure.abx.ind.raw <- ure.ind.raw[which(ure.ind.raw$Antibiotics == "Yes"),]
-
-# Separate by ABX and Season
-ure.noabx.sum.ind.raw <- ure.noabx.ind.raw[which(ure.noabx.ind.raw$Season == "Summer"),]
-ure.noabx.win.ind.raw <- ure.noabx.ind.raw[which(ure.noabx.ind.raw$Season == "Early Winter"),]
-ure.noabx.spr.ind.raw <- ure.noabx.ind.raw[which(ure.noabx.ind.raw$Season == "Winter"),]
-
-
-# Clean up urea data
-rem.urea <- which(is.na(crds.urea.csv$Delta))
-crds.rem.urea <- crds.bin.urea[-rem.urea,]
-crds.rem.urea <- crds.rem.urea[which(crds.rem.urea$Substrate == "L-Urea"),]
-
-# Summarize
-crds.sum.urea <- crds.rem.urea %>%
-  group_by(Substrate, Antibiotics, Season, BinTime) %>%
-  summarize(Mean = mean(Delta),
-            Median = median(Delta),
-            SD = sd(Delta),
-            SE = se(Delta),
-            iqr = IQR(Delta))
-crds.sum.urea$Season <- ordered(crds.sum.urea$Season, levels=c("Summer", "Early Winter", "Winter"))
-
-# Calculate AUC
-crds.auc.urea <- crds.rem.urea
-crds.auc.urea$Substrate <- droplevels(crds.rem.urea$Substrate)
-crds.auc.urea$ID <- droplevels(crds.rem.urea$ID)
-ids <- levels(crds.auc.urea$ID)
-auc.urea.df <- data.frame(crds.auc.urea[1,])
-auc.urea.df <- auc.urea.df[,-2:-3]
-auc.urea.df <- auc.urea.df[,-8]
-colnames(auc.urea.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate")
-for(i in 1:length(ids)){
-  ID <- ids[i]
-  select <- crds.auc.urea[which(crds.auc.urea$ID == ID),]
-  baseline <- which(select$RelTime < 0)
-  baseline.reltime <- mean(select$RelTime[baseline])
-  baseline.delta <- mean(select$Delta[baseline])
-  baseline.co2 <- mean(select$CO2[baseline])
-  baseline.bintime <- mean(select$BinTime[baseline])
-  select.norm <- data.frame(RelTime=baseline.reltime, Delta=0, CO2=baseline.co2,
-                            Number=select$Number[1], ID=select$ID[1], Season=select$Season[1],
-                            Sex=select$Sex[1], Antibiotics=select$Antibiotics[1],
-                            Substrate=select$Substrate[1], BinTime=baseline.bintime)
-    # Delta = 0 because we want to normalize everything to baseline. Any neg Deltas will decrease the AUC (subtracted from AUC), which is not what we want.
-  exp <- which(select$RelTime>0)
-  for(j in 1:(nrow(select)-length(baseline))){
-    select.norm[j+1,] <- select[exp[j],]
-  }
-  select.norm[2:nrow(select.norm),2] <- (select.norm[2:nrow(select.norm),2]-baseline.delta)
-  x <- select.norm$RelTime
-  y <- select.norm$Delta
-  AUC <- auc(x, y, type = 'spline')
-  auc.urea.df[i,1] <- AUC
-  auc.urea.df[i,2:7] <- select.norm[1,4:9]
-}
-```
-
 ### Load Data
 ```{r}
 crds <- import.crds('CSV', 'metadata.csv')
@@ -120,6 +47,7 @@ crds.all <- import.crds.sep('CSV', 'metadata.csv')
 
 crds.bin <- bin.crds3(crds)
   # Only includes inulin, mannitol, and saline
+  # Using bin.crds3 because it's most accurate in displaying the data, even if the delta curve plots are a little wonkier (bins not aligned because I bin separately for each Season + ABX group)
 ```
 
 
@@ -254,58 +182,55 @@ crds.sum$Season <- ordered(crds.sum$Season, levels=c("Summer", "Winter", "Spring
 
 ### Test crds values for ABX
 ```{r}
-crds.val <- crds.rem[which(crds.rem$Substrate != "Urea"),]
-crds.val <- crds.val[which(crds.val$Substrate != "Acetate"),]
-crds.val <- crds.val[which(crds.val$Substrate != "Butyrate"),]
-crds.inu.val <- crds.val[which(crds.val$Substrate == "Inulin"),]
-crds.man.val <- crds.val[which(crds.val$Substrate == "Mannitol"),]
-crds.sal.val <- crds.val[which(crds.val$Substrate == "Saline"),]
-crds.inu.end.val <- crds.inu.val[which(crds.inu.val$RelTime > 0),]
-crds.man.end.val <- crds.man.val[which(crds.man.val$RelTime > 0),]
-crds.sal.end.val <- crds.sal.val[which(crds.sal.val$RelTime > 0),]
+crds.inu <- crds[which(crds$Substrate == "Inulin"),]
+crds.man <- crds[which(crds$Substrate == "Mannitol"),]
+crds.sal <- crds[which(crds$Substrate == "Saline"),]
+crds.inu.end <- crds.inu[which(crds.inu$RelTime > 0),]
+crds.man.end <- crds.man[which(crds.man$RelTime > 0),]
+crds.sal.end <- crds.sal[which(crds.sal$RelTime > 0),]
 
 
 ### Check Normality
-hist(crds.val$Delta)
-qqnorm(crds.val$Delta)
-qqline(crds.val$Delta)
-shapiro.test(crds.val$Delta)
+hist(crds$Delta)
+qqnorm(crds$Delta)
+qqline(crds$Delta)
+shapiro.test(crds$Delta)
   # p-value < 2.2e-16
-hist(crds.inu.val$Delta)
-qqnorm(crds.inu.val$Delta)
-qqline(crds.inu.val$Delta)
-shapiro.test(crds.inu.val$Delta)
+hist(crds.inu$Delta)
+qqnorm(crds.inu$Delta)
+qqline(crds.inu$Delta)
+shapiro.test(crds.inu$Delta)
   # p-value < 2.2e-16
-hist(crds.man.val$Delta)
-qqnorm(crds.man.val$Delta)
-qqline(crds.man.val$Delta)
-shapiro.test(crds.man.val$Delta)
+hist(crds.man$Delta)
+qqnorm(crds.man$Delta)
+qqline(crds.man$Delta)
+shapiro.test(crds.man$Delta)
   # p-value < 2.2e-16
-hist(crds.inu.end.val$Delta)
-qqnorm(crds.inu.end.val$Delta)
-qqline(crds.inu.end.val$Delta)
-shapiro.test(crds.inu.end.val$Delta)
+hist(crds.inu.end$Delta)
+qqnorm(crds.inu.end$Delta)
+qqline(crds.inu.end$Delta)
+shapiro.test(crds.inu.end$Delta)
   # p-value < 2.2e-16
-hist(crds.man.end.val$Delta)
-qqnorm(crds.man.end.val$Delta)
-qqline(crds.man.end.val$Delta)
-shapiro.test(crds.man.end.val$Delta)
+hist(crds.man.end$Delta)
+qqnorm(crds.man.end$Delta)
+qqline(crds.man.end$Delta)
+shapiro.test(crds.man.end$Delta)
   # p-value < 2.2e-16
 
 ### Test
-wilcox.test(Delta~Antibiotics, data=crds.val)
+wilcox.test(Delta~Antibiotics, data=crds)
   # p-value < 2.2e-16
-wilcox.test(Delta~Antibiotics, data=crds.inu.val)
+wilcox.test(Delta~Antibiotics, data=crds.inu)
   # p-value < 2.2e-16
-wilcox.test(Delta~Antibiotics, data=crds.man.val)
+wilcox.test(Delta~Antibiotics, data=crds.man)
   # p-value = 2.002e-15
-wilcox.test(Delta~Antibiotics, data=crds.sal.val)
+wilcox.test(Delta~Antibiotics, data=crds.sal)
   # p-value = 3.964e-05
-wilcox.test(Delta~Antibiotics, data=crds.inu.end.val, alternative="greater")
+wilcox.test(Delta~Antibiotics, data=crds.inu.end, alternative="greater")
   # p-value < 2.2e-16
-wilcox.test(Delta~Antibiotics, data=crds.man.end.val, alternative="greater")
+wilcox.test(Delta~Antibiotics, data=crds.man.end, alternative="greater")
   # p-value < 2.2e-16
-wilcox.test(Delta~Antibiotics, data=crds.sal.end.val, alternative="greater")
+wilcox.test(Delta~Antibiotics, data=crds.sal.end, alternative="greater")
   # p-value = 1.249e-05
 
 p.adjust(c(2.2e-16, 9.664e-13, 2.499e-05), method="BH")
@@ -333,18 +258,9 @@ sal.all <- crds.sum[which(crds.sum$Substrate == "Saline"),]
 # AUC = Area Under Curve
 # Rectangle Method
 
-### Remove unwanted substrates
-#crds.auc <- crds.rem[-which(crds.rem$Substrate == "Urea"),]
-#crds.auc <- crds.rem[-which(crds.rem$Substrate == "Acetate"),]
-#crds.auc <- crds.auc[-which(crds.auc$Substrate == "Butyrate"),]
-#crds.auc$Substrate <- droplevels(crds.auc$Substrate)
-#crds.auc$ID <- droplevels(crds.auc$ID)
-crds.auc <- crds.rem
-
-
 ### Calculate AUC
-ids <- levels(crds.auc$ID)
-auc.df <- data.frame(crds.auc[1,])
+ids <- levels(crds.rem$ID)
+auc.df <- data.frame(crds.rem[1,])
 auc.df <- auc.df[,-2:-3]
   # Remove Delta and CO2 cols
 auc.df <- auc.df[,-8]
@@ -355,7 +271,7 @@ colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Su
 # First normalize Rel Time so 
 for (i in 1:length(ids)){
   ID <- ids[i]
-  select <- crds.auc[which(crds.auc$ID == ID),]
+  select <- crds.rem[which(crds.rem$ID == ID),]
     # Dataframe with CRDS values for 1 squirrel
 
   # Normalize delta value to baseline
@@ -949,7 +865,7 @@ inu.sal.plot <- ggplot(inu.sal.sum, aes(x=X_Mean, y=Y_Mean, color=Season)) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
   scale_y_continuous(breaks=c(0, 500, 1000, 1500, 2000, 2500, 3000), limits=c(-30, 3050)) +
-  scale_x_continuous(breaks=c(0, 1, 2, 3, 4), limits=c(-0.5, 4.5)) +
+  scale_x_continuous(breaks=c(0, 1, 2, 3, 4), limits=c(-0.6, 4.5)) +
   theme(axis.text.x = element_text(size=16),
         axis.text.y = element_text(size=16),
         axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
@@ -1199,13 +1115,7 @@ legend <- g_legend(steal.legend)
 
 
 ### All 3 substrates on same axis
-inu.sal.sum <- crds.sum[which(crds.sum$Substrate != "Urea"),]
-inu.sal.sum <- inu.sal.sum[which(inu.sal.sum$Substrate != "Acetate"),]
-inu.sal.sum <- inu.sal.sum[which(inu.sal.sum$Substrate != "Butyrate"),]
-inu.sal.sum <- inu.sal.sum[which(inu.sal.sum$Substrate != "Mannitol"),]
-
-
-inu.sal.plot <- ggplot(inu.sal.sum, aes(x=BinTime, y=Mean, color=Season)) +
+all3.plot <- ggplot(crds.sum, aes(x=BinTime, y=Mean, color=Season)) +
   geom_line(aes(linetype=Antibiotics), size=1) +
    geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
@@ -1239,36 +1149,7 @@ dev.off()
 
 ### Test Delta & Rel Time
 ```{r}
-### Organize data
-inu.ind.raw
-  # All inulin squirrels
-sal.ind.raw2 <- sal.ind.raw[-which(sal.ind.raw$ID == "W42"),]
-  # All saline squirrels
-  # Remove W42 because it's an outlier with a very high AUC
-inu.sal.raw <- crds[which(crds$Substrat != "Mannitol"),]
-  # Pull out just saline and inulin squirrels
-
-
-### Test raw delta values for normality
-hist(inu.sal.raw$Delta)
-qqnorm(inu.sal.raw$Delta)
-qqline(inu.sal.raw$Delta)
-shapiro.test(inu.sal.raw$Delta)
-  # p-value = 2.2e-16
-  # Not Normal
-
-hist(inu.ind.raw$Delta)
-qqnorm(inu.ind.raw$Delta)
-qqline(inu.ind.raw$Delta)
-shapiro.test(inu.ind.raw$Delta)
-
-
-
-
-kruskal.test(formula = Delta ~ RelTime * Season, data=inu.ind.raw)
-
-
-
+# Separate substrates
 inu.ind.raw <- crds[which(crds$Substrate == "Inulin"),]
 man.ind.raw <- crds[which(crds$Substrate == "Mannitol"),]
 sal.ind.raw <- crds[which(crds$Substrate == "Saline"),]
@@ -1322,20 +1203,14 @@ kruskal.test(formula = Delta ~ Season, data=inu.beg)
 
 ### Calculate Max Delta Change & RelTime Peak
 ```{r}
-### Remove unwanted substrates
-crds.max <- crds.rem[-which(crds.rem$Substrate == "Acetate"),]
-crds.max <- crds.max[-which(crds.max$Substrate == "Butyrate"),]
-crds.max$Substrate <- droplevels(crds.max$Substrate)
-crds.max$ID <- droplevels(crds.max$ID)
-
 ### Pull out max delta value
-ids <- levels(crds.max$ID)
-max.df <- data.frame(crds.max[1,])
+ids <- levels(crds.rem$ID)
+max.df <- data.frame(crds.rem[1,])
 max.df <- max.df[,-3]
 max.df <- max.df[,-9]
 for(i in 1:length(ids)){
   ID <- ids[i]  
-  select <- crds.max[which(crds.max$ID == ID),]
+  select <- crds.rem[which(crds.rem$ID == ID),]
   baseline.delta <- select$Delta[1]
   Max <- (max(select$Delta)-baseline.delta)
   Max.time <- select$RelTime[which(select$Delta == max(select$Delta))]
@@ -1618,12 +1493,7 @@ legend <- g_legend(steal.legend)
 
 
 ### All 3 substrates on same axis
-carb.sum <- crds.sum[which(crds.sum$Substrate != "Urea"),]
-carb.sum <- carb.sum[which(carb.sum$Substrate != "Acetate"),]
-carb.sum <- carb.sum[which(carb.sum$Substrate != "Butyrate"),]
-
-
-carb.plot <- ggplot(carb.sum, aes(x=BinTime, y=Mean, color=Season)) +
+carb.plot <- ggplot(crds.rem, aes(x=BinTime, y=Mean, color=Season)) +
   geom_line(aes(linetype=Antibiotics), size=1) +
    geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
@@ -2126,10 +1996,6 @@ p.adjust(c(0.06165, 0.8789, 0.05151, 0.2417, 0.078, 0.02704), method="BH")
 ### Subset Summer
 ```{r}
 sum.all <- crds.sum[which(crds.sum$Season == "Summer"),]
-sum.all <- sum.all[which(sum.all$Substrate != "Acetate"),]
-sum.all <- sum.all[which(sum.all$Substrate != "Butyrate"),]
-sum.all <- sum.all[which(sum.all$Substrate != "Urea"),]
-
 
 sum.inu <- sum.all[which(sum.all$Substrate == "Inulin"),]
 
@@ -2364,7 +2230,7 @@ ml.results3 <- QCAT_GEE(OTU=otu.ml, Tax=tax.ml, X=var3.ml, X.index = 1, Z=var3.m
 
 ### Pull out summer no ABX
 ```{r}
-physeq.noabx <- subset_samples(physeq.keep, Antibiotics == "No Antibiotics")
+physeq.noabx <- subset_samples(physeq.keep, Antibiotics == "No")
 
 # Remove taxa < 1% rel abund
 physeq.noabx.ra <- transform_sample_counts(physeq.noabx, function(x){x/sum(x)})
@@ -2560,48 +2426,6 @@ ml.man.results3 <- QCAT_GEE(OTU=otu.man.noabx.ml, Tax=tax.man.noabx.ml, X=var3.m
 
 
 
-### Format AUC data for Fariba
-```{r}
-### Format auc input data
-fa.df <- data.frame(crds.auc[1,])
-fa.df <- fa.df[,-2:-3]
-  # Remove Delta and CO2 cols
-fa.df <- fa.df[,-8]
-  # Remove BinTime col
-colnames(fa.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate")
-  # Rename cols
-
-for (i in 1:length(ids)){
-  ID <- ids[i]
-  select <- crds.auc[which(crds.auc$ID == ID),]
-    # Dataframe with CRDS values for 1 squirrel
-
-  # Normalize delta value to baseline
-  select$Delta <- select$Delta - select$Delta[1]
-  
-  # Normalize RelTime to baseline
-  select$RelTime <- select$RelTime - select$RelTime[1]
-  
-  if (i < 2){
-      fa.df <- select
-      # Creates initial dataframe with the first file
-    } else {
-      fa.df <- rbind(fa.df, select)
-      # Appends onto the dataframe for all subsequent files
-    }
-}
-
-fa.df <- fa.df[,-3:-4]
-fa.df <- fa.df[,-4:-8]
-#write.csv(fa.df, "crds.csv", row.names=F)
-
-
-### Format AUC output
-crds.fariba <- crds.auc
-crds.fariba <- crds.fariba[,-3:-4]
-crds.fariba <- crds.fariba[,-4:-8]
-write.csv(crds.fariba, "crds.csv", row.names=F)
-```
 
 
 ### Inulin MetaG Endo/Exo Total Protein
