@@ -95,7 +95,7 @@ bin.crds3 <- function(x){
   
   
   # Update BinTime in dataframe containing all substrate data
-  # Inulin
+  ## Inulin
   for(i in 1:nrow(inu.sum.noabx)) {
     inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:9], inu.sum.noabx[i,1:9])))] <- inu.sum.noabx$BinTime[i]
     # match_df goes through each row of inu.exp and finds the matching row in inu
@@ -120,44 +120,44 @@ bin.crds3 <- function(x){
     inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:9], inu.spr.abx[i,1:9])))] <- inu.spr.abx$BinTime[i]
   }
   
-  # Mannitol
+  ## Mannitol
   for(i in 1:nrow(man.sum.noabx)) {
-    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:9], man.sum.noabx[i,1:9])))] <- man.sum.noabx$BinTime[i]
+    man$BinTime[which(rownames(man) == rownames(match_df(man[,1:9], man.sum.noabx[i,1:9])))] <- man.sum.noabx$BinTime[i]
   }
   for(i in 1:nrow(man.sum.abx)) {
-    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:9], man.sum.abx[i,1:9])))] <- man.sum.abx$BinTime[i]
+    man$BinTime[which(rownames(man) == rownames(match_df(man[,1:9], man.sum.abx[i,1:9])))] <- man.sum.abx$BinTime[i]
   }
   for(i in 1:nrow(man.win.noabx)) {
-    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:9], man.win.noabx[i,1:9])))] <- man.win.noabx$BinTime[i]
+    man$BinTime[which(rownames(man) == rownames(match_df(man[,1:9], man.win.noabx[i,1:9])))] <- man.win.noabx$BinTime[i]
   }
   for(i in 1:nrow(man.win.abx)) {
-    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:9], man.win.abx[i,1:9])))] <- man.win.abx$BinTime[i]
+    man$BinTime[which(rownames(man) == rownames(match_df(man[,1:9], man.win.abx[i,1:9])))] <- man.win.abx$BinTime[i]
   }
   for(i in 1:nrow(man.spr.noabx)) {
-    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:9], man.spr.noabx[i,1:9])))] <- man.spr.noabx$BinTime[i]
+    man$BinTime[which(rownames(man) == rownames(match_df(man[,1:9], man.spr.noabx[i,1:9])))] <- man.spr.noabx$BinTime[i]
   }
   for(i in 1:nrow(man.spr.abx)) {
-    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:9], man.spr.abx[i,1:9])))] <- man.spr.abx$BinTime[i]
+    man$BinTime[which(rownames(man) == rownames(match_df(man[,1:9], man.spr.abx[i,1:9])))] <- man.spr.abx$BinTime[i]
   }
   
-  # Saline
+  ## Saline
   for(i in 1:nrow(sal.sum.noabx)) {
-    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:9], sal.sum.noabx[i,1:9])))] <- sal.sum.noabx$BinTime[i]
+    sal$BinTime[which(rownames(sal) == rownames(match_df(sal[,1:9], sal.sum.noabx[i,1:9])))] <- sal.sum.noabx$BinTime[i]
   }
   for(i in 1:nrow(sal.sum.abx)) {
-    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:9], sal.sum.abx[i,1:9])))] <- sal.sum.abx$BinTime[i]
+    sal$BinTime[which(rownames(sal) == rownames(match_df(sal[,1:9], sal.sum.abx[i,1:9])))] <- sal.sum.abx$BinTime[i]
   }
   for(i in 1:nrow(sal.win.noabx)) {
-    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:9], sal.win.noabx[i,1:9])))] <- sal.win.noabx$BinTime[i]
+    sal$BinTime[which(rownames(sal) == rownames(match_df(sal[,1:9], sal.win.noabx[i,1:9])))] <- sal.win.noabx$BinTime[i]
   }
   for(i in 1:nrow(sal.win.abx)) {
-    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:9], sal.win.abx[i,1:9])))] <- sal.win.abx$BinTime[i]
+    sal$BinTime[which(rownames(sal) == rownames(match_df(sal[,1:9], sal.win.abx[i,1:9])))] <- sal.win.abx$BinTime[i]
   }
   for(i in 1:nrow(sal.spr.noabx)) {
-    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:9], sal.spr.noabx[i,1:9])))] <- sal.spr.noabx$BinTime[i]
+    sal$BinTime[which(rownames(sal) == rownames(match_df(sal[,1:9], sal.spr.noabx[i,1:9])))] <- sal.spr.noabx$BinTime[i]
   }
   for(i in 1:nrow(sal.spr.abx)) {
-    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:9], sal.spr.abx[i,1:9])))] <- sal.spr.abx$BinTime[i]
+    sal$BinTime[which(rownames(sal) == rownames(match_df(sal[,1:9], sal.spr.abx[i,1:9])))] <- sal.spr.abx$BinTime[i]
   }
 
   
