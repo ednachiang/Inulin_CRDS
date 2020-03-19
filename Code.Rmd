@@ -8,6 +8,7 @@ output: html_document
 ### Load Packages, scripts, and functions
 ```{r}
 library(ggplot2)
+library(plyr)
 library(dplyr)
 library(grid)
 library(MESS)
@@ -114,8 +115,7 @@ crds.all <- import.crds.sep('CSV', 'metadata.csv')
 #crds.bin <- bin.crds(crds)
 
 crds.bin <- bin.crds2(crds)
-
-
+  # Only includes inulin, mannitol, and saline
 ```
 
 
@@ -242,6 +242,9 @@ crds.sum <- crds.rem %>%
             X_SE = se(RelTime),
             X_IQR = IQR(RelTime),
             SampSize = n())
+  # X_Mean is different from BinTime because BinTime was calculated with ABX and non-ABX combined
+    # BinTime was calculated this way to make sure datapoints for all individuals will align together on x-axis. If datapoints are misaligned that can be confusing for the audience. So binning was done this way for the clearest visualization.
+    # X_Mean is calculated for ABX and non-ABX separately, so there will be some variation
 crds.sum$Season <- ordered(crds.sum$Season, levels=c("Summer", "Winter", "Spring"))
 ```
 
@@ -926,24 +929,22 @@ auc.sum$Season <- ordered(auc.sum$Season, levels=c("Summer", "Winter", "Spring")
 ### Summer 2020 - CRDS Plots
 ```{r}
 ### Subset out Inulin & Saline
-inu.sal.sum <- crds.sum[which(crds.sum$Substrate != "Urea"),]
-inu.sal.sum <- inu.sal.sum[which(inu.sal.sum$Substrate != "Acetate"),]
-inu.sal.sum <- inu.sal.sum[which(inu.sal.sum$Substrate != "Butyrate"),]
-inu.sal.sum <- inu.sal.sum[which(inu.sal.sum$Substrate != "Mannitol"),]
+inu.sal.sum <- crds.sum[which(crds.sum$Substrate != "Mannitol"),]
 
 # Plot Inulin & Saline CRDS curves
+# Using X_Mean instead of BinTime because error bars don't align in BinTime
 inu.sal.plot <- ggplot(inu.sal.sum, aes(x=X_Mean, y=Y_Mean, color=Season)) +
   geom_line(aes(linetype=Antibiotics), size=1) +
    geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
-  geom_errorbar(aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125, position=position_dodge(0.1)) + 
+  geom_errorbar(aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125, position=position_dodge2(width=10)) + 
   geom_errorbarh(aes(xmin = X_Mean-X_SE, xmax = X_Mean+X_SE)) +
   facet_grid(.~Substrate) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  xlim(-0.6,4.3) +
-  scale_y_continuous(breaks=c(0, 500, 1000, 1500, 2000, 2500), limits=c(-30, 2700)) +
+  scale_y_continuous(breaks=c(0, 500, 1000, 1500, 2000, 2500, 3000), limits=c(-30, 3050)) +
+  scale_x_continuous(breaks=c(0, 1, 2, 3, 4), limits=c(-0.5, 4.5)) +
   theme(axis.text.x = element_text(size=16),
         axis.text.y = element_text(size=16),
         axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
