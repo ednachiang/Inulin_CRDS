@@ -28,14 +28,15 @@ bin.crds2 <- function(x){
   man.exp <- man[which(man$RelTime > 0),]
   sal.exp <- sal[which(sal$RelTime > 0),]
   
+  
   # Bin data into equally spaced bins; take mean of each bin to put into BinTime
-  # Number of bins is based upon what I did previously (every 30 min)
+  # Number of bins is based upon what I did previously (every 30 min) & ensures at least 3 data points per bin
   # ( = open
   # [ = closed
   # https://stackoverflow.com/questions/5915916/divide-a-range-of-values-in-bins-of-equal-length-cut-vs-cut2
-  inu.exp$BinTime <- ave(inu.exp$RelTime, cut(inu.exp$RelTime, breaks=10), FUN=mean)
-  man.exp$BinTime <- ave(man.exp$RelTime, cut(man.exp$RelTime, breaks=5), FUN=mean)
-  sal.exp$BinTime <- ave(sal.exp$RelTime, cut(sal.exp$RelTime, breaks=7), FUN=mean)
+  inu.exp$BinTime <- ave(inu.exp$RelTime, cut(inu.exp$RelTime, breaks=9), FUN=mean)
+  man.exp$BinTime <- ave(man.exp$RelTime, cut(man.exp$RelTime, breaks=4), FUN=mean)
+  sal.exp$BinTime <- ave(sal.exp$RelTime, cut(sal.exp$RelTime, breaks=6), FUN=mean)
   
   # Update BinTime in dataframe containing all substrate data
   for(i in 1:nrow(inu.exp)) {
