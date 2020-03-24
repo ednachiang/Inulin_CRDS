@@ -57,6 +57,8 @@ crds.bin <- bin.crds3(crds)
 ```{r}
 # Remove 3982 because it's an outlier
 crds.rem <- crds.bin[-which(crds.bin$Number == 3982),]
+# Remove S34 because it's an outlier (crazy high AUC)
+crds.rem <- crds.rem[-which(crds.rem$ID == "S34"),]
 crds.rem$ID <- droplevels(crds.rem$ID)
 crds.rem$Season <- ordered(crds.rem$Season, levels=c("Summer", "Winter", "Spring"))
 
@@ -776,6 +778,93 @@ auc.sum$Season <- ordered(auc.sum$Season, levels=c("Summer", "Winter", "Spring")
 
 ```
 
+### Summer 2020 - AUC Boxplot
+```{r}
+### Prep Data - Inulin & Saline
+auc.inu.sal.df <- auc.df[which(auc.df$Substrate != "Mannitol"),]
+auc.inu.sal.df$Substrate <- droplevels(auc.inu.sal.df$Substrate)
+levels(auc.inu.sal.df$Antibiotics) <- c("No Antibiotics", "Antibiotic-Treated")
+
+
+### Inulin & Saline Boxplot
+ggplot(auc.inu.sal.df, aes(x=Season, y=AUC, fill=Season)) +
+  geom_boxplot(outlier.size=-1) +
+  geom_point(position=position_jitterdodge(jitter.width=0.75)) +
+  facet_grid(Substrate ~ Antibiotics) +
+  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  ylab(expression("Area Under"~~delta^13~"C"~~"Curve"~"(%"[o]^2~")")) +
+  scale_y_continuous(breaks=c(0, 2500, 5000, 7500, 10000), limits=c(-70, 10000)) +
+  theme(axis.text.x = element_text(size=20),
+        axis.text.y = element_text(size=14),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
+        strip.text.x = element_text(size=20,face="bold"),
+        strip.text.y = element_text(size=20, face="bold", angle=0),
+        panel.spacing=unit(2, "lines"),
+        legend.title = element_text(size = 18, face="bold"),
+        legend.text = element_text(size=16),
+        panel.grid.minor = element_blank(),
+        panel.grid.major = element_blank(),
+        strip.background = element_blank()
+  )
+
+
+### Inulin Boxplot
+# Prep data
+levels(auc.inu$Antibiotics) <- c("No Antibiotics", "Antibiotic-treated")
+# Plot
+ggplot(auc.inu, aes(x=Season, y=AUC, fill=Season)) +
+  geom_boxplot(position=position_dodge(1), outlier.size=-1) +
+  geom_point(size=2, position=position_jitterdodge(jitter.width=0.75)) +
+  facet_grid(.~Antibiotics) +
+  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  ggtitle("Inulin") +
+  ylab(expression("Area Under"~~delta^13~"C"~~"Curve"~"(%"[o]^2~")")) +
+  theme(plot.title=element_text(hjust=0.5, size=20, face="bold"),
+        axis.text.x = element_text(size=20),
+        axis.text.y = element_text(size=14),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
+        strip.text.x = element_text(size=20, face="bold"),
+        #strip.text.y = element_text(size=14),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 20),
+        legend.text = element_text(size=16),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank()
+  )
+
+
+### Saline Boxplot
+# Prep data
+levels(auc.sal$Antibiotics) <- c("No Antibiotics", "Antibiotic-treated")
+# Plot
+ggplot(auc.sal, aes(x=Season, y=AUC, fill=Season)) +
+  geom_boxplot(position=position_dodge(1), outlier.size=-1) +
+  geom_point(size=2, position=position_jitterdodge(jitter.width=0.75)) +
+  facet_grid(.~Antibiotics) +
+  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  ggtitle("Inulin") +
+  ylab(expression("Area Under"~~delta^13~"C"~~"Curve"~"(%"[o]^2~")")) +
+  theme(plot.title=element_text(hjust=0.5, size=20, face="bold"),
+        axis.text.x = element_text(size=20),
+        axis.text.y = element_text(size=14),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
+        strip.text.x = element_text(size=20, face="bold"),
+        #strip.text.y = element_text(size=14),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 20),
+        legend.text = element_text(size=16),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank()
+  )
+
+
+```
+
 ### Summer 2020 - CRDS Plots
 ```{r}
 ### Subset out Inulin & Saline
@@ -797,14 +886,14 @@ inu.sal.sum.plot <- ggplot(inu.sal.sum.exp, aes(x=X_Mean, y=Y_Mean, color=Season
   geom_errorbarh(data = inu.sal.sum.exp, aes(xmin = X_Mean-X_SE, xmax = X_Mean+X_SE, height=70)) +
   geom_point(data = inu.sal.sum.base, size=3, shape=21,
              aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
-  #geom_errorbar(data = inu.sal.sum.base, aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125) + 
+  geom_errorbar(data = inu.sal.sum.base, aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125) + 
   geom_errorbarh(data = inu.sal.sum.base, mapping=aes(xmin = X_Mean-X_SE, xmax = X_Mean+X_SE, height=70)) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
   facet_grid(.~Substrate) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  scale_y_continuous(breaks=c(0, 500, 1000, 1500, 2000, 2500, 3000)) + # can't set limits or else horizontal error bar whiskers disappear
+  scale_y_continuous(breaks=c(0, 500, 1000, 1500, 2000, 2500, 3000), limits=c(-60,3020)) +
   scale_x_continuous(breaks=c(0, 1, 2, 3, 4), limits=c(-0.6, 4.5)) +
   theme(axis.text.x = element_text(size=16),
         axis.text.y = element_text(size=16),
