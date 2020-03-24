@@ -148,10 +148,6 @@ man.all <- crds.sum[which(crds.sum$Substrate == "Mannitol"),]
 
 sal.all <- crds.sum[which(crds.sum$Substrate == "Saline"),]
 
-#ure.all <- crds.sum[which(crds.sum$Substrate == "Urea"),]
-
-### Calculate x-error bars
-
 ```
 
 
@@ -785,10 +781,51 @@ auc.sum$Season <- ordered(auc.sum$Season, levels=c("Summer", "Winter", "Spring")
 ### Subset out Inulin & Saline
 inu.sal.sum <- crds.sum[which(crds.sum$Substrate != "Mannitol"),]
 
+### Subset out post-gavage datapoints
+inu.sal.sum.exp <- inu.sal.sum[which(inu.sal.sum$BinTime > 0),]
+
+### Subset out baseline datapoints
+inu.sal.sum.base <- inu.sal.sum[which(inu.sal.sum$BinTime < 0),]
+
 # Plot Inulin & Saline CRDS curves
 # Using X_Mean instead of BinTime because error bars don't align in BinTime
-inu.sal.plot <- ggplot(inu.sal.sum, aes(x=X_Mean, y=Y_Mean, color=Season)) +
+inu.sal.sum.plot <- ggplot(inu.sal.sum.exp, aes(x=X_Mean, y=Y_Mean, color=Season)) +
   geom_line(aes(linetype=Antibiotics), size=1) +
+  geom_point(data= inu.sal.sum.exp, size=3, shape=21,
+             aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+  geom_errorbar(data = inu.sal.sum.exp, aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125) + 
+  geom_errorbarh(data = inu.sal.sum.exp, aes(xmin = X_Mean-X_SE, xmax = X_Mean+X_SE, height=70)) +
+  geom_point(data = inu.sal.sum.base, size=3, shape=21,
+             aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+  #geom_errorbar(data = inu.sal.sum.base, aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125) + 
+  geom_errorbarh(data = inu.sal.sum.base, mapping=aes(xmin = X_Mean-X_SE, xmax = X_Mean+X_SE, height=70)) +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
+  facet_grid(.~Substrate) +
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
+  scale_y_continuous(breaks=c(0, 500, 1000, 1500, 2000, 2500, 3000)) + # can't set limits or else horizontal error bar whiskers disappear
+  scale_x_continuous(breaks=c(0, 1, 2, 3, 4), limits=c(-0.6, 4.5)) +
+  theme(axis.text.x = element_text(size=16),
+        axis.text.y = element_text(size=16),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
+        strip.text.x = element_text(size=20, face="bold"),
+        #strip.text.y = element_text(size=14),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 20, face="bold"),
+        legend.text = element_text(size=18),
+        panel.grid.minor = element_blank(),
+        #panel.grid.major = element_blank(),
+        strip.background = element_blank()
+  )
+
+
+
+
+
+
+  
    geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
@@ -814,34 +851,42 @@ inu.sal.plot <- ggplot(inu.sal.sum, aes(x=X_Mean, y=Y_Mean, color=Season)) +
   )
 
 
+### Mark baseline measurements to be plotted as dot, not a connected line
+inu.sal.sum$Graph <- "Line"
+inu.sal.sum$Graph[which(inu.sal.sum$BinTime < 0)] <- "Base"
+  # Baseline measurements
+inu.sal.sum$Graph <- factor(inu.sal.sum$Graph, levels=c("Base", "Line"))
 
-
-
-ggplot(inu.all, aes(x=BinTime, y=Mean, color=Season)) +
-  geom_line(aes(linetype=Antibiotics), size=1) +
-   geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+# Plot Inulin & Saline CRDS curves
+# Using X_Mean instead of BinTime because error bars don't align in BinTime
+inu.sal.plot <- ggplot(inu.sal.sum, aes(x=X_Mean, y=Y_Mean, color=Season)) +
+  geom_line(aes(linetype=Antibiotics, group = Graph), size=1) +
+  geom_point(size=3, shape=21, aes(color=Season, 
+                                    fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
-  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
-  ggtitle(expression("Inulin"~~delta^13~"C")) +
+  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), 
+                    na.value="white", guide="none") +
+  geom_errorbar(aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125, 
+                position=position_dodge(0.1)) + 
+  geom_errorbarh(aes(xmin = X_Mean-X_SE, xmax = X_Mean+X_SE)) +
+  facet_grid(.~Substrate) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  xlim(-0.6,4.1) +
-  scale_y_continuous(breaks=c(0, 625, 1250, 1875, 2500), limits=c(-30, 2700)) +
-  theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.title.x=element_text(size=20, 
-                                  margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y=element_text(size=18),
-        axis.text.x=element_text(size=16),
-        axis.text.y=element_text(size=16),
-        plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
-          #top, right, bottom, left
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()
-  ) +
-  guides(colour=F, linetype=F)
-
-
+  scale_y_continuous(breaks=c(0, 500, 1000, 1500, 2000, 2500, 3000), limits=c(-30, 3050)) +
+  scale_x_continuous(breaks=c(0, 1, 2, 3, 4), limits=c(-0.6, 4.5)) +
+  theme(axis.text.x = element_text(size=16),
+        axis.text.y = element_text(size=16),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
+        strip.text.x = element_text(size=20, face="bold"),
+        #strip.text.y = element_text(size=14),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 20, face="bold"),
+        legend.text = element_text(size=18),
+        panel.grid.minor = element_blank(),
+        #panel.grid.major = element_blank(),
+        strip.background = element_blank()
+  )
 
 
 
