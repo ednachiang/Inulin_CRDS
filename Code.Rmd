@@ -55,9 +55,9 @@ crds.bin <- bin.crds3(crds)
 
 ### Summarize by Substrate + ABX
 ```{r}
-# Remove 3982 because it's an outlier
+# Remove S37 (3982) because it's an outlier
 crds.rem <- crds.bin[-which(crds.bin$Number == 3982),]
-# Remove S34 because it's an outlier (crazy high AUC)
+# Remove S34 (4007) because it's an outlier (crazy high AUC)
 crds.rem <- crds.rem[-which(crds.rem$ID == "S34"),]
 crds.rem$ID <- droplevels(crds.rem$ID)
 crds.rem$Season <- ordered(crds.rem$Season, levels=c("Summer", "Winter", "Spring"))
