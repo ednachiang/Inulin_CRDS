@@ -373,6 +373,60 @@ auc.carb.plot
 dev.off()
 
 
+## Boxplot with Saline (no ABX)
+tiff("auc.noabx.tiff", width = 14, height = 4.1, units = "in", res = 300)
+ggplot(auc.noabx, aes(x=Season, y=AUC, fill=Season)) +
+  geom_boxplot(outlier.size=-1) +
+  geom_point(position=position_jitterdodge(jitter.width=0.75)) +
+  facet_grid(.~Substrate) +
+  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  ylab(expression("Area Under"~~delta^13~"C"~~"Curve"~"(%"[o]^2~")")) +
+  scale_y_continuous(breaks=c(0, 2500, 5000, 7500, 10000), limits=c(-60, 10000)) +
+  theme(axis.text.x = element_text(size=20),
+        axis.text.y = element_text(size=14),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
+        strip.text.x = element_text(size=20,face="bold"),
+        #strip.text.y = element_text(size=14),
+        panel.spacing=unit(2, "lines"),
+        legend.title = element_text(size = 18, face="bold"),
+        legend.text = element_text(size=16),
+        panel.grid.minor = element_blank(),
+        panel.grid.major.x = element_blank(),
+        strip.background = element_blank()
+  )
+dev.off()
+
+
+## Boxplot with Saline & ABX
+auc.all.df <- auc.df
+auc.all.df$ABX <- NA
+auc.all.df$ABX[which(auc.all.df$Antibiotics == "No")] <- "Intact"
+auc.all.df$ABX[which(auc.all.df$Antibiotics == "Yes")] <- "Depleted"
+auc.all.df$ABX <- ordered(auc.all.df$ABX, levels=c("Intact", "Depleted"))
+
+tiff("auc.all.tiff", width = 11, height = 8, units = "in", res = 300)
+ggplot(auc.all.df, aes(x=Season, y=AUC, fill=Season)) +
+  geom_boxplot(outlier.size=-1) +
+  geom_point(position=position_jitterdodge(jitter.width=0.75)) +
+  facet_grid(Substrate~ABX) +
+  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  ylab(expression("Area Under"~~delta^13~"C"~~"Curve"~"(%"[o]^2~")")) +
+  scale_y_continuous(breaks=c(0, 2500, 5000, 7500, 10000), limits=c(-10, 10000)) +
+  theme(axis.text.x = element_text(size=20),
+        axis.text.y = element_text(size=14),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
+        strip.text.x = element_text(size=20),
+        strip.text.y = element_text(size=20),
+        panel.spacing=unit(2, "lines"),
+        legend.title = element_text(size = 18, face="bold"),
+        legend.text = element_text(size=16),
+        panel.grid.minor = element_blank(),
+        panel.grid.major.x = element_blank(),
+        strip.background = element_blank()
+  )
+dev.off()
 
 
 
@@ -425,6 +479,7 @@ man.auc.plot <- ggplot(auc.man, aes(x=Season, y=AUC, fill=Season)) +
         panel.grid.major = element_blank()
   ) +
   guides(fill=F)
+
 
 
 
@@ -490,15 +545,15 @@ wilcox.test(AUC~Sex, data=auc.df)
 wilcox.test(AUC~Antibiotics, data=auc.inu)
   # p-value = 1.113e-07
 kruskal.test(formula = AUC ~ Season, data=auc.inu.abx)
-  # p-value = 0.4876
+  # p-value = 0.4148
 kruskal.test(formula = AUC ~ Season, data=auc.inu.noabx)
-  # p-value = 0.1063
+  # p-value = 0.1341
 
 # Mannitol
 wilcox.test(AUC~Antibiotics, data=auc.man)
   # p-value = 3.306e-05
 kruskal.test(formula = AUC ~ Season, data=auc.man.abx)
-  # p-value = 0.606
+  # p-value = 0.5285
 kruskal.test(formula = AUC ~ Season, data=auc.man.noabx)
   # p-value = 0.1947
 
@@ -520,13 +575,13 @@ p.adjust(c(1.113e-07, 3.306e-05, 0.0407), method="BH")
   # Mannitol = 4.959e-05
   # Saline = 0.04070
 # Within-substrate season kruskal-wallis test
-p.adjust(c(0.4876, 0.1063, 0.606, 0.1947, 0.6838, 0.1641), method="BH")
-  # Inulin ABX = 0.6838
-  # Inulin No ABX = 0.3894
-  # Mannitol ABX = 0.6838
-  # Mannitol No ABX = 0.3894
-  # Saline ABX = 0.6838
-  # Saline No ABX = 0.3894
+p.adjust(c(0.4148, 0.1341, 0.5285, 0.1947, 0.06838, 0.1641), method="BH")
+  # Inulin ABX = 0.49776
+  # Inulin No ABX = 0.29205
+  # Mannitol ABX = 0.52850
+  # Mannitol No ABX = 0.29205
+  # Saline ABX = 0.29205
+  # Saline No ABX = 0.29205
 
 
 
