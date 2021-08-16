@@ -9,6 +9,7 @@ import.crds.sep <- function(x,y) {
   meta <- read.csv(y, fileEncoding="UTF-8-BOM")
   crds <- vector("list", n)
   
+  
   # Import in each squirrel as its own dataframe
   for (i in 1:n){
     filename <- list.files(x)[i]
@@ -22,13 +23,27 @@ import.crds.sep <- function(x,y) {
       # Find the metadata row which matches the squirrel ID of the csv file
     
     
+    # Remove all measurements that are out of CO2 range (allowable = 0.5 - 1.2)
+    co2.low <- which(df[,3] < 0.5)
+    # Identify CO2 measuresments below range
+    co2.high <- which(df[,3] > 1.2)
+    # Identify CO2 measurements above range
+    co2.rem <- c(co2.low, co2.high)
+    # Count number of measurements out of CO2 range
+    df <- df[-co2.rem,]
+    
+    
     # Remove all baseline values except for the last one right before gavage
     bl <- which(df[,1] < 0)
     # Identify baseline values
     bln <- length(bl)
     # Find number of baseline values
-    for (k in 1:(bln-1)){
-      df <- df[-1,]
+    if (bln > 1){
+      # If there's more than 1 baseline value
+      for (k in 1:(bln-1)){
+        df <- df[-1,]
+        # Remove baseline values except for the last one right before gavage
+      }
     }
     
     
