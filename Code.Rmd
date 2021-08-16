@@ -199,7 +199,9 @@ auc.df <- auc.df[,-8]
 colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate")
   # Rename cols
 
+crds.rem= crds.bin
 # First normalize Rel Time so 
+#for (i in 2){
 for (i in 1:length(ids)){
   ID <- ids[i]
   select <- crds.rem[which(crds.rem$ID == ID),]
@@ -217,7 +219,7 @@ for (i in 1:length(ids)){
   # Since length of experiment varies for each individual, we don't want experimental length to bias our AUC calculations
   # Normalize length to min time within each substrate
     # Inu = 4.0667
-    # Sal = 2.25
+    # Sal = 2.21667
     # Man = 1.95
   if (select$Substrate == "Inulin") {
     max <- which(select$RelTime > 4.06667)
@@ -226,16 +228,24 @@ for (i in 1:length(ids)){
     max <- which(select$RelTime > 1.95)
     select$RelTime[max] <- 1.95
   } else if (select$Substrate == "Saline") {
-    max <- which(select$RelTime > 2.25)
-    select$RelTime[max] <- 2.25
+    max <- which(select$RelTime > 2.21666667)
+    select$RelTime[max] <- 2.21666667
   }
 
   # Create auc variable
   AUC <- 0
   
-  # Run rectangle method integration
-  for (j in 1:(nrow(select)-1)){
-    AUC <- AUC + ((select$RelTime[j+1]-select$RelTime[j])*select$Delta[j+1])
+  # Run rectangle method integration - less accurate
+  #for (j in 1:(nrow(select)-1)){
+  #  AUC <- AUC + ((select$RelTime[j+1]-select$RelTime[j])*select$Delta[j+1])
+  #}
+  
+  # Run trapezoid method integration - more accurate
+  for(j in 1:(nrow(select)-1)){
+    avgH <- (select$Delta[j+1]+select$Delta[j])/2
+      # Calculates average height between start and end point
+    width <- (select$RelTime[j+1]-select$RelTime[j])
+    AUC <- AUC + (avgH*width)
   }
     
   auc.df[i,1] <- AUC
@@ -243,6 +253,9 @@ for (i in 1:length(ids)){
 }
 
 #write.csv(auc.df, "auc.csv", row.names=F)
+
+
+
 
 
 ### Subset by Substrate & ABX
@@ -269,75 +282,66 @@ hist(auc.df$AUC)
 qqnorm(auc.df$AUC)
 qqline(auc.df$AUC)
 shapiro.test(auc.df$AUC)
-  # p-value < 2.2e-16
+  # p-value < 1.579e-11
   # Not Normal
 
 hist(auc.inu$AUC)
 qqnorm(auc.inu$AUC)
 qqline(auc.inu$AUC)
 shapiro.test(auc.inu$AUC)
-  # p-value = 1.643e-06
+  # p-value = 3.504e-05
   # Not Normal
 
 hist(auc.inu.noabx$AUC)
 qqnorm(auc.inu.noabx$AUC)
 qqline(auc.inu.noabx$AUC)
 shapiro.test(auc.inu.noabx$AUC)
-  # p-value = 0.03835
-  # Not Normal
+  # p-value = 0.1122
+  # Normal
 
 hist(auc.man$AUC)
 qqnorm(auc.man$AUC)
 qqline(auc.man$AUC)
 shapiro.test(auc.man$AUC)
-  # p-value = 8.247e-11
+  # p-value = 5.175e-06
   # Not Normal
 
 hist(auc.man.noabx$AUC)
 qqnorm(auc.man.noabx$AUC)
 qqline(auc.man.noabx$AUC)
 shapiro.test(auc.man.noabx$AUC)
-  # p-value = 2.105e-05
-  # Not Normal
+  # p-value = 0.206
+  # Normal
 
 hist(auc.sal$AUC)
 qqnorm(auc.sal$AUC)
 qqline(auc.sal$AUC)
 shapiro.test(auc.sal$AUC)
-  # p-value = 2.104e-09
+  # p-value = 8.013e-07
   # Not Normal
 
 hist(auc.abx$AUC)
 qqnorm(auc.abx$AUC)
 qqline(auc.abx$AUC)
 shapiro.test(auc.abx$AUC)
-  # p-value = 8e-10
+  # p-value = 6.738e-10
   # Not Normal
 
 hist(auc.noabx$AUC)
 qqnorm(auc.noabx$AUC)
 qqline(auc.noabx$AUC)
 shapiro.test(auc.noabx$AUC)
-  # p-value = 1.577e-10
+  # p-value = 2.33e-05
   # Not Normal
 
 
 ### Test homogeneity of variance
 # http://www.sthda.com/english/wiki/compare-multiple-sample-variances-in-r
 fligner.test(AUC ~ Season, data=auc.inu.noabx)
-  # p-value = 0.05289
-fligner.test(AUC ~ Season, data=auc.inu.noabx[which(auc.inu.noabx$Season != "Summer"),])
-  # Winter vs. Spring
-  # p-value = 0.0245
-fligner.test(AUC ~ Season, data=auc.inu.noabx[which(auc.inu.noabx$Season != "Winter"),])
-  # Summer vs. Spring
-  # p-value = 0.1112
-fligner.test(AUC ~ Season, data=auc.inu.noabx[which(auc.inu.noabx$Season != "Spring"),])
-  # Summer vs. Winter
-  # p-value = 0.6508
+  # p-value = 0.3662
 
 fligner.test(AUC ~ Season, data=auc.man.noabx)
-  # p-value = 0.1691
+  # p-value = 0.147
 
 
 
@@ -412,7 +416,7 @@ ggplot(auc.all.df, aes(x=Season, y=AUC, fill=Season)) +
   facet_grid(Substrate~ABX) +
   scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   ylab(expression("Area Under"~~delta^13~"C"~~"Curve"~"(%"[o]^2~")")) +
-  scale_y_continuous(breaks=c(0, 2500, 5000, 7500, 10000), limits=c(-10, 10000)) +
+  scale_y_continuous(breaks=c(0, 2500, 5000, 7500, 10000), limits=c(-61, 10000)) +
   theme(axis.text.x = element_text(size=20),
         axis.text.y = element_text(size=14),
         axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
