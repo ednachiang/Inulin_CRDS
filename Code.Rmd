@@ -19,9 +19,8 @@ library(miLineage)
 library(psych)
 library(car)
 source('scripts/import_crds.R')
-source('scripts/import_crds_sep.R')
-source('scripts/bin_crds.R')
-source('scripts/bin_crds2.R')
+#source('scripts/bin_crds.R')
+#source('scripts/bin_crds2.R')
 source('scripts/bin_crds3.R')
 source('scripts/misc.R')
 set.seed(1)
@@ -35,7 +34,6 @@ theme_set(theme_bw())
 ### Load Data
 ```{r}
 crds <- import.crds('CSV', 'metadata.csv')
-crds.all <- import.crds.sep('CSV', 'metadata.csv')
 ```
 
 ### Bin RelTime
@@ -56,16 +54,21 @@ crds.bin <- bin.crds3(crds)
 ### Summarize by Substrate + ABX
 ```{r}
 # Remove S37 (3982) because it's an outlier
-crds.rem <- crds.bin[-which(crds.bin$Number == 3982),]
-# Remove S34 (4007) because it's an outlier (crazy high AUC)
+crds.rem <- crds.bin[-which(crds.bin$ID == "S37"),]
+# Remove S34 (4007) because it's an outlier
 crds.rem <- crds.rem[-which(crds.rem$ID == "S34"),]
-crds.rem$ID <- droplevels(crds.rem$ID)
+# Remove S14 (4044) because it's an outlier
+crds.rem <- crds.rem[-which(crds.rem$ID == "S14"),]
+# Remove P04 because it's an adult
+crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
+
+#crds.rem$ID <- droplevels(crds.rem$ID)
 crds.rem$Season <- ordered(crds.rem$Season, levels=c("Summer", "Winter", "Spring"))
 
 
 # Summarize
 crds.sum <- crds.rem %>%
-  group_by(Substrate, Antibiotics, Season, BinTime) %>%
+  group_by(Substrate, Antibiotics, Season, Diet, BinTime) %>%
   summarize(Y_Mean = mean(Delta),
             Y_Median = median(Delta),
             Y_SD = sd(Delta),
@@ -83,65 +86,6 @@ crds.sum <- crds.rem %>%
 crds.sum$Season <- ordered(crds.sum$Season, levels=c("Summer", "Winter", "Spring"))
 ```
 
-### Test crds values for ABX
-```{r}
-crds.inu <- crds[which(crds$Substrate == "Inulin"),]
-crds.man <- crds[which(crds$Substrate == "Mannitol"),]
-crds.sal <- crds[which(crds$Substrate == "Saline"),]
-crds.inu.end <- crds.inu[which(crds.inu$RelTime > 0),]
-crds.man.end <- crds.man[which(crds.man$RelTime > 0),]
-crds.sal.end <- crds.sal[which(crds.sal$RelTime > 0),]
-
-
-### Check Normality
-hist(crds$Delta)
-qqnorm(crds$Delta)
-qqline(crds$Delta)
-shapiro.test(crds$Delta)
-  # p-value < 2.2e-16
-hist(crds.inu$Delta)
-qqnorm(crds.inu$Delta)
-qqline(crds.inu$Delta)
-shapiro.test(crds.inu$Delta)
-  # p-value < 2.2e-16
-hist(crds.man$Delta)
-qqnorm(crds.man$Delta)
-qqline(crds.man$Delta)
-shapiro.test(crds.man$Delta)
-  # p-value < 2.2e-16
-hist(crds.inu.end$Delta)
-qqnorm(crds.inu.end$Delta)
-qqline(crds.inu.end$Delta)
-shapiro.test(crds.inu.end$Delta)
-  # p-value < 2.2e-16
-hist(crds.man.end$Delta)
-qqnorm(crds.man.end$Delta)
-qqline(crds.man.end$Delta)
-shapiro.test(crds.man.end$Delta)
-  # p-value < 2.2e-16
-
-### Test
-wilcox.test(Delta~Antibiotics, data=crds)
-  # p-value < 2.2e-16
-wilcox.test(Delta~Antibiotics, data=crds.inu)
-  # p-value < 2.2e-16
-wilcox.test(Delta~Antibiotics, data=crds.man)
-  # p-value = 2.002e-15
-wilcox.test(Delta~Antibiotics, data=crds.sal)
-  # p-value = 3.964e-05
-wilcox.test(Delta~Antibiotics, data=crds.inu.end, alternative="greater")
-  # p-value < 2.2e-16
-wilcox.test(Delta~Antibiotics, data=crds.man.end, alternative="greater")
-  # p-value < 2.2e-16
-wilcox.test(Delta~Antibiotics, data=crds.sal.end, alternative="greater")
-  # p-value = 1.249e-05
-
-p.adjust(c(2.2e-16, 9.664e-13, 2.499e-05), method="BH")
-  # Inulin End = 4.400e-16
-  # Mannitol End = 9.664e-13
-  # Saline End = 2.499e-05
-```
-
 ### Separate by substrate
 ```{r}
 inu.all <- crds.sum[which(crds.sum$Substrate == "Inulin"),]
@@ -149,57 +93,116 @@ inu.all <- crds.sum[which(crds.sum$Substrate == "Inulin"),]
 man.all <- crds.sum[which(crds.sum$Substrate == "Mannitol"),]
 
 sal.all <- crds.sum[which(crds.sum$Substrate == "Saline"),]
-
 ```
 
-
-### Separate Samples by Raw Rel Time for AUC
+### Test baseline - Diet
 ```{r}
-### Separate by Substrate
-inu.ind.raw <- crds[which(crds$Substrate == "Inulin"),]
-man.ind.raw <- crds[which(crds$Substrate == "Mannitol"),]
-sal.ind.raw <- crds[which(crds$Substrate == "Saline"),]
-
-#write.csv(inu.ind.raw, file="inulin.raw.csv")
-  # For Hannah
-
-### Separate by Substrate & ABX
-inu.noabx.ind.raw <- inu.ind.raw[which(inu.ind.raw$Antibiotics == "No"),]
-inu.abx.ind.raw <- inu.ind.raw[which(inu.ind.raw$Antibiotics == "Yes"),]
-man.noabx.ind.raw <- man.ind.raw[which(man.ind.raw$Antibiotics == "No"),]
-man.abx.ind.raw <- man.ind.raw[which(man.ind.raw$Antibiotics == "Yes"),]
-sal.noabx.ind.raw <- sal.ind.raw[which(sal.ind.raw$Antibiotics == "No"),]
-sal.abx.ind.raw <- sal.ind.raw[which(sal.ind.raw$Antibiotics == "Yes"),]
+### Separate samples
+crds.base <- crds.rem[which(crds.rem$RelTime < 0),]
+base.inu <- crds.base[which(crds.base$Substrate == "Inulin"),]
+base.man <- crds.base[which(crds.base$Substrate == "Mannitol"),]
+base.sal <- crds.base[which(crds.base$Substrate == "Saline"),]
+#base.abx <- crds.base[which(crds.base$Antibiotics == "Yes"),]
+#base.noabx <- crds.base[which(crds.base$Antibiotics == "No"),]
+base.inu.abx <- base.inu[which(base.inu$Antibiotics == "Yes"),]
+base.man.abx <- base.man[which(base.man$Antibiotics == "Yes"),]
+base.sal.abx <- base.sal[which(base.sal$Antibiotics == "Yes"),]
+base.inu.noabx <- base.inu[which(base.inu$Antibiotics == "No"),]
+base.man.noabx <- base.inu[which(base.inu$Antibiotics == "No"),]
+base.sal.noabx <- base.inu[which(base.inu$Antibiotics == "No"),]
 
 
-### Separate by Substrate & ABX & Season
-inu.noabx.sum.ind.raw <- inu.noabx.ind.raw[which(inu.noabx.ind.raw$Season == "Summer"),]
-inu.noabx.win.ind.raw <- inu.noabx.ind.raw[which(inu.noabx.ind.raw$Season == "Winter"),]
-inu.noabx.spr.ind.raw <- inu.noabx.ind.raw[which(inu.noabx.ind.raw$Season == "Spring"),]
-man.noabx.sum.ind.raw <- man.noabx.ind.raw[which(man.noabx.ind.raw$Season == "Summer"),]
-man.noabx.win.ind.raw <- man.noabx.ind.raw[which(man.noabx.ind.raw$Season == "Winter"),]
-man.noabx.spr.ind.raw <- man.noabx.ind.raw[which(man.noabx.ind.raw$Season == "Spring"),]
-sal.noabx.sum.ind.raw <- sal.noabx.ind.raw[which(sal.noabx.ind.raw$Season == "Summer"),]
-sal.noabx.win.ind.raw <- sal.noabx.ind.raw[which(sal.noabx.ind.raw$Season == "Winter"),]
-sal.noabx.spr.ind.raw <- sal.noabx.ind.raw[which(sal.noabx.ind.raw$Season == "Spring"),]
+### Check Normality
+hist(base.inu$Delta)
+qqnorm(base.inu$Delta)
+qqline(base.inu$Delta)
+shapiro.test(base.inu$Delta)
+  # p-value = 0.09578
+
+hist(base.inu.abx$Delta)
+qqnorm(base.inu.abx$Delta)
+qqline(base.inu.abx$Delta)
+shapiro.test(base.inu.abx$Delta)
+  # p-value = 0.06013
+
+hist(base.inu.noabx$Delta)
+qqnorm(base.inu.noabx$Delta)
+qqline(base.inu.noabx$Delta)
+shapiro.test(base.inu.noabx$Delta)
+  # p-value = 0.2615
+
+hist(base.man$Delta)
+qqnorm(base.man$Delta)
+qqline(base.man$Delta)
+shapiro.test(base.man$Delta)
+  # p-value = 0.02754
+
+hist(base.man.abx$Delta)
+qqnorm(base.man.abx$Delta)
+qqline(base.man.abx$Delta)
+shapiro.test(base.man.abx$Delta)
+  # p-value = 0.1209
+
+hist(base.man.noabx$Delta)
+qqnorm(base.man.noabx$Delta)
+qqline(base.man.noabx$Delta)
+shapiro.test(base.man.noabx$Delta)
+  # p-value = 0.2615
+
+hist(base.sal$Delta)
+qqnorm(base.sal$Delta)
+qqline(base.sal$Delta)
+shapiro.test(base.sal$Delta)
+  # p-value = 2.101e-09
+
+hist(base.sal.abx$Delta)
+qqnorm(base.sal.abx$Delta)
+qqline(base.sal.abx$Delta)
+shapiro.test(base.sal.abx$Delta)
+  # p-value = 1.302e-06
+
+hist(base.sal.noabx$Delta)
+qqnorm(base.sal.noabx$Delta)
+qqline(base.sal.noabx$Delta)
+shapiro.test(base.sal.noabx$Delta)
+  # p-value = 0.2615
+
+
+### Test baseline - Diet
+# Mannitol
+wilcox.test(Delta ~ Diet, data = base.man.noabx[which(base.man.noabx$Season == "Spring"),])
+  # p-value = 0.381
+wilcox.test(Delta ~ Diet, data = base.man.abx[which(base.man.abx$Season == "Summer"),])
+  # p-value = 0.8857
+
+# Saline
+wilcox.test(Delta ~ Diet, data = base.sal.noabx[which(base.sal.noabx$Season == "Spring"),])
+  # p-value = 0.381
+wilcox.test(Delta ~ Diet, data = base.sal.abx[which(base.sal.abx$Season == "Winter"),])
+  # p-value = 0.8571
+wilcox.test(Delta ~ Diet, data = base.sal.abx[which(base.sal.abx$Season == "Summer"),])
+  # p-value = 0.8571
+
+
 ```
-
 ### Calculate AUC
 ```{r}
 # AUC = Area Under Curve
-# Rectangle Method
+# Trapezoid Method
 
 ### Calculate AUC
-ids <- levels(crds.rem$ID)
+ids <- unique(crds.rem$ID)
 auc.df <- data.frame(crds.rem[1,])
 auc.df <- auc.df[,-2:-3]
   # Remove Delta and CO2 cols
-auc.df <- auc.df[,-8]
+auc.df <- auc.df[,-13]
   # Remove BinTime col
-colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate")
+colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate", "Diet", "Mom", "Mom_Location", "BodyMass", "BodyTemp")
+auc.df$Ketones <- NA
   # Rename cols
+meta <- read.csv('metadata.csv', fileEncoding="UTF-8-BOM")
 
-crds.rem= crds.bin
+#crds.rem= crds.bin
 # First normalize Rel Time so 
 #for (i in 2){
 for (i in 1:length(ids)){
@@ -249,7 +252,10 @@ for (i in 1:length(ids)){
   }
     
   auc.df[i,1] <- AUC
-  auc.df[i, 2:7] <- select[1, 4:9]
+  auc.df[i, 2:12] <- select[1, 4:14]
+  
+  use <- which(meta$ID == ID)
+  auc.df$Ketones[i] <- meta$Ketones[use]
 }
 
 #write.csv(auc.df, "auc.csv", row.names=F)
@@ -264,6 +270,15 @@ auc.man <- auc.df[which(auc.df$Substrate == "Mannitol"),]
 auc.sal <- auc.df[which(auc.df$Substrate == "Saline"),]
 auc.abx <- auc.df[which(auc.df$Antibiotics == "Yes"),]
 auc.noabx <- auc.df[which(auc.df$Antibiotics == "No"),]
+auc.inu.s <- auc.inu[which(auc.inu$Season == "Summer"),]
+auc.inu.w <- auc.inu[which(auc.inu$Season == "Winter"),]
+auc.inu.p <- auc.inu[which(auc.inu$Season == "Spring"),]
+auc.man.s <- auc.man[which(auc.man$Season == "Summer"),]
+auc.man.w <- auc.man[which(auc.man$Season == "Winter"),]
+auc.man.p <- auc.man[which(auc.man$Season == "Spring"),]
+auc.sal.s <- auc.sal[which(auc.sal$Season == "Summer"),]
+auc.sal.w <- auc.sal[which(auc.sal$Season == "Winter"),]
+auc.sal.p <- auc.sal[which(auc.sal$Season == "Spring"),]
 auc.inu.abx <- auc.inu[which(auc.inu$Antibiotics == "Yes"),]
 auc.inu.noabx <- auc.inu[which(auc.inu$Antibiotics == "No"),]
 auc.man.abx <- auc.man[which(auc.man$Antibiotics == "Yes"),]
@@ -271,81 +286,348 @@ auc.man.noabx <- auc.man[which(auc.man$Antibiotics == "No"),]
 auc.sal.abx <- auc.sal[which(auc.sal$Antibiotics == "Yes"),]
 auc.sal.noabx <- auc.sal[which(auc.sal$Antibiotics == "No"),]
 
-#write.csv(auc.inu, "inulin.auc.peak.csv")
-  # For Hannah
+
 ```
 
 ### AUC Stats & Plots
 ```{r}
-### Check Normality
-hist(auc.df$AUC)
-qqnorm(auc.df$AUC)
-qqline(auc.df$AUC)
-shapiro.test(auc.df$AUC)
-  # p-value < 1.579e-11
-  # Not Normal
-
+### Check Normality - Inulin
 hist(auc.inu$AUC)
 qqnorm(auc.inu$AUC)
 qqline(auc.inu$AUC)
 shapiro.test(auc.inu$AUC)
-  # p-value = 3.504e-05
+  # p-value = 4.752e-07
+  # Not Normal
+
+hist(auc.inu.s$AUC)
+qqnorm(auc.inu.s$AUC)
+qqline(auc.inu.s$AUC)
+shapiro.test(auc.inu.s$AUC)
+  # p-value = 0.01841
+  # Not Normal
+
+hist(auc.inu.w$AUC)
+qqnorm(auc.inu.w$AUC)
+qqline(auc.inu.w$AUC)
+shapiro.test(auc.inu.w$AUC)
+  # p-value = 0.001438
+  # Not Normal
+
+hist(auc.inu.p$AUC)
+qqnorm(auc.inu.p$AUC)
+qqline(auc.inu.p$AUC)
+shapiro.test(auc.inu.p$AUC)
+  # p-value = 0.001438
   # Not Normal
 
 hist(auc.inu.noabx$AUC)
 qqnorm(auc.inu.noabx$AUC)
 qqline(auc.inu.noabx$AUC)
 shapiro.test(auc.inu.noabx$AUC)
-  # p-value = 0.1122
+  # p-value = 0.01623
+  # Not Normal
+
+hist(auc.inu.abx$AUC)
+qqnorm(auc.inu.abx$AUC)
+qqline(auc.inu.abx$AUC)
+shapiro.test(auc.inu.abx$AUC)
+  # p-value = 0.987
   # Normal
 
+
+### Check Normality - Mannitol
 hist(auc.man$AUC)
 qqnorm(auc.man$AUC)
 qqline(auc.man$AUC)
 shapiro.test(auc.man$AUC)
-  # p-value = 5.175e-06
+  # p-value = 3.888e-11
+  # Not Normal
+
+hist(auc.man.s$AUC)
+qqnorm(auc.man.s$AUC)
+qqline(auc.man.s$AUC)
+shapiro.test(auc.man.s$AUC)
+  # p-value = 6.44e-06
+  # Not Normal
+
+hist(auc.man.w$AUC)
+qqnorm(auc.man.w$AUC)
+qqline(auc.man.w$AUC)
+shapiro.test(auc.man.w$AUC)
+  # p-value = 0.0002265
+  # Not Normal
+
+hist(auc.man.p$AUC)
+qqnorm(auc.man.p$AUC)
+qqline(auc.man.p$AUC)
+shapiro.test(auc.man.p$AUC)
+  # p-value = 2.329e-05
   # Not Normal
 
 hist(auc.man.noabx$AUC)
 qqnorm(auc.man.noabx$AUC)
 qqline(auc.man.noabx$AUC)
 shapiro.test(auc.man.noabx$AUC)
-  # p-value = 0.206
-  # Normal
+  # p-value = 1.271e-05
+  # Not Normal
 
+hist(auc.man.abx$AUC)
+qqnorm(auc.man.abx$AUC)
+qqline(auc.man.abx$AUC)
+shapiro.test(auc.man.abx$AUC)
+  # p-value = 8.572e-07
+  # Not Normal
+
+
+### Check Normality - Saline
 hist(auc.sal$AUC)
 qqnorm(auc.sal$AUC)
 qqline(auc.sal$AUC)
 shapiro.test(auc.sal$AUC)
-  # p-value = 8.013e-07
+  # p-value = 1.488e-11
   # Not Normal
 
-hist(auc.abx$AUC)
-qqnorm(auc.abx$AUC)
-qqline(auc.abx$AUC)
-shapiro.test(auc.abx$AUC)
-  # p-value = 6.738e-10
+hist(auc.sal.s$AUC)
+qqnorm(auc.sal.s$AUC)
+qqline(auc.sal.s$AUC)
+shapiro.test(auc.sal.s$AUC)
+  # p-value = 0.01462
   # Not Normal
 
-hist(auc.noabx$AUC)
-qqnorm(auc.noabx$AUC)
-qqline(auc.noabx$AUC)
-shapiro.test(auc.noabx$AUC)
-  # p-value = 2.33e-05
+hist(auc.sal.w$AUC)
+qqnorm(auc.sal.w$AUC)
+qqline(auc.sal.w$AUC)
+shapiro.test(auc.sal.w$AUC)
+  # p-value = 5.361e-06
+  # Not Normal
+
+hist(auc.sal.p$AUC)
+qqnorm(auc.sal.p$AUC)
+qqline(auc.sal.p$AUC)
+shapiro.test(auc.sal.p$AUC)
+  # p-value = 0.7142
+  # Normal
+
+hist(auc.sal.noabx$AUC)
+qqnorm(auc.sal.noabx$AUC)
+qqline(auc.sal.noabx$AUC)
+shapiro.test(auc.sal.noabx$AUC)
+  # p-value = 0.277
+  # Normal
+
+hist(auc.sal.abx$AUC)
+qqnorm(auc.sal.abx$AUC)
+qqline(auc.sal.abx$AUC)
+shapiro.test(auc.sal.abx$AUC)
+  # p-value = 4.203e-08
   # Not Normal
 
 
-### Test homogeneity of variance
-# http://www.sthda.com/english/wiki/compare-multiple-sample-variances-in-r
-fligner.test(AUC ~ Season, data=auc.inu.noabx)
-  # p-value = 0.3662
 
-fligner.test(AUC ~ Season, data=auc.man.noabx)
-  # p-value = 0.147
+### Test AUC Variance - ABX vs. no ABX
+# Inulin
+fligner.test(AUC ~ Antibiotics, auc.inu.s)
+  # p-value = 0.005841
+  # adj p = 0.0262845
+fligner.test(AUC ~ Antibiotics, auc.inu.w)
+  # p-value = 0.01802
+  # adj p = 0.0324360
+fligner.test(AUC ~ Antibiotics, auc.inu.p)
+  # p-value = 0.01802
+  # adj p = 0.0324360
+
+# Mannitol
+fligner.test(AUC ~ Antibiotics, auc.man.s)
+  # p-value = 0.002309
+  # adj p = 0.0207810
+fligner.test(AUC ~ Antibiotics, auc.man.w)
+  # p-value = 0.2808
+  # adj p = 0.3159000
+fligner.test(AUC ~ Antibiotics, auc.man.p)
+  # p-value = 0.01802
+  # adj p = 0.0324360
+
+# Saline
+fligner.test(AUC ~ Antibiotics, auc.sal.s)
+  # p-value = 0.2235
+  # adj p = 0.2873571
+fligner.test(AUC ~ Antibiotics, auc.sal.w)
+  # p-value = 0.5141
+  # adj p = 0.5141000
+fligner.test(AUC ~ Antibiotics, auc.sal.p)
+  # p-value = 0.0888
+  # adj p = 0.1332000
+
+p.adjust(c(0.005841, 0.01802, 0.01802, 0.002309, 0.2808, 0.01802, 0.2235, 0.5141, 0.0888), method = "BH")
+  # Inulin = 0.0262845, 0.0324360, 0.0324360
+  # Mannitol = 0.0207810, 0.3159000, 0.0324360
+  # Saline = 0.2873571, 0.5141000, 0.1332000
+
+
+
+### Test AUC - ABX vs. no ABX
+# Inulin
+wilcox.test(AUC ~ Antibiotics, data = auc.inu.s)
+  # p-value = 0.002165
+  # adj p = 0.0034965
+wilcox.test(AUC ~ Antibiotics, data = auc.inu.w)
+  # p-value = 0.09732
+  # adj p = 0.1094850
+wilcox.test(AUC ~ Antibiotics, data = auc.inu.p)
+  # p-value = 0.00116
+  # adj p = 0.0026235
+
+# Mannitol
+wilcox.test(AUC ~ Antibiotics, data = auc.man.s)
+  # p-value = 0.000666
+  # p adj = 0.0026235
+wilcox.test(AUC ~ Antibiotics, data = auc.man.w)
+  # p-value = 0.149
+  # p adj = 0.1490000
+wilcox.test(AUC ~ Antibiotics, data = auc.man.p)
+  # p-value = 0.001166
+  # p adj = 0.0026235
+
+# Saline
+wilcox.test(AUC ~ Antibiotics, data = auc.sal.s)
+  # p-value = 0.001166
+  # p adj = 0.002623
+wilcox.test(AUC ~ Antibiotics, data = auc.sal.w)
+  # p-value = 0.09732
+  # p adj = 0.1094850
+wilcox.test(AUC ~ Antibiotics, data = auc.sal.p)
+  # p-value = 0.002331
+  # p adj = 0.0034965
+
+p.adjust(c(0.002165,0.09732,0.00116,0.000666,0.149,0.001166,0.001166,0.09732,0.002331), method = "BH")
+  # Inulin = 0.0034965 0.1094850 0.0026235
+  # Mannitol = 0.0026235 0.1490000 0.0026235
+  # Saline = 0.0026235 0.1094850 0.0034965
+
+
+### Test AUC Variance - Seasons
+fligner.test(AUC ~ Season, auc.inu.noabx)
+  # p-value = 0.01405
+fligner.test(AUC ~ Season, auc.man.noabx)
+  # p-value = 0.2894
+fligner.test(AUC ~ Season, auc.sal.noabx)
+  # p-value = 0.8339
+fligner.test(AUC ~ Season, auc.inu.abx)
+  # p-value = 0.4392
+fligner.test(AUC ~ Season, auc.man.abx)
+  # p-value = 0.1357
+fligner.test(AUC ~ Season, auc.sal.abx)
+  # p-value = 0.2958
+
+
+### Test AUC - Seasons
+kruskal.test(formula = AUC ~ Season, data=auc.inu.noabx)
+  # p-value = 0.2006
+kruskal.test(formula = AUC ~ Season, data=auc.man.noabx)
+  # p-value = 0.2648
+kruskal.test(formula = AUC ~ Season, data=auc.sal.noabx)
+  # p-value = 0.5
+kruskal.test(formula = AUC ~ Season, data=auc.inu.abx)
+  # p-value = 0.3681
+kruskal.test(formula = AUC ~ Season, data=auc.man.abx)
+  # p-value = 0.4511
+kruskal.test(formula = AUC ~ Season, data=auc.sal.abx)
+  # p-value = 0.6825
 
 
 
 
+### Test AUC - Diet
+# Mannitol
+wilcox.test(AUC ~ Diet, data = auc.man.noabx[which(auc.man.noabx$Season == "Spring"),])
+  # p-value = 0.1143
+wilcox.test(AUC ~ Diet, data = auc.man.abx[which(auc.man.abx$Season == "Summer"),])
+  # p-value = 0.4857
+
+# Saline
+wilcox.test(AUC ~ Diet, data = auc.sal.noabx[which(auc.sal.noabx$Season == "Spring"),])
+  # p-value = 0.05714
+wilcox.test(AUC ~ Diet, data = auc.sal.abx[which(auc.sal.abx$Season == "Winter"),])
+  # p-value = 0.6286
+wilcox.test(AUC ~ Diet, data = auc.sal.abx[which(auc.sal.abx$Season == "Summer"),])
+  # p-value = 0.8571
+
+
+
+### Test AUC Variance - Diet
+# Mannitol
+fligner.test(AUC ~ Diet, auc.man.noabx[which(auc.man.noabx$Season == "Spring"),])
+  # p-value = 0.5857
+fligner.test(AUC ~ Diet, auc.man.abx[which(auc.man.abx$Season == "Summer"),])
+  # p-value = 0.09029
+
+# Saline
+fligner.test(AUC ~ Diet, auc.sal.noabx[which(auc.sal.noabx$Season == "Spring"),])
+  # p-value = 0.1697
+fligner.test(AUC ~ Diet, auc.sal.abx[which(auc.sal.abx$Season == "Winter"),])
+  # p-value = 0.3336
+fligner.test(AUC ~ Diet, auc.sal.abx[which(auc.sal.abx$Season == "Summer"),])
+  # p-value = 0.416
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wilcox.test(AUC ~ Diet, data = auc.inu.s)
+wilcox.test(AUC ~ Diet, data = auc.inu.w)
+wilcox.test(AUC ~ Diet, data = auc.inu.p)
+wilcox.test(AUC ~ Diet, data = auc.inu.noabx)
+  # p-value = 0.968
+
+summary(aov(formula = AUC ~ Season, data = auc.inu.noabx))
+  # p-value = 0.243
+TukeyHSD(aov(formula = AUC ~ Season, data = auc.inu.noabx))
+  # Summer-Spring = 0.0629585
+  # Winter-Spring = 0.0202059
+  # Winter-Summer = 0.3432360
+
+summary(aov(formula = AUC ~ Season, data = auc.man.noabx))
+  # p-value = 0.761
+
+summary(aov(formula = AUC ~ Season, data = auc.sal.noabx))
+  # p-value = 0.216
+
+
+
+### Violin Plots
+
+ggplot(auc.noabx, aes(x = Season, y = AUC, fill = Season)) +
+  geom_violin() +
+  facet_grid(Substrate ~ Antibiotics) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1, stackratio = 1.15, fill = "black") +
+  scale_fill_manual(values = c("#e60000", "#5876d1","chartreuse3"), labels = c("Summer", "Winter", "Spring")) +
+  scale_y_continuous(limits = c(240,830), breaks = c(240,354,468,582,696,810)) +
+  scale_x_discrete(labels = c("Summer", "Torpor", "IBA", "Spring")) +
+  ylab("Number of Unique OTUs") +
+    theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        strip.text = element_text(face="bold", size=6),
+        strip.text.x = element_text(face ="bold", size=6),
+        axis.title.x = element_text(face="bold", size=6, vjust = 10,
+                                    margin = margin(t = 8, r = 10, b = -15, l = 1)),
+        axis.title.y = element_text(face="bold", size=6),
+        axis.text.x = element_text(size=6, angle = 20, hjust = 0.5, vjust = 1.1),
+        axis.text.y = element_text(size=6),
+        legend.position = "none") #+
+  geom_text(data = otu.ann, aes(label=lab), x=c(1,2,3,4),
+            y=c(835,835,835,835), size=2.5, color="black")
 
 
 ### Boxplots
@@ -371,10 +653,6 @@ auc.carb.plot <- ggplot(auc.carb.df, aes(x=Season, y=AUC, fill=Season)) +
         panel.grid.major.x = element_blank(),
         strip.background = element_blank()
   )
-
-tiff("auc.mdtp.tiff", width = 12.5, height = 4, units = "in", res = 300)
-auc.carb.plot
-dev.off()
 
 
 ## Boxplot with Saline (no ABX)
@@ -431,59 +709,6 @@ ggplot(auc.all.df, aes(x=Season, y=AUC, fill=Season)) +
         strip.background = element_blank()
   )
 dev.off()
-
-
-
-
-
-
-## Inulin
-inu.auc.plot <- ggplot(auc.inu, aes(x=Season, y=AUC, fill=Season)) +
-  geom_boxplot(position=position_dodge(1)) +
-  geom_point(size=2) +
-  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  ggtitle("Inulin") +
-  ylab(expression("Area Under"~~delta^13~"C"~~"Curve"~"(%"[o]^2~")")) +
-  theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.text.x = element_text(size=20),
-        axis.text.y = element_text(size=14),
-        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
-        strip.text.x = element_text(size=20),
-        #strip.text.y = element_text(size=14),
-        panel.spacing=unit(1, "lines"),
-        legend.title = element_text(size = 18),
-        legend.text = element_text(size=16),
-        panel.grid.major = element_blank()
-  ) +
-  guides(fill=F)
-
-
-
-    
-    
-
-## Mannitol
-man.auc.plot <- ggplot(auc.man, aes(x=Season, y=AUC, fill=Season)) +
-  geom_boxplot(position=position_dodge(1)) +
-  geom_point(size=2) +
-  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  ggtitle("Mannitol") +
-  ylab(expression("Area Under"~~delta^13~"C"~~"Curve"~"(%"[o]^2~")")) +
-  theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.text.x = element_text(size=20),
-        axis.text.y = element_text(size=14),
-        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
-        strip.text.x = element_text(size=20),
-        #strip.text.y = element_text(size=14),
-        panel.spacing=unit(1, "lines"),
-        legend.title = element_text(size = 18),
-        legend.text = element_text(size=16),
-        panel.grid.major = element_blank()
-  ) +
-  guides(fill=F)
-
 
 
 
