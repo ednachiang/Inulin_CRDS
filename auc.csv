@@ -7,8 +7,6 @@
 575.83954406386,4128,"P21","Spring","Female","Yes","Inulin",2,"4073","AgStation",130.5,37.5,0.4
 546.16990100359,4108,"P22","Spring","Female","Yes","Inulin",2,"4066","AgStation",111.4,39,0.3
 520.61105108024,4085,"P26","Spring","Male","Yes","Inulin",2,"4069","AgStation",149.4,37,0.3
-212.661566680865,4127,"P28","Spring","Male","Yes","Inulin",2,"4071","AgStation",118.9,36,0.8
-960.456104474195,4090,"P30","Spring","Male","Yes","Inulin",2,"4068","AgStation",157.1,38,0.4
 513.95130895053,4155,"P34","Spring","Female","Yes","Inulin",2,"4062","AgStation",134.6,38,0.1
 7084.36898651793,4118,"P36","Spring","Female","No","Inulin",2,"4070","AgStation",141.7,37,0.3
 816.18435449247,4167,"P38","Spring","Male","No","Inulin",2,"4063","AgStation",152.8,37,0.3
@@ -68,7 +66,6 @@
 3.17416666657,4185,"S58","Summer","Male","Yes","Mannitol",2,"4065","AgStation",137.5,40,3.2
 0.0995833341899988,4138,"S69","Summer","Male","Yes","Mannitol",2,"4077","AgStation",172.8,37,0.4
 2.71516666662,4005,"W06","Winter","Female","Yes","Mannitol",1,"3955","AgStation",149,39,3.3
-77.60083333057,3996,"W09","Winter","Male","Yes","Mannitol",1,"3948","AgStation",154,38,1.1
 -0.529416666215001,4047,"W10","Winter","Male","Yes","Mannitol",1,"3954","AgStation",139,37,2.4
 0.405083332984998,3971,"W11","Winter","Female","Yes","Mannitol",1,"3958","AgStation",132,36,2.8
 -0.321500000465003,3979,"W16","Winter","Female","Yes","Mannitol",1,"3959","AgStation",106,36,1.7
@@ -76,7 +73,6 @@
 2.006083333365,4041,"W25","Winter","Male","No","Mannitol",1,"3956","AgStation",131,36,2.9
 41.23733334726,4039,"W27","Winter","Female","No","Mannitol",1,"3956","AgStation",124,37,2.6
 0.825583333224999,3974,"W28","Winter","Male","No","Mannitol",1,"3959","AgStation",120,35,2.6
-181.24316662605,4021,"W29","Winter","Female","No","Mannitol",1,"3947","AgStation",122,37,1.2
 58.38625003591,3980,"W30","Winter","Male","No","Mannitol",1,"3959","AgStation",141,38,2
 1.55933333316,4125,"W45","Winter","Male","No","Mannitol",2,"4070","AgStation",152.7,35.5,1.4
 12.981499999775,4079,"W48","Winter","Male","Yes","Mannitol",2,"4072","AgStation",122.8,36,3.3
@@ -114,10 +110,7 @@
 -0.507500000734998,3997,"W20","Winter","Female","No","Saline",1,"3948","AgStation",128.6,37,1.3
 1.130166675155,4011,"W21","Winter","Male","No","Saline",1,"3957","AgStation",141.8,36.5,1.2
 -1.195333332235,3970,"W22","Winter","Male","No","Saline",1,"3958","AgStation",185.8,36,1.2
-8.328333364695,3976,"W26","Winter","Female","No","Saline",1,"3959","AgStation",114,36.5,1.6
 0.635500004150002,4017,"W36","Winter","Female","No","Saline",1,"3947","AgStation",133.6,37,1.4
 -0.305499995024998,4004,"W37","Winter","Male","No","Saline",1,"3955","AgStation",134.6,36,1.5
 2.937416668765,4152,"W41","Winter","Female","No","Saline",2,"4063","AgStation",101.5,36.5,5.5
-8.470083347075,4172,"W43","Winter","Male","Yes","Saline",2,"4064","AgStation",157.2,37,2.2
 -4.86266667255,4117,"W47","Winter","Female","Yes","Saline",2,"4070","AgStation",132.5,37,1.4
--60.02750010352,4148,"W50","Winter","Female","Yes","Saline",2,"4061","AgStation",119.2,34.5,3.3

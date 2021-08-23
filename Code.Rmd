@@ -268,8 +268,8 @@ for (i in 1:length(ids)){
 auc.inu <- auc.df[which(auc.df$Substrate == "Inulin"),]
 auc.man <- auc.df[which(auc.df$Substrate == "Mannitol"),]
 auc.sal <- auc.df[which(auc.df$Substrate == "Saline"),]
-auc.abx <- auc.df[which(auc.df$Antibiotics == "Yes"),]
-auc.noabx <- auc.df[which(auc.df$Antibiotics == "No"),]
+#auc.abx <- auc.df[which(auc.df$Antibiotics == "Yes"),]
+#auc.noabx <- auc.df[which(auc.df$Antibiotics == "No"),]
 auc.inu.s <- auc.inu[which(auc.inu$Season == "Summer"),]
 auc.inu.w <- auc.inu[which(auc.inu$Season == "Winter"),]
 auc.inu.p <- auc.inu[which(auc.inu$Season == "Spring"),]
@@ -580,34 +580,9 @@ fligner.test(AUC ~ Diet, auc.sal.abx[which(auc.sal.abx$Season == "Summer"),])
 
 
 
-
-
-
-
-wilcox.test(AUC ~ Diet, data = auc.inu.s)
-wilcox.test(AUC ~ Diet, data = auc.inu.w)
-wilcox.test(AUC ~ Diet, data = auc.inu.p)
-wilcox.test(AUC ~ Diet, data = auc.inu.noabx)
-  # p-value = 0.968
-
-summary(aov(formula = AUC ~ Season, data = auc.inu.noabx))
-  # p-value = 0.243
-TukeyHSD(aov(formula = AUC ~ Season, data = auc.inu.noabx))
-  # Summer-Spring = 0.0629585
-  # Winter-Spring = 0.0202059
-  # Winter-Summer = 0.3432360
-
-summary(aov(formula = AUC ~ Season, data = auc.man.noabx))
-  # p-value = 0.761
-
-summary(aov(formula = AUC ~ Season, data = auc.sal.noabx))
-  # p-value = 0.216
-
-
-
 ### Violin Plots
 
-ggplot(auc.noabx, aes(x = Season, y = AUC, fill = Season)) +
+ggplot(auc.inu, aes(x = Season, y = AUC, fill = Season)) +
   geom_violin() +
   facet_grid(Substrate ~ Antibiotics) +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1, stackratio = 1.15, fill = "black") +
