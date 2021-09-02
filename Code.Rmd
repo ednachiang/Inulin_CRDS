@@ -590,7 +590,17 @@ fligner.test(AUC ~ Diet, auc.sal.abx[which(auc.sal.abx$Season == "Summer"),])
 
 
 
+### Prepare data for plotting
+# Inulin
+auc.inu$SeasonABX <- interaction(auc.inu$Season, auc.inu$Antibiotics)
+auc.inu$SeasonABX <- ordered(auc.inu$SeasonABX, levels=c("Summer.No", "Summer.Yes", "Winter.No", "Winter.Yes", "Spring.No", "Spring.Yes"))
 
+# Mannitol
+auc.man$SeasonABX <- interaction(auc.man$Season, auc.man$Antibiotics)
+auc.man$SeasonABX <- ordered(auc.man$SeasonABX, levels=c("Summer.No", "Summer.Yes", "Winter.No", "Winter.Yes", "Spring.No", "Spring.Yes"))
+
+auc.sal$SeasonABX <- interaction(auc.sal$Season, auc.sal$Antibiotics)
+auc.sal$SeasonABX <- ordered(auc.sal$SeasonABX, levels=c("Summer.No", "Summer.Yes", "Winter.No", "Winter.Yes", "Spring.No", "Spring.Yes"))
 
 
 
@@ -620,31 +630,85 @@ ggplot(auc.df, aes(x = Season, y = AUC, fill = interaction(Season, Antibiotics))
 
   
   
-inu.auc.plot <- ggplot(auc.inu, aes(x = Season, y = AUC, fill = interaction(Season, Antibiotics))) +
-  geom_boxplot() +
-  geom_dotplot(aes(fill = interaction(Season, Antibiotics)), binaxis = 'y', stackdir = 'center', dotsize = 0.5, stackratio = 1.15, position = position_dodge(1), color = "black") +
-  ggtitle("Inulin AUC")
+inu.auc.plot <- ggplot(auc.inu, aes(x = Season, y = AUC, fill = SeasonABX, color = SeasonABX)) +
+  geom_violin(size = 1.5) +
+  scale_fill_manual(values = c("#E69F00", "white", "#0072B2", "white", "#00bf8b",
+                               "white"),
+                    name = "Group",
+                    labels = c("Summer", "", "Winter", "", "Spring", ""),
+                    guide = guide_legend(override.aes = list(fill = c("#E69F00", NA,
+                                                                      "#0072B2", NA,
+                                                                      "#00bf8b", NA),
+                                                             alpha = c(1,0,1,0,1,0),
+                                                             color = NA),
+                                         keyheight = c(1.25,0,1.25,0,1.25,0))) +
+  scale_color_manual(values = c("black", "#E69F00", "black", "#0072B2", "black", "#00bf8b"), guide = "none") +
+  geom_point(aes(x = Season, y = AUC, shape = Antibiotics), 
+             position = position_dodge(0.9), color = "black", size = 2, stroke = 2) +
+  scale_shape_manual(values = c(16,1,16,1,16,1)) +
+  ggtitle("Inulin AUC")  +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(face="bold", size=6),
+        axis.title.y = element_text(face="bold", size=6),
+        axis.text.x = element_text(size=6),
+        axis.text.y = element_text(size=6),
+        plot.title = element_text(hjust = 0.5))
 
 
-man.auc.plot <- ggplot(auc.man, aes(x = Season, y = AUC, fill = interaction(Season, Antibiotics))) +
-  geom_boxplot() +
-  geom_dotplot(aes(fill = interaction(Season, Antibiotics)), binaxis = 'y', stackdir = 'center', dotsize = 0.5, stackratio = 1.15, position = position_dodge(1), color = "black") +
-  ggtitle("Mannitol AUC")
+man.auc.plot <- ggplot(auc.man, aes(x = Season, y = AUC, fill = SeasonABX, color = SeasonABX)) +
+  geom_violin(size = 1.5) +
+  scale_fill_manual(values = c("#E69F00", "white", "#0072B2", "white", "#00bf8b",
+                               "white"),
+                    name = "Group",
+                    labels = c("Summer", "", "Winter", "", "Spring", ""),
+                    guide = guide_legend(override.aes = list(fill = c("#E69F00", NA,
+                                                                      "#0072B2", NA,
+                                                                      "#00bf8b", NA),
+                                                             alpha = c(1,0,1,0,1,0),
+                                                             color = NA),
+                                         keyheight = c(1.25,0,1.25,0,1.25,0))) +
+  scale_color_manual(values = c("black", "#E69F00", "black", "#0072B2", "black", "#00bf8b"), guide = "none") +
+  geom_point(aes(x = Season, y = AUC, shape = Antibiotics), 
+             position = position_dodge(0.9), color = "black", size = 2, stroke = 2) +
+  scale_shape_manual(values = c(16,1,16,1,16,1)) +
+  ggtitle("Mannitol AUC")  +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(face="bold", size=6),
+        axis.title.y = element_text(face="bold", size=6),
+        axis.text.x = element_text(size=6),
+        axis.text.y = element_text(size=6),
+        plot.title = element_text(hjust = 0.5))
 
 
-sal.auc.plot <- ggplot(auc.sal, aes(x = Season, y = AUC, fill = interaction(Season, Antibiotics))) +
-  geom_boxplot() +
-  geom_dotplot(aes(fill = interaction(Season, Antibiotics)), binaxis = 'y', stackdir = 'center', dotsize = 0.5, stackratio = 1.15, position = position_dodge(1), color = "black") +
-  ggtitle("Saline AUC")
-
-  
-  
-  
-  
-  
-  
-  
-  
+sal.auc.plot <- ggplot(auc.sal, aes(x = Season, y = AUC, fill = SeasonABX, color = SeasonABX)) +
+  geom_violin(size = 1.5) +
+  scale_fill_manual(values = c("#E69F00", "white", "#0072B2", "white", "#00bf8b",
+                               "white"),
+                    name = "Group",
+                    labels = c("Summer", "", "Winter", "", "Spring", ""),
+                    guide = guide_legend(override.aes = list(fill = c("#E69F00", NA,
+                                                                      "#0072B2", NA,
+                                                                      "#00bf8b", NA),
+                                                             alpha = c(1,0,1,0,1,0),
+                                                             color = NA),
+                                         keyheight = c(1.25,0,1.25,0,1.25,0))) +
+  scale_color_manual(values = c("black", "#E69F00", "black", "#0072B2", "black", "#00bf8b"), guide = "none") +
+  geom_point(aes(x = Season, y = AUC, shape = Antibiotics), 
+             position = position_dodge(0.9), color = "black", size = 2, stroke = 2) +
+  scale_shape_manual(values = c(16,1,16,1,16,1)) +
+  ggtitle("Saline AUC")  +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(face="bold", size=6),
+        axis.title.y = element_text(face="bold", size=6),
+        axis.text.x = element_text(size=6),
+        axis.text.y = element_text(size=6),
+        plot.title = element_text(hjust = 0.5))
   
   
   
