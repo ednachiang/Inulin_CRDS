@@ -606,229 +606,99 @@ auc.sal$SeasonABX <- ordered(auc.sal$SeasonABX, levels=c("Summer.No", "Summer.Ye
 
 
 
-### Violin Plots
+### AUC Dot Plots
+  
+# Inulin
+inu.auc.plot <- ggplot(auc.inu, aes(x = Season, y = AUC, color = SeasonABX,
+                                    fill = SeasonABX)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1,
+               position = position_dodge(0.7), stackratio = 0.5) +
+  scale_color_manual(values = c("#c98b00", "#E69F00", "#006096", "#0072B2", "#00966d",
+                                "#00bf8b")) +
+  scale_fill_manual(values = c("#E69F00", "white", "#0072B2", "white", "#00bf8b",
+                               "white")) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.25) +
+    ggtitle("Inulin AUC")  +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(face="bold", size=6),
+        axis.title.y = element_text(face="bold", size=6),
+        axis.text.x = element_text(size=6),
+        axis.text.y = element_text(size=6),
+        plot.title = element_text(hjust = 0.5, size = 10),
+        legend.position = "none")
+  
 
-ggplot(auc.df, aes(x = Season, y = AUC, fill = interaction(Season, Antibiotics))) +
-  geom_boxplot() +
-  facet_grid(Substrate ~ ., scales = "free_y") +
-  geom_dotplot(aes(color = interaction(Season, Antibiotics)), binaxis = 'y', stackdir = 'center', dotsize = 1, stackratio = 1.15, position = position_dodge(1), fill = "black") +
-  scale_fill_manual(values=c("darkgoldenrod2", "white", "dodgerblue3", "white", "green3", "white"), labels = c("Summer Intact", "Summer Depleted", "Winter Intact", "Winter Depleted", "Spring Intact", "SpringDepleted")) +
-  scale_color_manual(values = c("darkgoldenrod2", "darkgoldenrod2", "dodgerblue3", "dodgerblue3", "green3", "green3")) +
+# Mannitol  
+man.auc.plot <- ggplot(auc.man, aes(x = Season, y = AUC, color = SeasonABX,
+                                    fill = SeasonABX)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1,
+               position = position_dodge(0.7), stackratio = 0.5) +
+  scale_color_manual(values = c("#c98b00", "#E69F00", "#006096", "#0072B2", "#00966d",
+                                "#00bf8b")) +
+  scale_fill_manual(values = c("#E69F00", "white", "#0072B2", "white", "#00bf8b",
+                               "white")) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.25) +
+    ggtitle("Mannitol AUC")  +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(face="bold", size=6),
+        axis.title.y = element_text(face="bold", size=6),
+        axis.text.x = element_text(size=6),
+        axis.text.y = element_text(size=6),
+        plot.title = element_text(hjust = 0.5, size = 10),
+        legend.position = "none")
+
+
+# Saline
+sal.auc.plot <- ggplot(auc.sal, aes(x = Season, y = AUC, color = SeasonABX,
+                                    fill = SeasonABX)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1,
+               position = position_dodge(0.7), stackratio = 0.5) +
+  scale_color_manual(values = c("#c98b00", "#E69F00", "#006096", "#0072B2", "#00966d",
+                                "#00bf8b"), guide = "none") +
+  scale_fill_manual(values = c("#E69F00", "white", "#0072B2", "white", "#00bf8b",
+                               "white"),
+                    name = "Season",
+                    labels = c("Summer", "", "Winter", "", "Spring", ""),
+                    guide = guide_legend(override.aes = list(fill = c("#E69F00", NA,
+                                                                      "#0072B2", NA,
+                                                                      "#00bf8b", NA),
+                                                             alpha = c(1,0,1,0,1,0),
+                                                             color = NA),
+                                         keyheight = c(1.25,0,1.25,0,1.25,0))) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.25) +
+    ggtitle("Saline AUC")  +
     theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
-        strip.text = element_text(face="bold", size=6),
-        strip.text.x = element_text(face ="bold", size=6),
-        axis.title.x = element_text(face="bold", size=6, vjust = 10,
-                                    margin = margin(t = 8, r = 10, b = -15, l = 1)),
-        axis.title.y = element_text(face="bold", size=6),
-        axis.text.x = element_text(size=6, angle = 20, hjust = 0.5, vjust = 1.1),
-        axis.text.y = element_text(size=6),
-        legend.position = "none") #+
-  geom_text(data = otu.ann, aes(label=lab), x=c(1,2,3,4),
-            y=c(835,835,835,835), size=2.5, color="black")
-
-  
-  
-inu.auc.plot <- ggplot(auc.inu, aes(x = Season, y = AUC, fill = SeasonABX, color = SeasonABX)) +
-  geom_violin(size = 1.5) +
-  scale_fill_manual(values = c("#E69F00", "white", "#0072B2", "white", "#00bf8b",
-                               "white"),
-                    name = "Group",
-                    labels = c("Summer", "", "Winter", "", "Spring", ""),
-                    guide = guide_legend(override.aes = list(fill = c("#E69F00", NA,
-                                                                      "#0072B2", NA,
-                                                                      "#00bf8b", NA),
-                                                             alpha = c(1,0,1,0,1,0),
-                                                             color = NA),
-                                         keyheight = c(1.25,0,1.25,0,1.25,0))) +
-  scale_color_manual(values = c("black", "#E69F00", "black", "#0072B2", "black", "#00bf8b"), guide = "none") +
-  geom_point(aes(x = Season, y = AUC, shape = Antibiotics), 
-             position = position_dodge(0.9), color = "black", size = 2, stroke = 2) +
-  scale_shape_manual(values = c(16,1,16,1,16,1)) +
-  ggtitle("Inulin AUC")  +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        strip.background = element_blank(),
         axis.title.x = element_text(face="bold", size=6),
         axis.title.y = element_text(face="bold", size=6),
         axis.text.x = element_text(size=6),
         axis.text.y = element_text(size=6),
-        plot.title = element_text(hjust = 0.5))
+        plot.title = element_text(hjust = 0.5, size = 10))
 
 
-man.auc.plot <- ggplot(auc.man, aes(x = Season, y = AUC, fill = SeasonABX, color = SeasonABX)) +
-  geom_violin(size = 1.5) +
-  scale_fill_manual(values = c("#E69F00", "white", "#0072B2", "white", "#00bf8b",
-                               "white"),
-                    name = "Group",
-                    labels = c("Summer", "", "Winter", "", "Spring", ""),
-                    guide = guide_legend(override.aes = list(fill = c("#E69F00", NA,
-                                                                      "#0072B2", NA,
-                                                                      "#00bf8b", NA),
-                                                             alpha = c(1,0,1,0,1,0),
-                                                             color = NA),
-                                         keyheight = c(1.25,0,1.25,0,1.25,0))) +
-  scale_color_manual(values = c("black", "#E69F00", "black", "#0072B2", "black", "#00bf8b"), guide = "none") +
-  geom_point(aes(x = Season, y = AUC, shape = Antibiotics), 
-             position = position_dodge(0.9), color = "black", size = 2, stroke = 2) +
-  scale_shape_manual(values = c(16,1,16,1,16,1)) +
-  ggtitle("Mannitol AUC")  +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        strip.background = element_blank(),
-        axis.title.x = element_text(face="bold", size=6),
-        axis.title.y = element_text(face="bold", size=6),
-        axis.text.x = element_text(size=6),
-        axis.text.y = element_text(size=6),
-        plot.title = element_text(hjust = 0.5))
-
-
-sal.auc.plot <- ggplot(auc.sal, aes(x = Season, y = AUC, fill = SeasonABX, color = SeasonABX)) +
-  geom_violin(size = 1.5) +
-  scale_fill_manual(values = c("#E69F00", "white", "#0072B2", "white", "#00bf8b",
-                               "white"),
-                    name = "Group",
-                    labels = c("Summer", "", "Winter", "", "Spring", ""),
-                    guide = guide_legend(override.aes = list(fill = c("#E69F00", NA,
-                                                                      "#0072B2", NA,
-                                                                      "#00bf8b", NA),
-                                                             alpha = c(1,0,1,0,1,0),
-                                                             color = NA),
-                                         keyheight = c(1.25,0,1.25,0,1.25,0))) +
-  scale_color_manual(values = c("black", "#E69F00", "black", "#0072B2", "black", "#00bf8b"), guide = "none") +
-  geom_point(aes(x = Season, y = AUC, shape = Antibiotics), 
-             position = position_dodge(0.9), color = "black", size = 2, stroke = 2) +
-  scale_shape_manual(values = c(16,1,16,1,16,1)) +
-  ggtitle("Saline AUC")  +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        strip.background = element_blank(),
-        axis.title.x = element_text(face="bold", size=6),
-        axis.title.y = element_text(face="bold", size=6),
-        axis.text.x = element_text(size=6),
-        axis.text.y = element_text(size=6),
-        plot.title = element_text(hjust = 0.5))
-  
-  
   
 
-### Boxplots
-auc.carb.df <- auc.df[which(auc.df$Substrate != "Saline"),]
-auc.carb.df <- auc.carb.df[which(auc.carb.df$Antibiotics == "No"),]
-auc.carb.plot <- ggplot(auc.carb.df, aes(x=Season, y=AUC, fill=Season)) +
-  geom_boxplot(outlier.size=-1) +
-  geom_point(position=position_jitterdodge(jitter.width=0.75)) +
-  facet_grid(.~Substrate) +
-  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  ylab(expression("Area Under"~~delta^13~"C"~~"Curve"~"(%"[o]^2~")")) +
-  scale_y_continuous(breaks=c(0, 2500, 5000, 7500, 10000), limits=c(0, 10000)) +
-  theme(axis.text.x = element_text(size=20),
-        axis.text.y = element_text(size=14),
-        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
-        strip.text.x = element_text(size=20,face="bold"),
-        #strip.text.y = element_text(size=14),
-        panel.spacing=unit(2, "lines"),
-        legend.title = element_text(size = 18, face="bold"),
-        legend.text = element_text(size=16),
-        panel.grid.minor = element_blank(),
-        panel.grid.major.x = element_blank(),
-        strip.background = element_blank()
-  )
-
-
-## Boxplot with Saline (no ABX)
-tiff("auc.noabx.tiff", width = 14, height = 4.1, units = "in", res = 300)
-ggplot(auc.noabx, aes(x=Season, y=AUC, fill=Season)) +
-  geom_boxplot(outlier.size=-1) +
-  geom_point(position=position_jitterdodge(jitter.width=0.75)) +
-  facet_grid(.~Substrate) +
-  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  ylab(expression("Area Under"~~delta^13~"C"~~"Curve"~"(%"[o]^2~")")) +
-  scale_y_continuous(breaks=c(0, 2500, 5000, 7500, 10000), limits=c(-60, 10000)) +
-  theme(axis.text.x = element_text(size=20),
-        axis.text.y = element_text(size=14),
-        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
-        strip.text.x = element_text(size=20,face="bold"),
-        #strip.text.y = element_text(size=14),
-        panel.spacing=unit(2, "lines"),
-        legend.title = element_text(size = 18, face="bold"),
-        legend.text = element_text(size=16),
-        panel.grid.minor = element_blank(),
-        panel.grid.major.x = element_blank(),
-        strip.background = element_blank()
-  )
-dev.off()
-
-
-## Boxplot with Saline & ABX
-auc.all.df <- auc.df
-auc.all.df$ABX <- NA
-auc.all.df$ABX[which(auc.all.df$Antibiotics == "No")] <- "Intact"
-auc.all.df$ABX[which(auc.all.df$Antibiotics == "Yes")] <- "Depleted"
-auc.all.df$ABX <- ordered(auc.all.df$ABX, levels=c("Intact", "Depleted"))
-
-tiff("auc.all.tiff", width = 11, height = 8, units = "in", res = 300)
-ggplot(auc.all.df, aes(x=Season, y=AUC, fill=Season)) +
-  geom_boxplot(outlier.size=-1) +
-  geom_point(position=position_jitterdodge(jitter.width=0.75)) +
-  facet_grid(Substrate~ABX) +
-  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  ylab(expression("Area Under"~~delta^13~"C"~~"Curve"~"(%"[o]^2~")")) +
-  scale_y_continuous(breaks=c(0, 2500, 5000, 7500, 10000), limits=c(-61, 10000)) +
-  theme(axis.text.x = element_text(size=20),
-        axis.text.y = element_text(size=14),
-        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
-        strip.text.x = element_text(size=20),
-        strip.text.y = element_text(size=20),
-        panel.spacing=unit(2, "lines"),
-        legend.title = element_text(size = 18, face="bold"),
-        legend.text = element_text(size=16),
-        panel.grid.minor = element_blank(),
-        panel.grid.major.x = element_blank(),
-        strip.background = element_blank()
-  )
-dev.off()
 
 
 
-
-
-
-
-## Steal legend
-steal.legend <- ggplot(auc.man, aes(x=Season, y=AUC, fill=Season)) +
-  geom_boxplot(position=position_dodge(1)) +
-  geom_point(size=2) +
-  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  ggtitle("Mannitol") +
-  ylab(expression("Area Under"~~delta^13~"C"~~"Curve"~"(%"[o]^2~")")) +
-  theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.text.x = element_text(size=20),
-        axis.text.y = element_text(size=14),
-        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
-        strip.text.x = element_text(size=20),
-        #strip.text.y = element_text(size=14),
-        panel.spacing=unit(1, "lines"),
-        legend.title = element_text(size = 20, face="bold"),
-        legend.text = element_text(size=18),
-        panel.grid.major = element_blank()
-  )
-legend <- g_legend(steal.legend)
-
-
-tiff("auc.mdtp.tiff", width = 12.5, height = 4.1, units = "in", res = 300)
+##### Save AUC Dot Plots #####
+png("auc.png", width = 250, height = 75, units = "mm", res = 300)
 grid.newpage()
-pushViewport(viewport(layout=(grid.layout(1,3, widths=c(1,1,0.25), heights=c(1,1,1)))))
+pushViewport(viewport(layout=grid.layout(1,3, widths = c(1, 1, 1.2))))
 print(inu.auc.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
 print(man.auc.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
-legend$vp <- viewport(layout.pos.row=1, layout.pos.col=3)
-grid.draw(legend)
+print(sal.auc.plot, vp=viewport(layout.pos.row=1, layout.pos.col=3))
 dev.off()
+
+
 
 
 ```
