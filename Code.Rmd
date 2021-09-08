@@ -690,7 +690,7 @@ sal.auc.plot <- ggplot(auc.sal, aes(x = Season, y = AUC, color = SeasonABX,
 
 
 ##### Save AUC Dot Plots #####
-png("auc.png", width = 250, height = 75, units = "mm", res = 300)
+#png("auc.png", width = 250, height = 75, units = "mm", res = 300)
 grid.newpage()
 pushViewport(viewport(layout=grid.layout(1,3, widths = c(1, 1, 1.2))))
 print(inu.auc.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
@@ -704,51 +704,6 @@ dev.off()
 ```
 
 
-### Summer 2020 - CRDS Plots
-```{r}
-### Subset out Inulin & Saline
-inu.sal.sum <- crds.sum[which(crds.sum$Substrate != "Mannitol"),]
-
-### Subset out post-gavage datapoints
-inu.sal.sum.exp <- inu.sal.sum[which(inu.sal.sum$BinTime > 0),]
-
-### Subset out baseline datapoints
-inu.sal.sum.base <- inu.sal.sum[which(inu.sal.sum$BinTime < 0),]
-
-# Plot Inulin & Saline CRDS curves
-# Using X_Mean instead of BinTime because error bars don't align in BinTime
-inu.sal.sum.plot <- ggplot(inu.sal.sum.exp, aes(x=X_Mean, y=Y_Mean, color=Season)) +
-  geom_line(aes(linetype=Antibiotics), size=1) +
-  geom_point(data= inu.sal.sum.exp, size=3, shape=21,
-             aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
-  geom_errorbar(data = inu.sal.sum.exp, aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125) + 
-  geom_errorbarh(data = inu.sal.sum.exp, aes(xmin = X_Mean-X_SE, xmax = X_Mean+X_SE, height=70)) +
-  geom_point(data = inu.sal.sum.base, size=3, shape=21,
-             aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
-  geom_errorbar(data = inu.sal.sum.base, aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125) + 
-  geom_errorbarh(data = inu.sal.sum.base, mapping=aes(xmin = X_Mean-X_SE, xmax = X_Mean+X_SE, height=70)) +
-  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
-  facet_grid(.~Substrate) +
-  xlab("Time Since Gavage (hr)") +
-  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  scale_y_continuous(breaks=c(0, 500, 1000, 1500, 2000, 2500, 3000), limits=c(-60,3020)) +
-  scale_x_continuous(breaks=c(0, 1, 2, 3, 4), limits=c(-0.6, 4.5)) +
-  theme(axis.text.x = element_text(size=16),
-        axis.text.y = element_text(size=16),
-        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
-        strip.text.x = element_text(size=20, face="bold"),
-        #strip.text.y = element_text(size=14),
-        panel.spacing=unit(1, "lines"),
-        legend.title = element_text(size = 20, face="bold"),
-        legend.text = element_text(size=18),
-        panel.grid.minor = element_blank(),
-        #panel.grid.major = element_blank(),
-        strip.background = element_blank()
-  )
-
-```
 
 ### Summer 2020 - Inulinase Genes (metaG)
 ```{r}
@@ -902,7 +857,7 @@ inu.delta.plot <- ggplot(inu.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
         plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
           #top, right, bottom, left
         panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()) #+
+        panel.grid.minor = element_blank()) +
   guides(colour=F, linetype=F)
 
 
@@ -914,14 +869,16 @@ man.delta.plot <- ggplot(man.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
   geom_errorbar(aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125, position=position_dodge(0.1)) +
-  ggtitle(expression("Saline"~~delta^13~"C")) +
+  ggtitle(expression("Mannitol"~~delta^13~"C")) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
   theme(plot.title=element_text(hjust=0.5, size=20),
         axis.title.x=element_text(size=14),
         axis.title.y=element_text(size=14),
         axis.text.x=element_text(size=12),
-        axis.text.y=element_text(size=12)) #+
+        axis.text.y=element_text(size=12),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
   guides(colour=F, linetype=F)
   
   
@@ -940,16 +897,18 @@ sal.delta.plot <- ggplot(sal.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
         axis.title.x=element_text(size=14),
         axis.title.y=element_text(size=14),
         axis.text.x=element_text(size=12),
-        axis.text.y=element_text(size=12)) #+
+        axis.text.y=element_text(size=12),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
   guides(colour=F, linetype=F)
 
 
 ## Steal legend
-steal.legend <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
+steal.legend <- ggplot(sal.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
   geom_line(aes(linetype=Antibiotics), size=1) +
   geom_point(size=3) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
+  geom_errorbar(aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125, position=position_dodge(0.1)) +
   ggtitle(expression("Saline"~~delta^13~"C")) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
@@ -969,34 +928,34 @@ legend <- g_legend(steal.legend)
 
 
 ### All 3 substrates on same axis
-all3.plot <- ggplot(crds.sum, aes(x=BinTime, y=Mean, color=Season)) +
+carb.plot <- ggplot(crds.sum, aes(x=BinTime, y=Y_Mean, color=Season)) +
   geom_line(aes(linetype=Antibiotics), size=1) +
    geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
-  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) + 
+  geom_errorbar(aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125, position=position_dodge(0.1)) + 
   facet_grid(.~Substrate) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  xlim(-0.6,4.1) +
-  scale_y_continuous(breaks=c(0, 500, 1000, 1500, 2000, 2500), limits=c(-30, 2700)) +
+  xlim(-0.6,4.41) +
+  scale_y_continuous(breaks=c(0, 500, 1000, 1500, 2000, 2500, 3000), limits=c(-30, 3100)) +
   theme(axis.text.x = element_text(size=16),
         axis.text.y = element_text(size=16),
         axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
         axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
         strip.text.x = element_text(size=20, face="bold"),
-        #strip.text.y = element_text(size=14),
+        strip.text.y = element_text(size=14),
         panel.spacing=unit(1, "lines"),
         legend.title = element_text(size = 20, face="bold"),
         legend.text = element_text(size=18),
         panel.grid.minor = element_blank(),
-        #panel.grid.major = element_blank(),
+        panel.grid.major = element_blank(),
         strip.background = element_blank()
   )
 
 
 
-tiff("crds.mdtp.tiff", width = 12.75, height = 3.5, units = "in", res = 300)
+#png("delta.curves.png", width = 12.75, height = 3.5, units = "in", res = 300)
 carb.plot
 dev.off()
 ```
@@ -1091,18 +1050,7 @@ sal.plot <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
   guides(colour=F, linetype=F)
 
 
-## Urea
-ure.plot <- ggplot(ure.all, aes(x=BinTime, y=Mean, color=Season)) +
-  geom_line(aes(linetype=Antibiotics), size=1) +
-  geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
-  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
-  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
-  ggtitle(expression("Urea"~~delta^13~"C")) +
-  xlab("Time Since Gavage (hr)") +
-  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  theme(plot.title=element_text(hjust=0.5)) #+
-  #guides(colour=F, linetype=F)
+
 
 ## Steal legend
 steal.legend <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
