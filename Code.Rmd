@@ -534,7 +534,8 @@ fligner.test(AUC ~ Season, auc.man.abx)
   # p-value = 0.2493
 fligner.test(AUC ~ Season, auc.sal.abx)
   # p-value = 0.8241
-
+p.adjust(c(0.01405, 0.1365, 0.4233, 0.1303, 0.2493, 0.8241), method = "fdr")
+  #0.08430 0.27300 0.50796
 
 ### Test AUC - Seasons
 kruskal.test(formula = AUC ~ Season, data=auc.inu.noabx)
@@ -550,7 +551,9 @@ kruskal.test(formula = AUC ~ Season, data=auc.man.abx)
 kruskal.test(formula = AUC ~ Season, data=auc.sal.abx)
   # p-value = 0.5819
 
-
+p.adjust(c(0.2006, 0.1544, 0.7246, 0.2156, 0.593, 0.5819), method = "BH")
+  # 0.4312 0.4312 0.7246
+  # 0.4312 0.7116 0.7116
 
 
 ### Test AUC - Diet
@@ -611,53 +614,33 @@ auc.sal$SeasonABX <- ordered(auc.sal$SeasonABX, levels=c("Summer.No", "Summer.Ye
 # Inulin
 inu.auc.plot <- ggplot(auc.inu, aes(x = Season, y = AUC, color = SeasonABX,
                                     fill = SeasonABX)) +
-  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1,
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
                position = position_dodge(0.7), stackratio = 0.5) +
   scale_color_manual(values = c("#c98b00", "#E69F00", "#006096", "#0072B2", "#00966d",
                                 "#00bf8b")) +
   scale_fill_manual(values = c("#E69F00", "white", "#0072B2", "white", "#00bf8b",
                                "white")) +
   stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.25) +
-    ggtitle("Inulin AUC")  +
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ggtitle("Inulin")  + 
+  ylab(expression("Area Under"~~delta^13~"C"~~"Curve"~"(%"[o]^2~")")) +
+  scale_y_continuous(breaks=c(0, 1750, 3500, 5250, 7000, 8750), limits=c(0, 8750),
+                     minor_breaks = seq(0,8750,1750)) +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
-        axis.title.x = element_text(face="bold", size=6),
-        axis.title.y = element_text(face="bold", size=6),
-        axis.text.x = element_text(size=6),
-        axis.text.y = element_text(size=6),
-        plot.title = element_text(hjust = 0.5, size = 10),
+        axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(face="bold", size=11),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
         legend.position = "none")
   
 
 # Mannitol  
 man.auc.plot <- ggplot(auc.man, aes(x = Season, y = AUC, color = SeasonABX,
                                     fill = SeasonABX)) +
-  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1,
-               position = position_dodge(0.7), stackratio = 0.5) +
-  scale_color_manual(values = c("#c98b00", "#E69F00", "#006096", "#0072B2", "#00966d",
-                                "#00bf8b")) +
-  scale_fill_manual(values = c("#E69F00", "white", "#0072B2", "white", "#00bf8b",
-                               "white")) +
-  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.25) +
-    ggtitle("Mannitol AUC")  +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        strip.background = element_blank(),
-        axis.title.x = element_text(face="bold", size=6),
-        axis.title.y = element_text(face="bold", size=6),
-        axis.text.x = element_text(size=6),
-        axis.text.y = element_text(size=6),
-        plot.title = element_text(hjust = 0.5, size = 10),
-        legend.position = "none")
-
-
-# Saline
-sal.auc.plot <- ggplot(auc.sal, aes(x = Season, y = AUC, color = SeasonABX,
-                                    fill = SeasonABX)) +
-  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1,
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
                position = position_dodge(0.7), stackratio = 0.5) +
   scale_color_manual(values = c("#c98b00", "#E69F00", "#006096", "#0072B2", "#00966d",
                                 "#00bf8b"), guide = "none") +
@@ -672,19 +655,113 @@ sal.auc.plot <- ggplot(auc.sal, aes(x = Season, y = AUC, color = SeasonABX,
                                                              color = NA),
                                          keyheight = c(1.25,0,1.25,0,1.25,0))) +
   stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.25) +
-    ggtitle("Saline AUC")  +
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ggtitle("Mannitol") +
+  #scale_y_continuous(breaks=c(0, 1750, 3500, 5250, 7000, 8750), limits=c(-7, 8750),
+                     #minor_breaks = seq(0,8750,1750)) +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        axis.ticks.y = element_blank(),
+        plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+        legend.position = "none")
+
+
+# Saline
+sal.auc.plot <- ggplot(auc.sal, aes(x = Season, y = AUC, color = SeasonABX,
+                                    fill = SeasonABX)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+               position = position_dodge(0.7), stackratio = 0.5) +
+  scale_color_manual(values = c("#c98b00", "#E69F00", "#006096", "#0072B2", "#00966d",
+                                "#00bf8b"), guide = "none") +
+  scale_fill_manual(values = c("#E69F00", "white", "#0072B2", "white", "#00bf8b",
+                               "white"),
+                    name = "Season",
+                    labels = c("Summer", "", "Winter", "", "Spring", ""),
+                    guide = guide_legend(override.aes = list(fill = c("#E69F00", NA,
+                                                                      "#0072B2", NA,
+                                                                      "#00bf8b", NA),
+                                                             alpha = c(1,0,1,0,1,0),
+                                                             color = NA),
+                                         keyheight = c(1.25,0,1.25,0,1.25,0))) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+    ggtitle("Saline")  +
     theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
-        axis.title.x = element_text(face="bold", size=6),
-        axis.title.y = element_text(face="bold", size=6),
-        axis.text.x = element_text(size=6),
-        axis.text.y = element_text(size=6),
-        plot.title = element_text(hjust = 0.5, size = 10))
+        axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        axis.ticks.y = element_blank(),
+        plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+        legend.position = "none")
 
 
+
+
+
+
+
+
+
+
+
+
+# Inulin
+inu.noabx.auc.plot <- ggplot(auc.inu.noabx, aes(x = Season, y = AUC, fill = Season)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5, stackratio = 1) +
+  scale_fill_manual(values = c("#E69F00", "#0072B2", "#00bf8b")) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ggtitle("Inulin")  + 
+  ylab(expression("Area Under"~~delta^13~"C"~~"Curve"~"(%"[o]^2~")")) +
+  #scale_y_continuous(breaks=c(0, 1750, 3500, 5250, 7000, 8750), limits=c(-7, 8750),
+                     #minor_breaks = seq(0,8750,1750)) +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(face="bold", size=11),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+        legend.position = "none")
   
+
+# Mannitol  
+man.noabx.auc.plot <- ggplot(auc.man.noabx, aes(x = Season, y = AUC, fill = Season)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5, stackratio = 1) +
+  scale_fill_manual(values = c("#E69F00", "#0072B2", "#00bf8b"),
+                    name = "Season",
+                    labels = c("Summer", "Winter", "Spring"),
+                    guide = guide_legend(override.aes = list(fill = c("#E69F00",
+                                                                      "#0072B2",
+                                                                      "#00bf8b")))) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ggtitle("Mannitol") +
+  #scale_y_continuous(breaks=c(0, 1750, 3500, 5250, 7000, 8750), limits=c(-7, 8750),
+                     #minor_breaks = seq(0,8750,1750)) +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        axis.ticks.y = element_blank(),
+        plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+        legend.position = "none")
+
+
+
+
 
 
 
@@ -692,14 +769,19 @@ sal.auc.plot <- ggplot(auc.sal, aes(x = Season, y = AUC, color = SeasonABX,
 ##### Save AUC Dot Plots #####
 #png("auc.png", width = 250, height = 75, units = "mm", res = 300)
 grid.newpage()
-pushViewport(viewport(layout=grid.layout(1,3, widths = c(1, 1, 1.2))))
+pushViewport(viewport(layout=grid.layout(1,3, widths = c(1.1, 1.05, 0.95))))
 print(inu.auc.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
 print(man.auc.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
 print(sal.auc.plot, vp=viewport(layout.pos.row=1, layout.pos.col=3))
 dev.off()
 
 
-
+#png("auc.inu.man.png", width = 175, height = 75, units = "mm", res = 300)
+grid.newpage()
+pushViewport(viewport(layout=grid.layout(1,3, widths = c(1.05, 0.1, 1))))
+print(inu.noabx.auc.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
+print(man.noabx.auc.plot, vp=viewport(layout.pos.row=1, layout.pos.col=3))
+dev.off()
 
 ```
 
@@ -856,8 +938,9 @@ inu.delta.plot <- ggplot(inu.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
         axis.text.y=element_text(size=16),
         plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
           #top, right, bottom, left
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()) +
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank()) +
   guides(colour=F, linetype=F)
 
 
@@ -877,8 +960,9 @@ man.delta.plot <- ggplot(man.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
         axis.title.y=element_text(size=14),
         axis.text.x=element_text(size=12),
         axis.text.y=element_text(size=12),
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()) +
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank()) +
   guides(colour=F, linetype=F)
   
   
@@ -898,8 +982,9 @@ sal.delta.plot <- ggplot(sal.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
         axis.title.y=element_text(size=14),
         axis.text.x=element_text(size=12),
         axis.text.y=element_text(size=12),
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()) +
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank()) +
   guides(colour=F, linetype=F)
 
 
@@ -948,14 +1033,15 @@ carb.plot <- ggplot(crds.sum, aes(x=BinTime, y=Y_Mean, color=Season)) +
         panel.spacing=unit(1, "lines"),
         legend.title = element_text(size = 20, face="bold"),
         legend.text = element_text(size=18),
-        panel.grid.minor = element_blank(),
-        panel.grid.major = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank(),
         strip.background = element_blank()
   )
 
 
 
-#png("delta.curves.png", width = 12.75, height = 3.5, units = "in", res = 300)
+png("delta.curves.png", width = 12.75, height = 3.5, units = "in", res = 300)
 carb.plot
 dev.off()
 ```
@@ -996,8 +1082,9 @@ inu.plot <- ggplot(inu.all, aes(x=BinTime, y=Mean, color=Season)) +
         axis.text.y=element_text(size=16),
         plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
           #top, right, bottom, left
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank()
   ) +
   guides(colour=F, linetype=F)
 
@@ -1024,8 +1111,9 @@ man.plot <- ggplot(man.all, aes(x=BinTime, y=Mean, color=Season)) +
         axis.text.y=element_text(size=16),
         plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
           #top, right, bottom, left
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank()
   ) +
   guides(colour=F, linetype=F)
 
@@ -1046,7 +1134,10 @@ sal.plot <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
         axis.title.x=element_text(size=14),
         axis.title.y=element_text(size=14),
         axis.text.x=element_text(size=12),
-        axis.text.y=element_text(size=12)) +
+        axis.text.y=element_text(size=12),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank()) +
   guides(colour=F, linetype=F)
 
 
@@ -1097,14 +1188,14 @@ carb.plot <- ggplot(crds.rem, aes(x=BinTime, y=Mean, color=Season)) +
         panel.spacing=unit(1, "lines"),
         legend.title = element_text(size = 20, face="bold"),
         legend.text = element_text(size=18),
-        panel.grid.minor = element_blank(),
-        #panel.grid.major = element_blank(),
-        strip.background = element_blank()
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank(),
   )
 
 
 
-tiff("crds.mdtp.tiff", width = 12.75, height = 3.5, units = "in", res = 300)
+tiff("crds.tiff", width = 12.75, height = 3.5, units = "in", res = 300)
 carb.plot
 dev.off()
 ```
