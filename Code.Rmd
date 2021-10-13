@@ -1532,3 +1532,27 @@ p$tab
 
 
 ```
+
+
+
+
+
+### Gene Length
+```{r}
+geneLength <- read.csv('eCAMI/geneLength.csv')
+endoLength <- geneLength[which(geneLength$Gene == "Endo"),]
+exoLength <- geneLength[which(geneLength$Gene == "Exo"),]
+
+shapiro.test(endoLength$Length..bp.)
+  # p-value = 0.0005404
+shapiro.test(exoLength$Length..bp.)
+  # p-value < 2.2e-16
+
+kruskal.test(formula = Length..bp. ~ Season, data = exoLength)
+  # p-value = 0.14
+kruskal.test(formula = Length..bp. ~ Substrate, data = exoLength)
+  # p-value = 0.9816
+summary(aov(Length..bp. ~ Season + Substrate, data = exoLength))
+  # Season = 0.488
+  # Substrate = 0.862
+```
