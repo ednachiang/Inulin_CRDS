@@ -15,10 +15,6 @@ samples = ['I-P01', 'I-P07', 'I-P11', 'I-S07', 'I-S29', 'I-S34', 'I-W31', 'I-W32
 sampDict = {0:"I-P01", 1:"I-P07", 2:"I-P11", 3:"I-S07", 4:"I-S29", 5:"I-S34", 6:"I-W31", 7:"I-W32", 8:"I-W33", 9:"S-P03", 10:"S-P09", 11:"S-P12", 12:"S-S05", 13:"S-S08", 14:"S-S32", 15:"S-W20", 16:"S-W36", 17:"S-W37"}
 taxon = ["phylum", "class", "order", "family", "genus", "species"]
     # Save all taxa levels
-dict1 = {"3715":"Summer", "3717":"Summer", "3723":"Winter", "3733":"Winter", "3734":"Spring", "3744":"Summer", "3772":"Winter", "3773":"Spring", "3775":"Spring"}
-    # Dictionary of sample-season
-dict2 = {"Summer":"3715,3717,3744", "Winter":"3723,3733,3772", "Spring":"3734,3773,3775"}
-    # Dictionary of season-taxa
 
 
 
