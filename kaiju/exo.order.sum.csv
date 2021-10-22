@@ -1,0 +1,27 @@
+Domain,Phylum,Class,Order,Summer,Winter,Spring
+Bacteria,Actinobacteria,Actinobacteria,Actinomycetales,0.003 ± 0.003,0 ± 0,0 ± 0
+Bacteria,Actinobacteria,Actinobacteria,Actinopolysporales,0.156 ± 0.125,0.020 ± 0.013,0.005 ± 0.005
+Bacteria,Actinobacteria,Actinobacteria,Micrococcales,0.569 ± 0.335,0.024 ± 0.017,0.664 ± 0.471
+Bacteria,Actinobacteria,Actinobacteria,Streptomycetales,0.005 ± 0.003,0 ± 0,0 ± 0
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,45.342 ± 2.583,72.204 ± 6.656,42.660 ± 2.576
+Bacteria,Bacteroidetes,Bacteroidia,Marinilabiliales,0.333 ± 0.121,0.006 ± 0.006,0.260 ± 0.149
+Bacteria,Bacteroidetes,Chitinophagia,Chitinophagales,0 ± 0,0 ± 0,0.008 ± 0.005
+Bacteria,Bacteroidetes,Cytophagia,Cytophagales,0.263 ± 0.090,0.018 ± 0.016,0.090 ± 0.025
+Bacteria,Bacteroidetes,Flavobacteriia,Flavobacteriales,0.160 ± 0.067,0.006 ± 0.006,0.125 ± 0.075
+Bacteria,Bacteroidetes,Saprospiria,Saprospirales,0.008 ± 0.008,0.006 ± 0.006,0.003 ± 0.003
+Bacteria,Bacteroidetes,Sphingobacteriia,Sphingobacteriales,0.066 ± 0.039,0.213 ± 0.099,0.049 ± 0.023
+Bacteria,Deinococcus-Thermus,Deinococci,Deinococcales,0.265 ± 0.152,0.008 ± 0.008,0.437 ± 0.272
+Bacteria,Firmicutes,Bacilli,Bacillales,0.367 ± 0.187,0.026 ± 0.016,0.265 ± 0.122
+Bacteria,Firmicutes,Bacilli,Lactobacillales,0.005 ± 0.005,0.014 ± 0.014,0.023 ± 0.016
+Bacteria,Firmicutes,Clostridia,Clostridiales,1.584 ± 0.497,0.479 ± 0.208,1.058 ± 0.378
+Bacteria,Firmicutes,Erysipelotrichia,Erysipelotrichales,0 ± 0,0.424 ± 0.424,0 ± 0
+Bacteria,Proteobacteria,Alphaproteobacteria,Sphingomonadales,0.006 ± 0.006,0.002 ± 0.002,0 ± 0
+Bacteria,Proteobacteria,Betaproteobacteria,Burkholderiales,0.036 ± 0.029,0 ± 0,0.045 ± 0.037
+Bacteria,Proteobacteria,Gammaproteobacteria,Alteromonadales,0 ± 0,0 ± 0,0.050 ± 0.050
+Bacteria,Proteobacteria,Gammaproteobacteria,Enterobacterales,0.015 ± 0.015,0.004 ± 0.004,0.011 ± 0.007
+Bacteria,Verrucomicrobia,Verrucomicrobiae,Verrucomicrobiales,0 ± 0,0.006 ± 0.006,0 ± 0
+cannot be assigned to a (non-viral) order,,,,4.547 ± 0.906,2.514 ± 1.578,6.073 ± 1.653
+Eukaryota,Ascomycota,Eurotiomycetes,Eurotiales,0.090 ± 0.025,0 ± 0,0.122 ± 0.048
+Eukaryota,Chytridiomycota,Neocallimastigomycetes,Neocallimastigales,0 ± 0,0 ± 0,0.004 ± 0.004
+unclassified,,,,46.181 ± 2.712,24.026 ± 5.322,48.046 ± 3.366
+Viruses,,,,0 ± 0,0 ± 0,0 ± 0
