@@ -1205,7 +1205,7 @@ dev.off()
 ### Inulin MetaG Endo/Exo Total Protein
 ```{r}
 ### Import total Endo / Exo / Protein Counts
-endoexo <- read.csv("eCAMI/endo_exo.csv", fileEncoding="UTF-8-BOM")
+endoexo <- read.csv("eCAMI/endo_exo_ORF_counts.csv", fileEncoding="UTF-8-BOM")
 endoexo$Endo_RelAbund <- (endoexo$Endo / endoexo$Total_Protein)*100
 endoexo$Exo_RelAbund <- (endoexo$Exo / endoexo$Total_Protein)*100
 endoexo$Season <- c("Spring", "Spring", "Spring", "Summer", "Summer", "Summer", "Winter", "Winter", "Winter")
@@ -1306,30 +1306,232 @@ dev.off()
 
 ```
 
+### Inulinase Endo / Exo RPKG
+```{r}
+### Exo - All
+exo_mapped_all <- read.csv('eCAMI/mapped_reads_all.csv')
+exo_mapped_all <- exo_mapped_all[which(exo_mapped_all$Protein == "Exo"),]
+
+shapiro.test(exo_mapped_all$RelAbund.100000)
+  # p-value = 0.0005701
+
+kruskal.test(formula = RelAbund.100000 ~ Season, data = exo_mapped_all)
+  # p-value = 0.8342
+
+
+### Exo - Separate
+exo_mapped_sep <- read.csv('eCAMI/exoRPKG.csv')
+
+shapiro.test(exo_mapped_sep$RPKG)
+  # p-value = 3.348e-05
+
+kruskal.test(formula = RPKG ~ Season, data = exo_mapped_sep)
+  # p-value = 0.9322
+```
+
+
+
 ### Inulin MetaG Exo Taxa Import
 ```{r}
+####### PHYLUM #######
+
 ### Import Data
-exo.shared <- read.csv("eCAMI/exo.shared.csv", fileEncoding="UTF-8-BOM")
+exo.shared <- read.csv("kaiju/exo/exo.phylum.csv")
 rownames(exo.shared) <- exo.shared$X
+exo.phylum <- data.frame(exo.shared$X)
+rownames(exo.phylum) <- exo.phylum[,1]
 exo.shared <- exo.shared[,-1]
-exo.tax <- read.csv("eCAMI/exo_tax.csv", fileEncoding="UTF-8-BOM")
-rownames(exo.tax) <- exo.tax$Protein
-exo.tax <- exo.tax[,-1]
 
 ### Make physeq object
-exo.otu <- otu_table(t(exo.shared), taxa_are_rows=T)
-exo.samp <- sample_data(endoexo)
-exo.tax <- tax_table(exo.tax)
-taxa_names(exo.tax) <- taxa_names(exo.otu)
-colnames(exo.tax) <- c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")
-sample_names(exo.samp) <- sample_names(exo.otu)
-exo.physeq <- merge_phyloseq(exo.otu, exo.samp, exo.tax)
+exo.otu <- otu_table(exo.shared, taxa_are_rows=T)
+meta.metag <- read.csv('metadata_metag.csv')
+rownames(meta.metag) <- meta.metag$ID
+meta.metag.samp <- sample_data(meta.metag)
+exo.phylum <- tax_table(exo.phylum)
+taxa_names(exo.phylum) <- tax_table(exo.phylum)
+exo.physeq <- merge_phyloseq(exo.otu, meta.metag.samp, exo.phylum)
 
-### Combine at diff taxa levels
-exo.gen <- tax_glom(exo.physeq, taxrank="Genus")
-exo.fam <- tax_glom(exo.physeq, taxrank="Family")
-exo.ord <- tax_glom(exo.physeq, taxrank="Order")
-exo.cla <- tax_glom(exo.physeq, taxrank="Class")
+### Summarize data
+exo.df <- psmelt(exo.physeq)
+exo.sum <- exo.df %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+
+### Save
+#write.csv(exo.sum, "kaiju/exo.phylum.sum.csv", row.names=F)
+
+
+
+
+
+
+
+####### CLASS #######
+
+### Import Data
+exo.shared <- read.csv("kaiju/exo/exo.class.csv")
+rownames(exo.shared) <- exo.shared$X
+exo.class <- data.frame(exo.shared$X)
+rownames(exo.class) <- exo.class[,1]
+exo.shared <- exo.shared[,-1]
+
+### Make physeq object
+exo.otu <- otu_table(exo.shared, taxa_are_rows=T)
+meta.metag <- read.csv('metadata_metag.csv')
+rownames(meta.metag) <- meta.metag$ID
+meta.metag.samp <- sample_data(meta.metag)
+exo.class <- tax_table(exo.class)
+exo.physeq <- merge_phyloseq(exo.otu, meta.metag.samp, exo.class)
+
+### Summarize data
+exo.df <- psmelt(exo.physeq)
+exo.sum <- exo.df %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+
+### Save
+#write.csv(exo.sum, "kaiju/exo.class.sum.csv", row.names=F)
+
+
+
+
+
+
+####### ORDER #######
+
+### Import Data
+exo.shared <- read.csv("kaiju/exo/exo.order.csv")
+rownames(exo.shared) <- exo.shared$X
+exo.order <- data.frame(exo.shared$X)
+rownames(exo.order) <- exo.order[,1]
+exo.shared <- exo.shared[,-1]
+
+### Make physeq object
+exo.otu <- otu_table(exo.shared, taxa_are_rows=T)
+meta.metag <- read.csv('metadata_metag.csv')
+rownames(meta.metag) <- meta.metag$ID
+meta.metag.samp <- sample_data(meta.metag)
+exo.order <- tax_table(exo.order)
+taxa_names(exo.order) <- exo.order
+exo.physeq <- merge_phyloseq(exo.otu, meta.metag.samp, exo.order)
+
+### Summarize data
+exo.df <- psmelt(exo.physeq)
+exo.sum <- exo.df %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+
+### Save
+#write.csv(exo.sum, "kaiju/exo.order.sum.csv", row.names=F)
+
+
+
+
+
+
+####### FAMILY #######
+
+### Import Data
+exo.shared <- read.csv("kaiju/exo/exo.family.csv")
+rownames(exo.shared) <- exo.shared$X
+exo.family <- data.frame(exo.shared$X)
+rownames(exo.family) <- exo.family[,1]
+exo.shared <- exo.shared[,-1]
+
+### Make physeq object
+exo.otu <- otu_table(exo.shared, taxa_are_rows=T)
+meta.metag <- read.csv('metadata_metag.csv')
+rownames(meta.metag) <- meta.metag$ID
+meta.metag.samp <- sample_data(meta.metag)
+exo.family <- tax_table(exo.family)
+taxa_names(exo.family) <- exo.family
+exo.physeq <- merge_phyloseq(exo.otu, meta.metag.samp, exo.family)
+
+### Summarize data
+exo.df <- psmelt(exo.physeq)
+exo.sum <- exo.df %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+
+### Save
+#write.csv(exo.sum, "kaiju/exo.family.sum.csv", row.names=F)
+
+
+
+
+
+
+####### GENUS #######
+
+### Import Data
+exo.shared <- read.csv("kaiju/exo/exo.genus.csv")
+rownames(exo.shared) <- exo.shared$X
+exo.genus <- data.frame(exo.shared$X)
+rownames(exo.genus) <- exo.genus[,1]
+exo.shared <- exo.shared[,-1]
+
+### Make physeq object
+exo.otu <- otu_table(exo.shared, taxa_are_rows=T)
+meta.metag <- read.csv('metadata_metag.csv')
+rownames(meta.metag) <- meta.metag$ID
+meta.metag.samp <- sample_data(meta.metag)
+exo.genus <- tax_table(exo.genus)
+taxa_names(exo.genus) <- exo.genus
+exo.physeq <- merge_phyloseq(exo.otu, meta.metag.samp, exo.genus)
+
+### Summarize data
+exo.df <- psmelt(exo.physeq)
+exo.sum <- exo.df %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+
+### Save
+#write.csv(exo.sum, "kaiju/exo.genus.sum.csv", row.names=F)
+
+
+
+
+
+
+
+####### SPECIES #######
+
+### Import Data
+exo.shared <- read.csv("kaiju/exo/exo.species.csv")
+rownames(exo.shared) <- exo.shared$X
+exo.species <- data.frame(exo.shared$X)
+rownames(exo.species) <- exo.species[,1]
+exo.shared <- exo.shared[,-1]
+
+### Make physeq object
+exo.otu <- otu_table(exo.shared, taxa_are_rows=T)
+meta.metag <- read.csv('metadata_metag.csv')
+rownames(meta.metag) <- meta.metag$ID
+meta.metag.samp <- sample_data(meta.metag)
+exo.species <- tax_table(exo.species)
+taxa_names(exo.species) <- exo.species
+exo.physeq <- merge_phyloseq(exo.otu, meta.metag.samp, exo.species)
+
+### Summarize data
+exo.df <- psmelt(exo.physeq)
+exo.sum <- exo.df %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+
+### Save
+#write.csv(exo.sum, "kaiju/exo.species.sum.csv", row.names=F)
 ```
 
 ### Inulin MetaG Exo Rel Abund
@@ -1556,3 +1758,19 @@ summary(aov(Length..bp. ~ Season + Substrate, data = exoLength))
   # Season = 0.488
   # Substrate = 0.862
 ```
+### Average genome size /  Genome Equivalents
+```{r}
+ags <- read.csv('AverageGenomeSize.csv')
+
+shapiro.test(ags$Avg_Genome_Size)
+  # p-value = 0.4778
+shapiro.test(ags$Genome_Equivalents)
+  # p-value = 0.1762
+
+
+summary(aov(Avg_Genome_Size ~ Season, data = ags))
+  # p-value = 0.298
+summary(aov(Genome_Equivalents ~ Season, data = ags))
+  # p-value = 0.254
+```
+### Inulinase 
