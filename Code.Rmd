@@ -591,6 +591,108 @@ fligner.test(AUC ~ Diet, auc.sal.abx[which(auc.sal.abx$Season == "Summer"),])
 
 
 
+### Test AUC - BodyMass Correlation ###
+
+# Inulin
+cor.test(auc.inu.noabx$AUC, auc.inu.noabx$BodyMass, method = "spearman")
+  # p-value = 0.4802
+cor.test(auc.inu.s[which(auc.inu.s$Antibiotics == "No"),1],
+         auc.inu.s[which(auc.inu.s$Antibiotics == "No"),11], method = "spearman")
+  # p-value = 1
+cor.test(auc.inu.w[which(auc.inu.w$Antibiotics == "No"),1],
+         auc.inu.w[which(auc.inu.w$Antibiotics == "No"),11], method = "spearman")
+  # p-value = 0.4444
+cor.test(auc.inu.p[which(auc.inu.p$Antibiotics == "No"),1],
+         auc.inu.p[which(auc.inu.p$Antibiotics == "No"),11], method = "spearman")
+  # p-value = 0.5948
+
+
+# Saline
+cor.test(auc.sal.noabx$AUC, auc.sal.noabx$BodyMass, method = "spearman")
+  # p-value = 0.2654
+cor.test(auc.sal.s[which(auc.sal.s$Antibiotics == "No"),1],
+         auc.sal.s[which(auc.sal.s$Antibiotics == "No"),11], method = "spearman")
+  # p-value = 0.7139
+cor.test(auc.sal.w[which(auc.sal.w$Antibiotics == "No"),1],
+         auc.sal.w[which(auc.sal.w$Antibiotics == "No"),11], method = "spearman")
+  # p-value = 0.3556
+cor.test(auc.sal.p[which(auc.sal.p$Antibiotics == "No"),1],
+         auc.sal.p[which(auc.sal.p$Antibiotics == "No"),11], method = "spearman")
+  # p-value = 0.8397
+
+
+
+
+### Test AUC - BodyTemp Correlation ###
+
+# Inulin
+cor.test(auc.inu.noabx$AUC, auc.inu.noabx$BodyTemp, method = "spearman")
+  # p-value = 0.0576
+cor.test(auc.inu.s[which(auc.inu.s$Antibiotics == "No"),1],
+         auc.inu.s[which(auc.inu.s$Antibiotics == "No"),12], method = "spearman")
+  # p-value = 6121
+cor.test(auc.inu.w[which(auc.inu.w$Antibiotics == "No"),1],
+         auc.inu.w[which(auc.inu.w$Antibiotics == "No"),12], method = "spearman")
+  # p-value = 0.07433
+cor.test(auc.inu.p[which(auc.inu.p$Antibiotics == "No"),1],
+         auc.inu.p[which(auc.inu.p$Antibiotics == "No"),12], method = "spearman")
+  # p-value = 0.3979
+
+
+# Saline
+cor.test(auc.sal.noabx$AUC, auc.sal.noabx$BodyTemp, method = "spearman")
+  # p-value = 0.2223
+cor.test(auc.sal.s[which(auc.sal.s$Antibiotics == "No"),1],
+         auc.sal.s[which(auc.sal.s$Antibiotics == "No"),12], method = "spearman")
+  # p-value = 0.07234
+cor.test(auc.sal.w[which(auc.sal.w$Antibiotics == "No"),1],
+         auc.sal.w[which(auc.sal.w$Antibiotics == "No"),12], method = "spearman")
+  # p-value = 0.6483
+cor.test(auc.sal.p[which(auc.sal.p$Antibiotics == "No"),1],
+         auc.sal.p[which(auc.sal.p$Antibiotics == "No"),12], method = "spearman")
+  # p-value = 0.4647
+
+
+
+
+
+### Test AUC - Ketones Correlation ###
+
+# Inulin
+cor.test(auc.inu.noabx$AUC, auc.inu.noabx$Ketones, method = "spearman")
+  # p-value = 0.3699
+cor.test(auc.inu.s[which(auc.inu.s$Antibiotics == "No"),1],
+         auc.inu.s[which(auc.inu.s$Antibiotics == "No"),13], method = "spearman")
+  # p-value = NA
+cor.test(auc.inu.w[which(auc.inu.w$Antibiotics == "No"),1],
+         auc.inu.w[which(auc.inu.w$Antibiotics == "No"),13], method = "spearman")
+  # p-value = 0.02381
+  # rho = 0.8571429
+  # More inulin metabolism when ketones is higher, so more inulin metab when host metabolizes more fatty acids / has low carb storage
+cor.test(auc.inu.p[which(auc.inu.p$Antibiotics == "No"),1],
+         auc.inu.p[which(auc.inu.p$Antibiotics == "No"),13], method = "spearman")
+  # p-value = 0.6351
+
+
+# Saline
+cor.test(auc.sal.noabx$AUC, auc.sal.noabx$Ketones, method = "spearman")
+  # p-value = 0.2355
+cor.test(auc.sal.s[which(auc.sal.s$Antibiotics == "No"),1],
+         auc.sal.s[which(auc.sal.s$Antibiotics == "No"),13], method = "spearman")
+  # p-value = 1
+cor.test(auc.sal.w[which(auc.sal.w$Antibiotics == "No"),1],
+         auc.sal.w[which(auc.sal.w$Antibiotics == "No"),13], method = "spearman")
+  # p-value = 0.3206
+cor.test(auc.sal.p[which(auc.sal.p$Antibiotics == "No"),1],
+         auc.sal.p[which(auc.sal.p$Antibiotics == "No"),13], method = "spearman")
+  # p-value = 0.8007
+
+
+
+
+
+
+
 
 
 ### Prepare data for plotting
