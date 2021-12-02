@@ -1,6 +1,6 @@
 ### x = crds.rem dataframe
 
-calcSlope <- function(x){
+calc_delta_metrics <- function(x){
   
   # Pull out squirrel IDs
   IDs <- levels(as.factor(x$ID))
