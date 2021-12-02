@@ -19,10 +19,9 @@ library(miLineage)
 library(psych)
 library(car)
 source('scripts/import_crds.R')
-#source('scripts/bin_crds.R')
-#source('scripts/bin_crds2.R')
-source('scripts/bin_crds3.R')
+source('scripts/bin_crds.R')
 source('scripts/misc.R')
+source('scripts/calc_delta_metrics.R')
 set.seed(1)
 theme_set(theme_bw())
 
@@ -38,17 +37,8 @@ crds <- import.crds('CSV', 'metadata.csv')
 
 ### Bin RelTime
 ```{r}
-#crds.bin <- bin.crds(crds)
-
-#crds.bin <- bin.crds2(crds)
-  # Only includes inulin, mannitol, and saline
-
-crds.bin <- bin.crds3(crds)
-  # Only includes inulin, mannitol, and saline
-  # Using bin.crds3 because it's most accurate in displaying the data, even if the delta curve plots are a little wonkier (bins not aligned because I bin separately for each Season + ABX group)
+crds.bin <- bin.crds(crds)
 ```
-
-
 
 
 ### Summarize by Substrate + ABX
@@ -58,12 +48,6 @@ crds.rem <- crds.bin[-which(crds.bin$ID == "S34"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "S37"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "P30"),]
-
-### Remove Mannitol outliers
-crds.rem <- crds.rem[-which(crds.rem$ID == "S14"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "S58"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "W09"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "W29"),]
 
 # Remove Saline outliers
 crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
@@ -94,6 +78,14 @@ crds.sum <- crds.rem %>%
     # X_Mean is calculated for ABX and non-ABX separately, so there will be some variation
 crds.sum$Season <- ordered(crds.sum$Season, levels=c("Summer", "Winter", "Spring"))
 ```
+
+
+### Calculate Delta Metrics
+```{r}
+d.metrics <- calc.delta.metrics(crds.rem)
+#write.csv(d.metrics, "delta_metrics.csv", row.names = F)
+```
+
 
 ### Separate by substrate
 ```{r}
@@ -1044,28 +1036,6 @@ inu.delta.plot <- ggplot(inu.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
         panel.grid.minor.y = element_blank(),
         panel.grid.minor.x = element_blank()) +
   guides(colour=F, linetype=F)
-
-
-  
-## Mannitol
-man.delta.plot <- ggplot(man.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
-  geom_line(aes(linetype=Antibiotics), size=1) +
-  geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
-  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
-  geom_errorbar(aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125, position=position_dodge(0.1)) +
-  ggtitle(expression("Mannitol"~~delta^13~"C")) +
-  xlab("Time Since Gavage (hr)") +
-  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.title.x=element_text(size=14),
-        axis.title.y=element_text(size=14),
-        axis.text.x=element_text(size=12),
-        axis.text.y=element_text(size=12),
-        panel.grid.major.x = element_blank(),
-        panel.grid.minor.y = element_blank(),
-        panel.grid.minor.x = element_blank()) +
-  guides(colour=F, linetype=F)
   
   
 
@@ -1158,6 +1128,48 @@ ggplot(crds.bin, aes(x=BinTime, y=Delta, color=ID)) +
   geom_line() +
   geom_point()
 
+ggplot(crds.rem, aes(x=BinTime, y=Delta, color=ID)) +
+  geom_line() +
+  geom_point() +
+  facet_grid(Season ~ Antibiotics)
+
+
+### Split into experimental groups
+crds.split <- crds.rem %>%
+  group_split(Substrate, Antibiotics, Season) %>%
+  as.data.frame
+
+
+### Plot
+for(group in 1:length(crds.split$.)){
+  df <- crds.split[[1]][[group]]
+  print(df)
+  name <- paste0(c(df$Substrate[1], as.character(df$Season[1]), df$Antibiotics[1]),
+                 collapse = ".")
+  plotName <- paste0(c(name, "tiff"), collapse = ".")
+  
+  plot <- ggplot(df, aes(x=RelTime, y=Delta, color=ID)) +
+  geom_line() +
+  geom_point() +
+  facet_grid(ID ~.)
+  
+  tiff(plotName, width = 10, height = 10, units = "in", res = 300)
+  print(plot)
+  dev.off()
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 ## Substrate/ABX
 ggplot(crds.sum, aes(x=BinTime, y=Mean, color=Substrate)) +
   geom_line(aes(linetype=Antibiotics)) +
@@ -1189,36 +1201,6 @@ inu.plot <- ggplot(inu.all, aes(x=BinTime, y=Mean, color=Season)) +
         panel.grid.minor.x = element_blank()
   ) +
   guides(colour=F, linetype=F)
-
-
-
-
-## Mannitol
-man.plot <- ggplot(man.all, aes(x=BinTime, y=Mean, color=Season)) +
-  geom_line(aes(linetype=Antibiotics), size=1) +
-  geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
-  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
-  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
-  ggtitle(expression("Mannitol"~~delta^13~"C")) +
-  xlab("Time Since Gavage (hr)") +
-  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  xlim(-0.6,2.6) +
-  scale_y_continuous(breaks=c(0, 250, 500, 750, 1000), limits=c(-30, 760)) +
-  theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.title.x=element_text(size=20, 
-                                  margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y=element_text(size=18),
-        axis.text.x=element_text(size=16),
-        axis.text.y=element_text(size=16),
-        plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
-          #top, right, bottom, left
-        panel.grid.major.x = element_blank(),
-        panel.grid.minor.y = element_blank(),
-        panel.grid.minor.x = element_blank()
-  ) +
-  guides(colour=F, linetype=F)
-
 
 
 
