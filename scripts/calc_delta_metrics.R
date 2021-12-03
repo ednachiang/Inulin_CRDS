@@ -17,6 +17,8 @@ calc.delta.metrics <- function(x){
       # Pull out measurements for the individual squirrel
     curve.df$Delta <- curve.df$Delta - curve.df$Delta[1]
       # Normalize to baseline
+    curve.df <- curve.df[-2,]
+      # Remove first measurement after gavage
     
     # Pull out time of max value
     maxD <- which(curve.df$Delta == max(curve.df$Delta))
@@ -39,9 +41,13 @@ calc.delta.metrics <- function(x){
       slopeTime <- c(slopeTime, curve.df$RelTime[j])
     }
     
+    slope <- slope[-1]
+      # Remove initial 0
+    slopeTime <- slopeTime[-1]
+      # Remove initial 0
     maxSlope <- max(slope, na.rm = T)
     useSlopeTime <- slopeTime[which(slope == maxSlope)]
-    
+
     # Populate output dataframe
     output[i,] <- c(IDs[i], timeMaxD, maxSlope, useSlopeTime)
     

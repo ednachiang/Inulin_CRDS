@@ -1153,9 +1153,9 @@ for(group in 1:length(crds.split$.)){
   geom_point() +
   facet_grid(ID ~.)
   
-  tiff(plotName, width = 10, height = 10, units = "in", res = 300)
+  #tiff(plotName, width = 10, height = 10, units = "in", res = 300)
   print(plot)
-  dev.off()
+  #dev.off()
 
 }
 
