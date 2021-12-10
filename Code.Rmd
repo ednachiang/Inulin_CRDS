@@ -82,8 +82,384 @@ crds.sum$Season <- ordered(crds.sum$Season, levels=c("Summer", "Winter", "Spring
 
 ### Calculate Delta Metrics
 ```{r}
+# Calculate delta metrics
 d.metrics <- calc.delta.metrics(crds.rem)
 #write.csv(d.metrics, "delta_metrics.csv", row.names = F)
+
+# Load metadata
+meta <- read.csv('metadata.csv', fileEncoding="UTF-8-BOM")
+
+# Add metadata to delta metrics
+d.metrics[,colnames(meta)[3:12]] <- NA
+for(sq in 1:nrow(d.metrics)){
+  meta.row <- which(meta$ID == d.metrics$ID[sq])
+  d.metrics[sq, 5:14] <- meta[meta.row, 3:12]
+}
+
+# Convert to numeric
+d.metrics$TimeMaxD <- as.numeric(d.metrics$TimeMaxD)
+d.metrics$Slope <- as.numeric(d.metrics$Slope)
+d.metrics$SlopeTime <- as.numeric(d.metrics$SlopeTime)
+
+# Order seasons
+d.metrics$Season <- ordered(d.metrics$Season, levels=c("Summer", "Winter", "Spring"))
+
+# Separate substrates
+d.inu <- d.metrics[which(d.metrics$Substrate == "Inulin"),]
+d.sal <- d.metrics[which(d.metrics$Substrate == "Saline"),]
+
+# Separate by substrate + ABX
+d.inu.abx <- d.inu[which(d.inu$Antibiotics == "Yes"),]
+d.inu.noabx <- d.inu[which(d.inu$Antibiotics == "No"),]
+d.sal.abx <- d.sal[which(d.sal$Antibiotics == "Yes"),]
+d.sal.noabx <- d.sal[which(d.sal$Antibiotics == "No"),]
+```
+
+
+### Test Time of Max Delta Measurement
+```{r}
+### Test for normality
+hist(d.inu.abx$TimeMaxD)
+qqnorm(d.inu.abx$TimeMaxD)
+qqline(d.inu.abx$TimeMaxD)
+shapiro.test(d.inu.abx$TimeMaxD)
+  # p-value = 0.04414
+
+hist(d.inu.noabx$TimeMaxD)
+qqnorm(d.inu.noabx$TimeMaxD)
+qqline(d.inu.noabx$TimeMaxD)
+shapiro.test(d.inu.noabx$TimeMaxD)
+  # p-value = 0.03215
+
+hist(d.sal.abx$TimeMaxD)
+qqnorm(d.sal.abx$TimeMaxD)
+qqline(d.sal.abx$TimeMaxD)
+shapiro.test(d.sal.abx$TimeMaxD)
+  # p-value = 0.02579
+
+hist(d.sal.noabx$TimeMaxD)
+qqnorm(d.sal.noabx$TimeMaxD)
+qqline(d.sal.noabx$TimeMaxD)
+shapiro.test(d.sal.noabx$TimeMaxD)
+  # p-value = 0.2693
+
+
+### Test
+kruskal.test(formula = TimeMaxD ~ Season, data=d.inu.abx)
+  # p-value = 0.1629
+kruskal.test(formula = TimeMaxD ~ Season, data=d.inu.noabx)
+  # p-value = 0.3596
+kruskal.test(formula = TimeMaxD ~ Season, data=d.sal.abx)
+  # p-value = 0.003693
+summary(aov(TimeMaxD ~ Season, data = d.sal.noabx))
+  # p-value = 0.97
+
+
+
+### Test Variance
+fligner.test(TimeMaxD ~ Season, d.inu.abx)
+  # p-value = 0.7687
+fligner.test(TimeMaxD ~ Season, d.inu.noabx)
+  # p-value = 0.5644
+fligner.test(TimeMaxD ~ Season, d.sal.abx)
+  # p-value = 0.07256
+fligner.test(TimeMaxD ~ Season, d.sal.noabx)
+  # p-value = 0.9002
+
+
+
+### Test BodyMass Correlation
+cor.test(d.inu.abx$TimeMaxD, d.inu.abx$BodyMass, method = "spearman")
+  # p-value = 0.9611
+cor.test(d.inu.noabx$TimeMaxD, d.inu.noabx$BodyMass, method = "spearman")
+  # p-value = 0.096
+cor.test(d.sal.abx$TimeMaxD, d.sal.abx$BodyMass, method = "spearman")
+  # p-value = 0.004548
+cor.test(d.sal.noabx$TimeMaxD, d.sal.noabx$BodyMass, method = "spearman")
+  # p-value = 0.4812
+
+
+### Test BodyTemp Correlation
+cor.test(d.inu.abx$TimeMaxD, d.inu.abx$BodyTemp, method = "spearman")
+  # p-value = 0.4017
+cor.test(d.inu.noabx$TimeMaxD, d.inu.noabx$BodyTemp, method = "spearman")
+  # p-value = 0.967
+cor.test(d.sal.abx$TimeMaxD, d.sal.abx$BodyTemp, method = "spearman")
+  # p-value = 0.2142
+cor.test(d.sal.noabx$TimeMaxD, d.sal.noabx$BodyTemp, method = "spearman")
+  # p-value = 0.587
+
+
+### Test Ketones Correlation
+cor.test(d.inu.abx$TimeMaxD, d.inu.abx$Ketones, method = "spearman")
+  # p-value = 0.1804
+cor.test(d.inu.noabx$TimeMaxD, d.inu.noabx$Ketones, method = "spearman")
+  # p-value = 0.8164
+cor.test(d.sal.abx$TimeMaxD, d.sal.abx$Ketones, method = "spearman")
+  # p-value = 0.03842
+cor.test(d.sal.noabx$TimeMaxD, d.sal.noabx$Ketones, method = "spearman")
+  # p-value = 0.8187
+```
+
+
+
+### Test Delta Curve Slope
+```{r}
+### Test for normality
+hist(d.inu.abx$Slope)
+qqnorm(d.inu.abx$Slope)
+qqline(d.inu.abx$Slope)
+shapiro.test(d.inu.abx$Slope)
+  # p-value = 0.7955
+
+hist(d.inu.noabx$Slope)
+qqnorm(d.inu.noabx$Slope)
+qqline(d.inu.noabx$Slope)
+shapiro.test(d.inu.noabx$Slope)
+  # p-value = 0.4284
+
+hist(d.sal.abx$Slope)
+qqnorm(d.sal.abx$Slope)
+qqline(d.sal.abx$Slope)
+shapiro.test(d.sal.abx$Slope)
+  # p-value = 2.765e-08
+
+hist(d.sal.noabx$Slope)
+qqnorm(d.sal.noabx$Slope)
+qqline(d.sal.noabx$Slope)
+shapiro.test(d.sal.noabx$Slope)
+  # p-value = 1.397e-05
+
+
+### Test Mean
+summary(aov(Slope ~ Season, data = d.inu.abx))
+  # p-value = 0.000628
+TukeyHSD(aov(Slope ~ Season, data = d.inu.abx))
+  # Summer-Spring = 0.0019327
+  # Winter-Spring = 0.9797781
+  # Winter-Summer = 0.0013741  
+summary(aov(Slope ~ Season, data = d.inu.noabx))
+  # p-value = 0.000698
+TukeyHSD(aov(Slope ~ Season, data = d.inu.noabx))
+  # Summer-Spring = 0.9963771
+  # Winter-Spring = 0.0015118
+  # Winter-Summer = 0.0025611
+kruskal.test(formula = Slope ~ Season, data = d.sal.abx)
+  # p-value = 0.1297
+kruskal.test(formula = Slope ~ Season, data = d.sal.noabx)
+  # p-value = 0.828
+
+
+
+### Test Variance
+fligner.test(Slope ~ Season, d.inu.abx)
+  # p-value = 0.6559
+fligner.test(Slope ~ Season, d.inu.noabx)
+  # p-value = 0.3877
+fligner.test(Slope ~ Season, d.sal.abx)
+  # p-value = 0.08016
+fligner.test(Slope ~ Season, d.sal.noabx)
+  # p-value = 0.1533
+
+
+
+### Test BodyMass Correlation
+cor.test(d.inu.abx$Slope, d.inu.abx$BodyMass, method = "spearman")
+  # p-value = 0.1499
+cor.test(d.inu.noabx$Slope, d.inu.noabx$BodyMass, method = "spearman")
+  # p-value = 0.01673
+  # rho = 0.5338346
+cor.test(d.sal.abx$Slope, d.sal.abx$BodyMass, method = "spearman")
+  # p-value = 0.1115
+cor.test(d.sal.noabx$Slope, d.sal.noabx$BodyMass, method = "spearman")
+  # p-value = 0.8203
+
+
+### Test BodyTemp Correlation
+cor.test(d.inu.abx$Slope, d.inu.abx$BodyTemp, method = "spearman")
+  # p-value = 0.5333
+cor.test(d.inu.noabx$Slope, d.inu.noabx$BodyTemp, method = "spearman")
+  # p-value = 0.4361
+cor.test(d.sal.abx$Slope, d.sal.abx$BodyTemp, method = "spearman")
+  # p-value = 0.5014
+cor.test(d.sal.noabx$Slope, d.sal.noabx$BodyTemp, method = "spearman")
+  # p-value = 0.1671
+
+
+### Test Ketones Correlation
+cor.test(d.inu.abx$Slope, d.inu.abx$Ketones, method = "spearman")
+  # p-value = 0.1081
+cor.test(d.inu.noabx$Slope, d.inu.noabx$Ketones, method = "spearman")
+  # p-value = 0.001904
+  # rho = -0.7136781
+cor.test(d.sal.abx$Slope, d.sal.abx$Ketones, method = "spearman")
+  # p-value = 0.8576
+cor.test(d.sal.noabx$Slope, d.sal.noabx$Ketones, method = "spearman")
+  # p-value = 0.3014
+```
+
+
+### Plot Delta Curve Slope
+```{r}
+### Prepare data for plotting
+# Inulin
+d.inu$SeasonABX <- interaction(d.inu$Season, d.inu$Antibiotics)
+d.inu$SeasonABX <- ordered(d.inu$SeasonABX, levels=c("Summer.No", "Summer.Yes", "Winter.No", "Winter.Yes", "Spring.No", "Spring.Yes"))
+
+# Saline
+d.sal$SeasonABX <- interaction(d.sal$Season, d.sal$Antibiotics)
+d.sal$SeasonABX <- ordered(d.sal$SeasonABX, levels=c("Summer.No", "Summer.Yes", "Winter.No", "Winter.Yes", "Spring.No", "Spring.Yes"))
+
+
+
+
+### AUC Dot Plots
+  
+# Inulin
+inu.slope.plot <- ggplot(d.inu, aes(x = Season, y = Slope, color = SeasonABX,
+                                    fill = SeasonABX)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+               position = position_dodge(0.7), stackratio = 0.5) +
+  scale_color_manual(values = c("#c98b00", "#E69F00", "#006096", "#0072B2", "#00966d",
+                                "#00bf8b")) +
+  scale_fill_manual(values = c("#E69F00", "white", "#0072B2", "white", "#00bf8b",
+                               "white")) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ggtitle("Inulin")  + 
+  ylab(expression("Maximum"~~delta^13~"C"~"Slope"~"(%"[o]~"/ hour)")) +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(face="bold", size=11),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+        legend.position = "none")
+
+
+
+# Saline
+sal.slope.plot <- ggplot(d.sal, aes(x = Season, y = Slope, color = SeasonABX,
+                                    fill = SeasonABX)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+               position = position_dodge(0.7), stackratio = 0.5) +
+  scale_color_manual(values = c("#c98b00", "#E69F00", "#006096", "#0072B2", "#00966d",
+                                "#00bf8b")) +
+  scale_fill_manual(values = c("#E69F00", "white", "#0072B2", "white", "#00bf8b",
+                               "white")) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ggtitle("Saline")  + 
+  ylab(expression("Maximum"~~delta^13~"C"~"Slope"~"(%"[o]~"/ hour)")) +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(face="bold", size=11),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+        legend.position = "none")
+
+
+
+### Plot
+
+#png("d.slope.png", width = 175, height = 75, units = "mm", res = 300)
+grid.newpage()
+pushViewport(viewport(layout=grid.layout(1,2, widths = c(1, 1))))
+print(inu.slope.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
+print(sal.slope.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
+dev.off()
+
+
+```
+
+### Test Time of Max Slope
+```{r}
+### Test for normality
+hist(d.inu.abx$SlopeTime)
+qqnorm(d.inu.abx$SlopeTime)
+qqline(d.inu.abx$SlopeTime)
+shapiro.test(d.inu.abx$SlopeTime)
+  # p-value = 6.963e-05
+
+hist(d.inu.noabx$SlopeTime)
+qqnorm(d.inu.noabx$SlopeTime)
+qqline(d.inu.noabx$SlopeTime)
+shapiro.test(d.inu.noabx$SlopeTime)
+  # p-value = 0.2598
+
+hist(d.sal.abx$SlopeTime)
+qqnorm(d.sal.abx$SlopeTime)
+qqline(d.sal.abx$SlopeTime)
+shapiro.test(d.sal.abx$SlopeTime)
+  # p-value = 0.01731
+
+hist(d.sal.noabx$SlopeTime)
+qqnorm(d.sal.noabx$SlopeTime)
+qqline(d.sal.noabx$SlopeTime)
+shapiro.test(d.sal.noabx$SlopeTime)
+  # p-value = 0.4005
+
+
+### Test
+kruskal.test(formula = SlopeTime ~ Season, data = d.inu.abx)
+  # p-value = 0.0768
+summary(aov(SlopeTime ~ Season, data = d.inu.noabx))
+  # p-value = 0.468
+kruskal.test(formula = SlopeTime ~ Season, data = d.sal.abx)
+  # p-value = 0.6798
+summary(aov(SlopeTime ~ Season, data = d.sal.noabx))
+  # p-value = 0.733
+
+
+
+### Test Variance
+fligner.test(SlopeTime ~ Season, d.inu.abx)
+  # p-value = 0.03368
+fligner.test(SlopeTime ~ Season, d.inu.noabx)
+  # p-value = 0.07757
+fligner.test(SlopeTime ~ Season, d.sal.abx)
+  # p-value = 0.7411
+fligner.test(SlopeTime ~ Season, d.sal.noabx)
+  # p-value = 0.326
+
+
+
+### Test BodyMass Correlation
+cor.test(d.inu.abx$SlopeTime, d.inu.abx$BodyMass, method = "spearman")
+  # p-value = 0.1834
+cor.test(d.inu.noabx$SlopeTime, d.inu.noabx$BodyMass, method = "spearman")
+  # p-value = 0.2928
+cor.test(d.sal.abx$SlopeTime, d.sal.abx$BodyMass, method = "spearman")
+  # p-value = 0.5122
+cor.test(d.sal.noabx$SlopeTime, d.sal.noabx$BodyMass, method = "spearman")
+  # p-value = 0.2559
+
+
+### Test BodyTemp Correlation
+cor.test(d.inu.abx$SlopeTime, d.inu.abx$BodyTemp, method = "spearman")
+  # p-value = 0.9967
+cor.test(d.inu.noabx$SlopeTime, d.inu.noabx$BodyTemp, method = "spearman")
+  # p-value = 0.3397
+cor.test(d.sal.abx$SlopeTime, d.sal.abx$BodyTemp, method = "spearman")
+  # p-value = 0.9918
+cor.test(d.sal.noabx$SlopeTime, d.sal.noabx$BodyTemp, method = "spearman")
+  # p-value = 0.6535
+
+
+### Test Ketones Correlation
+cor.test(d.inu.abx$SlopeTime, d.inu.abx$Ketones, method = "spearman")
+  # p-value = 0.09264
+cor.test(d.inu.noabx$SlopeTime, d.inu.noabx$Ketones, method = "spearman")
+  # p-value = 0.4216
+cor.test(d.sal.abx$SlopeTime, d.sal.abx$Ketones, method = "spearman")
+  # p-value = 0.2064
+cor.test(d.sal.noabx$SlopeTime, d.sal.noabx$Ketones, method = "spearman")
+  # p-value = 0.8872
 ```
 
 
