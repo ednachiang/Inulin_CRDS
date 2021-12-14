@@ -135,7 +135,7 @@ hist(d.sal.abx$TimeMaxD)
 qqnorm(d.sal.abx$TimeMaxD)
 qqline(d.sal.abx$TimeMaxD)
 shapiro.test(d.sal.abx$TimeMaxD)
-  # p-value = 0.02579
+  # p-value = 0.05436
 
 hist(d.sal.noabx$TimeMaxD)
 qqnorm(d.sal.noabx$TimeMaxD)
@@ -149,8 +149,8 @@ kruskal.test(formula = TimeMaxD ~ Season, data=d.inu.abx)
   # p-value = 0.1629
 kruskal.test(formula = TimeMaxD ~ Season, data=d.inu.noabx)
   # p-value = 0.3596
-kruskal.test(formula = TimeMaxD ~ Season, data=d.sal.abx)
-  # p-value = 0.003693
+summary(aov(TimeMaxD ~ Season, data = d.sal.abx))
+  # p-value = 0.000249
 summary(aov(TimeMaxD ~ Season, data = d.sal.noabx))
   # p-value = 0.97
 
@@ -162,7 +162,7 @@ fligner.test(TimeMaxD ~ Season, d.inu.abx)
 fligner.test(TimeMaxD ~ Season, d.inu.noabx)
   # p-value = 0.5644
 fligner.test(TimeMaxD ~ Season, d.sal.abx)
-  # p-value = 0.07256
+  # p-value = 0.2844
 fligner.test(TimeMaxD ~ Season, d.sal.noabx)
   # p-value = 0.9002
 
@@ -174,7 +174,8 @@ cor.test(d.inu.abx$TimeMaxD, d.inu.abx$BodyMass, method = "spearman")
 cor.test(d.inu.noabx$TimeMaxD, d.inu.noabx$BodyMass, method = "spearman")
   # p-value = 0.096
 cor.test(d.sal.abx$TimeMaxD, d.sal.abx$BodyMass, method = "spearman")
-  # p-value = 0.004548
+  # p-value = 0.006558
+  # rho = -0.6153847
 cor.test(d.sal.noabx$TimeMaxD, d.sal.noabx$BodyMass, method = "spearman")
   # p-value = 0.4812
 
@@ -185,7 +186,7 @@ cor.test(d.inu.abx$TimeMaxD, d.inu.abx$BodyTemp, method = "spearman")
 cor.test(d.inu.noabx$TimeMaxD, d.inu.noabx$BodyTemp, method = "spearman")
   # p-value = 0.967
 cor.test(d.sal.abx$TimeMaxD, d.sal.abx$BodyTemp, method = "spearman")
-  # p-value = 0.2142
+  # p-value = 0.2727
 cor.test(d.sal.noabx$TimeMaxD, d.sal.noabx$BodyTemp, method = "spearman")
   # p-value = 0.587
 
@@ -196,7 +197,8 @@ cor.test(d.inu.abx$TimeMaxD, d.inu.abx$Ketones, method = "spearman")
 cor.test(d.inu.noabx$TimeMaxD, d.inu.noabx$Ketones, method = "spearman")
   # p-value = 0.8164
 cor.test(d.sal.abx$TimeMaxD, d.sal.abx$Ketones, method = "spearman")
-  # p-value = 0.03842
+  # p-value = 0.01623
+  # rho = 0.6277548
 cor.test(d.sal.noabx$TimeMaxD, d.sal.noabx$Ketones, method = "spearman")
   # p-value = 0.8187
 ```
@@ -222,7 +224,7 @@ hist(d.sal.abx$Slope)
 qqnorm(d.sal.abx$Slope)
 qqline(d.sal.abx$Slope)
 shapiro.test(d.sal.abx$Slope)
-  # p-value = 2.765e-08
+  # p-value = 0.007636
 
 hist(d.sal.noabx$Slope)
 qqnorm(d.sal.noabx$Slope)
@@ -245,7 +247,7 @@ TukeyHSD(aov(Slope ~ Season, data = d.inu.noabx))
   # Winter-Spring = 0.0015118
   # Winter-Summer = 0.0025611
 kruskal.test(formula = Slope ~ Season, data = d.sal.abx)
-  # p-value = 0.1297
+  # p-value = 0.1826
 kruskal.test(formula = Slope ~ Season, data = d.sal.noabx)
   # p-value = 0.828
 
@@ -257,7 +259,7 @@ fligner.test(Slope ~ Season, d.inu.abx)
 fligner.test(Slope ~ Season, d.inu.noabx)
   # p-value = 0.3877
 fligner.test(Slope ~ Season, d.sal.abx)
-  # p-value = 0.08016
+  # p-value = 0.317
 fligner.test(Slope ~ Season, d.sal.noabx)
   # p-value = 0.1533
 
@@ -270,7 +272,7 @@ cor.test(d.inu.noabx$Slope, d.inu.noabx$BodyMass, method = "spearman")
   # p-value = 0.01673
   # rho = 0.5338346
 cor.test(d.sal.abx$Slope, d.sal.abx$BodyMass, method = "spearman")
-  # p-value = 0.1115
+  # p-value = 0.1474
 cor.test(d.sal.noabx$Slope, d.sal.noabx$BodyMass, method = "spearman")
   # p-value = 0.8203
 
@@ -281,7 +283,7 @@ cor.test(d.inu.abx$Slope, d.inu.abx$BodyTemp, method = "spearman")
 cor.test(d.inu.noabx$Slope, d.inu.noabx$BodyTemp, method = "spearman")
   # p-value = 0.4361
 cor.test(d.sal.abx$Slope, d.sal.abx$BodyTemp, method = "spearman")
-  # p-value = 0.5014
+  # p-value = 0.6344
 cor.test(d.sal.noabx$Slope, d.sal.noabx$BodyTemp, method = "spearman")
   # p-value = 0.1671
 
@@ -293,7 +295,7 @@ cor.test(d.inu.noabx$Slope, d.inu.noabx$Ketones, method = "spearman")
   # p-value = 0.001904
   # rho = -0.7136781
 cor.test(d.sal.abx$Slope, d.sal.abx$Ketones, method = "spearman")
-  # p-value = 0.8576
+  # p-value = 0.9702
 cor.test(d.sal.noabx$Slope, d.sal.noabx$Ketones, method = "spearman")
   # p-value = 0.3014
 ```
@@ -314,6 +316,30 @@ d.sal$SeasonABX <- ordered(d.sal$SeasonABX, levels=c("Summer.No", "Summer.Yes", 
 
 
 ### AUC Dot Plots
+
+# Steal Season legend
+season.legend <- g_legend(ggplot(d.inu, aes(x = Season, y = Slope, color = Season, fill = Season)) +
+                            geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+                                         position = position_dodge(0.7), stackratio = 0.5) +
+                            scale_color_manual(values = c("#c98b00", "#006096", "#00966d")) +
+                            scale_fill_manual(values = c("#E69F00", "#0072B2", "#00bf8b")) +
+                            theme(legend.title = element_text(size=10, face="bold"),
+                                  legend.text = element_text(size=10),
+                                  legend.margin = margin(t=1, unit='cm')))
+
+
+# Steal ABX legend
+abx.legend <- g_legend(ggplot(d.inu, aes(x = Season, y = Slope, fill = Antibiotics)) + 
+                         geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5, 
+                                      position = position_dodge(0.7), stackratio = 0.5) +
+                         scale_fill_manual(values = c("black", "white")) +
+                            theme(legend.title = element_text(size=10, face="bold"),
+                                  legend.text = element_text(size=10),
+                                  legend.margin = margin(b=1, unit='cm')))
+
+
+
+
   
 # Inulin
 inu.slope.plot <- ggplot(d.inu, aes(x = Season, y = Slope, color = SeasonABX,
@@ -332,10 +358,10 @@ inu.slope.plot <- ggplot(d.inu, aes(x = Season, y = Slope, color = SeasonABX,
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
         axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
-        axis.title.y = element_text(face="bold", size=11),
+        axis.title.y = element_text(face="bold", size=10),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
-        plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+        plot.title = element_text(hjust = 0.5, size = 12, face = "bold"),
         legend.position = "none")
 
 
@@ -357,21 +383,33 @@ sal.slope.plot <- ggplot(d.sal, aes(x = Season, y = Slope, color = SeasonABX,
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
         axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
-        axis.title.y = element_text(face="bold", size=11),
+        axis.title.y = element_text(face="bold", size=10),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
-        plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+        plot.title = element_text(hjust = 0.5, size = 12, face = "bold"),
         legend.position = "none")
 
 
 
 ### Plot
 
-#png("d.slope.png", width = 175, height = 75, units = "mm", res = 300)
+png("d.slope.png", width = 170, height = 75, units = "mm", res = 300)
 grid.newpage()
-pushViewport(viewport(layout=grid.layout(1,2, widths = c(1, 1))))
-print(inu.slope.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
-print(sal.slope.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
+pushViewport(viewport(layout=grid.layout(2,3, widths = c(1, 1, 0.3))))
+
+print(inu.slope.plot, vp=viewport(layout.pos.row=1:2, layout.pos.col=1))
+grid.text("A", x=unit(0.065, "npc"), y=unit(0.93, "npc"), 
+          vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=20,fontface="bold"))
+
+
+print(sal.slope.plot, vp=viewport(layout.pos.row=1:2, layout.pos.col=2))
+grid.text("B", x=unit(0.065, "npc"), y=unit(0.93, "npc"),
+          vp=viewport(layout.pos.row=1, layout.pos.col=2), gp=gpar(fontsize=20,fontface="bold"))
+
+season.legend$vp <- viewport(layout.pos.row=1, layout.pos.col=3)
+grid.draw(season.legend)
+abx.legend$vp <- viewport(layout.pos.row=2, layout.pos.col=3)
+grid.draw(abx.legend)
 dev.off()
 
 
