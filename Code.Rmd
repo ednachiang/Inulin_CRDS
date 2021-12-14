@@ -434,7 +434,7 @@ hist(d.sal.abx$SlopeTime)
 qqnorm(d.sal.abx$SlopeTime)
 qqline(d.sal.abx$SlopeTime)
 shapiro.test(d.sal.abx$SlopeTime)
-  # p-value = 0.01731
+  # p-value = 0.005973
 
 hist(d.sal.noabx$SlopeTime)
 qqnorm(d.sal.noabx$SlopeTime)
@@ -449,7 +449,7 @@ kruskal.test(formula = SlopeTime ~ Season, data = d.inu.abx)
 summary(aov(SlopeTime ~ Season, data = d.inu.noabx))
   # p-value = 0.468
 kruskal.test(formula = SlopeTime ~ Season, data = d.sal.abx)
-  # p-value = 0.6798
+  # p-value = 0.839
 summary(aov(SlopeTime ~ Season, data = d.sal.noabx))
   # p-value = 0.733
 
@@ -461,7 +461,7 @@ fligner.test(SlopeTime ~ Season, d.inu.abx)
 fligner.test(SlopeTime ~ Season, d.inu.noabx)
   # p-value = 0.07757
 fligner.test(SlopeTime ~ Season, d.sal.abx)
-  # p-value = 0.7411
+  # p-value = 0.9563
 fligner.test(SlopeTime ~ Season, d.sal.noabx)
   # p-value = 0.326
 
@@ -473,7 +473,7 @@ cor.test(d.inu.abx$SlopeTime, d.inu.abx$BodyMass, method = "spearman")
 cor.test(d.inu.noabx$SlopeTime, d.inu.noabx$BodyMass, method = "spearman")
   # p-value = 0.2928
 cor.test(d.sal.abx$SlopeTime, d.sal.abx$BodyMass, method = "spearman")
-  # p-value = 0.5122
+  # p-value = 0.1286
 cor.test(d.sal.noabx$SlopeTime, d.sal.noabx$BodyMass, method = "spearman")
   # p-value = 0.2559
 
@@ -484,7 +484,7 @@ cor.test(d.inu.abx$SlopeTime, d.inu.abx$BodyTemp, method = "spearman")
 cor.test(d.inu.noabx$SlopeTime, d.inu.noabx$BodyTemp, method = "spearman")
   # p-value = 0.3397
 cor.test(d.sal.abx$SlopeTime, d.sal.abx$BodyTemp, method = "spearman")
-  # p-value = 0.9918
+  # p-value = 0.3324
 cor.test(d.sal.noabx$SlopeTime, d.sal.noabx$BodyTemp, method = "spearman")
   # p-value = 0.6535
 
@@ -495,7 +495,7 @@ cor.test(d.inu.abx$SlopeTime, d.inu.abx$Ketones, method = "spearman")
 cor.test(d.inu.noabx$SlopeTime, d.inu.noabx$Ketones, method = "spearman")
   # p-value = 0.4216
 cor.test(d.sal.abx$SlopeTime, d.sal.abx$Ketones, method = "spearman")
-  # p-value = 0.2064
+  # p-value = 0.6085
 cor.test(d.sal.noabx$SlopeTime, d.sal.noabx$Ketones, method = "spearman")
   # p-value = 0.8872
 ```
@@ -504,9 +504,6 @@ cor.test(d.sal.noabx$SlopeTime, d.sal.noabx$Ketones, method = "spearman")
 ### Separate by substrate
 ```{r}
 inu.all <- crds.sum[which(crds.sum$Substrate == "Inulin"),]
-
-man.all <- crds.sum[which(crds.sum$Substrate == "Mannitol"),]
-
 sal.all <- crds.sum[which(crds.sum$Substrate == "Saline"),]
 ```
 
@@ -515,15 +512,12 @@ sal.all <- crds.sum[which(crds.sum$Substrate == "Saline"),]
 ### Separate samples
 crds.base <- crds.rem[which(crds.rem$RelTime < 0),]
 base.inu <- crds.base[which(crds.base$Substrate == "Inulin"),]
-base.man <- crds.base[which(crds.base$Substrate == "Mannitol"),]
 base.sal <- crds.base[which(crds.base$Substrate == "Saline"),]
 #base.abx <- crds.base[which(crds.base$Antibiotics == "Yes"),]
 #base.noabx <- crds.base[which(crds.base$Antibiotics == "No"),]
 base.inu.abx <- base.inu[which(base.inu$Antibiotics == "Yes"),]
-base.man.abx <- base.man[which(base.man$Antibiotics == "Yes"),]
 base.sal.abx <- base.sal[which(base.sal$Antibiotics == "Yes"),]
 base.inu.noabx <- base.inu[which(base.inu$Antibiotics == "No"),]
-base.man.noabx <- base.inu[which(base.inu$Antibiotics == "No"),]
 base.sal.noabx <- base.inu[which(base.inu$Antibiotics == "No"),]
 
 
@@ -532,7 +526,7 @@ hist(base.inu$Delta)
 qqnorm(base.inu$Delta)
 qqline(base.inu$Delta)
 shapiro.test(base.inu$Delta)
-  # p-value = 0.09578
+  # p-value = 0.0945
 
 hist(base.inu.abx$Delta)
 qqnorm(base.inu.abx$Delta)
@@ -544,24 +538,6 @@ hist(base.inu.noabx$Delta)
 qqnorm(base.inu.noabx$Delta)
 qqline(base.inu.noabx$Delta)
 shapiro.test(base.inu.noabx$Delta)
-  # p-value = 0.2615
-
-hist(base.man$Delta)
-qqnorm(base.man$Delta)
-qqline(base.man$Delta)
-shapiro.test(base.man$Delta)
-  # p-value = 0.01743
-
-hist(base.man.abx$Delta)
-qqnorm(base.man.abx$Delta)
-qqline(base.man.abx$Delta)
-shapiro.test(base.man.abx$Delta)
-  # p-value = 0.07965
-
-hist(base.man.noabx$Delta)
-qqnorm(base.man.noabx$Delta)
-qqline(base.man.noabx$Delta)
-shapiro.test(base.man.noabx$Delta)
   # p-value = 0.2615
 
 hist(base.sal$Delta)
@@ -584,12 +560,6 @@ shapiro.test(base.sal.noabx$Delta)
 
 
 ### Test baseline - Diet
-# Mannitol
-wilcox.test(Delta ~ Diet, data = base.man.noabx[which(base.man.noabx$Season == "Spring"),])
-  # p-value = 0.381
-wilcox.test(Delta ~ Diet, data = base.man.abx[which(base.man.abx$Season == "Summer"),])
-  # p-value = 0.8571
-
 # Saline
 wilcox.test(Delta ~ Diet, data = base.sal.noabx[which(base.sal.noabx$Season == "Spring"),])
   # p-value = 0.381
