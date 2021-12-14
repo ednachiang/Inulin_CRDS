@@ -393,7 +393,7 @@ sal.slope.plot <- ggplot(d.sal, aes(x = Season, y = Slope, color = SeasonABX,
 
 ### Plot
 
-png("d.slope.png", width = 170, height = 75, units = "mm", res = 300)
+#png("d.slope.png", width = 170, height = 75, units = "mm", res = 300)
 grid.newpage()
 pushViewport(viewport(layout=grid.layout(2,3, widths = c(1, 1, 0.3))))
 
