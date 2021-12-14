@@ -513,8 +513,6 @@ sal.all <- crds.sum[which(crds.sum$Substrate == "Saline"),]
 crds.base <- crds.rem[which(crds.rem$RelTime < 0),]
 base.inu <- crds.base[which(crds.base$Substrate == "Inulin"),]
 base.sal <- crds.base[which(crds.base$Substrate == "Saline"),]
-#base.abx <- crds.base[which(crds.base$Antibiotics == "Yes"),]
-#base.noabx <- crds.base[which(crds.base$Antibiotics == "No"),]
 base.inu.abx <- base.inu[which(base.inu$Antibiotics == "Yes"),]
 base.sal.abx <- base.sal[which(base.sal$Antibiotics == "Yes"),]
 base.inu.noabx <- base.inu[which(base.inu$Antibiotics == "No"),]
@@ -567,9 +565,9 @@ wilcox.test(Delta ~ Diet, data = base.sal.abx[which(base.sal.abx$Season == "Wint
   # p-value = 0.8
 wilcox.test(Delta ~ Diet, data = base.sal.abx[which(base.sal.abx$Season == "Summer"),])
   # p-value = 0.8571
-
-
 ```
+
+
 ### Calculate AUC
 ```{r}
 # AUC = Area Under Curve
@@ -612,9 +610,6 @@ for (i in 1:length(ids)){
   if (select$Substrate == "Inulin") {
     max <- which(select$RelTime > 4.06667)
     select$RelTime[max] <- 4.06667
-  } else if (select$Substrate == "Mannitol") {
-    max <- which(select$RelTime > 1.95)
-    select$RelTime[max] <- 1.95
   } else if (select$Substrate == "Saline") {
     max <- which(select$RelTime > 2.21666667)
     select$RelTime[max] <- 2.21666667
@@ -646,32 +641,19 @@ for (i in 1:length(ids)){
 #write.csv(auc.df, "auc.csv", row.names=F)
 
 
-
-
-
 ### Subset by Substrate & ABX
 auc.inu <- auc.df[which(auc.df$Substrate == "Inulin"),]
-auc.man <- auc.df[which(auc.df$Substrate == "Mannitol"),]
 auc.sal <- auc.df[which(auc.df$Substrate == "Saline"),]
-#auc.abx <- auc.df[which(auc.df$Antibiotics == "Yes"),]
-#auc.noabx <- auc.df[which(auc.df$Antibiotics == "No"),]
 auc.inu.s <- auc.inu[which(auc.inu$Season == "Summer"),]
 auc.inu.w <- auc.inu[which(auc.inu$Season == "Winter"),]
 auc.inu.p <- auc.inu[which(auc.inu$Season == "Spring"),]
-auc.man.s <- auc.man[which(auc.man$Season == "Summer"),]
-auc.man.w <- auc.man[which(auc.man$Season == "Winter"),]
-auc.man.p <- auc.man[which(auc.man$Season == "Spring"),]
 auc.sal.s <- auc.sal[which(auc.sal$Season == "Summer"),]
 auc.sal.w <- auc.sal[which(auc.sal$Season == "Winter"),]
 auc.sal.p <- auc.sal[which(auc.sal$Season == "Spring"),]
 auc.inu.abx <- auc.inu[which(auc.inu$Antibiotics == "Yes"),]
 auc.inu.noabx <- auc.inu[which(auc.inu$Antibiotics == "No"),]
-auc.man.abx <- auc.man[which(auc.man$Antibiotics == "Yes"),]
-auc.man.noabx <- auc.man[which(auc.man$Antibiotics == "No"),]
 auc.sal.abx <- auc.sal[which(auc.sal$Antibiotics == "Yes"),]
 auc.sal.noabx <- auc.sal[which(auc.sal$Antibiotics == "No"),]
-
-
 ```
 
 ### AUC Stats & Plots
@@ -719,49 +701,6 @@ shapiro.test(auc.inu.abx$AUC)
   # p-value = 0.8572
   # Normal
 
-
-### Check Normality - Mannitol
-hist(auc.man$AUC)
-qqnorm(auc.man$AUC)
-qqline(auc.man$AUC)
-shapiro.test(auc.man$AUC)
-  # p-value = 7.702e-11
-  # Not Normal
-
-hist(auc.man.s$AUC)
-qqnorm(auc.man.s$AUC)
-qqline(auc.man.s$AUC)
-shapiro.test(auc.man.s$AUC)
-  # p-value = 1.593e-05
-  # Not Normal
-
-hist(auc.man.w$AUC)
-qqnorm(auc.man.w$AUC)
-qqline(auc.man.w$AUC)
-shapiro.test(auc.man.w$AUC)
-  # p-value = 0.004246
-  # Not Normal
-
-hist(auc.man.p$AUC)
-qqnorm(auc.man.p$AUC)
-qqline(auc.man.p$AUC)
-shapiro.test(auc.man.p$AUC)
-  # p-value = 2.329e-05
-  # Not Normal
-
-hist(auc.man.noabx$AUC)
-qqnorm(auc.man.noabx$AUC)
-qqline(auc.man.noabx$AUC)
-shapiro.test(auc.man.noabx$AUC)
-  # p-value = 1.351e-05
-  # Not Normal
-
-hist(auc.man.abx$AUC)
-qqnorm(auc.man.abx$AUC)
-qqline(auc.man.abx$AUC)
-shapiro.test(auc.man.abx$AUC)
-  # p-value = 0.0002997
-  # Not Normal
 
 
 ### Check Normality - Saline
@@ -813,42 +752,30 @@ shapiro.test(auc.sal.abx$AUC)
 # Inulin
 fligner.test(AUC ~ Antibiotics, auc.inu.s)
   # p-value = 0.005841
-  # adj p = 0.0262845
+  # adj p = 0.035046
 fligner.test(AUC ~ Antibiotics, auc.inu.w)
   # p-value = 0.01802
-  # adj p = 0.0405450
+  # adj p = 0.054060
 fligner.test(AUC ~ Antibiotics, auc.inu.p)
   # p-value = 0.0361
-  # adj p = 0.0649800
-
-# Mannitol
-fligner.test(AUC ~ Antibiotics, auc.man.s)
-  # p-value = 0.003619
-  # adj p = 0.0262845
-fligner.test(AUC ~ Antibiotics, auc.man.w)
-  # p-value = 0.205
-  # adj p = 0.2514375
-fligner.test(AUC ~ Antibiotics, auc.man.p)
-  # p-value = 0.01802
-  # adj p = 0.0405450
+  # adj p = 0.072200
 
 # Saline
 fligner.test(AUC ~ Antibiotics, auc.sal.s)
   # p-value = 0.2235
-  # adj p = 0.2514375
+  # adj p = 0.268200
 fligner.test(AUC ~ Antibiotics, auc.sal.w)
   # p-value = 0.9611
-  # adj p = 0.9611000
+  # adj p = 0.961100
 fligner.test(AUC ~ Antibiotics, auc.sal.p)
   # p-value = 0.0888
-  # adj p = 0.1332000
+  # adj p = 0.133200
 
-p.adjust(c(0.005841, 0.01802, 0.0361, 0.003619, 0.205, 0.01802, 0.2235, 0.9611, 0.0888), method = "BH")
-  # Inulin = 0.0262845* 0.0405450* 0.0649800
-  # Mannitol = 0.0262845* 0.2514375 0.0405450*
-  # Saline = 0.2514375 0.9611000 0.1332000
+p.adjust(c(0.005841, 0.01802, 0.0361, 0.2235, 0.9611, 0.0888), method = "BH")
+  # Inulin = 0.035046* 0.054060 0.072200
+  # Saline = 0.268200 0.961100 0.133200
 
-
+     
 
 ### Test AUC - ABX vs. no ABX
 # Inulin
@@ -862,17 +789,6 @@ wilcox.test(AUC ~ Antibiotics, data = auc.inu.p)
   # p-value = 0.002525
   # adj p = 0.0075750
 
-# Mannitol
-wilcox.test(AUC ~ Antibiotics, data = auc.man.s)
-  # p-value = 0.001166
-  # p adj = 0.0075750
-wilcox.test(AUC ~ Antibiotics, data = auc.man.w)
-  # p-value = 0.2403
-  # p adj = 0.2703375
-wilcox.test(AUC ~ Antibiotics, data = auc.man.p)
-  # p-value = 0.01748
-  # p adj = 0.0393300
-
 # Saline
 wilcox.test(AUC ~ Antibiotics, data = auc.sal.s)
   # p-value = 0.1014
@@ -884,10 +800,12 @@ wilcox.test(AUC ~ Antibiotics, data = auc.sal.p)
   # p-value = 0.366
   # p adj = 0.3660000
 
-p.adjust(c(0.002165, 0.09732, 0.002525, 0.001166, 0.2403, 0.01748, 0.1014, 0.05195, 0.366), method = "BH")
-  # Inulin = 0.0075750 0.1303714 0.0075750
-  # Mannitol = 0.0075750 0.2703375 0.0393300
-  # Saline = 0.1303714 0.0935100 0.3660000
+p.adjust(c(0.002165, 0.09732, 0.002525, 0.1014, 0.05195, 0.366), method = "BH")
+  # Inulin = 0.007575* 0.121680 0.007575*
+  # Saline = 0.121680 0.103900 0.366000
+
+     
+
 
 
 
@@ -900,44 +818,31 @@ fligner.test(AUC ~ Season, auc.inu.noabx[which(auc.inu.noabx$Season != "Winter")
   # p-value = 0.02847*
 fligner.test(AUC ~ Season, auc.inu.noabx[which(auc.inu.noabx$Season != "Summer"),])
   # p-value = 0.01802*
-fligner.test(AUC ~ Season, auc.man.noabx)
-  # p-value = 0.1365
 fligner.test(AUC ~ Season, auc.sal.noabx)
   # p-value = 0.4233
 fligner.test(AUC ~ Season, auc.inu.abx)
   # p-value = 0.1303
-fligner.test(AUC ~ Season, auc.man.abx)
-  # p-value = 0.2493
 fligner.test(AUC ~ Season, auc.sal.abx)
   # p-value = 0.8241
-p.adjust(c(0.01405, 0.1365, 0.4233, 0.1303, 0.2493, 0.8241), method = "fdr")
-  #0.08430 0.27300 0.50796
+p.adjust(c(0.01405, 0.4233, 0.1303, 0.8241), method = "fdr")
+  # 0.0562 0.5644 0.2606 0.8241
+
 
 ### Test AUC - Seasons
 kruskal.test(formula = AUC ~ Season, data=auc.inu.noabx)
   # p-value = 0.2006
-kruskal.test(formula = AUC ~ Season, data=auc.man.noabx)
-  # p-value = 0.1544
 kruskal.test(formula = AUC ~ Season, data=auc.sal.noabx)
   # p-value = 0.7246
 kruskal.test(formula = AUC ~ Season, data=auc.inu.abx)
   # p-value = 0.2156
-kruskal.test(formula = AUC ~ Season, data=auc.man.abx)
-  # p-value = 0.593
 kruskal.test(formula = AUC ~ Season, data=auc.sal.abx)
   # p-value = 0.5819
 
-p.adjust(c(0.2006, 0.1544, 0.7246, 0.2156, 0.593, 0.5819), method = "BH")
-  # 0.4312 0.4312 0.7246
-  # 0.4312 0.7116 0.7116
+p.adjust(c(0.2006, 0.7246, 0.2156, 0.5819), method = "BH")
+  # 0.4312 0.7246 0.4312 0.7246
 
 
 ### Test AUC - Diet
-# Mannitol
-wilcox.test(AUC ~ Diet, data = auc.man.noabx[which(auc.man.noabx$Season == "Spring"),])
-  # p-value = 0.1143
-wilcox.test(AUC ~ Diet, data = auc.man.abx[which(auc.man.abx$Season == "Summer"),])
-  # p-value = 0.6286
 
 # Saline
 wilcox.test(AUC ~ Diet, data = auc.sal.noabx[which(auc.sal.noabx$Season == "Spring"),])
@@ -950,11 +855,6 @@ wilcox.test(AUC ~ Diet, data = auc.sal.abx[which(auc.sal.abx$Season == "Summer")
 
 
 ### Test AUC Variance - Diet
-# Mannitol
-fligner.test(AUC ~ Diet, auc.man.noabx[which(auc.man.noabx$Season == "Spring"),])
-  # p-value = 0.5857
-fligner.test(AUC ~ Diet, auc.man.abx[which(auc.man.abx$Season == "Summer"),])
-  # p-value = 0.16839
 
 # Saline
 fligner.test(AUC ~ Diet, auc.sal.noabx[which(auc.sal.noabx$Season == "Spring"),])
@@ -1006,7 +906,7 @@ cor.test(auc.inu.noabx$AUC, auc.inu.noabx$BodyTemp, method = "spearman")
   # p-value = 0.0576
 cor.test(auc.inu.s[which(auc.inu.s$Antibiotics == "No"),1],
          auc.inu.s[which(auc.inu.s$Antibiotics == "No"),12], method = "spearman")
-  # p-value = 6121
+  # p-value = 0.6121
 cor.test(auc.inu.w[which(auc.inu.w$Antibiotics == "No"),1],
          auc.inu.w[which(auc.inu.w$Antibiotics == "No"),12], method = "spearman")
   # p-value = 0.07433
@@ -1076,13 +976,29 @@ cor.test(auc.sal.p[which(auc.sal.p$Antibiotics == "No"),1],
 auc.inu$SeasonABX <- interaction(auc.inu$Season, auc.inu$Antibiotics)
 auc.inu$SeasonABX <- ordered(auc.inu$SeasonABX, levels=c("Summer.No", "Summer.Yes", "Winter.No", "Winter.Yes", "Spring.No", "Spring.Yes"))
 
-# Mannitol
-auc.man$SeasonABX <- interaction(auc.man$Season, auc.man$Antibiotics)
-auc.man$SeasonABX <- ordered(auc.man$SeasonABX, levels=c("Summer.No", "Summer.Yes", "Winter.No", "Winter.Yes", "Spring.No", "Spring.Yes"))
-
+# Saline
 auc.sal$SeasonABX <- interaction(auc.sal$Season, auc.sal$Antibiotics)
 auc.sal$SeasonABX <- ordered(auc.sal$SeasonABX, levels=c("Summer.No", "Summer.Yes", "Winter.No", "Winter.Yes", "Spring.No", "Spring.Yes"))
 
+
+
+# Steal Season legend
+season.legend <- g_legend(ggplot(auc.inu, aes(x = Season, y = AUC, color = Season, fill = Season)) +
+                            geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+                                         position = position_dodge(0.7), stackratio = 0.5) +
+                            scale_color_manual(values = c("#c98b00", "#006096", "#00966d")) +
+                            scale_fill_manual(values = c("#E69F00", "#0072B2", "#00bf8b")) +
+                            theme(legend.title = element_text(size=10, face="bold"),
+                                  legend.text = element_text(size=10),
+                                  legend.margin = margin(t=1, unit='cm')))
+# Steal ABX legend
+abx.legend <- g_legend(ggplot(auc.inu, aes(x = Season, y = AUC, fill = Antibiotics)) + 
+                         geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5, 
+                                      position = position_dodge(0.7), stackratio = 0.5) +
+                         scale_fill_manual(values = c("black", "white")) +
+                            theme(legend.title = element_text(size=10, face="bold"),
+                                  legend.text = element_text(size=10),
+                                  legend.margin = margin(b=1, unit='cm')))
 
 
 
@@ -1111,41 +1027,7 @@ inu.auc.plot <- ggplot(auc.inu, aes(x = Season, y = AUC, color = SeasonABX,
         axis.title.y = element_text(face="bold", size=11),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
-        plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
-        legend.position = "none")
-  
-
-# Mannitol  
-man.auc.plot <- ggplot(auc.man, aes(x = Season, y = AUC, color = SeasonABX,
-                                    fill = SeasonABX)) +
-  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
-               position = position_dodge(0.7), stackratio = 0.5) +
-  scale_color_manual(values = c("#c98b00", "#E69F00", "#006096", "#0072B2", "#00966d",
-                                "#00bf8b"), guide = "none") +
-  scale_fill_manual(values = c("#E69F00", "white", "#0072B2", "white", "#00bf8b",
-                               "white"),
-                    name = "Season",
-                    labels = c("Summer", "", "Winter", "", "Spring", ""),
-                    guide = guide_legend(override.aes = list(fill = c("#E69F00", NA,
-                                                                      "#0072B2", NA,
-                                                                      "#00bf8b", NA),
-                                                             alpha = c(1,0,1,0,1,0),
-                                                             color = NA),
-                                         keyheight = c(1.25,0,1.25,0,1.25,0))) +
-  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.5) +
-  ggtitle("Mannitol") +
-  #scale_y_continuous(breaks=c(0, 1750, 3500, 5250, 7000, 8750), limits=c(-7, 8750),
-                     #minor_breaks = seq(0,8750,1750)) +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        strip.background = element_blank(),
-        axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
-        axis.title.y = element_blank(),
-        axis.text.x = element_text(size=10),
-        axis.text.y = element_text(size=10),
-        axis.ticks.y = element_blank(),
-        plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+        plot.title = element_text(hjust = 0.5, size = 12, face = "bold"),
         legend.position = "none")
 
 
@@ -1168,16 +1050,17 @@ sal.auc.plot <- ggplot(auc.sal, aes(x = Season, y = AUC, color = SeasonABX,
                                          keyheight = c(1.25,0,1.25,0,1.25,0))) +
   stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
                color = "black", position = position_dodge(0.7), size = 0.5) +
-    ggtitle("Saline")  +
-    theme(panel.grid.major = element_blank(),
+  ggtitle("Saline")  +
+  ylab(expression("Area Under"~~delta^13~"C"~~"Curve"~"(%"[o]^2~")")) +
+  scale_y_continuous(breaks=c(-5.0, -2.2, 0.6, 3.4, 6.2), limits=c(-5.0, 6.2)) +
+  theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
         axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
-        axis.title.y = element_blank(),
+        axis.title.y = element_text(face="bold", size=11),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
-        axis.ticks.y = element_blank(),
-        plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+        plot.title = element_text(hjust = 0.5, size = 12, face = "bold"),
         legend.position = "none")
 
 
@@ -1208,34 +1091,10 @@ inu.noabx.auc.plot <- ggplot(auc.inu.noabx, aes(x = Season, y = AUC, fill = Seas
         axis.title.y = element_text(face="bold", size=11),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
-        plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+        plot.title = element_text(hjust = 0.5, size = 12, face = "bold"),
         legend.position = "none")
   
 
-# Mannitol  
-man.noabx.auc.plot <- ggplot(auc.man.noabx, aes(x = Season, y = AUC, fill = Season)) +
-  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5, stackratio = 1) +
-  scale_fill_manual(values = c("#E69F00", "#0072B2", "#00bf8b"),
-                    name = "Season",
-                    labels = c("Summer", "Winter", "Spring"),
-                    guide = guide_legend(override.aes = list(fill = c("#E69F00",
-                                                                      "#0072B2",
-                                                                      "#00bf8b")))) +
-  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.5) +
-  ggtitle("Mannitol") +
-  #scale_y_continuous(breaks=c(0, 1750, 3500, 5250, 7000, 8750), limits=c(-7, 8750),
-                     #minor_breaks = seq(0,8750,1750)) +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        strip.background = element_blank(),
-        axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
-        axis.title.y = element_blank(),
-        axis.text.x = element_text(size=10),
-        axis.text.y = element_text(size=10),
-        axis.ticks.y = element_blank(),
-        plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
-        legend.position = "none")
 
 
 
@@ -1245,20 +1104,28 @@ man.noabx.auc.plot <- ggplot(auc.man.noabx, aes(x = Season, y = AUC, fill = Seas
 
 
 ##### Save AUC Dot Plots #####
-#png("auc.png", width = 250, height = 75, units = "mm", res = 300)
+#png("auc.png", width = 170, height = 75, units = "mm", res = 300)
 grid.newpage()
-pushViewport(viewport(layout=grid.layout(1,3, widths = c(1.1, 1.05, 0.95))))
-print(inu.auc.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
-print(man.auc.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
-print(sal.auc.plot, vp=viewport(layout.pos.row=1, layout.pos.col=3))
-dev.off()
+pushViewport(viewport(layout=grid.layout(2,3, widths = c(1, 1, 0.3))))
 
+print(inu.auc.plot, vp=viewport(layout.pos.row=1:2, layout.pos.col=1))
+grid.text("A", x=unit(0.065, "npc"), y=unit(0.93, "npc"), 
+          vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=20,fontface="bold"))
+
+print(sal.auc.plot, vp=viewport(layout.pos.row=1:2, layout.pos.col=2))
+grid.text("B", x=unit(0.065, "npc"), y=unit(0.93, "npc"),
+          vp=viewport(layout.pos.row=1, layout.pos.col=2), gp=gpar(fontsize=20,fontface="bold"))
+
+season.legend$vp <- viewport(layout.pos.row=1, layout.pos.col=3)
+grid.draw(season.legend)
+abx.legend$vp <- viewport(layout.pos.row=2, layout.pos.col=3)
+grid.draw(abx.legend)
+#dev.off()
 
 #png("auc.inu.man.png", width = 175, height = 75, units = "mm", res = 300)
 grid.newpage()
 pushViewport(viewport(layout=grid.layout(1,3, widths = c(1.05, 0.1, 1))))
 print(inu.noabx.auc.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
-print(man.noabx.auc.plot, vp=viewport(layout.pos.row=1, layout.pos.col=3))
 dev.off()
 
 ```
