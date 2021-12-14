@@ -1,0 +1,473 @@
+---
+title: "Test Diet"
+author: "Edna Chiang"
+date: "12/14/2021"
+output: html_document
+---
+
+### Load Packages, scripts, and functions
+```{r}
+library(ggplot2)
+library(plyr)
+library(dplyr)
+library(grid)
+library(MESS)
+library(pgirmess)
+library(Bolstad2)
+library(phyloseq)
+library(miLineage)
+library(psych)
+library(car)
+source('scripts/import_crds.R')
+source('scripts/bin_crds.R')
+source('scripts/misc.R')
+source('scripts/calc_delta_metrics.R')
+set.seed(1)
+theme_set(theme_bw())
+
+### Stats Notes
+# Use 'subset' in kruskal.test
+# Do NOT use 'subset' in kruskalmc or pairwise.wilcox.test; it doesn't work!
+```
+
+### Load Data
+```{r}
+crds <- import.crds('CSV', 'metadata.csv')
+```
+
+### Bin RelTime
+```{r}
+crds.bin <- bin.crds(crds)
+```
+
+### Summarize by Substrate + ABX
+```{r}
+### Remove Inulin outliers
+#crds.rem <- crds.bin[-which(crds.bin$ID == "S34"),]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "S37"),]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "P30"),]
+
+# Remove Saline outliers
+#crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
+crds.rem <- crds.bin[-which(crds.bin$ID == "P04"),]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
+  # This is an adult, not pup
+
+crds.rem$Season <- ordered(crds.rem$Season, levels=c("Summer", "Winter", "Spring"))
+
+
+# Summarize
+#crds.sum <- crds.rem %>%
+  group_by(Substrate, Antibiotics, Season, BinTime) %>%
+  summarize(Y_Mean = mean(Delta),
+            Y_Median = median(Delta),
+            Y_SD = sd(Delta),
+            Y_SE = se(Delta),
+            Y_IQR = IQR(Delta),
+            X_Mean = mean(RelTime),
+            X_Median = median(RelTime),
+            X_SD = sd(RelTime),
+            X_SE = se(RelTime),
+            X_IQR = IQR(RelTime),
+            SampSize = n())
+  # X_Mean is different from BinTime because BinTime was calculated with ABX and non-ABX combined
+    # BinTime was calculated this way to make sure datapoints for all individuals will align together on x-axis. If datapoints are misaligned that can be confusing for the audience. So binning was done this way for the clearest visualization.
+    # X_Mean is calculated for ABX and non-ABX separately, so there will be some variation
+#crds.sum$Season <- ordered(crds.sum$Season, levels=c("Summer", "Winter", "Spring"))
+```
+
+
+### Calculate Delta Metrics
+```{r}
+# Calculate delta metrics
+d.metrics <- calc.delta.metrics(crds.rem)
+#write.csv(d.metrics, "delta_metrics.csv", row.names = F)
+#d.metrics <- read.csv('delta_metrics.csv')
+
+# Load metadata
+meta <- read.csv('metadata.csv', fileEncoding="UTF-8-BOM")
+
+# Add metadata to delta metrics
+d.metrics[,colnames(meta)[3:12]] <- NA
+for(sq in 1:nrow(d.metrics)){
+  meta.row <- which(meta$ID == d.metrics$ID[sq])
+  d.metrics[sq, 5:14] <- meta[meta.row, 3:12]
+}
+
+# Convert to numeric
+d.metrics$TimeMaxD <- as.numeric(d.metrics$TimeMaxD)
+d.metrics$Slope <- as.numeric(d.metrics$Slope)
+d.metrics$SlopeTime <- as.numeric(d.metrics$SlopeTime)
+
+# Order seasons
+d.metrics$Season <- ordered(d.metrics$Season, levels=c("Summer", "Winter", "Spring"))
+
+# Separate by substrate
+d.inu <- d.metrics[which(d.metrics$Substrate == "Inulin"),]
+d.sal <- d.metrics[which(d.metrics$Substrate == "Saline"),]
+
+# Separate by substrate + ABX
+d.inu.abx <- d.inu[which(d.inu$Antibiotics == "Yes"),]
+d.inu.noabx <- d.inu[which(d.inu$Antibiotics == "No"),]
+d.sal.abx <- d.sal[which(d.sal$Antibiotics == "Yes"),]
+d.sal.noabx <- d.sal[which(d.sal$Antibiotics == "No"),]
+
+# Separate by substrate + season
+d.inu.s <- d.inu[which(d.inu$Season == "Summer"),]
+d.inu.w <- d.inu[which(d.inu$Season == "Winter"),]
+d.inu.p <- d.inu[which(d.inu$Season == "Spring"),]
+d.sal.s <- d.sal[which(d.sal$Season == "Summer"),]
+d.sal.w <- d.sal[which(d.sal$Season == "Winter"),]
+d.sal.p <- d.sal[which(d.sal$Season == "Spring"),]
+```
+
+
+### TimeMaxD
+```{r}
+### Check Normality
+
+# Inulin Summer ABX
+hist(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$TimeMaxD)
+qqnorm(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$TimeMaxD)
+qqline(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$TimeMaxD)
+shapiro.test(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$TimeMaxD)
+  # p-value = 0.005404
+  # Not Normal
+
+# Saline Summer ABX
+hist(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$TimeMaxD)
+qqnorm(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$TimeMaxD)
+qqline(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$TimeMaxD)
+shapiro.test(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$TimeMaxD)
+  # p-value = 0.1161
+  # Normal
+
+# Saline Winter ABX
+hist(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$TimeMaxD)
+qqnorm(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$TimeMaxD)
+qqline(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$TimeMaxD)
+shapiro.test(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$TimeMaxD)
+  # p-value = 0.03481
+  # Not Normal
+
+# Saline Spring No ABX
+hist(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$TimeMaxD)
+qqnorm(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$TimeMaxD)
+qqline(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$TimeMaxD)
+shapiro.test(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$TimeMaxD)
+  # p-value = 0.3772
+  # Normal
+
+
+
+### Test Diet
+
+# Inulin Summer ABX
+wilcox.test(TimeMaxD ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
+  # p-value = 0.4
+
+# Saline Summer ABX
+t.test(TimeMaxD ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
+  # p-value = 0.3587
+
+# Saline Winter ABX
+wilcox.test(TimeMaxD ~ Diet, data = d.sal.w[which(d.sal.w$Antibiotics == "Yes"),])
+  # p-value = 0.05714
+
+# Saline Spring No ABX
+t.test(TimeMaxD ~ Diet, data = d.sal.p[which(d.sal.p$Antibiotics == "No"),])
+  # p-value = 0.7054
+
+
+
+### Test Diet Variance
+
+# Inulin Summer ABX
+fligner.test(TimeMaxD ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
+  # p-value = 0.3381
+
+# Saline Summer ABX
+var.test(TimeMaxD ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
+  # p-value = 0.5314
+
+# Saline Winter ABX
+fligner.test(TimeMaxD ~ Diet, data = d.sal.w[which(d.sal.w$Antibiotics == "Yes"),])
+  # p-value = 0.5827
+
+# Saline Spring No ABX
+var.test(TimeMaxD ~ Diet, data = d.sal.p[which(d.sal.p$Antibiotics == "No"),])
+  # p-value = 0.5707
+```
+
+### Slope
+```{r}
+### Check Normality
+
+# Inulin Summer ABX
+hist(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$Slope)
+qqnorm(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$Slope)
+qqline(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$Slope)
+shapiro.test(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$Slope)
+  # p-value = 1.174e-05
+  # Not Normal
+
+# Saline Summer ABX
+hist(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$Slope)
+qqnorm(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$Slope)
+qqline(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$Slope)
+shapiro.test(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$Slope)
+  # p-value = 0.6855
+  # Normal
+
+# Saline Winter ABX
+hist(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$Slope)
+qqnorm(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$Slope)
+qqline(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$Slope)
+shapiro.test(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$Slope)
+  # p-value = 0.04597
+  # Not Normal
+
+# Saline Spring No ABX
+hist(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$Slope)
+qqnorm(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$Slope)
+qqline(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$Slope)
+shapiro.test(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$Slope)
+  # p-value = 0.2417
+  # Normal
+
+
+
+### Test Diet
+
+# Inulin Summer ABX
+wilcox.test(Slope ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
+  # p-value = 1
+
+# Saline Summer ABX
+t.test(Slope ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
+  # p-value = 0.2791
+
+# Saline Winter ABX
+wilcox.test(Slope ~ Diet, data = d.sal.w[which(d.sal.w$Antibiotics == "Yes"),])
+  # p-value = 0.05714
+
+# Saline Spring No ABX
+t.test(Slope ~ Diet, data = d.sal.p[which(d.sal.p$Antibiotics == "No"),])
+  # p-value = 0.09955
+
+
+
+### Test Diet Variance
+
+# Inulin Summer ABX
+fligner.test(Slope ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
+  # p-value = 0.04413*
+  # But it looks like there was an ABX male that didn't work, so I need to double check [DNA] and decide whether it's an outlier or not
+
+# Saline Summer ABX
+var.test(Slope ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
+  # p-value = 0.2161
+
+# Saline Winter ABX
+fligner.test(Slope ~ Diet, data = d.sal.w[which(d.sal.w$Antibiotics == "Yes"),])
+  # p-value = 0.3368
+
+# Saline Spring No ABX
+var.test(Slope ~ Diet, data = d.sal.p[which(d.sal.p$Antibiotics == "No"),])
+  # p-value = 0.3336
+```
+
+### SlopeTime
+```{r}
+### Check Normality
+
+# Inulin Summer ABX
+hist(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$SlopeTime)
+qqnorm(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$SlopeTime)
+qqline(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$SlopeTime)
+shapiro.test(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$SlopeTime)
+  # p-value = 0.713
+  # Normal
+
+# Saline Summer ABX
+hist(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$SlopeTime)
+qqnorm(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$SlopeTime)
+qqline(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$SlopeTime)
+shapiro.test(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$SlopeTime)
+  # p-value = 0.1769
+  # Normal
+
+# Saline Winter ABX
+hist(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$SlopeTime)
+qqnorm(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$SlopeTime)
+qqline(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$SlopeTime)
+shapiro.test(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$SlopeTime)
+  # p-value = 0.008874
+  # Not Normal
+
+# Saline Spring No ABX
+hist(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$SlopeTime)
+qqnorm(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$SlopeTime)
+qqline(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$SlopeTime)
+shapiro.test(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$SlopeTime)
+  # p-value = 0.5166
+  # Normal
+
+
+
+### Test Diet
+
+# Inulin Summer ABX
+t.test(SlopeTime ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
+  # p-value = 0.801
+
+# Saline Summer ABX
+t.test(SlopeTime ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
+  # p-value = 0.2046
+
+# Saline Winter ABX
+wilcox.test(SlopeTime ~ Diet, data = d.sal.w[which(d.sal.w$Antibiotics == "Yes"),])
+  # p-value = 0.3725
+
+# Saline Spring No ABX
+t.test(SlopeTime ~ Diet, data = d.sal.p[which(d.sal.p$Antibiotics == "No"),])
+  # p-value = 0.5143
+
+
+
+### Test Diet Variance
+
+# Inulin Summer ABX
+var.test(SlopeTime ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
+  # p-value = 0.7096
+
+# Saline Summer ABX
+var.test(SlopeTime ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
+  # p-value = 0.2689
+
+# Saline Winter ABX
+fligner.test(SlopeTime ~ Diet, data = d.sal.w[which(d.sal.w$Antibiotics == "Yes"),])
+  # p-value = 0.9592
+
+# Saline Spring No ABX
+var.test(SlopeTime ~ Diet, data = d.sal.p[which(d.sal.p$Antibiotics == "No"),])
+  # p-value = 0.9629
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Slope
+```{r}
+### Check Normality
+
+# Saline Summer ABX
+hist(d.sal.abx[which(d.sal.abx$Season == "Summer"),]$Slope)
+qqnorm(d.sal.abx[which(d.sal.abx$Season == "Summer"),]$Slope)
+qqline(d.sal.abx[which(d.sal.abx$Season == "Summer"),]$Slope)
+shapiro.test(d.sal.abx[which(d.sal.abx$Season == "Summer"),]$Slope)
+  # p-value = 0.6855
+  # Normal
+
+# Saline Spring No ABX
+hist(d.sal.noabx[which(d.sal.noabx$Season == "Spring"),]$Slope)
+qqnorm(d.sal.noabx[which(d.sal.noabx$Season == "Spring"),]$Slope)
+qqline(d.sal.noabx[which(d.sal.noabx$Season == "Spring"),]$Slope)
+shapiro.test(d.sal.noabx[which(d.sal.noabx$Season == "Spring"),]$Slope)
+  # p-value = 0.2417
+  # Normal
+
+
+### Test Diet
+
+# Saline Summer ABX
+wilcox.test(Slope ~ Diet, data = d.sal.abx[which(d.sal.abx$Season == "Summer"),])
+  # p-value = 0.4
+
+# Saline Spring No ABX
+wilcox.test(Slope ~ Diet, data = d.sal.noabx[which(d.sal.noabx$Season == "Spring"),])
+  # p-value = 0.05714
+
+
+
+### Test Diet Variance
+
+# Saline Summer ABX
+fligner.test(Slope ~ Diet, data = d.sal.abx[which(d.sal.abx$Season == "Summer"),])
+  # p-value = 0.3371
+
+# Saline Spring No ABX
+fligner.test(Slope ~ Diet, data = d.sal.noabx[which(d.sal.noabx$Season == "Spring"),])
+  # p-value = 0.7258
+```
+
+### SlopeTime
+```{r}
+### Check Normality
+
+# Saline Summer ABX
+hist(d.sal.abx[which(d.sal.abx$Season == "Summer"),]$SlopeTime)
+qqnorm(d.sal.abx[which(d.sal.abx$Season == "Summer"),]$SlopeTime)
+qqline(d.sal.abx[which(d.sal.abx$Season == "Summer"),]$SlopeTime)
+shapiro.test(d.sal.abx[which(d.sal.abx$Season == "Summer"),]$SlopeTime)
+  # p-value = 0.1769
+  # Normal
+
+# Saline Spring No ABX
+hist(d.sal.noabx[which(d.sal.noabx$Season == "Spring"),]$SlopeTime)
+qqnorm(d.sal.noabx[which(d.sal.noabx$Season == "Spring"),]$SlopeTime)
+qqline(d.sal.noabx[which(d.sal.noabx$Season == "Spring"),]$SlopeTime)
+shapiro.test(d.sal.noabx[which(d.sal.noabx$Season == "Spring"),]$SlopeTime)
+  # p-value = 0.5166
+  # Normal
+
+
+### Test Diet
+
+# Saline Summer ABX
+wilcox.test(SlopeTime ~ Diet, data = d.sal.abx[which(d.sal.abx$Season == "Summer"),])
+  # p-value = 0.4
+
+# Saline Spring No ABX
+wilcox.test(SlopeTime ~ Diet, data = d.sal.noabx[which(d.sal.noabx$Season == "Spring"),])
+  # p-value = 0.6286
+
+
+
+### Test Diet Variance
+
+# Saline Summer ABX
+fligner.test(SlopeTime ~ Diet, data = d.sal.abx[which(d.sal.abx$Season == "Summer"),])
+  # p-value = 0.1683
+
+# Saline Spring No ABX
+fligner.test(SlopeTime ~ Diet, data = d.sal.noabx[which(d.sal.noabx$Season == "Spring"),])
+  # p-value = 0.3381
+```
