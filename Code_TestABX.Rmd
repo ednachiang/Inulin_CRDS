@@ -1,0 +1,624 @@
+---
+title: "Code_TestABX"
+author: "Edna Chiang"
+date: "12/14/2021"
+output: html_document
+---
+### Load Packages, scripts, and functions
+```{r}
+library(ggplot2)
+library(plyr)
+library(dplyr)
+library(grid)
+library(MESS)
+library(pgirmess)
+library(Bolstad2)
+library(phyloseq)
+library(miLineage)
+library(psych)
+library(car)
+source('scripts/import_crds.R')
+source('scripts/bin_crds.R')
+source('scripts/misc.R')
+source('scripts/calc_delta_metrics.R')
+set.seed(1)
+theme_set(theme_bw())
+
+### Stats Notes
+# Use 'subset' in kruskal.test
+# Do NOT use 'subset' in kruskalmc or pairwise.wilcox.test; it doesn't work!
+```
+
+### Load Data
+```{r}
+crds <- import.crds('CSV', 'metadata.csv')
+```
+
+### Bin RelTime
+```{r}
+crds.bin <- bin.crds(crds)
+```
+
+### Summarize by Substrate + ABX
+```{r}
+### Remove Inulin outliers
+#crds.rem <- crds.bin[-which(crds.bin$ID == "S34"),]
+crds.rem <- crds.bin[-which(crds.bin$ID == "S37"),]
+  # ABX didn't work; high [DNA]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "P30"),]
+
+# Remove Saline outliers
+#crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
+  # This is an adult, not pup
+
+crds.rem$Season <- ordered(crds.rem$Season, levels=c("Summer", "Winter", "Spring"))
+
+
+# Summarize
+crds.sum <- crds.rem %>%
+  group_by(Substrate, Antibiotics, Season, BinTime) %>%
+  summarize(Y_Mean = mean(Delta),
+            Y_Median = median(Delta),
+            Y_SD = sd(Delta),
+            Y_SE = se(Delta),
+            Y_IQR = IQR(Delta),
+            X_Mean = mean(RelTime),
+            X_Median = median(RelTime),
+            X_SD = sd(RelTime),
+            X_SE = se(RelTime),
+            X_IQR = IQR(RelTime),
+            SampSize = n())
+  # X_Mean is different from BinTime because BinTime was calculated with ABX and non-ABX combined
+    # BinTime was calculated this way to make sure datapoints for all individuals will align together on x-axis. If datapoints are misaligned that can be confusing for the audience. So binning was done this way for the clearest visualization.
+    # X_Mean is calculated for ABX and non-ABX separately, so there will be some variation
+crds.sum$Season <- ordered(crds.sum$Season, levels=c("Summer", "Winter", "Spring"))
+```
+
+### Test baseline - ABX
+```{r}
+### Separate samples
+crds.base <- crds.rem[which(crds.rem$RelTime < 0),]
+base.inu <- crds.base[which(crds.base$Substrate == "Inulin"),]
+base.sal <- crds.base[which(crds.base$Substrate == "Saline"),]
+base.inu.s <- base.inu[which(base.inu$Season == "Summer"),]
+base.inu.w <- base.inu[which(base.inu$Season == "Winter"),]
+base.inu.p <- base.inu[which(base.inu$Season == "Spring"),]
+base.sal.s <- base.sal[which(base.sal$Season == "Summer"),]
+base.sal.w <- base.sal[which(base.sal$Season == "Winter"),]
+base.sal.p <- base.sal[which(base.sal$Season == "Spring"),]
+
+
+### Check Normality
+
+# Inulin Summer
+hist(base.inu.s$Delta)
+qqnorm(base.inu.s$Delta)
+qqline(base.inu.s$Delta)
+shapiro.test(base.inu.s$Delta)
+  # p-value = 0.1731
+  # Normal
+
+# Inulin Winter
+hist(base.inu.w$Delta)
+qqnorm(base.inu.w$Delta)
+qqline(base.inu.w$Delta)
+shapiro.test(base.inu.w$Delta)
+  # p-value = 0.02846
+  # Not Normal
+
+# Inulin Spring
+hist(base.inu.p$Delta)
+qqnorm(base.inu.p$Delta)
+qqline(base.inu.p$Delta)
+shapiro.test(base.inu.p$Delta)
+  # p-value = 0.4563
+  # Not Normal
+
+# Saline Summer
+hist(base.sal.s$Delta)
+qqnorm(base.sal.s$Delta)
+qqline(base.sal.s$Delta)
+shapiro.test(base.sal.s$Delta)
+  # p-value = 0.1744
+  # Normal
+
+# Saline Winter
+hist(base.sal.w$Delta)
+qqnorm(base.sal.w$Delta)
+qqline(base.sal.w$Delta)
+shapiro.test(base.sal.w$Delta)
+  # p-value = 1.266e-06
+  # Not Normal
+
+# Saline Spring
+hist(base.sal.p$Delta)
+qqnorm(base.sal.p$Delta)
+qqline(base.sal.p$Delta)
+shapiro.test(base.sal.p$Delta)
+  # p-value = 0.2234
+  # Normal
+
+
+### Test Inulin
+
+# Summer
+t.test(Delta ~ Antibiotics, data = base.inu.s)
+  # p-value = 0.3149
+
+# Winter
+wilcox.test(Delta ~ Antibiotics, data = base.inu.w)
+  # p-value = 0.62
+
+# Spring
+wilcox.test(Delta ~ Antibiotics, data = base.inu.p)
+  # p-value = 0.0005828*
+
+
+
+### Test Saline
+
+# Summer
+t.test(Delta ~ Antibiotics, data = base.sal.s)
+  # p-value = 0.2038
+
+# Winter
+wilcox.test(Delta ~ Antibiotics, data = base.sal.w)
+  # p-value = 1
+
+# Spring
+t.test(Delta ~ Antibiotics, data = base.sal.p)
+  # p-value = 0.2762
+```
+
+### Calculate Delta Metrics
+```{r}
+# Calculate delta metrics
+d.metrics <- calc.delta.metrics(crds.rem)
+#write.csv(d.metrics, "delta_metrics.csv", row.names = F)
+
+# Load metadata
+meta <- read.csv('metadata.csv', fileEncoding="UTF-8-BOM")
+
+# Add metadata to delta metrics
+d.metrics[,colnames(meta)[3:12]] <- NA
+for(sq in 1:nrow(d.metrics)){
+  meta.row <- which(meta$ID == d.metrics$ID[sq])
+  d.metrics[sq, 5:14] <- meta[meta.row, 3:12]
+}
+
+# Convert to numeric
+d.metrics$TimeMaxD <- as.numeric(d.metrics$TimeMaxD)
+d.metrics$Slope <- as.numeric(d.metrics$Slope)
+d.metrics$SlopeTime <- as.numeric(d.metrics$SlopeTime)
+
+# Order seasons
+d.metrics$Season <- ordered(d.metrics$Season, levels=c("Summer", "Winter", "Spring"))
+
+# Separate substrates
+d.inu <- d.metrics[which(d.metrics$Substrate == "Inulin"),]
+d.sal <- d.metrics[which(d.metrics$Substrate == "Saline"),]
+
+# Separate seasons
+d.inu.s <- d.inu[which(d.inu$Season == "Summer"),]
+d.inu.w <- d.inu[which(d.inu$Season == "Winter"),]
+d.inu.p <- d.inu[which(d.inu$Season == "Spring"),]
+d.sal.s <- d.sal[which(d.sal$Season == "Summer"),]
+d.sal.w <- d.sal[which(d.sal$Season == "Winter"),]
+d.sal.p <- d.sal[which(d.sal$Season == "Spring"),]
+```
+
+### Test Time of Max Delta Measurement
+```{r}
+### Test for normality
+
+# Inulin Summer
+hist(d.inu.s$TimeMaxD)
+qqnorm(d.inu.s$TimeMaxD)
+qqline(d.inu.s$TimeMaxD)
+shapiro.test(d.inu.s$TimeMaxD)
+  # p-value = 0.01215
+  # Not Normal
+
+# Inulin Winter
+hist(d.inu.w$TimeMaxD)
+qqnorm(d.inu.w$TimeMaxD)
+qqline(d.inu.w$TimeMaxD)
+shapiro.test(d.inu.w$TimeMaxD)
+  # p-value = 0.01511
+  # Not Normal
+
+# Inulin Spring
+hist(d.inu.p$TimeMaxD)
+qqnorm(d.inu.p$TimeMaxD)
+qqline(d.inu.p$TimeMaxD)
+shapiro.test(d.inu.p$TimeMaxD)
+  # p-value = 0.02488
+  # Not Normal
+
+# Saline Summer
+hist(d.sal.s$TimeMaxD)
+qqnorm(d.sal.s$TimeMaxD)
+qqline(d.sal.s$TimeMaxD)
+shapiro.test(d.sal.s$TimeMaxD)
+  # p-value = 0.04462
+  # Not Normal
+
+# Saline Winter
+hist(d.sal.w$TimeMaxD)
+qqnorm(d.sal.w$TimeMaxD)
+qqline(d.sal.w$TimeMaxD)
+shapiro.test(d.sal.w$TimeMaxD)
+  # p-value = 0.02317
+  # Not Normal
+
+# Saline Spring
+hist(d.sal.p$TimeMaxD)
+qqnorm(d.sal.p$TimeMaxD)
+qqline(d.sal.p$TimeMaxD)
+shapiro.test(d.sal.p$TimeMaxD)
+  # p-value = 0.2392
+  # Normal
+
+
+### Test Inulin
+
+# Summer
+wilcox.test(TimeMaxD ~ Antibiotics, data = d.inu.s)
+  # p-value = 0.001166*
+
+# Winter
+wilcox.test(TimeMaxD ~ Antibiotics, data = d.inu.w)
+  # p-value = 0.00326*
+
+# Spring
+wilcox.test(TimeMaxD ~ Antibiotics, data = d.inu.p)
+  # p-value = 0.0005828*
+
+
+
+### Test Saline
+
+# Summer
+wilcox.test(TimeMaxD ~ Antibiotics, data = d.sal.s)
+  # p-value = 0.05346
+
+# Winter
+wilcox.test(TimeMaxD ~ Antibiotics, data = d.sal.w)
+  # p-value = 0.1098
+
+# Spring
+t.test(TimeMaxD ~ Antibiotics, data = d.sal.p)
+  # p-value = 0.8299
+```
+
+### Test Max Slope
+```{r}
+### Test for normality
+
+# Inulin Summer
+hist(d.inu.s$Slope)
+qqnorm(d.inu.s$Slope)
+qqline(d.inu.s$Slope)
+shapiro.test(d.inu.s$Slope)
+  # p-value = 0.03485
+  # Not Normal
+
+# Inulin Winter
+hist(d.inu.w$Slope)
+qqnorm(d.inu.w$Slope)
+qqline(d.inu.w$Slope)
+shapiro.test(d.inu.w$Slope)
+  # p-value = 0.01216
+  # Not Normal
+
+# Inulin Spring
+hist(d.inu.p$Slope)
+qqnorm(d.inu.p$Slope)
+qqline(d.inu.p$Slope)
+shapiro.test(d.inu.p$Slope)
+  # p-value = 0.007684
+  # Not Normal
+
+# Saline Summer
+hist(d.sal.s$Slope)
+qqnorm(d.sal.s$Slope)
+qqline(d.sal.s$Slope)
+shapiro.test(d.sal.s$Slope)
+  # p-value = 0.000127
+  # Not Normal
+
+# Saline Winter
+hist(d.sal.w$Slope)
+qqnorm(d.sal.w$Slope)
+qqline(d.sal.w$Slope)
+shapiro.test(d.sal.w$Slope)
+  # p-value = 9.439e-05
+  # Not Normal
+
+# Saline Spring
+hist(d.sal.p$Slope)
+qqnorm(d.sal.p$Slope)
+qqline(d.sal.p$Slope)
+shapiro.test(d.sal.p$Slope)
+  # p-value = 0.1736
+  # Normal
+
+
+### Test Inulin
+
+# Summer
+wilcox.test(Slope ~ Antibiotics, data = d.inu.s)
+  # p-value = 0.001166*
+
+# Winter
+wilcox.test(Slope ~ Antibiotics, data = d.inu.w)
+  # p-value = 0.02622*
+
+# Spring
+wilcox.test(Slope ~ Antibiotics, data = d.inu.p)
+  # p-value = 0.0005828*
+
+
+
+### Test Saline
+
+# Summer
+wilcox.test(Slope ~ Antibiotics, data = d.sal.s)
+  # p-value = 0.4452
+
+# Winter
+wilcox.test(Slope ~ Antibiotics, data = d.sal.w)
+  # p-value = 0.9015
+
+# Spring
+t.test(Slope ~ Antibiotics, data = d.sal.p)
+  # p-value = 0.6071
+```
+
+### Test Time of Max Slope
+```{r}
+### Test for normality
+
+# Inulin Summer
+hist(d.inu.s$SlopeTime)
+qqnorm(d.inu.s$SlopeTime)
+qqline(d.inu.s$SlopeTime)
+shapiro.test(d.inu.s$SlopeTime)
+  # p-value = 0.3354
+  # Normal
+
+# Inulin Winter
+hist(d.inu.w$SlopeTime)
+qqnorm(d.inu.w$SlopeTime)
+qqline(d.inu.w$SlopeTime)
+shapiro.test(d.inu.w$SlopeTime)
+  # p-value = 0.004898
+  # Not Normal
+
+# Inulin Spring
+hist(d.inu.p$SlopeTime)
+qqnorm(d.inu.p$SlopeTime)
+qqline(d.inu.p$SlopeTime)
+shapiro.test(d.inu.p$SlopeTime)
+  # p-value = 0.02279
+  # Not Normal
+
+# Saline Summer
+hist(d.sal.s$SlopeTime)
+qqnorm(d.sal.s$SlopeTime)
+qqline(d.sal.s$SlopeTime)
+shapiro.test(d.sal.s$SlopeTime)
+  # p-value = 0.1082
+  # Normal
+
+# Saline Winter
+hist(d.sal.w$SlopeTime)
+qqnorm(d.sal.w$SlopeTime)
+qqline(d.sal.w$SlopeTime)
+shapiro.test(d.sal.w$SlopeTime)
+  # p-value = 06054
+  # Normal
+
+# Saline Spring
+hist(d.sal.p$SlopeTime)
+qqnorm(d.sal.p$SlopeTime)
+qqline(d.sal.p$SlopeTime)
+shapiro.test(d.sal.p$SlopeTime)
+  # p-value = 0.4747
+  # Normal
+
+
+### Test Inulin
+wilcox.test(SlopeTime ~ Antibiotics, data = d.inu.s)
+  # p-value = 0.943
+wilcox.test(SlopeTime ~ Antibiotics, data = d.inu.w)
+  # p-value = 0.0005828*
+t.test(SlopeTime ~ Antibiotics, data = d.inu.p)
+  # p-value = 0.002077*
+
+### Test Saline
+t.test(SlopeTime ~ Antibiotics, data = d.sal.s)
+  # p-value = 0.5457
+t.test(SlopeTime ~ Antibiotics, data = d.sal.w)
+  # p-value = 0.9043
+t.test(SlopeTime ~ Antibiotics, data = d.sal.p)
+  # p-value = 0.6747
+```
+
+### Calculate AUC
+```{r}
+# AUC = Area Under Curve
+# Trapezoid Method
+
+### Calculate AUC
+ids <- unique(crds.rem$ID)
+auc.df <- data.frame(crds.rem[1,])
+auc.df <- auc.df[,-2:-3]
+  # Remove Delta and CO2 cols
+auc.df <- auc.df[,-13]
+  # Remove BinTime col
+colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate", "Diet", "Mom", "Mom_Location", "BodyMass", "BodyTemp")
+auc.df$Ketones <- NA
+  # Rename cols
+meta <- read.csv('metadata.csv', fileEncoding="UTF-8-BOM")
+
+#crds.rem= crds.bin
+# First normalize Rel Time so 
+#for (i in 2){
+for (i in 1:length(ids)){
+  ID <- ids[i]
+  select <- crds.rem[which(crds.rem$ID == ID),]
+    # Dataframe with CRDS values for 1 squirrel
+
+  # Normalize delta value to baseline
+  select$Delta <- select$Delta - select$Delta[1]
+  
+  # Remove baseline from AUC calculation because we care about the AUC after gavage
+  # Since we already normalized delta value to baseline, we don't need that value anymore
+  # Set baseline to gavage time = 0
+  select[1,1] <- 0
+  
+  # Normalize AUC end time
+  # Since length of experiment varies for each individual, we don't want experimental length to bias our AUC calculations
+  # Normalize length to min time within each substrate
+    # Inu = 4.0667
+    # Sal = 2.21667
+  if (select$Substrate == "Inulin") {
+    max <- which(select$RelTime > 4.06667)
+    select$RelTime[max] <- 4.06667
+  } else if (select$Substrate == "Saline") {
+    max <- which(select$RelTime > 2.21666667)
+    select$RelTime[max] <- 2.21666667
+  }
+
+  # Create auc variable
+  AUC <- 0
+  
+  # Run rectangle method integration - less accurate
+  #for (j in 1:(nrow(select)-1)){
+  #  AUC <- AUC + ((select$RelTime[j+1]-select$RelTime[j])*select$Delta[j+1])
+  #}
+  
+  # Run trapezoid method integration - more accurate
+  for(j in 1:(nrow(select)-1)){
+    avgH <- (select$Delta[j+1]+select$Delta[j])/2
+      # Calculates average height between start and end point
+    width <- (select$RelTime[j+1]-select$RelTime[j])
+    AUC <- AUC + (avgH*width)
+  }
+    
+  auc.df[i,1] <- AUC
+  auc.df[i, 2:12] <- select[1, 4:14]
+  
+  use <- which(meta$ID == ID)
+  auc.df$Ketones[i] <- meta$Ketones[use]
+}
+
+#write.csv(auc.df, "auc.csv", row.names=F)
+
+
+### Subset by Substrate & ABX
+auc.inu <- auc.df[which(auc.df$Substrate == "Inulin"),]
+auc.sal <- auc.df[which(auc.df$Substrate == "Saline"),]
+auc.inu.s <- auc.inu[which(auc.inu$Season == "Summer"),]
+auc.inu.w <- auc.inu[which(auc.inu$Season == "Winter"),]
+auc.inu.p <- auc.inu[which(auc.inu$Season == "Spring"),]
+auc.sal.s <- auc.sal[which(auc.sal$Season == "Summer"),]
+auc.sal.w <- auc.sal[which(auc.sal$Season == "Winter"),]
+auc.sal.p <- auc.sal[which(auc.sal$Season == "Spring"),]
+```
+
+### AUC Stats & Plots
+```{r}
+### Check Normality
+
+# Inulin Summer
+hist(auc.inu.s$AUC)
+qqnorm(auc.inu.s$AUC)
+qqline(auc.inu.s$AUC)
+shapiro.test(auc.inu.s$AUC)
+  # p-value = 0.0261
+  # Not Normal
+
+# Inulin Winter
+hist(auc.inu.w$AUC)
+qqnorm(auc.inu.w$AUC)
+qqline(auc.inu.w$AUC)
+shapiro.test(auc.inu.w$AUC)
+  # p-value = 0.001438
+  # Not Normal
+
+# Inulin Spring
+hist(auc.inu.p$AUC)
+qqnorm(auc.inu.p$AUC)
+qqline(auc.inu.p$AUC)
+shapiro.test(auc.inu.p$AUC)
+  # p-value = 0.001412
+  # Not Normal
+
+# Saline Summer
+hist(auc.sal.s$AUC)
+qqnorm(auc.sal.s$AUC)
+qqline(auc.sal.s$AUC)
+shapiro.test(auc.sal.s$AUC)
+  # p-value = 0.01462
+  # Not Normal
+
+# Saline Winter
+hist(auc.sal.w$AUC)
+qqnorm(auc.sal.w$AUC)
+qqline(auc.sal.w$AUC)
+shapiro.test(auc.sal.w$AUC)
+  # p-value = 5.361e-06
+  # Not Normal
+
+# Saline Spring
+hist(auc.sal.p$AUC)
+qqnorm(auc.sal.p$AUC)
+qqline(auc.sal.p$AUC)
+shapiro.test(auc.sal.p$AUC)
+  # p-value = 0.7142
+  # Normal
+
+
+
+### Test AUC - ABX
+# Inulin
+wilcox.test(AUC ~ Antibiotics, data = auc.inu.s)
+  # p-value = 0.001166*
+wilcox.test(AUC ~ Antibiotics, data = auc.inu.w)
+  # p-value = 0.09732
+wilcox.test(AUC ~ Antibiotics, data = auc.inu.p)
+  # p-value = 0.001166*
+
+# Saline
+wilcox.test(AUC ~ Antibiotics, data = auc.sal.s)
+  # p-value = 0.1014
+wilcox.test(AUC ~ Antibiotics, data = auc.sal.w)
+  # p-value = 0.09732
+wilcox.test(AUC ~ Antibiotics, data = auc.sal.p)
+  # p-value = 0.366
+
+
+
+## Test AUC Variance - ABX
+# Inulin
+fligner.test(AUC ~ Antibiotics, auc.inu.s)
+  # p-value = 0.2125
+fligner.test(AUC ~ Antibiotics, auc.inu.w)
+  # p-value = 0.01802*
+fligner.test(AUC ~ Antibiotics, auc.inu.p)
+  # p-value = 0.01802*
+
+# Saline
+fligner.test(AUC ~ Antibiotics, auc.sal.s)
+  # p-value = 0.2235
+fligner.test(AUC ~ Antibiotics, auc.sal.w)
+  # p-value = 0.5141
+fligner.test(AUC ~ Antibiotics, auc.sal.p)
+  # p-value = 0.0888
+```
