@@ -81,6 +81,99 @@ crds.rem$Season <- ordered(crds.rem$Season, levels=c("Summer", "Winter", "Spring
 #crds.sum$Season <- ordered(crds.sum$Season, levels=c("Summer", "Winter", "Spring"))
 ```
 
+### Test baseline - Diet
+```{r}
+### Separate samples
+crds.base <- crds.rem[which(crds.rem$RelTime < 0),]
+base.inu <- crds.base[which(crds.base$Substrate == "Inulin"),]
+base.sal <- crds.base[which(crds.base$Substrate == "Saline"),]
+base.inu.s <- base.inu[which(base.inu$Season == "Summer"),]
+base.inu.w <- base.inu[which(base.inu$Season == "Winter"),]
+base.inu.p <- base.inu[which(base.inu$Season == "Spring"),]
+base.sal.s <- base.sal[which(base.sal$Season == "Summer"),]
+base.sal.w <- base.sal[which(base.sal$Season == "Winter"),]
+base.sal.p <- base.sal[which(base.sal$Season == "Spring"),]
+
+
+
+### Check Normality
+
+# Inulin Summer ABX
+hist(base.inu.s[which(base.inu.s$Antibiotics == "Yes"),]$Delta)
+qqnorm(base.inu.s[which(base.inu.s$Antibiotics == "Yes"),]$Delta)
+qqline(base.inu.s[which(base.inu.s$Antibiotics == "Yes"),]$Delta)
+shapiro.test(base.inu.s[which(base.inu.s$Antibiotics == "Yes"),]$Delta)
+  # p-value = 0.2577
+  # Normal
+
+# Saline Summer ABX
+hist(base.sal.s[which(base.sal.s$Antibiotics == "Yes"),]$Delta)
+qqnorm(base.sal.s[which(base.sal.s$Antibiotics == "Yes"),]$Delta)
+qqline(base.sal.s[which(base.sal.s$Antibiotics == "Yes"),]$Delta)
+shapiro.test(base.sal.s[which(base.sal.s$Antibiotics == "Yes"),]$Delta)
+  # p-value = 0.02765
+  # Not Normal
+
+# Saline Winter ABX
+hist(base.sal.w[which(base.sal.w$Antibiotics == "Yes"),]$Delta)
+qqnorm(base.sal.w[which(base.sal.w$Antibiotics == "Yes"),]$Delta)
+qqline(base.sal.w[which(base.sal.w$Antibiotics == "Yes"),]$Delta)
+shapiro.test(base.sal.w[which(base.sal.w$Antibiotics == "Yes"),]$Delta)
+  # p-value = 9.213e-05
+  # Not Normal
+
+# Saline Spring No ABX
+hist(base.sal.p[which(base.sal.p$Antibiotics == "No"),]$Delta)
+qqnorm(base.sal.p[which(base.sal.p$Antibiotics == "No"),]$Delta)
+qqline(base.sal.p[which(base.sal.p$Antibiotics == "No"),]$Delta)
+shapiro.test(base.sal.p[which(base.sal.p$Antibiotics == "No"),]$Delta)
+  # p-value = 2443
+  # Normal
+
+
+# Test baseline
+
+# Inulin Summer ABX
+t.test(Delta ~ Diet, data = base.inu.s[which(base.inu.s$Antibiotics == "Yes"),])
+  # p-value = 0.5671
+
+# Saline Summer ABX
+wilcox.test(Delta ~ Diet, data = base.sal.s[which(base.sal.s$Antibiotics == "Yes"),])
+  # p-value = 0.8671
+
+# Saline Winter ABX
+wilcox.test(Delta ~ Diet, data = base.sal.w[which(base.sal.w$Antibiotics == "Yes"),])
+  # p-value = 0.8571
+
+# Saline Spring No ABX
+wilcox.test(Delta ~ Diet, data = base.sal.p[which(base.sal.p$Antibiotics == "No"),])
+  # p-value = 0.1143
+
+
+### Test baseline variance
+
+# Inulin Summer ABX
+var.test(Delta ~ Diet, data = base.inu.s[which(base.inu.s$Antibiotics == "Yes"),])
+  # p-value = 0.2194
+
+# Saline Summer ABX
+fligner.test(Delta ~ Diet, data = base.sal.s[which(base.sal.s$Antibiotics == "Yes"),])
+  # p-value = 0.04528*
+
+# Saline Winter ABX
+fligner.test(Delta ~ Diet, data = base.sal.w[which(base.sal.w$Antibiotics == "Yes"),])
+  # p-value = 0.3368
+
+# Saline Spring No ABX
+var.test(Delta ~ Diet, data = base.sal.p[which(base.sal.p$Antibiotics == "No"),])
+  # p-value = 0.1722
+```
+
+
+
+
+
+
 
 ### Calculate Delta Metrics
 ```{r}
@@ -127,7 +220,7 @@ d.sal.p <- d.sal[which(d.sal$Season == "Spring"),]
 ```
 
 
-### TimeMaxD
+### Test TimeMaxD
 ```{r}
 ### Check Normality
 
@@ -204,7 +297,7 @@ var.test(TimeMaxD ~ Diet, data = d.sal.p[which(d.sal.p$Antibiotics == "No"),])
   # p-value = 0.5707
 ```
 
-### Slope
+### Test Slope
 ```{r}
 ### Check Normality
 
@@ -281,7 +374,7 @@ var.test(Slope ~ Diet, data = d.sal.p[which(d.sal.p$Antibiotics == "No"),])
   # p-value = 0.3336
 ```
 
-### SlopeTime
+### Test SlopeTime
 ```{r}
 ### Check Normality
 
@@ -358,117 +451,166 @@ var.test(SlopeTime ~ Diet, data = d.sal.p[which(d.sal.p$Antibiotics == "No"),])
   # p-value = 0.9629
 ```
 
+### Calculate AUC
+```{r}
+# AUC = Area Under Curve
+# Trapezoid Method
+
+### Calculate AUC
+ids <- unique(crds.rem$ID)
+auc.df <- data.frame(crds.rem[1,])
+auc.df <- auc.df[,-2:-3]
+  # Remove Delta and CO2 cols
+auc.df <- auc.df[,-13]
+  # Remove BinTime col
+colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate", "Diet", "Mom", "Mom_Location", "BodyMass", "BodyTemp")
+auc.df$Ketones <- NA
+  # Rename cols
+meta <- read.csv('metadata.csv', fileEncoding="UTF-8-BOM")
+
+#crds.rem= crds.bin
+# First normalize Rel Time so 
+#for (i in 2){
+for (i in 1:length(ids)){
+  ID <- ids[i]
+  select <- crds.rem[which(crds.rem$ID == ID),]
+    # Dataframe with CRDS values for 1 squirrel
+
+  # Normalize delta value to baseline
+  select$Delta <- select$Delta - select$Delta[1]
+  
+  # Remove baseline from AUC calculation because we care about the AUC after gavage
+  # Since we already normalized delta value to baseline, we don't need that value anymore
+  # Set baseline to gavage time = 0
+  select[1,1] <- 0
+  
+  # Normalize AUC end time
+  # Since length of experiment varies for each individual, we don't want experimental length to bias our AUC calculations
+  # Normalize length to min time within each substrate
+    # Inu = 4.0667
+    # Sal = 2.21667
+  if (select$Substrate == "Inulin") {
+    max <- which(select$RelTime > 4.06667)
+    select$RelTime[max] <- 4.06667
+  } else if (select$Substrate == "Saline") {
+    max <- which(select$RelTime > 2.21666667)
+    select$RelTime[max] <- 2.21666667
+  }
+
+  # Create auc variable
+  AUC <- 0
+  
+  # Run rectangle method integration - less accurate
+  #for (j in 1:(nrow(select)-1)){
+  #  AUC <- AUC + ((select$RelTime[j+1]-select$RelTime[j])*select$Delta[j+1])
+  #}
+  
+  # Run trapezoid method integration - more accurate
+  for(j in 1:(nrow(select)-1)){
+    avgH <- (select$Delta[j+1]+select$Delta[j])/2
+      # Calculates average height between start and end point
+    width <- (select$RelTime[j+1]-select$RelTime[j])
+    AUC <- AUC + (avgH*width)
+  }
+    
+  auc.df[i,1] <- AUC
+  auc.df[i, 2:12] <- select[1, 4:14]
+  
+  use <- which(meta$ID == ID)
+  auc.df$Ketones[i] <- meta$Ketones[use]
+}
 
 
+### Subset by Substrate & ABX
+auc.inu <- auc.df[which(auc.df$Substrate == "Inulin"),]
+auc.sal <- auc.df[which(auc.df$Substrate == "Saline"),]
+auc.inu.s <- auc.inu[which(auc.inu$Season == "Summer"),]
+auc.inu.w <- auc.inu[which(auc.inu$Season == "Winter"),]
+auc.inu.p <- auc.inu[which(auc.inu$Season == "Spring"),]
+auc.sal.s <- auc.sal[which(auc.sal$Season == "Summer"),]
+auc.sal.w <- auc.sal[which(auc.sal$Season == "Winter"),]
+auc.sal.p <- auc.sal[which(auc.sal$Season == "Spring"),]
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Slope
+### Test AUC
 ```{r}
 ### Check Normality
 
+# Inulin Summer ABX
+hist(auc.inu.s[which(auc.inu.s$Antibiotics == "Yes"),]$AUC)
+qqnorm(auc.inu.s[which(auc.inu.s$Antibiotics == "Yes"),]$AUC)
+qqline(auc.inu.s[which(auc.inu.s$Antibiotics == "Yes"),]$AUC)
+shapiro.test(auc.inu.s[which(auc.inu.s$Antibiotics == "Yes"),]$AUC)
+  # p-value = 0.1686
+  # Normal
+
 # Saline Summer ABX
-hist(d.sal.abx[which(d.sal.abx$Season == "Summer"),]$Slope)
-qqnorm(d.sal.abx[which(d.sal.abx$Season == "Summer"),]$Slope)
-qqline(d.sal.abx[which(d.sal.abx$Season == "Summer"),]$Slope)
-shapiro.test(d.sal.abx[which(d.sal.abx$Season == "Summer"),]$Slope)
-  # p-value = 0.6855
+hist(auc.sal.s[which(auc.sal.s$Antibiotics == "Yes"),]$AUC)
+qqnorm(auc.sal.s[which(auc.sal.s$Antibiotics == "Yes"),]$AUC)
+qqline(auc.sal.s[which(auc.sal.s$Antibiotics == "Yes"),]$AUC)
+shapiro.test(auc.sal.s[which(auc.sal.s$Antibiotics == "Yes"),]$AUC)
+  # p-value = 0.4136
+  # Normal
+
+# Saline Winter ABX
+hist(auc.sal.w[which(auc.sal.w$Antibiotics == "Yes"),]$AUC)
+qqnorm(auc.sal.w[which(auc.sal.w$Antibiotics == "Yes"),]$AUC)
+qqline(auc.sal.w[which(auc.sal.w$Antibiotics == "Yes"),]$AUC)
+shapiro.test(auc.sal.s[which(auc.sal.w$Antibiotics == "Yes"),]$AUC)
+  # p-value = 0.0796
   # Normal
 
 # Saline Spring No ABX
-hist(d.sal.noabx[which(d.sal.noabx$Season == "Spring"),]$Slope)
-qqnorm(d.sal.noabx[which(d.sal.noabx$Season == "Spring"),]$Slope)
-qqline(d.sal.noabx[which(d.sal.noabx$Season == "Spring"),]$Slope)
-shapiro.test(d.sal.noabx[which(d.sal.noabx$Season == "Spring"),]$Slope)
-  # p-value = 0.2417
+hist(auc.sal.p[which(auc.sal.p$Antibiotics == "No"),]$AUC)
+qqnorm(auc.sal.p[which(auc.sal.p$Antibiotics == "No"),]$AUC)
+qqline(auc.sal.p[which(auc.sal.p$Antibiotics == "No"),]$AUC)
+shapiro.test(auc.sal.s[which(auc.sal.p$Antibiotics == "No"),]$AUC)
+  # p-value = 0.1064
   # Normal
+
 
 
 ### Test Diet
 
+# Inulin Summer ABX
+t.test(AUC ~ Diet, data = auc.inu.s[which(auc.inu.s$Antibiotics == "Yes"),])
+  # p-value = 0.9514
+
 # Saline Summer ABX
-wilcox.test(Slope ~ Diet, data = d.sal.abx[which(d.sal.abx$Season == "Summer"),])
-  # p-value = 0.4
+t.test(AUC ~ Diet, data = auc.sal.s[which(auc.sal.s$Antibiotics == "Yes"),])
+  # p-value = 0.503
+
+# Saline Winter ABX
+t.test(AUC ~ Diet, data = auc.sal.w[which(auc.sal.w$Antibiotics == "Yes"),])
+  # p-value = 0.4859
 
 # Saline Spring No ABX
-wilcox.test(Slope ~ Diet, data = d.sal.noabx[which(d.sal.noabx$Season == "Spring"),])
-  # p-value = 0.05714
+t.test(AUC ~ Diet, data = auc.sal.p[which(auc.sal.p$Antibiotics == "No"),])
+  # p-value = 0.0151*
 
 
 
 ### Test Diet Variance
 
+# Inulin Summer ABX
+var.test(AUC ~ Diet, data = auc.inu.s[which(auc.inu.s$Antibiotics == "Yes"),])
+  # p-value = 0.8792
+
 # Saline Summer ABX
-fligner.test(Slope ~ Diet, data = d.sal.abx[which(d.sal.abx$Season == "Summer"),])
-  # p-value = 0.3371
+var.test(AUC ~ Diet, data = auc.sal.s[which(auc.sal.s$Antibiotics == "Yes"),])
+  # p-value = 0.507
+
+# Saline Winter ABX
+fligner.test(AUC ~ Diet, data = auc.sal.w[which(auc.sal.w$Antibiotics == "Yes"),])
+  # p-value = 0.3336
 
 # Saline Spring No ABX
-fligner.test(Slope ~ Diet, data = d.sal.noabx[which(d.sal.noabx$Season == "Spring"),])
-  # p-value = 0.7258
+var.test(AUC ~ Diet, data = auc.sal.p[which(auc.sal.p$Antibiotics == "No"),])
+  # p-value = 0.4637
 ```
 
-### SlopeTime
-```{r}
-### Check Normality
-
-# Saline Summer ABX
-hist(d.sal.abx[which(d.sal.abx$Season == "Summer"),]$SlopeTime)
-qqnorm(d.sal.abx[which(d.sal.abx$Season == "Summer"),]$SlopeTime)
-qqline(d.sal.abx[which(d.sal.abx$Season == "Summer"),]$SlopeTime)
-shapiro.test(d.sal.abx[which(d.sal.abx$Season == "Summer"),]$SlopeTime)
-  # p-value = 0.1769
-  # Normal
-
-# Saline Spring No ABX
-hist(d.sal.noabx[which(d.sal.noabx$Season == "Spring"),]$SlopeTime)
-qqnorm(d.sal.noabx[which(d.sal.noabx$Season == "Spring"),]$SlopeTime)
-qqline(d.sal.noabx[which(d.sal.noabx$Season == "Spring"),]$SlopeTime)
-shapiro.test(d.sal.noabx[which(d.sal.noabx$Season == "Spring"),]$SlopeTime)
-  # p-value = 0.5166
-  # Normal
-
-
-### Test Diet
-
-# Saline Summer ABX
-wilcox.test(SlopeTime ~ Diet, data = d.sal.abx[which(d.sal.abx$Season == "Summer"),])
-  # p-value = 0.4
-
-# Saline Spring No ABX
-wilcox.test(SlopeTime ~ Diet, data = d.sal.noabx[which(d.sal.noabx$Season == "Spring"),])
-  # p-value = 0.6286
 
 
 
-### Test Diet Variance
 
-# Saline Summer ABX
-fligner.test(SlopeTime ~ Diet, data = d.sal.abx[which(d.sal.abx$Season == "Summer"),])
-  # p-value = 0.1683
 
-# Saline Spring No ABX
-fligner.test(SlopeTime ~ Diet, data = d.sal.noabx[which(d.sal.noabx$Season == "Spring"),])
-  # p-value = 0.3381
-```
