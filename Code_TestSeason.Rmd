@@ -40,19 +40,19 @@ crds <- import.crds('CSV', 'metadata.csv')
 crds.bin <- bin.crds(crds)
 ```
 
-
 ### Summarize by Substrate + ABX
 ```{r}
 ### Remove Inulin outliers
-crds.rem <- crds.bin[-which(crds.bin$ID == "S34"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "S37"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "P30"),]
+#crds.rem <- crds.bin[-which(crds.bin$ID == "S34"),]
+crds.rem <- crds.bin[-which(crds.bin$ID == "S37"),]
+  # ABX didn't work; high [DNA]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "P30"),]
 
 # Remove Saline outliers
-crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
   # This is an adult, not pup
 
@@ -201,6 +201,8 @@ cor.test(d.sal.abx$TimeMaxD, d.sal.abx$Ketones, method = "spearman")
   # rho = 0.6277548
 cor.test(d.sal.noabx$TimeMaxD, d.sal.noabx$Ketones, method = "spearman")
   # p-value = 0.8187
+
+
 ```
 
 
@@ -507,66 +509,6 @@ inu.all <- crds.sum[which(crds.sum$Substrate == "Inulin"),]
 sal.all <- crds.sum[which(crds.sum$Substrate == "Saline"),]
 ```
 
-### Test baseline - Diet
-```{r}
-### Separate samples
-crds.base <- crds.rem[which(crds.rem$RelTime < 0),]
-base.inu <- crds.base[which(crds.base$Substrate == "Inulin"),]
-base.sal <- crds.base[which(crds.base$Substrate == "Saline"),]
-base.inu.abx <- base.inu[which(base.inu$Antibiotics == "Yes"),]
-base.sal.abx <- base.sal[which(base.sal$Antibiotics == "Yes"),]
-base.inu.noabx <- base.inu[which(base.inu$Antibiotics == "No"),]
-base.sal.noabx <- base.inu[which(base.inu$Antibiotics == "No"),]
-
-
-### Check Normality
-hist(base.inu$Delta)
-qqnorm(base.inu$Delta)
-qqline(base.inu$Delta)
-shapiro.test(base.inu$Delta)
-  # p-value = 0.0945
-
-hist(base.inu.abx$Delta)
-qqnorm(base.inu.abx$Delta)
-qqline(base.inu.abx$Delta)
-shapiro.test(base.inu.abx$Delta)
-  # p-value = 0.05011
-
-hist(base.inu.noabx$Delta)
-qqnorm(base.inu.noabx$Delta)
-qqline(base.inu.noabx$Delta)
-shapiro.test(base.inu.noabx$Delta)
-  # p-value = 0.2615
-
-hist(base.sal$Delta)
-qqnorm(base.sal$Delta)
-qqline(base.sal$Delta)
-shapiro.test(base.sal$Delta)
-  # p-value = 0.003509
-
-hist(base.sal.abx$Delta)
-qqnorm(base.sal.abx$Delta)
-qqline(base.sal.abx$Delta)
-shapiro.test(base.sal.abx$Delta)
-  # p-value = 0.01176
-
-hist(base.sal.noabx$Delta)
-qqnorm(base.sal.noabx$Delta)
-qqline(base.sal.noabx$Delta)
-shapiro.test(base.sal.noabx$Delta)
-  # p-value = 0.2615
-
-
-### Test baseline - Diet
-# Saline
-wilcox.test(Delta ~ Diet, data = base.sal.noabx[which(base.sal.noabx$Season == "Spring"),])
-  # p-value = 0.381
-wilcox.test(Delta ~ Diet, data = base.sal.abx[which(base.sal.abx$Season == "Winter"),])
-  # p-value = 0.8
-wilcox.test(Delta ~ Diet, data = base.sal.abx[which(base.sal.abx$Season == "Summer"),])
-  # p-value = 0.8571
-```
-
 
 ### Calculate AUC
 ```{r}
@@ -606,7 +548,6 @@ for (i in 1:length(ids)){
   # Normalize length to min time within each substrate
     # Inu = 4.0667
     # Sal = 2.21667
-    # Man = 1.95
   if (select$Substrate == "Inulin") {
     max <- which(select$RelTime > 4.06667)
     select$RelTime[max] <- 4.06667
@@ -842,27 +783,6 @@ p.adjust(c(0.2006, 0.7246, 0.2156, 0.5819), method = "BH")
   # 0.4312 0.7246 0.4312 0.7246
 
 
-### Test AUC - Diet
-
-# Saline
-wilcox.test(AUC ~ Diet, data = auc.sal.noabx[which(auc.sal.noabx$Season == "Spring"),])
-  # p-value = 0.05714
-wilcox.test(AUC ~ Diet, data = auc.sal.abx[which(auc.sal.abx$Season == "Winter"),])
-  # p-value = 0.4
-wilcox.test(AUC ~ Diet, data = auc.sal.abx[which(auc.sal.abx$Season == "Summer"),])
-  # p-value = 0.8571
-
-
-
-### Test AUC Variance - Diet
-
-# Saline
-fligner.test(AUC ~ Diet, auc.sal.noabx[which(auc.sal.noabx$Season == "Spring"),])
-  # p-value = 0.1697
-fligner.test(AUC ~ Diet, auc.sal.abx[which(auc.sal.abx$Season == "Winter"),])
-  # p-value = 0.1977
-fligner.test(AUC ~ Diet, auc.sal.abx[which(auc.sal.abx$Season == "Summer"),])
-  # p-value = 0.416
 
 
 
