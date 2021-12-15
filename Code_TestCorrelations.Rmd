@@ -1,0 +1,415 @@
+---
+title: "Code_TestCorrelations"
+author: "Edna Chiang"
+date: "12/14/2021"
+output: html_document
+---
+
+### Load Packages, scripts, and functions
+```{r}
+library(ggplot2)
+library(plyr)
+library(dplyr)
+library(grid)
+library(MESS)
+library(pgirmess)
+library(Bolstad2)
+library(phyloseq)
+library(miLineage)
+library(psych)
+library(car)
+source('scripts/import_crds.R')
+source('scripts/bin_crds.R')
+source('scripts/misc.R')
+source('scripts/calc_delta_metrics.R')
+set.seed(1)
+theme_set(theme_bw())
+
+### Stats Notes
+# Use 'subset' in kruskal.test
+# Do NOT use 'subset' in kruskalmc or pairwise.wilcox.test; it doesn't work!
+```
+
+### Load Data
+```{r}
+crds <- import.crds('CSV', 'metadata.csv')
+```
+
+### Bin RelTime
+```{r}
+crds.bin <- bin.crds(crds)
+```
+
+
+### Summarize by Substrate + ABX
+```{r}
+### Remove Inulin outliers
+#crds.rem <- crds.bin[-which(crds.bin$ID == "S34"),]
+crds.rem <- crds.bin[-which(crds.bin$ID == "S37"),]
+  # ABX didn't work; high [DNA]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "P30"),]
+
+# Remove Saline outliers
+#crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
+#crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
+  # This is an adult, not pup
+
+crds.rem$Season <- ordered(crds.rem$Season, levels=c("Summer", "Winter", "Spring"))
+
+
+# Summarize
+crds.sum <- crds.rem %>%
+  group_by(Substrate, Antibiotics, Season, BinTime) %>%
+  summarize(Y_Mean = mean(Delta),
+            Y_Median = median(Delta),
+            Y_SD = sd(Delta),
+            Y_SE = se(Delta),
+            Y_IQR = IQR(Delta),
+            X_Mean = mean(RelTime),
+            X_Median = median(RelTime),
+            X_SD = sd(RelTime),
+            X_SE = se(RelTime),
+            X_IQR = IQR(RelTime),
+            SampSize = n())
+  # X_Mean is different from BinTime because BinTime was calculated with ABX and non-ABX combined
+    # BinTime was calculated this way to make sure datapoints for all individuals will align together on x-axis. If datapoints are misaligned that can be confusing for the audience. So binning was done this way for the clearest visualization.
+    # X_Mean is calculated for ABX and non-ABX separately, so there will be some variation
+crds.sum$Season <- ordered(crds.sum$Season, levels=c("Summer", "Winter", "Spring"))
+```
+
+
+### Calculate Delta Metrics
+```{r}
+# Calculate delta metrics
+d.metrics <- calc.delta.metrics(crds.rem)
+#write.csv(d.metrics, "delta_metrics.csv", row.names = F)
+
+# Load metadata
+meta <- read.csv('metadata.csv', fileEncoding="UTF-8-BOM")
+
+# Add metadata to delta metrics
+d.metrics[,colnames(meta)[3:12]] <- NA
+for(sq in 1:nrow(d.metrics)){
+  meta.row <- which(meta$ID == d.metrics$ID[sq])
+  d.metrics[sq, 5:14] <- meta[meta.row, 3:12]
+}
+
+# Convert to numeric
+d.metrics$TimeMaxD <- as.numeric(d.metrics$TimeMaxD)
+d.metrics$Slope <- as.numeric(d.metrics$Slope)
+d.metrics$SlopeTime <- as.numeric(d.metrics$SlopeTime)
+
+# Order seasons
+d.metrics$Season <- ordered(d.metrics$Season, levels=c("Summer", "Winter", "Spring"))
+
+# Separate substrates
+d.inu <- d.metrics[which(d.metrics$Substrate == "Inulin"),]
+d.sal <- d.metrics[which(d.metrics$Substrate == "Saline"),]
+
+# Separate by substrate + ABX
+d.inu.abx <- d.inu[which(d.inu$Antibiotics == "Yes"),]
+d.inu.noabx <- d.inu[which(d.inu$Antibiotics == "No"),]
+d.sal.abx <- d.sal[which(d.sal$Antibiotics == "Yes"),]
+d.sal.noabx <- d.sal[which(d.sal$Antibiotics == "No"),]
+```
+
+### Test Time of Max Delta Measurement
+```{r}
+### Test BodyMass Correlation
+cor.test(d.inu.abx$TimeMaxD, d.inu.abx$BodyMass, method = "spearman")
+  # p-value = 0.9611
+cor.test(d.inu.noabx$TimeMaxD, d.inu.noabx$BodyMass, method = "spearman")
+  # p-value = 0.096
+cor.test(d.sal.abx$TimeMaxD, d.sal.abx$BodyMass, method = "spearman")
+  # p-value = 0.006558
+  # rho = -0.6153847
+cor.test(d.sal.noabx$TimeMaxD, d.sal.noabx$BodyMass, method = "spearman")
+  # p-value = 0.4812
+
+
+### Test BodyTemp Correlation
+cor.test(d.inu.abx$TimeMaxD, d.inu.abx$BodyTemp, method = "spearman")
+  # p-value = 0.4017
+cor.test(d.inu.noabx$TimeMaxD, d.inu.noabx$BodyTemp, method = "spearman")
+  # p-value = 0.967
+cor.test(d.sal.abx$TimeMaxD, d.sal.abx$BodyTemp, method = "spearman")
+  # p-value = 0.2727
+cor.test(d.sal.noabx$TimeMaxD, d.sal.noabx$BodyTemp, method = "spearman")
+  # p-value = 0.587
+
+
+### Test Ketones Correlation
+cor.test(d.inu.abx$TimeMaxD, d.inu.abx$Ketones, method = "spearman")
+  # p-value = 0.1804
+cor.test(d.inu.noabx$TimeMaxD, d.inu.noabx$Ketones, method = "spearman")
+  # p-value = 0.8164
+cor.test(d.sal.abx$TimeMaxD, d.sal.abx$Ketones, method = "spearman")
+  # p-value = 0.01623
+  # rho = 0.6277548
+cor.test(d.sal.noabx$TimeMaxD, d.sal.noabx$Ketones, method = "spearman")
+  # p-value = 0.8187
+```
+
+
+
+### Test Delta Curve Slope
+```{r}
+### Test BodyMass Correlation
+cor.test(d.inu.abx$Slope, d.inu.abx$BodyMass, method = "spearman")
+  # p-value = 0.1499
+cor.test(d.inu.noabx$Slope, d.inu.noabx$BodyMass, method = "spearman")
+  # p-value = 0.01673
+  # rho = 0.5338346
+cor.test(d.sal.abx$Slope, d.sal.abx$BodyMass, method = "spearman")
+  # p-value = 0.1474
+cor.test(d.sal.noabx$Slope, d.sal.noabx$BodyMass, method = "spearman")
+  # p-value = 0.8203
+
+
+### Test BodyTemp Correlation
+cor.test(d.inu.abx$Slope, d.inu.abx$BodyTemp, method = "spearman")
+  # p-value = 0.5333
+cor.test(d.inu.noabx$Slope, d.inu.noabx$BodyTemp, method = "spearman")
+  # p-value = 0.4361
+cor.test(d.sal.abx$Slope, d.sal.abx$BodyTemp, method = "spearman")
+  # p-value = 0.6344
+cor.test(d.sal.noabx$Slope, d.sal.noabx$BodyTemp, method = "spearman")
+  # p-value = 0.1671
+
+
+### Test Ketones Correlation
+cor.test(d.inu.abx$Slope, d.inu.abx$Ketones, method = "spearman")
+  # p-value = 0.1081
+cor.test(d.inu.noabx$Slope, d.inu.noabx$Ketones, method = "spearman")
+  # p-value = 0.001904
+  # rho = -0.7136781
+cor.test(d.sal.abx$Slope, d.sal.abx$Ketones, method = "spearman")
+  # p-value = 0.9702
+cor.test(d.sal.noabx$Slope, d.sal.noabx$Ketones, method = "spearman")
+  # p-value = 0.3014
+```
+
+### Test Time of Max Slope
+```{r}
+### Test BodyMass Correlation
+cor.test(d.inu.abx$SlopeTime, d.inu.abx$BodyMass, method = "spearman")
+  # p-value = 0.1834
+cor.test(d.inu.noabx$SlopeTime, d.inu.noabx$BodyMass, method = "spearman")
+  # p-value = 0.2928
+cor.test(d.sal.abx$SlopeTime, d.sal.abx$BodyMass, method = "spearman")
+  # p-value = 0.1286
+cor.test(d.sal.noabx$SlopeTime, d.sal.noabx$BodyMass, method = "spearman")
+  # p-value = 0.2559
+
+
+### Test BodyTemp Correlation
+cor.test(d.inu.abx$SlopeTime, d.inu.abx$BodyTemp, method = "spearman")
+  # p-value = 0.9967
+cor.test(d.inu.noabx$SlopeTime, d.inu.noabx$BodyTemp, method = "spearman")
+  # p-value = 0.3397
+cor.test(d.sal.abx$SlopeTime, d.sal.abx$BodyTemp, method = "spearman")
+  # p-value = 0.3324
+cor.test(d.sal.noabx$SlopeTime, d.sal.noabx$BodyTemp, method = "spearman")
+  # p-value = 0.6535
+
+
+### Test Ketones Correlation
+cor.test(d.inu.abx$SlopeTime, d.inu.abx$Ketones, method = "spearman")
+  # p-value = 0.09264
+cor.test(d.inu.noabx$SlopeTime, d.inu.noabx$Ketones, method = "spearman")
+  # p-value = 0.4216
+cor.test(d.sal.abx$SlopeTime, d.sal.abx$Ketones, method = "spearman")
+  # p-value = 0.6085
+cor.test(d.sal.noabx$SlopeTime, d.sal.noabx$Ketones, method = "spearman")
+  # p-value = 0.8872
+```
+
+### Separate by substrate
+```{r}
+inu.all <- crds.sum[which(crds.sum$Substrate == "Inulin"),]
+sal.all <- crds.sum[which(crds.sum$Substrate == "Saline"),]
+```
+
+
+### Calculate AUC
+```{r}
+# AUC = Area Under Curve
+# Trapezoid Method
+
+### Calculate AUC
+ids <- unique(crds.rem$ID)
+auc.df <- data.frame(crds.rem[1,])
+auc.df <- auc.df[,-2:-3]
+  # Remove Delta and CO2 cols
+auc.df <- auc.df[,-13]
+  # Remove BinTime col
+colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate", "Diet", "Mom", "Mom_Location", "BodyMass", "BodyTemp")
+auc.df$Ketones <- NA
+  # Rename cols
+meta <- read.csv('metadata.csv', fileEncoding="UTF-8-BOM")
+
+#crds.rem= crds.bin
+# First normalize Rel Time so 
+#for (i in 2){
+for (i in 1:length(ids)){
+  ID <- ids[i]
+  select <- crds.rem[which(crds.rem$ID == ID),]
+    # Dataframe with CRDS values for 1 squirrel
+
+  # Normalize delta value to baseline
+  select$Delta <- select$Delta - select$Delta[1]
+  
+  # Remove baseline from AUC calculation because we care about the AUC after gavage
+  # Since we already normalized delta value to baseline, we don't need that value anymore
+  # Set baseline to gavage time = 0
+  select[1,1] <- 0
+  
+  # Normalize AUC end time
+  # Since length of experiment varies for each individual, we don't want experimental length to bias our AUC calculations
+  # Normalize length to min time within each substrate
+    # Inu = 4.0667
+    # Sal = 2.21667
+  if (select$Substrate == "Inulin") {
+    max <- which(select$RelTime > 4.06667)
+    select$RelTime[max] <- 4.06667
+  } else if (select$Substrate == "Saline") {
+    max <- which(select$RelTime > 2.21666667)
+    select$RelTime[max] <- 2.21666667
+  }
+
+  # Create auc variable
+  AUC <- 0
+  
+  # Run rectangle method integration - less accurate
+  #for (j in 1:(nrow(select)-1)){
+  #  AUC <- AUC + ((select$RelTime[j+1]-select$RelTime[j])*select$Delta[j+1])
+  #}
+  
+  # Run trapezoid method integration - more accurate
+  for(j in 1:(nrow(select)-1)){
+    avgH <- (select$Delta[j+1]+select$Delta[j])/2
+      # Calculates average height between start and end point
+    width <- (select$RelTime[j+1]-select$RelTime[j])
+    AUC <- AUC + (avgH*width)
+  }
+    
+  auc.df[i,1] <- AUC
+  auc.df[i, 2:12] <- select[1, 4:14]
+  
+  use <- which(meta$ID == ID)
+  auc.df$Ketones[i] <- meta$Ketones[use]
+}
+
+#write.csv(auc.df, "auc.csv", row.names=F)
+
+
+### Subset by Substrate & ABX
+auc.inu <- auc.df[which(auc.df$Substrate == "Inulin"),]
+auc.sal <- auc.df[which(auc.df$Substrate == "Saline"),]
+auc.inu.s <- auc.inu[which(auc.inu$Season == "Summer"),]
+auc.inu.w <- auc.inu[which(auc.inu$Season == "Winter"),]
+auc.inu.p <- auc.inu[which(auc.inu$Season == "Spring"),]
+auc.sal.s <- auc.sal[which(auc.sal$Season == "Summer"),]
+auc.sal.w <- auc.sal[which(auc.sal$Season == "Winter"),]
+auc.sal.p <- auc.sal[which(auc.sal$Season == "Spring"),]
+auc.inu.abx <- auc.inu[which(auc.inu$Antibiotics == "Yes"),]
+auc.inu.noabx <- auc.inu[which(auc.inu$Antibiotics == "No"),]
+auc.sal.abx <- auc.sal[which(auc.sal$Antibiotics == "Yes"),]
+auc.sal.noabx <- auc.sal[which(auc.sal$Antibiotics == "No"),]
+```
+
+### Test AUC
+```{r}
+### Test AUC - BodyMass Correlation ###
+
+# Inulin
+cor.test(auc.inu.noabx$AUC, auc.inu.noabx$BodyMass, method = "spearman")
+  # p-value = 0.4802
+cor.test(auc.inu.s[which(auc.inu.s$Antibiotics == "No"),1],
+         auc.inu.s[which(auc.inu.s$Antibiotics == "No"),11], method = "spearman")
+  # p-value = 1
+cor.test(auc.inu.w[which(auc.inu.w$Antibiotics == "No"),1],
+         auc.inu.w[which(auc.inu.w$Antibiotics == "No"),11], method = "spearman")
+  # p-value = 0.4444
+cor.test(auc.inu.p[which(auc.inu.p$Antibiotics == "No"),1],
+         auc.inu.p[which(auc.inu.p$Antibiotics == "No"),11], method = "spearman")
+  # p-value = 0.5948
+
+# Saline
+cor.test(auc.sal.noabx$AUC, auc.sal.noabx$BodyMass, method = "spearman")
+  # p-value = 0.2654
+cor.test(auc.sal.s[which(auc.sal.s$Antibiotics == "No"),1],
+         auc.sal.s[which(auc.sal.s$Antibiotics == "No"),11], method = "spearman")
+  # p-value = 0.7139
+cor.test(auc.sal.w[which(auc.sal.w$Antibiotics == "No"),1],
+         auc.sal.w[which(auc.sal.w$Antibiotics == "No"),11], method = "spearman")
+  # p-value = 0.3556
+cor.test(auc.sal.p[which(auc.sal.p$Antibiotics == "No"),1],
+         auc.sal.p[which(auc.sal.p$Antibiotics == "No"),11], method = "spearman")
+  # p-value = 0.8397
+
+
+
+### Test AUC - BodyTemp Correlation ###
+
+# Inulin
+cor.test(auc.inu.noabx$AUC, auc.inu.noabx$BodyTemp, method = "spearman")
+  # p-value = 0.0576
+cor.test(auc.inu.s[which(auc.inu.s$Antibiotics == "No"),1],
+         auc.inu.s[which(auc.inu.s$Antibiotics == "No"),12], method = "spearman")
+  # p-value = 0.6121
+cor.test(auc.inu.w[which(auc.inu.w$Antibiotics == "No"),1],
+         auc.inu.w[which(auc.inu.w$Antibiotics == "No"),12], method = "spearman")
+  # p-value = 0.07433
+cor.test(auc.inu.p[which(auc.inu.p$Antibiotics == "No"),1],
+         auc.inu.p[which(auc.inu.p$Antibiotics == "No"),12], method = "spearman")
+  # p-value = 0.3979
+
+# Saline
+cor.test(auc.sal.noabx$AUC, auc.sal.noabx$BodyTemp, method = "spearman")
+  # p-value = 0.2223
+cor.test(auc.sal.s[which(auc.sal.s$Antibiotics == "No"),1],
+         auc.sal.s[which(auc.sal.s$Antibiotics == "No"),12], method = "spearman")
+  # p-value = 0.07234
+cor.test(auc.sal.w[which(auc.sal.w$Antibiotics == "No"),1],
+         auc.sal.w[which(auc.sal.w$Antibiotics == "No"),12], method = "spearman")
+  # p-value = 0.6483
+cor.test(auc.sal.p[which(auc.sal.p$Antibiotics == "No"),1],
+         auc.sal.p[which(auc.sal.p$Antibiotics == "No"),12], method = "spearman")
+  # p-value = 0.4647
+
+
+
+### Test AUC - Ketones Correlation ###
+
+# Inulin
+cor.test(auc.inu.noabx$AUC, auc.inu.noabx$Ketones, method = "spearman")
+  # p-value = 0.3699
+cor.test(auc.inu.s[which(auc.inu.s$Antibiotics == "No"),1],
+         auc.inu.s[which(auc.inu.s$Antibiotics == "No"),13], method = "spearman")
+  # p-value = NA
+cor.test(auc.inu.w[which(auc.inu.w$Antibiotics == "No"),1],
+         auc.inu.w[which(auc.inu.w$Antibiotics == "No"),13], method = "spearman")
+  # p-value = 0.02381
+  # rho = 0.8571429
+  # More inulin metabolism when ketones is higher, so more inulin metab when host metabolizes more fatty acids / has low carb storage
+cor.test(auc.inu.p[which(auc.inu.p$Antibiotics == "No"),1],
+         auc.inu.p[which(auc.inu.p$Antibiotics == "No"),13], method = "spearman")
+  # p-value = 0.6351
+
+# Saline
+cor.test(auc.sal.noabx$AUC, auc.sal.noabx$Ketones, method = "spearman")
+  # p-value = 0.2355
+cor.test(auc.sal.s[which(auc.sal.s$Antibiotics == "No"),1],
+         auc.sal.s[which(auc.sal.s$Antibiotics == "No"),13], method = "spearman")
+  # p-value = 1
+cor.test(auc.sal.w[which(auc.sal.w$Antibiotics == "No"),1],
+         auc.sal.w[which(auc.sal.w$Antibiotics == "No"),13], method = "spearman")
+  # p-value = 0.3206
+cor.test(auc.sal.p[which(auc.sal.p$Antibiotics == "No"),1],
+         auc.sal.p[which(auc.sal.p$Antibiotics == "No"),13], method = "spearman")
+  # p-value = 0.8007
+```
