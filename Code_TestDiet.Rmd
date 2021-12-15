@@ -44,6 +44,8 @@ crds.bin <- bin.crds(crds)
 ```{r}
 ### Remove Inulin outliers
 #crds.rem <- crds.bin[-which(crds.bin$ID == "S34"),]
+crds.rem <- crds.bin[-which(crds.bin$ID == "S37"),]
+  # ABX didn't work; high [DNA]
 #crds.rem <- crds.rem[-which(crds.rem$ID == "S37"),]
 #crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
 #crds.rem <- crds.rem[-which(crds.rem$ID == "P30"),]
@@ -52,7 +54,7 @@ crds.bin <- bin.crds(crds)
 #crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
 #crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
 #crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
-crds.rem <- crds.bin[-which(crds.bin$ID == "P04"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
 #crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
   # This is an adult, not pup
 
@@ -134,8 +136,8 @@ hist(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$TimeMaxD)
 qqnorm(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$TimeMaxD)
 qqline(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$TimeMaxD)
 shapiro.test(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$TimeMaxD)
-  # p-value = 0.005404
-  # Not Normal
+  # p-value = 0.1092
+  # Normal
 
 # Saline Summer ABX
 hist(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$TimeMaxD)
@@ -166,8 +168,8 @@ shapiro.test(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$TimeMaxD)
 ### Test Diet
 
 # Inulin Summer ABX
-wilcox.test(TimeMaxD ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
-  # p-value = 0.4
+t.test(TimeMaxD ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
+  # p-value = 0.8374
 
 # Saline Summer ABX
 t.test(TimeMaxD ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
@@ -186,8 +188,8 @@ t.test(TimeMaxD ~ Diet, data = d.sal.p[which(d.sal.p$Antibiotics == "No"),])
 ### Test Diet Variance
 
 # Inulin Summer ABX
-fligner.test(TimeMaxD ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
-  # p-value = 0.3381
+var.test(TimeMaxD ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
+  # p-value = 0.1918
 
 # Saline Summer ABX
 var.test(TimeMaxD ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
@@ -211,8 +213,8 @@ hist(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$Slope)
 qqnorm(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$Slope)
 qqline(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$Slope)
 shapiro.test(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$Slope)
-  # p-value = 1.174e-05
-  # Not Normal
+  # p-value = 0.9513
+  # Normal
 
 # Saline Summer ABX
 hist(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$Slope)
@@ -243,8 +245,8 @@ shapiro.test(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$Slope)
 ### Test Diet
 
 # Inulin Summer ABX
-wilcox.test(Slope ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
-  # p-value = 1
+t.test(Slope ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
+  # p-value = 0.6737
 
 # Saline Summer ABX
 t.test(Slope ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
@@ -263,9 +265,8 @@ t.test(Slope ~ Diet, data = d.sal.p[which(d.sal.p$Antibiotics == "No"),])
 ### Test Diet Variance
 
 # Inulin Summer ABX
-fligner.test(Slope ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
-  # p-value = 0.04413*
-  # But it looks like there was an ABX male that didn't work, so I need to double check [DNA] and decide whether it's an outlier or not
+var.test(Slope ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
+  # p-value = 0.1498
 
 # Saline Summer ABX
 var.test(Slope ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
@@ -289,7 +290,7 @@ hist(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$SlopeTime)
 qqnorm(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$SlopeTime)
 qqline(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$SlopeTime)
 shapiro.test(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$SlopeTime)
-  # p-value = 0.713
+  # p-value = 0.06705
   # Normal
 
 # Saline Summer ABX
@@ -322,7 +323,7 @@ shapiro.test(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$SlopeTime)
 
 # Inulin Summer ABX
 t.test(SlopeTime ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
-  # p-value = 0.801
+  # p-value = 0.6738
 
 # Saline Summer ABX
 t.test(SlopeTime ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
@@ -342,7 +343,7 @@ t.test(SlopeTime ~ Diet, data = d.sal.p[which(d.sal.p$Antibiotics == "No"),])
 
 # Inulin Summer ABX
 var.test(SlopeTime ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
-  # p-value = 0.7096
+  # p-value = 0.9145
 
 # Saline Summer ABX
 var.test(SlopeTime ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
