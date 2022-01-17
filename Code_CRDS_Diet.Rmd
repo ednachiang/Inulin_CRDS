@@ -122,13 +122,6 @@ shapiro.test(base.sal.w[which(base.sal.w$Antibiotics == "Yes"),]$Delta)
   # p-value = 9.213e-05
   # Not Normal
 
-# Saline Spring No ABX
-hist(base.sal.p[which(base.sal.p$Antibiotics == "No"),]$Delta)
-qqnorm(base.sal.p[which(base.sal.p$Antibiotics == "No"),]$Delta)
-qqline(base.sal.p[which(base.sal.p$Antibiotics == "No"),]$Delta)
-shapiro.test(base.sal.p[which(base.sal.p$Antibiotics == "No"),]$Delta)
-  # p-value = 2443
-  # Normal
 
 
 # Test baseline
@@ -145,9 +138,7 @@ wilcox.test(Delta ~ Diet, data = base.sal.s[which(base.sal.s$Antibiotics == "Yes
 wilcox.test(Delta ~ Diet, data = base.sal.w[which(base.sal.w$Antibiotics == "Yes"),])
   # p-value = 0.8571
 
-# Saline Spring No ABX
-wilcox.test(Delta ~ Diet, data = base.sal.p[which(base.sal.p$Antibiotics == "No"),])
-  # p-value = 0.1143
+
 
 
 ### Test baseline variance
@@ -164,9 +155,6 @@ fligner.test(Delta ~ Diet, data = base.sal.s[which(base.sal.s$Antibiotics == "Ye
 fligner.test(Delta ~ Diet, data = base.sal.w[which(base.sal.w$Antibiotics == "Yes"),])
   # p-value = 0.3368
 
-# Saline Spring No ABX
-var.test(Delta ~ Diet, data = base.sal.p[which(base.sal.p$Antibiotics == "No"),])
-  # p-value = 0.1722
 ```
 
 
@@ -248,13 +236,6 @@ shapiro.test(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$TimeMaxD)
   # p-value = 0.03481
   # Not Normal
 
-# Saline Spring No ABX
-hist(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$TimeMaxD)
-qqnorm(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$TimeMaxD)
-qqline(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$TimeMaxD)
-shapiro.test(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$TimeMaxD)
-  # p-value = 0.3772
-  # Normal
 
 
 
@@ -272,9 +253,7 @@ t.test(TimeMaxD ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
 wilcox.test(TimeMaxD ~ Diet, data = d.sal.w[which(d.sal.w$Antibiotics == "Yes"),])
   # p-value = 0.05714
 
-# Saline Spring No ABX
-t.test(TimeMaxD ~ Diet, data = d.sal.p[which(d.sal.p$Antibiotics == "No"),])
-  # p-value = 0.7054
+
 
 
 
@@ -292,9 +271,6 @@ var.test(TimeMaxD ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
 fligner.test(TimeMaxD ~ Diet, data = d.sal.w[which(d.sal.w$Antibiotics == "Yes"),])
   # p-value = 0.5827
 
-# Saline Spring No ABX
-var.test(TimeMaxD ~ Diet, data = d.sal.p[which(d.sal.p$Antibiotics == "No"),])
-  # p-value = 0.5707
 ```
 
 ### Test Slope
@@ -325,14 +301,6 @@ shapiro.test(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$Slope)
   # p-value = 0.04597
   # Not Normal
 
-# Saline Spring No ABX
-hist(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$Slope)
-qqnorm(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$Slope)
-qqline(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$Slope)
-shapiro.test(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$Slope)
-  # p-value = 0.2417
-  # Normal
-
 
 
 ### Test Diet
@@ -349,9 +317,6 @@ t.test(Slope ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
 wilcox.test(Slope ~ Diet, data = d.sal.w[which(d.sal.w$Antibiotics == "Yes"),])
   # p-value = 0.05714
 
-# Saline Spring No ABX
-t.test(Slope ~ Diet, data = d.sal.p[which(d.sal.p$Antibiotics == "No"),])
-  # p-value = 0.09955
 
 
 
@@ -368,10 +333,6 @@ var.test(Slope ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
 # Saline Winter ABX
 fligner.test(Slope ~ Diet, data = d.sal.w[which(d.sal.w$Antibiotics == "Yes"),])
   # p-value = 0.3368
-
-# Saline Spring No ABX
-var.test(Slope ~ Diet, data = d.sal.p[which(d.sal.p$Antibiotics == "No"),])
-  # p-value = 0.3336
 ```
 
 ### Test SlopeTime
@@ -402,14 +363,6 @@ shapiro.test(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$SlopeTime)
   # p-value = 0.008874
   # Not Normal
 
-# Saline Spring No ABX
-hist(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$SlopeTime)
-qqnorm(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$SlopeTime)
-qqline(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$SlopeTime)
-shapiro.test(d.sal.p[which(d.sal.p$Antibiotics == "No"),]$SlopeTime)
-  # p-value = 0.5166
-  # Normal
-
 
 
 ### Test Diet
@@ -426,9 +379,6 @@ t.test(SlopeTime ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
 wilcox.test(SlopeTime ~ Diet, data = d.sal.w[which(d.sal.w$Antibiotics == "Yes"),])
   # p-value = 0.3725
 
-# Saline Spring No ABX
-t.test(SlopeTime ~ Diet, data = d.sal.p[which(d.sal.p$Antibiotics == "No"),])
-  # p-value = 0.5143
 
 
 
@@ -445,10 +395,6 @@ var.test(SlopeTime ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
 # Saline Winter ABX
 fligner.test(SlopeTime ~ Diet, data = d.sal.w[which(d.sal.w$Antibiotics == "Yes"),])
   # p-value = 0.9592
-
-# Saline Spring No ABX
-var.test(SlopeTime ~ Diet, data = d.sal.p[which(d.sal.p$Antibiotics == "No"),])
-  # p-value = 0.9629
 ```
 
 ### Calculate AUC
@@ -560,14 +506,6 @@ shapiro.test(auc.sal.s[which(auc.sal.w$Antibiotics == "Yes"),]$AUC)
   # p-value = 0.0796
   # Normal
 
-# Saline Spring No ABX
-hist(auc.sal.p[which(auc.sal.p$Antibiotics == "No"),]$AUC)
-qqnorm(auc.sal.p[which(auc.sal.p$Antibiotics == "No"),]$AUC)
-qqline(auc.sal.p[which(auc.sal.p$Antibiotics == "No"),]$AUC)
-shapiro.test(auc.sal.s[which(auc.sal.p$Antibiotics == "No"),]$AUC)
-  # p-value = 0.1064
-  # Normal
-
 
 
 ### Test Diet
@@ -584,10 +522,6 @@ t.test(AUC ~ Diet, data = auc.sal.s[which(auc.sal.s$Antibiotics == "Yes"),])
 t.test(AUC ~ Diet, data = auc.sal.w[which(auc.sal.w$Antibiotics == "Yes"),])
   # p-value = 0.4859
 
-# Saline Spring No ABX
-t.test(AUC ~ Diet, data = auc.sal.p[which(auc.sal.p$Antibiotics == "No"),])
-  # p-value = 0.0151*
-
 
 
 ### Test Diet Variance
@@ -603,10 +537,6 @@ var.test(AUC ~ Diet, data = auc.sal.s[which(auc.sal.s$Antibiotics == "Yes"),])
 # Saline Winter ABX
 fligner.test(AUC ~ Diet, data = auc.sal.w[which(auc.sal.w$Antibiotics == "Yes"),])
   # p-value = 0.3336
-
-# Saline Spring No ABX
-var.test(AUC ~ Diet, data = auc.sal.p[which(auc.sal.p$Antibiotics == "No"),])
-  # p-value = 0.4637
 ```
 
 
