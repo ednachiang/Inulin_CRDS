@@ -47,13 +47,13 @@ crds.bin <- bin.crds(crds)
 crds.rem <- crds.bin[-which(crds.bin$ID == "S37"),]
   # ABX didn't work; high [DNA]
 #crds.rem <- crds.rem[-which(crds.rem$ID == "S37"),]
-#crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
 #crds.rem <- crds.rem[-which(crds.rem$ID == "P30"),]
 
 # Remove Saline outliers
 #crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
 #crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
-#crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
   # This is an adult, not pup
 
@@ -113,30 +113,17 @@ shapiro.test(base.sal.s[which(base.sal.s$Antibiotics == "Yes"),]$Delta)
   # p-value = 0.02765
   # Not Normal
 
-# Saline Winter ABX
-hist(base.sal.w[which(base.sal.w$Antibiotics == "Yes"),]$Delta)
-qqnorm(base.sal.w[which(base.sal.w$Antibiotics == "Yes"),]$Delta)
-qqline(base.sal.w[which(base.sal.w$Antibiotics == "Yes"),]$Delta)
-shapiro.test(base.sal.w[which(base.sal.w$Antibiotics == "Yes"),]$Delta)
-  # p-value = 9.213e-05
-  # Not Normal
-
 
 
 # Test baseline
 
 # Inulin Summer ABX
 t.test(Delta ~ Diet, data = base.inu.s[which(base.inu.s$Antibiotics == "Yes"),])
-  # p-value = 0.5671
+  # p-value = 0.5571
 
 # Saline Summer ABX
 wilcox.test(Delta ~ Diet, data = base.sal.s[which(base.sal.s$Antibiotics == "Yes"),])
   # p-value = 0.8671
-
-# Saline Winter ABX
-wilcox.test(Delta ~ Diet, data = base.sal.w[which(base.sal.w$Antibiotics == "Yes"),])
-  # p-value = 0.8571
-
 
 
 
@@ -149,10 +136,6 @@ var.test(Delta ~ Diet, data = base.inu.s[which(base.inu.s$Antibiotics == "Yes"),
 # Saline Summer ABX
 fligner.test(Delta ~ Diet, data = base.sal.s[which(base.sal.s$Antibiotics == "Yes"),])
   # p-value = 0.04528*
-
-# Saline Winter ABX
-fligner.test(Delta ~ Diet, data = base.sal.w[which(base.sal.w$Antibiotics == "Yes"),])
-  # p-value = 0.3368
 
 ```
 
@@ -227,14 +210,6 @@ shapiro.test(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$TimeMaxD)
   # p-value = 0.1161
   # Normal
 
-# Saline Winter ABX
-hist(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$TimeMaxD)
-qqnorm(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$TimeMaxD)
-qqline(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$TimeMaxD)
-shapiro.test(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$TimeMaxD)
-  # p-value = 0.03481
-  # Not Normal
-
 
 
 
@@ -247,10 +222,6 @@ t.test(TimeMaxD ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
 # Saline Summer ABX
 t.test(TimeMaxD ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
   # p-value = 0.3587
-
-# Saline Winter ABX
-wilcox.test(TimeMaxD ~ Diet, data = d.sal.w[which(d.sal.w$Antibiotics == "Yes"),])
-  # p-value = 0.05714
 
 
 
@@ -265,10 +236,6 @@ var.test(TimeMaxD ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
 # Saline Summer ABX
 var.test(TimeMaxD ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
   # p-value = 0.5314
-
-# Saline Winter ABX
-fligner.test(TimeMaxD ~ Diet, data = d.sal.w[which(d.sal.w$Antibiotics == "Yes"),])
-  # p-value = 0.5827
 
 ```
 
@@ -292,14 +259,6 @@ shapiro.test(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$Slope)
   # p-value = 0.6855
   # Normal
 
-# Saline Winter ABX
-hist(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$Slope)
-qqnorm(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$Slope)
-qqline(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$Slope)
-shapiro.test(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$Slope)
-  # p-value = 0.04597
-  # Not Normal
-
 
 
 ### Test Diet
@@ -311,10 +270,6 @@ t.test(Slope ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
 # Saline Summer ABX
 t.test(Slope ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
   # p-value = 0.2791
-
-# Saline Winter ABX
-wilcox.test(Slope ~ Diet, data = d.sal.w[which(d.sal.w$Antibiotics == "Yes"),])
-  # p-value = 0.05714
 
 
 
@@ -328,10 +283,6 @@ var.test(Slope ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
 # Saline Summer ABX
 var.test(Slope ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
   # p-value = 0.2161
-
-# Saline Winter ABX
-fligner.test(Slope ~ Diet, data = d.sal.w[which(d.sal.w$Antibiotics == "Yes"),])
-  # p-value = 0.3368
 ```
 
 ### Test SlopeTime
@@ -354,13 +305,6 @@ shapiro.test(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$SlopeTime)
   # p-value = 0.1769
   # Normal
 
-# Saline Winter ABX
-hist(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$SlopeTime)
-qqnorm(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$SlopeTime)
-qqline(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$SlopeTime)
-shapiro.test(d.sal.w[which(d.sal.w$Antibiotics == "Yes"),]$SlopeTime)
-  # p-value = 0.008874
-  # Not Normal
 
 
 
@@ -373,10 +317,6 @@ t.test(SlopeTime ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
 # Saline Summer ABX
 t.test(SlopeTime ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
   # p-value = 0.2046
-
-# Saline Winter ABX
-wilcox.test(SlopeTime ~ Diet, data = d.sal.w[which(d.sal.w$Antibiotics == "Yes"),])
-  # p-value = 0.3725
 
 
 
@@ -391,9 +331,6 @@ var.test(SlopeTime ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
 var.test(SlopeTime ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
   # p-value = 0.2689
 
-# Saline Winter ABX
-fligner.test(SlopeTime ~ Diet, data = d.sal.w[which(d.sal.w$Antibiotics == "Yes"),])
-  # p-value = 0.9592
 ```
 
 ### Calculate AUC
@@ -497,14 +434,6 @@ shapiro.test(auc.sal.s[which(auc.sal.s$Antibiotics == "Yes"),]$AUC)
   # p-value = 0.4136
   # Normal
 
-# Saline Winter ABX
-hist(auc.sal.w[which(auc.sal.w$Antibiotics == "Yes"),]$AUC)
-qqnorm(auc.sal.w[which(auc.sal.w$Antibiotics == "Yes"),]$AUC)
-qqline(auc.sal.w[which(auc.sal.w$Antibiotics == "Yes"),]$AUC)
-shapiro.test(auc.sal.s[which(auc.sal.w$Antibiotics == "Yes"),]$AUC)
-  # p-value = 0.0796
-  # Normal
-
 
 
 ### Test Diet
@@ -517,10 +446,6 @@ t.test(AUC ~ Diet, data = auc.inu.s[which(auc.inu.s$Antibiotics == "Yes"),])
 t.test(AUC ~ Diet, data = auc.sal.s[which(auc.sal.s$Antibiotics == "Yes"),])
   # p-value = 0.503
 
-# Saline Winter ABX
-t.test(AUC ~ Diet, data = auc.sal.w[which(auc.sal.w$Antibiotics == "Yes"),])
-  # p-value = 0.4859
-
 
 
 ### Test Diet Variance
@@ -532,10 +457,6 @@ var.test(AUC ~ Diet, data = auc.inu.s[which(auc.inu.s$Antibiotics == "Yes"),])
 # Saline Summer ABX
 var.test(AUC ~ Diet, data = auc.sal.s[which(auc.sal.s$Antibiotics == "Yes"),])
   # p-value = 0.507
-
-# Saline Winter ABX
-fligner.test(AUC ~ Diet, data = auc.sal.w[which(auc.sal.w$Antibiotics == "Yes"),])
-  # p-value = 0.3336
 ```
 
 
