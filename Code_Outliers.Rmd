@@ -209,7 +209,7 @@ auc.sal.p <- auc.sal[which(auc.sal$Season == "Spring"),]
 ```
 
 
-### Test baseline - Diet
+### Separate Samples
 ```{r}
 ### Separate samples
 crds.base <- crds.rem[which(crds.rem$RelTime < 0),]
@@ -222,6 +222,28 @@ base.sal.s <- base.sal[which(base.sal$Season == "Summer"),]
 base.sal.w <- base.sal[which(base.sal$Season == "Winter"),]
 base.sal.p <- base.sal[which(base.sal$Season == "Spring"),]
 ```
+
+
+
+### DNA Concentration
+```{r}
+dna <- read.csv("dna.csv", header=T)
+
+# Pull out content samples
+cc <-
+dna.con <- dna[which(substr(dna$Sample,1,2) == "CC"),]
+
+# Separate
+dna.inu <- dna.con[which(dna.con$Substrate == "Inulin"),]
+dna.sal <- dna.con[which(dna.con$Substrate == "Saline"),]
+dna.inu.s <- dna.inu[which(dna.inu$Season == "Summer"),]
+dna.inu.w <- dna.inu[which(dna.inu$Season == "Winter"),]
+dna.inu.p <- dna.inu[which(dna.inu$Season == "Spring"),]
+dna.sal.s <- dna.sal[which(dna.sal$Season == "Summer"),]
+dna.sal.w <- dna.sal[which(dna.sal$Season == "Winter"),]
+dna.sal.p <- dna.sal[which(dna.sal$Season == "Spring"),]
+```
+
 
 ### Find outliers
 ```{r}
@@ -298,4 +320,25 @@ ggplot(d.sal.w, aes(x = Antibiotics, y = SlopeTime, fill = Antibiotics)) +
   geom_boxplot()
 ggplot(d.sal.p, aes(x = Antibiotics, y = SlopeTime, fill = Antibiotics)) +
   geom_boxplot()
+
+
+
+### Boxplot - DNA Concentration
+ggplot(dna.inu.s, aes(x = Antibiotics, y = DNA_Yield_.ng.mg., fill = Antibiotics)) +
+  geom_boxplot()
+  # 1 ABX
+ggplot(dna.inu.w, aes(x = Antibiotics, y = DNA_Yield_.ng.mg., fill = Antibiotics)) +
+  geom_boxplot()
+  # 1 No ABX
+ggplot(dna.inu.p, aes(x = Antibiotics, y = DNA_Yield_.ng.mg., fill = Antibiotics)) +
+  geom_boxplot()
+  # 1 ABX
+ggplot(dna.sal.s, aes(x = Antibiotics, y = DNA_Yield_.ng.mg., fill = Antibiotics)) +
+  geom_boxplot()
+  # 1 No ABX
+ggplot(dna.sal.w, aes(x = Antibiotics, y = DNA_Yield_.ng.mg., fill = Antibiotics)) +
+  geom_boxplot()
+ggplot(dna.sal.p, aes(x = Antibiotics, y = DNA_Yield_.ng.mg., fill = Antibiotics)) +
+  geom_boxplot()
+  # 1 ABX
 ```
