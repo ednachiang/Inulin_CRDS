@@ -544,14 +544,16 @@ fligner.test(AUC ~ Season, auc.inu.noabx[which(auc.inu.noabx$Season != "Winter")
   # p-value = 0.04832*
 fligner.test(AUC ~ Season, auc.inu.noabx[which(auc.inu.noabx$Season != "Summer"),])
   # p-value = 0.01802*
+p.adjust(c(0.3274, 0.04832, 0.01802), method = "fdr")
+  # 0.32740 0.07248 0.05406
+
 fligner.test(AUC ~ Season, auc.sal.noabx)
   # p-value = 0.8339
 fligner.test(AUC ~ Season, auc.inu.abx)
   # p-value = 0.4247
 fligner.test(AUC ~ Season, auc.sal.abx)
   # p-value = 0.5042
-p.adjust(c(0.02061, 0.3274, 0.04832, 0.01802), method = "fdr")
-  # 0.04122000* 0.32740000 0.06442667 0.04122000*
+
 
 
 ### Test AUC - Seasons
