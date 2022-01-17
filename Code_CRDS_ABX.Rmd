@@ -45,13 +45,13 @@ crds.bin <- bin.crds(crds)
 #crds.rem <- crds.bin[-which(crds.bin$ID == "S34"),]
 crds.rem <- crds.bin[-which(crds.bin$ID == "S37"),]
   # ABX didn't work; high [DNA]
-#crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
 #crds.rem <- crds.rem[-which(crds.rem$ID == "P30"),]
 
 # Remove Saline outliers
 #crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
 #crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
-#crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
   # This is an adult, not pup
 
@@ -115,8 +115,8 @@ hist(base.inu.p$Delta)
 qqnorm(base.inu.p$Delta)
 qqline(base.inu.p$Delta)
 shapiro.test(base.inu.p$Delta)
-  # p-value = 0.4563
-  # Not Normal
+  # p-value = 0.2146
+  # Normal
 
 # Saline Summer
 hist(base.sal.s$Delta)
@@ -131,7 +131,7 @@ hist(base.sal.w$Delta)
 qqnorm(base.sal.w$Delta)
 qqline(base.sal.w$Delta)
 shapiro.test(base.sal.w$Delta)
-  # p-value = 1.266e-06
+  # p-value = 9.575e-05
   # Not Normal
 
 # Saline Spring
@@ -155,7 +155,7 @@ wilcox.test(Delta ~ Antibiotics, data = base.inu.w)
 
 # Spring
 wilcox.test(Delta ~ Antibiotics, data = base.inu.p)
-  # p-value = 0.0005828*
+  # p-value = 0.001166*
 
 
 
@@ -167,7 +167,7 @@ t.test(Delta ~ Antibiotics, data = base.sal.s)
 
 # Winter
 wilcox.test(Delta ~ Antibiotics, data = base.sal.w)
-  # p-value = 1
+  # p-value = 0.6678
 
 # Spring
 t.test(Delta ~ Antibiotics, data = base.sal.p)
@@ -236,7 +236,7 @@ hist(d.inu.p$TimeMaxD)
 qqnorm(d.inu.p$TimeMaxD)
 qqline(d.inu.p$TimeMaxD)
 shapiro.test(d.inu.p$TimeMaxD)
-  # p-value = 0.02488
+  # p-value = 0.0408
   # Not Normal
 
 # Saline Summer
@@ -252,7 +252,7 @@ hist(d.sal.w$TimeMaxD)
 qqnorm(d.sal.w$TimeMaxD)
 qqline(d.sal.w$TimeMaxD)
 shapiro.test(d.sal.w$TimeMaxD)
-  # p-value = 0.02317
+  # p-value = 0.01029
   # Not Normal
 
 # Saline Spring
@@ -276,7 +276,7 @@ wilcox.test(TimeMaxD ~ Antibiotics, data = d.inu.w)
 
 # Spring
 wilcox.test(TimeMaxD ~ Antibiotics, data = d.inu.p)
-  # p-value = 0.0005828*
+  # p-value = 0.001166*
 
 
 
@@ -288,7 +288,7 @@ wilcox.test(TimeMaxD ~ Antibiotics, data = d.sal.s)
 
 # Winter
 wilcox.test(TimeMaxD ~ Antibiotics, data = d.sal.w)
-  # p-value = 0.1098
+  # p-value = 0.0452*
 
 # Spring
 t.test(TimeMaxD ~ Antibiotics, data = d.sal.p)
@@ -320,7 +320,7 @@ hist(d.inu.p$Slope)
 qqnorm(d.inu.p$Slope)
 qqline(d.inu.p$Slope)
 shapiro.test(d.inu.p$Slope)
-  # p-value = 0.007684
+  # p-value = 0.01576
   # Not Normal
 
 # Saline Summer
@@ -336,7 +336,7 @@ hist(d.sal.w$Slope)
 qqnorm(d.sal.w$Slope)
 qqline(d.sal.w$Slope)
 shapiro.test(d.sal.w$Slope)
-  # p-value = 9.439e-05
+  # p-value = 2.14e-05
   # Not Normal
 
 # Saline Spring
@@ -360,7 +360,7 @@ wilcox.test(Slope ~ Antibiotics, data = d.inu.w)
 
 # Spring
 wilcox.test(Slope ~ Antibiotics, data = d.inu.p)
-  # p-value = 0.0005828*
+  # p-value = 0.001166*
 
 
 
@@ -372,7 +372,7 @@ wilcox.test(Slope ~ Antibiotics, data = d.sal.s)
 
 # Winter
 wilcox.test(Slope ~ Antibiotics, data = d.sal.w)
-  # p-value = 0.9015
+  # p-value = 0.6282
 
 # Spring
 t.test(Slope ~ Antibiotics, data = d.sal.p)
@@ -404,7 +404,7 @@ hist(d.inu.p$SlopeTime)
 qqnorm(d.inu.p$SlopeTime)
 qqline(d.inu.p$SlopeTime)
 shapiro.test(d.inu.p$SlopeTime)
-  # p-value = 0.02279
+  # p-value = 0.03859
   # Not Normal
 
 # Saline Summer
@@ -420,7 +420,7 @@ hist(d.sal.w$SlopeTime)
 qqnorm(d.sal.w$SlopeTime)
 qqline(d.sal.w$SlopeTime)
 shapiro.test(d.sal.w$SlopeTime)
-  # p-value = 06054
+  # p-value = 09767
   # Normal
 
 # Saline Spring
@@ -438,13 +438,13 @@ wilcox.test(SlopeTime ~ Antibiotics, data = d.inu.s)
 wilcox.test(SlopeTime ~ Antibiotics, data = d.inu.w)
   # p-value = 0.0005828*
 t.test(SlopeTime ~ Antibiotics, data = d.inu.p)
-  # p-value = 0.002077*
+  # p-value = 0.007666*
 
 ### Test Saline
 t.test(SlopeTime ~ Antibiotics, data = d.sal.s)
   # p-value = 0.5457
 t.test(SlopeTime ~ Antibiotics, data = d.sal.w)
-  # p-value = 0.9043
+  # p-value = 0.703
 t.test(SlopeTime ~ Antibiotics, data = d.sal.p)
   # p-value = 0.6747
 ```
@@ -557,7 +557,7 @@ hist(auc.inu.p$AUC)
 qqnorm(auc.inu.p$AUC)
 qqline(auc.inu.p$AUC)
 shapiro.test(auc.inu.p$AUC)
-  # p-value = 0.001412
+  # p-value = 0.002582
   # Not Normal
 
 # Saline Summer
@@ -573,7 +573,7 @@ hist(auc.sal.w$AUC)
 qqnorm(auc.sal.w$AUC)
 qqline(auc.sal.w$AUC)
 shapiro.test(auc.sal.w$AUC)
-  # p-value = 5.361e-06
+  # p-value = 0.02514
   # Not Normal
 
 # Saline Spring
@@ -593,13 +593,13 @@ wilcox.test(AUC ~ Antibiotics, data = auc.inu.s)
 wilcox.test(AUC ~ Antibiotics, data = auc.inu.w)
   # p-value = 0.09732
 wilcox.test(AUC ~ Antibiotics, data = auc.inu.p)
-  # p-value = 0.001166*
+  # p-value = 0.002331*
 
 # Saline
 wilcox.test(AUC ~ Antibiotics, data = auc.sal.s)
   # p-value = 0.1014
 wilcox.test(AUC ~ Antibiotics, data = auc.sal.w)
-  # p-value = 0.09732
+  # p-value = 0.1807
 wilcox.test(AUC ~ Antibiotics, data = auc.sal.p)
   # p-value = 0.366
 
@@ -612,13 +612,13 @@ fligner.test(AUC ~ Antibiotics, auc.inu.s)
 fligner.test(AUC ~ Antibiotics, auc.inu.w)
   # p-value = 0.01802*
 fligner.test(AUC ~ Antibiotics, auc.inu.p)
-  # p-value = 0.01802*
+  # p-value = 0.02858*
 
 # Saline
 fligner.test(AUC ~ Antibiotics, auc.sal.s)
   # p-value = 0.2235
 fligner.test(AUC ~ Antibiotics, auc.sal.w)
-  # p-value = 0.5141
+  # p-value = 0.9284
 fligner.test(AUC ~ Antibiotics, auc.sal.p)
   # p-value = 0.0888
 ```
