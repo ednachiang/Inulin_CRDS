@@ -46,13 +46,13 @@ crds.bin <- bin.crds(crds)
 #crds.rem <- crds.bin[-which(crds.bin$ID == "S34"),]
 crds.rem <- crds.bin[-which(crds.bin$ID == "S37"),]
   # ABX didn't work; high [DNA]
-#crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
 #crds.rem <- crds.rem[-which(crds.rem$ID == "P30"),]
 
 # Remove Saline outliers
 #crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
 #crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
-#crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
   # This is an adult, not pup
 
@@ -177,56 +177,61 @@ hist(d.inu.abx$Slope)
 qqnorm(d.inu.abx$Slope)
 qqline(d.inu.abx$Slope)
 shapiro.test(d.inu.abx$Slope)
-  # p-value = 0.7955
+  # p-value = 0.54
+  # Normal
 
 hist(d.inu.noabx$Slope)
 qqnorm(d.inu.noabx$Slope)
 qqline(d.inu.noabx$Slope)
 shapiro.test(d.inu.noabx$Slope)
-  # p-value = 0.4284
+  # p-value = 0.4073
+  # Normal
 
 hist(d.sal.abx$Slope)
 qqnorm(d.sal.abx$Slope)
 qqline(d.sal.abx$Slope)
 shapiro.test(d.sal.abx$Slope)
-  # p-value = 0.007636
+  # p-value = 0.02514
+  # Not Normal
 
 hist(d.sal.noabx$Slope)
 qqnorm(d.sal.noabx$Slope)
 qqline(d.sal.noabx$Slope)
 shapiro.test(d.sal.noabx$Slope)
-  # p-value = 1.397e-05
+  # p-value = 1.228e-05
+  # Not Normal
+
 
 
 ### Test Mean
 summary(aov(Slope ~ Season, data = d.inu.abx))
-  # p-value = 0.000628
+  # p-value = 0.000437
 TukeyHSD(aov(Slope ~ Season, data = d.inu.abx))
-  # Summer-Spring = 0.0019327
-  # Winter-Spring = 0.9797781
-  # Winter-Summer = 0.0013741  
+  # Summer-Spring = 0.0006632
+  # Winter-Spring = 0.7445972
+  # Winter-Summer = 0.0020914  
 summary(aov(Slope ~ Season, data = d.inu.noabx))
-  # p-value = 0.000698
+  # p-value = 0.000363
 TukeyHSD(aov(Slope ~ Season, data = d.inu.noabx))
-  # Summer-Spring = 0.9963771
-  # Winter-Spring = 0.0015118
-  # Winter-Summer = 0.0025611
+  # Summer-Spring = 0.9969632
+  # Winter-Spring = 0.0011246
+  # Winter-Summer = 0.0009560
 kruskal.test(formula = Slope ~ Season, data = d.sal.abx)
-  # p-value = 0.1826
+  # p-value = 0.2049
 kruskal.test(formula = Slope ~ Season, data = d.sal.noabx)
-  # p-value = 0.828
+  # p-value = 0.999
 
 
 
 ### Test Variance
 fligner.test(Slope ~ Season, d.inu.abx)
-  # p-value = 0.6559
+  # p-value = 0.1514
 fligner.test(Slope ~ Season, d.inu.noabx)
-  # p-value = 0.3877
+  # p-value = 0.3065
 fligner.test(Slope ~ Season, d.sal.abx)
-  # p-value = 0.317
+  # p-value = 0.7135
 fligner.test(Slope ~ Season, d.sal.noabx)
-  # p-value = 0.1533
+  # p-value = 0.4988
 
 ```
 
@@ -350,48 +355,52 @@ hist(d.inu.abx$SlopeTime)
 qqnorm(d.inu.abx$SlopeTime)
 qqline(d.inu.abx$SlopeTime)
 shapiro.test(d.inu.abx$SlopeTime)
-  # p-value = 6.963e-05
+  # p-value = 3.271e-05
+  # Not Normal
 
 hist(d.inu.noabx$SlopeTime)
 qqnorm(d.inu.noabx$SlopeTime)
 qqline(d.inu.noabx$SlopeTime)
 shapiro.test(d.inu.noabx$SlopeTime)
-  # p-value = 0.2598
+  # p-value = 0.4223
+  # Normal
 
 hist(d.sal.abx$SlopeTime)
 qqnorm(d.sal.abx$SlopeTime)
 qqline(d.sal.abx$SlopeTime)
 shapiro.test(d.sal.abx$SlopeTime)
-  # p-value = 0.005973
+  # p-value = 0.003004
+  # Not Normal
 
 hist(d.sal.noabx$SlopeTime)
 qqnorm(d.sal.noabx$SlopeTime)
 qqline(d.sal.noabx$SlopeTime)
 shapiro.test(d.sal.noabx$SlopeTime)
-  # p-value = 0.4005
+  # p-value = 0.351
+  # Normal
 
 
 ### Test
 kruskal.test(formula = SlopeTime ~ Season, data = d.inu.abx)
-  # p-value = 0.0768
+  # p-value = 0.06022
 summary(aov(SlopeTime ~ Season, data = d.inu.noabx))
-  # p-value = 0.468
+  # p-value = 0.546
 kruskal.test(formula = SlopeTime ~ Season, data = d.sal.abx)
-  # p-value = 0.839
+  # p-value = 0.8848
 summary(aov(SlopeTime ~ Season, data = d.sal.noabx))
-  # p-value = 0.733
+  # p-value = 0.575
 
 
 
 ### Test Variance
 fligner.test(SlopeTime ~ Season, d.inu.abx)
-  # p-value = 0.03368
+  # p-value = 0.02879
 fligner.test(SlopeTime ~ Season, d.inu.noabx)
-  # p-value = 0.07757
+  # p-value = 0.08891
 fligner.test(SlopeTime ~ Season, d.sal.abx)
-  # p-value = 0.9563
+  # p-value = 0.9703
 fligner.test(SlopeTime ~ Season, d.sal.noabx)
-  # p-value = 0.326
+  # p-value = 0.2962
 
 ```
 
@@ -493,126 +502,70 @@ auc.sal.noabx <- auc.sal[which(auc.sal$Antibiotics == "No"),]
 ### Test AUC
 ```{r}
 ### Check Normality - Inulin
-hist(auc.inu$AUC)
-qqnorm(auc.inu$AUC)
-qqline(auc.inu$AUC)
-shapiro.test(auc.inu$AUC)
-  # p-value = 9.216e-07
-  # Not Normal
-
-hist(auc.inu.s$AUC)
-qqnorm(auc.inu.s$AUC)
-qqline(auc.inu.s$AUC)
-shapiro.test(auc.inu.s$AUC)
-  # p-value = 0.01841
-  # Not Normal
-
-hist(auc.inu.w$AUC)
-qqnorm(auc.inu.w$AUC)
-qqline(auc.inu.w$AUC)
-shapiro.test(auc.inu.w$AUC)
-  # p-value = 0.001438
-  # Not Normal
-
-hist(auc.inu.p$AUC)
-qqnorm(auc.inu.p$AUC)
-qqline(auc.inu.p$AUC)
-shapiro.test(auc.inu.p$AUC)
-  # p-value = 0.005546
-  # Not Normal
-
 hist(auc.inu.noabx$AUC)
 qqnorm(auc.inu.noabx$AUC)
 qqline(auc.inu.noabx$AUC)
 shapiro.test(auc.inu.noabx$AUC)
-  # p-value = 0.01623
+  # p-value = 0.03022
   # Not Normal
 
 hist(auc.inu.abx$AUC)
 qqnorm(auc.inu.abx$AUC)
 qqline(auc.inu.abx$AUC)
 shapiro.test(auc.inu.abx$AUC)
-  # p-value = 0.8572
+  # p-value = 0.6626
   # Normal
 
 
 
 ### Check Normality - Saline
-hist(auc.sal$AUC)
-qqnorm(auc.sal$AUC)
-qqline(auc.sal$AUC)
-shapiro.test(auc.sal$AUC)
-  # p-value = 0.0579
-  # Normal
-
-hist(auc.sal.s$AUC)
-qqnorm(auc.sal.s$AUC)
-qqline(auc.sal.s$AUC)
-shapiro.test(auc.sal.s$AUC)
-  # p-value = 0.01462
-  # Not Normal
-
-hist(auc.sal.w$AUC)
-qqnorm(auc.sal.w$AUC)
-qqline(auc.sal.w$AUC)
-shapiro.test(auc.sal.w$AUC)
-  # p-value = 0.4789
-  # Normal
-
-hist(auc.sal.p$AUC)
-qqnorm(auc.sal.p$AUC)
-qqline(auc.sal.p$AUC)
-shapiro.test(auc.sal.p$AUC)
-  # p-value = 0.7142
-  # Normal
-
 hist(auc.sal.noabx$AUC)
 qqnorm(auc.sal.noabx$AUC)
 qqline(auc.sal.noabx$AUC)
 shapiro.test(auc.sal.noabx$AUC)
-  # p-value = 0.8249
+  # p-value = 0.277
   # Normal
 
 hist(auc.sal.abx$AUC)
 qqnorm(auc.sal.abx$AUC)
 qqline(auc.sal.abx$AUC)
 shapiro.test(auc.sal.abx$AUC)
-  # p-value = 0.9535
-  # Normal
+  # p-value = 0.0001217
+  # Not Normal
 
 
 
 ### Test AUC Variance - Seasons
 fligner.test(AUC ~ Season, auc.inu.noabx)
-  # p-value = 0.01405*
+  # p-value = 0.02061*
 fligner.test(AUC ~ Season, auc.inu.noabx[which(auc.inu.noabx$Season != "Spring"),])
-  # p-value = 0.7595
+  # p-value = 0.3274
 fligner.test(AUC ~ Season, auc.inu.noabx[which(auc.inu.noabx$Season != "Winter"),])
-  # p-value = 0.02847*
+  # p-value = 0.04832*
 fligner.test(AUC ~ Season, auc.inu.noabx[which(auc.inu.noabx$Season != "Summer"),])
   # p-value = 0.01802*
 fligner.test(AUC ~ Season, auc.sal.noabx)
-  # p-value = 0.4233
+  # p-value = 0.8339
 fligner.test(AUC ~ Season, auc.inu.abx)
-  # p-value = 0.1303
+  # p-value = 0.4247
 fligner.test(AUC ~ Season, auc.sal.abx)
-  # p-value = 0.8241
-p.adjust(c(0.01405, 0.4233, 0.1303, 0.8241), method = "fdr")
-  # 0.0562 0.5644 0.2606 0.8241
+  # p-value = 0.5042
+p.adjust(c(0.02061, 0.3274, 0.04832, 0.01802), method = "fdr")
+  # 0.04122000* 0.32740000 0.06442667 0.04122000*
 
 
 ### Test AUC - Seasons
 kruskal.test(formula = AUC ~ Season, data=auc.inu.noabx)
-  # p-value = 0.2006
-kruskal.test(formula = AUC ~ Season, data=auc.sal.noabx)
-  # p-value = 0.7246
-kruskal.test(formula = AUC ~ Season, data=auc.inu.abx)
-  # p-value = 0.2156
+  # p-value = 0.1629
+summary(aov(formula = AUC ~ Season, data=auc.sal.noabx))
+  # p-value = 0.405
+summary(aov(formula = AUC ~ Season, data=auc.inu.abx))
+  # p-value = 0.883
 kruskal.test(formula = AUC ~ Season, data=auc.sal.abx)
-  # p-value = 0.5819
+  # p-value = 0.3546
 
-p.adjust(c(0.2006, 0.7246, 0.2156, 0.5819), method = "BH")
-  # 0.4312 0.7246 0.4312 0.7246
+p.adjust(c(0.1629, 0.405, 0.883, 0.3546), method = "BH")
+  # 0.540 0.540 0.883 0.540
 ```
 
 
