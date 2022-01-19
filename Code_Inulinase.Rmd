@@ -206,6 +206,8 @@ spe.otu <- otu_table(spe.ra, taxa_are_rows = T)
 meta <- read.csv('metadata_metag.csv', header=T)
 meta.samp <- sample_data(meta)
 sample_names(meta.samp) <- meta$ID
+meta.samp$Season <- ordered(meta$Season, levels=c("Summer", "Winter", "Spring"))
+
 
 ### Create physeq object
 taxa_names(phy.tax) <- sort(taxa_names(phy.otu))
@@ -273,7 +275,7 @@ adonis(sum.bray ~ Substrate, data=sum.sampdf)
 ```
 
 
-### Tax - Season Kruskal-Wallis
+### Tax - Season Analysis
 ```{r}
 ### Kruskal-Wallis
 #kruskal.test(Abundance ~ Season, phy.melt)
@@ -323,38 +325,40 @@ adonis(spe.bray ~ Season + Substrate, data=spe.sampdf)
   
 ```
 
+### Tax - Plot ordinations
+```{r}
+# Phylum
+phy.nmds <- ordinate(physeq=phy.phy, method="NMDS", distance="bray")
+  # stress = 0.09718099
 
+plot_ordination(physeq=phy.phy, ordination=phy.nmds, color="Season") + 
+  scale_color_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"))
+
+
+
+
+
+plot_ordination(physeq=exo.physeq, ordination=exo.nmds, color="Season") + 
+  scale_color_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  geom_path(data=exo.physeq.elip.df, aes(x=NMDS1, y=NMDS2, colour=group), size=1, linetype=1) +
+  ggtitle("Exo-Inulinase") +
+  geom_point(size=3) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.text.x = element_text(size=20),
+        axis.text.y = element_text(size=20),
+        axis.title.x = element_text(size=20),
+        axis.title.y = element_text(size=20),
+        legend.title = element_text(size=20, face="bold"),
+        legend.text = element_text(size=20),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+        )
+```
 
 ### Summer 2020 - Inulinase Genes (metaG)
 ```{r}
-### Import Data - Taxonomic Composition
-exo.shared <- read.csv("eCAMI/exo.shared.csv", fileEncoding="UTF-8-BOM")
-rownames(exo.shared) <- exo.shared$X
-exo.shared <- exo.shared[,-1]
-exo.tax <- read.csv("eCAMI/exo_tax.csv", fileEncoding="UTF-8-BOM")
-rownames(exo.tax) <- exo.tax$Protein
-exo.tax <- exo.tax[,-1]
-
-### Make physeq object
-exo.otu <- otu_table(t(exo.shared), taxa_are_rows=T)
-exo.samp <- sample_data(endoexo)
-exo.tax <- tax_table(exo.tax)
-taxa_names(exo.tax) <- taxa_names(exo.otu)
-colnames(exo.tax) <- c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")
-sample_names(exo.samp) <- sample_names(exo.otu)
-exo.physeq <- merge_phyloseq(exo.otu, exo.samp, exo.tax)
-
-### Combine at diff taxa levels
-exo.gen <- tax_glom(exo.physeq, taxrank="Genus")
-exo.fam <- tax_glom(exo.physeq, taxrank="Family")
-exo.ord <- tax_glom(exo.physeq, taxrank="Order")
-exo.cla <- tax_glom(exo.physeq, taxrank="Class")
-
-
-
 ### Bray-Curtis NMDS
-exo.nmds <- ordinate(physeq=exo.physeq, method="NMDS", distance="bray")
-  # stress = 0.1096339
+
 
 #tiff("exo.nmds.mdtp.tiff", width=8, height=6, units="in", res=600)
 plot_ordination(physeq=exo.physeq, ordination=exo.nmds, color="Season") + 
