@@ -5,49 +5,328 @@ date: "12/14/2021"
 output: html_document
 ---
 
-### Summer 2020 - Inulinase Genes (metaG)
+### Load Packages, scripts, and functions
 ```{r}
-### Import total Endo / Exo / Protein Counts
-endoexo <- read.csv("eCAMI/endo_exo.csv", fileEncoding="UTF-8-BOM")
-endoexo$Endo_RelAbund <- (endoexo$Endo / endoexo$Total_Protein)*100
-endoexo$Exo_RelAbund <- (endoexo$Exo / endoexo$Total_Protein)*100
-endoexo$Season <- c("Spring", "Spring", "Spring", "Summer", "Summer", "Summer", "Winter", "Winter", "Winter")
-endoexo$Season <- ordered(endoexo$Season, levels=c("Summer", "Winter", "Spring"))
+library(ggplot2)
+library(plyr)
+library(dplyr)
+library(grid)
+#library(MESS)
+#library(pgirmess)
+#library(Bolstad2)
+library(phyloseq)
+library(vegan)
+#library(miLineage)
+#library(psych)
+library(car)
+#source('scripts/import_crds.R')
+#source('scripts/bin_crds.R')
+source('scripts/misc.R')
+#source('scripts/calc_delta_metrics.R')
+set.seed(1)
+theme_set(theme_bw())
+```
 
-### Test Endo / Exo Rel Abund for Normality
-hist(endoexo$Endo_RelAbund)
-qqnorm(endoexo$Endo_RelAbund)
-qqline(endoexo$Endo_RelAbund)
-shapiro.test(endoexo$Endo_RelAbund)
-  # p-value = 0.003571
-  # Not Normal
 
-hist(endoexo$Exo_RelAbund)
-qqnorm(endoexo$Exo_RelAbund)
-qqline(endoexo$Exo_RelAbund)
-shapiro.test(endoexo$Exo_RelAbund)
-  # p-value = 0.1865
+
+### Average genome size /  Genome Equivalents
+```{r}
+ags <- read.csv('AverageGenomeSize.csv')
+
+shapiro.test(ags$Avg_Genome_Size)
+  # p-value = 0.4778
+  # Normal
+shapiro.test(ags$Genome_Equivalents)
+  # p-value = 0.1762
   # Normal
 
 
-### Test for Variance - Levene's Test
-leveneTest(Endo_RelAbund ~ Season, data=endoexo)
-  # p-value = 0.9934
-
-leveneTest(Exo_RelAbund ~ Season, data=endoexo)
-  # p-value = 0.9145
-
-
-### Test Endo - Kruskal-Wallis
-kruskal.test(formula = Endo_RelAbund ~ Season, data=endoexo)
-  # p-value = 0.9481
+summary(aov(Avg_Genome_Size ~ Season, data = ags))
+  # p-value = 0.298
+summary(aov(Genome_Equivalents ~ Season, data = ags))
+  # p-value = 0.254
+```
 
 
-### Test Exo - Kruskal-Wallis
-summary(aov(Exo_RelAbund ~ Season, data=endoexo))
-  # p-value = 0.901
+
+### Endo/Exo Rel Abund & RPKG
+```{r}
+### Rel Abund
+mapped_all <- read.csv('eCAMI/mapped_reads_all.csv')
+exo_mapped <- mapped_all[which(mapped_all$Protein == "Exo"),]
+endo_mapped <- mapped_all[which(mapped_all$Protein == "Endo"),]
+
+# Normality
+shapiro.test(exo_mapped$RelAbund.100000)
+  # p-value = 0.0005701
+  # Not Normal
+shapiro.test(endo_mapped$RelAbund.100000)
+  # p-value = 3.281e-06
+  # Not Normal
+
+# Kruskal-Wallis
+kruskal.test(formula = RelAbund.100000 ~ Season, data = exo_mapped)
+  # p-value = 0.8342
+kruskal.test(formula = RelAbund.100000 ~ Season, data = endo_mapped)
+  # p-value = 0.3329
+
+# Variance
+leveneTest(RelAbund.100000 ~ Season, data=exo_mapped)
+  # p-value = 0.3951
+leveneTest(RelAbund.100000 ~ Season, data=endo_mapped)
+  # p-value = 0.4414
 
 
+
+
+### Exo - RPKG
+exo_rpkg <- read.csv('eCAMI/exoRPKG.csv')
+
+shapiro.test(exo_rpkg$RPKG)
+  # p-value = 3.348e-05
+
+kruskal.test(formula = RPKG ~ Season, data = exo_rpkg)
+  # p-value = 0.9322
+
+leveneTest(RPKG ~ Season, data=exo_rpkg)
+  # p-value = 0.3806
+```
+
+
+### Plot - Rel Abund and RPKG
+```{r}
+##### This is old code that I'm saving for when I'm ready to make plots
+
+### Plot Endo
+endo.plot <- ggplot(endoexo, aes(x=Season, y=Endo_RelAbund, fill=Season)) +
+  geom_dotplot(binaxis='y', stackdir='center') +
+  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  ggtitle("Endo-Inulinase") +
+  ylab("Relative Abundance (%)") +
+  scale_y_continuous(breaks=c(0.00, 0.0125, 0.025, 0.0375, 0.05), limits=c(0, 0.05)) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.text.x = element_text(size=14),
+        axis.text.y = element_text(size=14),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
+        strip.text.x = element_text(size=20),
+        #strip.text.y = element_text(size=14),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 18),
+        legend.text = element_text(size=16),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+  )+
+  guides(fill=F)
+
+tiff("endo.mdtp.tiff", width = 5.5, height = 3.5, units = "in", res = 300)
+endo.plot
+dev.off()
+
+
+### Plot Exo
+
+legend <- g_legend(exo.plot)
+
+exo.plot <- ggplot(endoexo, aes(x=Season, y=Exo_RelAbund, fill=Season)) +
+  geom_dotplot(binaxis='y', stackdir='center') +
+  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  ggtitle("Exo-Inulinase") +
+  ylab("Relative Abundance (%)") +
+  scale_y_continuous(breaks=c(0.00, 0.0125, 0.025, 0.0375, 0.05), limits=c(0, 0.05)) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.text.x = element_text(size=14),
+        axis.text.y = element_text(size=14),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
+        strip.text.x = element_text(size=20),
+        strip.text.y = element_text(size=14),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 18, face="bold"),
+        legend.text = element_text(size=16),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+  ) +
+  guides(fill=F)
+
+tiff("exo.mdtp.tiff", width = 5.5, height = 3.5, units = "in", res = 300)
+exo.plot
+dev.off()
+
+
+
+tiff("endo.exo.mdtp.tiff", width = 12.5, height = 3.5, units = "in", res = 300)
+grid.newpage()
+pushViewport(viewport(layout=(grid.layout(1,3, widths=c(1,1,0.25), heights=c(1,1,1)))))
+print(endo.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
+print(exo.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
+legend$vp <- viewport(layout.pos.row=1, layout.pos.col=3)
+grid.draw(legend)
+dev.off()
+
+```
+
+
+
+### DON'T RUN - Prepare taxonomic data
+```{r}
+### Import tax tables
+phy <- read.csv('kaiju/tax_tables/phylum.csv', header=T)
+cla <- read.csv('kaiju/tax_tables/class.csv', header=T)
+ord <- read.csv('kaiju/tax_tables/order.csv', header=T)
+fam <- read.csv('kaiju/tax_tables/family.csv', header=T)
+gen <- read.csv('kaiju/tax_tables/genus.csv', header=T)
+spe <- read.csv('kaiju/tax_tables/species.csv', header=T)
+
+phy.tax <- tax_table(phy)
+cla.tax <- tax_table(cla)
+ord.tax <- tax_table(ord)
+fam.tax <- tax_table(fam)
+gen.tax <- tax_table(gen)
+spe.tax <- tax_table(spe)
+
+
+### Import rel abund tables
+phy.ra <- read.csv('kaiju/relAbund_tables/exo.phylum.csv', header=T, row.names=1)
+cla.ra <- read.csv('kaiju/relAbund_tables/exo.class.csv', header=T, row.names=1)
+ord.ra <- read.csv('kaiju/relAbund_tables/exo.order.csv', header=T, row.names=1)
+fam.ra <- read.csv('kaiju/relAbund_tables/exo.family.csv', header=T, row.names=1)
+gen.ra <- read.csv('kaiju/relAbund_tables/exo.genus.csv', header=T, row.names=1)
+spe.ra <- read.csv('kaiju/relAbund_tables/exo.species.csv', header=T, row.names=1)
+
+phy.otu <- otu_table(phy.ra, taxa_are_rows = T)
+cla.otu <- otu_table(cla.ra, taxa_are_rows = T)
+ord.otu <- otu_table(ord.ra, taxa_are_rows = T)
+fam.otu <- otu_table(fam.ra, taxa_are_rows = T)
+gen.otu <- otu_table(gen.ra, taxa_are_rows = T)
+spe.otu <- otu_table(spe.ra, taxa_are_rows = T)
+
+
+### Import metadata
+meta <- read.csv('metadata_metag.csv', header=T)
+meta.samp <- sample_data(meta)
+sample_names(meta.samp) <- meta$ID
+
+### Create physeq object
+taxa_names(phy.tax) <- sort(taxa_names(phy.otu))
+phy.phy <- merge_phyloseq(phy.tax, phy.otu, meta.samp)
+taxa_names(cla.tax) <- sort(taxa_names(cla.otu))
+cla.phy <- merge_phyloseq(cla.tax, cla.otu, meta.samp)
+taxa_names(ord.tax) <- sort(taxa_names(ord.otu))
+ord.phy <- merge_phyloseq(ord.tax, ord.otu, meta.samp)
+taxa_names(fam.tax) <- sort(taxa_names(fam.otu))
+fam.phy <- merge_phyloseq(fam.tax, fam.otu, meta.samp)
+taxa_names(gen.tax) <- sort(taxa_names(gen.otu))
+gen.phy <- merge_phyloseq(gen.tax, gen.otu, meta.samp)
+taxa_names(spe.tax) <- sort(taxa_names(spe.otu))
+spe.phy <- merge_phyloseq(spe.tax, spe.otu, meta.samp)
+
+### Save physeq objects
+#save(phy.phy, file="kaiju/physeq/phylum.phy.RData")
+#save(cla.phy, file="kaiju/physeq/class.phy.RData")
+#save(ord.phy, file="kaiju/physeq/order.phy.RData")
+#save(fam.phy, file="kaiju/physeq/family.phy.RData")
+#save(gen.phy, file="kaiju/physeq/genus.phy.RData")
+#save(spe.phy, file="kaiju/physeq/species.phy.RData")
+```
+
+### Load tax physeq data
+```{r}
+### Load physeq data
+load("kaiju/physeq/phylum.phy.RData")
+load("kaiju/physeq/class.phy.RData")
+load("kaiju/physeq/order.phy.RData")
+load("kaiju/physeq/family.phy.RData")
+load("kaiju/physeq/genus.phy.RData")
+load("kaiju/physeq/species.phy.RData")
+
+
+### Melt physeq objects into dataframes
+phy.melt <- psmelt(phy.phy)
+cla.melt <- psmelt(cla.phy)
+ord.melt <- psmelt(ord.phy)
+fam.melt <- psmelt(fam.phy)
+gen.melt <- psmelt(gen.phy)
+spe.melt <- psmelt(spe.phy)
+
+
+### Import metadata
+meta <- read.csv('metadata_metag.csv', header=T)
+```
+
+
+### Tax - Substrate Comparisons
+```{r}
+### Taxon-level comparisons
+sum.gen.melt <- gen.melt[which(gen.melt$Season == "Summer"),]
+wilcox.test(Abundance ~ Substrate, data = sum.gen.melt)
+  # p-value = 0.311
+
+### Beta-diversity comparisons
+sum.phy <- subset_samples(gen.phy, Season == "Summer")
+
+sum.sampdf <- data.frame(sample_data(sum.phy))
+sum.bray <- phyloseq::distance(physeq=sum.phy, method="bray")
+
+adonis(sum.bray ~ Substrate, data=sum.sampdf)
+  # p-value = 0.7
+```
+
+
+### Tax - Season Kruskal-Wallis
+```{r}
+### Kruskal-Wallis
+#kruskal.test(Abundance ~ Season, phy.melt)
+#kruskal.test(Abundance ~ Season, cla.melt)
+#kruskal.test(Abundance ~ Season, ord.melt)
+#kruskal.test(Abundance ~ Season, fam.melt)
+#kruskal.test(Abundance ~ Season, gen.melt)
+#kruskal.test(Abundance ~ Season, spe.melt)
+
+
+### Beta-diversity comparisons
+phy.sampdf <- data.frame(sample_data(phy.phy))
+phy.bray <- phyloseq::distance(physeq=phy.phy, method="bray")
+adonis(phy.bray ~ Season + Substrate, data=phy.sampdf)
+  # Season P = 0.004, R2 = 0.57551  
+  # Substrate P = 0.637, R2 = 0.00869
+
+cla.sampdf <- data.frame(sample_data(cla.phy))
+cla.bray <- phyloseq::distance(physeq=cla.phy, method="bray")
+adonis(cla.bray ~ Season + Substrate, data=cla.sampdf)
+  # Season P = 0.002, R2 = 0.57563  
+  # Substrate P = 0.657, R2 = 0.00954
+
+ord.sampdf <- data.frame(sample_data(ord.phy))
+ord.bray <- phyloseq::distance(physeq=ord.phy, method="bray")
+adonis(ord.bray ~ Season + Substrate, data=ord.sampdf)
+  # Season P = 0.002, R2 = 0.57850  
+  # Substrate P = 0.577, R2 = 0.01238
+
+fam.sampdf <- data.frame(sample_data(fam.phy))
+fam.bray <- phyloseq::distance(physeq=fam.phy, method="bray")
+adonis(fam.bray ~ Season + Substrate, data=fam.sampdf)
+  # Season P = 0.002, R2 = 0.37070  
+  # Substrate P = 0.872, R2 = 0.01209
+
+gen.sampdf <- data.frame(sample_data(gen.phy))
+gen.bray <- phyloseq::distance(physeq=gen.phy, method="bray")
+adonis(gen.bray ~ Season + Substrate, data=gen.sampdf)
+  # Season P = 0.006, R2 = 0.38360  
+  # Substrate P = 0.855, R2 = 0.01222
+
+spe.sampdf <- data.frame(sample_data(spe.phy))
+spe.bray <- phyloseq::distance(physeq=spe.phy, method="bray")
+adonis(spe.bray ~ Season + Substrate, data=spe.sampdf)
+  # Season P = 0.001, R2 = 0.48647  
+  # Substrate P = 0.325, R2 = 0.03533
+  
+```
+
+
+
+### Summer 2020 - Inulinase Genes (metaG)
+```{r}
 ### Import Data - Taxonomic Composition
 exo.shared <- read.csv("eCAMI/exo.shared.csv", fileEncoding="UTF-8-BOM")
 rownames(exo.shared) <- exo.shared$X
@@ -133,133 +412,6 @@ p$tab
   # p-value = 0.604
 
 
-```
-
-### Inulin MetaG Endo/Exo Total Protein
-```{r}
-### Import total Endo / Exo / Protein Counts
-endoexo <- read.csv("eCAMI/endo_exo_ORF_counts.csv", fileEncoding="UTF-8-BOM")
-endoexo$Endo_RelAbund <- (endoexo$Endo / endoexo$Total_Protein)*100
-endoexo$Exo_RelAbund <- (endoexo$Exo / endoexo$Total_Protein)*100
-endoexo$Season <- c("Spring", "Spring", "Spring", "Summer", "Summer", "Summer", "Winter", "Winter", "Winter")
-endoexo$Season <- ordered(endoexo$Season, levels=c("Summer", "Winter", "Spring"))
-
-### Test Endo / Exo Rel Abund for Normality
-hist(endoexo$Endo_RelAbund)
-qqnorm(endoexo$Endo_RelAbund)
-qqline(endoexo$Endo_RelAbund)
-shapiro.test(endoexo$Endo_RelAbund)
-  # p-value = 0.003571
-  # Not Normal
-
-hist(endoexo$Exo_RelAbund)
-qqnorm(endoexo$Exo_RelAbund)
-qqline(endoexo$Exo_RelAbund)
-shapiro.test(endoexo$Exo_RelAbund)
-  # p-value = 0.1865
-  # Normal
-
-
-### Test Endo
-kruskal.test(formula = Endo_RelAbund ~ Season, data=endoexo)
-  # p-value = 0.9481
-
-
-### Test Exo
-summary(aov(Exo_RelAbund ~ Season, data=endoexo))
-  # p-value = 0.901
-
-
-### Plot Endo
-endo.plot <- ggplot(endoexo, aes(x=Season, y=Endo_RelAbund, fill=Season)) +
-  geom_dotplot(binaxis='y', stackdir='center') +
-  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  ggtitle("Endo-Inulinase") +
-  ylab("Relative Abundance (%)") +
-  scale_y_continuous(breaks=c(0.00, 0.0125, 0.025, 0.0375, 0.05), limits=c(0, 0.05)) +
-  theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.text.x = element_text(size=14),
-        axis.text.y = element_text(size=14),
-        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
-        strip.text.x = element_text(size=20),
-        #strip.text.y = element_text(size=14),
-        panel.spacing=unit(1, "lines"),
-        legend.title = element_text(size = 18),
-        legend.text = element_text(size=16),
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()
-  )+
-  guides(fill=F)
-
-tiff("endo.mdtp.tiff", width = 5.5, height = 3.5, units = "in", res = 300)
-endo.plot
-dev.off()
-
-
-### Plot Exo
-
-legend <- g_legend(exo.plot)
-
-exo.plot <- ggplot(endoexo, aes(x=Season, y=Exo_RelAbund, fill=Season)) +
-  geom_dotplot(binaxis='y', stackdir='center') +
-  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  ggtitle("Exo-Inulinase") +
-  ylab("Relative Abundance (%)") +
-  scale_y_continuous(breaks=c(0.00, 0.0125, 0.025, 0.0375, 0.05), limits=c(0, 0.05)) +
-  theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.text.x = element_text(size=14),
-        axis.text.y = element_text(size=14),
-        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
-        strip.text.x = element_text(size=20),
-        strip.text.y = element_text(size=14),
-        panel.spacing=unit(1, "lines"),
-        legend.title = element_text(size = 18, face="bold"),
-        legend.text = element_text(size=16),
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()
-  ) +
-  guides(fill=F)
-
-tiff("exo.mdtp.tiff", width = 5.5, height = 3.5, units = "in", res = 300)
-exo.plot
-dev.off()
-
-
-
-tiff("endo.exo.mdtp.tiff", width = 12.5, height = 3.5, units = "in", res = 300)
-grid.newpage()
-pushViewport(viewport(layout=(grid.layout(1,3, widths=c(1,1,0.25), heights=c(1,1,1)))))
-print(endo.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
-print(exo.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
-legend$vp <- viewport(layout.pos.row=1, layout.pos.col=3)
-grid.draw(legend)
-dev.off()
-
-```
-
-### Inulinase Endo / Exo RPKG
-```{r}
-### Exo - All
-exo_mapped_all <- read.csv('eCAMI/mapped_reads_all.csv')
-exo_mapped_all <- exo_mapped_all[which(exo_mapped_all$Protein == "Exo"),]
-
-shapiro.test(exo_mapped_all$RelAbund.100000)
-  # p-value = 0.0005701
-
-kruskal.test(formula = RelAbund.100000 ~ Season, data = exo_mapped_all)
-  # p-value = 0.8342
-
-
-### Exo - Separate
-exo_mapped_sep <- read.csv('eCAMI/exoRPKG.csv')
-
-shapiro.test(exo_mapped_sep$RPKG)
-  # p-value = 3.348e-05
-
-kruskal.test(formula = RPKG ~ Season, data = exo_mapped_sep)
-  # p-value = 0.9322
 ```
 
 
@@ -672,37 +824,5 @@ p$tab
 
 
 
-### Gene Length
-```{r}
-geneLength <- read.csv('eCAMI/geneLength.csv')
-endoLength <- geneLength[which(geneLength$Gene == "Endo"),]
-exoLength <- geneLength[which(geneLength$Gene == "Exo"),]
-
-shapiro.test(endoLength$Length..bp.)
-  # p-value = 0.0005404
-shapiro.test(exoLength$Length..bp.)
-  # p-value < 2.2e-16
-
-kruskal.test(formula = Length..bp. ~ Season, data = exoLength)
-  # p-value = 0.14
-kruskal.test(formula = Length..bp. ~ Substrate, data = exoLength)
-  # p-value = 0.9816
-summary(aov(Length..bp. ~ Season + Substrate, data = exoLength))
-  # Season = 0.488
-  # Substrate = 0.862
-```
-### Average genome size /  Genome Equivalents
-```{r}
-ags <- read.csv('AverageGenomeSize.csv')
-
-shapiro.test(ags$Avg_Genome_Size)
-  # p-value = 0.4778
-shapiro.test(ags$Genome_Equivalents)
-  # p-value = 0.1762
 
 
-summary(aov(Avg_Genome_Size ~ Season, data = ags))
-  # p-value = 0.298
-summary(aov(Genome_Equivalents ~ Season, data = ags))
-  # p-value = 0.254
-```
