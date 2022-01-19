@@ -328,7 +328,6 @@ auc.sal.noabx <- auc.sal[which(auc.sal$Antibiotics == "No"),]
 # Inulin
 cor.test(auc.inu.noabx$AUC, auc.inu.noabx$BodyMass, method = "spearman")
   # p-value = 0.3091
-cor.test(auc.inu.s[which(auc.inu.s$Antibiotics == "No"),1],
 
 
 # Saline
