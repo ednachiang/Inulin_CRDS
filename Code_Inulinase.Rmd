@@ -287,43 +287,67 @@ adonis(sum.bray ~ Substrate, data=sum.sampdf)
 #kruskal.test(Abundance ~ Season, spe.melt)
 
 
-### Beta-diversity comparisons
+### PERMANOVA
 phy.sampdf <- data.frame(sample_data(phy.phy))
 phy.bray <- phyloseq::distance(physeq=phy.phy, method="bray")
 adonis(phy.bray ~ Season + Substrate, data=phy.sampdf)
   # Season P = 0.004, R2 = 0.57551  
   # Substrate P = 0.637, R2 = 0.00869
+beta.tax = betadisper(d=phy.bray, group=phy.sampdf$Season)
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.405
+
 
 cla.sampdf <- data.frame(sample_data(cla.phy))
 cla.bray <- phyloseq::distance(physeq=cla.phy, method="bray")
 adonis(cla.bray ~ Season + Substrate, data=cla.sampdf)
   # Season P = 0.002, R2 = 0.57563  
   # Substrate P = 0.657, R2 = 0.00954
+beta.tax = betadisper(d=cla.bray, group=cla.sampdf$Season)
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.429
 
 ord.sampdf <- data.frame(sample_data(ord.phy))
 ord.bray <- phyloseq::distance(physeq=ord.phy, method="bray")
 adonis(ord.bray ~ Season + Substrate, data=ord.sampdf)
   # Season P = 0.002, R2 = 0.57850  
   # Substrate P = 0.577, R2 = 0.01238
+beta.tax = betadisper(d=ord.bray, group=ord.sampdf$Season)
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.407
 
 fam.sampdf <- data.frame(sample_data(fam.phy))
 fam.bray <- phyloseq::distance(physeq=fam.phy, method="bray")
 adonis(fam.bray ~ Season + Substrate, data=fam.sampdf)
   # Season P = 0.002, R2 = 0.37070  
   # Substrate P = 0.872, R2 = 0.01209
+beta.tax = betadisper(d=fam.bray, group=fam.sampdf$Season)
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.22
 
 gen.sampdf <- data.frame(sample_data(gen.phy))
 gen.bray <- phyloseq::distance(physeq=gen.phy, method="bray")
 adonis(gen.bray ~ Season + Substrate, data=gen.sampdf)
   # Season P = 0.006, R2 = 0.38360  
   # Substrate P = 0.855, R2 = 0.01222
+beta.tax = betadisper(d=gen.bray, group=gen.sampdf$Season)
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.47
 
 spe.sampdf <- data.frame(sample_data(spe.phy))
 spe.bray <- phyloseq::distance(physeq=spe.phy, method="bray")
 adonis(spe.bray ~ Season + Substrate, data=spe.sampdf)
   # Season P = 0.001, R2 = 0.48647  
   # Substrate P = 0.325, R2 = 0.03533
-  
+beta.tax = betadisper(d=spe.bray, group=spe.sampdf$Season)
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.64
 ```
 
 ### Tax - Plot ordinations
