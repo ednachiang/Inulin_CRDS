@@ -170,22 +170,6 @@ dev.off()
 
 ### DON'T RUN - Prepare taxonomic data
 ```{r}
-### Import tax tables
-phy <- read.csv('kaiju/tax_tables/phylum.csv', header=T)
-cla <- read.csv('kaiju/tax_tables/class.csv', header=T)
-ord <- read.csv('kaiju/tax_tables/order.csv', header=T)
-fam <- read.csv('kaiju/tax_tables/family.csv', header=T)
-gen <- read.csv('kaiju/tax_tables/genus.csv', header=T)
-spe <- read.csv('kaiju/tax_tables/species.csv', header=T)
-
-phy.tax <- tax_table(phy)
-cla.tax <- tax_table(cla)
-ord.tax <- tax_table(ord)
-fam.tax <- tax_table(fam)
-gen.tax <- tax_table(gen)
-spe.tax <- tax_table(spe)
-
-
 ### Import rel abund tables
 phy.ra <- read.csv('kaiju/relAbund_tables/exo.phylum.csv', header=T, row.names=1)
 cla.ra <- read.csv('kaiju/relAbund_tables/exo.class.csv', header=T, row.names=1)
@@ -209,27 +193,67 @@ sample_names(meta.samp) <- meta$ID
 meta.samp$Season <- ordered(meta$Season, levels=c("Summer", "Winter", "Spring"))
 
 
-### Create physeq object
-taxa_names(phy.tax) <- sort(taxa_names(phy.otu))
+### Create tax table
+phy <- data.frame(full = taxa_names(phy.otu))
+phy <- cbind(phy,colsplit(phy$full, pattern = ";", names = c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")))
+rownames(phy) <- phy$full
+phy <- phy[,-1]
+
+cla <- data.frame(full = taxa_names(cla.otu))
+cla <- cbind(cla,colsplit(cla$full, pattern = ";", names = c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")))
+rownames(cla) <- cla$full
+cla <- cla[,-1]
+
+ord <- data.frame(full = taxa_names(ord.otu))
+ord <- cbind(ord,colsplit(ord$full, pattern = ";", names = c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")))
+rownames(ord) <- ord$full
+ord <- ord[,-1]
+
+fam <- data.frame(full = taxa_names(fam.otu))
+fam <- cbind(fam,colsplit(fam$full, pattern = ";", names = c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")))
+rownames(fam) <- fam$full
+fam <- fam[,-1]
+
+gen <- data.frame(full = taxa_names(gen.otu))
+gen <- cbind(gen,colsplit(gen$full, pattern = ";", names = c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")))
+rownames(gen) <- gen$full
+gen <- gen[,-1]
+
+spe <- data.frame(full = taxa_names(spe.otu))
+spe <- cbind(spe,colsplit(spe$full, pattern = ";", names = c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")))
+rownames(spe) <- spe$full
+spe <- spe[,-1]
+
+phy.tax <- tax_table(phy)
+cla.tax <- tax_table(cla)
+ord.tax <- tax_table(ord)
+fam.tax <- tax_table(fam)
+gen.tax <- tax_table(gen)
+spe.tax <- tax_table(spe)
+
+
+### Make phyloseq objects
+taxa_names(phy.tax) <- taxa_names(phy.otu)
 phy.phy <- merge_phyloseq(phy.tax, phy.otu, meta.samp)
-taxa_names(cla.tax) <- sort(taxa_names(cla.otu))
+taxa_names(cla.tax) <- taxa_names(cla.otu)
 cla.phy <- merge_phyloseq(cla.tax, cla.otu, meta.samp)
-taxa_names(ord.tax) <- sort(taxa_names(ord.otu))
+taxa_names(ord.tax) <- taxa_names(ord.otu)
 ord.phy <- merge_phyloseq(ord.tax, ord.otu, meta.samp)
-taxa_names(fam.tax) <- sort(taxa_names(fam.otu))
+taxa_names(fam.tax) <- taxa_names(fam.otu)
 fam.phy <- merge_phyloseq(fam.tax, fam.otu, meta.samp)
-taxa_names(gen.tax) <- sort(taxa_names(gen.otu))
+taxa_names(gen.tax) <- taxa_names(gen.otu)
 gen.phy <- merge_phyloseq(gen.tax, gen.otu, meta.samp)
-taxa_names(spe.tax) <- sort(taxa_names(spe.otu))
+taxa_names(spe.tax) <- taxa_names(spe.otu)
 spe.phy <- merge_phyloseq(spe.tax, spe.otu, meta.samp)
 
+
 ### Save physeq objects
-#save(phy.phy, file="kaiju/physeq/phylum.phy.RData")
-#save(cla.phy, file="kaiju/physeq/class.phy.RData")
-#save(ord.phy, file="kaiju/physeq/order.phy.RData")
-#save(fam.phy, file="kaiju/physeq/family.phy.RData")
-#save(gen.phy, file="kaiju/physeq/genus.phy.RData")
-#save(spe.phy, file="kaiju/physeq/species.phy.RData")
+save(phy.phy, file="kaiju/physeq/phylum.phy.RData")
+save(cla.phy, file="kaiju/physeq/class.phy.RData")
+save(ord.phy, file="kaiju/physeq/order.phy.RData")
+save(fam.phy, file="kaiju/physeq/family.phy.RData")
+save(gen.phy, file="kaiju/physeq/genus.phy.RData")
+save(spe.phy, file="kaiju/physeq/species.phy.RData")
 ```
 
 ### Load tax physeq data
