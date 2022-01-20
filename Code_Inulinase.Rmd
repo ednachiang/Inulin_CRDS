@@ -399,3 +399,61 @@ spe.nmds <- ordinate(physeq=spe.phy, method="NMDS", distance="bray")
 plot_ordination(physeq=spe.phy, ordination=spe.nmds, color="Season") + 
   scale_color_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"))
 ```
+
+
+### Test taxa
+```{r}
+# Phyla
+otus <- data.frame(otu_table(phy.phy))
+kw.phy <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(phy.phy))[2])){
+  kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Season)
+  kw.phy <- rbind(kw.phy, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
+}
+kw.phy$padj <- p.adjust(kw.phy$pval, method = "BH")
+
+# Class
+otus <- data.frame(otu_table(cla.phy))
+kw.cla <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(cla.phy))[2])){
+  kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Season)
+  kw.cla <- rbind(kw.cla, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
+}
+kw.cla$padj <- p.adjust(kw.cla$pval, method = "BH")
+
+# Order
+otus <- data.frame(otu_table(ord.phy))
+kw.ord <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(ord.phy))[2])){
+  kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Season)
+  kw.ord <- rbind(kw.ord, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
+}
+kw.ord$padj <- p.adjust(kw.ord$pval, method = "BH")
+
+# Family
+otus <- data.frame(otu_table(fam.phy))
+kw.fam <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(fam.phy))[2])){
+  kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Season)
+  kw.fam <- rbind(kw.fam, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
+}
+kw.fam$padj <- p.adjust(kw.fam$pval, method = "BH")
+
+# Genus
+otus <- data.frame(otu_table(gen.phy))
+kw.gen <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(gen.phy))[2])){
+  kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Season)
+  kw.gen <- rbind(kw.gen, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
+}
+kw.gen$padj <- p.adjust(kw.gen$pval, method = "BH")
+
+# Species
+otus <- data.frame(otu_table(spe.phy))
+kw.spe <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(spe.phy))[2])){
+  kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Season)
+  kw.spe <- rbind(kw.spe, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
+}
+kw.spe$padj <- p.adjust(kw.spe$pval, method = "BH")
+```
