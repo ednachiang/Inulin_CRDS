@@ -23,6 +23,8 @@ library(car)
 #source('scripts/bin_crds.R')
 source('scripts/misc.R')
 #source('scripts/calc_delta_metrics.R')
+source('scripts/simper_pretty.R')
+source('scripts/R_krusk.R')
 set.seed(1)
 theme_set(theme_bw())
 ```
@@ -248,12 +250,12 @@ spe.phy <- merge_phyloseq(spe.tax, spe.otu, meta.samp)
 
 
 ### Save physeq objects
-save(phy.phy, file="kaiju/physeq/phylum.phy.RData")
-save(cla.phy, file="kaiju/physeq/class.phy.RData")
-save(ord.phy, file="kaiju/physeq/order.phy.RData")
-save(fam.phy, file="kaiju/physeq/family.phy.RData")
-save(gen.phy, file="kaiju/physeq/genus.phy.RData")
-save(spe.phy, file="kaiju/physeq/species.phy.RData")
+#save(phy.phy, file="kaiju/physeq/phylum.phy.RData")
+#save(cla.phy, file="kaiju/physeq/class.phy.RData")
+#save(ord.phy, file="kaiju/physeq/order.phy.RData")
+#save(fam.phy, file="kaiju/physeq/family.phy.RData")
+#save(gen.phy, file="kaiju/physeq/genus.phy.RData")
+#save(spe.phy, file="kaiju/physeq/species.phy.RData")
 ```
 
 ### Load tax physeq data
@@ -314,60 +316,60 @@ adonis(sum.bray ~ Substrate, data=sum.sampdf)
 ### PERMANOVA
 phy.sampdf <- data.frame(sample_data(phy.phy))
 phy.bray <- phyloseq::distance(physeq=phy.phy, method="bray")
-adonis(phy.bray ~ Season + Substrate, data=phy.sampdf)
-  # Season P = 0.004, R2 = 0.57551  
-  # Substrate P = 0.637, R2 = 0.00869
+adonis(phy.bray ~ Season + Substrate, data=phy.sampdf, permutations = 9999)
+  # Season P = 0.0013, R2 = 0.63416
+  # Substrate P = 0.7766, R2 = 0.00316
 beta.tax = betadisper(d=phy.bray, group=phy.sampdf$Season)
 p <- permutest(beta.tax)
 p$tab
-  # p-value = 0.405
+  # p-value = 0.175
 
 
 cla.sampdf <- data.frame(sample_data(cla.phy))
 cla.bray <- phyloseq::distance(physeq=cla.phy, method="bray")
-adonis(cla.bray ~ Season + Substrate, data=cla.sampdf)
-  # Season P = 0.002, R2 = 0.57563  
-  # Substrate P = 0.657, R2 = 0.00954
+adonis(cla.bray ~ Season + Substrate, data=cla.sampdf, permutations = 9999)
+  # Season P = 0.0011, R2 = 0.63136
+  # Substrate P = 0.7249, R2 = 0.00394
 beta.tax = betadisper(d=cla.bray, group=cla.sampdf$Season)
 p <- permutest(beta.tax)
 p$tab
-  # p-value = 0.429
+  # p-value = 0.265
 
 ord.sampdf <- data.frame(sample_data(ord.phy))
 ord.bray <- phyloseq::distance(physeq=ord.phy, method="bray")
-adonis(ord.bray ~ Season + Substrate, data=ord.sampdf)
-  # Season P = 0.002, R2 = 0.57850  
-  # Substrate P = 0.577, R2 = 0.01238
+adonis(ord.bray ~ Season + Substrate, data=ord.sampdf, permutations = 9999)
+  # Season P = 0.0011, R2 = 0.63414 
+  # Substrate P = 0.6339, R2 = 0.00689
 beta.tax = betadisper(d=ord.bray, group=ord.sampdf$Season)
 p <- permutest(beta.tax)
 p$tab
-  # p-value = 0.407
+  # p-value = 0.284
 
 fam.sampdf <- data.frame(sample_data(fam.phy))
 fam.bray <- phyloseq::distance(physeq=fam.phy, method="bray")
-adonis(fam.bray ~ Season + Substrate, data=fam.sampdf)
-  # Season P = 0.002, R2 = 0.37070  
-  # Substrate P = 0.872, R2 = 0.01209
+adonis(fam.bray ~ Season + Substrate, data=fam.sampdf, permutations = 9999)
+  # Season P = 0.1668, R2 = 0.18249  
+  # Substrate P = 0.8172, R2 = 0.01823
 beta.tax = betadisper(d=fam.bray, group=fam.sampdf$Season)
 p <- permutest(beta.tax)
 p$tab
-  # p-value = 0.22
+  # p-value = 0.344
 
 gen.sampdf <- data.frame(sample_data(gen.phy))
 gen.bray <- phyloseq::distance(physeq=gen.phy, method="bray")
-adonis(gen.bray ~ Season + Substrate, data=gen.sampdf)
-  # Season P = 0.006, R2 = 0.38360  
-  # Substrate P = 0.855, R2 = 0.01222
+adonis(gen.bray ~ Season + Substrate, data=gen.sampdf, permutations = 9999)
+  # Season P = 0.1873, R2 = 0.18023
+  # Substrate P = 0.7654, R2 = 0.01927
 beta.tax = betadisper(d=gen.bray, group=gen.sampdf$Season)
 p <- permutest(beta.tax)
 p$tab
-  # p-value = 0.47
+  # p-value = 0.658
 
 spe.sampdf <- data.frame(sample_data(spe.phy))
 spe.bray <- phyloseq::distance(physeq=spe.phy, method="bray")
-adonis(spe.bray ~ Season + Substrate, data=spe.sampdf)
-  # Season P = 0.001, R2 = 0.48647  
-  # Substrate P = 0.325, R2 = 0.03533
+adonis(spe.bray ~ Season + Substrate, data=spe.sampdf, permutations = 9999)
+  # Season P = 0.0220, R2 = 0.22711 
+  # Substrate P = 0.1999, R2 = 0.06964
 beta.tax = betadisper(d=spe.bray, group=spe.sampdf$Season)
 p <- permutest(beta.tax)
 p$tab
@@ -378,7 +380,7 @@ p$tab
 ```{r}
 # Phylum
 phy.nmds <- ordinate(physeq=phy.phy, method="NMDS", distance="bray")
-  # stress = 0.09718099
+  # stress = 0.09468586 
 
 plot_ordination(physeq=phy.phy, ordination=phy.nmds, color="Season") + 
   scale_color_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"))
@@ -386,7 +388,7 @@ plot_ordination(physeq=phy.phy, ordination=phy.nmds, color="Season") +
 
 # Class
 cla.nmds <- ordinate(physeq=cla.phy, method="NMDS", distance="bray")
-  # stress = 0.1517744
+  # stress = 0.1569837
 
 plot_ordination(physeq=cla.phy, ordination=cla.nmds, color="Season") + 
   scale_color_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"))
@@ -394,7 +396,7 @@ plot_ordination(physeq=cla.phy, ordination=cla.nmds, color="Season") +
 
 # Order
 ord.nmds <- ordinate(physeq=ord.phy, method="NMDS", distance="bray")
-  # stress = 0.1523692
+  # stress = 0.1441563
 
 plot_ordination(physeq=ord.phy, ordination=ord.nmds, color="Season") + 
   scale_color_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"))
@@ -402,7 +404,7 @@ plot_ordination(physeq=ord.phy, ordination=ord.nmds, color="Season") +
 
 # Family
 fam.nmds <- ordinate(physeq=fam.phy, method="NMDS", distance="bray")
-  # stress = 0.1557753
+  # stress = 0.152523 
 
 plot_ordination(physeq=fam.phy, ordination=fam.nmds, color="Season") + 
   scale_color_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"))
@@ -410,7 +412,7 @@ plot_ordination(physeq=fam.phy, ordination=fam.nmds, color="Season") +
 
 # Genus
 gen.nmds <- ordinate(physeq=gen.phy, method="NMDS", distance="bray")
-  # stress = 0.1453356
+  # stress = 0.1418113
 
 plot_ordination(physeq=gen.phy, ordination=gen.nmds, color="Season") + 
   scale_color_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"))
@@ -418,7 +420,7 @@ plot_ordination(physeq=gen.phy, ordination=gen.nmds, color="Season") +
 
 # Species
 spe.nmds <- ordinate(physeq=spe.phy, method="NMDS", distance="bray")
-  # stress = 0.1446212
+  # stress = 0.1361342
 
 plot_ordination(physeq=spe.phy, ordination=spe.nmds, color="Season") + 
   scale_color_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"))
@@ -480,4 +482,51 @@ for(taxon in 1:dim(data.frame(otu_table(spe.phy))[2])){
   kw.spe <- rbind(kw.spe, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
 }
 kw.spe$padj <- p.adjust(kw.spe$pval, method = "BH")
+```
+
+
+### Tax - SIMPER
+```{r}
+
+
+
+
+
+
+
+
+
+
+
+
+simper.pretty(data.frame(otu_table(phy.phy)), meta, c("Season"), perc_cutoff = 0.5, low_cutoff = 'y', low_val = 0.01, output_name = 'phylum')
+simp.phy <- read.csv("phylum_clean_simper.csv")
+kruskal.pretty(data.frame(otu_table(phy.phy)), meta, csv = simp.phy, c("Season"), output_name = 'phylum', taxonomy = data.frame(tax_table(phy.phy)))
+
+
+#simper.pretty(data.frame(otu_table(cla.phy)), meta, c("Season"), perc_cutoff = 0.5, low_cutoff = 'y', low_val = 0.01, output_name = 'class')
+simp.cla <- read.csv("class_clean_simper.csv")
+#kruskal.pretty(data.frame(otu_table(cla.phy)), meta, csv = simp.cla, c("Season"), output_name = 'class', taxonomy = data.frame(tax_table(cla.phy)))
+
+
+simper.pretty(data.frame(otu_table(ord.phy)), meta, c("Season"), perc_cutoff = 0.5, low_cutoff = 'y', low_val = 0.01, output_name = 'order')
+simp.ord <- read.csv("order_clean_simper.csv")
+kruskal.pretty(data.frame(otu_table(ord.phy)), meta, csv = simp.ord, c("Season"), output_name = 'order', taxonomy = data.frame(tax_table(ord.phy)))
+
+
+simper.pretty(data.frame(otu_table(fam.phy)), meta, c("Season"), perc_cutoff = 0.5, low_cutoff = 'y', low_val = 0.01, output_name = 'family')
+simp.fam <- read.csv("family_clean_simper.csv")
+kruskal.pretty(data.frame(otu_table(fam.phy)), meta, csv = simp.fam, c("Season"), output_name = 'family', taxonomy = data.frame(tax_table(fam.phy)))
+
+
+simper.pretty(data.frame(otu_table(gen.phy)), meta, c("Season"), perc_cutoff = 0.5, low_cutoff = 'y', low_val = 0.01, output_name = 'genus')
+simp.gen <- read.csv("genus_clean_simper.csv")
+kruskal.pretty(data.frame(otu_table(gen.phy)), meta, csv = simp.gen, c("Season"), output_name = 'genus', taxonomy = data.frame(tax_table(gen.phy)))
+
+
+simper.pretty(data.frame(otu_table(spe.phy)), meta, c("Season"), perc_cutoff = 0.5, low_cutoff = 'y', low_val = 0.01, output_name = 'species')
+simp.spe <- read.csv("species_clean_simper.csv")
+kruskal.pretty(data.frame(otu_table(spe.phy)), meta, csv = simp.spe, c("Season"), output_name = 'species', taxonomy = data.frame(tax_table(spe.phy)))
+```
+
 ```
