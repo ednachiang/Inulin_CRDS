@@ -172,6 +172,8 @@ dev.off()
 
 ### DON'T RUN - Prepare taxonomic data
 ```{r}
+# Already moved taxa found in < 3 samples
+
 ### Import rel abund tables
 phy.ra <- read.csv('kaiju/relAbund_tables/exo.phylum.csv', header=T, row.names=1)
 cla.ra <- read.csv('kaiju/relAbund_tables/exo.class.csv', header=T, row.names=1)
@@ -284,6 +286,50 @@ meta$Season <- ordered(meta$Season, levels=c("Summer", "Winter", "Spring"))
 ```
 
 
+### Summarize tax data
+```{r}
+phy.sum <- phy.melt %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+#write.csv(phy.sum, file = "kaiju/phylum.sum.csv", row.names = F)
+
+cla.sum <- cla.melt %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+#write.csv(cla.sum, file = "kaiju/class.sum.csv", row.names = F)
+
+ord.sum <- ord.melt %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+#write.csv(ord.sum, file = "kaiju/order.sum.csv", row.names = F)
+
+fam.sum <- fam.melt %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+#write.csv(fam.sum, file = "kaiju/family.sum.csv", row.names = F)
+
+gen.sum <- gen.melt %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+#write.csv(gen.sum, file = "kaiju/genus.sum.csv", row.names = F)
+
+spe.sum <- spe.melt %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+#write.csv(spe.sum, file = "kaiju/species.sum.csv", row.names = F)
+```
 ### Tax - Substrate Comparisons
 ```{r}
 ### Taxon-level comparisons
@@ -487,21 +533,9 @@ kw.spe$padj <- p.adjust(kw.spe$pval, method = "BH")
 
 ### Tax - SIMPER
 ```{r}
-
-
-
-
-
-
-
-
-
-
-
-
-simper.pretty(data.frame(otu_table(phy.phy)), meta, c("Season"), perc_cutoff = 0.5, low_cutoff = 'y', low_val = 0.01, output_name = 'phylum')
+#simper.pretty(data.frame(otu_table(phy.phy)), meta, c("Season"), perc_cutoff = 0.5, low_cutoff = 'y', low_val = 0.01, output_name = 'phylum')
 simp.phy <- read.csv("phylum_clean_simper.csv")
-kruskal.pretty(data.frame(otu_table(phy.phy)), meta, csv = simp.phy, c("Season"), output_name = 'phylum', taxonomy = data.frame(tax_table(phy.phy)))
+#kruskal.pretty(data.frame(otu_table(phy.phy)), meta, csv = simp.phy, c("Season"), output_name = 'phylum', taxonomy = data.frame(tax_table(phy.phy)))
 
 
 #simper.pretty(data.frame(otu_table(cla.phy)), meta, c("Season"), perc_cutoff = 0.5, low_cutoff = 'y', low_val = 0.01, output_name = 'class')
@@ -509,24 +543,24 @@ simp.cla <- read.csv("class_clean_simper.csv")
 #kruskal.pretty(data.frame(otu_table(cla.phy)), meta, csv = simp.cla, c("Season"), output_name = 'class', taxonomy = data.frame(tax_table(cla.phy)))
 
 
-simper.pretty(data.frame(otu_table(ord.phy)), meta, c("Season"), perc_cutoff = 0.5, low_cutoff = 'y', low_val = 0.01, output_name = 'order')
+#simper.pretty(data.frame(otu_table(ord.phy)), meta, c("Season"), perc_cutoff = 0.5, low_cutoff = 'y', low_val = 0.01, output_name = 'order')
 simp.ord <- read.csv("order_clean_simper.csv")
-kruskal.pretty(data.frame(otu_table(ord.phy)), meta, csv = simp.ord, c("Season"), output_name = 'order', taxonomy = data.frame(tax_table(ord.phy)))
+#kruskal.pretty(data.frame(otu_table(ord.phy)), meta, csv = simp.ord, c("Season"), output_name = 'order', taxonomy = data.frame(tax_table(ord.phy)))
 
 
-simper.pretty(data.frame(otu_table(fam.phy)), meta, c("Season"), perc_cutoff = 0.5, low_cutoff = 'y', low_val = 0.01, output_name = 'family')
+#simper.pretty(data.frame(otu_table(fam.phy)), meta, c("Season"), perc_cutoff = 0.5, low_cutoff = 'y', low_val = 0.01, output_name = 'family')
 simp.fam <- read.csv("family_clean_simper.csv")
-kruskal.pretty(data.frame(otu_table(fam.phy)), meta, csv = simp.fam, c("Season"), output_name = 'family', taxonomy = data.frame(tax_table(fam.phy)))
+#kruskal.pretty(data.frame(otu_table(fam.phy)), meta, csv = simp.fam, c("Season"), output_name = 'family', taxonomy = data.frame(tax_table(fam.phy)))
 
 
-simper.pretty(data.frame(otu_table(gen.phy)), meta, c("Season"), perc_cutoff = 0.5, low_cutoff = 'y', low_val = 0.01, output_name = 'genus')
+#simper.pretty(data.frame(otu_table(gen.phy)), meta, c("Season"), perc_cutoff = 0.5, low_cutoff = 'y', low_val = 0.01, output_name = 'genus')
 simp.gen <- read.csv("genus_clean_simper.csv")
-kruskal.pretty(data.frame(otu_table(gen.phy)), meta, csv = simp.gen, c("Season"), output_name = 'genus', taxonomy = data.frame(tax_table(gen.phy)))
+#kruskal.pretty(data.frame(otu_table(gen.phy)), meta, csv = simp.gen, c("Season"), output_name = 'genus', taxonomy = data.frame(tax_table(gen.phy)))
 
 
-simper.pretty(data.frame(otu_table(spe.phy)), meta, c("Season"), perc_cutoff = 0.5, low_cutoff = 'y', low_val = 0.01, output_name = 'species')
+#simper.pretty(data.frame(otu_table(spe.phy)), meta, c("Season"), perc_cutoff = 0.5, low_cutoff = 'y', low_val = 0.01, output_name = 'species')
 simp.spe <- read.csv("species_clean_simper.csv")
-kruskal.pretty(data.frame(otu_table(spe.phy)), meta, csv = simp.spe, c("Season"), output_name = 'species', taxonomy = data.frame(tax_table(spe.phy)))
+#kruskal.pretty(data.frame(otu_table(spe.phy)), meta, csv = simp.spe, c("Season"), output_name = 'species', taxonomy = data.frame(tax_table(spe.phy)))
 ```
 
 ```
