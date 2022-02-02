@@ -279,12 +279,12 @@ spe.phy <- merge_phyloseq(spe.tax, spe.otu, meta.samp)
 ### Load tax physeq data
 ```{r}
 ### Load physeq data
-load("kaiju/physeq/phylum.phy.RData")
-load("kaiju/physeq/class.phy.RData")
-load("kaiju/physeq/order.phy.RData")
-load("kaiju/physeq/family.phy.RData")
-load("kaiju/physeq/genus.phy.RData")
-load("kaiju/physeq/species.phy.RData")
+load("kaiju/inulinase/physeq/phylum.phy.RData")
+load("kaiju/inulinase/physeq/class.phy.RData")
+load("kaiju/inulinase/physeq/order.phy.RData")
+load("kaiju/inulinase/physeq/family.phy.RData")
+load("kaiju/inulinase/physeq/genus.phy.RData")
+load("kaiju/inulinase/physeq/species.phy.RData")
 
 
 ### Melt physeq objects into dataframes
