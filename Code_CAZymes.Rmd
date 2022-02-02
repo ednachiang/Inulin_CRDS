@@ -1,0 +1,114 @@
+---
+title: "Code_CAZymes"
+author: "Edna Chiang"
+date: "2/2/2022"
+output: html_document
+---
+
+### Load Packages, scripts, and functions
+```{r}
+library(ggplot2)
+library(plyr)
+library(dplyr)
+library(grid)
+#library(MESS)
+#library(pgirmess)
+#library(Bolstad2)
+library(phyloseq)
+library(vegan)
+#library(miLineage)
+#library(psych)
+library(car)
+library(DESeq2)
+#source('scripts/import_crds.R')
+#source('scripts/bin_crds.R')
+source('scripts/misc.R')
+#source('scripts/calc_delta_metrics.R')
+source('scripts/simper_pretty.R')
+source('scripts/R_krusk.R')
+set.seed(1)
+theme_set(theme_bw())
+```
+
+### Load dbCAN data
+```{r}
+# Load data
+otu.i <- read.csv('dbcan/inulin_dbcan_otu_table.csv', row.names=1)
+tax.i <- read.csv('dbcan/inulin_dbcan_tax_table.csv', row.names=1, header = T)
+tax.i <- tax_table(tax.i)
+taxa_names(tax.i) <- tax.i[,2]
+colnames(tax.i) <- c("Class", "Family")
+
+otu.s <- read.csv('dbcan/saline_dbcan_otu_table.csv', row.names=1)
+tax.s <- read.csv('dbcan/saline_dbcan_tax_table.csv', row.names=1, header = T)
+tax.s <- tax_table(tax.s)
+taxa_names(tax.s) <- tax.s[,2]
+colnames(tax.s) <- c("Class", "Family")
+
+meta <- read.csv('metadata_metag.csv', row.names = 2)
+
+
+# Combine inulin & saline data
+phy.i <- merge_phyloseq(sample_data(meta), tax.i, otu_table(otu.i, taxa_are_rows = T))
+phy.s <- merge_phyloseq(sample_data(meta), tax.s, otu_table(otu.s, taxa_are_rows = T))
+phy <- merge_phyloseq(phy.i, phy.s)
+phy <- prune_taxa(taxa_names(phy) != "cohesin", phy)
+  # Remove cohesin
+phy <- prune_taxa(taxa_names(phy) != "SLH", phy)
+  # Remove SLH
+
+
+# Remove CAZymes that appear in < 3 samples
+cazy.rem <- list()
+otu <- data.frame(otu_table(phy))
+for(i in 1:nrow(otu)){
+  empty <- length(which(otu[i,] == 0))
+    # Identifies # of samples w/o CAZyme
+  if(empty > 15){
+    # If CAZyme appears in only 1 sample
+    cazy.rem <- append(cazy.rem, i)
+      # Create list of CAZymes that appear in only 1 sample
+  }
+}
+cazy.rem.row <- as.numeric(cazy.rem)
+  # Convert list to numeric
+otu.rem <- otu[-cazy.rem.row,]
+  # Remove CAZymes that appear in < 3 samples
+  # 11
+
+
+# Create phyloseq object
+cazy.phy <- merge_phyloseq(sample_data(phy), tax_table(phy), otu_table(otu.rem, taxa_are_rows = T))
+#save(cazy.phy, file = "cazy.phy.RData")  
+  
+
+
+
+# Normalized Counts At Family-level
+# https://hbctraining.github.io/DGE_workshop/lessons/02_DGE_count_normalization.html
+otu.rem <- data.frame(otu_table(cazy.phy))
+cazy.dds <- DESeqDataSetFromMatrix(countData = otu.rem, colData = data.frame(sample_data(cazy.phy)), design = ~ Season)
+cazy.dds <- estimateSizeFactors(cazy.dds)
+cazy.norm <- counts(cazy.dds, normalized=T)
+#write.csv(cazy.norm, file="dbcan/cazy.Normalized.Counts.Family.csv")
+
+cazy.fam.norm <- read.csv('dbcan/cazy.Normalized.Counts.Family.csv', row.names=1)
+cazy.fam.norm.otu <- otu_table(cazy.fam.norm, taxa_are_rows=T)
+cazy.fam.norm.phy <- merge_phyloseq(cazy.fam.norm.otu, sample_data(cazy.phy), tax_table(cazy.phy))
+#save(cazy.fam.norm.phy, file = "cazy.fam.norm.phy.RData")
+
+# Normalize Counts to Class-Level
+cazy.class <- tax_glom(cazy.phy, taxrank="Class")
+cazy.class.otu <- data.frame(otu_table(cazy.class))
+cazy.dds <- DESeqDataSetFromMatrix(countData = cazy.class.otu, 
+                                   colData = data.frame(sample_data(cazy.phy)), 
+                                   design = ~ Season)
+cazy.dds <- estimateSizeFactors(cazy.dds)
+cazy.norm <- counts(cazy.dds, normalized=T)
+#write.csv(cazy.norm, file="dbcan/cazy.Normalized.Counts.Class.csv")
+
+cazy.class.norm <- read.csv('dbcan/cazy.Normalized.Counts.Class.csv', row.names=1)
+rownames(cazy.class.norm) <- c("Carbohydrate Esterase", "Glycoside Hydrolase", "Glycosyltransferase", "Polysaccharide Lyase")
+
+```
+
