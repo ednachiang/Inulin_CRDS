@@ -20,6 +20,9 @@ library(vegan)
 #library(psych)
 library(car)
 library(DESeq2)
+library(labdsv)
+library(ggdendro)
+library(ape)
 #source('scripts/import_crds.R')
 #source('scripts/bin_crds.R')
 source('scripts/misc.R')
@@ -30,7 +33,7 @@ set.seed(1)
 theme_set(theme_bw())
 ```
 
-### Load dbCAN data
+### Prepare dbCAN data ***DON'T RUN***
 ```{r}
 # Load data
 otu.i <- read.csv('dbcan/inulin_dbcan_otu_table.csv', row.names=1)
@@ -112,3 +115,434 @@ rownames(cazy.class.norm) <- c("Carbohydrate Esterase", "Glycoside Hydrolase", "
 
 ```
 
+
+### Load phyloseq object
+```{r}
+# Load data
+meta <- read.csv('metadata_metag.csv', row.names = 2)
+load("cazy.phy.Rdata")
+cazy.fam.norm <- read.csv('dbcan/cazy.Normalized.Counts.Family.csv', row.names=1)
+load("cazy.fam.norm.phy.RData")
+cazy.class.norm <- read.csv('dbcan/cazy.Normalized.Counts.Class.csv', row.names=1)
+rownames(cazy.class.norm) <- c("Carbohydrate Esterase", "Glycoside Hydrolase", "Glycosyltransferase", "Polysaccharide Lyase")
+```
+
+
+### Count unique CAZyme families
+```{r}
+# Subset out samples by season
+phy.sum <- subset_samples(cazy.phy, Season == "Summer")
+phy.win <- subset_samples(cazy.phy, Season == "Winter")
+phy.spr <- subset_samples(cazy.phy, Season == "Spring")
+
+
+# Pull out unique CAZyme families in each season and order alphabetically
+sum.fam <- get_taxa_unique(phy.sum, "Family")
+sum.fam <- sort(sum.fam)
+win.fam <- get_taxa_unique(phy.win, "Family")
+win.fam <- sort(win.fam)
+spr.fam <- get_taxa_unique(phy.spr, "Family")
+spr.fam <- sort(spr.fam)
+
+
+# Summer - Count # of CAZymes in each class
+class <- substr(sum.fam,1,2)
+length(which(class == "GH"))
+  # 116
+length(which(class == "GT"))
+  # 53
+length(which(class == "CE"))
+  # 14
+length(which(class == "PL"))
+  # 22
+
+
+# Winter - Count # of CAZymes in each class
+class <- substr(win.fam,1,2)
+length(which(class == "GH"))
+  # 116
+length(which(class == "GT"))
+  # 53
+length(which(class == "CE"))
+  # 14
+length(which(class == "PL"))
+  # 22
+
+
+# Spring - Count # of CAZymes in each class
+class <- substr(spr.fam,1,2)
+length(which(class == "GH"))
+  # 116
+length(which(class == "GT"))
+  # 53
+length(which(class == "CE"))
+  # 14
+length(which(class == "PL"))
+  # 22
+```
+
+
+### Class-level dot plot
+```{r}
+# Create phyloseq object to summarize data
+class.tax <- data.frame(c("Carbohydrate Esterase", "Glycoside Hydrolase", "Glycosyltransferase", 
+                          "Polysaccharide Lyase"))
+class.tax <- tax_table(class.tax)
+row.names(class.tax) <- class.tax[,1]
+colnames(class.tax) <- "Class"
+cazy.class.norm.otu <- otu_table(cazy.class.norm, taxa_are_rows=T)
+class.phy <- merge_phyloseq(cazy.class.norm.otu, class.tax, sample_data(meta))
+
+# Calculate relative abundance
+class.phy <- transform_sample_counts(class.phy, function(x){(x/sum(x))*100})
+
+# Summarize data
+class.df <- psmelt(class.phy)
+class.df$Class <- ordered(class.df$Class, c("Glycoside Hydrolase", "Glycosyltransferase",
+                                            "Carbohydrate Esterase","Polysaccharide Lyase"))
+class.df$Season <- ordered(class.df$Season, levels = c("Summer", "Winter", "Spring"))
+#class.sum <- class.df %>%
+#  group_by(Class, Season) %>%
+#  summarize(Mean = mean(Abundance),
+#            SD = sd(Abundance),
+#            SE = se(Abundance))
+#cazy.class.sum$Class <- ordered(cazy.class.sum$Class, c("Glycoside Hydrolase",
+#                                                                  "Glycosyltransferase",
+#                                                                  "Carbohydrate Esterase",
+#                                                                  "Polysaccharide Lyase"))
+#cazy.class.sum$Season <- ordered(cazy.class.sum$Season, levels = c("Summer", "Winter", #"Spring"))
+
+# Plot barplot
+#tiff("cazy.class.tiff", width=11, height=4, units="in", res= 300)
+ggplot(class.df, aes(x=Season, y=Abundance, fill=Season)) +
+  geom_dotplot(binaxis='y', stackdir='center', dotsize=1.5, stackratio=1.2) +
+  scale_y_continuous(limits=c(0,60), breaks = c(0,11,22,33,44,55)) +
+  facet_grid(. ~ Class) +
+  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  xlab("CAZyme Class") +
+  ylab("Relative Abundance (%)") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        strip.text = element_text(face="bold"),
+        strip.text.x = element_text(size=11),
+        legend.title = element_text(size=12, face = "bold"),
+        legend.text = element_text(size=12),
+        panel.spacing = unit(0.5, "lines"),
+        axis.title.x = element_text(margin = margin(t = 20)))
+#dev.off()
+
+```
+
+
+### Test class-level
+```{r}
+# Same results if you compare Diet (Feeding vs. Fasting)
+### CE
+ce <- class.df[which(class.df$Class == "Carbohydrate Esterase"),]
+
+# Test normality
+hist(ce$Abundance)
+qqnorm(ce$Abundance)
+qqline(ce$Abundance)
+shapiro.test(ce$Abundance)
+  # p-value = 0.9974
+  # Normal
+
+# Test CE w/ ANOVA
+summary(aov(Abundance ~ Season, data = ce))
+  # p-value = 0.117
+
+
+
+### GH
+gh <- class.df[which(class.df$Class == "Glycoside Hydrolase"),]
+
+# Test normality
+hist(gh$Abundance)
+qqnorm(gh$Abundance)
+qqline(gh$Abundance)
+shapiro.test(gh$Abundance)
+  # p-value = 0.1308
+  # Normal
+
+# Test GH w/ ANOVA
+summary(aov(Abundance ~ Season, data = gh))
+  # p-value = 0.617
+
+
+
+
+### GT
+gt <- class.df[which(class.df$Class == "Glycosyltransferase"),]
+
+# Test normality
+hist(gt$Abundance)
+qqnorm(gt$Abundance)
+qqline(gt$Abundance)
+shapiro.test(gt$Abundance)
+  # p-value = 0.144
+  # Normal
+
+# Test GT w/ ANOVA
+summary(aov(Abundance ~ Season, data = gt))
+  # p-value = 0.903
+
+
+
+
+### PL
+pl <- class.df[which(class.df$Class == "Polysaccharide Lyase"),]
+
+# Test normality
+hist(pl$Abundance)
+qqnorm(pl$Abundance)
+qqline(pl$Abundance)
+shapiro.test(pl$Abundance)
+  # p-value = 0.004783
+  # Not Normal
+
+# Test PL w/ ANOVA
+kruskal.test(Abundance ~ Season, pl)
+  # p-value = 0.9942
+
+```
+
+
+
+### Create DESeq Object
+```{r}
+# https://www.bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html
+# https://compbiocore.github.io/deseq-workshop-1/assets/deseq_workshop_1.html
+# https://hbctraining.github.io/DGE_workshop/lessons/02_DGE_count_normalization.html
+# Use UN-NORMALIZED data!!!
+  # DESeq accounts for library size
+
+
+### Test DESeq2 to determine fit type
+# https://support.bioconductor.org/p/81094/
+#dds <- phyloseq_to_deseq2(cazy.phy, ~Season)
+#dds$Season <- factor(dds$Season, levels=c("Summer", "Winter", "Spring"))
+#dds <- dds[rowSums(counts(dds)) > 1,]
+#local <- DESeq(dds, fitType = "local")
+#par <- DESeq(dds, fitType = "parametric")
+#mad(log(mcols(local)$dispGeneEst) - log(mcols(local)$dispFit))
+  # 7.770331
+#mad(log(mcols(par)$dispGeneEst) - log(mcols(par)$dispFit))
+  # 5.75149
+# Parametric is a better fit (lower median absolute residual) than local
+
+### Convert phyloseq object to deseq2 object
+dds <- phyloseq_to_deseq2(cazy.phy, ~Season)
+  # Design variable must be unordered otherwise you get an error
+dds$Season <- factor(dds$Season, levels=c("Summer", "Winter", "Spring"))
+
+# DESeq DataStructure for analyses
+dds <- DESeq(dds)
+
+# Hellinger-transformed data for visualizations
+hell <- hellinger(t(assay(dds)))
+```
+
+
+### DESeq - find overrep genes
+```{r}
+# Pull out results from pairwise comparison
+sw <- results(dds, contrast=c("Season", "Summer", "Winter"))
+sw.sig <- sw[which(sw$padj < 0.05),]
+  # 27 CAZymes
+  # CE12, CE2, GH10, GH109, GH11, GH110, GH20, GH25, GH26, GH31, GH33, GH42, GH43, GH44, GH5, GH51, GH84, GH88, GH89, GH92, GH94, GT11, GT94, PL1, PL11, PL12, PL8
+sw.sig[which(sw.sig$log2FoldChange > 0),]
+  # Enriched in Summer compared to Winter (positive log2FoldChange)
+  # 16 CAZymes
+  # CE12, CE2, GH10, GH11, GH25, GH26, GH31, GH42, GH43, GH44, GH5, GH51, GH94, GT11, PL1, PL11
+sw.sig[which(sw.sig$log2FoldChange < 0),]
+  # Enriched in Winter compared to Summer (negative log2FoldChange)
+  # 11 CAZymes
+  # GH109, GH110, GH20, GH33, GH84, GH88, GH89, GH92, GT94, PL12, PL8
+
+sp <- results(dds, contrast=c("Season", "Summer", "Spring"))
+sp.sig <- sp[which(sp$padj < 0.05),]
+  # None
+
+wp <- results(dds, contrast=c("Season", "Winter", "Spring"))
+wp.sig <- wp[which(wp$padj < 0.05),]
+wp.sig[which(wp.sig$log2FoldChange > 0),]
+  # Enriched in Winter compared to Spring (positive log2FoldChange)
+  # 12 CAZymes
+  # GH101, GH109, GH110, GH20, GH33, GH84, GH85, GH88, GH89, GH92, PL12, PL8
+wp.sig[which(wp.sig$log2FoldChange < 0),]
+  # Enriched in Spring compared to Winter (negative log2FoldChange)
+  # 21 CAZymes
+  # CE12, CE2, GH10, GH115, GH26, GH3, GH31, GH42, GH43, GH44, GH47, GH5, GH51, GH8, GH9, GH94, GT11, GT24, PL1, PL11, PL9
+```
+
+
+
+### DESeq heatmap of normalized + transformed counts
+```{r}
+# Prepare data
+hell.otu <- otu_table(t(hell), taxa_are_rows = T)
+# Trying it with rel abund
+#test <- transform_sample_counts(cazy.fam.norm.phy, function(x){(x/sum(x))*100})
+#colnames(hell.otu) <- c("3715", "3717", "3723", "3733", "3734", "3744",
+                              "3772", "3773" , "3775")
+sig <- merge_phyloseq(hell.otu, tax_table(cazy.phy), sample_data(cazy.phy))
+
+
+
+
+
+
+
+sig <- subset_taxa(cazy.sig, Family == "GT101" | Family == "PL1" |
+                           Family == "GH10" | Family == "GH43" | Family == "GH115" |
+                           Family == "CE12" | Family == "GH3" | Family == "GH5" |
+                           Family == "GH32" | Family == "GH39" | Family == "GH42" |
+                           Family == "GH78" | Family == "GH106" | Family == "GH20" |
+                           Family == "GH84" | Family == "GT3" | Family == "GT4" |
+                           Family == "GT9" | Family == "GT41" | Family == "CE11")
+
+
+
+#tiff("cazy.heatmap.tiff", width=8.4, height=10, units="in", res=300)
+plot_heatmap(cazy.sig, sample.label = "Season", sample.order = c("3715", "3717", "3744", "3723", "3733", "3772", "3734", "3773", "3775"), taxa.order = c("CE11", "GT41", "GT9", "GT4", "GT3", "GH84", "GH20", "GH106", "GH78", "GH42", "GH39", "GH32", "GH5", "GH3", "CE12", "GH115", "GH43", "GH10", "PL1", "GT101")) +
+  geom_tile(colour="gray40") +
+  scale_x_discrete(position = "top", labels=c("Summer", "Summer", "Summer", "Winter", "Winter", "Winter", "Spring", "Spring", "Spring")) +
+  xlab("Season\n\n") +
+  ylab("CAZyme Family\n\n") +
+  scale_fill_gradientn(name=expression("Relative\nAbundance (%)\n"), limits = c(0.0,7.5),
+                       #breaks = c(0.02, 0.07, 0.12, 0.17, 0.22, 0.27),
+                       #labels = c("0.02", "0.07", "0.12", "0.17", "0.22", "0.27"),
+                       colours = c("#FFFFFF", "#ffffcc", "#ffeda0", "#fed976",
+                                   "#feb24c", "#fd8d3c", "#fc4e2a", "#e31a1c",
+                                   "#bd0026", "#800026", "#33000f")) +
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_text(size=20),
+        axis.ticks.x = element_blank(),
+        axis.ticks.y = element_blank(),
+        panel.border=element_blank(),
+        axis.title.x = element_text(size=20, face="bold"),
+        axis.title.y = element_text(size=20, face="bold"),
+        legend.title = element_text(size=20, face="bold"),
+        legend.text = element_text(size=20)) +
+  guides(fill = guide_colorbar(barheight = unit(7,"in"),
+                               frame.colour="black",
+                               frame.linewidth=1))
+#dev.off()
+```
+
+
+
+
+### DESeq sample dist heatmap / dendrogram
+``` {r}
+# https://www.bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#exploring-and-exporting-results
+# http://bioconductor.org/packages/devel/workflows/vignettes/rnaseqGene/inst/doc/rnaseqGene.html
+
+dist <- dist(hell, method = "euclidean")
+dist.matrix <- as.matrix(dist)
+rownames(dist.matrix) <- meta$Season
+colnames(dist.matrix) <- meta$Season
+
+# Dendrogram
+hclust <- hclust(dist, method = "average")
+den <- as.dendrogram(hclust)
+den.data <- dendro_data(den, type="rectangle")
+#den.data$labels[,3] <- c("Summer", "Winter", "Winter", "Winter", "Summer", "Spring", "Spring", "Spring", "Summer")
+#den.data$labels[,3] <- ordered(den.data$labels[,3], levels=c("Summer", "Winter", "Spring"))
+
+#tiff("dendro.tiff", width=10, height=5, units="in", res=300)
+ggplot(den.data$segments) +
+  geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) +
+  geom_text(data = den.data$labels, aes(x, y, label=label, colour=label, fontface = "bold"),
+            hjust=0, size=5) +
+  ylab("Hellinger Distance") +
+  xlab("Season") +
+  labs(colour = "Season") +
+  coord_flip() +
+  scale_y_reverse() +
+  #scale_color_manual(values=c("darkgoldenrod3", "dodgerblue3", "green4")) +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.text.y = element_blank(),
+        axis.text.x = element_text(size=20),
+        panel.border = element_blank(),
+        axis.line.x = element_line(),
+        legend.title = element_text(face="bold"),
+        axis.title.x = element_text(face="bold", size=20),
+        axis.title.y = element_text(face="bold", size=20))
+#dev.off()
+
+```
+
+
+
+### Sample dist PCoA & PERMANOVA
+```{r}
+pcoa <- pcoa(dist)
+phy.ord <- cazy.phy
+sample_data(phy.ord)$Season <- ordered(sample_data(phy.ord)$Season, levels = c("Summer", "Winter", "Spring"))
+
+#tiff("aaas.pcoa.tiff", width=8, height=6, units="in", res=300)
+plot_ordination(physeq = phy.ord, ordination = pcoa, axes = c(1,2),
+                color = "Season") +
+  geom_point(size=10) +
+  scale_color_manual(values=c("#00cccc", "#008484", "#004f4f")) +
+  ggtitle("CAZyme Profiles") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x = element_text(size=20),
+        axis.title.y = element_text(size=20),
+        legend.title = element_text(size=20),
+        legend.text = element_text(size=18),
+        plot.title = element_blank())
+#dev.off()
+
+
+
+### Run PERMANOVA on DESEq Hellinger distance
+adonis(dist ~ Season, data=meta, permutations = 99999)
+  # p-value = 0.3185
+beta.tax = betadisper(d=dist, group=meta$Season) 
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.012
+
+
+
+### Pairwise PERMANOVA Comparisons
+dist.matrix <- as.matrix(dist)
+dist.df <- data.frame(dist.matrix)
+
+# Summer vs. Winter
+sw.dist.df <- dist.df[,-5]
+sw.dist.df <- sw.dist.df[,-7:-8]
+sw.dist.df <- sw.dist.df[-5,]
+sw.dist.df <- sw.dist.df[-7:-8,]
+sw.dist <- as.dist(sw.dist.df)
+meta.sw <- meta[-which(meta$Season == "Spring"),]
+adonis(sw.dist ~ Season, data=meta.sw, permutations= 99999)
+  # p-value = 0.1
+
+# Summer vs. Spring
+sp.dist.df <- dist.df[,-3:-4]
+sp.dist.df <- sp.dist.df[,-5]
+sp.dist.df <- sp.dist.df[-3:-4,]
+sp.dist.df <- sp.dist.df[-5,]
+sp.dist <- as.dist(sp.dist.df)
+meta.sp <- meta[-which(meta$Season == "Winter"),]
+adonis(sp.dist ~ Season, data=meta.sp, permutations= 99999)
+  # p-value = 0.2
+
+# Spring vs. Winter
+wp.dist.df <- dist.df[,-3:-4]
+wp.dist.df <- wp.dist.df[,-5]
+wp.dist.df <- wp.dist.df[-3:-4,]
+wp.dist.df <- wp.dist.df[-5,]
+wp.dist <- as.dist(wp.dist.df)
+meta.wp <- meta[-which(meta$Season == "Summer"),]
+adonis(wp.dist ~ Season, data=meta.wp, permutations= 99999)
+  # p-value = 0.2
+```
