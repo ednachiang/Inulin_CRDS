@@ -77,7 +77,8 @@ cazy.rem.row <- as.numeric(cazy.rem)
   # Convert list to numeric
 otu.rem <- otu[-cazy.rem.row,]
   # Remove CAZymes that appear in < 3 samples
-  # 11
+  # 11 CAZymes
+  # GH49. GT52, GT7, GT73, GT89, PL31, CE5, GH232, GH157, GT44, GT61
 
 
 # Create phyloseq object
@@ -350,8 +351,6 @@ hell <- hellinger(t(assay(dds)))
 # Pull out results from pairwise comparison
 sw <- results(dds, contrast=c("Season", "Summer", "Winter"))
 sw.sig <- sw[which(sw$padj < 0.05),]
-  # 27 CAZymes
-  # CE12, CE2, GH10, GH109, GH11, GH110, GH20, GH25, GH26, GH31, GH33, GH42, GH43, GH44, GH5, GH51, GH84, GH88, GH89, GH92, GH94, GT11, GT94, PL1, PL11, PL12, PL8
 sw.sig[which(sw.sig$log2FoldChange > 0),]
   # Enriched in Summer compared to Winter (positive log2FoldChange)
   # 16 CAZymes
