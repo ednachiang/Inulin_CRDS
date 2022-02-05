@@ -78,7 +78,7 @@ cazy.rem.row <- as.numeric(cazy.rem)
 otu.rem <- otu[-cazy.rem.row,]
   # Remove CAZymes that appear in < 3 samples
   # 11 CAZymes
-  # GH49. GT52, GT7, GT73, GT89, PL31, CE5, GH232, GH157, GT44, GT61
+  # GH49, GT52, GT7, GT73, GT89, PL31, CE5, GH232, GH157, GT44, GT61
 
 
 # Create phyloseq object
@@ -391,31 +391,53 @@ sig <- merge_phyloseq(hell.otu, tax_table(cazy.phy), sample_data(cazy.phy))
 
 
 
+sig.active <- subset_taxa(sig, Family == "CE2" | Family == "CE12" | Family == "GH5" | Family == "GH10" |
+                            Family == "GH26" | Family == "GH31" | Family == "GH42" | Family == "GH43" |
+                            Family == "GH44" | Family == "GH51" | Family == "GH94" | Family == "GT11" |
+                            Family == "PL1" | Family == "PL11" | Family == "GH11" | Family == "GH25" |
+                            Family == "GH3" | Family == "GH8" | Family == "GH9" | Family == "GH47" |
+                            Family == "GH115" | Family == "GT24" | Family == "PL9")
+sig.act.sum <- merge_samples(sig.active, "Season")
+sig.act.sum <- transform_sample_counts(sig.act.sum, function(x) (x/6))
+
+
+sig.hib <- subset_taxa(sig, Family == "GH20" | Family == "GH33" | Family == "GH84" |
+                         Family == "GH88" | Family == "GH89" | Family == "GH92" | Family == "GH109" |
+                         Family == "GH110" | Family == "PL8" | Family == "PL12" | Family == "GT94" |
+                         Family == "GH85" | Family == "GH101")
+sig.hib.sum <- merge_samples(sig.hib, "Season")
+sig.hib.sum <- transform_sample_counts(sig.hib.sum, function(x) (x/6))
 
 
 
-sig <- subset_taxa(cazy.sig, Family == "GT101" | Family == "PL1" |
-                           Family == "GH10" | Family == "GH43" | Family == "GH115" |
-                           Family == "CE12" | Family == "GH3" | Family == "GH5" |
-                           Family == "GH32" | Family == "GH39" | Family == "GH42" |
-                           Family == "GH78" | Family == "GH106" | Family == "GH20" |
-                           Family == "GH84" | Family == "GT3" | Family == "GT4" |
-                           Family == "GT9" | Family == "GT41" | Family == "CE11")
 
 
 
-#tiff("cazy.heatmap.tiff", width=8.4, height=10, units="in", res=300)
-plot_heatmap(cazy.sig, sample.label = "Season", sample.order = c("3715", "3717", "3744", "3723", "3733", "3772", "3734", "3773", "3775"), taxa.order = c("CE11", "GT41", "GT9", "GT4", "GT3", "GH84", "GH20", "GH106", "GH78", "GH42", "GH39", "GH32", "GH5", "GH3", "CE12", "GH115", "GH43", "GH10", "PL1", "GT101")) +
+
+
+
+
+##### BY SAMPLE
+
+
+#tiff("cazy.heatmap.act.samp.tiff", width=10, height=9, units="in", res=300)
+plot_heatmap(sig.active, sample.label = "Season", sample.order = c("S.S05", "I.S07", "S.S08", "I.S29",
+                                                                "S.S32", "I.S34", "S.W20", "I.W31",
+                                                                "I.W32", "I.W33", "S.W36", "S.W37",
+                                                                "I.P01", "S.P03", "I.P07", "S.P09",
+                                                                "I.P11", "S.P12"), 
+             taxa.order = c("PL9", "GT24", "GH115", "GH47", "GH9", "GH8", "GH3", "GH25", "GH11", "PL11",
+                            "PL1", "GT11", "GH94", "GH51", "GH44", "GH43", "GH42", "GH31", "GH26",
+                            "GH10", "GH5", "CE12", "CE2")) +
   geom_tile(colour="gray40") +
-  scale_x_discrete(position = "top", labels=c("Summer", "Summer", "Summer", "Winter", "Winter", "Winter", "Spring", "Spring", "Spring")) +
+  scale_x_discrete(position = "top", labels=c(rep("Summer",6), rep("Winter", 6), rep("Spring", 6))) +
   xlab("Season\n\n") +
   ylab("CAZyme Family\n\n") +
-  scale_fill_gradientn(name=expression("Relative\nAbundance (%)\n"), limits = c(0.0,7.5),
-                       #breaks = c(0.02, 0.07, 0.12, 0.17, 0.22, 0.27),
-                       #labels = c("0.02", "0.07", "0.12", "0.17", "0.22", "0.27"),
-                       colours = c("#FFFFFF", "#ffffcc", "#ffeda0", "#fed976",
-                                   "#feb24c", "#fd8d3c", "#fc4e2a", "#e31a1c",
-                                   "#bd0026", "#800026", "#33000f")) +
+  scale_fill_gradientn(name=expression("Hellinger-\ntransformed\nnormalized\ncounts"),
+                       colours = c("#FFFFFF", "#ffffcc", "#ffeda0", "#fed976", "#feb24c", "#fd8d3c",
+                                   "#fc4e2a", "#e31a1c", "#bd0026", "#800026", "#33000f"),
+                       limits = c(0.000, 0.245), breaks = c(0.000, 0.049, 0.098, 0.147, 0.196, 0.245),
+                       labels = c("0.000", "0.049", "0.098", "0.147", "0.196", "0.245")) +
   theme(axis.text.x = element_blank(),
         axis.text.y = element_text(size=20),
         axis.ticks.x = element_blank(),
@@ -429,6 +451,100 @@ plot_heatmap(cazy.sig, sample.label = "Season", sample.order = c("3715", "3717",
                                frame.colour="black",
                                frame.linewidth=1))
 #dev.off()
+
+
+#tiff("cazy.heatmap.hib.samp.tiff", width=14, height=9, units="in", res=300)
+plot_heatmap(sig.hib, sample.label = "Season", sample.order = c("S.S05", "I.S07", "S.S08", "I.S29",
+                                                                "S.S32", "I.S34", "S.W20", "I.W31",
+                                                                "I.W32", "I.W33", "S.W36", "S.W37",
+                                                                "I.P01", "S.P03", "I.P07", "S.P09",
+                                                                "I.P11", "S.P12"), 
+             taxa.order = c("GH101", "GH85", "GT94", "PL12", "PL8", "GH110", "GH109", "GH92", "GH89",
+                            "GH88", "GH84", "GH33", "GH20")) +
+  geom_tile(colour="gray40") +
+  scale_x_discrete(position = "top", labels=c(rep("Summer",6), rep("Winter", 6), rep("Spring", 6))) +
+  xlab("Season\n\n") +
+  ylab("CAZyme Family\n\n") +
+  scale_fill_gradientn(name=expression("Hellinger-\ntransformed\nnormalized\ncounts"),
+                       colours = c("#FFFFFF", "#ffffcc", "#ffeda0", "#fed976", "#feb24c", "#fd8d3c",
+                                   "#fc4e2a", "#e31a1c", "#bd0026", "#800026", "#33000f"),
+                       limits = c(0.000, 0.141), breaks = c(0.000, 0.035, 0.070, 0.105, 0.140),
+                       labels = c("0.000", "0.035", "0.070", "0.105", "0.141")) +
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_text(size=20),
+        axis.ticks.x = element_blank(),
+        axis.ticks.y = element_blank(),
+        panel.border=element_blank(),
+        axis.title.x = element_text(size=20, face="bold"),
+        axis.title.y = element_text(size=20, face="bold"),
+        legend.title = element_text(size=20, face="bold"),
+        legend.text = element_text(size=20)) +
+  guides(fill = guide_colorbar(barheight = unit(7,"in"),
+                               frame.colour="black",
+                               frame.linewidth=1))
+#dev.off()
+
+
+
+##### BY SEASON
+
+
+#tiff("cazy.heatmap.act.seas.tiff", width=4.9, height=9, units="in", res=300)
+plot_heatmap(sig.act.sum, sample.label = "Season", sample.order = c("Summer", "Winter", "Spring"), 
+             taxa.order = c("PL9", "GT24", "GH115", "GH47", "GH9", "GH8", "GH3", "GH25", "GH11", "PL11",
+                            "PL1", "GT11", "GH94", "GH51", "GH44", "GH43", "GH42", "GH31", "GH26",
+                            "GH10", "GH5", "CE12", "CE2")) +
+  geom_tile(colour="gray40") +
+  scale_x_discrete(position = "top", labels = c("Summer", "Winter", "Spring")) +
+  xlab("Season\n\n") +
+  ylab("CAZyme Family\n\n") +
+  scale_fill_gradientn(name=expression("Mean\nhellinger-\ntransformed\nnormalized\ncounts"),
+                       colours = c("#FFFFFF", "#ffffcc", "#ffeda0", "#fed976", "#feb24c", "#fd8d3c",
+                                   "#fc4e2a", "#e31a1c", "#bd0026", "#800026", "#33000f"),
+                       limits = c(0.000, 0.231), breaks = c(0.000, 0.077, 0.154, 0.231),
+                       labels = c("0.000", "0.077", "0.154", "0.231")) +
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_text(size=20),
+        axis.ticks.x = element_blank(),
+        axis.ticks.y = element_blank(),
+        panel.border=element_blank(),
+        axis.title.x = element_text(size=20, face="bold"),
+        axis.title.y = element_text(size=20, face="bold"),
+        legend.title = element_text(size=20, face="bold"),
+        legend.text = element_text(size=20)) +
+  guides(fill = guide_colorbar(barheight = unit(7,"in"),
+                               frame.colour="black",
+                               frame.linewidth=1))
+#dev.off()
+
+
+#tiff("cazy.heatmap.hib.seas.tiff", width=5.8, height=9, units="in", res=300)
+plot_heatmap(sig.hib.sum, sample.label = "Season", sample.order = c("Summer", "Winter", "Spring"), 
+             taxa.order = c("GH101", "GH85", "GT94", "PL12", "PL8", "GH110", "GH109", "GH92", "GH89",
+                            "GH88", "GH84", "GH33", "GH20")) +
+  geom_tile(colour="gray40") +
+  scale_x_discrete(position = "top", labels = c("Summer", "Winter", "Spring")) +
+  xlab("Season\n\n") +
+  ylab("CAZyme Family\n\n") +
+  scale_fill_gradientn(name=expression("Mean\nhellinger-\ntransformed\nnormalized\ncounts"),
+                       colours = c("#FFFFFF", "#ffffcc", "#ffeda0", "#fed976", "#feb24c", "#fd8d3c",
+                                   "#fc4e2a", "#e31a1c", "#bd0026", "#800026", "#33000f"),
+                       limits = c(0.000, 0.130), breaks = c(0.000, 0.026, 0.052, 0.078, 0.104, 0.130),
+                       labels = c("0.000", "0.026", "0.052", "0.078", "0.104", "0.130")) +
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_text(size=20),
+        axis.ticks.x = element_blank(),
+        axis.ticks.y = element_blank(),
+        panel.border=element_blank(),
+        axis.title.x = element_text(size=20, face="bold"),
+        axis.title.y = element_text(size=20, face="bold"),
+        legend.title = element_text(size=20, face="bold"),
+        legend.text = element_text(size=20)) +
+  guides(fill = guide_colorbar(barheight = unit(7,"in"),
+                               frame.colour="black",
+                               frame.linewidth=1))
+#dev.off()
+
 ```
 
 
