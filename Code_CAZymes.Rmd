@@ -347,6 +347,7 @@ hell <- hellinger(t(assay(dds)))
 ```
 
 
+
 ### DESeq - find overrep genes
 ```{r}
 # Pull out results from pairwise comparison
@@ -568,8 +569,7 @@ den <- as.dendrogram(hclust)
 den.data <- dendro_data(den, type="rectangle")
 den.data$leaf_labels <- c(rep("Winter",6), "Spring", "Summer", "Summer", rep("Spring",4), "Summer", "Spring", "Summer", "Summer", "Summer")
 den.data$leaf_labels <- ordered(den.data$leaf_labels, levels = c("Summer", "Winter", "Spring"))
-#den.data$labels[,3] <- c("Summer", "Winter", "Winter", "Winter", "Summer", "Spring", "Spring", "Spring", "Summer")
-#den.data$labels[,3] <- ordered(den.data$labels[,3], levels=c("Summer", "Winter", "Spring"))
+
 
 #tiff("cazy.dendro.tiff", width=10, height=5, units="in", res=300)
 ggplot(den.data$segments) +
@@ -602,19 +602,14 @@ ggplot(den.data$segments) +
 ### Validate clusters
 # https://github.com/shimo-lab/pvclust
 # https://cran.r-project.org/web/packages/pvclust/pvclust.pdf
-clust.test <- pvclust(t(hell), method.hclust = "average", method.dist = "euclidean", nboot = 1000)
+# SI: https://rdrr.io/cran/scaleboot/f/vignettes/pvclust.Rmd
+clust.test <- pvclust(t(hell), method.hclust = "average", method.dist = "euclidean")
 plot(clust.test)
 pvrect(clust.test, alpha = 0.95)
-
-# Remove S.W20 and S.W37 because they seem to be outliers
-
-clust.df <- t(hell)
-clust.df <- clust.df[,-18]
-clust.df <- clust.df[,-16]
-clust.test2 <- pvclust(clust.df, method.hclust = "average", method.dist = "euclidean", nboot = 1000)
-plot(clust.test2)
-pvrect(clust.test2, alpha = 0.95)
+#plot(clust.test, print.pv = "si")
+#pvrect(clust.test, alpha = 0.95, pv = "si")
 ```
+
 
 
 
@@ -642,7 +637,7 @@ plot_ordination(physeq = phy.ord, ordination = pcoa, axes = c(1,2),
 
 
 ### Run PERMANOVA on DESEq Hellinger distance
-adonis(dist ~ Season, data=meta, permutations = 99999)
+adonis(dist ~ Season*Number, data=meta, permutations = 99999)
   # p-value = 0.3185
 beta.tax = betadisper(d=dist, group=meta$Season) 
 p <- permutest(beta.tax)
