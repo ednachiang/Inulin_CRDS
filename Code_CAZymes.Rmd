@@ -23,6 +23,7 @@ library(DESeq2)
 library(labdsv)
 library(ggdendro)
 library(ape)
+library(pvclust)
 #source('scripts/import_crds.R')
 #source('scripts/bin_crds.R')
 source('scripts/misc.R')
@@ -551,7 +552,7 @@ plot_heatmap(sig.hib.sum, sample.label = "Season", sample.order = c("Summer", "W
 
 
 ### DESeq sample dist heatmap / dendrogram
-``` {r}
+```{r}
 # https://www.bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#exploring-and-exporting-results
 # http://bioconductor.org/packages/devel/workflows/vignettes/rnaseqGene/inst/doc/rnaseqGene.html
 
@@ -560,24 +561,27 @@ dist.matrix <- as.matrix(dist)
 rownames(dist.matrix) <- meta$Season
 colnames(dist.matrix) <- meta$Season
 
+
 # Dendrogram
 hclust <- hclust(dist, method = "average")
 den <- as.dendrogram(hclust)
 den.data <- dendro_data(den, type="rectangle")
+den.data$leaf_labels <- c(rep("Winter",6), "Spring", "Summer", "Summer", rep("Spring",4), "Summer", "Spring", "Summer", "Summer", "Summer")
+den.data$leaf_labels <- ordered(den.data$leaf_labels, levels = c("Summer", "Winter", "Spring"))
 #den.data$labels[,3] <- c("Summer", "Winter", "Winter", "Winter", "Summer", "Spring", "Spring", "Spring", "Summer")
 #den.data$labels[,3] <- ordered(den.data$labels[,3], levels=c("Summer", "Winter", "Spring"))
 
-#tiff("dendro.tiff", width=10, height=5, units="in", res=300)
+#tiff("cazy.dendro.tiff", width=10, height=5, units="in", res=300)
 ggplot(den.data$segments) +
   geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) +
-  geom_text(data = den.data$labels, aes(x, y, label=label, colour=label, fontface = "bold"),
-            hjust=0, size=5) +
+  geom_text(data = den.data$labels, aes(x, y, label=den.data$leaf_labels, colour=den.data$leaf_labels,
+                                        fontface = "bold"), hjust=0, size=5) +
   ylab("Hellinger Distance") +
   xlab("Season") +
   labs(colour = "Season") +
   coord_flip() +
   scale_y_reverse() +
-  #scale_color_manual(values=c("darkgoldenrod3", "dodgerblue3", "green4")) +
+  scale_color_manual(values=c("darkgoldenrod3", "dodgerblue3", "green4")) +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.ticks.y = element_blank(),
@@ -590,6 +594,26 @@ ggplot(den.data$segments) +
         axis.title.y = element_text(face="bold", size=20))
 #dev.off()
 
+
+
+
+
+
+### Validate clusters
+# https://github.com/shimo-lab/pvclust
+# https://cran.r-project.org/web/packages/pvclust/pvclust.pdf
+clust.test <- pvclust(t(hell), method.hclust = "average", method.dist = "euclidean", nboot = 1000)
+plot(clust.test)
+pvrect(clust.test, alpha = 0.95)
+
+# Remove S.W20 and S.W37 because they seem to be outliers
+
+clust.df <- t(hell)
+clust.df <- clust.df[,-18]
+clust.df <- clust.df[,-16]
+clust.test2 <- pvclust(clust.df, method.hclust = "average", method.dist = "euclidean", nboot = 1000)
+plot(clust.test2)
+pvrect(clust.test2, alpha = 0.95)
 ```
 
 
