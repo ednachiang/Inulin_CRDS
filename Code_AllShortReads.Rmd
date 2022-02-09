@@ -41,5 +41,80 @@ theme_set(theme_bw())
 
 ### Create phyloseq objects
 #kaijuCreatePhyseq('kaiju/all_shortreads/', 'metadata_metag.csv')
+```
 
+### Load tax physeq data
+```{r}
+### Load physeq data
+load("kaiju/all_shortreads/physeq/phylum.RData")
+phy.phy <- physeq
+load("kaiju/all_shortreads/physeq/class.RData")
+cla.phy <- physeq
+load("kaiju/all_shortreads/physeq/order.RData")
+ord.phy <- physeq
+load("kaiju/all_shortreads/physeq/family.RData")
+fam.phy <- physeq
+load("kaiju/all_shortreads/physeq/genus.RData")
+gen.phy <- physeq
+load("kaiju/all_shortreads/physeq/species.RData")
+spe.phy <- physeq
+
+### Melt physeq objects into dataframes
+phy.melt <- psmelt(phy.phy)
+cla.melt <- psmelt(cla.phy)
+ord.melt <- psmelt(ord.phy)
+fam.melt <- psmelt(fam.phy)
+gen.melt <- psmelt(gen.phy)
+spe.melt <- psmelt(spe.phy)
+
+
+### Import metadata
+meta <- read.csv('metadata_metag.csv', header=T)
+meta$Season <- ordered(meta$Season, levels=c("Summer", "Winter", "Spring"))
+```
+
+
+### Summarize tax data
+```{r}
+phy.sum <- phy.melt %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+#write.csv(phy.sum, file = "kaiju/all_shortreads/phylum.sum.csv", row.names = F)
+
+cla.sum <- cla.melt %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+#write.csv(cla.sum, file = "kaiju/all_shortreads/class.sum.csv", row.names = F)
+
+ord.sum <- ord.melt %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+#write.csv(ord.sum, file = "kaiju/all_shortreads/order.sum.csv", row.names = F)
+
+fam.sum <- fam.melt %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+#write.csv(fam.sum, file = "kaiju/all_shortreads/family.sum.csv", row.names = F)
+
+gen.sum <- gen.melt %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+#write.csv(gen.sum, file = "kaiju/all_shortreads/genus.sum.csv", row.names = F)
+
+spe.sum <- spe.melt %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+#write.csv(spe.sum, file = "kaiju/all_shortreads/species.sum.csv", row.names = F)
 ```
