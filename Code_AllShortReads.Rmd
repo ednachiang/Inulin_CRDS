@@ -1,0 +1,38 @@
+---
+title: "Code_AllShortReads"
+author: "Edna Chiang"
+date: "2/8/2022"
+output: html_document
+---
+
+### Load Packages, scripts, and functions
+```{r}
+library(ggplot2)
+library(plyr)
+library(dplyr)
+library(grid)
+#library(MESS)
+#library(pgirmess)
+#library(Bolstad2)
+library(phyloseq)
+library(vegan)
+#library(miLineage)
+#library(psych)
+library(car)
+#source('scripts/import_crds.R')
+#source('scripts/bin_crds.R')
+source('scripts/misc.R')
+#source('scripts/calc_delta_metrics.R')
+source('scripts/simper_pretty.R')
+source('scripts/R_krusk.R')
+source('scripts/removeTaxa.R')
+set.seed(1)
+theme_set(theme_bw())
+```
+
+
+
+### DON'T RUN - Prepare taxonomic data
+```{r}
+removeTaxa('kaiju/all_shortreads/')
+```
