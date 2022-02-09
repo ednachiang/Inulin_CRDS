@@ -19,6 +19,7 @@ library(vegan)
 #library(miLineage)
 #library(psych)
 library(car)
+library(reshape2)
 #source('scripts/import_crds.R')
 #source('scripts/bin_crds.R')
 source('scripts/misc.R')
@@ -26,6 +27,7 @@ source('scripts/misc.R')
 source('scripts/simper_pretty.R')
 source('scripts/R_krusk.R')
 source('scripts/removeTaxa.R')
+source('scripts/kaijuCreatePhyseq.R')
 set.seed(1)
 theme_set(theme_bw())
 ```
@@ -34,5 +36,10 @@ theme_set(theme_bw())
 
 ### DON'T RUN - Prepare taxonomic data
 ```{r}
-removeTaxa('kaiju/all_shortreads/')
+### Remove taxa in < 3 samples
+#removeTaxa('kaiju/all_shortreads/')
+
+### Create phyloseq objects
+#kaijuCreatePhyseq('kaiju/all_shortreads/', 'metadata_metag.csv')
+
 ```
