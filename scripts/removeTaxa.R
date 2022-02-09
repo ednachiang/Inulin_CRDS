@@ -1,6 +1,5 @@
 # x = folder where your summarized kaiju files are (output of kaijuSummarize.py)
-# y = Your metadata
-# USE ' ' AROUND BOTH X & Y!!!
+# USE ' ' AROUND X!!!
 
 removeTaxa <- function(x) {
   files <- list.files(x, pattern = ".csv")
