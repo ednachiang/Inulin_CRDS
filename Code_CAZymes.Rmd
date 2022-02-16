@@ -644,39 +644,9 @@ p <- permutest(beta.tax)
 p$tab
   # p-value = 0.012
 
-
-
-### Pairwise PERMANOVA Comparisons
-dist.matrix <- as.matrix(dist)
-dist.df <- data.frame(dist.matrix)
-
-# Summer vs. Winter
-sw.dist.df <- dist.df[,-5]
-sw.dist.df <- sw.dist.df[,-7:-8]
-sw.dist.df <- sw.dist.df[-5,]
-sw.dist.df <- sw.dist.df[-7:-8,]
-sw.dist <- as.dist(sw.dist.df)
-meta.sw <- meta[-which(meta$Season == "Spring"),]
-adonis(sw.dist ~ Season, data=meta.sw, permutations= 99999)
-  # p-value = 0.1
-
-# Summer vs. Spring
-sp.dist.df <- dist.df[,-3:-4]
-sp.dist.df <- sp.dist.df[,-5]
-sp.dist.df <- sp.dist.df[-3:-4,]
-sp.dist.df <- sp.dist.df[-5,]
-sp.dist <- as.dist(sp.dist.df)
-meta.sp <- meta[-which(meta$Season == "Winter"),]
-adonis(sp.dist ~ Season, data=meta.sp, permutations= 99999)
-  # p-value = 0.2
-
-# Spring vs. Winter
-wp.dist.df <- dist.df[,-3:-4]
-wp.dist.df <- wp.dist.df[,-5]
-wp.dist.df <- wp.dist.df[-3:-4,]
-wp.dist.df <- wp.dist.df[-5,]
-wp.dist <- as.dist(wp.dist.df)
-meta.wp <- meta[-which(meta$Season == "Summer"),]
-adonis(wp.dist ~ Season, data=meta.wp, permutations= 99999)
-  # p-value = 0.2
+### Pairwise betadisp test
+TukeyHSD(beta.tax, conf.level = 0.95)
+  # Summer-Winter p-value = 0.5573697
+  # Summer-Spring p-value = 0.0255338
+  # Winter-Spring p-value = 0.1742978
 ```
