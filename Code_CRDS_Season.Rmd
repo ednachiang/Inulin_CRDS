@@ -279,9 +279,9 @@ inu.slope.plot <- ggplot(d.inu, aes(x = Season, y = Slope, color = SeasonABX,
                                     fill = SeasonABX)) +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
                position = position_dodge(0.7), stackratio = 0.5) +
-  scale_color_manual(values = c("#c98b00", "#E69F00", "#006096", "#0072B2", "#00966d",
+  scale_color_manual(values = c("#c98b00", "#E69F00", "#004166", "#006299", "#00966d",
                                 "#00bf8b")) +
-  scale_fill_manual(values = c("#E69F00", "white", "#0072B2", "white", "#00bf8b",
+  scale_fill_manual(values = c("#E69F00", "white", "#006299", "white", "#00bf8b",
                                "white")) +
   stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
                color = "black", position = position_dodge(0.7), size = 0.5) +
@@ -304,9 +304,9 @@ sal.slope.plot <- ggplot(d.sal, aes(x = Season, y = Slope, color = SeasonABX,
                                     fill = SeasonABX)) +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
                position = position_dodge(0.7), stackratio = 0.5) +
-  scale_color_manual(values = c("#c98b00", "#E69F00", "#006096", "#0072B2", "#00966d",
+  scale_color_manual(values = c("#c98b00", "#E69F00", "#004166", "#006299", "#00966d",
                                 "#00bf8b")) +
-  scale_fill_manual(values = c("#E69F00", "white", "#0072B2", "white", "#00bf8b",
+  scale_fill_manual(values = c("#E69F00", "white", "#006299", "white", "#00bf8b",
                                "white")) +
   stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
                color = "black", position = position_dodge(0.7), size = 0.5) +
@@ -326,6 +326,26 @@ sal.slope.plot <- ggplot(d.sal, aes(x = Season, y = Slope, color = SeasonABX,
 
 ### Plot
 
+#png("prospectus.deltaSlope.png", width = 200, height = 75, units = "mm", res = 400)
+grid.newpage()
+pushViewport(viewport(layout=grid.layout(2,3, widths = c(1, 1, 0.3))))
+
+print(inu.slope.plot, vp=viewport(layout.pos.row=1:2, layout.pos.col=1))
+grid.text("A", x=unit(0.065, "npc"), y=unit(0.93, "npc"), 
+          vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=20,fontface="bold"))
+
+
+print(sal.slope.plot, vp=viewport(layout.pos.row=1:2, layout.pos.col=2))
+grid.text("B", x=unit(0.065, "npc"), y=unit(0.93, "npc"),
+          vp=viewport(layout.pos.row=1, layout.pos.col=2), gp=gpar(fontsize=20,fontface="bold"))
+
+season.legend$vp <- viewport(layout.pos.row=1, layout.pos.col=3)
+grid.draw(season.legend)
+abx.legend$vp <- viewport(layout.pos.row=2, layout.pos.col=3)
+grid.draw(abx.legend)
+#dev.off()
+
+
 #png("d.slope.png", width = 170, height = 75, units = "mm", res = 300)
 grid.newpage()
 pushViewport(viewport(layout=grid.layout(2,3, widths = c(1, 1, 0.3))))
@@ -343,7 +363,7 @@ season.legend$vp <- viewport(layout.pos.row=1, layout.pos.col=3)
 grid.draw(season.legend)
 abx.legend$vp <- viewport(layout.pos.row=2, layout.pos.col=3)
 grid.draw(abx.legend)
-dev.off()
+#dev.off()
 
 
 ```
@@ -589,8 +609,8 @@ auc.sal$SeasonABX <- ordered(auc.sal$SeasonABX, levels=c("Summer.No", "Summer.Ye
 season.legend <- g_legend(ggplot(auc.inu, aes(x = Season, y = AUC, color = Season, fill = Season)) +
                             geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
                                          position = position_dodge(0.7), stackratio = 0.5) +
-                            scale_color_manual(values = c("#c98b00", "#006096", "#00966d")) +
-                            scale_fill_manual(values = c("#E69F00", "#0072B2", "#00bf8b")) +
+                            scale_color_manual(values = c("#c98b00", "#004166", "#00966d")) +
+                            scale_fill_manual(values = c("#E69F00", "#006299", "#00bf8b")) +
                             theme(legend.title = element_text(size=10, face="bold"),
                                   legend.text = element_text(size=10),
                                   legend.margin = margin(t=1, unit='cm')))
@@ -613,9 +633,9 @@ inu.auc.plot <- ggplot(auc.inu, aes(x = Season, y = AUC, color = SeasonABX,
                                     fill = SeasonABX)) +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
                position = position_dodge(0.7), stackratio = 0.5) +
-  scale_color_manual(values = c("#c98b00", "#E69F00", "#006096", "#0072B2", "#00966d",
+  scale_color_manual(values = c("#c98b00", "#E69F00", "#004166", "#006299", "#00966d",
                                 "#00bf8b")) +
-  scale_fill_manual(values = c("#E69F00", "white", "#0072B2", "white", "#00bf8b",
+  scale_fill_manual(values = c("#E69F00", "white", "#006299", "white", "#00bf8b",
                                "white")) +
   stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
                color = "black", position = position_dodge(0.7), size = 0.5) +
@@ -678,7 +698,7 @@ sal.auc.plot <- ggplot(auc.sal, aes(x = Season, y = AUC, color = SeasonABX,
 
 
 # Inulin
-inu.noabx.auc.plot <- ggplot(auc.inu.noabx, aes(x = Season, y = AUC, fill = Season)) +
+#inu.noabx.auc.plot <- ggplot(auc.inu.noabx, aes(x = Season, y = AUC, fill = Season)) +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5, stackratio = 1) +
   scale_fill_manual(values = c("#E69F00", "#0072B2", "#00bf8b")) +
   stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
@@ -707,6 +727,26 @@ inu.noabx.auc.plot <- ggplot(auc.inu.noabx, aes(x = Season, y = AUC, fill = Seas
 
 
 ##### Save AUC Dot Plots #####
+
+#png("prospectus.auc.png", width = 200, height = 75, units = "mm", res = 400)
+grid.newpage()
+pushViewport(viewport(layout=grid.layout(2,3, widths = c(1, 1, 0.3))))
+
+print(inu.auc.plot, vp=viewport(layout.pos.row=1:2, layout.pos.col=1))
+grid.text("A", x=unit(0.065, "npc"), y=unit(0.93, "npc"), 
+          vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=20,fontface="bold"))
+
+print(sal.auc.plot, vp=viewport(layout.pos.row=1:2, layout.pos.col=2))
+grid.text("B", x=unit(0.065, "npc"), y=unit(0.93, "npc"),
+          vp=viewport(layout.pos.row=1, layout.pos.col=2), gp=gpar(fontsize=20,fontface="bold"))
+
+season.legend$vp <- viewport(layout.pos.row=1, layout.pos.col=3)
+grid.draw(season.legend)
+abx.legend$vp <- viewport(layout.pos.row=2, layout.pos.col=3)
+grid.draw(abx.legend)
+#dev.off()
+
+  
 #png("auc.png", width = 170, height = 75, units = "mm", res = 300)
 grid.newpage()
 pushViewport(viewport(layout=grid.layout(2,3, widths = c(1, 1, 0.3))))
@@ -729,7 +769,7 @@ grid.draw(abx.legend)
 grid.newpage()
 pushViewport(viewport(layout=grid.layout(1,3, widths = c(1.05, 0.1, 1))))
 print(inu.noabx.auc.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
-dev.off()
+#dev.off()
 
 ```
 
@@ -738,13 +778,57 @@ dev.off()
 
 ### Plot Delta Curves
 ```{r}
+# Steal Season legend
+season.legend <- g_legend(ggplot(inu.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
+                         geom_line(aes(linetype=Antibiotics), size=1) +
+                         geom_point(size=3, shape=21, aes(color=Season, 
+                                    fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+                         scale_color_manual(values = c("#E69F00", "#0072B2", "#00bf8b")) +
+                         scale_fill_manual(values=c("#E69F00", "#0072B2", "#00bf8b"),
+                                           na.value="white") +
+                         theme(plot.title=element_text(hjust=0.5, size=20),
+                               axis.title.x=element_text(size=20, 
+                                  margin=margin(t=10, r=0, b=0, l=0)),
+                               axis.title.y=element_text(size=18),
+                               axis.text.x=element_text(size=16),
+                               axis.text.y=element_text(size=16),
+                               plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
+                                  #top, right, bottom, left
+                               panel.grid.major.x = element_blank(),
+                               panel.grid.minor.y = element_blank(),
+                               panel.grid.minor.x = element_blank())
+                         )
+# Steal ABX legend
+abx.legend <- g_legend(ggplot(inu.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
+                         geom_line(aes(linetype=Antibiotics), size=1) +
+                         geom_point(size=3, shape=21, aes(color=Season, 
+                                    fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+                         scale_color_manual(values = c("#E69F00", "#0072B2", "#00bf8b")) +
+                         scale_fill_manual(values=c("#E69F00", "#0072B2", "#00bf8b"),
+                                           na.value="white") +
+                         theme(plot.title=element_text(hjust=0.5, size=20),
+                               axis.title.x=element_text(size=20, 
+                                  margin=margin(t=10, r=0, b=0, l=0)),
+                               axis.title.y=element_text(size=18),
+                               axis.text.x=element_text(size=16),
+                               axis.text.y=element_text(size=16),
+                               plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
+                                  #top, right, bottom, left
+                               panel.grid.major.x = element_blank(),
+                               panel.grid.minor.y = element_blank(),
+                               panel.grid.minor.x = element_blank())
+                       )
+
+
 ### Inulin
 inu.delta.plot <- ggplot(inu.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
-  geom_line(aes(linetype=Antibiotics), size=1) +
-   geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
-  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
-  geom_errorbar(aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125, position=position_dodge(0.1)) +
+   geom_line(aes(linetype=Antibiotics), size=1) +
+   geom_point(size=3, shape=21, aes(color=Season, 
+                                    fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+  scale_color_manual(values = c("#E69F00", "#0072B2", "#00bf8b"), guide = "none") +
+  scale_fill_manual(values=c("#E69F00", "#0072B2", "#00bf8b"), na.value="white", guide="none") +
+  geom_errorbar(aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), 
+                width=0.125, position=position_dodge(0.1)) +
   ggtitle(expression("Inulin"~~delta^13~"C")) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
@@ -760,18 +844,18 @@ inu.delta.plot <- ggplot(inu.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
           #top, right, bottom, left
         panel.grid.major.x = element_blank(),
         panel.grid.minor.y = element_blank(),
-        panel.grid.minor.x = element_blank()) +
-  guides(colour=F, linetype=F)
-  
-  
+        panel.grid.minor.x = element_blank())
+
 
 ## Saline
 sal.delta.plot <- ggplot(sal.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
   geom_line(aes(linetype=Antibiotics), size=1) +
-  geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
-  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
-  geom_errorbar(aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125, position=position_dodge(0.1)) +
+  geom_point(size=3, shape=21, aes(color=Season, 
+                                   fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+  scale_color_manual(values = c("#E69F00", "#0072B2", "#00bf8b"), guide = "none") +
+  scale_fill_manual(values=c("#E69F00", "#0072B2", "#00bf8b"), na.value="white", guide="none") +
+  geom_errorbar(aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125,
+                position=position_dodge(0.1)) +
   ggtitle(expression("Saline"~~delta^13~"C")) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
@@ -782,35 +866,13 @@ sal.delta.plot <- ggplot(sal.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
         axis.text.y=element_text(size=12),
         panel.grid.major.x = element_blank(),
         panel.grid.minor.y = element_blank(),
-        panel.grid.minor.x = element_blank()) +
-  guides(colour=F, linetype=F)
-
-
-## Steal legend
-steal.legend <- ggplot(sal.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
-  geom_line(aes(linetype=Antibiotics), size=1) +
-  geom_point(size=3) +
-  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  geom_errorbar(aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125, position=position_dodge(0.1)) +
-  ggtitle(expression("Saline"~~delta^13~"C")) +
-  xlab("Time Since Gavage (hr)") +
-  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.title.x=element_text(size=14),
-        axis.title.y=element_text(size=14),
-        axis.text.x=element_text(size=12),
-        axis.text.y=element_text(size=12),
-        legend.title = element_text(size=20, face="bold"),
-        legend.text = element_text(size=18)
-        )
-legend <- g_legend(steal.legend)
+        panel.grid.minor.x = element_blank())
 
 
 
 
 
-
-### All 3 substrates on same axis
+### All 2 substrates on same axis
 carb.plot <- ggplot(crds.sum, aes(x=BinTime, y=Y_Mean, color=Season)) +
   geom_line(aes(linetype=Antibiotics), size=1) +
    geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
@@ -839,7 +901,7 @@ carb.plot <- ggplot(crds.sum, aes(x=BinTime, y=Y_Mean, color=Season)) +
 
 
 
-png("delta.curves.png", width = 12.75, height = 3.5, units = "in", res = 300)
+png("prospectus.delta.curves.png", width = 240, height = 110, units = "mm", res = 400)
 carb.plot
 dev.off()
 ```
