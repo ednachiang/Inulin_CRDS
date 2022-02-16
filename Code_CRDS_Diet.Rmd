@@ -18,6 +18,7 @@ library(phyloseq)
 library(miLineage)
 library(psych)
 library(car)
+library(equivalence)
 source('scripts/import_crds.R')
 source('scripts/bin_crds.R')
 source('scripts/misc.R')
@@ -119,11 +120,11 @@ shapiro.test(base.sal.s[which(base.sal.s$Antibiotics == "Yes"),]$Delta)
 
 # Inulin Summer ABX
 t.test(Delta ~ Diet, data = base.inu.s[which(base.inu.s$Antibiotics == "Yes"),])
-  # p-value = 0.5571
+  # p-value = 0.5671
 
 # Saline Summer ABX
 wilcox.test(Delta ~ Diet, data = base.sal.s[which(base.sal.s$Antibiotics == "Yes"),])
-  # p-value = 0.8671
+  # p-value = 0.8571
 
 
 
@@ -138,11 +139,6 @@ fligner.test(Delta ~ Diet, data = base.sal.s[which(base.sal.s$Antibiotics == "Ye
   # p-value = 0.04528*
 
 ```
-
-
-
-
-
 
 
 ### Calculate Delta Metrics
@@ -189,56 +185,6 @@ d.sal.w <- d.sal[which(d.sal$Season == "Winter"),]
 d.sal.p <- d.sal[which(d.sal$Season == "Spring"),]
 ```
 
-
-### Test TimeMaxD
-```{r}
-### Check Normality
-
-# Inulin Summer ABX
-hist(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$TimeMaxD)
-qqnorm(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$TimeMaxD)
-qqline(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$TimeMaxD)
-shapiro.test(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$TimeMaxD)
-  # p-value = 0.1092
-  # Normal
-
-# Saline Summer ABX
-hist(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$TimeMaxD)
-qqnorm(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$TimeMaxD)
-qqline(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$TimeMaxD)
-shapiro.test(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$TimeMaxD)
-  # p-value = 0.1161
-  # Normal
-
-
-
-
-### Test Diet
-
-# Inulin Summer ABX
-t.test(TimeMaxD ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
-  # p-value = 0.8374
-
-# Saline Summer ABX
-t.test(TimeMaxD ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
-  # p-value = 0.3587
-
-
-
-
-
-### Test Diet Variance
-
-# Inulin Summer ABX
-var.test(TimeMaxD ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
-  # p-value = 0.1918
-
-# Saline Summer ABX
-var.test(TimeMaxD ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
-  # p-value = 0.5314
-
-```
-
 ### Test Slope
 ```{r}
 ### Check Normality
@@ -283,54 +229,6 @@ var.test(Slope ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
 # Saline Summer ABX
 var.test(Slope ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
   # p-value = 0.2161
-```
-
-### Test SlopeTime
-```{r}
-### Check Normality
-
-# Inulin Summer ABX
-hist(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$SlopeTime)
-qqnorm(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$SlopeTime)
-qqline(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$SlopeTime)
-shapiro.test(d.inu.s[which(d.inu.s$Antibiotics == "Yes"),]$SlopeTime)
-  # p-value = 0.06705
-  # Normal
-
-# Saline Summer ABX
-hist(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$SlopeTime)
-qqnorm(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$SlopeTime)
-qqline(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$SlopeTime)
-shapiro.test(d.sal.s[which(d.sal.s$Antibiotics == "Yes"),]$SlopeTime)
-  # p-value = 0.1769
-  # Normal
-
-
-
-
-### Test Diet
-
-# Inulin Summer ABX
-t.test(SlopeTime ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
-  # p-value = 0.6738
-
-# Saline Summer ABX
-t.test(SlopeTime ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
-  # p-value = 0.2046
-
-
-
-
-### Test Diet Variance
-
-# Inulin Summer ABX
-var.test(SlopeTime ~ Diet, data = d.inu.s[which(d.inu.s$Antibiotics == "Yes"),])
-  # p-value = 0.9145
-
-# Saline Summer ABX
-var.test(SlopeTime ~ Diet, data = d.sal.s[which(d.sal.s$Antibiotics == "Yes"),])
-  # p-value = 0.2689
-
 ```
 
 ### Calculate AUC
@@ -403,7 +301,7 @@ for (i in 1:length(ids)){
 }
 
 
-### Subset by Substrate & ABX
+### Subset by Substrate & Season
 auc.inu <- auc.df[which(auc.df$Substrate == "Inulin"),]
 auc.sal <- auc.df[which(auc.df$Substrate == "Saline"),]
 auc.inu.s <- auc.inu[which(auc.inu$Season == "Summer"),]
@@ -458,6 +356,18 @@ var.test(AUC ~ Diet, data = auc.inu.s[which(auc.inu.s$Antibiotics == "Yes"),])
 var.test(AUC ~ Diet, data = auc.sal.s[which(auc.sal.s$Antibiotics == "Yes"),])
   # p-value = 0.507
 ```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
