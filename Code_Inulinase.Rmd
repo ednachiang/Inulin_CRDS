@@ -346,6 +346,30 @@ spe.sum <- spe.melt %>%
             SE = se(Abundance))
 #write.csv(spe.sum, file = "kaiju/species.sum.csv", row.names = F)
 ```
+## Tax - # of Taxa
+```{r}
+### Family-level
+fam.phy.w <- subset_samples(fam.phy, Season == "Winter")
+length(which(taxa_sums(fam.phy.w) == 0))
+  # Winter has 7 fewer families than Summer and Spring
+
+### Genus-level
+gen.phy.w <- subset_samples(gen.phy, Season == "Winter")
+length(which(taxa_sums(gen.phy.w) == 0))
+  # Winter has 16 fewer genera than Summer and Spring
+
+### Species-level
+spe.phy.w <- subset_samples(spe.phy, Season == "Winter")
+length(which(taxa_sums(spe.phy.w) == 0))
+  # Winter has 40 fewer species than the whole dataset
+spe.phy.s <- subset_samples(spe.phy, Season == "Summer")
+length(which(taxa_sums(spe.phy.s) == 0))
+  # Summer has 4 fewer species than the whole dataset
+spe.phy.p <- subset_samples(spe.phy, Season == "Spring")
+length(which(taxa_sums(spe.phy.p) == 0))
+  # Spring has 8 fewer species than the whole dataset
+```
+
 ### Tax - Substrate Comparisons
 ```{r}
 ### Taxon-level comparisons
