@@ -46,17 +46,17 @@ theme_set(theme_bw())
 ### Load tax physeq data
 ```{r}
 ### Load physeq data
-load("kaiju/all_shortreads/physeq/phylum.RData")
+load("kaiju/all_shortreads/use/physeq/phylum.RData")
 phy.phy <- physeq
-load("kaiju/all_shortreads/physeq/class.RData")
+load("kaiju/all_shortreads/use/physeq/class.RData")
 cla.phy <- physeq
-load("kaiju/all_shortreads/physeq/order.RData")
+load("kaiju/all_shortreads/use/physeq/order.RData")
 ord.phy <- physeq
-load("kaiju/all_shortreads/physeq/family.RData")
+load("kaiju/all_shortreads/use/physeq/family.RData")
 fam.phy <- physeq
-load("kaiju/all_shortreads/physeq/genus.RData")
+load("kaiju/all_shortreads/use/physeq/genus.RData")
 gen.phy <- physeq
-load("kaiju/all_shortreads/physeq/species.RData")
+load("kaiju/all_shortreads/use/physeq/species.RData")
 spe.phy <- physeq
 
 ### Melt physeq objects into dataframes
@@ -117,4 +117,41 @@ spe.sum <- spe.melt %>%
             SD = sd(Abundance),
             SE = se(Abundance))
 #write.csv(spe.sum, file = "kaiju/all_shortreads/species.sum.csv", row.names = F)
+```
+
+
+
+### Sample dist PCoA & PERMANOVA
+```{r}
+bray.pcoa <- ordinate(physeq=spe.phy, method="PCoA", distance="bray")
+sample_data(spe.phy)$Season <- ordered(sample_data(spe.phy)$Season, levels = c("Summer", "Winter", "Spring"))
+
+#tiff("aaas.pcoa.tiff", width=8, height=6, units="in", res=300)
+plot_ordination(physeq = spe.phy, ordination = bray.pcoa, axes = c(1,2),
+                color = "Season") +
+  geom_point(size=10) +
+  scale_color_manual(values=c("#00cccc", "#008484", "#004f4f")) +
+  ggtitle("CAZyme Profiles") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x = element_text(size=20),
+        axis.title.y = element_text(size=20),
+        legend.title = element_text(size=20),
+        legend.text = element_text(size=18),
+        plot.title = element_blank())
+#dev.off()
+
+
+
+### Run PERMANOVA on DESEq Hellinger distance
+sampdf <- data.frame(sample_data(spe.phy))
+bray <- phyloseq::distance(physeq = spe.phy, method = "bray")
+adonis(bray ~ Season, data = sampdf, permutations = 9999)
+  # p-value = 2e-04
+beta.tax <- betadisper(d = bray, group = sampdf$Season)
+p <- permutest(beta.tax)
+p$tab
+  # 0.412
+
+
 ```
