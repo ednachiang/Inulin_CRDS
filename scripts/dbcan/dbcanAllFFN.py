@@ -4,11 +4,11 @@ import pandas as pd
     # Import pandas to use dataframes
 
 ##### CHANGE THESE PARAMETERS ACCORDINGLY
-directorydbCAN = '/mnt/bigdata/linuxhome/echiang3/Saline_MetaG/dbcan/parsed/'
+directorydbCAN = '/home/glbrc.org/echiang3/Inulin_MetaG/dbcan/parsed/'
     # Directory of dbCAN.parsed.txt
-directoryProdigal = '/mnt/bigdata/linuxhome/echiang3/Saline_MetaG/prodigal/ffn/'
+directoryProdigal = '/home/glbrc.org/echiang3/Inulin_MetaG/prodigal/ffn/'
     # Directory of prodigal .ffn output files
-directoryOutput = '/mnt/bigdata/linuxhome/echiang3/Saline_MetaG/dbcan/ffn/'
+directoryOutput = '/home/glbrc.org/echiang3/Inulin_MetaG/dbcan/ffn/'
     # Path to output dbCAN .ffn files
 
 # Input = list of CAZymes that appear in only 1 sample. These are removed in my R analysis.
@@ -95,7 +95,7 @@ def parse_dbCAN_ORFs(dbCAN_parsed_txt_path, prodigal_path, output_path):
 for file in os.listdir(directorydbCAN):
     # Iterate for all files in directory
     sample = str(file[:5])
-    dbCANpath = directorydbCAN + str(file[:5]+'.dom.tbl.parsed')
+    dbCANpath = directorydbCAN + str(file[:5]+'.dm.parsed')
     print(dbCANpath)
     prodigalPath = directoryProdigal + sample + '.ffn'
     print(prodigalPath)

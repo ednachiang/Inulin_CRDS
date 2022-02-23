@@ -4,14 +4,15 @@ import pandas as pd
     # Import pandas to use dataframes
 
 ##### CHANGE THESE PARAMETERS ACCORDINGLY
-directorydbCAN = '/mnt/bigdata/linuxhome/echiang3/Saline_MetaG/dbcan/parsed/'
-    # Directory of dbCAN.parsed.txt (dbcan.dom.tbl.parsed for Saline samples)
-dbCANtax = '/mnt/bigdata/linuxhome/echiang3/Saline_MetaG/dbcan/output/dbcan_tax_table.csv'
+directorydbCAN = '/mnt/bigdata/linuxhome/echiang3/Inulin_MetaG/dbcan/parsed/'
+    # Directory of dbCAN.parsed.txt
+dbCANtax = '/mnt/bigdata/linuxhome/echiang3/Inulin_MetaG/dbcan/output/dbcan_tax_table.csv'
     # dbCAN "tax" table
-directoryFFN = '/mnt/bigdata/linuxhome/echiang3/Saline_MetaG/dbcan/ffn/'
+directoryFFN = '/mnt/bigdata/linuxhome/echiang3/Inulin_MetaG/dbcan/ffn/'
     # Directory of dbcanGetFFN.py .ffn output files
-directoryOutput = '/mnt/bigdata/linuxhome/echiang3/Saline_MetaG/dbcan/sig/'
+directoryOutput = '/mnt/bigdata/linuxhome/echiang3/Inulin_MetaG/dbcan/sig/'
     # Path to output dbCAN .ffn files
+
 # Input = list of significant CAZyme families
 CAZymes = ["CE12", "CE2", "GH3", "GH5", "GH8", "GH9", "GH10", "GH11", "GH20", "GH25", "GH26", "GH31", "GH33", "GH42", "GH43", "GH44", "GH47", "GH51", "GH84", "GH85", "GH88", "GH89", "GH92", "GH94", "GH101", "GH109", "GH110", "GH115", "GT11", "GT24", "GT94", "PL1", "PL8", "PL9", "PL11", "PL12"]
 
@@ -24,12 +25,12 @@ def parse_CAZyme_ORFs(dbCAN_parsed_txt_path, dbCAN_tax_table_path, dbCAN_ffn_pat
         dbCANpath = dbCAN_parsed_txt_path + file1
         dbCANfiles.append(dbCANpath)
     
-    # Create number list for 'for' loops to iterate through all dbCAN.dom.tbl.parsed and dbcanffn/ffn files files
+    # Create number list for 'for' loops to iterate through all dbCAN.parsed.txt and dbcanffn/ffn files files
     fileNumber = range(0,len(dbCANfiles))
 
     for file2 in fileNumber:
         # Save sample ID
-        sample = str(dbCANfiles[file2][-20:-15])
+        sample = str(dbCANfiles[file2][-15:-10])
 
         # Create empty dictionary for parsed dbCAN ORFs
         dbCAN_ORFs = { }
@@ -46,7 +47,7 @@ def parse_CAZyme_ORFs(dbCAN_parsed_txt_path, dbCAN_tax_table_path, dbCAN_ffn_pat
                 # Split the row by tabs
             
             if 'hmm' in col[0]:
-                # Pull out only lines that specify dbCAN classification in col 1.
+                # Pull out only lines that specify dbCAN classification in col 2.
                 family = col[0].split('.', 1)[0]
                     # Pull out everything before the ".hmm"
                 

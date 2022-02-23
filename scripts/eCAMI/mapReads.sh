@@ -3,7 +3,7 @@
 ### BELOW ARE PARAMETERS TO CHANGE
 processors=20
 cd exo_fasta_sep
-shortReadDir=/home/glbrc.org/echiang3/Saline_MetaG/Trimmed/NoHost/
+shortReadDir=/home/glbrc.org/echiang3/Inulin_MetaG/Trimmed/NoHost/
 
 
 echo "There are $(ls | wc -l) fasta files in $(pwd)"

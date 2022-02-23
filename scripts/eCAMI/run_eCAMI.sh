@@ -3,8 +3,8 @@
 
 ### BELOW ARE PARAMETERS TO CHANGE
 processors=20
-inputDir=/home/glbrc.org/echiang3/Saline_MetaG/dbcan/sig/
-outputDir=/home/glbrc.org/echiang3/Saline_MetaG/eCAMI/sig_cazymes/
+inputDir=/home/glbrc.org/echiang3/Inulin_MetaG/dbcan/sig/
+outputDir=/home/glbrc.org/echiang3/Inulin_MetaG/eCAMI/sig_cazymes/
 eCAMIpath=/home/glbrc.org/echiang3/metag/eCAMI/
 cd $eCAMIpath
 
