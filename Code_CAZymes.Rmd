@@ -49,6 +49,7 @@ tax.s <- tax_table(tax.s)
 taxa_names(tax.s) <- tax.s[,2]
 colnames(tax.s) <- c("Class", "Family")
 
+
 meta <- read.csv('metadata_metag.csv', row.names = 2)
 
 
@@ -60,6 +61,9 @@ phy <- prune_taxa(taxa_names(phy) != "cohesin", phy)
   # Remove cohesin
 phy <- prune_taxa(taxa_names(phy) != "SLH", phy)
   # Remove SLH
+
+# Remove outlier (S-W20)
+# phy <- prune_samples(x = phy, sample_names(phy) != "S.W20")
 
 
 # Remove CAZymes that appear in < 3 samples
@@ -357,10 +361,14 @@ sw.sig[which(sw.sig$log2FoldChange > 0),]
   # Enriched in Summer compared to Winter (positive log2FoldChange)
   # 16 CAZymes
   # CE12, CE2, GH10, GH11, GH25, GH26, GH31, GH42, GH43, GH44, GH5, GH51, GH94, GT11, PL1, PL11
+  # Removed S.W20 =  12 CAZymes
+      # CE12, GH10, GH115, GH31, GH42, GH43, GH44, GH5, GH51, GT11, PL1, PL11
 sw.sig[which(sw.sig$log2FoldChange < 0),]
   # Enriched in Winter compared to Summer (negative log2FoldChange)
   # 11 CAZymes
   # GH109, GH110, GH20, GH33, GH84, GH88, GH89, GH92, GT94, PL12, PL8
+  # Removed S.W20 = 5 CAZymes
+      # GH109, GH20, GH33, GH84, GH85
 
 sp <- results(dds, contrast=c("Season", "Summer", "Spring"))
 sp.sig <- sp[which(sp$padj < 0.05),]
@@ -372,10 +380,14 @@ wp.sig[which(wp.sig$log2FoldChange > 0),]
   # Enriched in Winter compared to Spring (positive log2FoldChange)
   # 12 CAZymes
   # GH101, GH109, GH110, GH20, GH33, GH84, GH85, GH88, GH89, GH92, PL12, PL8
+  # Removed S.W20 = 9 CAZymes
+      # GH109, GH20, GH23, GH33, GH57, GH84, GH85
 wp.sig[which(wp.sig$log2FoldChange < 0),]
   # Enriched in Spring compared to Winter (negative log2FoldChange)
   # 21 CAZymes
   # CE12, CE2, GH10, GH115, GH26, GH3, GH31, GH42, GH43, GH44, GH47, GH5, GH51, GH8, GH9, GH94, GT11, GT24, PL1, PL11, PL9
+  # Removed S.W20 = 17 CAZymes
+      # CE12, CE2, GH10, GH115, GH120, GH3, GH31, GH42, GH43, GH5, GH51, GH9, GH94, GT11, PL1, PL11, PL9
 ```
 
 
