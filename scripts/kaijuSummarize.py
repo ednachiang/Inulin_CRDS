@@ -4,7 +4,7 @@ import pandas as pd
     # Import pandas to use dataframes
 
 ##### CHANGE THESE PARAMETERS ACCORDINGLY
-directoryKaiju = '../kaiju/all_shortreads/'
+directoryKaiju = '../kaiju/sig_cazymes/'
     # Directory of kaiju outputs
     # directoryKaiju/directorySpecificPredictedProtein/taxon
     # CHANGE FUNCTION makeDF ACCORDING TO DIRECTORY
@@ -38,7 +38,10 @@ def makeDF(taxaList, dataFrame, inputFile, taxaDict):
         #currentSamp = currentSamp[:-17]
 
         ## FOR ALL SHORT READS ##  
-        currentSamp = currentSamp[:-12]
+        #currentSamp = currentSamp[:-12]
+
+        ## FOR SIG CAZYMES ##
+        currentSamp = currentSamp[:-18]
         length = len(currentSamp)
 
         currentSamp = currentSamp[length-6 : length]
