@@ -1,0 +1,44 @@
+# Accessed on 2/23/2022 https://mothur.org/wiki/miseq_sop/
+
+#make.file(inputdir=/mnt/bigdata/linuxhome/echiang3/CRDS_16S/fastq/, type=gz)
+
+set.dir(output=/mnt/bigdata/linuxhome/echiang3/CRDS_16S/output/)
+make.contigs(file=/mnt/bigdata/linuxhome/echiang3/CRDS_16S/fastq/stability.files, processors = 10, maxambig=0, maxlength=275, maxhomop=8)
+summary.seqs(fasta=current, count=current)
+unique.seqs(fasta=current, count=current)
+summary.seqs(fasta=current, count=current)
+align.seqs(fasta=current, reference=/home/GLBRCORG/echiang3/mothur/silva/silva.nr_v132.align, flip=T)
+    # Flip = T
+summary.seqs(fasta=current, count=current)
+screen.seqs(fasta=current, count=current, start=13862, end=23444)
+    # start=1969, end=11551
+summary.seqs(fasta=current, count=current)
+filter.seqs(fasta=current, vertical=T, trump=.)
+summary.seqs(fasta=current, count=current)
+unique.seqs(fasta=current, count=current)
+summary.seqs(fasta=current, count=current)
+pre.cluster(fasta=current, count=current, diffs=2)
+summary.seqs(fasta=current, count=current)
+chimera.vsearch(fasta=current, count=current, dereplicate=t)
+summary.seqs(fasta=current, count=current)
+classify.seqs(fasta=current, count=current, reference=/home/GLBRCORG/echiang3/mothur/silva/silva.nr_v132.align, taxonomy=/home/GLBRCORG/echiang3/mothur/silva/silva.nr_v132.tax, cutoff=80)
+remove.lineage(fasta=current, count=current, taxonomy=current, taxon=Chloroplast-Mitochondria-unknown-Archaea-Eukaryota)
+summary.seqs(fasta=current, count=current)
+summary.tax(taxonomy=current, count=current)
+dist.seqs(fasta=current, cutoff=0.03)
+cluster.split(fasta=current, count=current, taxonomy=current, method=opti, cutoff=0.03)
+make.shared(list=current, count=current, label=0.03)
+classify.seqs(fasta=current, count=current, template=/home/GLBRCORG/echiang3/mothur/silva/silva.nr_v132.align, taxonomy=/home/GLBRCORG/echiang3/mothur/silva/silva.nr_v132.tax, cutoff=80)
+classify.otu(list=current, taxonomy=current, count=current, label=0.03, cutoff=80, basis=otu, probs=F)
+summary.seqs(fasta=current, count=current)
+rarefaction.single(shared=current, label=0.03)
+summary.single(shared=current, label=0.03, calc=nseqs-sobs-coverage)
+
+# final.shared = stability.trim.contigs.unique.good.filter.unique.precluster.denovo.vsearch.pick.opti_mcc.shared
+#normalize.shared(shared=/home/glbrc.org/echiang3/CRDS_16S/output/final.shared, norm=12047)
+#summary.single(shared=current, label=0.03, calc=coverage-nseqs-bergerparker-chao-shannon-invsimpson)
+
+# Final files to use for analysis in R:
+# OTU table = final.0.03.norm.shared
+# Taxonomy table = stability.trim.contigs.unique.good.filter.unique.precluster.denovo.vsearch.pick.opti_mcc.0.03.cons.taxonomy (this is renamed to final.taxonomy in R)
+# Alpha diversity metrics = final.0.03.norm.groups.summary

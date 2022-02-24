@@ -1,0 +1,311 @@
+Linux version
+
+Using ReadLine,Boost,HDF5,GSL
+mothur v.1.47.0
+Last updated: 1/21/22
+by
+Patrick D. Schloss
+
+Department of Microbiology & Immunology
+
+University of Michigan
+http://www.mothur.org
+
+When using, please cite:
+Schloss, P.D., et al., Introducing mothur: Open-source, platform-independent, community-supported software for describing and comparing microbial communities. Appl Environ Microbiol, 2009. 75(23):7537-41.
+
+Distributed under the GNU General Public License
+
+Type 'help()' for information on the commands that are available
+
+For questions and analysis support, please visit our forum at https://forum.mothur.org
+
+Type 'quit()' to exit program
+
+[NOTE]: Setting random seed to 19760620.
+
+Interactive Mode
+
+
+
+mothur > normalize.shared(shared=/home/glbrc.org/echiang3/CRDS_16S/output/final.shared, norm=12047)
+0.03 
+CC1_S10 contains 636. Eliminating.
+CC1_S12 contains 2807. Eliminating.
+CC1_S21 contains 1278. Eliminating.
+CC1_S23 contains 5978. Eliminating.
+CC1_S30 contains 4851. Eliminating.
+CC1_S37 contains 7. Eliminating.
+CC1_S39 contains 7650. Eliminating.
+CC1_S53 contains 1010. Eliminating.
+CC1_S56 contains 8084. Eliminating.
+CC1_S61 contains 3776. Eliminating.
+CC1_W14 contains 200. Eliminating.
+CC1_W20 contains 282. Eliminating.
+CC1_W21 contains 331. Eliminating.
+CC1_W22 contains 144. Eliminating.
+CC1_W31 contains 245. Eliminating.
+CC1_W32 contains 226. Eliminating.
+CC1_W33 contains 639. Eliminating.
+CC1_W34 contains 318. Eliminating.
+CC1_W35 contains 326. Eliminating.
+CC1_W36 contains 94. Eliminating.
+CC1_W41 contains 225. Eliminating.
+CC1_W42 contains 261. Eliminating.
+CC1_W43 contains 118. Eliminating.
+CC1_W44 contains 314. Eliminating.
+CC1_W47 contains 393. Eliminating.
+CC1_W51 contains 382. Eliminating.
+CC2_S10 contains 2455. Eliminating.
+CC2_S12 contains 5707. Eliminating.
+CC2_S21 contains 2983. Eliminating.
+CC2_S54 contains 2332. Eliminating.
+CC2_S59_1 contains 8339. Eliminating.
+CC2_S59_2 contains 5956. Eliminating.
+CC2_W03 contains 716. Eliminating.
+CC2_W13 contains 150. Eliminating.
+CC2_W15 contains 136. Eliminating.
+CC2_W18 contains 318. Eliminating.
+CC2_W37 contains 372. Eliminating.
+CC2_W50 contains 582. Eliminating.
+CT1_S23 contains 158. Eliminating.
+CT1_S30 contains 138. Eliminating.
+CT1_S31 contains 1132. Eliminating.
+CT1_S34 contains 5515. Eliminating.
+CT1_S37 contains 103. Eliminating.
+CT1_S39 contains 50. Eliminating.
+CT1_S53 contains 102. Eliminating.
+CT1_S54 contains 177. Eliminating.
+CT1_S56 contains 122. Eliminating.
+CT1_S59 contains 214. Eliminating.
+CT1_S60 contains 1289. Eliminating.
+CT1_S61 contains 730. Eliminating.
+CT1_W03 contains 422. Eliminating.
+CT1_W04 contains 516. Eliminating.
+CT1_W07 contains 674. Eliminating.
+CT1_W08 contains 2482. Eliminating.
+CT1_W13 contains 206. Eliminating.
+CT1_W14 contains 89. Eliminating.
+CT1_W15 contains 286. Eliminating.
+CT1_W17 contains 444. Eliminating.
+CT1_W18 contains 478. Eliminating.
+CT1_W20 contains 509. Eliminating.
+CT1_W21 contains 249. Eliminating.
+CT1_W26 contains 246. Eliminating.
+CT1_W31 contains 274. Eliminating.
+CT1_W32 contains 626. Eliminating.
+CT1_W33 contains 390. Eliminating.
+CT1_W34 contains 452. Eliminating.
+CT1_W35 contains 208. Eliminating.
+CT1_W36 contains 206. Eliminating.
+CT1_W37 contains 202. Eliminating.
+CT1_W41 contains 270. Eliminating.
+CT1_W42 contains 219. Eliminating.
+CT1_W43 contains 140. Eliminating.
+CT1_W44 contains 118. Eliminating.
+CT1_W46 contains 158. Eliminating.
+CT1_W47 contains 655. Eliminating.
+CT1_W50 contains 281. Eliminating.
+CT1_W51 contains 422. Eliminating.
+CW1 contains 692. Eliminating.
+C_PBS1 contains 376. Eliminating.
+C_PCR1 contains 197. Eliminating.
+C_PCR2 contains 388. Eliminating.
+C_PWS1 contains 703. Eliminating.
+PCR3 contains 46. Eliminating.
+PCR4 contains 42. Eliminating.
+PcrNegCT contains 169. Eliminating.
+PcrNegCT2 contains 514. Eliminating.
+neg contains 475. Eliminating.
+Normalizing to 12047.
+
+Output File Names: 
+/home/glbrc.org/echiang3/CRDS_16S/output/final.0.03.norm.shared
+
+
+mothur > summary.single(shared=current, label=0.03, calc=coverage-nseqs-bergerparker-chao-shannon-invsimpson)
+Using /home/glbrc.org/echiang3/CRDS_16S/output/final.0.03.norm.shared as input file for the shared parameter.
+
+Processing group CC1_P07
+
+0.03
+
+Processing group CC1_P08
+
+0.03
+
+Processing group CC1_P33
+
+0.03
+
+Processing group CC1_P35
+
+0.03
+
+Processing group CC1_S03
+
+0.03
+
+Processing group CC1_S05
+
+0.03
+
+Processing group CC1_S06
+
+0.03
+
+Processing group CC1_S07
+
+0.03
+
+Processing group CC1_S08
+
+0.03
+
+Processing group CC1_S11
+
+0.03
+
+Processing group CC1_S24
+
+0.03
+
+Processing group CC1_S29
+
+0.03
+
+Processing group CC1_S31
+
+0.03
+
+Processing group CC1_S32
+
+0.03
+
+Processing group CC1_S34
+
+0.03
+
+Processing group CC1_S47
+
+0.03
+
+Processing group CC1_S48
+
+0.03
+
+Processing group CC1_S49
+
+0.03
+
+Processing group CC1_S50
+
+0.03
+
+Processing group CC1_S60
+
+0.03
+
+Processing group CC1_W04
+
+0.03
+
+Processing group CC1_W07
+
+0.03
+
+Processing group CC1_W08
+
+0.03
+
+Processing group CC1_W26
+
+0.03
+
+Processing group CC2_S37
+
+0.03
+
+Processing group CC2_W17
+
+0.03
+
+Processing group CT1_P36
+
+0.03
+
+Processing group CT1_P41
+
+0.03
+
+Processing group CT1_S03
+
+0.03
+
+Processing group CT1_S05
+
+0.03
+
+Processing group CT1_S06
+
+0.03
+
+Processing group CT1_S07
+
+0.03
+
+Processing group CT1_S08
+
+0.03
+
+Processing group CT1_S10
+
+0.03
+
+Processing group CT1_S12
+
+0.03
+
+Processing group CT1_S21
+
+0.03
+
+Processing group CT1_S24
+
+0.03
+
+Processing group CT1_S29_1
+
+0.03
+
+Processing group CT1_S32
+
+0.03
+
+Processing group CT1_S47
+
+0.03
+
+Processing group CT1_S48
+
+0.03
+
+Processing group CT1_S49
+
+0.03
+
+Processing group CT1_S50
+
+0.03
+
+Processing group CT1_W22
+
+0.03
+
+Output File Names: 
+/home/glbrc.org/echiang3/CRDS_16S/output/final.0.03.norm.groups.summary
+
+
+mothur > quit()
+Logfile : mothur.1645682308.logfile
+
