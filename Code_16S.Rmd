@@ -1,0 +1,228 @@
+---
+title: "Code_16S"
+author: "Edna Chiang"
+date: "2/24/2022"
+output: html_document
+---
+
+### Load Libraries
+```{r}
+library(ape)
+library(dplyr)
+library(dunn.test)
+library(effsize)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(phyloseq)
+library(picante)
+library(pwr)
+library(tidyr)
+library(vegan)
+library(miLineage)
+#source('scripts/import_crds.R')
+#source('scripts/bin_crds.R')
+source('scripts/misc.R')
+#source('scripts/calc_delta_metrics.R')
+#source('scripts/simper_pretty.R')
+#source('scripts/R_krusk.R')
+source('scripts/removeTaxa.R')
+#source('scripts/kaijuCreatePhyseq.R')
+theme_set(theme_bw())
+set.seed(1)
+```
+
+### DON'T RUN - Import Data
+```{r}
+# Link files
+shared = "16S/final.0.03.norm.shared"
+taxonomy = "16S/final.taxonomy"
+
+# Import mothur data
+mothurdata = import_mothur(
+  mothur_shared_file = shared,
+  mothur_constaxonomy_file = taxonomy)
+
+# Add OTU column in taxonomy table
+tax_table(mothurdata) <- cbind(tax_table(mothurdata), 
+                               row.names(tax_table(mothurdata)))
+
+# Rename taxonomy table columns
+colnames(tax_table(mothurdata)) <- c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species")
+
+### Prepare metadata
+meta <- read.csv("metadata.csv")
+auc <- read.csv("auc.csv")
+delta <- read.csv("delta_metrics.csv")
+rownames(meta) <- meta$Sample
+divsum <- read.table("16S/final.0.03.norm.groups.summary", header = T)
+divsum$test <- strsplit(divsum$group, "_")
+
+# Remove samples w/o CRDS metrics
+divsum <- divsum[-which(divsum$group == "CC1_S11"),]
+divsum <- divsum[-which(divsum$group == "CC1_S34"),]
+divsum <- divsum[-which(divsum$group == "CC1_W26"),]
+divsum <- divsum[-which(divsum$group == "CC2_S37"),]
+
+# Fill in metadata
+for(i in 1:nrow(divsum)){
+  divsum$Individual[i] <- divsum$test[[i]][[2]]
+  
+  use <- which(meta$ID == divsum$Individual[i])
+  divsum$Source[i] <- divsum$test[[i]][[1]]
+  divsum[i,18:30] <- meta[use,]
+  
+  auc.use <- which(auc$ID == divsum$Individual[i])
+  divsum$AUC[i] <- auc$AUC[auc.use]
+  
+  delta.use <- which(delta$ID == divsum$Individual[i])
+  divsum$DeltaSlope[i] <- delta$Slope[delta.use]
+  
+}
+divsum <- divsum[,-1]
+divsum <- divsum[,-6:-7]
+divsum <- divsum[,-7:-8]
+divsum <- divsum[,-8:-9]
+divsum <- divsum[,-8:-9]
+divsum <- divsum[,-21]
+colnames(divsum)[1] <- "Sample"
+divsum$Source <- substr(divsum$Source, start = 2, stop = 2)
+divsum$Source[which(divsum$Source == "C")] <- "Content"
+divsum$Source[which(divsum$Source == "T")] <- "Mucosa"
+
+
+
+### Add metadata to phyloseq object
+meta.ready <- sample_data(divsum)
+sample_names(meta.ready) <- divsum$Sample
+physeq <- merge_phyloseq(mothurdata, meta.ready)
+
+
+# Remove OTUs that appear in < 3 samples
+otu <- data.frame(otu_table(physeq))
+otu.rem <- list()
+for(j in 1:nrow(otu)){
+  empty <- length(which(otu[j,] == 0))
+    # Identifies # of samples w/o OTU
+  if(empty > 38){
+    # If OTU appears in < 3 samples
+    otu.rem <- append(otu.rem, j)
+      # Create list of OTUs that appear in only 1 sample
+  }
+}
+# 1275 OTUs to remove
+otu.rem <- otu[-unlist(otu.rem),]
+
+
+# Update phyloseq object w/ removed OTUs
+phy.rem <- merge_phyloseq(otu_table(otu.rem, taxa_are_rows=T), sample_data(physeq), tax_table(physeq))
+ 
+
+# Order factors
+sample_data(phy.rem)$Season <- ordered(sample_data(phy.rem)$Season,
+                                     levels=c("Summer", "Winter", "Spring"))
+
+# Remove Inulin outliers
+########crds.rem <- crds.bin[-which(crds.bin$ID == "S34"),]
+#phy.use <- subset_samples(phy.rem, ID != "S37")
+  # ABX didn't work; high [DNA]
+  # Already removed
+phy.use <- subset_samples(phy.rem, ID != "P28")
+#########crds.rem <- crds.rem[-which(crds.rem$ID == "P30"),]
+
+# Remove Saline outliers
+#########crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
+#########crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
+phy.use <- subset_samples(phy.use, ID != "W50")
+phy.use <- subset_samples(phy.use, ID != "P04")
+  # This is an adult, not pup
+
+
+# Calculate relative abundance
+phy.ra <- transform_sample_counts(phy.use, function(x){(x/sum(x))*100})
+
+# Separate by Sample Type
+phy.c <- subset_samples(phy.ra, Source == "Content")
+phy.m <- subset_samples(phy.ra, Source == "Mucosa")
+
+# Separate by Season
+phy.sum <- subset_samples(phy.ra, Season == "Summer")
+phy.win <- subset_samples(phy.ra, Season == "Winter")
+phy.spr <- subset_samples(phy.ra, Season == "Spring")
+
+# Separate by Season + Sample Type
+phy.sum.c <- subset_samples(phy.sum, Source == "Content")
+  # 14 samples
+phy.sum.m <- subset_samples(phy.sum, Source == "Mucosa")
+  # 15 samples
+phy.win.c <- subset_samples(phy.win, Source == "Content")
+  # 4 samples
+phy.win.m <- subset_samples(phy.win, Source == "Mucosa")
+  # 1 sample
+phy.spr.c <- subset_samples(phy.spr, Source == "Content")
+  # 4 samples
+phy.spr.m <- subset_samples(phy.spr, Source == "Mucosa")
+  # 2 samples
+
+
+# Save phyloseq objects
+#save(phy.ra, file = "16S/physeq/phy.all.relabund.RData")
+#save(phy.c, file = "16S/physeq/phy.content.RData")
+#save(phy.m, file = "16S/physeq/phy.mucosa.RData")
+#save(phy.sum.c, file = "16S/physeq/phy.summer.content.RData")
+#save(phy.sum.m, file = "16S/physeq/phy.summer.mucosa.RData")
+#save(phy.win.c, file = "16S/physeq/phy.winter.content.RData")
+#save(phy.spr.c, file = "16S/physeq/phy.spring.content.RData")
+```
+
+
+
+### Load Phyloseq Data
+```{r}
+load("16S/physeq/phy.all.relabund.RData")
+load("16S/physeq/phy.content.RData")
+load("16S/physeq/phy.mucosa.RData")
+load("16S/physeq/phy.summer.content.RData")
+load("16S/physeq/phy.summer.mucosa.RData")
+load("16S/physeq/phy.winter.content.RData")
+load("16S/physeq/phy.spring.content.RData")
+```
+
+
+### OTUs that differ by Delta metrics
+```{r}
+### Format tax table
+tax.con <- data.frame(tax_table(phy.c))
+tax.muc <- data.frame(tax_table(phy.m))
+colnames(tax.con) <- c("Rank1", "Rank2", "Rank3", "Rank4", "Rank5", "Rank6", "Rank7")
+colnames(tax.muc) <- c("Rank1", "Rank2", "Rank3", "Rank4", "Rank5", "Rank6", "Rank7")
+tax.con <- as.matrix(tax.con)
+tax.muc <- as.matrix(tax.muc)
+
+### Format metadata
+meta.con <- data.frame(sample_data(phy.c))
+meta.muc <- data.frame(sample_data(phy.m))
+delta.c <- meta.con[,21:22]
+delta.c$BodyMass <- meta.con$BodyMass
+delta.m <- meta.muc[,21:22]
+delta.m$BodyMass <- meta.muc$BodyMass
+
+### Format OTU table
+mL.c <- subset_samples(phy.ra, Source == "Content")
+otu.c <- as.matrix(t(data.frame(otu_table(mL.c))))
+otu.c2 <- as.matrix(t(data.frame(otu_table(phy.c))))
+
+mL.m <- subset_samples(phy.ra, Source == "Mucosa")
+otu.m <- as.matrix(t(data.frame(otu_table(mL.m))))
+otu.m2 <- as.matrix(t(data.frame(otu_table(phy.m))))
+
+#otu.m <- as.matrix(t(data.frame(otu_table(phy.m))))
+
+test1 <- QCAT_GEE(OTU=otu.m, Tax=tax.muc, X=delta.m, X.index = 1, Z=delta.m, Z.index=1,  fdr.alpha=0.05, n.resample = 99)
+
+test2 <- QCAT_GEE(OTU=otu.m, Tax=tax.muc, X=delta.m, X.index = 2, Z=delta.m, Z.index=2,  fdr.alpha=0.05, n.resample = 99)
+
+test3 <- QCAT_GEE(OTU=otu.m, Tax=tax.muc, X=delta.m, X.index = 3, Z=delta.m, Z.index=3,  fdr.alpha=0.05, n.resample = 99)
+
+
+```
