@@ -60,10 +60,10 @@ divsum$test <- strsplit(divsum$group, "_")
 dna <- read.csv("dna.csv")
 
 # Remove samples w/o CRDS metrics
-divsum <- divsum[-which(divsum$group == "CC1_S11"),]
-divsum <- divsum[-which(divsum$group == "CC1_S34"),]
-divsum <- divsum[-which(divsum$group == "CC1_W26"),]
-divsum <- divsum[-which(divsum$group == "CC2_S37"),]
+#divsum <- divsum[-which(divsum$group == "CC1_S11"),]
+#divsum <- divsum[-which(divsum$group == "CC1_S34"),]
+#divsum <- divsum[-which(divsum$group == "CC1_W26"),]
+#divsum <- divsum[-which(divsum$group == "CC2_S37"),]
   # Since miLineage is not sig, there's no reason to remove these samples anymore
 
 # Fill in metadata
@@ -74,11 +74,11 @@ for(i in 1:nrow(divsum)){
   divsum$Source[i] <- divsum$test[[i]][[1]]
   divsum[i,18:30] <- meta[use,]
   
-  auc.use <- which(auc$ID == divsum$Individual[i])
-  divsum$AUC[i] <- auc$AUC[auc.use]
+  #auc.use <- which(auc$ID == divsum$Individual[i])
+  #divsum$AUC[i] <- auc$AUC[auc.use]
   
-  delta.use <- which(delta$ID == divsum$Individual[i])
-  divsum$DeltaSlope[i] <- delta$Slope[delta.use]
+  #delta.use <- which(delta$ID == divsum$Individual[i])
+  #divsum$DeltaSlope[i] <- delta$Slope[delta.use]
   
   dna.use <- which(dna$Sample == divsum$group[i])
   divsum$DNAyield[i] <- dna$DNA_Yield_.ng.mg.[dna.use]
@@ -87,11 +87,11 @@ for(i in 1:nrow(divsum)){
 divsum <- divsum[,-1]
 divsum <- divsum[,-6:-7]
 divsum <- divsum[,-7:-8]
-#divsum <- divsum[,-8:-10]
-#divsum <- divsum[,-22]
-divsum <- divsum[,-8:-9]
-divsum <- divsum[,-8:-9]
-divsum <- divsum[,-21]
+divsum <- divsum[,-8:-10]
+divsum <- divsum[,-22]
+#divsum <- divsum[,-8:-9]
+#divsum <- divsum[,-8:-9]
+#divsum <- divsum[,-21]
 colnames(divsum)[1] <- "Sample"
 divsum$Source <- substr(divsum$Source, start = 2, stop = 2)
 divsum$Source[which(divsum$Source == "C")] <- "Content"
@@ -117,7 +117,7 @@ for(j in 1:nrow(otu)){
       # Create list of OTUs that appear in only 1 sample
   }
 }
-# 1275 OTUs to remove
+# 2521 OTUs to remove
 otu.rem <- otu[-unlist(otu.rem),]
 
 
@@ -302,85 +302,7 @@ phy.con.sum.noabx.test <- QCAT_GEE(OTU=otu.c, Tax=tax.con, X=delta.c, X.index = 
 ```
 
 
-### Linear regression - OTUs + Delta metrics
-```{r}
-# Prepare data
-sum.c.df <- psmelt(phy.sum.c)
-sum.c.reg <- sum.c.df[,1:3]
-sum.c.reg[,4:10] <- sum.c.df[,14:20]
-sum.c.reg$BodyTemp <- sum.c.df$BodyTemp
-sum.c.reg$BodyMass <- sum.c.df$BodyMass
-sum.c.reg$DNAyield <- sum.c.df$DNAyield
-sum.c.reg$AUC <- sum.c.df$AUC
-sum.c.reg$DeltaSlope <- sum.c.df$DeltaSlope
-sum.c.reg[,16:21] <- sum.c.df[,28:33]
 
-# Look for correlations between variables
-pairs(sum.c.reg[,12:15])
-  # AUC & DeltaSlope --> Use just one metric
-  # Other variables are fine (not correlated, visually)
-
-xyplot(Abundance ~ BodyMass, sum.c.reg)
-BodyMass.lm <- lm(BodyMass ~ Abundance, data = sum.c.reg, na.action = na.omit)
-  # P = 1
-cor.test(sum.c.reg$Abundance, sum.c.reg$BodyMass, method = "spearman", exact = F)
-  # p-value < 2.2e-16
-  # rho = -0.04892234
-
-
-xyplot(Abundance ~ DNAyield, sum.c.reg)
-DNAyield.lm <- lm(DNAyield ~ Abundance, data = sum.c.reg, na.action = na.omit)
-  # P = 1
-cor.test(sum.c.reg$Abundance, sum.c.reg$DNAyield, method = "spearman", exact = F)
-  # p-value < 5.034e-14
-  # rho = 0.04301139 
-
-
-xyplot(Abundance ~ AUC, sum.c.reg)
-AUC.lm <- lm(AUC ~ Abundance, data = sum.c.reg, na.action = na.omit)
-  # P = 1
-cor.test(sum.c.reg$Abundance, sum.c.reg$AUC, method = "spearman", exact = F)
-  # p-value = 0.001555
-  # rho = 0.01807829
-
-
-
-# Function to extract the best subset multiple linear regression model 
-# Arguments:
-#   vars: vectors of all variables to consider in the model
-#   response: response variable of the model (must be in quotes!)
-#   dat: dataframe with vars and response
-# Returns: a list with the variables in the best model, bic, cp, and adjusted r2
-get_bestsub_summary <- function(vars, response, dat) {
-  formula = reformulate(termlabels = vars, response = response)
-  lm_model <- regsubsets(formula, method = "exhaustive", dat)
-  bic <- summary(lm_model)$bic
-  cp <- summary(lm_model)$cp
-  adjr2 <- summary(lm_model)$adjr2
-  best_model <- summary(lm_model)$which[which.min(bic), ]
-  return(list(model = best_model, bic = bic, cp = cp, adjr2 = adjr2))
-}
-
-
-
-
-vars <- c("BodyMass", "DNAyield", "AUC")
-sum.c.reg.use <- data.frame(sum.c.reg$Abundance)
-colnames(sum.c.reg.use) <- "Abundance"
-sum.c.reg.use$BodyMass <- sum.c.reg$BodyMass
-sum.c.reg.use$DNAyield <- sum.c.reg$DNAyield
-sum.c.reg.use$AUC <- sum.c.reg$AUC
-sum.c.model <- lapply(sum.c.reg.use, 
-  function(x) {
-    best_model <- get_bestsub_summary(vars, "Abundance", sum.c.reg.use)
-    model <- lm(
-      formula = reformulate(vars[best_model$model[-1]], "Abundance"), 
-      data = sum.c.reg.use)
-    return(model)
-  })
-summary(sum.c.model)
-
-```
 ### ABX-surviving microbes - Prepare data
 ```{r}
 ### Separate ABX/No ABX
