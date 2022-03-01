@@ -60,10 +60,10 @@ divsum$test <- strsplit(divsum$group, "_")
 dna <- read.csv("dna.csv")
 
 # Remove samples w/o CRDS metrics
-divsum <- divsum[-which(divsum$group == "CC1_S11"),]
-divsum <- divsum[-which(divsum$group == "CC1_S34"),]
-divsum <- divsum[-which(divsum$group == "CC1_W26"),]
-divsum <- divsum[-which(divsum$group == "CC2_S37"),]
+#divsum <- divsum[-which(divsum$group == "CC1_S11"),]
+#divsum <- divsum[-which(divsum$group == "CC1_S34"),]
+#divsum <- divsum[-which(divsum$group == "CC1_W26"),]
+#divsum <- divsum[-which(divsum$group == "CC2_S37"),]
   # Since miLineage is not sig, there's no reason to remove these samples anymore
 
 # Fill in metadata
@@ -74,11 +74,11 @@ for(i in 1:nrow(divsum)){
   divsum$Source[i] <- divsum$test[[i]][[1]]
   divsum[i,18:30] <- meta[use,]
   
-  auc.use <- which(auc$ID == divsum$Individual[i])
-  divsum$AUC[i] <- auc$AUC[auc.use]
+  #auc.use <- which(auc$ID == divsum$Individual[i])
+  #divsum$AUC[i] <- auc$AUC[auc.use]
   
-  delta.use <- which(delta$ID == divsum$Individual[i])
-  divsum$DeltaSlope[i] <- delta$Slope[delta.use]
+  #delta.use <- which(delta$ID == divsum$Individual[i])
+  #divsum$DeltaSlope[i] <- delta$Slope[delta.use]
   
   dna.use <- which(dna$Sample == divsum$group[i])
   divsum$DNAyield[i] <- dna$DNA_Yield_.ng.mg.[dna.use]
@@ -87,9 +87,10 @@ for(i in 1:nrow(divsum)){
 divsum <- divsum[,-1]
 divsum <- divsum[,-6:-7]
 divsum <- divsum[,-7:-8]
-divsum <- divsum[,-8:-9]
-divsum <- divsum[,-8:-9]
-divsum <- divsum[,-21]
+divsum <- divsum[,-8:-10]
+divsum <- divsum[,-22]
+#divsum <- divsum[,-8:-9]
+#divsum <- divsum[,-21]
 colnames(divsum)[1] <- "Sample"
 divsum$Source <- substr(divsum$Source, start = 2, stop = 2)
 divsum$Source[which(divsum$Source == "C")] <- "Content"
@@ -115,7 +116,7 @@ for(j in 1:nrow(otu)){
       # Create list of OTUs that appear in only 1 sample
   }
 }
-# 1275 OTUs to remove
+# 2521 OTUs to remove
 otu.rem <- otu[-unlist(otu.rem),]
 
 
@@ -157,11 +158,11 @@ phy.spr <- subset_samples(phy.ra, Season == "Spring")
 
 # Separate by Season + Sample Type
 phy.sum.c <- subset_samples(phy.sum, Source == "Content")
-  # 14 samples
+  # 17 samples
 phy.sum.m <- subset_samples(phy.sum, Source == "Mucosa")
   # 15 samples
 phy.win.c <- subset_samples(phy.win, Source == "Content")
-  # 4 samples
+  # 5 samples
 phy.win.m <- subset_samples(phy.win, Source == "Mucosa")
   # 1 sample
 phy.spr.c <- subset_samples(phy.spr, Source == "Content")
