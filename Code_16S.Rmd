@@ -48,7 +48,7 @@ tax_table(mothurdata) <- cbind(tax_table(mothurdata),
                                row.names(tax_table(mothurdata)))
 
 # Rename taxonomy table columns
-colnames(tax_table(mothurdata)) <- c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species")
+colnames(tax_table(mothurdata)) <- c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")
 
 ### Prepare metadata
 meta <- read.csv("metadata.csv")
@@ -57,12 +57,14 @@ delta <- read.csv("delta_metrics.csv")
 rownames(meta) <- meta$Sample
 divsum <- read.table("16S/final.0.03.norm.groups.summary", header = T)
 divsum$test <- strsplit(divsum$group, "_")
+dna <- read.csv("dna.csv")
 
 # Remove samples w/o CRDS metrics
 divsum <- divsum[-which(divsum$group == "CC1_S11"),]
 divsum <- divsum[-which(divsum$group == "CC1_S34"),]
 divsum <- divsum[-which(divsum$group == "CC1_W26"),]
 divsum <- divsum[-which(divsum$group == "CC2_S37"),]
+  # Since miLineage is not sig, there's no reason to remove these samples anymore
 
 # Fill in metadata
 for(i in 1:nrow(divsum)){
@@ -77,6 +79,9 @@ for(i in 1:nrow(divsum)){
   
   delta.use <- which(delta$ID == divsum$Individual[i])
   divsum$DeltaSlope[i] <- delta$Slope[delta.use]
+  
+  dna.use <- which(dna$Sample == divsum$group[i])
+  divsum$DNAyield[i] <- dna$DNA_Yield_.ng.mg.[dna.use]
   
 }
 divsum <- divsum[,-1]
@@ -166,6 +171,7 @@ phy.spr.m <- subset_samples(phy.spr, Source == "Mucosa")
 
 
 # Save phyloseq objects
+#save(phy.use, file = "16S/physeq/phy.all.counts.RData")
 #save(phy.ra, file = "16S/physeq/phy.all.relabund.RData")
 #save(phy.c, file = "16S/physeq/phy.content.RData")
 #save(phy.m, file = "16S/physeq/phy.mucosa.RData")
@@ -179,6 +185,7 @@ phy.spr.m <- subset_samples(phy.spr, Source == "Mucosa")
 
 ### Load Phyloseq Data
 ```{r}
+load("16S/physeq/phy.all.counts.RData")
 load("16S/physeq/phy.all.relabund.RData")
 load("16S/physeq/phy.content.RData")
 load("16S/physeq/phy.mucosa.RData")
@@ -189,40 +196,111 @@ load("16S/physeq/phy.spring.content.RData")
 ```
 
 
-### OTUs that differ by Delta metrics
+### OTUs associated w/ Delta metrics
 ```{r}
+### Format phyloseq objects
+phy.con.raw <- subset_samples(phy.use, Source == "Content")
+phy.c.rem <- filter_taxa(phy.con.raw, function(x) sum(x) > 0, T)
+phy.muc.raw <- subset_samples(phy.use, Source == "Mucosa")
+phy.m.rem <- filter_taxa(phy.muc.raw, function(x) sum(x) > 0, T)
+
+
 ### Format tax table
-tax.con <- data.frame(tax_table(phy.c))
-tax.muc <- data.frame(tax_table(phy.m))
+tax.con <- data.frame(tax_table(phy.c.rem))
 colnames(tax.con) <- c("Rank1", "Rank2", "Rank3", "Rank4", "Rank5", "Rank6", "Rank7")
-colnames(tax.muc) <- c("Rank1", "Rank2", "Rank3", "Rank4", "Rank5", "Rank6", "Rank7")
 tax.con <- as.matrix(tax.con)
-tax.muc <- as.matrix(tax.muc)
+tax.muc <- data.frame(tax_table(phy.m.rem))
+colnames(tax.muc) <- c("Rank1", "Rank2", "Rank3", "Rank4", "Rank5", "Rank6", "Rank7")
+tax.muc <- as.matrix(tax.muc)                    
+                    
 
 ### Format metadata
-meta.con <- data.frame(sample_data(phy.c))
-meta.muc <- data.frame(sample_data(phy.m))
+meta.con <- data.frame(sample_data(phy.c.rem))
+meta.muc <- data.frame(sample_data(phy.m.rem))
 delta.c <- meta.con[,21:22]
 delta.c$BodyMass <- meta.con$BodyMass
+delta.c$DNAyield <- meta.con$DNAyield
+delta.c <- as.matrix(delta.c)
 delta.m <- meta.muc[,21:22]
 delta.m$BodyMass <- meta.muc$BodyMass
+delta.m$DNAyield <- meta.muc$DNAyield
+delta.m <- as.matrix(delta.m)
+
 
 ### Format OTU table
-mL.c <- subset_samples(phy.ra, Source == "Content")
-otu.c <- as.matrix(t(data.frame(otu_table(mL.c))))
-otu.c2 <- as.matrix(t(data.frame(otu_table(phy.c))))
+otu.c <- as.matrix(t(data.frame(otu_table(phy.c.rem))))
+otu.m <- as.matrix(t(data.frame(otu_table(phy.m.rem))))
 
-mL.m <- subset_samples(phy.ra, Source == "Mucosa")
-otu.m <- as.matrix(t(data.frame(otu_table(mL.m))))
-otu.m2 <- as.matrix(t(data.frame(otu_table(phy.m))))
 
-#otu.m <- as.matrix(t(data.frame(otu_table(phy.m))))
 
-test1 <- QCAT_GEE(OTU=otu.m, Tax=tax.muc, X=delta.m, X.index = 1, Z=delta.m, Z.index=1,  fdr.alpha=0.05, n.resample = 99)
+all.phy.c <- QCAT_GEE(OTU=otu.c, Tax=tax.con, X=delta.c, X.index = 1, Z=delta.c, Z.index=1,  fdr.alpha=0.05, n.resample = 999)
+  # No sig
 
-test2 <- QCAT_GEE(OTU=otu.m, Tax=tax.muc, X=delta.m, X.index = 2, Z=delta.m, Z.index=2,  fdr.alpha=0.05, n.resample = 99)
+all.phy.m <- QCAT_GEE(OTU=otu.m, Tax=tax.muc, X=delta.m, X.index = 1, Z=delta.m, Z.index=1,  fdr.alpha=0.05, n.resample = 999)
+  # No sig
 
-test3 <- QCAT_GEE(OTU=otu.m, Tax=tax.muc, X=delta.m, X.index = 3, Z=delta.m, Z.index=3,  fdr.alpha=0.05, n.resample = 99)
 
+
+
+
+### Format phyloseq objects
+phy.con.raw <- subset_samples(phy.use, Source == "Content")
+phy.con.sum <- subset_samples(phy.con.raw, Season == "Summer")
+phy.con.sum <- filter_taxa(phy.con.sum, function(x) sum(x) > 0, T)
+
+
+### Format tax table
+tax.con <- data.frame(tax_table(phy.con.sum))
+colnames(tax.con) <- c("Rank1", "Rank2", "Rank3", "Rank4", "Rank5", "Rank6", "Rank7")
+tax.con <- as.matrix(tax.con)
+
+
+### Format metadata
+meta.con <- data.frame(sample_data(phy.con.sum))
+delta.c <- meta.con[,21:22]
+delta.c$BodyMass <- meta.con$BodyMass
+delta.c$DNAyield <- meta.con$DNAyield
+delta.c <- as.matrix(delta.c)
+
+### Format OTU table
+otu.c <- as.matrix(t(data.frame(otu_table(phy.con.sum))))
+
+phy.con.sum.test <- QCAT_GEE(OTU=otu.c, Tax=tax.con, X=delta.c, X.index = 1, Z=delta.c, Z.index=1,  fdr.alpha=0.05, n.resample = 99)
+  # No sig
+
+
+
+
+
+### Format phyloseq objects
+phy.con.noabx.raw <- subset_samples(phy.con.sum, Antibiotics == "No")
+phy.con.noabx.raw <- filter_taxa(phy.con.noabx.raw, function(x) sum(x) > 0, T)
+
+
+### Format tax table
+tax.con <- data.frame(tax_table(phy.con.noabx.raw))
+colnames(tax.con) <- c("Rank1", "Rank2", "Rank3", "Rank4", "Rank5", "Rank6", "Rank7")
+tax.con <- as.matrix(tax.con)
+
+
+### Format metadata
+meta.con <- data.frame(sample_data(phy.con.noabx.raw))
+delta.c <- meta.con[,21:22]
+delta.c$BodyMass <- meta.con$BodyMass
+delta.c$DNAyield <- meta.con$DNAyield
+delta.c <- as.matrix(delta.c)
+
+### Format OTU table
+otu.c <- as.matrix(t(data.frame(otu_table(phy.con.noabx.raw))))
+
+phy.con.sum.noabx.test <- QCAT_GEE(OTU=otu.c, Tax=tax.con, X=delta.c, X.index = 1, Z=delta.c, Z.index=1,  fdr.alpha=0.05, n.resample = 99)
+  # No sig
+
+
+```
+
+
+### ABX-surviving microbes?
+```{r}
 
 ```
