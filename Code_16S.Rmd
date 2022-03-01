@@ -301,7 +301,116 @@ phy.con.sum.noabx.test <- QCAT_GEE(OTU=otu.c, Tax=tax.con, X=delta.c, X.index = 
 ```
 
 
-### ABX-surviving microbes?
+### ABX-surviving microbes - Prepare data
 ```{r}
+### Separate ABX/No ABX
+phy.sum.c.noabx <- subset_samples(phy.sum.c, Antibiotics == "No")
+  # 14 samples
+phy.sum.c.abx <- subset_samples(phy.sum.c, Antibiotics == "Yes")
+  # 3 samples
+phy.sum.m.noabx <- subset_samples(phy.sum.m, Antibiotics == "No")
+  # 12 samples
+phy.sum.m.abx <- subset_samples(phy.sum.m, Antibiotics == "Yes")
+  # 3 samples
+phy.win.c.abx <- subset_samples(phy.win.c, Antibiotics == "Yes")
+  # 4 samples
+phy.spr.c.noabx <- subset_samples(phy.spr.c, Antibiotics == "No")
+  # 4 samples
 
+
+### Drop taxa in < 3 samples
+otu.sum.m.abx.otu <- data.frame(otu_table(phy.sum.c.abx))
+otu.sum.m.abx.otu.rem <- list()
+for(a in 1:nrow(otu.sum.m.abx.otu)){
+  empty <- length(which(otu.sum.m.abx.otu[a,] == 0))
+    # Identifies # of samples w/o OTU
+  if(empty > 0){
+    # If OTU appears in < 3 samples
+    otu.sum.m.abx.otu.rem <- append(otu.sum.m.abx.otu.rem, a)
+      # Create list of OTUs that appear in only 1 sample
+  }
+}
+# 899 OTUs to remove
+otu.sum.m.abx.otu.rem <- otu.sum.m.abx.otu[-unlist(otu.sum.m.abx.otu.rem),]
+# Update physeq object
+phy.sum.m.abx.rem <- merge_phyloseq(otu_table(otu.sum.m.abx.otu.rem, taxa_are_rows=T),
+                                    sample_data(phy.sum.c.abx), tax_table(phy.sum.c.abx))
+
+
+
+### Drop taxa in < 3 samples
+otu.sum.m.abx.otu <- data.frame(otu_table(phy.sum.m.abx))
+otu.sum.m.abx.otu.rem <- list()
+for(b in 1:nrow(otu.sum.m.abx.otu)){
+  empty <- length(which(otu.sum.m.abx.otu[b,] == 0))
+    # Identifies # of samples w/o OTU
+  if(empty > 0){
+    # If OTU appears in < 3 samples
+    otu.sum.m.abx.otu.rem <- append(otu.sum.m.abx.otu.rem, b)
+      # Create list of OTUs that appear in only 1 sample
+  }
+}
+# 642 OTUs to remove
+otu.sum.m.abx.otu.rem <- otu.sum.m.abx.otu[-unlist(otu.sum.m.abx.otu.rem),]
+# Update physeq object
+phy.sum.m.abx.rem <- merge_phyloseq(otu_table(otu.sum.m.abx.otu.rem, taxa_are_rows=T),
+                                    sample_data(phy.sum.m.abx), tax_table(phy.sum.m.abx))
+
+
+
+### Drop taxa in < 3 samples
+otu.win.c.abx.otu <- data.frame(otu_table(phy.win.c.abx))
+otu.win.c.abx.otu.rem <- list()
+for(c in 1:nrow(otu.win.c.abx.otu)){
+  empty <- length(which(otu.win.c.abx.otu[c,] == 0))
+    # Identifies # of samples w/o OTU
+  if(empty > 1){
+    # If OTU appears in < 3 samples
+    otu.win.c.abx.otu.rem <- append(otu.win.c.abx.otu.rem, c)
+      # Create list of OTUs that appear in only 1 sample
+  }
+}
+# 939 OTUs to remove
+otu.win.c.abx.otu.rem <- otu.win.c.abx.otu[-unlist(otu.win.c.abx.otu.rem),]
+# Update physeq object
+phy.win.c.abx.rem <- merge_phyloseq(otu_table(otu.win.c.abx.otu.rem, taxa_are_rows=T),
+                                    sample_data(phy.win.c.abx), tax_table(phy.win.c.abx))
+
+```
+
+
+### ABX Microbes - Create tables
+```{r}
+#barplot(sort(taxa_sums(phy.sum.c.abx.rem),TRUE)[1:10]/nsamples(phy.sum.c.abx.rem),las=2,cex.axis=.7)
+
+phy.sum.c.abx.df <- psmelt(phy.sum.c.abx.rem)
+phy.sum.c.abx.sum <- phy.sum.c.abx.df %>%
+  group_by(OTU, Genus) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+
+
+phy.sum.m.abx.df <- psmelt(phy.sum.m.abx.rem)
+phy.sum.m.abx.sum <- phy.sum.m.abx.df %>%
+  group_by(OTU, Genus) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+
+
+
+phy.win.c.abx.df <- psmelt(phy.win.c.abx.rem)
+phy.win.c.abx.sum <- phy.win.c.abx.df %>%
+  group_by(OTU, Genus) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+
+
+
+
+#write.csv(phy.sum.c.abx.sum, "16S/SummerContentABX_TaxTable.csv")
+#write.csv(phy.sum.m.abx.sum, "16S/SummerMucosaABX_TaxTable.csv")
+#write.csv(phy.win.c.abx.sum, "16S/WinterContentABX_TaxTable.csv")
 ```
