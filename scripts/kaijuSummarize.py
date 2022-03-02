@@ -4,15 +4,15 @@ import pandas as pd
     # Import pandas to use dataframes
 
 ##### CHANGE THESE PARAMETERS ACCORDINGLY
-directoryKaiju = '../kaiju/sig_cazymes/'
+directoryKaiju = '../kaiju/inulinase/exo/'
     # Directory of kaiju outputs
     # directoryKaiju/directorySpecificPredictedProtein/taxon
     # CHANGE FUNCTION makeDF ACCORDING TO DIRECTORY
 
 proteins = os.listdir(directoryKaiju)
     # Save all predicted proteins
-samples = ['I-P01', 'I-P07', 'I-P11', 'I-S07', 'I-S29', 'I-S34', 'I-W31', 'I-W32', 'I-W33', 'S-P03', 'S-P09', 'S-P12', 'S-S05', 'S-S08', 'S-S32', 'S-W20', 'S-W36', 'S-W37']
-sampDict = {0:"I-P01", 1:"I-P07", 2:"I-P11", 3:"I-S07", 4:"I-S29", 5:"I-S34", 6:"I-W31", 7:"I-W32", 8:"I-W33", 9:"S-P03", 10:"S-P09", 11:"S-P12", 12:"S-S05", 13:"S-S08", 14:"S-S32", 15:"S-W20", 16:"S-W36", 17:"S-W37"}
+samples = ['I-P01', 'I-P07', 'I-P11', 'I-S07', 'I-S29', 'I-S34', 'I-W31', 'I-W32', 'I-W33', 'S-P03', 'S-P09', 'S-P12', 'S-S05', 'S-S08', 'S-S32', 'S-W36', 'S-W37']
+sampDict = {0:"I-P01", 1:"I-P07", 2:"I-P11", 3:"I-S07", 4:"I-S29", 5:"I-S34", 6:"I-W31", 7:"I-W32", 8:"I-W33", 9:"S-P03", 10:"S-P09", 11:"S-P12", 12:"S-S05", 13:"S-S08", 14:"S-S32", 15:"S-W36", 16:"S-W37"}
 taxon = ["phylum", "class", "order", "family", "genus", "species"]
     # Save all taxa levels
 
@@ -35,13 +35,13 @@ def makeDF(taxaList, dataFrame, inputFile, taxaDict):
         currentSamp = line1Split[0]
 
         ## FOR INULINASES ##
-        #currentSamp = currentSamp[:-17]
+        currentSamp = currentSamp[:-17]
 
         ## FOR ALL SHORT READS ##  
         #currentSamp = currentSamp[:-12]
 
         ## FOR SIG CAZYMES ##
-        currentSamp = currentSamp[:-18]
+        #currentSamp = currentSamp[:-18]
         length = len(currentSamp)
 
         currentSamp = currentSamp[length-6 : length]

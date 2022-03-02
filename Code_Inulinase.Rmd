@@ -19,12 +19,14 @@ library(vegan)
 #library(miLineage)
 #library(psych)
 library(car)
+library(reshape2)
 #source('scripts/import_crds.R')
 #source('scripts/bin_crds.R')
 source('scripts/misc.R')
 #source('scripts/calc_delta_metrics.R')
 source('scripts/simper_pretty.R')
 source('scripts/R_krusk.R')
+source('scripts/removeTaxa.R')
 set.seed(1)
 theme_set(theme_bw())
 ```
@@ -52,6 +54,11 @@ summary(aov(Avg_Genome_Size ~ Metabolism, data = ags))
   # p-value = 0.122
 summary(aov(Genome_Equivalents ~ Metabolism, data = ags))
   # p-value = 0.382
+
+
+ggplot(ags, aes(x = Season, y = Avg_Genome_Size, color=Season, fill = Season)) +
+  geom_boxplot()
+# W20 is an outlier (very large AGS-- suggests more generalists)
 ```
 
 
@@ -63,31 +70,36 @@ mapped_all <- read.csv('eCAMI/mapped_reads_all.csv')
 exo_mapped <- mapped_all[which(mapped_all$Protein == "Exo"),]
 endo_mapped <- mapped_all[which(mapped_all$Protein == "Endo"),]
 
+# Remove outlier W20 (not in endo)
+exoMapped <- exo_mapped[-which(exo_mapped$Sample == "S-W20"),]
+
 # Normality
-shapiro.test(exo_mapped$RelAbund.100000)
-  # p-value = 0.0005701
-  # Not Normal
+shapiro.test(exoMapped$RelAbund.100000)
+  # p-value = 0.4807
+  # Normal
 shapiro.test(endo_mapped$RelAbund.100000)
   # p-value = 3.281e-06
   # Not Normal
 
 # Kruskal-Wallis
-kruskal.test(formula = RelAbund.100000 ~ Season, data = exo_mapped)
-  # p-value = 0.8342
+summary(aov(RelAbund.100000 ~ Season, data = exoMapped))
+  # p-value = 0.992
+t.test(RelAbund.100000 ~ Metabolism, data = exoMapped)
+  # p-value = 0.979
+  
+  
 kruskal.test(formula = RelAbund.100000 ~ Season, data = endo_mapped)
   # p-value = 0.3329
-kruskal.test(formula = RelAbund.100000 ~ Metabolism, data = exo_mapped)
-  # p-value = 0.6396
-kruskal.test(formula = RelAbund.100000 ~ Metabolism, data = endo_mapped)
-  # p-value = 0.3798
+wilcox.test(formula = RelAbund.100000 ~ Metabolism, data = endo_mapped)
+  # p-value = 0.5
 
 # Variance
-leveneTest(RelAbund.100000 ~ Season, data=exo_mapped)
-  # p-value = 0.3951
+leveneTest(RelAbund.100000 ~ Season, data=exoMapped)
+  # p-value = 0.3954
 leveneTest(RelAbund.100000 ~ Season, data=endo_mapped)
   # p-value = 0.4414
-leveneTest(RelAbund.100000 ~ Metabolism, data=exo_mapped)
-  # p-value = 0.2143
+leveneTest(RelAbund.100000 ~ Metabolism, data=exoMapped)
+  # p-value = 0.8994
 leveneTest(RelAbund.100000 ~ Metabolism, data=endo_mapped)
   # p-value = 0.5622
 
@@ -97,26 +109,28 @@ leveneTest(RelAbund.100000 ~ Metabolism, data=endo_mapped)
 exo_rpkg <- read.csv('eCAMI/exoRPKG.csv')
 exo_rpkg$Season <- ordered(exo_rpkg$Season, c("Summer", "Winter", "Spring"))
 
-shapiro.test(exo_rpkg$RPKG)
-  # p-value = 3.348e-05
+# Remove W20 outlier
+exo_rpkg <- exo_rpkg[-which(exo_rpkg$Sample == "S-W20"),]
 
-kruskal.test(formula = RPKG ~ Season, data = exo_rpkg)
-  # p-value = 0.9322
-kruskal.test(formula = RPKG ~ Metabolism, data = exo_rpkg)
-  # p-value = 0.7079
+
+shapiro.test(exo_rpkg$RPKG)
+  # p-value = 0.8887
+
+summary(aov(formula = RPKG ~ Season, data = exo_rpkg))
+  # p-value = 0.598
+t.test(formula = RPKG ~ Metabolism, data = exo_rpkg)
+  # p-value = 0.3374
 
 fligner.test(RPKG ~ Season, data=exo_rpkg)
-  # p-value = 0.2832
+  # p-value = 0.1426
 fligner.test(RPKG ~ Metabolism, data=exo_rpkg)
-  # p-value = 0.6965
+  # p-value = 0.7648
 ```
 
 
 ### Plot - RPKG
 ```{r}
-
-
-tiff("inulinase.rpkg.tiff", width = 175, height = 100, units = "mm", res = 400)
+#tiff("inulinase.rpkg.tiff", width = 175, height = 100, units = "mm", res = 400)
 ggplot(exo_rpkg, aes(x=Season, y=RPKG, fill=Season)) +
   geom_dotplot(binaxis='y', stackdir='center', dotsize = 1.5) +
   scale_fill_manual(name="Season", values=c("#E69F00", "#0072B2", "#00bf8b")) +
@@ -138,7 +152,7 @@ ggplot(exo_rpkg, aes(x=Season, y=RPKG, fill=Season)) +
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()
   ) 
-dev.off()
+#dev.off()
 
 
 
@@ -149,15 +163,17 @@ dev.off()
 
 ### DON'T RUN - Prepare taxonomic data
 ```{r}
-# Already moved taxa found in < 3 samples
+### Remove taxa found in < 3 samples
+#removeTaxa('kaiju/inulinase/relAbund_tables/')
+
 
 ### Import rel abund tables
-phy.ra <- read.csv('kaiju/relAbund_tables/exo.phylum.csv', header=T, row.names=1)
-cla.ra <- read.csv('kaiju/relAbund_tables/exo.class.csv', header=T, row.names=1)
-ord.ra <- read.csv('kaiju/relAbund_tables/exo.order.csv', header=T, row.names=1)
-fam.ra <- read.csv('kaiju/relAbund_tables/exo.family.csv', header=T, row.names=1)
-gen.ra <- read.csv('kaiju/relAbund_tables/exo.genus.csv', header=T, row.names=1)
-spe.ra <- read.csv('kaiju/relAbund_tables/exo.species.csv', header=T, row.names=1)
+phy.ra <- read.csv('kaiju/inulinase/relAbund_tables/exo.phylum.csv', header=T, row.names=1)
+cla.ra <- read.csv('kaiju/inulinase/relAbund_tables/exo.class.csv', header=T, row.names=1)
+ord.ra <- read.csv('kaiju/inulinase/relAbund_tables/exo.order.csv', header=T, row.names=1)
+fam.ra <- read.csv('kaiju/inulinase/relAbund_tables/exo.family.csv', header=T, row.names=1)
+gen.ra <- read.csv('kaiju/inulinase/relAbund_tables/exo.genus.csv', header=T, row.names=1)
+spe.ra <- read.csv('kaiju/inulinase/relAbund_tables/exo.species.csv', header=T, row.names=1)
 
 phy.otu <- otu_table(phy.ra, taxa_are_rows = T)
 cla.otu <- otu_table(cla.ra, taxa_are_rows = T)
@@ -167,7 +183,7 @@ gen.otu <- otu_table(gen.ra, taxa_are_rows = T)
 spe.otu <- otu_table(spe.ra, taxa_are_rows = T)
 
 
-### Import metadata
+### Import metadatac
 meta <- read.csv('metadata_metag.csv', header=T)
 meta.samp <- sample_data(meta)
 sample_names(meta.samp) <- meta$ID
@@ -229,12 +245,12 @@ spe.phy <- merge_phyloseq(spe.tax, spe.otu, meta.samp)
 
 
 ### Save physeq objects
-#save(phy.phy, file="kaiju/physeq/phylum.phy.RData")
-#save(cla.phy, file="kaiju/physeq/class.phy.RData")
-#save(ord.phy, file="kaiju/physeq/order.phy.RData")
-#save(fam.phy, file="kaiju/physeq/family.phy.RData")
-#save(gen.phy, file="kaiju/physeq/genus.phy.RData")
-#save(spe.phy, file="kaiju/physeq/species.phy.RData")
+save(phy.phy, file="kaiju/inulinase/physeq/phylum.phy.RData")
+save(cla.phy, file="kaiju/inulinase/class.phy.RData")
+save(ord.phy, file="kaiju/inulinase/order.phy.RData")
+save(fam.phy, file="kaiju/inulinase/family.phy.RData")
+save(gen.phy, file="kaiju/inulinase/genus.phy.RData")
+save(spe.phy, file="kaiju/inulinase/species.phy.RData")
 ```
 
 ### Load tax physeq data
