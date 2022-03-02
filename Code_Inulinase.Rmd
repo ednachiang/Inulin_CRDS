@@ -37,31 +37,63 @@ theme_set(theme_bw())
 ```{r}
 ags <- read.csv('AverageGenomeSize.csv')
 
+# W20 is an outlier (very large AGS-- suggests more generalists)
+ags <- ags[-which(ags$Sample == "S-W20"),]
+ags$Season <- ordered(ags$Season, levels=c("Summer", "Winter", "Spring"))
+
+# Convert AGS to kb
+ags$AGS_kb <- ags$Avg_Genome_Size / 1000
+
 shapiro.test(ags$Avg_Genome_Size)
-  # p-value = 0.4778
+  # p-value = 0.3697
   # Normal
 shapiro.test(ags$Genome_Equivalents)
-  # p-value = 0.1762
+  # p-value = 0.2279
   # Normal
 
 
 summary(aov(Avg_Genome_Size ~ Season, data = ags))
-  # p-value = 0.298
+  # p-value = 0.00868
+TukeyHSD(aov(Avg_Genome_Size ~ Season, data = ags))
+  # Summer-Winter = 0.0104046
+  # Summer-Spring = 0.8820160
+  # Winter-Spring = 0.0250999
 summary(aov(Genome_Equivalents ~ Season, data = ags))
-  # p-value = 0.254
+  # p-value = 0.325
 
-summary(aov(Avg_Genome_Size ~ Metabolism, data = ags))
-  # p-value = 0.122
-summary(aov(Genome_Equivalents ~ Metabolism, data = ags))
-  # p-value = 0.382
+#t.test(Avg_Genome_Size ~ Metabolism, data = ags)
+  # p-value = 0.008007
+#t.test(Genome_Equivalents ~ Metabolism, data = ags)
+  # p-value = 0.4634
 
 
-ggplot(ags, aes(x = Season, y = Avg_Genome_Size, color=Season, fill = Season)) +
-  geom_boxplot()
-# W20 is an outlier (very large AGS-- suggests more generalists)
+
 ```
 
-
+### Plot - AGS
+```{r}
+#tiff("inulinase.ags.tiff", width = 175, height = 105, units = "mm", res = 400)
+ggplot(ags, aes(x = Season, y = AGS_kb, fill = Season)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5, stackratio = 1.15) +
+  scale_fill_manual(values = c("#E69F00", "#0072B2", "#00bf8b")) +
+  scale_y_continuous(limits = c(2690, 4000), breaks = c(2690, 2952, 3214, 3476, 3738, 4000)) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               position = position_dodge(0.7), size = 0.75,
+               show.legend = F) +
+  ylab("Average Genome Size (kb)") +
+    theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.text.x = element_text(size=12),
+        axis.text.y = element_text(size=12),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 18, face="bold"),
+        legend.text = element_text(size=16),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+  ) 
+#dev.off()
+```
 
 ### Endo/Exo Rel Abund & RPKG
 ```{r}
@@ -135,7 +167,8 @@ ggplot(exo_rpkg, aes(x=Season, y=RPKG, fill=Season)) +
   geom_dotplot(binaxis='y', stackdir='center', dotsize = 1.5) +
   scale_fill_manual(name="Season", values=c("#E69F00", "#0072B2", "#00bf8b")) +
   ylab("Reads per kilobase\nper genome equivalent") +
-  #scale_y_continuous(breaks=c(0.00, 0.0125, 0.025, 0.0375, 0.05), limits=c(0, 0.05)) +
+  scale_y_continuous(breaks=c(0.00, 0.142, 0.284, 0.426, 0.568, 0.710),
+                     limits=c(0.000, 0.710)) +
   stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
                color = "black", position = position_dodge(0.7), size = 0.75,
                show.legend = F) +
@@ -185,6 +218,7 @@ spe.otu <- otu_table(spe.ra, taxa_are_rows = T)
 
 ### Import metadatac
 meta <- read.csv('metadata_metag.csv', header=T)
+meta <- meta[-which(meta$ID == "S.W20"),]
 meta.samp <- sample_data(meta)
 sample_names(meta.samp) <- meta$ID
 meta.samp$Season <- ordered(meta$Season, levels=c("Summer", "Winter", "Spring"))
@@ -245,12 +279,12 @@ spe.phy <- merge_phyloseq(spe.tax, spe.otu, meta.samp)
 
 
 ### Save physeq objects
-save(phy.phy, file="kaiju/inulinase/physeq/phylum.phy.RData")
-save(cla.phy, file="kaiju/inulinase/class.phy.RData")
-save(ord.phy, file="kaiju/inulinase/order.phy.RData")
-save(fam.phy, file="kaiju/inulinase/family.phy.RData")
-save(gen.phy, file="kaiju/inulinase/genus.phy.RData")
-save(spe.phy, file="kaiju/inulinase/species.phy.RData")
+#save(phy.phy, file="kaiju/inulinase/physeq/phylum.phy.RData")
+#save(cla.phy, file="kaiju/inulinase/physeq/class.phy.RData")
+#save(ord.phy, file="kaiju/inulinase/physeq/order.phy.RData")
+#save(fam.phy, file="kaiju/inulinase/physeq/family.phy.RData")
+#save(gen.phy, file="kaiju/inulinase/physeq/genus.phy.RData")
+#save(spe.phy, file="kaiju/inulinase/physeq/species.phy.RData")
 ```
 
 ### Load tax physeq data
@@ -276,6 +310,7 @@ spe.melt <- psmelt(spe.phy)
 ### Import metadata
 meta <- read.csv('metadata_metag.csv', header=T)
 meta$Season <- ordered(meta$Season, levels=c("Summer", "Winter", "Spring"))
+meta <- meta[-which(meta$ID == "S.W20"),]
 ```
 
 
@@ -286,44 +321,46 @@ phy.sum <- phy.melt %>%
   summarize(Mean = mean(Abundance),
             SD = sd(Abundance),
             SE = se(Abundance))
-#write.csv(phy.sum, file = "kaiju/phylum.sum.csv", row.names = F)
+#write.csv(phy.sum, file = "kaiju/inulinase/tax_summarized/phylum.sum.csv", row.names = F)
 
 cla.sum <- cla.melt %>%
   group_by(Season, OTU) %>%
   summarize(Mean = mean(Abundance),
             SD = sd(Abundance),
             SE = se(Abundance))
-#write.csv(cla.sum, file = "kaiju/class.sum.csv", row.names = F)
+#write.csv(cla.sum, file = "kaiju/inulinase/tax_summarized/class.sum.csv", row.names = F)
 
 ord.sum <- ord.melt %>%
   group_by(Season, OTU) %>%
   summarize(Mean = mean(Abundance),
             SD = sd(Abundance),
             SE = se(Abundance))
-#write.csv(ord.sum, file = "kaiju/order.sum.csv", row.names = F)
+#write.csv(ord.sum, file = "kaiju/inulinase/tax_summarized/order.sum.csv", row.names = F)
 
 fam.sum <- fam.melt %>%
   group_by(Season, OTU) %>%
   summarize(Mean = mean(Abundance),
             SD = sd(Abundance),
             SE = se(Abundance))
-#write.csv(fam.sum, file = "kaiju/family.sum.csv", row.names = F)
+#write.csv(fam.sum, file = "kaiju/inulinase/tax_summarized/family.sum.csv", row.names = F)
 
 gen.sum <- gen.melt %>%
   group_by(Season, OTU) %>%
   summarize(Mean = mean(Abundance),
             SD = sd(Abundance),
             SE = se(Abundance))
-#write.csv(gen.sum, file = "kaiju/genus.sum.csv", row.names = F)
+#write.csv(gen.sum, file = "kaiju/inulinase/tax_summarized/genus.sum.csv", row.names = F)
 
 spe.sum <- spe.melt %>%
   group_by(Season, OTU) %>%
   summarize(Mean = mean(Abundance),
             SD = sd(Abundance),
             SE = se(Abundance))
-#write.csv(spe.sum, file = "kaiju/species.sum.csv", row.names = F)
+#write.csv(spe.sum, file = "kaiju/inulinase/tax_summarized/species.sum.csv", row.names = F)
 ```
-## Tax - # of Taxa
+
+
+### Tax - # of Taxa
 ```{r}
 ### Family-level
 fam.phy.w <- subset_samples(fam.phy, Season == "Winter")
@@ -338,7 +375,7 @@ length(which(taxa_sums(gen.phy.w) == 0))
 ### Species-level
 spe.phy.w <- subset_samples(spe.phy, Season == "Winter")
 length(which(taxa_sums(spe.phy.w) == 0))
-  # Winter has 40 fewer species than the whole dataset
+  # Winter has 41 fewer species than the whole dataset
 spe.phy.s <- subset_samples(spe.phy, Season == "Summer")
 length(which(taxa_sums(spe.phy.s) == 0))
   # Summer has 4 fewer species than the whole dataset
@@ -354,7 +391,7 @@ length(which(taxa_sums(spe.phy.p) == 0))
 # Phyla
 otus <- data.frame(otu_table(phy.phy))
 kw.phy <- data.frame()
-for(taxon in 1:dim(data.frame(otu_table(phy.phy))[2])){
+for(taxon in 1:dim(data.frame(otu_table(phy.phy)))[1]){
   kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Season)
   kw.phy <- rbind(kw.phy, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
 }
@@ -363,7 +400,7 @@ kw.phy$padj <- p.adjust(kw.phy$pval, method = "BH")
 # Class
 otus <- data.frame(otu_table(cla.phy))
 kw.cla <- data.frame()
-for(taxon in 1:dim(data.frame(otu_table(cla.phy))[2])){
+for(taxon in 1:dim(data.frame(otu_table(cla.phy)))[1]){
   kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Season)
   kw.cla <- rbind(kw.cla, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
 }
@@ -372,7 +409,7 @@ kw.cla$padj <- p.adjust(kw.cla$pval, method = "BH")
 # Order
 otus <- data.frame(otu_table(ord.phy))
 kw.ord <- data.frame()
-for(taxon in 1:dim(data.frame(otu_table(ord.phy))[2])){
+for(taxon in 1:dim(data.frame(otu_table(ord.phy)))[1]){
   kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Season)
   kw.ord <- rbind(kw.ord, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
 }
@@ -381,7 +418,7 @@ kw.ord$padj <- p.adjust(kw.ord$pval, method = "BH")
 # Family
 otus <- data.frame(otu_table(fam.phy))
 kw.fam <- data.frame()
-for(taxon in 1:dim(data.frame(otu_table(fam.phy))[2])){
+for(taxon in 1:dim(data.frame(otu_table(fam.phy)))[1]){
   kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Season)
   kw.fam <- rbind(kw.fam, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
 }
@@ -390,7 +427,7 @@ kw.fam$padj <- p.adjust(kw.fam$pval, method = "BH")
 # Genus
 otus <- data.frame(otu_table(gen.phy))
 kw.gen <- data.frame()
-for(taxon in 1:dim(data.frame(otu_table(gen.phy))[2])){
+for(taxon in 1:dim(data.frame(otu_table(gen.phy)))[1]){
   kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Season)
   kw.gen <- rbind(kw.gen, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
 }
@@ -399,7 +436,7 @@ kw.gen$padj <- p.adjust(kw.gen$pval, method = "BH")
 # Species
 otus <- data.frame(otu_table(spe.phy))
 kw.spe <- data.frame()
-for(taxon in 1:dim(data.frame(otu_table(spe.phy))[2])){
+for(taxon in 1:dim(data.frame(otu_table(spe.phy)))[1]){
   kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Season)
   kw.spe <- rbind(kw.spe, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
 }
@@ -411,57 +448,65 @@ kw.spe$padj <- p.adjust(kw.spe$pval, method = "BH")
 ```{r}
 # Phyla
 otus <- data.frame(otu_table(phy.phy))
-kw.phy <- data.frame()
-for(taxon in 1:dim(data.frame(otu_table(phy.phy))[2])){
-  kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Metabolism)
-  kw.phy <- rbind(kw.phy, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
+wil.phy <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(phy.phy)))[1]){
+  wil <- wilcox.test(x=as.numeric(otus[taxon,]), g=meta$Metabolism)
+  wil.phy <- rbind(wil.phy, data.frame(taxon = rownames(otus)[taxon], pval = wil$p.value))
 }
-kw.phy$padj <- p.adjust(kw.phy$pval, method = "BH")
+wil.phy$padj <- p.adjust(wil.phy$pval, method = "BH")
+write.csv(wil.phy, "kaiju/inulinase/tax_wilcox_output/exo.phylum.output.csv")
 
 # Class
 otus <- data.frame(otu_table(cla.phy))
-kw.cla <- data.frame()
-for(taxon in 1:dim(data.frame(otu_table(cla.phy))[2])){
-  kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Metabolism)
-  kw.cla <- rbind(kw.cla, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
+wil.cla <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(cla.phy)))[1]){
+  wil <- wilcox.test(x=as.numeric(otus[taxon,]), g=meta$Metabolism)
+  wil.cla <- rbind(wil.cla, data.frame(taxon = rownames(otus)[taxon], pval = wil$p.value))
 }
-kw.cla$padj <- p.adjust(kw.cla$pval, method = "BH")
+wil.cla$padj <- p.adjust(wil.cla$pval, method = "BH")
+write.csv(wil.cla, "kaiju/inulinase/tax_wilcox_output/exo.class.output.csv")
 
 # Order
 otus <- data.frame(otu_table(ord.phy))
-kw.ord <- data.frame()
-for(taxon in 1:dim(data.frame(otu_table(ord.phy))[2])){
-  kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Metabolism)
-  kw.ord <- rbind(kw.ord, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
+wil.ord <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(ord.phy)))[1]){
+  wil <- wilcox.test(x=as.numeric(otus[taxon,]), g=meta$Metabolism)
+  wil.ord <- rbind(wil.ord, data.frame(taxon = rownames(otus)[taxon], pval = wil$p.value))
 }
-kw.ord$padj <- p.adjust(kw.ord$pval, method = "BH")
+wil.ord$padj <- p.adjust(wil.ord$pval, method = "BH")
+write.csv(wil.ord, "kaiju/inulinase/tax_wilcox_output/exo.order.output.csv")
 
 # Family
 otus <- data.frame(otu_table(fam.phy))
-kw.fam <- data.frame()
-for(taxon in 1:dim(data.frame(otu_table(fam.phy))[2])){
-  kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Metabolism)
-  kw.fam <- rbind(kw.fam, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
+wil.fam <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(fam.phy)))[1]){
+  wil <- wilcox.test(x=as.numeric(otus[taxon,]), g=meta$Metabolism)
+  wil.fam <- rbind(wil.fam, data.frame(taxon = rownames(otus)[taxon], pval = wil$p.value))
 }
-kw.fam$padj <- p.adjust(kw.fam$pval, method = "BH")
+wil.fam$padj <- p.adjust(wil.fam$pval, method = "BH")
+write.csv(wil.fam, "kaiju/inulinase/tax_wilcox_output/exo.family.output.csv")
 
 # Genus
 otus <- data.frame(otu_table(gen.phy))
-kw.gen <- data.frame()
-for(taxon in 1:dim(data.frame(otu_table(gen.phy))[2])){
-  kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Metabolism)
-  kw.gen <- rbind(kw.gen, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
+wil.gen <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(gen.phy)))[1]){
+  wil <- wilcox.test(x=as.numeric(otus[taxon,]), g=meta$Metabolism)
+  wil.gen <- rbind(wil.gen, data.frame(taxon = rownames(otus)[taxon], pval = wil$p.value))
 }
-kw.gen$padj <- p.adjust(kw.gen$pval, method = "BH")
+wil.gen$padj <- p.adjust(wil.gen$pval, method = "BH")
+write.csv(wil.gen, "kaiju/inulinase/tax_wilcox_output/exo.genus.output.csv")
+
 
 # Species
 otus <- data.frame(otu_table(spe.phy))
-kw.spe <- data.frame()
-for(taxon in 1:dim(data.frame(otu_table(spe.phy))[2])){
-  kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Metabolism)
-  kw.spe <- rbind(kw.spe, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
+wil.spe <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(spe.phy)))[1]){
+  wil <- wilcox.test(x=as.numeric(otus[taxon,]), g=meta$Metabolism)
+  wil.spe <- rbind(wil.spe, data.frame(taxon = rownames(otus)[taxon], pval = wil$p.value))
 }
-kw.spe$padj <- p.adjust(kw.spe$pval, method = "BH")
+wil.spe$padj <- p.adjust(wil.spe$pval, method = "BH")
+write.csv(wil.spe, "kaiju/inulinase/tax_wilcox_output/exo.species.output.csv")
+
 ```
 
 
