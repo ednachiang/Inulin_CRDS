@@ -1,0 +1,17 @@
+Domain,Phylum,Class,Order,Active_Mean,Active_SE,Hibernation_Mean,Hibernation_SE,Significant
+Bacteria,Actinobacteria,Actinobacteria,Actinopolysporales,0.080297,0.064009201,0.0242264,0.015447958,X
+Bacteria,Actinobacteria,Actinobacteria,Micrococcales,0.616673917,0.275832898,0.028228,0.019543476,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,44.00062792,1.785254867,68.0392622,6.358828891,X
+Bacteria,Bacteroidetes,Bacteroidia,Marinilabiliales,0.296783083,0.09230798,0.0068306,0.0068306,X
+Bacteria,Bacteroidetes,Cytophagia,Cytophagales,0.176652333,0.051375958,0.0198808,0.0198808,X
+Bacteria,Bacteroidetes,Flavobacteriia,Flavobacteriales,0.142927333,0.048262997,0.0074184,0.0074184,X
+Bacteria,Bacteroidetes,Saprospiria,Saprospirales,0.00554025,0.004055926,0.0074184,0.0074184,
+Bacteria,Bacteroidetes,Sphingobacteriia,Sphingobacteriales,0.057261583,0.021829307,0.2560172,0.108795702,X
+Bacteria,Deinococcus-Thermus,Deinococci,Deinococcales,0.351300333,0.150717098,0.0093896,0.0093896,X
+Bacteria,Firmicutes,Bacilli,Bacillales,0.3157455,0.107446713,0.0314062,0.018257689,X
+Bacteria,Firmicutes,Bacilli,Lactobacillales,0.013886417,0.008484652,0.0166944,0.0166944,
+Bacteria,Firmicutes,Clostridia,Clostridiales,1.321053833,0.308223279,0.5604496,0.234352876,X
+Bacteria,Proteobacteria,Betaproteobacteria,Burkholderiales,0.040532917,0.022621683,0,0,
+Bacteria,Proteobacteria,Gammaproteobacteria,Enterobacterales,0.01294175,0.008131097,0.0046948,0.0046948,
+Eukaryota,Ascomycota,Eurotiomycetes,Eurotiales,0.105765667,0.026307544,0,0,X
+Unclassified,NA,NA,NA,52.46200958,1.499657723,30.988083,6.294561001,X

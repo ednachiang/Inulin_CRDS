@@ -1,0 +1,107 @@
+Domain,Phylum,Class,Order,Family,Genus,Species,Active_Mean,Active_SE,Hibernation_Mean,Hibernation_SE,Significant
+Bacteria,Actinobacteria,Actinobacteria,Actinopolysporales,Actinopolysporaceae,Actinopolyspora,Actinopolyspora mortivallis,0.080297,0.064009201,0.0242264,0.015447958,
+Bacteria,Actinobacteria,Actinobacteria,Micrococcales,Micrococcaceae,Arthrobacter,Arthrobacter sp. 24S4-2,0.385125083,0.182947523,0,0,X
+Bacteria,Actinobacteria,Actinobacteria,Micrococcales,Micrococcaceae,Kocuria,Kocuria polaris,0.220049167,0.09388345,0,0,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides acidifaciens,0.18098225,0.05790349,1.124046,0.520404481,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides caccae,0.00232775,0.00232775,0.0458938,0.027251056,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides cellulosilyticus,0.0195995,0.012366525,0,0,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides finegoldii,0.044876667,0.018666451,0.1327714,0.064567419,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides fragilis,0.074693917,0.047419232,0.1237974,0.092689834,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides heparinolyticus,1.4419245,0.222739323,0.161533,0.046647822,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides intestinalis,0.295502167,0.087245591,0.0885636,0.054852032,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides luti,0.00319025,0.002156437,0.1202316,0.032937736,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides nordii,0.121178333,0.067892304,0.0366888,0.018344953,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides plebeius,0.34978025,0.08637565,0.1290772,0.096367873,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides reticulotermitis,0,0,0.018356,0.01328914,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. 2_1_33B,0.010797167,0.005878811,0.3803202,0.241285531,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. 214,0.151372167,0.046947792,0.1049482,0.051532198,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. 44_46,0.06662775,0.0244333,0.111276,0.111276,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. 51,0.042863917,0.018841127,0.0277458,0.01699406,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. CAG:462,0.00356125,0.00356125,0.046592,0.038624201,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. CAG:754,0.00444175,0.002998785,0.0189438,0.008058954,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. NM69_E16B,0.028939167,0.020462668,0.0222552,0.0222552,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides stercorirosoris,0.113485333,0.037762542,0.0386602,0.023690448,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides thetaiotaomicron,0.055244417,0.040643778,0.2098636,0.103152172,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides timonensis,0.448876333,0.176343421,0.3585956,0.160316744,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides uniformis,0.378283917,0.107502502,0.0410346,0.025278254,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides vulgatus,0.177193417,0.039709738,0.1851904,0.101677478,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides xylanisolvens,0.007839,0.005286349,0.0421592,0.027639748,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,NA,Bacteroidaceae bacterium,0,0,0.018356,0.01328914,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Barnesiellaceae,Barnesiella,Barnesiella sp. WM24,0.45909925,0.126170773,0.7437816,0.151665433,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,Candidatus Amulumruptor,Candidatus Amulumruptor caecigallinarius,1.08778025,0.164221819,1.2298342,0.237320442,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,Muribaculum,Muribaculum intestinale,0.141986083,0.039138179,0.1947956,0.132556919,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,Muribaculum,Muribaculum sp. H5,0.028244167,0.012934566,0.0409604,0.019408644,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,Muribaculum,Muribaculum sp. TLL-A4,0.11947475,0.037759679,0.110929,0.096751779,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-002 (NCI),1.74463925,0.568011551,0.5995026,0.277682534,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-013 (NCI),1.265391083,0.2147841,1.9676074,0.290082242,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-080 (Janvier),0.246219583,0.052722031,0.2726654,0.149389544,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,NA,NA,Bacteroidales bacterium 52_46,1.282559,0.350634052,1.4226838,0.69625516,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,NA,NA,Bacteroidales bacterium KA00344,0.109787833,0.056537813,0,0,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,NA,NA,Bacteroidales bacterium,1.906869833,0.410776602,1.8173556,0.364296564,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Porphyromonadaceae,Porphyromonas,Porphyromonas catoniae,0.007047333,0.003682836,0.0222552,0.0222552,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Alloprevotella,Alloprevotella tannerae,0.0274635,0.013051122,0,0,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,NA,Prevotellaceae bacterium LKV-178-WT-2A,0.066646833,0.027257695,0.0277458,0.01699406,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella baroniae,0.081891333,0.022908437,0.0068306,0.0068306,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella copri,0.1291245,0.047376378,0.0068306,0.0068306,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella denticola,0.3118655,0.094443287,0.0245756,0.019251472,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella koreensis,0.075876667,0.039206486,0.0046948,0.0046948,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella loescheii,0.275243583,0.140294573,0.0397614,0.0397614,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella nanceiensis,0.2598995,0.07174859,0,0,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella paludivivens,0.758449333,0.191695494,0.0198808,0.0198808,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella ruminicola,0.590822083,0.23663476,0,0,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella salivae,0.019853083,0.013095063,0,0,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella scopos,0.00507475,0.002834148,0,0,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. CAG:386,0.055670667,0.018649745,0,0,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. HMSC073D09,0.150600667,0.071184234,0,0,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. HUN102,0.032902833,0.016346632,0.1916616,0.065962255,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. KH2C16,0.008241667,0.00452809,0.0614288,0.036963786,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. MA2016,0.736374083,0.205012793,0.0198808,0.0198808,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. Marseille-P4119,0.34380625,0.138950374,0.021503,0.014183301,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. ne3005,1.06314725,0.122102453,0.4044338,0.150891053,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. oral taxon 376,0.220374833,0.105673586,0,0,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. P3-122,0.24627625,0.080436995,0,0,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. P5-92,0.357167167,0.104844086,0.0397614,0.0397614,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. tc2-28,0.455260583,0.107254415,0.0198808,0.0198808,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. tf2-5,0.0088155,0.007661157,0.0074184,0.0074184,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp.,0.008562583,0.00532163,0,0,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,Parabacteroides distasonis,0.223346583,0.094770762,2.2470628,1.701040865,X
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,Parabacteroides johnsonii,0.147815417,0.078931794,0.1683206,0.103335377,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,Parabacteroides merdae,0.041072417,0.025047808,0.0403726,0.024727786,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,Parabacteroides sp. AF17-3,0.075012333,0.035206101,0,0,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,Parabacteroides sp. ZJ-118,0.021920667,0.020349129,0.6579158,0.649411228,
+Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,uncultured Parabacteroides sp.,0.04859275,0.037610947,0,0,
+Bacteria,Bacteroidetes,Bacteroidia,Marinilabiliales,Marinilabiliaceae,Marinilabilia,Marinilabilia salmonicolor,0.242427083,0.091936739,0,0,X
+Bacteria,Bacteroidetes,Bacteroidia,Marinilabiliales,Prolixibacteraceae,Mangrovibacterium,Mangrovibacterium sp. BM_7,0.053220917,0.014799462,0.0068306,0.0068306,X
+Bacteria,Bacteroidetes,Bacteroidia,NA,NA,NA,Bacteroidia bacterium,0.01618025,0.006140937,0.0162202,0.010136734,X
+Bacteria,Bacteroidetes,Cytophagia,Cytophagales,NA,NA,Cytophagales bacterium CG18_big_fil_WC_8_21_14_2_50_42_9,0.042960333,0.02043875,0,0,
+Bacteria,Bacteroidetes,Flavobacteriia,Flavobacteriales,Flavobacteriaceae,Zeaxanthinibacter,Zeaxanthinibacter enoshimensis,0.133527417,0.048157287,0,0,X
+Bacteria,Bacteroidetes,Saprospiria,Saprospirales,Lewinellaceae,Lewinella,Lewinella sp. IMCC34183,0.00554025,0.004055926,0.0074184,0.0074184,
+Bacteria,Bacteroidetes,Sphingobacteriia,Sphingobacteriales,Sphingobacteriaceae,Pedobacter,Pedobacter glucosidilyticus,0.01315125,0.00974377,0.0068306,0.0068306,
+Bacteria,Deinococcus-Thermus,Deinococci,Deinococcales,Deinococcaceae,Deinococcus,Deinococcus aquatilis,0.351300333,0.150717098,0,0,X
+Bacteria,Firmicutes,Bacilli,Bacillales,Bacillaceae,Bacillus,Bacillus atrophaeus,0.114596583,0.062649624,0,0,
+Bacteria,Firmicutes,Bacilli,Bacillales,Bacillaceae,Halobacillus,Halobacillus trueperi,0.0256675,0.015707655,0,0,
+Bacteria,Firmicutes,Bacilli,Bacillales,Paenibacillaceae,Paenibacillus,Paenibacillus harenae,0.063404583,0.026671272,0.0198808,0.0198808,X
+Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium oryzae,0.060462333,0.033767946,0.0046948,0.0046948,
+Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,[Eubacterium] cellulosolvens,0.01189575,0.006283207,0,0,
+Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,Eubacterium plexicaudatum,0.0606825,0.027596505,0,0,
+Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,Eubacterium sp. 14-2,0.017488,0.015180816,0.0722216,0.039049671,
+Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,Eubacterium sp. An11,0.020898333,0.012095011,0,0,
+Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Acetatifactor,Acetatifactor muris,0.02101925,0.013233147,0,0,
+Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Dorea,Dorea sp. 5-2,0.043818917,0.026562397,0,0,
+Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium A4,0.01940775,0.01405683,0,0,
+Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium TWA4,0.072138667,0.045779962,0,0,
+Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium WCA-9-b2,0.020711833,0.012334884,0,0,
+Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium,0.105515,0.052285944,0,0,
+Bacteria,Firmicutes,Clostridia,Clostridiales,NA,NA,Clostridiales bacterium,0.15297375,0.078101643,0,0,
+Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Faecalibacterium,Faecalibacterium sp. An77,0.068326,0.034714922,0.0046948,0.0046948,
+Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Fournierella,Fournierella massiliensis,0.00686275,0.003955461,0,0,
+Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Neglecta,Neglecta timonensis,0.067729417,0.051456378,0.0422536,0.0422536,
+Bacteria,NA,NA,NA,NA,NA,bacterium 0.1xD8-82,0.0803245,0.033483586,0,0,
+Bacteria,NA,NA,NA,NA,NA,bacterium 1xD42-62,0.03400325,0.020990153,0,0,
+Bacteria,NA,NA,NA,NA,NA,bacterium 1xD42-87,0.159835917,0.075610971,0,0,
+Bacteria,NA,NA,NA,NA,NA,bacterium 1XD8-76,0.033131583,0.013027487,0,0,
+Bacteria,NA,NA,NA,NA,NA,uncultured bacterium Contig115,0.063130833,0.028753454,0,0,
+Bacteria,NA,NA,NA,NA,NA,uncultured bacterium,0.01575875,0.007306937,0,0,
+Eukaryota,Ascomycota,Eurotiomycetes,Eurotiales,Aspergillaceae,Aspergillus,Aspergillus mulundensis,0.038161333,0.015664036,0,0,
+Eukaryota,Ascomycota,Eurotiomycetes,Eurotiales,Trichocomaceae,Talaromyces,Talaromyces amestolkiae,0.067604417,0.026713416,0,0,X
+Unclassified,NA,NA,NA,NA,NA,NA,77.74082175,1.505753554,83.7754996,2.385005925,X

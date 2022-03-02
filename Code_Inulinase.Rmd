@@ -314,50 +314,98 @@ meta <- meta[-which(meta$ID == "S.W20"),]
 ```
 
 
-### Summarize tax data
+### Summarize tax data - Season
 ```{r}
 phy.sum <- phy.melt %>%
   group_by(Season, OTU) %>%
   summarize(Mean = mean(Abundance),
             SD = sd(Abundance),
             SE = se(Abundance))
-#write.csv(phy.sum, file = "kaiju/inulinase/tax_summarized/phylum.sum.csv", row.names = F)
+#write.csv(phy.sum, file = "kaiju/inulinase/tax_summarized/season/phylum.sum.csv", row.names = F)
 
 cla.sum <- cla.melt %>%
   group_by(Season, OTU) %>%
   summarize(Mean = mean(Abundance),
             SD = sd(Abundance),
             SE = se(Abundance))
-#write.csv(cla.sum, file = "kaiju/inulinase/tax_summarized/class.sum.csv", row.names = F)
+#write.csv(cla.sum, file = "kaiju/inulinase/tax_summarized/season/class.sum.csv", row.names = F)
 
 ord.sum <- ord.melt %>%
   group_by(Season, OTU) %>%
   summarize(Mean = mean(Abundance),
             SD = sd(Abundance),
             SE = se(Abundance))
-#write.csv(ord.sum, file = "kaiju/inulinase/tax_summarized/order.sum.csv", row.names = F)
+#write.csv(ord.sum, file = "kaiju/inulinase/tax_summarized/season/order.sum.csv", row.names = F)
 
 fam.sum <- fam.melt %>%
   group_by(Season, OTU) %>%
   summarize(Mean = mean(Abundance),
             SD = sd(Abundance),
             SE = se(Abundance))
-#write.csv(fam.sum, file = "kaiju/inulinase/tax_summarized/family.sum.csv", row.names = F)
+#write.csv(fam.sum, file = "kaiju/inulinase/tax_summarized/season/family.sum.csv", row.names = F)
 
 gen.sum <- gen.melt %>%
   group_by(Season, OTU) %>%
   summarize(Mean = mean(Abundance),
             SD = sd(Abundance),
             SE = se(Abundance))
-#write.csv(gen.sum, file = "kaiju/inulinase/tax_summarized/genus.sum.csv", row.names = F)
+#write.csv(gen.sum, file = "kaiju/inulinase/tax_summarized/season/genus.sum.csv", row.names = F)
 
 spe.sum <- spe.melt %>%
   group_by(Season, OTU) %>%
   summarize(Mean = mean(Abundance),
             SD = sd(Abundance),
             SE = se(Abundance))
-#write.csv(spe.sum, file = "kaiju/inulinase/tax_summarized/species.sum.csv", row.names = F)
+#write.csv(spe.sum, file = "kaiju/inulinase/tax_summarized/season/species.sum.csv", row.names = F)
 ```
+
+
+
+### Summarize tax data - Metabolism
+```{r}
+phy.sum <- phy.melt %>%
+  group_by(Metabolism, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+#write.csv(phy.sum, file = "kaiju/inulinase/tax_summarized/metabolism/phylum.sum.csv", row.names = F)
+
+cla.sum <- cla.melt %>%
+  group_by(Metabolism, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+#write.csv(cla.sum, file = "kaiju/inulinase/tax_summarized/metabolism/class.sum.csv", row.names = F)
+
+ord.sum <- ord.melt %>%
+  group_by(Metabolism, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+#write.csv(ord.sum, file = "kaiju/inulinase/tax_summarized/metabolism/order.sum.csv", row.names = F)
+
+fam.sum <- fam.melt %>%
+  group_by(Metabolism, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+#write.csv(fam.sum, file = "kaiju/inulinase/tax_summarized/metabolism/family.sum.csv", row.names = F)
+
+gen.sum <- gen.melt %>%
+  group_by(Metabolism, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+#write.csv(gen.sum, file = "kaiju/inulinase/tax_summarized/metabolism/genus.sum.csv", row.names = F)
+
+spe.sum <- spe.melt %>%
+  group_by(Metabolism, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+#write.csv(spe.sum, file = "kaiju/inulinase/tax_summarized/metabolism/species.sum.csv", row.names = F)
+```
+
 
 
 ### Tax - # of Taxa
@@ -382,6 +430,9 @@ length(which(taxa_sums(spe.phy.s) == 0))
 spe.phy.p <- subset_samples(spe.phy, Season == "Spring")
 length(which(taxa_sums(spe.phy.p) == 0))
   # Spring has 8 fewer species than the whole dataset
+spe.phy.act <- subset_samples(spe.phy, Metabolism == "Active")
+length(which(taxa_sums(spe.phy.act) == 0))
+  # Active seasons have 2 fewer species than the whole dataset
 ```
 
 
@@ -454,7 +505,7 @@ for(taxon in 1:dim(data.frame(otu_table(phy.phy)))[1]){
   wil.phy <- rbind(wil.phy, data.frame(taxon = rownames(otus)[taxon], pval = wil$p.value))
 }
 wil.phy$padj <- p.adjust(wil.phy$pval, method = "BH")
-write.csv(wil.phy, "kaiju/inulinase/tax_wilcox_output/exo.phylum.output.csv")
+#write.csv(wil.phy, "kaiju/inulinase/tax_wilcox_output/exo.phylum.output.csv")
 
 # Class
 otus <- data.frame(otu_table(cla.phy))
@@ -464,7 +515,7 @@ for(taxon in 1:dim(data.frame(otu_table(cla.phy)))[1]){
   wil.cla <- rbind(wil.cla, data.frame(taxon = rownames(otus)[taxon], pval = wil$p.value))
 }
 wil.cla$padj <- p.adjust(wil.cla$pval, method = "BH")
-write.csv(wil.cla, "kaiju/inulinase/tax_wilcox_output/exo.class.output.csv")
+#write.csv(wil.cla, "kaiju/inulinase/tax_wilcox_output/exo.class.output.csv")
 
 # Order
 otus <- data.frame(otu_table(ord.phy))
@@ -474,7 +525,7 @@ for(taxon in 1:dim(data.frame(otu_table(ord.phy)))[1]){
   wil.ord <- rbind(wil.ord, data.frame(taxon = rownames(otus)[taxon], pval = wil$p.value))
 }
 wil.ord$padj <- p.adjust(wil.ord$pval, method = "BH")
-write.csv(wil.ord, "kaiju/inulinase/tax_wilcox_output/exo.order.output.csv")
+#write.csv(wil.ord, "kaiju/inulinase/tax_wilcox_output/exo.order.output.csv")
 
 # Family
 otus <- data.frame(otu_table(fam.phy))
@@ -484,7 +535,7 @@ for(taxon in 1:dim(data.frame(otu_table(fam.phy)))[1]){
   wil.fam <- rbind(wil.fam, data.frame(taxon = rownames(otus)[taxon], pval = wil$p.value))
 }
 wil.fam$padj <- p.adjust(wil.fam$pval, method = "BH")
-write.csv(wil.fam, "kaiju/inulinase/tax_wilcox_output/exo.family.output.csv")
+#write.csv(wil.fam, "kaiju/inulinase/tax_wilcox_output/exo.family.output.csv")
 
 # Genus
 otus <- data.frame(otu_table(gen.phy))
@@ -494,7 +545,7 @@ for(taxon in 1:dim(data.frame(otu_table(gen.phy)))[1]){
   wil.gen <- rbind(wil.gen, data.frame(taxon = rownames(otus)[taxon], pval = wil$p.value))
 }
 wil.gen$padj <- p.adjust(wil.gen$pval, method = "BH")
-write.csv(wil.gen, "kaiju/inulinase/tax_wilcox_output/exo.genus.output.csv")
+#write.csv(wil.gen, "kaiju/inulinase/tax_wilcox_output/exo.genus.output.csv")
 
 
 # Species
@@ -505,7 +556,7 @@ for(taxon in 1:dim(data.frame(otu_table(spe.phy)))[1]){
   wil.spe <- rbind(wil.spe, data.frame(taxon = rownames(otus)[taxon], pval = wil$p.value))
 }
 wil.spe$padj <- p.adjust(wil.spe$pval, method = "BH")
-write.csv(wil.spe, "kaiju/inulinase/tax_wilcox_output/exo.species.output.csv")
+#write.csv(wil.spe, "kaiju/inulinase/tax_wilcox_output/exo.species.output.csv")
 
 ```
 
@@ -527,10 +578,10 @@ phy.df$Phylum <- ordered(phy.df$Phylum, levels = c("Bacteroidetes", "Firmicutes"
 
 
 #tiff("inulinase.phyla.tiff", width = 300, height = 180, units = "mm", res = 400)
-ggplot(phy.df, aes(x=Season, y=Abundance, fill=Season)) +
+ggplot(phy.df, aes(x=Metabolism, y=Abundance, fill=Metabolism)) +
   geom_dotplot(binaxis='y', stackdir = "center", dotsize = 1.5) +
-  facet_wrap(Phylum ~ ., ncol = 3, scales = "free", labeller = labeller(OTU = new.label)) +
-  scale_fill_manual(name="Season", values=c("#E69F00", "#0072B2", "#00bf8b")) +
+  facet_wrap(Phylum ~ ., ncol = 3, scales = "free", labeller = labeller(OTU = newLabel)) +
+  scale_fill_manual(name="Season", values=c("white", "gray60")) +
   ylab("Relative Abundance (%)") +
   stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
                color = "black", position = position_dodge(0), size = 0.75,

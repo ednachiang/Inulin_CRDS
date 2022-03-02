@@ -1,0 +1,15 @@
+Domain,Phylum,Class,Active_Mean,Active_SE,Hibernation_Mean,Hibernation_SE,Significant
+Bacteria,Actinobacteria,Actinobacteria,0.701086583,0.269508448,0.0524544,0.016692976,X
+Bacteria,Bacteroidetes,Bacteroidia,44.36734067,1.805269594,68.0759732,6.371367965,X
+Bacteria,Bacteroidetes,Cytophagia,0.176652333,0.051375958,0.0198808,0.0198808,X
+Bacteria,Bacteroidetes,Flavobacteriia,0.146767583,0.047373713,0.0074184,0.0074184,X
+Bacteria,Bacteroidetes,Saprospiria,0.00554025,0.004055926,0.0074184,0.0074184,
+Bacteria,Bacteroidetes,Sphingobacteriia,0.057261583,0.021829307,0.2560172,0.108795702,X
+Bacteria,Deinococcus-Thermus,Deinococci,0.351300333,0.150717098,0.0093896,0.0093896,X
+Bacteria,Firmicutes,Bacilli,0.329631917,0.10564952,0.0481006,0.01870541,X
+Bacteria,Firmicutes,Clostridia,1.323167833,0.307643545,0.5604496,0.234352876,X
+Bacteria,Proteobacteria,Alphaproteobacteria,0.003043583,0.003043583,0.0074184,0.0074184,
+Bacteria,Proteobacteria,Betaproteobacteria,0.040532917,0.022621683,0,0,
+Bacteria,Proteobacteria,Gammaproteobacteria,0.0378705,0.028680921,0.0046948,0.0046948,
+Eukaryota,Ascomycota,Eurotiomycetes,0.105765667,0.026307544,0,0,X
+Unclassified,NA,NA,52.35403758,1.495659912,30.9507832,6.304263787,X
