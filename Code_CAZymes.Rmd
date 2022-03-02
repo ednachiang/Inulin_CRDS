@@ -63,7 +63,7 @@ phy <- prune_taxa(taxa_names(phy) != "SLH", phy)
   # Remove SLH
 
 # Remove outlier (S-W20)
-# phy <- prune_samples(x = phy, sample_names(phy) != "S.W20")
+phy <- prune_samples(x = phy, sample_names(phy) != "S.W20")
 
 
 # Remove CAZymes that appear in < 3 samples
@@ -73,17 +73,17 @@ for(i in 1:nrow(otu)){
   empty <- length(which(otu[i,] == 0))
     # Identifies # of samples w/o CAZyme
   if(empty > 15){
-    # If CAZyme appears in only 1 sample
+    # If CAZyme appears < 3 samples
     cazy.rem <- append(cazy.rem, i)
-      # Create list of CAZymes that appear in only 1 sample
+      # Create list of CAZymes that appear in < 3 samples
   }
 }
 cazy.rem.row <- as.numeric(cazy.rem)
   # Convert list to numeric
 otu.rem <- otu[-cazy.rem.row,]
   # Remove CAZymes that appear in < 3 samples
-  # 11 CAZymes
-  # GH49, GT52, GT7, GT73, GT89, PL31, CE5, GH232, GH157, GT44, GT61
+  # 6 CAZymes
+  # GT52, GT89, CE5, GH121, GT44, GT61
 
 
 # Create phyloseq object
@@ -143,10 +143,13 @@ phy.spr <- subset_samples(cazy.phy, Season == "Spring")
 
 
 # Pull out unique CAZyme families in each season and order alphabetically
+phy.sum <- filter_taxa(phy.sum, function(x) sum(x) > 0, T)
 sum.fam <- get_taxa_unique(phy.sum, "Family")
 sum.fam <- sort(sum.fam)
+phy.win <- filter_taxa(phy.win, function(x) sum(x) > 0, T)
 win.fam <- get_taxa_unique(phy.win, "Family")
 win.fam <- sort(win.fam)
+phy.spr <- filter_taxa(phy.spr, function(x) sum(x) > 0, T)
 spr.fam <- get_taxa_unique(phy.spr, "Family")
 spr.fam <- sort(spr.fam)
 
@@ -154,31 +157,31 @@ spr.fam <- sort(spr.fam)
 # Summer - Count # of CAZymes in each class
 class <- substr(sum.fam,1,2)
 length(which(class == "GH"))
-  # 116
+  # 118
 length(which(class == "GT"))
-  # 53
+  # 52
 length(which(class == "CE"))
   # 14
 length(which(class == "PL"))
-  # 22
+  # 23
 
 
 # Winter - Count # of CAZymes in each class
 class <- substr(win.fam,1,2)
 length(which(class == "GH"))
-  # 116
+  # 111
 length(which(class == "GT"))
-  # 53
+  # 49
 length(which(class == "CE"))
   # 14
 length(which(class == "PL"))
-  # 22
+  # 21
 
 
 # Spring - Count # of CAZymes in each class
 class <- substr(spr.fam,1,2)
 length(which(class == "GH"))
-  # 116
+  # 115
 length(which(class == "GT"))
   # 53
 length(which(class == "CE"))
@@ -217,33 +220,11 @@ class.df$Season <- ordered(class.df$Season, levels = c("Summer", "Winter", "Spri
 #                                                                  "Carbohydrate Esterase",
 #                                                                  "Polysaccharide Lyase"))
 #cazy.class.sum$Season <- ordered(cazy.class.sum$Season, levels = c("Summer", "Winter", #"Spring"))
-
-# Plot barplot
-#tiff("cazy.class.tiff", width=11, height=4, units="in", res= 300)
-ggplot(class.df, aes(x=Season, y=Abundance, fill=Season)) +
-  geom_dotplot(binaxis='y', stackdir='center', dotsize=1.5, stackratio=1.2) +
-  scale_y_continuous(limits=c(0,60), breaks = c(0,11,22,33,44,55)) +
-  facet_grid(. ~ Class) +
-  scale_fill_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  xlab("CAZyme Class") +
-  ylab("Relative Abundance (%)") +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        strip.background = element_blank(),
-        strip.text = element_text(face="bold"),
-        strip.text.x = element_text(size=11),
-        legend.title = element_text(size=12, face = "bold"),
-        legend.text = element_text(size=12),
-        panel.spacing = unit(0.5, "lines"),
-        axis.title.x = element_text(margin = margin(t = 20)))
-#dev.off()
-
 ```
 
 
 ### Test class-level
 ```{r}
-# Same results if you compare Diet (Feeding vs. Fasting)
 ### CE
 ce <- class.df[which(class.df$Class == "Carbohydrate Esterase"),]
 
@@ -252,13 +233,16 @@ hist(ce$Abundance)
 qqnorm(ce$Abundance)
 qqline(ce$Abundance)
 shapiro.test(ce$Abundance)
-  # p-value = 0.9974
+  # p-value = 0.9824
   # Normal
 
 # Test CE w/ ANOVA
 summary(aov(Abundance ~ Season, data = ce))
-  # p-value = 0.117
-
+  # p-value = 0.0273*
+TukeyHSD(aov(Abundance ~ Season, data = ce))
+  # Summer-Winter = 0.0982259
+  # Summer-Spring = 0.7254842
+  # Winter-Spring = 0.0252833*
 
 
 ### GH
@@ -269,13 +253,16 @@ hist(gh$Abundance)
 qqnorm(gh$Abundance)
 qqline(gh$Abundance)
 shapiro.test(gh$Abundance)
-  # p-value = 0.1308
+  # p-value = 0.1289
   # Normal
 
 # Test GH w/ ANOVA
 summary(aov(Abundance ~ Season, data = gh))
-  # p-value = 0.617
-
+  # p-value = 0.0188*
+TukeyHSD(aov(Abundance ~ Season, data = gh))
+  # Summer-Winter = 0.0478718*
+  # Summer-Spring = 0.9011395
+  # Winter-Spring = 0.0218147*
 
 
 
@@ -287,12 +274,12 @@ hist(gt$Abundance)
 qqnorm(gt$Abundance)
 qqline(gt$Abundance)
 shapiro.test(gt$Abundance)
-  # p-value = 0.144
+  # p-value = 0.5863
   # Normal
 
 # Test GT w/ ANOVA
 summary(aov(Abundance ~ Season, data = gt))
-  # p-value = 0.903
+  # p-value = 0.173
 
 
 
@@ -305,13 +292,164 @@ hist(pl$Abundance)
 qqnorm(pl$Abundance)
 qqline(pl$Abundance)
 shapiro.test(pl$Abundance)
-  # p-value = 0.004783
+  # p-value = 0.01793
   # Not Normal
 
 # Test PL w/ ANOVA
 kruskal.test(Abundance ~ Season, pl)
-  # p-value = 0.9942
+  # p-value = 0.7604
 
+```
+
+
+
+### Prepare Plot - Class dotplot
+```{r}
+### Steal Season legend
+season.legend <- g_legend(ggplot(class.df[which(class.df$OTU == "Glycoside Hydrolase"),], 
+                   aes(x=Season, y=Abundance, fill=Season)) + 
+                     geom_dotplot(binaxis='y', stackdir='center', 
+                                  dotsize=1.5, stackratio=1.2) +
+                     scale_fill_manual(name="Season", 
+                                       values=c("#E69F00", "#0072B2", "#00bf8b")) +
+                     theme(panel.grid.major = element_blank(),
+                           panel.grid.minor = element_blank(),
+                           strip.background = element_blank(),
+                           legend.title = element_text(size=12, face = "bold"),
+                           legend.text = element_text(size=12)))
+
+
+
+
+### GH Plot
+gh.ann <- data.frame(lab = c("a", "b", "a"), Season = factor(c("Summer", "Winter", "Spring")))
+
+gh.plot <- ggplot(class.df[which(class.df$OTU == "Glycoside Hydrolase"),], 
+                   aes(x=Season, y=Abundance, fill=Season)) +
+  geom_dotplot(binaxis='y', stackdir='center', dotsize=1.5, stackratio=1.2) +
+  scale_fill_manual(name="Season", values=c("#E69F00", "#0072B2", "#00bf8b")) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.75,
+               show.legend = F) +
+  scale_y_continuous(limits = c(47.0, 56), breaks=c(47.0, 49.7, 52.4, 55.1)) +
+  ylab("Relative Abundance (%)") +
+  ggtitle("Glycoside Hydrolase") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        legend.title = element_text(size=12, face = "bold"),
+        legend.text = element_text(size=12),
+        panel.spacing = unit(0.5, "lines"),
+        axis.title.x = element_text(),
+        plot.title = element_text(hjust = 0.5, size = 12),
+        legend.position = "none") +
+  geom_text(data = gh.ann, aes(label=lab), x=c(1,2,3), y=c(56,56,56), size=3.5, color="black")
+
+
+
+
+### GT Plot
+gt.ann <- data.frame(lab = c("ns", "", ""), Season = factor(c("Summer", "Winter", "Spring")))
+
+gt.plot <- ggplot(class.df[which(class.df$OTU == "Glycosyltransferase"),], 
+                   aes(x=Season, y=Abundance, fill=Season)) +
+  geom_dotplot(binaxis='y', stackdir='center', dotsize=1.5, stackratio=1.2) +
+  scale_fill_manual(name="Season", values=c("#E69F00", "#0072B2", "#00bf8b")) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.75,
+               show.legend = F) +
+  scale_y_continuous(limits = c(31.5, 40.5), breaks=c(31.5, 33.2, 34.9, 36.6, 38.3, 40.0)) +
+  ylab("Relative Abundance (%)") +
+  ggtitle("Glycosyltransferase") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        #legend.title = element_text(size=12, face = "bold"),
+        #legend.text = element_text(size=12),
+        panel.spacing = unit(0.5, "lines"),
+        axis.title.x = element_text(),
+        plot.title = element_text(hjust = 0.5, size = 12),
+        legend.position = "none") +
+  geom_text(data = gt.ann, aes(label=lab), x=c(2,1,1), y=c(40.5,0,0), size=3.5, color="black")
+
+
+
+
+### CE Plot
+ce.ann <- data.frame(lab = c("ab", "a", "b"), Season = factor(c("Summer", "Winter", "Spring")))
+
+ce.plot <- ggplot(class.df[which(class.df$OTU == "Carbohydrate Esterase"),], 
+                   aes(x=Season, y=Abundance, fill=Season)) +
+  geom_dotplot(binaxis='y', stackdir='center', dotsize=1.5, stackratio=1.2) +
+  scale_fill_manual(name="Season", values=c("#E69F00", "#0072B2", "#00bf8b")) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.75,
+               show.legend = F) +
+  scale_y_continuous(limits = c(9.1, 11.5), breaks=c(9.1, 10.2, 11.3)) +
+  ylab("Relative Abundance (%)") +
+  ggtitle("Carbohydrate Esterase") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        #legend.title = element_text(size=12, face = "bold"),
+        #legend.text = element_text(size=12),
+        panel.spacing = unit(0.5, "lines"),
+        axis.title.x = element_text(),
+        plot.title = element_text(hjust = 0.5, size = 12),
+        legend.position = "none") +
+  geom_text(data = ce.ann, aes(label=lab), x=c(1,2,3), y=c(11.5,11.5,11.5), size=3.5, color="black")
+
+
+
+
+### PL Plot
+pl.ann <- data.frame(lab = c("ns", "", ""), Season = factor(c("Summer", "Winter", "Spring")))
+
+pl.plot <- ggplot(class.df[which(class.df$OTU == "Polysaccharide Lyase"),], 
+                   aes(x=Season, y=Abundance, fill=Season)) +
+  geom_dotplot(binaxis='y', stackdir='center', dotsize=1.5, stackratio=1.2) +
+  scale_fill_manual(name="Season", values=c("#E69F00", "#0072B2", "#00bf8b")) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.75,
+               show.legend = F) +
+  scale_y_continuous(limits = c(1.7, 2.7), breaks=c(1.7, 2.2, 2.7)) +
+  ylab("Relative Abundance (%)") +
+  ggtitle("Polysaccharide Lyase") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        #legend.title = element_text(size=12, face = "bold"),
+        #legend.text = element_text(size=12),
+        panel.spacing = unit(0.5, "lines"),
+        axis.title.x = element_text(),
+        plot.title = element_text(hjust = 0.5, size = 12),
+        legend.position = "none") +
+  geom_text(data = pl.ann, aes(label=lab), x=c(2,0,0), y=c(2.7,2.7,2.7), size=3.5, color="black")
+```
+
+
+### Plot - Class dotplot
+```{r}
+png("prospectus.cazy.class.png", width = 250, height = 70, units = "mm", res = 400)
+grid.newpage()
+pushViewport(viewport(layout=grid.layout(1,4, widths = c(1,1,1,1))))
+
+print(gh.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
+#grid.text("A", x=unit(0.065, "npc"), y=unit(0.95, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=20,fontface="bold"))
+
+
+print(gt.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
+#grid.text("B", x=unit(0.065, "npc"), y=unit(0.95, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=2), gp=gpar(fontsize=20,fontface="bold"))
+
+
+print(ce.plot, vp=viewport(layout.pos.row=1, layout.pos.col=3))
+#grid.text("C", x=unit(0.065, "npc"), y=unit(0.95, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=3), gp=gpar(fontsize=20,fontface="bold"))
+
+
+
+print(pl.plot, vp=viewport(layout.pos.row=1, layout.pos.col=4))
+#grid.text("D", x=unit(0.065, "npc"), y=unit(0.95, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=4), gp=gpar(fontsize=20,fontface="bold"))
+
+
+#season.legend$vp <- viewport(layout.pos.row=1:4, layout.pos.col=2)
+#grid.draw(season.legend)
+dev.off()
 ```
 
 
