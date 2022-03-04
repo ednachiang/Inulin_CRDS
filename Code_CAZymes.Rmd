@@ -30,6 +30,8 @@ source('scripts/misc.R')
 #source('scripts/calc_delta_metrics.R')
 source('scripts/simper_pretty.R')
 source('scripts/R_krusk.R')
+source('scripts/removeTaxa.R')
+source('scripts/kaijuCreatePhyseq.R')
 set.seed(1)
 theme_set(theme_bw())
 ```
@@ -126,6 +128,7 @@ rownames(cazy.class.norm) <- c("Carbohydrate Esterase", "Glycoside Hydrolase", "
 ```{r}
 # Load data
 meta <- read.csv('metadata_metag.csv', row.names = 2)
+meta <- meta[-which(rownames(meta) == "S.W20"),]
 load("cazy.phy.Rdata")
 cazy.fam.norm <- read.csv('dbcan/cazy.Normalized.Counts.Family.csv', row.names=1)
 load("cazy.fam.norm.phy.RData")
@@ -497,16 +500,12 @@ sw <- results(dds, contrast=c("Season", "Summer", "Winter"))
 sw.sig <- sw[which(sw$padj < 0.05),]
 sw.sig[which(sw.sig$log2FoldChange > 0),]
   # Enriched in Summer compared to Winter (positive log2FoldChange)
-  # 16 CAZymes
-  # CE12, CE2, GH10, GH11, GH25, GH26, GH31, GH42, GH43, GH44, GH5, GH51, GH94, GT11, PL1, PL11
-  # Removed S.W20 =  12 CAZymes
-      # CE12, GH10, GH115, GH31, GH42, GH43, GH44, GH5, GH51, GT11, PL1, PL11
+  # 12 CAZymes
+  # CE12, GH10, GH115, GH31, GH42, GH43, GH44, GH5, GH51, GT11, PL1, PL11
 sw.sig[which(sw.sig$log2FoldChange < 0),]
   # Enriched in Winter compared to Summer (negative log2FoldChange)
-  # 11 CAZymes
-  # GH109, GH110, GH20, GH33, GH84, GH88, GH89, GH92, GT94, PL12, PL8
-  # Removed S.W20 = 5 CAZymes
-      # GH109, GH20, GH33, GH84, GH85
+  # 5 CAZymes
+  # GH109, GH20, GH33, GH84, GH85
 
 sp <- results(dds, contrast=c("Season", "Summer", "Spring"))
 sp.sig <- sp[which(sp$padj < 0.05),]
@@ -516,16 +515,14 @@ wp <- results(dds, contrast=c("Season", "Winter", "Spring"))
 wp.sig <- wp[which(wp$padj < 0.05),]
 wp.sig[which(wp.sig$log2FoldChange > 0),]
   # Enriched in Winter compared to Spring (positive log2FoldChange)
-  # 12 CAZymes
-  # GH101, GH109, GH110, GH20, GH33, GH84, GH85, GH88, GH89, GH92, PL12, PL8
-  # Removed S.W20 = 9 CAZymes
-      # GH109, GH20, GH23, GH33, GH57, GH84, GH85
+  # 9 CAZymes
+  # GH109, GH20, GH23*, GH33, GH57*, GH84, GH85, GH92, GT3*
 wp.sig[which(wp.sig$log2FoldChange < 0),]
   # Enriched in Spring compared to Winter (negative log2FoldChange)
-  # 21 CAZymes
-  # CE12, CE2, GH10, GH115, GH26, GH3, GH31, GH42, GH43, GH44, GH47, GH5, GH51, GH8, GH9, GH94, GT11, GT24, PL1, PL11, PL9
-  # Removed S.W20 = 17 CAZymes
-      # CE12, CE2, GH10, GH115, GH120, GH3, GH31, GH42, GH43, GH5, GH51, GH9, GH94, GT11, PL1, PL11, PL9
+  # 17 CAZymes
+  # CE12, CE2, GH10, GH115, GH120*, GH3, GH31, GH42, GH43, GH5, GH51, GH9, GH94, GT11, PL1, PL11, PL9
+
+### Old sig CAZymes to remove: PL12, PL8, GT94, GT24, GH110, GH101, GH89, GH88, GH47, GH26, GH25, GH11, GH8
 ```
 
 
@@ -536,35 +533,19 @@ wp.sig[which(wp.sig$log2FoldChange < 0),]
 hell.otu <- otu_table(t(hell), taxa_are_rows = T)
 # Trying it with rel abund
 #test <- transform_sample_counts(cazy.fam.norm.phy, function(x){(x/sum(x))*100})
-#colnames(hell.otu) <- c("3715", "3717", "3723", "3733", "3734", "3744",
-                              "3772", "3773" , "3775")
+#colnames(hell.otu) <- c("3715", "3717", "3723", "3733", "3734", "3744", "3772", "3773" , "3775")
 sig <- merge_phyloseq(hell.otu, tax_table(cazy.phy), sample_data(cazy.phy))
 
 
+sig.active <- subset_taxa(sig, Family == "GH5" | Family == "GH10" | Family == "GH31" | 
+                             Family == "GH42"| Family == "GH43" | Family == "GH44" | Family == "GH51" | 
+                             Family == "GH115" | Family == "GT11" | Family == "CE12" | Family == "PL1" |
+                             Family == "PL11" | Family == "GH3" | Family == "GH9" | Family == "GH94" |
+                             Family == "GH120" | Family == "CE2" | Family == "PL9")
 
-
-sig.active <- subset_taxa(sig, Family == "CE2" | Family == "CE12" | Family == "GH5" | Family == "GH10" |
-                            Family == "GH26" | Family == "GH31" | Family == "GH42" | Family == "GH43" |
-                            Family == "GH44" | Family == "GH51" | Family == "GH94" | Family == "GT11" |
-                            Family == "PL1" | Family == "PL11" | Family == "GH11" | Family == "GH25" |
-                            Family == "GH3" | Family == "GH8" | Family == "GH9" | Family == "GH47" |
-                            Family == "GH115" | Family == "GT24" | Family == "PL9")
-sig.act.sum <- merge_samples(sig.active, "Season")
-sig.act.sum <- transform_sample_counts(sig.act.sum, function(x) (x/6))
-
-
-sig.hib <- subset_taxa(sig, Family == "GH20" | Family == "GH33" | Family == "GH84" |
-                         Family == "GH88" | Family == "GH89" | Family == "GH92" | Family == "GH109" |
-                         Family == "GH110" | Family == "PL8" | Family == "PL12" | Family == "GT94" |
-                         Family == "GH85" | Family == "GH101")
-sig.hib.sum <- merge_samples(sig.hib, "Season")
-sig.hib.sum <- transform_sample_counts(sig.hib.sum, function(x) (x/6))
-
-
-
-
-
-
+sig.hib <- subset_taxa(sig, Family == "GH20" | Family == "GH33" | Family == "GH84" | Family == "GH85" |
+                         Family == "GH109" | Family == "GH23" | Family == "GH57" | Family == "GH92" |
+                         Family == "GT3")
 
 
 
@@ -572,15 +553,14 @@ sig.hib.sum <- transform_sample_counts(sig.hib.sum, function(x) (x/6))
 ##### BY SAMPLE
 
 
-#tiff("cazy.heatmap.act.samp.tiff", width=10, height=9, units="in", res=300)
+#tiff("cazy.heatmap.active.tiff", width=11, height=8.7, units="in", res=300)
 plot_heatmap(sig.active, sample.label = "Season", sample.order = c("S.S05", "I.S07", "S.S08", "I.S29",
-                                                                "S.S32", "I.S34", "S.W20", "I.W31",
-                                                                "I.W32", "I.W33", "S.W36", "S.W37",
-                                                                "I.P01", "S.P03", "I.P07", "S.P09",
-                                                                "I.P11", "S.P12"), 
-             taxa.order = c("PL9", "GT24", "GH115", "GH47", "GH9", "GH8", "GH3", "GH25", "GH11", "PL11",
-                            "PL1", "GT11", "GH94", "GH51", "GH44", "GH43", "GH42", "GH31", "GH26",
-                            "GH10", "GH5", "CE12", "CE2")) +
+                                                                    "S.S32", "I.S34", "S.W20", "I.W31",
+                                                                    "I.W32", "I.W33", "S.W36", "S.W37",
+                                                                    "I.P01", "S.P03", "I.P07", "S.P09",
+                                                                    "I.P11", "S.P12"), 
+             taxa.order = c("PL9", "CE2", "GH120", "GH94", "GH9", "GH3", "PL11", "PL1", "CE12", "GT11",
+                            "GH115", "GH51", "GH44", "GH43", "GH42", "GH31", "GH10", "GH5")) +
   geom_tile(colour="gray40") +
   scale_x_discrete(position = "top", labels=c(rep("Summer",6), rep("Winter", 6), rep("Spring", 6))) +
   xlab("Season\n\n") +
@@ -605,14 +585,15 @@ plot_heatmap(sig.active, sample.label = "Season", sample.order = c("S.S05", "I.S
 #dev.off()
 
 
-#tiff("cazy.heatmap.hib.samp.tiff", width=14, height=9, units="in", res=300)
+
+
+#tiff("cazy.heatmap.hib.tiff", width=17, height=8.7, units="in", res=300)
 plot_heatmap(sig.hib, sample.label = "Season", sample.order = c("S.S05", "I.S07", "S.S08", "I.S29",
-                                                                "S.S32", "I.S34", "S.W20", "I.W31",
-                                                                "I.W32", "I.W33", "S.W36", "S.W37",
-                                                                "I.P01", "S.P03", "I.P07", "S.P09",
-                                                                "I.P11", "S.P12"), 
-             taxa.order = c("GH101", "GH85", "GT94", "PL12", "PL8", "GH110", "GH109", "GH92", "GH89",
-                            "GH88", "GH84", "GH33", "GH20")) +
+                                                                    "S.S32", "I.S34", "S.W20", "I.W31",
+                                                                    "I.W32", "I.W33", "S.W36", "S.W37",
+                                                                    "I.P01", "S.P03", "I.P07", "S.P09",
+                                                                    "I.P11", "S.P12"), 
+             taxa.order = c("GT3", "GH92", "GH57", "GH23", "GH109", "GH85", "GH84", "GH33", "GH20")) +
   geom_tile(colour="gray40") +
   scale_x_discrete(position = "top", labels=c(rep("Summer",6), rep("Winter", 6), rep("Spring", 6))) +
   xlab("Season\n\n") +
@@ -620,8 +601,8 @@ plot_heatmap(sig.hib, sample.label = "Season", sample.order = c("S.S05", "I.S07"
   scale_fill_gradientn(name=expression("Hellinger-\ntransformed\nnormalized\ncounts"),
                        colours = c("#FFFFFF", "#ffffcc", "#ffeda0", "#fed976", "#feb24c", "#fd8d3c",
                                    "#fc4e2a", "#e31a1c", "#bd0026", "#800026", "#33000f"),
-                       limits = c(0.000, 0.141), breaks = c(0.000, 0.035, 0.070, 0.105, 0.140),
-                       labels = c("0.000", "0.035", "0.070", "0.105", "0.141")) +
+                       limits = c(0.02, 0.14), breaks = c(0.02, 0.05, 0.08, 0.11, 0.14),
+                       labels = c("0.02", "0.05", "0.08", "0.11", "0.14")) +
   theme(axis.text.x = element_blank(),
         axis.text.y = element_text(size=20),
         axis.ticks.x = element_blank(),
@@ -636,66 +617,6 @@ plot_heatmap(sig.hib, sample.label = "Season", sample.order = c("S.S05", "I.S07"
                                frame.linewidth=1))
 #dev.off()
 
-
-
-##### BY SEASON
-
-
-#tiff("cazy.heatmap.act.seas.tiff", width=4.9, height=9, units="in", res=300)
-plot_heatmap(sig.act.sum, sample.label = "Season", sample.order = c("Summer", "Winter", "Spring"), 
-             taxa.order = c("PL9", "GT24", "GH115", "GH47", "GH9", "GH8", "GH3", "GH25", "GH11", "PL11",
-                            "PL1", "GT11", "GH94", "GH51", "GH44", "GH43", "GH42", "GH31", "GH26",
-                            "GH10", "GH5", "CE12", "CE2")) +
-  geom_tile(colour="gray40") +
-  scale_x_discrete(position = "top", labels = c("Summer", "Winter", "Spring")) +
-  xlab("Season\n\n") +
-  ylab("CAZyme Family\n\n") +
-  scale_fill_gradientn(name=expression("Mean\nhellinger-\ntransformed\nnormalized\ncounts"),
-                       colours = c("#FFFFFF", "#ffffcc", "#ffeda0", "#fed976", "#feb24c", "#fd8d3c",
-                                   "#fc4e2a", "#e31a1c", "#bd0026", "#800026", "#33000f"),
-                       limits = c(0.000, 0.231), breaks = c(0.000, 0.077, 0.154, 0.231),
-                       labels = c("0.000", "0.077", "0.154", "0.231")) +
-  theme(axis.text.x = element_blank(),
-        axis.text.y = element_text(size=20),
-        axis.ticks.x = element_blank(),
-        axis.ticks.y = element_blank(),
-        panel.border=element_blank(),
-        axis.title.x = element_text(size=20, face="bold"),
-        axis.title.y = element_text(size=20, face="bold"),
-        legend.title = element_text(size=20, face="bold"),
-        legend.text = element_text(size=20)) +
-  guides(fill = guide_colorbar(barheight = unit(7,"in"),
-                               frame.colour="black",
-                               frame.linewidth=1))
-#dev.off()
-
-
-#tiff("cazy.heatmap.hib.seas.tiff", width=5.8, height=9, units="in", res=300)
-plot_heatmap(sig.hib.sum, sample.label = "Season", sample.order = c("Summer", "Winter", "Spring"), 
-             taxa.order = c("GH101", "GH85", "GT94", "PL12", "PL8", "GH110", "GH109", "GH92", "GH89",
-                            "GH88", "GH84", "GH33", "GH20")) +
-  geom_tile(colour="gray40") +
-  scale_x_discrete(position = "top", labels = c("Summer", "Winter", "Spring")) +
-  xlab("Season\n\n") +
-  ylab("CAZyme Family\n\n") +
-  scale_fill_gradientn(name=expression("Mean\nhellinger-\ntransformed\nnormalized\ncounts"),
-                       colours = c("#FFFFFF", "#ffffcc", "#ffeda0", "#fed976", "#feb24c", "#fd8d3c",
-                                   "#fc4e2a", "#e31a1c", "#bd0026", "#800026", "#33000f"),
-                       limits = c(0.000, 0.130), breaks = c(0.000, 0.026, 0.052, 0.078, 0.104, 0.130),
-                       labels = c("0.000", "0.026", "0.052", "0.078", "0.104", "0.130")) +
-  theme(axis.text.x = element_blank(),
-        axis.text.y = element_text(size=20),
-        axis.ticks.x = element_blank(),
-        axis.ticks.y = element_blank(),
-        panel.border=element_blank(),
-        axis.title.x = element_text(size=20, face="bold"),
-        axis.title.y = element_text(size=20, face="bold"),
-        legend.title = element_text(size=20, face="bold"),
-        legend.text = element_text(size=20)) +
-  guides(fill = guide_colorbar(barheight = unit(7,"in"),
-                               frame.colour="black",
-                               frame.linewidth=1))
-#dev.off()
 
 ```
 
@@ -717,7 +638,7 @@ colnames(dist.matrix) <- meta$Season
 hclust <- hclust(dist, method = "average")
 den <- as.dendrogram(hclust)
 den.data <- dendro_data(den, type="rectangle")
-den.data$leaf_labels <- c(rep("Winter",6), "Spring", "Summer", "Summer", rep("Spring",4), "Summer", "Spring", "Summer", "Summer", "Summer")
+den.data$leaf_labels <- c(rep("Winter",5), "Spring", "Summer", "Summer", rep("Spring",4), "Summer", "Spring", "Summer", "Summer", "Summer")
 den.data$leaf_labels <- ordered(den.data$leaf_labels, levels = c("Summer", "Winter", "Spring"))
 
 
@@ -731,7 +652,7 @@ ggplot(den.data$segments) +
   labs(colour = "Season") +
   coord_flip() +
   scale_y_reverse() +
-  scale_color_manual(values=c("darkgoldenrod3", "dodgerblue3", "green4")) +
+  scale_color_manual(values=c("#E69F00", "#0072B2", "#00bf8b")) +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.ticks.y = element_blank(),
@@ -769,11 +690,11 @@ pcoa <- pcoa(dist)
 phy.ord <- cazy.phy
 sample_data(phy.ord)$Season <- ordered(sample_data(phy.ord)$Season, levels = c("Summer", "Winter", "Spring"))
 
-#tiff("aaas.pcoa.tiff", width=8, height=6, units="in", res=300)
+#tiff("prospectus.pcoa.tiff", width=8, height=6, units="in", res=300)
 plot_ordination(physeq = phy.ord, ordination = pcoa, axes = c(1,2),
                 color = "Season") +
   geom_point(size=10) +
-  scale_color_manual(values=c("#00cccc", "#008484", "#004f4f")) +
+  scale_color_manual(values=c("#E69F00", "#0072B2", "#00bf8b")) +
   ggtitle("CAZyme Profiles") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
@@ -787,16 +708,22 @@ plot_ordination(physeq = phy.ord, ordination = pcoa, axes = c(1,2),
 
 
 ### Run PERMANOVA on DESEq Hellinger distance
-adonis(dist ~ Season*Number, data=meta, permutations = 99999)
-  # p-value = 0.3185
-beta.tax = betadisper(d=dist, group=meta$Season) 
+adonis(dist ~ Metabolism, data=meta, permutations = 99999)
+  # p-value = 0.1737
+beta.tax = betadisper(d=dist, group=meta$Metabolism) 
 p <- permutest(beta.tax)
 p$tab
-  # p-value = 0.012
+  # p-value = 0.711
+```
 
-### Pairwise betadisp test
-TukeyHSD(beta.tax, conf.level = 0.95)
-  # Summer-Winter p-value = 0.5573697
-  # Summer-Spring p-value = 0.0255338
-  # Winter-Spring p-value = 0.1742978
+
+### Taxa
+```{r}
+#removeTaxa('kaiju/sig_cazymes/CE12/')
+
+### Remove taxa in < 3 samples
+#removeTaxa('kaiju/all_shortreads/')
+
+### Create phyloseq objects
+#kaijuCreatePhyseq('kaiju/all_shortreads/', 'metadata_metag.csv')
 ```
