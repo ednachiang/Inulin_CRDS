@@ -1,0 +1,24 @@
+>NODE_350807_length_497_cov_1.191542_1 # 3 # 395 # -1 # ID=350807_1;partial=10;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.641	1.1.1.-:272	1.1.1.18:39|1.1.1.369:7
+AGKPVFCE(89),GKPVFCEK(90),KPVFCEKP(91),PVFCEKPL(92),VFCEKPLA(93),
+>NODE_466200_length_398_cov_0.973597_1 # 1 # 396 # 1 # ID=466200_1;partial=11;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.649	1.1.1.-:272	1.1.1.18:39|1.1.1.369:7
+AGKPVFCE(79),GKPVFCEK(80),KPVFCEKP(81),PVFCEKPL(82),VFCEKPLA(83),
+>NODE_116449_length_1148_cov_1.670465_2 # 612 # 1148 # 1 # ID=116449_2;partial=01;start_type=GTG;rbs_motif=AATAA;rbs_spacer=15bp;gc_cont=0.514	1.1.1.-:154	1.1.1.292:2|1.1.1.371:1|1.1.1.361:1
+AGKHVLCE(88),GKHVLCEK(89),KHVLCEKP(90),HVLCEKPM(91),VLCEKPMA(92),
+>NODE_11392_length_7367_cov_2.156216_3 # 1149 # 2192 # -1 # ID=11392_3;partial=00;start_type=ATG;rbs_motif=AGxAGG/AGGxGG;rbs_spacer=11-12bp;gc_cont=0.528	1.1.1.-:154	1.1.1.292:2|1.1.1.371:1|1.1.1.361:1
+AGKHVLCE(88),GKHVLCEK(89),KHVLCEKP(90),HVLCEKPM(91),VLCEKPMA(92),
+>NODE_6375_length_12357_cov_8.941445_1 # 304 # 1416 # 1 # ID=6375_1;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.524	1.1.1.-:154	1.1.1.292:2|1.1.1.371:1|1.1.1.361:1
+AGKHVLCE(94),GKHVLCEK(95),KHVLCEKP(96),HVLCEKPM(97),VLCEKPMA(98),
+>NODE_28446_length_3388_cov_2.026723_2 # 440 # 1561 # 1 # ID=28446_2;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.608	1.1.1.-:154	1.1.1.292:2|1.1.1.371:1|1.1.1.361:1
+AGKHVLCE(92),GKHVLCEK(93),KHVLCEKP(94),HVLCEKPM(95),VLCEKPMA(96),
+>NODE_19271_length_4664_cov_2.606041_3 # 923 # 2068 # 1 # ID=19271_3;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.595	1.1.1.-:154	1.1.1.292:2|1.1.1.371:1|1.1.1.361:1
+AGKHVLCE(92),GKHVLCEK(93),KHVLCEKP(94),HVLCEKPM(95),VLCEKPMA(96),
+>NODE_56319_length_1995_cov_2.173684_1 # 1 # 627 # -1 # ID=56319_1;partial=10;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.445	1.1.1.-:154	1.1.1.292:2|1.1.1.371:1|1.1.1.361:1
+AGKHVLCE(86),GKHVLCEK(87),KHVLCEKP(88),HVLCEKPM(89),VLCEKPMA(90),
+>NODE_311058_length_546_cov_1.929047_1 # 2 # 466 # -1 # ID=311058_1;partial=10;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.566	1.1.1.-:154	1.1.1.292:2|1.1.1.371:1|1.1.1.361:1
+AGKHVLCE(86),GKHVLCEK(87),KHVLCEKP(88),HVLCEKPM(89),VLCEKPMA(90),
+>NODE_333087_length_518_cov_1.108747_1 # 2 # 424 # -1 # ID=333087_1;partial=10;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.487	1.1.1.-:154	1.1.1.292:2|1.1.1.371:1|1.1.1.361:1
+AGKHVLCE(94),GKHVLCEK(95),KHVLCEKP(96),HVLCEKPM(97),VLCEKPMA(98),
+>NODE_513045_length_371_cov_0.811594_1 # 1 # 369 # 1 # ID=513045_1;partial=11;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.512	1.1.1.-:272	1.1.1.18:39|1.1.1.369:7
+VFCEKPLA(85),FCEKPLAT(86),VQVGFMRR(113),QVGFMRRY(114),VGFMRRYD(115),
+>NODE_842639_length_272_cov_0.949153_1 # 2 # 271 # 1 # ID=842639_1;partial=11;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.659	1.1.1.-:154	1.1.1.292:2|1.1.1.371:1|1.1.1.361:1
+RAGKHVLC(67),AGKHVLCE(68),GKHVLCEK(69),KHVLCEKP(70),HVLCEKPM(71),VLCEKPMA(72),LCEKPMAI(73),
