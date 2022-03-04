@@ -1,2 +1,8 @@
->NODE_88056_length_1072_cov_1.660184_2 # 331 # 1071 # 1 # ID=88056_2;partial=01;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.308	4.1.99.-:37	4.1.99.13:2
-AAATAATA(60),TAATATAA(147),AATATAAA(148),ATATAAAA(149),ATAATATA(551),
+>NODE_355194_length_351_cov_1.531250_1 # 1 # 351 # -1 # ID=355194_1;partial=11;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.490	1.1.1.-:154	1.1.1.292:2|1.1.1.371:1|1.1.1.361:1
+AGKHVLCE(97),GKHVLCEK(98),KHVLCEKP(99),HVLCEKPM(100),VLCEKPMA(101),
+>NODE_184392_length_603_cov_2.045276_1 # 97 # 603 # 1 # ID=184392_1;partial=01;start_type=GTG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.558	1.1.1.-:154	1.1.1.292:2|1.1.1.371:1|1.1.1.361:1
+AGKHVLCE(88),GKHVLCEK(89),KHVLCEKP(90),HVLCEKPM(91),VLCEKPMA(92),
+>NODE_136464_length_763_cov_1.923653_1 # 446 # 763 # 1 # ID=136464_1;partial=01;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.635	1.1.1.-:154	1.1.1.292:2|1.1.1.371:1|1.1.1.361:1
+HGKHVLCE(86),GKHVLCEK(87),KHVLCEKP(88),HVLCEKPM(89),VLCEKPMA(90),
+>NODE_135927_length_766_cov_1.126677_1 # 1 # 765 # 1 # ID=135927_1;partial=11;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.443	1.1.1.-:154	1.1.1.292:2|1.1.1.371:1|1.1.1.361:1
+AGKHVLCE(82),GKHVLCEK(83),KHVLCEKP(84),HVLCEKPM(85),VLCEKPMA(86),
