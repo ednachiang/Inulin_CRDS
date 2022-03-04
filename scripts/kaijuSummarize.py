@@ -4,7 +4,7 @@ import pandas as pd
     # Import pandas to use dataframes
 
 ##### CHANGE THESE PARAMETERS ACCORDINGLY
-directoryKaiju = '../kaiju/inulinase/exo/'
+directoryKaiju = '../kaiju/sig_cazymes/short/'
     # Directory of kaiju outputs
     # directoryKaiju/directorySpecificPredictedProtein/taxon
     # CHANGE FUNCTION makeDF ACCORDING TO DIRECTORY
@@ -35,13 +35,16 @@ def makeDF(taxaList, dataFrame, inputFile, taxaDict):
         currentSamp = line1Split[0]
 
         ## FOR INULINASES ##
-        currentSamp = currentSamp[:-17]
+        #currentSamp = currentSamp[:-17]
 
         ## FOR ALL SHORT READS ##  
         #currentSamp = currentSamp[:-12]
 
-        ## FOR SIG CAZYMES ##
+        ## FOR SIG CAZYMES w/ 4 or 5 character names ##
         #currentSamp = currentSamp[:-18]
+
+        ## FOR SIG CAZYMES w/ 3 character names ##
+        currentSamp = currentSamp[:-17]
         length = len(currentSamp)
 
         currentSamp = currentSamp[length-6 : length]
@@ -93,10 +96,10 @@ def summarizeKaiju(input_Path, protein, output_Path, protein_path):
             
         df1 = pd.DataFrame(index = taxaList, columns = samples)
 
-
         for file3 in kaijuFiles:
             taxaDict = {}
             df2 = makeDF(taxaList, df1, file3, taxaDict)
+
         
         df2 = df2.fillna(0)
         df2.to_csv(outputPath)
