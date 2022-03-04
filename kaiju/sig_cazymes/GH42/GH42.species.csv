@@ -1,19 +1,19 @@
-,I-P01,I-P07,I-P11,I-S07,I-S29,I-S34,I-W31,I-W32,I-W33,S-P03,S-P09,S-P12,S-S05,S-S08,S-S32,S-W20,S-W36,S-W37
-Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;NA;Lachnospiraceae bacterium;,3.669725,1.587302,0,1.941748,3.125000,1.428571,7.317073,0,2.272727,3.278688,6.349207,1.111111,2.564103,0,2.127660,2.777778,3.571429,4.761905
+,I-P01,I-P07,I-P11,I-S07,I-S29,I-S34,I-W31,I-W32,I-W33,S-P03,S-P09,S-P12,S-S05,S-S08,S-S32,S-W36,S-W37,S-W20
+Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;NA;Lachnospiraceae bacterium;,3.669725,1.587302,0,1.941748,3.125000,1.428571,7.317073,0,2.272727,3.278688,6.349207,1.111111,2.564103,0,2.127660,3.571429,4.761905,2.777778
 Bacteria;Firmicutes;NA;NA;NA;NA;Firmicutes bacterium;,2.752294,3.174603,0,2.912621,1.562500,4.285715,0,0,0,0,0,0,0.854701,0,0,0,0,0
-Bacteria;Firmicutes;Clostridia;Clostridiales;Clostridiaceae;NA;Clostridiaceae bacterium;,2.752294,1.587302,3.571429,2.912621,3.125000,2.857143,4.878048,0,4.545455,1.639344,1.587302,1.111111,0.854701,0,4.255319,2.777778,7.142858,0
-Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Tyzzerella;Tyzzerella sp. An114;,2.752294,1.587302,0,0.970874,1.562500,1.428571,0,3.225806,2.272727,1.639344,3.174603,0,2.564103,0,2.127660,2.777778,3.571429,0
+Bacteria;Firmicutes;Clostridia;Clostridiales;Clostridiaceae;NA;Clostridiaceae bacterium;,2.752294,1.587302,3.571429,2.912621,3.125000,2.857143,4.878048,0,4.545455,1.639344,1.587302,1.111111,0.854701,0,4.255319,7.142858,0,2.777778
+Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Tyzzerella;Tyzzerella sp. An114;,2.752294,1.587302,0,0.970874,1.562500,1.428571,0,3.225806,2.272727,1.639344,3.174603,0,2.564103,0,2.127660,3.571429,0,2.777778
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Schaedlerella;Schaedlerella arabinosiphila;,2.752294,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 Bacteria;Firmicutes;NA;NA;NA;NA;Firmicutes bacterium CAG:272;,1.834862,1.587302,1.785714,0.970874,0,0,0,0,2.272727,0,1.587302,2.222222,0.854701,2.222222,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Ruminococcaceae;Neglecta;Neglecta timonensis;,1.834862,3.174603,1.785714,0.970874,1.562500,1.428571,2.439024,0,0,0,3.174603,0,1.709402,2.222222,0,0,0,0
-Bacteria;Firmicutes;Clostridia;Clostridiales;NA;NA;Clostridiales bacterium;,1.834862,9.523809,5.357143,5.825243,3.125000,8.571429,2.439024,3.225806,0,3.278688,4.761905,13.333334,11.965812,13.333334,4.255319,0,0,4.761905
+Bacteria;Firmicutes;Clostridia;Clostridiales;NA;NA;Clostridiales bacterium;,1.834862,9.523809,5.357143,5.825243,3.125000,8.571429,2.439024,3.225806,0,3.278688,4.761905,13.333334,11.965812,13.333334,4.255319,0,4.761905,0
 Bacteria;NA;NA;NA;NA;NA;bacterium 0.1xD8-82;,1.834862,1.587302,1.785714,0,1.562500,1.428571,0,3.225806,2.272727,1.639344,0,1.111111,0.854701,4.444445,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Faecalicatena;Faecalicatena orotica;,0.917431,0,0,0,0,0,0,0,0,0,0,1.111111,0,0,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Lacrimispora;Lacrimispora celerecrescens;,0.917431,0,0,0,0,0,0,0,0,0,1.587302,0,0,0,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Eubacteriaceae;Eubacterium;Eubacterium ruminantium;,0.917431,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 Bacteria;Thermotogae;Thermotogae;Petrotogales;Petrotogaceae;Petrotoga;Petrotoga mobilis;,0.917431,0,0,0,1.562500,0,0,0,2.272727,0,0,1.111111,0.854701,0,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Eubacteriaceae;Eubacterium;Eubacterium plexicaudatum;,0.917431,0,0,0,0,1.428571,0,0,0,0,0,0,0,0,0,0,0,0
-Bacteria;Firmicutes;Clostridia;Clostridiales;Clostridiaceae;Hungatella;Hungatella hathewayi;,0.917431,0,0,0,0,1.428571,0,3.225806,0,0,0,1.111111,1.709402,0,0,5.555556,7.142858,4.761905
+Bacteria;Firmicutes;Clostridia;Clostridiales;Clostridiaceae;Hungatella;Hungatella hathewayi;,0.917431,0,0,0,0,1.428571,0,3.225806,0,0,0,1.111111,1.709402,0,0,7.142858,4.761905,5.555556
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Roseburia;Roseburia inulinivorans;,0.917431,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 Bacteria;Proteobacteria;Gammaproteobacteria;Enterobacterales;Yersiniaceae;Serratia;Serratia sp. M24T3;,0.917431,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Fusicatenibacter;Fusicatenibacter saccharivorans;,0.917431,0,0,0,0,0,0,0,0,1.639344,0,0,0,0,0,0,0,0
@@ -27,7 +27,7 @@ Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;NA;Lachnospiraceae 
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Cuneatibacter;Cuneatibacter caecimuris;,0.917431,0,1.785714,0.970874,3.125000,0,0,0,2.272727,0,1.587302,0,0,2.222222,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Muricomes;Muricomes intestini;,0.917431,0,0,0.970874,1.562500,0,0,3.225806,0,1.639344,1.587302,0,0,2.222222,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Anaerosacchariphilus;Anaerosacchriphilus polymeriproducens;,0.917431,1.587302,0,0,0,0,0,0,0,1.639344,1.587302,0,0,0,0,0,0,0
-Bacteria;Bacteroidetes;Bacteroidia;Bacteroidales;Bacteroidaceae;Bacteroides;Bacteroides congonensis;,0.917431,0,1.785714,0.970874,3.125000,0,2.439024,0,2.272727,1.639344,3.174603,1.111111,0,0,0,2.777778,3.571429,4.761905
+Bacteria;Bacteroidetes;Bacteroidia;Bacteroidales;Bacteroidaceae;Bacteroides;Bacteroides congonensis;,0.917431,0,1.785714,0.970874,3.125000,0,2.439024,0,2.272727,1.639344,3.174603,1.111111,0,0,0,3.571429,4.761905,2.777778
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Lachnoclostridium;Lachnoclostridium phocaeense;,0.917431,1.587302,0,1.941748,0,1.428571,0,3.225806,0,0,1.587302,0,0.854701,0,2.127660,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;NA;NA;Clostridiales bacterium 43-6;,0.917431,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Ruminococcaceae;Neglecta;Neglecta sp. Marseille-P3890;,0.917431,0,0,0,0,1.428571,0,0,0,0,0,0,0,0,0,0,0,0
@@ -37,11 +37,11 @@ Bacteria;NA;NA;NA;NA;NA;bacterium 1xD42-87;,0.917431,1.587302,1.785714,0.970874,
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Roseburia;Roseburia sp. MUC/MUC-530-WT-4D;,0.917431,0,0,0,0,0,0,0,0,0,0,1.111111,0,0,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;NA;Lachnospiraceae bacterium WCA-9-b2;,0.917431,0,0,0,0,1.428571,0,0,0,0,0,0,0.854701,0,2.127660,0,0,0
 Viruses,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000
-cannot be assigned to a (non-viral) species,31.192661,28.571430,42.857143,34.951458,31.250000,25.714287,43.902439,41.935482,34.090908,31.147539,25.396828,28.888889,29.914532,28.888889,42.553192,38.888889,35.714287,57.142860
-unclassified,21.100917,17.460318,10.714286,15.533981,17.187500,21.428572,9.756097,16.129032,11.363637,16.393442,17.460318,15.555556,15.384616,8.888889,6.382979,2.777778,14.285715,9.523810
-Bacteria;Firmicutes;Clostridia;Clostridiales;Ruminococcaceae;NA;Ruminococcaceae bacterium;,0,4.761905,0,0,0,1.428571,2.439024,3.225806,4.545455,0,3.174603,0,0,0,2.127660,0,3.571429,0
+cannot be assigned to a (non-viral) species,31.192661,28.571430,42.857143,34.951458,31.250000,25.714287,43.902439,41.935482,34.090908,31.147539,25.396828,28.888889,29.914532,28.888889,42.553192,35.714287,57.142860,38.888889
+unclassified,21.100917,17.460318,10.714286,15.533981,17.187500,21.428572,9.756097,16.129032,11.363637,16.393442,17.460318,15.555556,15.384616,8.888889,6.382979,14.285715,9.523810,2.777778
+Bacteria;Firmicutes;Clostridia;Clostridiales;Ruminococcaceae;NA;Ruminococcaceae bacterium;,0,4.761905,0,0,0,1.428571,2.439024,3.225806,4.545455,0,3.174603,0,0,0,2.127660,3.571429,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Clostridiaceae;Clostridium;Clostridium beijerinckii;,0,1.587302,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Lacrimispora;Lacrimispora algidixylanolytica;,0,1.587302,0,0,1.562500,0,2.439024,0,2.272727,1.639344,0,0,0.854701,0,0,0,3.571429,0
+Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Lacrimispora;Lacrimispora algidixylanolytica;,0,1.587302,0,0,1.562500,0,2.439024,0,2.272727,1.639344,0,0,0.854701,0,0,3.571429,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Blautia;Blautia schinkii;,0,1.587302,0,0,0,1.428571,0,0,0,0,1.587302,0,0.854701,0,0,0,0,0
 Bacteria;Actinobacteria;Actinobacteria;Micrococcales;Cellulomonadaceae;Cellulomonas;Cellulomonas soli;,0,1.587302,0,0,0,0,0,0,0,1.639344,0,0,0,2.222222,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Eisenbergiella;Eisenbergiella tayi;,0,1.587302,0,0,0,0,0,0,0,0,0,0,0,2.222222,0,0,0,0
@@ -53,16 +53,16 @@ Bacteria;Firmicutes;Clostridia;Clostridiales;Ruminococcaceae;Ruminococcus;Rumino
 Bacteria;NA;NA;NA;NA;NA;bacterium 1xD42-62;,0,1.587302,0,0,3.125000,0,2.439024,0,0,0,1.587302,0,0,0,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;NA;Lachnospiraceae bacterium Oil+RF-744-WCA-WT-11;,0,1.587302,3.571429,0.970874,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Ruminococcaceae;Ruminococcus;Ruminococcus flavefaciens;,0,0,1.785714,0,0,0,0,0,0,0,0,3.333333,0.854701,0,0,0,0,0
-Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Marvinbryantia;Marvinbryantia formatexigens;,0,0,1.785714,1.941748,1.562500,1.428571,2.439024,0,2.272727,1.639344,1.587302,1.111111,0,0,0,2.777778,0,4.761905
-Bacteria;Bacteroidetes;Chitinophagia;Chitinophagales;Chitinophagaceae;Segetibacter;Segetibacter koreensis;,0,0,1.785714,0,0,0,0,0,0,0,0,0,0,0,0,0,3.571429,0
+Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Marvinbryantia;Marvinbryantia formatexigens;,0,0,1.785714,1.941748,1.562500,1.428571,2.439024,0,2.272727,1.639344,1.587302,1.111111,0,0,0,0,4.761905,2.777778
+Bacteria;Bacteroidetes;Chitinophagia;Chitinophagales;Chitinophagaceae;Segetibacter;Segetibacter koreensis;,0,0,1.785714,0,0,0,0,0,0,0,0,0,0,0,0,3.571429,0,0
 Bacteria;Firmicutes;Bacilli;Bacillales;Paenibacillaceae;Paenibacillus;Paenibacillus pectinilyticus;,0,0,1.785714,0.970874,1.562500,0,0,0,0,3.278688,0,3.333333,0.854701,0,2.127660,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;NA;NA;Clostridiales bacterium NK3B98;,0,0,1.785714,0.970874,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Roseburia;Roseburia sp. 831b;,0,0,1.785714,0.970874,1.562500,0,0,3.225806,0,0,3.174603,1.111111,0.854701,2.222222,0,0,3.571429,4.761905
+Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Roseburia;Roseburia sp. 831b;,0,0,1.785714,0.970874,1.562500,0,0,3.225806,0,0,3.174603,1.111111,0.854701,2.222222,0,3.571429,4.761905,0
 Bacteria;Chloroflexi;NA;NA;NA;NA;Chloroflexi bacterium;,0,0,1.785714,0,0,0,2.439024,0,2.272727,0,0,0,0,0,2.127660,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;NA;Massilistercora;Massilistercora timonensis;,0,0,1.785714,0,1.562500,0,0,0,0,0,0,0,0,0,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Blautia;Blautia sp. SG-772;,0,0,1.785714,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 Bacteria;NA;NA;NA;NA;NA;bacterium 0.1xD8-71;,0,0,1.785714,0,0,2.857143,0,0,0,0,1.587302,1.111111,0.854701,0,0,0,0,0
-Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Enterocloster;Enterocloster clostridioformis;,0,0,0,1.941748,0,0,2.439024,3.225806,0,0,0,0,0.854701,0,0,0,7.142858,0
+Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Enterocloster;Enterocloster clostridioformis;,0,0,0,1.941748,0,0,2.439024,3.225806,0,0,0,0,0.854701,0,0,7.142858,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Blautia;Blautia producta;,0,0,0,1.941748,1.562500,0,0,0,2.272727,0,0,0,0.854701,0,0,0,0,0
 Bacteria;Firmicutes;Bacilli;Lactobacillales;Lactobacillaceae;Lactobacillus;Lactobacillus reuteri;,0,0,0,0.970874,0,0,0,0,0,0,0,0,0.854701,0,0,0,0,0
 Bacteria;Proteobacteria;Betaproteobacteria;Burkholderiales;Burkholderiaceae;Trinickia;Trinickia caryophylli;,0,0,0,0.970874,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -85,13 +85,13 @@ Bacteria;Bacteroidetes;Bacteroidia;Bacteroidales;Bacteroidaceae;Bacteroides;Bact
 Bacteria;Bacteroidetes;Bacteroidia;Bacteroidales;Bacteroidaceae;Bacteroides;Bacteroides sartorii;,0,0,0,0,0,2.857143,0,0,0,0,0,0,0,0,0,0,0,0
 Bacteria;Firmicutes;Bacilli;Bacillales;Bacillaceae;Amphibacillus;Amphibacillus xylanus;,0,0,0,0,0,1.428571,0,0,0,0,0,0,0,0,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Blautia;Blautia obeum;,0,0,0,0,0,1.428571,0,0,0,0,0,0,0,0,0,0,0,0
-Bacteria;Firmicutes;Clostridia;Clostridiales;Ruminococcaceae;Subdoligranulum;Subdoligranulum sp. AM16-9;,0,0,0,0,0,1.428571,0,0,0,0,0,0,0,0,0,2.777778,0,0
+Bacteria;Firmicutes;Clostridia;Clostridiales;Ruminococcaceae;Subdoligranulum;Subdoligranulum sp. AM16-9;,0,0,0,0,0,1.428571,0,0,0,0,0,0,0,0,0,0,0,2.777778
 Bacteria;Bacteroidetes;Bacteroidia;Bacteroidales;Rikenellaceae;Alistipes;Alistipes sp. Z76;,0,0,0,0,0,1.428571,0,0,0,0,0,0,0,2.222222,2.127660,0,0,0
 Bacteria;Proteobacteria;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Klebsiella;Klebsiella oxytoca;,0,0,0,0,0,0,2.439024,0,0,0,0,0,0,0,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Blautia;Blautia wexlerae;,0,0,0,0,0,0,2.439024,0,0,0,0,0,0,0,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Ruminococcaceae;Anaeromassilibacillus;Anaeromassilibacillus sp. An172;,0,0,0,0,0,0,2.439024,0,0,0,1.587302,0,0,2.222222,0,0,0,0
 Bacteria;Bacteroidetes;Bacteroidia;Bacteroidales;Bacteroidaceae;Bacteroides;Bacteroides thetaiotaomicron;,0,0,0,0,0,0,0,3.225806,0,1.639344,0,0,0,0,0,0,0,0
-Bacteria;Firmicutes;Bacilli;Bacillales;Alicyclobacillaceae;Alicyclobacillus;Alicyclobacillus vulcanalis;,0,0,0,0,0,0,0,0,2.272727,0,0,0,0,0,0,0,3.571429,0
+Bacteria;Firmicutes;Bacilli;Bacillales;Alicyclobacillaceae;Alicyclobacillus;Alicyclobacillus vulcanalis;,0,0,0,0,0,0,0,0,2.272727,0,0,0,0,0,0,3.571429,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Acetatifactor;Acetatifactor muris;,0,0,0,0,0,0,0,0,2.272727,1.639344,0,0,0,0,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;NA;NA;Clostridiales bacterium 41_21_two_genomes;,0,0,0,0,0,0,0,0,2.272727,1.639344,0,0,0,2.222222,0,0,0,0
 Bacteria;Verrucomicrobia;NA;NA;NA;NA;Verrucomicrobia bacterium Tous-C9LFEB;,0,0,0,0,0,0,0,0,2.272727,0,0,0,0,0,0,0,0,0
@@ -109,7 +109,7 @@ Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Anaerocolumna;Anaer
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Roseburia;Roseburia hominis;,0,0,0,0,0,0,0,0,0,0,0,1.111111,0.854701,0,0,0,0,0
 Bacteria;Firmicutes;Bacilli;Bacillales;Paenibacillaceae;Paenibacillus;Paenibacillus swuensis;,0,0,0,0,0,0,0,0,0,0,0,1.111111,0,0,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Ruminococcaceae;Faecalibacterium;Faecalibacterium sp. CAG:74;,0,0,0,0,0,0,0,0,0,0,0,1.111111,0,0,0,0,0,0
-Bacteria;Firmicutes;Bacilli;Lactobacillales;Carnobacteriaceae;Jeotgalibaca;Jeotgalibaca porci;,0,0,0,0,0,0,0,0,0,0,0,1.111111,0.854701,0,0,0,0,4.761905
+Bacteria;Firmicutes;Bacilli;Lactobacillales;Carnobacteriaceae;Jeotgalibaca;Jeotgalibaca porci;,0,0,0,0,0,0,0,0,0,0,0,1.111111,0.854701,0,0,0,4.761905,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Ruminococcaceae;Angelakisella;Angelakisella massiliensis;,0,0,0,0,0,0,0,0,0,0,0,1.111111,0,0,0,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Roseburia;Roseburia sp. AM16-25;,0,0,0,0,0,0,0,0,0,0,0,1.111111,0,0,2.127660,0,0,0
 Bacteria;Firmicutes;Clostridia;Clostridiales;Ruminococcaceae;Acutalibacter;Acutalibacter muris;,0,0,0,0,0,0,0,0,0,0,0,0,1.709402,2.222222,0,0,0,0
@@ -127,6 +127,6 @@ Bacteria;Firmicutes;Clostridia;Clostridiales;Hungateiclostridiaceae;Ruminiclostr
 Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Butyrivibrio;Butyrivibrio sp. CAG:318;,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2.127660,0,0,0
 Bacteria;Bacteroidetes;Cytophagia;Cytophagales;Hymenobacteraceae;Hymenobacter;Hymenobacter jejuensis;,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2.127660,0,0,0
 Bacteria;Bacteroidetes;Bacteroidia;Bacteroidales;NA;NA;Bacteroidales bacterium St1;,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2.127660,0,0,0
-Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Robinsoniella;Robinsoniella peoriensis;,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,19.444445,0,0
-Bacteria;Firmicutes;Clostridia;Clostridiales;Clostridiaceae;Clostridium;Clostridium sp. KLE 1755;,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13.888889,0,0
-Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Robinsoniella;Robinsoniella sp. RHS;,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2.777778,0,0
+Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Robinsoniella;Robinsoniella peoriensis;,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,19.444445
+Bacteria;Firmicutes;Clostridia;Clostridiales;Clostridiaceae;Clostridium;Clostridium sp. KLE 1755;,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13.888889
+Bacteria;Firmicutes;Clostridia;Clostridiales;Lachnospiraceae;Robinsoniella;Robinsoniella sp. RHS;,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2.777778
