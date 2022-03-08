@@ -1,8 +1,8 @@
 Domain,Phylum,Class,Active_Mean,Active_SE,Hibernation_Mean,Hibernation_SE,Significant
 Bacteria,Actinobacteria,Actinobacteria,0.701086583,0.269508448,0.0524544,0.016692976,X
 Bacteria,Bacteroidetes,Bacteroidia,44.36734067,1.805269594,68.0759732,6.371367965,X
-Bacteria,Bacteroidetes,Cytophagia,0.176652333,0.051375958,0.0198808,0.0198808,X
-Bacteria,Bacteroidetes,Flavobacteriia,0.146767583,0.047373713,0.0074184,0.0074184,X
+Bacteria,Bacteroidetes,Cytophagia,0.176652333,0.051375958,0.0198808,0.0198808,
+Bacteria,Bacteroidetes,Flavobacteriia,0.146767583,0.047373713,0.0074184,0.0074184,
 Bacteria,Bacteroidetes,Saprospiria,0.00554025,0.004055926,0.0074184,0.0074184,
 Bacteria,Bacteroidetes,Sphingobacteriia,0.057261583,0.021829307,0.2560172,0.108795702,X
 Bacteria,Deinococcus-Thermus,Deinococci,0.351300333,0.150717098,0.0093896,0.0093896,X
