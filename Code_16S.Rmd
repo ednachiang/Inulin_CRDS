@@ -320,34 +320,34 @@ phy.spr.c.noabx <- subset_samples(phy.spr.c, Antibiotics == "No")
   # 4 samples
 
 
-### Drop taxa in < 3 samples
-otu.sum.m.abx.otu <- data.frame(otu_table(phy.sum.c.abx))
-otu.sum.m.abx.otu.rem <- list()
-for(a in 1:nrow(otu.sum.m.abx.otu)){
-  empty <- length(which(otu.sum.m.abx.otu[a,] == 0))
+### Drop taxa in < 2 samples
+otu.sum.c.abx.otu <- data.frame(otu_table(phy.sum.c.abx))
+otu.sum.c.abx.otu.rem <- list()
+for(a in 1:nrow(otu.sum.c.abx.otu)){
+  empty <- length(which(otu.sum.c.abx.otu[a,] == 0))
     # Identifies # of samples w/o OTU
-  if(empty > 0){
-    # If OTU appears in < 3 samples
-    otu.sum.m.abx.otu.rem <- append(otu.sum.m.abx.otu.rem, a)
+  if(empty == 3){
+    # If OTU appears in < 2 samples
+    otu.sum.c.abx.otu.rem <- append(otu.sum.c.abx.otu.rem, a)
       # Create list of OTUs that appear in only 1 sample
   }
 }
 # 899 OTUs to remove
-otu.sum.m.abx.otu.rem <- otu.sum.m.abx.otu[-unlist(otu.sum.m.abx.otu.rem),]
+otu.sum.c.abx.otu.rem <- otu.sum.c.abx.otu[-unlist(otu.sum.c.abx.otu.rem),]
 # Update physeq object
-phy.sum.m.abx.rem <- merge_phyloseq(otu_table(otu.sum.m.abx.otu.rem, taxa_are_rows=T),
+phy.sum.c.abx.rem <- merge_phyloseq(otu_table(otu.sum.c.abx.otu.rem, taxa_are_rows=T),
                                     sample_data(phy.sum.c.abx), tax_table(phy.sum.c.abx))
 
 
 
-### Drop taxa in < 3 samples
+### Drop taxa in < 2 samples
 otu.sum.m.abx.otu <- data.frame(otu_table(phy.sum.m.abx))
 otu.sum.m.abx.otu.rem <- list()
 for(b in 1:nrow(otu.sum.m.abx.otu)){
   empty <- length(which(otu.sum.m.abx.otu[b,] == 0))
     # Identifies # of samples w/o OTU
-  if(empty > 0){
-    # If OTU appears in < 3 samples
+  if(empty == 3){
+    # If OTU appears in < 2 samples
     otu.sum.m.abx.otu.rem <- append(otu.sum.m.abx.otu.rem, b)
       # Create list of OTUs that appear in only 1 sample
   }
@@ -360,14 +360,14 @@ phy.sum.m.abx.rem <- merge_phyloseq(otu_table(otu.sum.m.abx.otu.rem, taxa_are_ro
 
 
 
-### Drop taxa in < 3 samples
+### Drop taxa in < 2 samples
 otu.win.c.abx.otu <- data.frame(otu_table(phy.win.c.abx))
 otu.win.c.abx.otu.rem <- list()
 for(c in 1:nrow(otu.win.c.abx.otu)){
   empty <- length(which(otu.win.c.abx.otu[c,] == 0))
     # Identifies # of samples w/o OTU
-  if(empty > 1){
-    # If OTU appears in < 3 samples
+  if(empty == 4){
+    # If OTU appears in < 1 samples
     otu.win.c.abx.otu.rem <- append(otu.win.c.abx.otu.rem, c)
       # Create list of OTUs that appear in only 1 sample
   }
@@ -415,4 +415,91 @@ phy.win.c.abx.sum <- phy.win.c.abx.df %>%
 #write.csv(phy.sum.c.abx.sum, "16S/SummerContentABX_TaxTable.csv")
 #write.csv(phy.sum.m.abx.sum, "16S/SummerMucosaABX_TaxTable.csv")
 #write.csv(phy.win.c.abx.sum, "16S/WinterContentABX_TaxTable.csv")
+```
+
+
+### ABX Microbes - All samples
+```{r}
+phy.c.abx <- subset_samples(phy.c, Antibiotics == "Yes")
+phy.c.abx <- filter_taxa(phy.c.abx, function(x) sum(x) > 0, T)
+
+
+phy.c.abx.df <- psmelt(phy.c.abx)
+phy.c.abx.sum <- phy.c.abx.df %>%
+  group_by(OTU, Genus, Season) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+
+#write.csv(phy.c.abx.sum, "16S/ContentABX_TaxTable.csv")
+
+
+### Effect size calculation
+cohen.d(phy.c.abx.df$Abundance ~ phy.c.abx.df$Season)
+  # d = 8.591606e-18 (negligible)
+
+
+### Power calculation
+pwr.t2n.test(n1 = length(which(phy.c.abx.df$Season == "Summer")),
+            n2 = length(which(phy.c.abx.df$Season == "Winter")), d = 8.591606e-18)
+  # power = 0.05
+
+
+### Species test
+otus <- data.frame(otu_table(phy.c.abx))
+wil.spe <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(phy.c.abx)))[1]){
+  wil <- wilcox.test(x=as.numeric(otus[taxon,]), g=meta$Season)
+  wil.spe <- rbind(wil.spe, data.frame(taxon = rownames(otus)[taxon], pval = wil$p.value))
+}
+wil.spe$padj <- p.adjust(wil.spe$pval, method = "BH")
+
+
+
+
+### Identify top 10 taxa in summer and winter content ABX
+phy.c.abx.sum.top <- phy.c.abx.sum[which(phy.c.abx.sum$Season == "Summer"),]
+phy.c.abx.sum.top <- phy.c.abx.sum.top[order(-phy.c.abx.sum.top$Mean),]
+s.top <- phy.c.abx.sum.top[1:10,]
+
+phy.c.abx.win.top <- phy.c.abx.sum[which(phy.c.abx.sum$Season == "Winter"),]
+phy.c.abx.win.top <- phy.c.abx.win.top[order(-phy.c.abx.win.top$Mean),]
+w.top <- phy.c.abx.win.top[1:10,]
+
+
+
+
+
+## Subset out top 10 winter taxa from all samples
+phy.c.abx.top <- subset_taxa(phy.c.abx, Species == w.top$OTU[1] | Species == w.top$OTU[2] |
+                               Species == w.top$OTU[3] | Species == w.top$OTU[4] |
+                               Species == w.top$OTU[5] | Species == w.top$OTU[6] |
+                               Species == w.top$OTU[7] | Species == w.top$OTU[8] |
+                               Species == w.top$OTU[9] | Species == w.top$OTU[10])
+phy.c.abx.top.df <- psmelt(phy.c.abx.top)
+```
+
+### ABX Microbes - Plot top ABX taxa
+```{r}
+ggplot(phy.c.abx.top.df, aes(x=Season, y=Abundance, fill=Season)) +
+  geom_dotplot(binaxis='y', stackdir='center', dotsize = 1.5) +
+  facet_wrap(OTU ~ ., ncol = 5, scales = "free") +
+  scale_fill_manual(name="Season", values=c("#E69F00", "#0072B2")) +
+  ylab("Relative Abundance") +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.75,
+               show.legend = F) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.text.x = element_text(size=14),
+        axis.text.y = element_text(size=14),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
+        strip.text.x = element_text(size=20),
+        strip.text.y = element_text(size=14),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 18, face="bold"),
+        legend.text = element_text(size=16),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+  ) 
 ```
