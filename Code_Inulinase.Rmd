@@ -577,12 +577,13 @@ phy.df$Phylum <- name
 phy.df$Phylum <- ordered(phy.df$Phylum, levels = c("Bacteroidetes", "Firmicutes", "Actinobacteria", "Deinococcus-Thermus", "Proteobacteria", "Ascomycota"))
 
 
-#tiff("inulinase.phyla.tiff", width = 300, height = 180, units = "mm", res = 400)
+tiff("inulinase.phyla.tiff", width = 300, height = 180, units = "mm", res = 400)
 ggplot(phy.df, aes(x=Metabolism, y=Abundance, fill=Metabolism)) +
   geom_dotplot(binaxis='y', stackdir = "center", dotsize = 1.5) +
   facet_wrap(Phylum ~ ., ncol = 3, scales = "free", labeller = labeller(OTU = newLabel)) +
-  scale_fill_manual(name="Season", values=c("white", "gray60")) +
+  scale_fill_manual(name="Seasonal\nMetabolism", values=c("white", "gray60")) +
   ylab("Relative Abundance (%)") +
+  xlab("Seasonal Metabolism") +
   stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
                color = "black", position = position_dodge(0), size = 0.75,
                show.legend = F) +
@@ -600,7 +601,7 @@ ggplot(phy.df, aes(x=Metabolism, y=Abundance, fill=Metabolism)) +
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
   ) 
-#dev.off()
+dev.off()
 
 
 
@@ -636,12 +637,13 @@ speUse.plot$Species <- ordered(speUse.plot$Species, levels=c("Candidatus Amulumr
                                                              "Bacteroides acidifaciens"))
 
 
-tiff("inulinase.species.tiff", width = 400, height = 100, units = "mm", res = 400)
-ggplot(speUse.plot, aes(x=Season, y=Abundance, fill=Season)) +
+#tiff("inulinase.species.tiff", width = 410, height = 100, units = "mm", res = 400)
+ggplot(speUse.plot, aes(x=Metabolism, y=Abundance, fill=Metabolism)) +
   geom_dotplot(binaxis='y', stackdir = "center", dotsize = 1.5) +
   facet_wrap(Species ~ ., ncol = 3, scales = "free") +
-  scale_fill_manual(name="Season", values=c("#E69F00", "#0072B2", "#00bf8b")) +
+  scale_fill_manual(name="Seasonal\nMetabolism", values=c("white", "gray60")) +
   ylab("Relative Abundance (%)") +
+  xlab("Seasonal Metabolism") +
   stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
                color = "black", position = position_dodge(0), size = 0.75,
                show.legend = F) +
@@ -659,7 +661,7 @@ ggplot(speUse.plot, aes(x=Season, y=Abundance, fill=Season)) +
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
   ) 
-dev.off()
+#dev.off()
 
 
 
@@ -684,12 +686,13 @@ speUse2.plot$Species <- ordered(speUse2.plot$Species, levels=c("Aspergillus mulu
                                                               "Talaromyces amestolkiae"))
 
 
-#tiff("inulinase.species.fungi.tiff", width = 210, height = 100, units = "mm", res = 400)
-ggplot(speUse2.plot, aes(x=Season, y=Abundance, fill=Season)) +
+tiff("inulinase.species.fungi.tiff", width = 215, height = 100, units = "mm", res = 400)
+ggplot(speUse2.plot, aes(x=Metabolism, y=Abundance, fill=Metabolism)) +
   geom_dotplot(binaxis='y', stackdir = "center", dotsize = 1.5) +
   facet_wrap(Species ~ ., ncol = 3, scales = "free") +
-  scale_fill_manual(name="Season", values=c("#E69F00", "#0072B2", "#00bf8b")) +
+  scale_fill_manual(name="Seasonal\nMetabolism", values=c("white", "gray60")) +
   ylab("Relative Abundance (%)") +
+  xlab("Seasonal Metabolism") +
   stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
                color = "black", position = position_dodge(0), size = 0.75,
                show.legend = F) +
@@ -707,7 +710,7 @@ ggplot(speUse2.plot, aes(x=Season, y=Abundance, fill=Season)) +
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
   ) 
-#dev.off()
+dev.off()
 
 
 
