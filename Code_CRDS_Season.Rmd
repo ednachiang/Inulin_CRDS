@@ -116,58 +116,6 @@ d.sal.noabx <- d.sal[which(d.sal$Antibiotics == "No"),]
 ```
 
 
-### Test Time of Max Delta Measurement
-```{r}
-### Test for normality
-hist(d.inu.abx$TimeMaxD)
-qqnorm(d.inu.abx$TimeMaxD)
-qqline(d.inu.abx$TimeMaxD)
-shapiro.test(d.inu.abx$TimeMaxD)
-  # p-value = 0.04414
-
-hist(d.inu.noabx$TimeMaxD)
-qqnorm(d.inu.noabx$TimeMaxD)
-qqline(d.inu.noabx$TimeMaxD)
-shapiro.test(d.inu.noabx$TimeMaxD)
-  # p-value = 0.03215
-
-hist(d.sal.abx$TimeMaxD)
-qqnorm(d.sal.abx$TimeMaxD)
-qqline(d.sal.abx$TimeMaxD)
-shapiro.test(d.sal.abx$TimeMaxD)
-  # p-value = 0.05436
-
-hist(d.sal.noabx$TimeMaxD)
-qqnorm(d.sal.noabx$TimeMaxD)
-qqline(d.sal.noabx$TimeMaxD)
-shapiro.test(d.sal.noabx$TimeMaxD)
-  # p-value = 0.2693
-
-
-### Test
-kruskal.test(formula = TimeMaxD ~ Season, data=d.inu.abx)
-  # p-value = 0.1629
-kruskal.test(formula = TimeMaxD ~ Season, data=d.inu.noabx)
-  # p-value = 0.3596
-summary(aov(TimeMaxD ~ Season, data = d.sal.abx))
-  # p-value = 0.000249
-summary(aov(TimeMaxD ~ Season, data = d.sal.noabx))
-  # p-value = 0.97
-
-
-
-### Test Variance
-fligner.test(TimeMaxD ~ Season, d.inu.abx)
-  # p-value = 0.7687
-fligner.test(TimeMaxD ~ Season, d.inu.noabx)
-  # p-value = 0.5644
-fligner.test(TimeMaxD ~ Season, d.sal.abx)
-  # p-value = 0.2844
-fligner.test(TimeMaxD ~ Season, d.sal.noabx)
-  # p-value = 0.9002
-
-```
-
 
 
 ### Test Delta Curve Slope
@@ -205,17 +153,17 @@ shapiro.test(d.sal.noabx$Slope)
 
 ### Test Mean
 summary(aov(Slope ~ Season, data = d.inu.abx))
-  # p-value = 0.000437
+  # p-value = 0.000437*
 TukeyHSD(aov(Slope ~ Season, data = d.inu.abx))
-  # Summer-Spring = 0.0006632
+  # Summer-Spring = 0.0006632*
   # Winter-Spring = 0.7445972
-  # Winter-Summer = 0.0020914  
+  # Winter-Summer = 0.0020914* 
 summary(aov(Slope ~ Season, data = d.inu.noabx))
-  # p-value = 0.000363
+  # p-value = 0.000363*
 TukeyHSD(aov(Slope ~ Season, data = d.inu.noabx))
   # Summer-Spring = 0.9969632
-  # Winter-Spring = 0.0011246
-  # Winter-Summer = 0.0009560
+  # Winter-Spring = 0.0011246*
+  # Winter-Summer = 0.0009560*
 kruskal.test(formula = Slope ~ Season, data = d.sal.abx)
   # p-value = 0.2049
 kruskal.test(formula = Slope ~ Season, data = d.sal.noabx)
@@ -368,61 +316,6 @@ grid.draw(abx.legend)
 
 ```
 
-### Test Time of Max Slope
-```{r}
-### Test for normality
-hist(d.inu.abx$SlopeTime)
-qqnorm(d.inu.abx$SlopeTime)
-qqline(d.inu.abx$SlopeTime)
-shapiro.test(d.inu.abx$SlopeTime)
-  # p-value = 3.271e-05
-  # Not Normal
-
-hist(d.inu.noabx$SlopeTime)
-qqnorm(d.inu.noabx$SlopeTime)
-qqline(d.inu.noabx$SlopeTime)
-shapiro.test(d.inu.noabx$SlopeTime)
-  # p-value = 0.4223
-  # Normal
-
-hist(d.sal.abx$SlopeTime)
-qqnorm(d.sal.abx$SlopeTime)
-qqline(d.sal.abx$SlopeTime)
-shapiro.test(d.sal.abx$SlopeTime)
-  # p-value = 0.003004
-  # Not Normal
-
-hist(d.sal.noabx$SlopeTime)
-qqnorm(d.sal.noabx$SlopeTime)
-qqline(d.sal.noabx$SlopeTime)
-shapiro.test(d.sal.noabx$SlopeTime)
-  # p-value = 0.351
-  # Normal
-
-
-### Test
-kruskal.test(formula = SlopeTime ~ Season, data = d.inu.abx)
-  # p-value = 0.06022
-summary(aov(SlopeTime ~ Season, data = d.inu.noabx))
-  # p-value = 0.546
-kruskal.test(formula = SlopeTime ~ Season, data = d.sal.abx)
-  # p-value = 0.8848
-summary(aov(SlopeTime ~ Season, data = d.sal.noabx))
-  # p-value = 0.575
-
-
-
-### Test Variance
-fligner.test(SlopeTime ~ Season, d.inu.abx)
-  # p-value = 0.02879
-fligner.test(SlopeTime ~ Season, d.inu.noabx)
-  # p-value = 0.08891
-fligner.test(SlopeTime ~ Season, d.sal.abx)
-  # p-value = 0.9703
-fligner.test(SlopeTime ~ Season, d.sal.noabx)
-  # p-value = 0.2962
-
-```
 
 
 ### Separate by substrate
