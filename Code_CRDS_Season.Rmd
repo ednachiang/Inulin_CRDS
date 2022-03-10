@@ -483,6 +483,100 @@ p.adjust(c(0.1629, 0.405, 0.883, 0.3546), method = "BH")
   # 0.540 0.540 0.883 0.540
 ```
 
+### Calculate AUC - For Repeated Measures Test
+```{r}
+ids <- unique(crds.rem$ID)
+rm.df <- data.frame()
+
+
+#crds.rem= crds.bin
+# First normalize Rel Time so 
+#for (i in 2){
+for (i in 1:length(ids)){
+  ID <- ids[i]
+  select <- crds.rem[which(crds.rem$ID == ID),]
+    # Dataframe with CRDS values for 1 squirrel
+
+  # Normalize delta value to baseline
+  select$Delta <- select$Delta - select$Delta[1]
+  
+  # Remove baseline from AUC calculation because we care about the AUC after gavage
+  # Since we already normalized delta value to baseline, we don't need that value anymore
+  # Set baseline to gavage time = 0
+  select[1,1] <- 0
+  
+  # Normalize AUC end time
+  # Since length of experiment varies for each individual, we don't want experimental length to bias our AUC calculations
+  # Normalize length to min time within each substrate
+    # Inu = 4.0667
+    # Sal = 2.21667
+  if (select$Substrate == "Inulin") {
+    max <- which(select$RelTime > 4.06667)
+    select$RelTime[max] <- 4.06667
+  } else if (select$Substrate == "Saline") {
+    max <- which(select$RelTime > 2.21666667)
+    select$RelTime[max] <- 2.21666667
+  }
+
+  # Create auc variable
+  #AUC <- 0
+  
+  # Run rectangle method integration - less accurate
+  #for (j in 1:(nrow(select)-1)){
+  #  AUC <- AUC + ((select$RelTime[j+1]-select$RelTime[j])*select$Delta[j+1])
+  #}
+  
+  # Run trapezoid method integration - more accurate
+  #for(j in 1:(nrow(select)-1)){
+  #  avgH <- (select$Delta[j+1]+select$Delta[j])/2
+      # Calculates average height between start and end point
+  #  width <- (select$RelTime[j+1]-select$RelTime[j])
+  #  AUC <- AUC + (avgH*width)
+  #}
+    
+ # auc.df[i,1] <- AUC
+  rm.df <-  rbind(rm.df, select)
+  
+  #use <- which(meta$ID == ID)
+  #auc.df$Ketones[i] <- meta$Ketones[use]
+}
+
+#write.csv(auc.df, "auc.csv", row.names=F)
+
+
+### Subset by Substrate & ABX
+rm.inu <- rm.df[which(rm.df$Substrate == "Inulin"),]
+rm.sal <- rm.df[which(rm.df$Substrate == "Saline"),]
+rm.inu.s <- rm.inu[which(rm.inu$Season == "Summer"),]
+rm.inu.w <- rm.inu[which(rm.inu$Season == "Winter"),]
+rm.inu.p <- rm.inu[which(rm.inu$Season == "Spring"),]
+rm.sal.s <- rm.sal[which(rm.sal$Season == "Summer"),]
+rm.sal.w <- rm.sal[which(rm.sal$Season == "Winter"),]
+rm.sal.p <- rm.sal[which(rm.sal$Season == "Spring"),]
+rm.inu.abx <- rm.inu[which(rm.inu$Antibiotics == "Yes"),]
+rm.inu.noabx <- rm.inu[which(rm.inu$Antibiotics == "No"),]
+rm.sal.abx <- rm.sal[which(rm.sal$Antibiotics == "Yes"),]
+rm.sal.noabx <- rm.sal[which(rm.sal$Antibiotics == "No"),]
+```
+```
+
+
+
+### Try Friedman test (non-parametric version of repeated measures ANOVA)
+```{r}
+# https://www.datanovia.com/en/lessons/friedman-test-in-r/
+
+friedman.test(formula = as.numeric(AUC) ~ Season | BinTime, data = auc.inu.noabx)
+
+friedman.test(y = auc.inu.noabx$AUC, groups = factor(auc.inu.noabx$Season), blocks = factor(auc.inu.noabx$ID) )
+
+
+
+friedman.test(Delta ~ Season | RelTime, data = rm.inu.noabx)
+
+```
+
+
 
 
 ### Plot AUC
@@ -720,13 +814,13 @@ inu.delta.plot <- ggplot(inu.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
                                     fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
   scale_color_manual(values = c("#E69F00", "#0072B2", "#00bf8b"), guide = "none") +
   scale_fill_manual(values=c("#E69F00", "#0072B2", "#00bf8b"), na.value="white", guide="none") +
-  geom_errorbar(aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), 
+  geom_errorbar(aes(ymin = Y_Mean-Y_SD, ymax = Y_Mean+Y_SD), 
                 width=0.125, position=position_dodge(0.1)) +
   ggtitle(expression("Inulin"~~delta^13~"C")) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
   xlim(-0.6,4.1) +
-  scale_y_continuous(breaks=c(0, 500, 1000, 1500, 2000, 2500, 3000), limits=c(-30, 3100)) +
+  scale_y_continuous(breaks=c(0, 780, 1560, 2340, 3120, 3900), limits=c(-30, 3900)) +
   theme(plot.title=element_text(hjust=0.5, size=20),
         axis.title.x=element_text(size=20, 
                                   margin=margin(t=10, r=0, b=0, l=0)),
@@ -747,8 +841,9 @@ sal.delta.plot <- ggplot(sal.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
                                    fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
   scale_color_manual(values = c("#E69F00", "#0072B2", "#00bf8b"), guide = "none") +
   scale_fill_manual(values=c("#E69F00", "#0072B2", "#00bf8b"), na.value="white", guide="none") +
-  geom_errorbar(aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125,
+  geom_errorbar(aes(ymin = Y_Mean-Y_SD, ymax = Y_Mean+Y_SD), width=0.125,
                 position=position_dodge(0.1)) +
+  scale_y_continuous(breaks=c(-30.0, -24.8, -19.6, -14.4, -9.2, -4.0), limits=c(-30, -4)) +
   ggtitle(expression("Saline"~~delta^13~"C")) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
@@ -771,12 +866,12 @@ carb.plot <- ggplot(crds.sum, aes(x=BinTime, y=Y_Mean, color=Season)) +
    geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
   scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
   scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
-  geom_errorbar(aes(ymin = Y_Mean-Y_SE, ymax = Y_Mean+Y_SE), width=0.125, position=position_dodge(0.1)) + 
+  geom_errorbar(aes(ymin = Y_Mean-Y_SD, ymax = Y_Mean+Y_SD), width=0.125, position=position_dodge(0.1)) + 
   facet_grid(.~Substrate) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
   xlim(-0.6,4.41) +
-  scale_y_continuous(breaks=c(0, 500, 1000, 1500, 2000, 2500, 3000), limits=c(-30, 3100)) +
+  scale_y_continuous(breaks=c(0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000), limits=c(-30, 4000)) +
   theme(axis.text.x = element_text(size=16),
         axis.text.y = element_text(size=16),
         axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
@@ -794,7 +889,7 @@ carb.plot <- ggplot(crds.sum, aes(x=BinTime, y=Y_Mean, color=Season)) +
 
 
 
-png("prospectus.delta.curves.png", width = 240, height = 110, units = "mm", res = 400)
+png("prospectus.delta.sd.curves.png", width = 240, height = 110, units = "mm", res = 400)
 carb.plot
 dev.off()
 ```
