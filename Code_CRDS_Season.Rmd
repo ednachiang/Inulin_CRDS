@@ -15,7 +15,6 @@ library(MESS)
 library(pgirmess)
 library(Bolstad2)
 library(phyloseq)
-library(miLineage)
 library(psych)
 library(car)
 source('scripts/import_crds.R')
@@ -448,15 +447,32 @@ shapiro.test(auc.sal.abx$AUC)
 
 
 
+### Test AUC - Seasons
+kruskal.test(formula = AUC ~ Season, data=auc.inu.noabx)
+  # p-value = 0.1629
+summary(aov(formula = AUC ~ Season, data=auc.sal.noabx))
+  # p-value = 0.405
+summary(aov(formula = AUC ~ Season, data=auc.inu.abx))
+  # p-value = 0.883
+kruskal.test(formula = AUC ~ Season, data=auc.sal.abx)
+  # p-value = 0.3546
+
+
+
+
+
 ### Test AUC Variance - Seasons
 fligner.test(AUC ~ Season, auc.inu.noabx)
   # p-value = 0.02061*
 fligner.test(AUC ~ Season, auc.inu.noabx[which(auc.inu.noabx$Season != "Spring"),])
   # p-value = 0.3274
+  # adj p = 0.3274
 fligner.test(AUC ~ Season, auc.inu.noabx[which(auc.inu.noabx$Season != "Winter"),])
   # p-value = 0.04832*
+  # adj p = 0.07248
 fligner.test(AUC ~ Season, auc.inu.noabx[which(auc.inu.noabx$Season != "Summer"),])
   # p-value = 0.01802*
+  # adj p = 0.05406
 p.adjust(c(0.3274, 0.04832, 0.01802), method = "fdr")
   # 0.32740 0.07248 0.05406
 
@@ -468,113 +484,8 @@ fligner.test(AUC ~ Season, auc.sal.abx)
   # p-value = 0.5042
 
 
-
-### Test AUC - Seasons
-kruskal.test(formula = AUC ~ Season, data=auc.inu.noabx)
-  # p-value = 0.1629
-summary(aov(formula = AUC ~ Season, data=auc.sal.noabx))
-  # p-value = 0.405
-summary(aov(formula = AUC ~ Season, data=auc.inu.abx))
-  # p-value = 0.883
-kruskal.test(formula = AUC ~ Season, data=auc.sal.abx)
-  # p-value = 0.3546
-
-p.adjust(c(0.1629, 0.405, 0.883, 0.3546), method = "BH")
-  # 0.540 0.540 0.883 0.540
 ```
 
-### Calculate AUC - For Repeated Measures Test
-```{r}
-ids <- unique(crds.rem$ID)
-rm.df <- data.frame()
-
-
-#crds.rem= crds.bin
-# First normalize Rel Time so 
-#for (i in 2){
-for (i in 1:length(ids)){
-  ID <- ids[i]
-  select <- crds.rem[which(crds.rem$ID == ID),]
-    # Dataframe with CRDS values for 1 squirrel
-
-  # Normalize delta value to baseline
-  select$Delta <- select$Delta - select$Delta[1]
-  
-  # Remove baseline from AUC calculation because we care about the AUC after gavage
-  # Since we already normalized delta value to baseline, we don't need that value anymore
-  # Set baseline to gavage time = 0
-  select[1,1] <- 0
-  
-  # Normalize AUC end time
-  # Since length of experiment varies for each individual, we don't want experimental length to bias our AUC calculations
-  # Normalize length to min time within each substrate
-    # Inu = 4.0667
-    # Sal = 2.21667
-  if (select$Substrate == "Inulin") {
-    max <- which(select$RelTime > 4.06667)
-    select$RelTime[max] <- 4.06667
-  } else if (select$Substrate == "Saline") {
-    max <- which(select$RelTime > 2.21666667)
-    select$RelTime[max] <- 2.21666667
-  }
-
-  # Create auc variable
-  #AUC <- 0
-  
-  # Run rectangle method integration - less accurate
-  #for (j in 1:(nrow(select)-1)){
-  #  AUC <- AUC + ((select$RelTime[j+1]-select$RelTime[j])*select$Delta[j+1])
-  #}
-  
-  # Run trapezoid method integration - more accurate
-  #for(j in 1:(nrow(select)-1)){
-  #  avgH <- (select$Delta[j+1]+select$Delta[j])/2
-      # Calculates average height between start and end point
-  #  width <- (select$RelTime[j+1]-select$RelTime[j])
-  #  AUC <- AUC + (avgH*width)
-  #}
-    
- # auc.df[i,1] <- AUC
-  rm.df <-  rbind(rm.df, select)
-  
-  #use <- which(meta$ID == ID)
-  #auc.df$Ketones[i] <- meta$Ketones[use]
-}
-
-#write.csv(auc.df, "auc.csv", row.names=F)
-
-
-### Subset by Substrate & ABX
-rm.inu <- rm.df[which(rm.df$Substrate == "Inulin"),]
-rm.sal <- rm.df[which(rm.df$Substrate == "Saline"),]
-rm.inu.s <- rm.inu[which(rm.inu$Season == "Summer"),]
-rm.inu.w <- rm.inu[which(rm.inu$Season == "Winter"),]
-rm.inu.p <- rm.inu[which(rm.inu$Season == "Spring"),]
-rm.sal.s <- rm.sal[which(rm.sal$Season == "Summer"),]
-rm.sal.w <- rm.sal[which(rm.sal$Season == "Winter"),]
-rm.sal.p <- rm.sal[which(rm.sal$Season == "Spring"),]
-rm.inu.abx <- rm.inu[which(rm.inu$Antibiotics == "Yes"),]
-rm.inu.noabx <- rm.inu[which(rm.inu$Antibiotics == "No"),]
-rm.sal.abx <- rm.sal[which(rm.sal$Antibiotics == "Yes"),]
-rm.sal.noabx <- rm.sal[which(rm.sal$Antibiotics == "No"),]
-```
-```
-
-
-
-### Try Friedman test (non-parametric version of repeated measures ANOVA)
-```{r}
-# https://www.datanovia.com/en/lessons/friedman-test-in-r/
-
-friedman.test(formula = as.numeric(AUC) ~ Season | BinTime, data = auc.inu.noabx)
-
-friedman.test(y = auc.inu.noabx$AUC, groups = factor(auc.inu.noabx$Season), blocks = factor(auc.inu.noabx$ID) )
-
-
-
-friedman.test(Delta ~ Season | RelTime, data = rm.inu.noabx)
-
-```
 
 
 
@@ -889,9 +800,9 @@ carb.plot <- ggplot(crds.sum, aes(x=BinTime, y=Y_Mean, color=Season)) +
 
 
 
-png("prospectus.delta.sd.curves.png", width = 240, height = 110, units = "mm", res = 400)
+#png("prospectus.delta.sd.curves.png", width = 240, height = 110, units = "mm", res = 400)
 carb.plot
-dev.off()
+#dev.off()
 ```
 
 
