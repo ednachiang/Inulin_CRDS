@@ -20,12 +20,14 @@ library(pwr)
 library(tidyr)
 library(vegan)
 library(miLineage)
+library(pwr)
+library(effsize)
 #source('scripts/import_crds.R')
 #source('scripts/bin_crds.R')
 source('scripts/misc.R')
 #source('scripts/calc_delta_metrics.R')
-#source('scripts/simper_pretty.R')
-#source('scripts/R_krusk.R')
+source('scripts/simper_pretty.R')
+source('scripts/R_krusk.R')
 source('scripts/removeTaxa.R')
 #source('scripts/kaijuCreatePhyseq.R')
 theme_set(theme_bw())
@@ -195,6 +197,8 @@ load("16S/physeq/phy.summer.content.RData")
 load("16S/physeq/phy.summer.mucosa.RData")
 load("16S/physeq/phy.winter.content.RData")
 load("16S/physeq/phy.spring.content.RData")
+
+meta <- data.frame(sample_data(phy.use))
 ```
 
 
@@ -381,6 +385,151 @@ phy.win.c.abx.rem <- merge_phyloseq(otu_table(otu.win.c.abx.otu.rem, taxa_are_ro
 ```
 
 
+### Test ABX BetaDiv
+```{r}
+# Create physeq object
+abx.use <- merge_phyloseq(phy.sum.c.abx.rem, phy.win.c.abx.rem)
+
+
+# Test
+bray.abx <- phyloseq::distance(physeq = abx.use, method = "bray")
+beta.tax <- betadisper(d = bray.abx, group = data.frame(sample_data(abx.use))$Season)
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.75
+adonis(bray.abx ~ Season, data=data.frame(sample_data(abx.use)), permutations = 9999)
+  # p-value = 0.2571
+
+```
+
+
+### ABX SIMPER
+```{r}
+##### SIMPER
+
+# Change Group names to be compatible (no "_")
+muc.rename <- data.frame(sample_data(phy.muc))
+muc.rename$GroupRename <- rep(NA, nrow(muc.rename))
+muc.rename$GroupRename[which(muc.rename$Group == "Summer_Captive")] <- "Summer"
+muc.rename$GroupRename[which(muc.rename$Group == "Torpor")] <- "Torpor"
+muc.rename$GroupRename[which(muc.rename$Group == "IBA")] <- "IBA"
+muc.rename$GroupRename[which(muc.rename$Group == "Spring")] <- "Spring"
+muc.rename$GroupRename <- ordered(muc.rename$GroupRename, levels = c("Summer", "Torpor", "IBA", "Spring"))
+phy.muc.simp <- merge_phyloseq(otu_table(phy.muc), sample_data(muc.rename), tax_table(phy.muc))
+# Group
+
+
+
+simper.pretty(data.frame(otu_table(abx.use)),
+              data.frame(sample_data(abx.use)),
+              c("Season"),
+              perc_cutoff=0.5, low_cutoff='y', low_val=0.01,
+              output_name='abx')
+group.simper <- read.csv("abx_clean_simper.csv")
+kruskal.pretty(data.frame(otu_table(abx.use)),
+               data.frame(sample_data(abx.use)),
+               csv = group.simper,
+               c("Season"),
+               output_name = 'abx',
+               taxonomy = data.frame(tax_table(abx.use)))
+
+
+
+
+
+
+
+##### TAXA WILCOXON
+meta.abx <- data.frame(sample_data(abx.use))
+
+
+# Phylum
+abx.phy <- tax_glom(abx.use, taxrank="Phylum")
+phy <- data.frame(otu_table(abx.phy))
+wil.phy <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(abx.phy)))[1]){
+  es <- cohen.d(as.numeric(phy[taxon,]) ~ meta.abx$Season)
+  pwr <- pwr.t2n.test(n1 = length(which(meta.abx$Season == "Summer")),
+            n2 = length(which(meta.abx$Season == "Winter")), d = es$estimate)
+  wil.phy <- rbind(wil.phy, data.frame(taxon = rownames(phy)[taxon], cohenD = es$estimate, power = pwr[[5]]))
+}
+wil.phy$fdr <- mt(abx.phy, classlabel = "Season")$fdr
+
+
+
+# Class
+abx.cla <- tax_glom(abx.use, taxrank="Class")
+cla <- data.frame(otu_table(abx.cla))
+wil.cla <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(abx.cla)))[1]){
+  es <- cohen.d(as.numeric(cla[taxon,]) ~ meta.abx$Season)
+  pwr <- pwr.t2n.test(n1 = length(which(meta.abx$Season == "Summer")),
+            n2 = length(which(meta.abx$Season == "Winter")), d = es$estimate)
+  wil.cla <- rbind(wil.cla, data.frame(taxon = rownames(cla)[taxon], cohenD = es$estimate, power = pwr[[5]]))
+}
+wil.cla$fdr <- mt(abx.cla, classlabel = "Season")$fdr
+
+
+
+# Order
+abx.ord <- tax_glom(abx.use, taxrank="Order")
+ord <- data.frame(otu_table(abx.ord))
+wil.ord <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(abx.ord)))[1]){
+  es <- cohen.d(as.numeric(ord[taxon,]) ~ meta.abx$Season)
+  pwr <- pwr.t2n.test(n1 = length(which(meta.abx$Season == "Summer")),
+            n2 = length(which(meta.abx$Season == "Winter")), d = es$estimate)
+  wil.ord <- rbind(wil.ord, data.frame(taxon = rownames(ord)[taxon], cohenD = es$estimate, power = pwr[[5]]))
+}
+wil.ord$fdr <- mt(abx.ord, classlabel = "Season")$fdr
+
+
+
+
+# Family
+abx.fam <- tax_glom(abx.use, taxrank="Family")
+fam <- data.frame(otu_table(abx.fam))
+wil.fam <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(abx.fam)))[1]){
+  es <- cohen.d(as.numeric(fam[taxon,]) ~ meta.abx$Season)
+  pwr <- pwr.t2n.test(n1 = length(which(meta.abx$Season == "Summer")),
+            n2 = length(which(meta.abx$Season == "Winter")), d = es$estimate)
+  wil.fam <- rbind(wil.fam, data.frame(taxon = rownames(fam)[taxon], cohenD = es$estimate, power = pwr[[5]]))
+}
+wil.fam$fdr <- mt(abx.fam, classlabel = "Season")$fdr
+
+
+
+# Genus
+abx.gen <- tax_glom(abx.use, taxrank="Genus")
+gen <- data.frame(otu_table(abx.gen))
+wil.gen <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(abx.gen)))[1]){
+  es <- cohen.d(as.numeric(gen[taxon,]) ~ meta.abx$Season)
+  pwr <- pwr.t2n.test(n1 = length(which(meta.abx$Season == "Summer")),
+            n2 = length(which(meta.abx$Season == "Winter")), d = es$estimate)
+  wil.gen <- rbind(wil.gen, data.frame(taxon = rownames(gen)[taxon], cohenD = es$estimate, power = pwr[[5]]))
+}
+wil.gen$fdr <- mt(abx.gen, classlabel = "Season")$fdr
+
+
+
+# OTU
+otus <- data.frame(otu_table(abx.use))
+wil.spe <- data.frame()
+for(taxon in 1:dim(data.frame(otu_table(abx.use)))[1]){
+  es <- cohen.d(as.numeric(otus[taxon,]) ~ meta.abx$Season)
+  pwr <- pwr.t2n.test(n1 = length(which(meta.abx$Season == "Summer")),
+            n2 = length(which(meta.abx$Season == "Winter")), d = es$estimate)
+  wil.spe <- rbind(wil.spe, data.frame(taxon = rownames(otus)[taxon], cohenD = es$estimate, power = pwr[[5]]))
+}
+wil.spe$fdr <- mt(abx.use, classlabel = "Season")$fdr
+#write.csv(wil.spe, "16S/abx.spelum.output.csv")
+
+
+```
+
+
 ### ABX Microbes - Create tables
 ```{r}
 #barplot(sort(taxa_sums(phy.sum.c.abx.rem),TRUE)[1:10]/nsamples(phy.sum.c.abx.rem),las=2,cex.axis=.7)
@@ -478,6 +627,7 @@ phy.c.abx.top <- subset_taxa(phy.c.abx, Species == w.top$OTU[1] | Species == w.t
                                Species == w.top$OTU[9] | Species == w.top$OTU[10])
 phy.c.abx.top.df <- psmelt(phy.c.abx.top)
 ```
+
 
 ### ABX Microbes - Plot top ABX taxa
 ```{r}
