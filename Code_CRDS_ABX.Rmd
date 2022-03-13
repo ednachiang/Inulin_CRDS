@@ -14,7 +14,6 @@ library(MESS)
 library(pgirmess)
 library(Bolstad2)
 library(phyloseq)
-library(miLineage)
 library(psych)
 library(car)
 source('scripts/import_crds.R')
@@ -50,7 +49,7 @@ crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
 
 # Remove Saline outliers
 #crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
-#crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
   # This is an adult, not pup
@@ -131,8 +130,8 @@ hist(base.sal.w$Delta)
 qqnorm(base.sal.w$Delta)
 qqline(base.sal.w$Delta)
 shapiro.test(base.sal.w$Delta)
-  # p-value = 9.575e-05
-  # Not Normal
+  # p-value = 0.2759
+  # Normal
 
 # Saline Spring
 hist(base.sal.p$Delta)
@@ -144,36 +143,33 @@ shapiro.test(base.sal.p$Delta)
 
 
 ### Test Inulin
-
 # Summer
 t.test(Delta ~ Antibiotics, data = base.inu.s)
   # p-value = 0.3149
-
+  # adj p = 0.47235
 # Winter
 wilcox.test(Delta ~ Antibiotics, data = base.inu.w)
   # p-value = 0.62
-
+  # adj p = 0.744
 # Spring
-wilcox.test(Delta ~ Antibiotics, data = base.inu.p)
-  # p-value = 0.001166*
-
-
-
+t.test(Delta ~ Antibiotics, data = base.inu.p)
+  # p-value = 0.0001459*
+  # adj P = 0.0008754
 ### Test Saline
-
 # Summer
 t.test(Delta ~ Antibiotics, data = base.sal.s)
   # p-value = 0.2038
-
+  # adj p = 0.47235
 # Winter
-wilcox.test(Delta ~ Antibiotics, data = base.sal.w)
-  # p-value = 0.6678
-
+t.test(Delta ~ Antibiotics, data = base.sal.w)
+  # p-value = 0.9782
+  # adj p = 0.978
 # Spring
 t.test(Delta ~ Antibiotics, data = base.sal.p)
   # p-value = 0.2762
-
-
+  # adj p = 0.4723500
+p.adjust(c(0.3149, 0.62, 0.0001459, 0.2038, 0.9782, 0.2762), method = "BH")
+  # 0.4723500 0.7440000 0.0008754 0.4723500 0.9782000 0.4723500
 
 
 
@@ -181,18 +177,27 @@ t.test(Delta ~ Antibiotics, data = base.sal.p)
 # Inulin
 fligner.test(Delta ~ Antibiotics, base.inu.s)
   # p-value = 0.9936
+  # adj p = 0.9936
 var.test(Delta ~ Antibiotics, base.inu.w)
   # p-value = 0.2023
+  # adj p = 0.4046
 fligner.test(Delta ~ Antibiotics, base.inu.p)
   # p-value = 0.0981
+  # adj p = 0.2943
 
 # Saline
 fligner.test(Delta ~ Antibiotics, base.sal.s)
   # p-value = 0.8791
-var.test(Delta ~ Antibiotics, base.sal.w)
-  # p-value = 0.01636*
+  # adj p = 0.9936
+fligner.test(Delta ~ Antibiotics, base.sal.w)
+  # p-value = 0.0502
+  # 0.2943
 fligner.test(Delta ~ Antibiotics, base.sal.p)
   # p-value = 0.9257
+  # adj p = 0.9936
+
+p.adjust(c(0.9936, 0.2023, 0.0981, 0.8791, 0.0502, 0.9257), method = "BH")
+  # 0.9936 0.4046 0.2943 0.9936 0.2943 0.9936
 ```
 
 ### Calculate Delta Metrics
@@ -232,89 +237,6 @@ d.sal.w <- d.sal[which(d.sal$Season == "Winter"),]
 d.sal.p <- d.sal[which(d.sal$Season == "Spring"),]
 ```
 
-### Test Time of Max Delta Measurement
-```{r}
-### Test for normality
-
-# Inulin Summer
-hist(d.inu.s$TimeMaxD)
-qqnorm(d.inu.s$TimeMaxD)
-qqline(d.inu.s$TimeMaxD)
-shapiro.test(d.inu.s$TimeMaxD)
-  # p-value = 0.01215
-  # Not Normal
-
-# Inulin Winter
-hist(d.inu.w$TimeMaxD)
-qqnorm(d.inu.w$TimeMaxD)
-qqline(d.inu.w$TimeMaxD)
-shapiro.test(d.inu.w$TimeMaxD)
-  # p-value = 0.01511
-  # Not Normal
-
-# Inulin Spring
-hist(d.inu.p$TimeMaxD)
-qqnorm(d.inu.p$TimeMaxD)
-qqline(d.inu.p$TimeMaxD)
-shapiro.test(d.inu.p$TimeMaxD)
-  # p-value = 0.0408
-  # Not Normal
-
-# Saline Summer
-hist(d.sal.s$TimeMaxD)
-qqnorm(d.sal.s$TimeMaxD)
-qqline(d.sal.s$TimeMaxD)
-shapiro.test(d.sal.s$TimeMaxD)
-  # p-value = 0.04462
-  # Not Normal
-
-# Saline Winter
-hist(d.sal.w$TimeMaxD)
-qqnorm(d.sal.w$TimeMaxD)
-qqline(d.sal.w$TimeMaxD)
-shapiro.test(d.sal.w$TimeMaxD)
-  # p-value = 0.01029
-  # Not Normal
-
-# Saline Spring
-hist(d.sal.p$TimeMaxD)
-qqnorm(d.sal.p$TimeMaxD)
-qqline(d.sal.p$TimeMaxD)
-shapiro.test(d.sal.p$TimeMaxD)
-  # p-value = 0.2392
-  # Normal
-
-
-### Test Inulin
-
-# Summer
-wilcox.test(TimeMaxD ~ Antibiotics, data = d.inu.s)
-  # p-value = 0.001166*
-
-# Winter
-wilcox.test(TimeMaxD ~ Antibiotics, data = d.inu.w)
-  # p-value = 0.00326*
-
-# Spring
-wilcox.test(TimeMaxD ~ Antibiotics, data = d.inu.p)
-  # p-value = 0.001166*
-
-
-
-### Test Saline
-
-# Summer
-wilcox.test(TimeMaxD ~ Antibiotics, data = d.sal.s)
-  # p-value = 0.05346
-
-# Winter
-wilcox.test(TimeMaxD ~ Antibiotics, data = d.sal.w)
-  # p-value = 0.0452*
-
-# Spring
-t.test(TimeMaxD ~ Antibiotics, data = d.sal.p)
-  # p-value = 0.8299
-```
 
 ### Test Max Slope
 ```{r}
@@ -357,7 +279,7 @@ hist(d.sal.w$Slope)
 qqnorm(d.sal.w$Slope)
 qqline(d.sal.w$Slope)
 shapiro.test(d.sal.w$Slope)
-  # p-value = 2.14e-05
+  # p-value = 2.073e-05
   # Not Normal
 
 # Saline Spring
@@ -370,35 +292,35 @@ shapiro.test(d.sal.p$Slope)
 
 
 ### Test Inulin
-
 # Summer
 wilcox.test(Slope ~ Antibiotics, data = d.inu.s)
   # p-value = 0.001166*
-
+  # adj p = 0.003498*
 # Winter
 wilcox.test(Slope ~ Antibiotics, data = d.inu.w)
   # p-value = 0.02622*
-
+  # adj p = 0.052440
 # Spring
 wilcox.test(Slope ~ Antibiotics, data = d.inu.p)
   # p-value = 0.001166*
-
-
+  # adj p = 0.003498
 
 ### Test Saline
-
 # Summer
 wilcox.test(Slope ~ Antibiotics, data = d.sal.s)
   # p-value = 0.4452
-
+  # adj p = 0.6282
 # Winter
 wilcox.test(Slope ~ Antibiotics, data = d.sal.w)
   # p-value = 0.6282
-
+  # adj p = 0.6282
 # Spring
 t.test(Slope ~ Antibiotics, data = d.sal.p)
   # p-value = 0.6071
+  # adj p = 0.6282
 
+p.adjust(c(0.001166, 0.02622, 0.001166, 0.4452, 0.6282, 0.6071), method = "BH")
+  # 0.003498 0.052440 0.003498 0.628200 0.628200 0.628200
 
 
 
@@ -406,109 +328,29 @@ t.test(Slope ~ Antibiotics, data = d.sal.p)
 # Inulin
 fligner.test(Slope ~ Antibiotics, d.inu.s)
   # p-value = 0.05126
+  # adj p = 0.16878
 fligner.test(Slope ~ Antibiotics, d.inu.w)
   # p-value = 0.08439
+  # adj p = 0.16878
 fligner.test(Slope ~ Antibiotics, d.inu.p)
   # p-value = 0.06578
+  # adj p = 0.16878
 
 # Saline
 fligner.test(Slope ~ Antibiotics, d.sal.s)
   # p-value = 0.1186
+  # adj p = 0.1779
 fligner.test(Slope ~ Antibiotics, d.sal.w)
   # p-value = 0.9316
+  # adj p = 0.9316
 var.test(Slope ~ Antibiotics, d.sal.p)
   # p-value = 0.3398
+  # p adj = 0.40776
+
+p.adjust(c(0.05126, 0.08439, 0.06578, 0.1186, 0.9316, 0.3398), method = "BH")
+  # p-value = 0.16878 0.16878 0.16878 0.17790 0.93160 0.40776
 ```
 
-### Test Time of Max Slope
-```{r}
-### Test for normality
-
-# Inulin Summer
-hist(d.inu.s$SlopeTime)
-qqnorm(d.inu.s$SlopeTime)
-qqline(d.inu.s$SlopeTime)
-shapiro.test(d.inu.s$SlopeTime)
-  # p-value = 0.3354
-  # Normal
-
-# Inulin Winter
-hist(d.inu.w$SlopeTime)
-qqnorm(d.inu.w$SlopeTime)
-qqline(d.inu.w$SlopeTime)
-shapiro.test(d.inu.w$SlopeTime)
-  # p-value = 0.004898
-  # Not Normal
-
-# Inulin Spring
-hist(d.inu.p$SlopeTime)
-qqnorm(d.inu.p$SlopeTime)
-qqline(d.inu.p$SlopeTime)
-shapiro.test(d.inu.p$SlopeTime)
-  # p-value = 0.03859
-  # Not Normal
-
-# Saline Summer
-hist(d.sal.s$SlopeTime)
-qqnorm(d.sal.s$SlopeTime)
-qqline(d.sal.s$SlopeTime)
-shapiro.test(d.sal.s$SlopeTime)
-  # p-value = 0.1082
-  # Normal
-
-# Saline Winter
-hist(d.sal.w$SlopeTime)
-qqnorm(d.sal.w$SlopeTime)
-qqline(d.sal.w$SlopeTime)
-shapiro.test(d.sal.w$SlopeTime)
-  # p-value = 09767
-  # Normal
-
-# Saline Spring
-hist(d.sal.p$SlopeTime)
-qqnorm(d.sal.p$SlopeTime)
-qqline(d.sal.p$SlopeTime)
-shapiro.test(d.sal.p$SlopeTime)
-  # p-value = 0.4747
-  # Normal
-
-
-### Test Inulin
-wilcox.test(SlopeTime ~ Antibiotics, data = d.inu.s)
-  # p-value = 0.943
-wilcox.test(SlopeTime ~ Antibiotics, data = d.inu.w)
-  # p-value = 0.0005828*
-t.test(SlopeTime ~ Antibiotics, data = d.inu.p)
-  # p-value = 0.007666*
-
-### Test Saline
-t.test(SlopeTime ~ Antibiotics, data = d.sal.s)
-  # p-value = 0.5457
-t.test(SlopeTime ~ Antibiotics, data = d.sal.w)
-  # p-value = 0.703
-t.test(SlopeTime ~ Antibiotics, data = d.sal.p)
-  # p-value = 0.6747
-
-
-
-
-## Test SlopeTime Variance
-# Inulin
-fligner.test(SlopeTime ~ Antibiotics, d.inu.s)
-  # p-value = 0.008092*
-fligner.test(SlopeTime ~ Antibiotics, d.inu.w)
-  # p-value = 0.01802*
-var.test(SlopeTime ~ Antibiotics, d.inu.p)
-  # p-value = 0.3405
-
-# Saline
-var.test(SlopeTime ~ Antibiotics, d.sal.s)
-  # p-value = 0.7846
-var.test(SlopeTime ~ Antibiotics, d.sal.w)
-  # p-value = 0.2052
-var.test(SlopeTime ~ Antibiotics, d.sal.p)
-  # p-value = 0.9076
-```
 
 ### Calculate AUC
 ```{r}
@@ -634,7 +476,7 @@ hist(auc.sal.w$AUC)
 qqnorm(auc.sal.w$AUC)
 qqline(auc.sal.w$AUC)
 shapiro.test(auc.sal.w$AUC)
-  # p-value = 0.02514
+  # p-value = 0.04773
   # Not Normal
 
 # Saline Spring
@@ -651,18 +493,27 @@ shapiro.test(auc.sal.p$AUC)
 # Inulin
 wilcox.test(AUC ~ Antibiotics, data = auc.inu.s)
   # p-value = 0.001166*
+  # adj p = 0.006993
 wilcox.test(AUC ~ Antibiotics, data = auc.inu.w)
   # p-value = 0.09732
+  # adj p = 0.121680
 wilcox.test(AUC ~ Antibiotics, data = auc.inu.p)
   # p-value = 0.002331*
+  # adj p = 0.006993
 
 # Saline
 wilcox.test(AUC ~ Antibiotics, data = auc.sal.s)
   # p-value = 0.1014
+  # adj p = 0.121680
 wilcox.test(AUC ~ Antibiotics, data = auc.sal.w)
-  # p-value = 0.1807
+  # p-value = 0.0303
+  # adj p = 0.060600
 wilcox.test(AUC ~ Antibiotics, data = auc.sal.p)
   # p-value = 0.366
+  # adj p = 0.366000
+
+p.adjust(c(0.001166, 0.09732, 0.002331, 0.1014, 0.0303, 0.366), method = "BH")
+  # 0.006993 0.121680 0.006993 0.121680 0.060600 0.366000
 
 
 
@@ -670,16 +521,25 @@ wilcox.test(AUC ~ Antibiotics, data = auc.sal.p)
 # Inulin
 fligner.test(AUC ~ Antibiotics, auc.inu.s)
   # p-value = 0.2125
+  # adj p = 0.2682
 fligner.test(AUC ~ Antibiotics, auc.inu.w)
   # p-value = 0.01802*
+  # adj p = 0.08574
 fligner.test(AUC ~ Antibiotics, auc.inu.p)
   # p-value = 0.02858*
+  # adj p = 0.08574
 
 # Saline
 fligner.test(AUC ~ Antibiotics, auc.sal.s)
   # p-value = 0.2235
+  # adj p = 0.2682
 fligner.test(AUC ~ Antibiotics, auc.sal.w)
-  # p-value = 0.9284
+  # p-value = 0.5236
+  # adj p = 0.5236
 fligner.test(AUC ~ Antibiotics, auc.sal.p)
   # p-value = 0.0888
+  # adj p = 0.1776
+
+p.adjust(c(0.2125, 0.01802, 0.02858, 0.2235, 0.5236, 0.0888), method = "BH")
+  # 0.26820 0.08574 0.08574 0.26820 0.52360 0.17760
 ```
