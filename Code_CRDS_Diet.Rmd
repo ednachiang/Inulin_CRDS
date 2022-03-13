@@ -15,7 +15,6 @@ library(MESS)
 library(pgirmess)
 library(Bolstad2)
 library(phyloseq)
-library(miLineage)
 library(psych)
 library(car)
 library(equivalence)
@@ -53,7 +52,7 @@ crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
 
 # Remove Saline outliers
 #crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
-#crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
   # This is an adult, not pup
