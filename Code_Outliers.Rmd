@@ -15,7 +15,6 @@ library(MESS)
 library(pgirmess)
 library(Bolstad2)
 library(phyloseq)
-library(miLineage)
 library(psych)
 library(car)
 source('scripts/import_crds.R')
@@ -52,8 +51,9 @@ crds.rem <- crds.bin[-which(crds.bin$ID == "S37"),]
 
 # Remove Saline outliers
 #crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
-#crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
-#crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
+  # Weird baseline & AUC
+crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
 #crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
   # This is an adult, not pup
@@ -230,8 +230,7 @@ base.sal.p <- base.sal[which(base.sal$Season == "Spring"),]
 dna <- read.csv("dna.csv", header=T)
 
 # Pull out content samples
-cc <-
-dna.con <- dna[which(substr(dna$Sample,1,2) == "CC"),]
+cc <- dna.con <- dna[which(substr(dna$Sample,1,2) == "CC"),]
 
 # Separate
 dna.inu <- dna.con[which(dna.con$Substrate == "Inulin"),]
