@@ -15,7 +15,6 @@ library(MESS)
 library(pgirmess)
 library(Bolstad2)
 library(phyloseq)
-library(miLineage)
 library(psych)
 library(car)
 source('scripts/import_crds.R')
@@ -52,7 +51,7 @@ crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
 
 # Remove Saline outliers
 #crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
-#crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
   # This is an adult, not pup
@@ -116,43 +115,6 @@ d.sal.abx <- d.sal[which(d.sal$Antibiotics == "Yes"),]
 d.sal.noabx <- d.sal[which(d.sal$Antibiotics == "No"),]
 ```
 
-### Test Time of Max Delta Measurement
-```{r}
-### Test BodyMass Correlation
-cor.test(d.inu.abx$TimeMaxD, d.inu.abx$BodyMass, method = "spearman")
-  # p-value = 0.8752
-cor.test(d.inu.noabx$TimeMaxD, d.inu.noabx$BodyMass, method = "spearman")
-  # p-value = 0.09366
-cor.test(d.sal.abx$TimeMaxD, d.sal.abx$BodyMass, method = "spearman")
-  # p-value = 0.007311
-  # rho = -0.5941203
-cor.test(d.sal.noabx$TimeMaxD, d.sal.noabx$BodyMass, method = "spearman")
-  # p-value = 0.6357
-
-
-### Test BodyTemp Correlation
-cor.test(d.inu.abx$TimeMaxD, d.inu.abx$BodyTemp, method = "spearman")
-  # p-value = 0.3558
-cor.test(d.inu.noabx$TimeMaxD, d.inu.noabx$BodyTemp, method = "spearman")
-  # p-value = 0.9616
-cor.test(d.sal.abx$TimeMaxD, d.sal.abx$BodyTemp, method = "spearman")
-  # p-value = 0.2484
-cor.test(d.sal.noabx$TimeMaxD, d.sal.noabx$BodyTemp, method = "spearman")
-  # p-value = 0.5482
-
-
-### Test Ketones Correlation
-cor.test(d.inu.abx$TimeMaxD, d.inu.abx$Ketones, method = "spearman")
-  # p-value = 0.1491
-cor.test(d.inu.noabx$TimeMaxD, d.inu.noabx$Ketones, method = "spearman")
-  # p-value = 0.8164
-cor.test(d.sal.abx$TimeMaxD, d.sal.abx$Ketones, method = "spearman")
-  # p-value = 0.01127
-  # rho = 0.6332747
-cor.test(d.sal.noabx$TimeMaxD, d.sal.noabx$Ketones, method = "spearman")
-  # p-value = 0.954
-```
-
 
 
 ### Test Delta Curve Slope
@@ -164,7 +126,7 @@ cor.test(d.inu.noabx$Slope, d.inu.noabx$BodyMass, method = "spearman")
   # p-value = 0.01366
   # rho = 0.5350649
 cor.test(d.sal.abx$Slope, d.sal.abx$BodyMass, method = "spearman")
-  # p-value = 0.1453
+  # p-value = 0.1474
 cor.test(d.sal.noabx$Slope, d.sal.noabx$BodyMass, method = "spearman")
   # p-value = 0.7771
 
@@ -175,7 +137,7 @@ cor.test(d.inu.abx$Slope, d.inu.abx$BodyTemp, method = "spearman")
 cor.test(d.inu.noabx$Slope, d.inu.noabx$BodyTemp, method = "spearman")
   # p-value = 0.4785
 cor.test(d.sal.abx$Slope, d.sal.abx$BodyTemp, method = "spearman")
-  # p-value = 0.6543
+  # p-value = 0.6344
 cor.test(d.sal.noabx$Slope, d.sal.noabx$BodyTemp, method = "spearman")
   # p-value = 0.2201
 
@@ -187,45 +149,11 @@ cor.test(d.inu.noabx$Slope, d.inu.noabx$Ketones, method = "spearman")
   # p-value = 0.001904
   # rho = -0.7136781
 cor.test(d.sal.abx$Slope, d.sal.abx$Ketones, method = "spearman")
-  # p-value = 0.6845
+  # p-value = 0.9702
 cor.test(d.sal.noabx$Slope, d.sal.noabx$Ketones, method = "spearman")
-  # p-value = 0.3014
+  # p-value = 0.7203
 ```
 
-### Test Time of Max Slope
-```{r}
-### Test BodyMass Correlation
-cor.test(d.inu.abx$SlopeTime, d.inu.abx$BodyMass, method = "spearman")
-  # p-value = 0.1834
-cor.test(d.inu.noabx$SlopeTime, d.inu.noabx$BodyMass, method = "spearman")
-  # p-value = 0.2928
-cor.test(d.sal.abx$SlopeTime, d.sal.abx$BodyMass, method = "spearman")
-  # p-value = 0.1286
-cor.test(d.sal.noabx$SlopeTime, d.sal.noabx$BodyMass, method = "spearman")
-  # p-value = 0.2559
-
-
-### Test BodyTemp Correlation
-cor.test(d.inu.abx$SlopeTime, d.inu.abx$BodyTemp, method = "spearman")
-  # p-value = 0.2517
-cor.test(d.inu.noabx$SlopeTime, d.inu.noabx$BodyTemp, method = "spearman")
-  # p-value = 0.3972
-cor.test(d.sal.abx$SlopeTime, d.sal.abx$BodyTemp, method = "spearman")
-  # p-value = 0.295
-cor.test(d.sal.noabx$SlopeTime, d.sal.noabx$BodyTemp, method = "spearman")
-  # p-value = 0.6758
-
-
-### Test Ketones Correlation
-cor.test(d.inu.abx$SlopeTime, d.inu.abx$Ketones, method = "spearman")
-  # p-value = 0.09738
-cor.test(d.inu.noabx$SlopeTime, d.inu.noabx$Ketones, method = "spearman")
-  # p-value = 0.4216
-cor.test(d.sal.abx$SlopeTime, d.sal.abx$Ketones, method = "spearman")
-  # p-value = 0.9242
-cor.test(d.sal.noabx$SlopeTime, d.sal.noabx$Ketones, method = "spearman")
-  # p-value = 0.8088
-```
 
 ### Separate by substrate
 ```{r}
@@ -361,4 +289,38 @@ cor.test(auc.inu.noabx$AUC, auc.inu.noabx$Ketones, method = "spearman")
 cor.test(auc.sal.noabx$AUC, auc.sal.noabx$Ketones, method = "spearman")
   # p-value = 0.08728
 
+```
+
+
+### Load/Test Inulinase RPKG
+```{r}
+### Exo - RPKG
+exo_rpkg <- read.csv('eCAMI/inulinase/exoRPKG.csv')
+exo_rpkg$Season <- ordered(exo_rpkg$Season, c("Summer", "Winter", "Spring"))
+
+# Remove W20 outlier
+exo_rpkg <- exo_rpkg[-which(exo_rpkg$Sample == "S-W20"),]
+
+
+### Prepare AUC & slope data
+for(sample in 1:nrow(exo_rpkg)){
+  sampName <- substr(exo_rpkg$Sample[sample], 3, 5)
+  useRow <- which(auc.df$ID == sampName)
+  exo_rpkg$AUC[sample] <- auc.df$AUC[useRow]
+  useRowD <- which(d.metrics$ID == sampName)
+  exo_rpkg$Slope[sample] <- d.metrics$Slope[useRowD]
+}
+
+# Subset out inulin samples
+exo_rpkg_inu <- exo_rpkg[1:9,]
+
+
+
+### Test RPKG - AUC
+cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$AUC, method = "spearman")
+  # p-value = 0.8801
+
+### Test RPKG - Slope
+cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$Slope, method = "spearman")
+  # p-value = 0.8432
 ```
