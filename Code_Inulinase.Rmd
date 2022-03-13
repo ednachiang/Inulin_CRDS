@@ -60,9 +60,10 @@ TukeyHSD(aov(Avg_Genome_Size ~ Season, data = ags))
   # Summer-Winter = 0.0104046
   # Summer-Spring = 0.8820160
   # Winter-Spring = 0.0250999
+  # Winter Genomes < Summer and Spring Genomes
+    # Winter has more specialists?
 summary(aov(Genome_Equivalents ~ Season, data = ags))
   # p-value = 0.325
-
 #t.test(Avg_Genome_Size ~ Metabolism, data = ags)
   # p-value = 0.008007
 #t.test(Genome_Equivalents ~ Metabolism, data = ags)
@@ -100,7 +101,7 @@ ggplot(ags, aes(x = Season, y = AGS_kb, fill = Season)) +
 ### Endo/Exo Rel Abund & RPKG
 ```{r}
 ### Rel Abund
-mapped_all <- read.csv('eCAMI/mapped_reads_all.csv')
+mapped_all <- read.csv('eCAMI/inulinase/mapped_reads_all.csv')
 exo_mapped <- mapped_all[which(mapped_all$Protein == "Exo"),]
 endo_mapped <- mapped_all[which(mapped_all$Protein == "Endo"),]
 
@@ -140,7 +141,7 @@ leveneTest(RelAbund.100000 ~ Metabolism, data=endo_mapped)
 
 
 ### Exo - RPKG
-exo_rpkg <- read.csv('eCAMI/exoRPKG.csv')
+exo_rpkg <- read.csv('eCAMI/inulinase/exoRPKG.csv')
 exo_rpkg$Season <- ordered(exo_rpkg$Season, c("Summer", "Winter", "Spring"))
 
 # Remove W20 outlier
@@ -161,6 +162,39 @@ fligner.test(RPKG ~ Metabolism, data=exo_rpkg)
   # p-value = 0.7648
 ```
 
+### Correlate RPKG w/ Delta
+```{r}
+
+```
+
+### Plot - Rel Abund
+```{r}
+tiff("inulinase.relAbund.tiff", width = 175, height = 100, units = "mm", res = 400)
+ggplot(exoMapped, aes(x=Season, y=RelAbund.100000, fill=Season)) +
+  geom_dotplot(binaxis='y', stackdir='center', dotsize = 1.5) +
+  scale_fill_manual(name="Season", values=c("#E69F00", "#0072B2", "#00bf8b")) +
+  ylab("Relative Abundance (%) *\n100000") +
+  scale_y_continuous(breaks=c(1.40, 2.69, 3.98, 5.27, 6.56, 7.85),
+                     limits=c(1.40, 7.85)) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.75,
+               show.legend = F) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.text.x = element_text(size=14),
+        axis.text.y = element_text(size=14),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
+        strip.text.x = element_text(size=20),
+        strip.text.y = element_text(size=14),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 18, face="bold"),
+        legend.text = element_text(size=16),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+  ) 
+dev.off()
+
+```
 
 ### Plot - RPKG
 ```{r}
@@ -195,6 +229,67 @@ ggplot(exo_rpkg, aes(x=Season, y=RPKG, fill=Season)) +
 ```
 
 
+### DNA Yield
+```{r}
+dna <- read.csv('dna.csv')
+dna.c <- dna[which(grepl("CC", dna$Sample) == T),]
+dna.c$Metabolism <- "a"
+dna.c$Metabolism[which(dna.c$Season == "Winter")] <- "Hibernation"
+dna.c$Metabolism[which(dna.c$Season != "Winter")] <- "Active"
+dna.c$Metabolism <- ordered(dna.c$Metabolism, levels = c("Active", "Hibernation"))
+dna.c$Season <- ordered(dna.c$Season, levels = c("Summer", "Winter", "Spring"))
+
+dna.c.noabx <- dna.c[which(dna.c$Antibiotics == "No Antibiotics"),]
+
+
+shapiro.test(dna.c$DNA_Yield_.ng.mg.)
+  # p-value = 4.583e-08
+  # Not Normal
+shapiro.test(dna.c.noabx$DNA_Yield_.ng.mg.)
+  # p-value = 0.601
+  # Normal
+
+summary(aov(formula = DNA_Yield_.ng.mg. ~ Season, data = dna.c))
+  # p-value = 0.411
+summary(aov(formula = DNA_Yield_.ng.mg. ~ Season, data = dna.c.noabx))
+  # p-value = 0.0472*
+TukeyHSD(aov(formula = DNA_Yield_.ng.mg. ~ Season, data = dna.c.noabx))
+  # Summer-Winter = 0.9023267
+  # Summer-Spring = 0.0499387*
+  # Winter-Spring = 0.1449934
+
+t.test(formula = DNA_Yield_.ng.mg. ~ Metabolism, data = dna.c.noabx)
+  # p-value = 0.3962
+```
+
+
+### Plot - DNA Yield
+```{r}
+#tiff("dna_yield.noabx.tiff", width = 175, height = 100, units = "mm", res = 400)
+ggplot(dna.c.noabx, aes(x=Season, y=DNA_Yield_.ng.mg., fill=Season)) +
+  geom_dotplot(binaxis='y', stackdir='center', dotsize = 1.5) +
+  scale_fill_manual(name="Season", values=c("#E69F00", "#0072B2", "#00bf8b")) +
+  ylab("DNA Yield\n(ng/mg cecal content)") +
+  scale_y_continuous(breaks=c(33.0, 66.4, 99.8, 133.2, 166.6, 200.0),
+                     limits=c(33, 206)) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.75,
+               show.legend = F) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.text.x = element_text(size=14),
+        axis.text.y = element_text(size=14),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
+        strip.text.x = element_text(size=20),
+        strip.text.y = element_text(size=14),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 18, face="bold"),
+        legend.text = element_text(size=16),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+  ) 
+#dev.off()
+```
 
 ### DON'T RUN - Prepare taxonomic data
 ```{r}
@@ -651,10 +746,10 @@ spe.df$Species[which(spe.df$Species == NA)] <- spe.df$ta7[which(spe.df$Species =
 
 speUse <- c("Candidatus Amulumruptor caecigallinarius", 
             #"Muribaculaceae bacterium Isolate-002 (NCI)", 
-            #"Muribaculaceae bacterium Isolate-013 (NCI)", 
-            "Bacteroides heparinolyticus", 
-            #"Prevotella sp. ne3005", 
-            "Bacteroides acidifaciens")
+            "Muribaculaceae bacterium Isolate-013 (NCI)") 
+            #"Bacteroides heparinolyticus", 
+            #"Prevotella sp. ne3005" )
+            #"Bacteroides acidifaciens")
 speUse.plot <- data.frame()
 
 for(i in 1:length(speUse)){
@@ -664,13 +759,13 @@ for(i in 1:length(speUse)){
 
 speUse.plot$Species <- ordered(speUse.plot$Species, levels=c("Candidatus Amulumruptor caecigallinarius", 
                                                              #"Muribaculaceae bacterium Isolate-002 (NCI)", 
-                                                             #"Muribaculaceae bacterium Isolate-013 (NCI)", 
-                                                             "Bacteroides heparinolyticus", 
-                                                             #"Prevotella sp. ne3005", 
-                                                             "Bacteroides acidifaciens"))
+                                                             "Muribaculaceae bacterium Isolate-013 (NCI)")) 
+                                                             #"Bacteroides heparinolyticus", 
+                                                             #"Prevotella sp. ne3005") )
+                                                             #"Bacteroides acidifaciens"))
 
 
-#tiff("inulinase.species.tiff", width = 410, height = 100, units = "mm", res = 400)
+tiff("inulinase.species.abund.tiff", width = 310, height = 100, units = "mm", res = 400)
 ggplot(speUse.plot, aes(x=Metabolism, y=Abundance, fill=Metabolism)) +
   geom_dotplot(binaxis='y', stackdir = "center", dotsize = 1.5) +
   facet_wrap(Species ~ ., ncol = 3, scales = "free") +
@@ -694,7 +789,7 @@ ggplot(speUse.plot, aes(x=Metabolism, y=Abundance, fill=Metabolism)) +
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
   ) 
-#dev.off()
+dev.off()
 
 
 
