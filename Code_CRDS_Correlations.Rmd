@@ -324,3 +324,54 @@ cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$AUC, method = "spearman")
 cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$Slope, method = "spearman")
   # p-value = 0.8432
 ```
+
+
+### Load/Test DNA Yield
+```{r}
+# Load DNA data
+dna <- read.csv('dna.csv')
+dna$Season <- ordered(dna$Season, levels=c("Summer", "Winter", "Spring"))
+dna <- dna[-which(dna$Squirrel == "S37"),]
+#dna <- dna[-which(dna$Squirrel == "S28"),]
+dna <- dna[-which(dna$Squirrel == "W43"),]
+dna <- dna[-which(dna$Squirrel == "W50"),]
+dna <- dna[-which(dna$Squirrel == "P04"),]
+dna.con <- dna[which(substr(dna$Sample,2,2) == "C"),]
+
+
+### Prepare AUC & slope data
+dna.con <- dna.con[-which(dna.con$Squirrel == "P28"),]
+dna.con <- dna.con[-which(dna.con$Squirrel == "S11"),]
+dna.con <- dna.con[-which(dna.con$Squirrel == "S40"),]
+for(sample in 1:nrow(dna.con)){
+  sampName <- dna.con$Squirrel[sample]
+  useRow <- which(auc.df$ID == sampName)
+  dna.con$AUC[sample] <- auc.df$AUC[useRow]
+  useRowD <- which(d.metrics$ID == sampName)
+  dna.con$Slope[sample] <- d.metrics$Slope[useRowD]
+}
+
+# Subset out inulin
+dna.c.inu <- dna.con[which(dna.con$Substrate == "Inulin"),]
+
+# Subset out ABX treatments
+dna.c.inu.abx <- dna.c.inu[which(dna.c.inu$Antibiotics == "Antibiotics"),]
+dna.c.inu.noabx <- dna.c.inu[which(dna.c.inu$Antibiotics == "No Antibiotics"),]
+
+### Test
+cor.test(dna.c.inu$DNA_Yield_.ng.mg., dna.c.inu$AUC, method = "spearman")
+  # p-value = 7.727e-05
+cor.test(dna.c.inu$DNA_Yield_.ng.mg., dna.c.inu$Slope, method = "spearman")
+  # p-value = 1.795e-06
+
+cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$AUC, method = "spearman")
+  # p-value = 0.4152
+cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$Slope, method = "spearman")
+  # p- value = 0.9707
+
+cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$AUC, method = "spearman")
+  # p-value = 0.6108
+cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$Slope, method = "spearman")
+  # p- value = 0.03163*
+```
+
