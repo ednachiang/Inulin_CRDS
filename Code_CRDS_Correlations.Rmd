@@ -373,5 +373,6 @@ cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$AUC, method = "spearman"
   # p-value = 0.6108
 cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$Slope, method = "spearman")
   # p- value = 0.03163*
+  # rho = 0.4938496
 ```
 
