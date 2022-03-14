@@ -385,13 +385,13 @@ phy.win.c.abx.rem <- merge_phyloseq(otu_table(otu.win.c.abx.otu.rem, taxa_are_ro
 ```
 
 
-### Test ABX BetaDiv
+### Test ABX S vs. W
 ```{r}
 # Create physeq object
 abx.use <- merge_phyloseq(phy.sum.c.abx.rem, phy.win.c.abx.rem)
 
 
-# Test
+##### Bray-Curtis tests
 bray.abx <- phyloseq::distance(physeq = abx.use, method = "bray")
 beta.tax <- betadisper(d = bray.abx, group = data.frame(sample_data(abx.use))$Season)
 p <- permutest(beta.tax)
@@ -400,26 +400,8 @@ p$tab
 adonis(bray.abx ~ Season, data=data.frame(sample_data(abx.use)), permutations = 9999)
   # p-value = 0.2571
 
-```
 
-
-### ABX SIMPER
-```{r}
 ##### SIMPER
-
-# Change Group names to be compatible (no "_")
-muc.rename <- data.frame(sample_data(phy.muc))
-muc.rename$GroupRename <- rep(NA, nrow(muc.rename))
-muc.rename$GroupRename[which(muc.rename$Group == "Summer_Captive")] <- "Summer"
-muc.rename$GroupRename[which(muc.rename$Group == "Torpor")] <- "Torpor"
-muc.rename$GroupRename[which(muc.rename$Group == "IBA")] <- "IBA"
-muc.rename$GroupRename[which(muc.rename$Group == "Spring")] <- "Spring"
-muc.rename$GroupRename <- ordered(muc.rename$GroupRename, levels = c("Summer", "Torpor", "IBA", "Spring"))
-phy.muc.simp <- merge_phyloseq(otu_table(phy.muc), sample_data(muc.rename), tax_table(phy.muc))
-# Group
-
-
-
 simper.pretty(data.frame(otu_table(abx.use)),
               data.frame(sample_data(abx.use)),
               c("Season"),
@@ -524,7 +506,6 @@ for(taxon in 1:dim(data.frame(otu_table(abx.use)))[1]){
   wil.spe <- rbind(wil.spe, data.frame(taxon = rownames(otus)[taxon], cohenD = es$estimate, power = pwr[[5]]))
 }
 wil.spe$fdr <- mt(abx.use, classlabel = "Season")$fdr
-#write.csv(wil.spe, "16S/abx.spelum.output.csv")
 
 
 ```
