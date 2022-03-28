@@ -228,69 +228,6 @@ ggplot(exo_rpkg, aes(x=Season, y=RPKG, fill=Season)) +
 
 ```
 
-
-### DNA Yield
-```{r}
-dna <- read.csv('dna.csv')
-dna.c <- dna[which(grepl("CC", dna$Sample) == T),]
-dna.c$Metabolism <- "a"
-dna.c$Metabolism[which(dna.c$Season == "Winter")] <- "Hibernation"
-dna.c$Metabolism[which(dna.c$Season != "Winter")] <- "Active"
-dna.c$Metabolism <- ordered(dna.c$Metabolism, levels = c("Active", "Hibernation"))
-dna.c$Season <- ordered(dna.c$Season, levels = c("Summer", "Winter", "Spring"))
-
-dna.c.noabx <- dna.c[which(dna.c$Antibiotics == "No Antibiotics"),]
-
-
-shapiro.test(dna.c$DNA_Yield_.ng.mg.)
-  # p-value = 4.583e-08
-  # Not Normal
-shapiro.test(dna.c.noabx$DNA_Yield_.ng.mg.)
-  # p-value = 0.601
-  # Normal
-
-summary(aov(formula = DNA_Yield_.ng.mg. ~ Season, data = dna.c))
-  # p-value = 0.411
-summary(aov(formula = DNA_Yield_.ng.mg. ~ Season, data = dna.c.noabx))
-  # p-value = 0.0472*
-TukeyHSD(aov(formula = DNA_Yield_.ng.mg. ~ Season, data = dna.c.noabx))
-  # Summer-Winter = 0.9023267
-  # Summer-Spring = 0.0499387*
-  # Winter-Spring = 0.1449934
-
-t.test(formula = DNA_Yield_.ng.mg. ~ Metabolism, data = dna.c.noabx)
-  # p-value = 0.3962
-```
-
-
-### Plot - DNA Yield
-```{r}
-#tiff("dna_yield.noabx.tiff", width = 175, height = 100, units = "mm", res = 400)
-ggplot(dna.c.noabx, aes(x=Season, y=DNA_Yield_.ng.mg., fill=Season)) +
-  geom_dotplot(binaxis='y', stackdir='center', dotsize = 1.5) +
-  scale_fill_manual(name="Season", values=c("#E69F00", "#0072B2", "#00bf8b")) +
-  ylab("DNA Yield\n(ng/mg cecal content)") +
-  scale_y_continuous(breaks=c(33.0, 66.4, 99.8, 133.2, 166.6, 200.0),
-                     limits=c(33, 206)) +
-  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.75,
-               show.legend = F) +
-  theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.text.x = element_text(size=14),
-        axis.text.y = element_text(size=14),
-        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
-        strip.text.x = element_text(size=20),
-        strip.text.y = element_text(size=14),
-        panel.spacing=unit(1, "lines"),
-        legend.title = element_text(size = 18, face="bold"),
-        legend.text = element_text(size=16),
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()
-  ) 
-#dev.off()
-```
-
 ### DON'T RUN - Prepare taxonomic data
 ```{r}
 ### Remove taxa found in < 3 samples
