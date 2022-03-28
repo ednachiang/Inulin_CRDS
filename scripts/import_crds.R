@@ -7,7 +7,7 @@ import.crds <- function(x,y) {
   
   # Load in all outside variables before you start the 'for' loop
   n <- as.numeric(length(list.files(x)))
-  meta <- read.csv(y, fileEncoding="UTF-8-BOM")
+  meta <- read.csv(y)
   crds <- data.frame(matrix(ncol=15, nrow=0))
 
   
@@ -51,7 +51,7 @@ import.crds <- function(x,y) {
 
     
     # Add squirrel number ID
-    for (j in 1:12){
+    for (j in 1:13){
       cl = j
       df[,j+3] <- rep(meta[rw,cl],nrow(df))
       # Add a column of squirrel 4-digit numeric ID

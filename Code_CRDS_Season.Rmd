@@ -89,10 +89,10 @@ d.metrics <- calc.delta.metrics(crds.rem)
 meta <- read.csv('metadata.csv', fileEncoding="UTF-8-BOM")
 
 # Add metadata to delta metrics
-d.metrics[,colnames(meta)[3:12]] <- NA
+d.metrics[,colnames(meta)[3:13]] <- NA
 for(sq in 1:nrow(d.metrics)){
   meta.row <- which(meta$ID == d.metrics$ID[sq])
-  d.metrics[sq, 5:14] <- meta[meta.row, 3:12]
+  d.metrics[sq, 5:15] <- meta[meta.row, 3:13]
 }
 
 # Convert to numeric
@@ -179,6 +179,19 @@ fligner.test(Slope ~ Season, d.sal.abx)
   # p-value = 0.7135
 fligner.test(Slope ~ Season, d.sal.noabx)
   # p-value = 0.4988
+
+
+
+### Test Spring Variance
+d.inu.p.noabx <- d.inu.noabx[which(d.inu.noabx$Season == "Spring"),]
+d.inu.p.noabx$Day <- substr(d.inu.p.noabx$Date_Sampled, 3, 4)
+d.inu.p.noabx$Day[1] <- 8
+d.inu.p.noabx$Day <- as.numeric(d.inu.p.noabx$Day)
+
+# Spearman Correlation
+cor.test(d.inu.p.noabx$Slope, d.inu.p.noabx$Day, method = "spearman")
+  # p-value = 0.9635
+  # rho = -0.03571429
 
 ```
 
@@ -334,12 +347,14 @@ ids <- unique(crds.rem$ID)
 auc.df <- data.frame(crds.rem[1,])
 auc.df <- auc.df[,-2:-3]
   # Remove Delta and CO2 cols
-auc.df <- auc.df[,-13]
+auc.df <- auc.df[,-14]
   # Remove BinTime col
-colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate", "Diet", "Mom", "Mom_Location", "BodyMass", "BodyTemp")
+colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate", "Diet", "Mom", "Mom_Location", "BodyMass", "BodyTemp", "Date_Sampled")
 auc.df$Ketones <- NA
+#auc.df$Date_Sampled <- NA
+
   # Rename cols
-meta <- read.csv('metadata.csv', fileEncoding="UTF-8-BOM")
+meta <- read.csv('metadata.csv')
 
 #crds.rem= crds.bin
 # First normalize Rel Time so 
@@ -387,7 +402,7 @@ for (i in 1:length(ids)){
   }
     
   auc.df[i,1] <- AUC
-  auc.df[i, 2:12] <- select[1, 4:14]
+  auc.df[i, 2:14] <- select[1, 4:15]
   
   use <- which(meta$ID == ID)
   auc.df$Ketones[i] <- meta$Ketones[use]
@@ -428,8 +443,6 @@ shapiro.test(auc.inu.abx$AUC)
   # p-value = 0.6626
   # Normal
 
-
-
 ### Check Normality - Saline
 hist(auc.sal.noabx$AUC)
 qqnorm(auc.sal.noabx$AUC)
@@ -458,9 +471,6 @@ kruskal.test(formula = AUC ~ Season, data=auc.sal.abx)
   # p-value = 0.3546
 
 
-
-
-
 ### Test AUC Variance - Seasons
 fligner.test(AUC ~ Season, auc.inu.noabx)
   # p-value = 0.02061*
@@ -483,6 +493,19 @@ fligner.test(AUC ~ Season, auc.inu.abx)
 fligner.test(AUC ~ Season, auc.sal.abx)
   # p-value = 0.5042
 
+
+
+
+### Test Spring Variance
+auc.inu.p.noabx <- auc.inu.noabx[which(auc.inu.noabx$Season == "Spring"),]
+auc.inu.p.noabx$Day <- substr(auc.inu.p.noabx$Date_Sampled, 3, 4)
+auc.inu.p.noabx$Day[1] <- 8
+auc.inu.p.noabx$Day <- as.numeric(auc.inu.p.noabx$Day)
+
+# Spearman Correlation
+cor.test(auc.inu.p.noabx$AUC, auc.inu.p.noabx$Day, method = "spearman")
+  # p-value = 0.2
+  # rho = -0.5714286
 
 ```
 
