@@ -119,12 +119,117 @@ d.sal.noabx <- d.sal[which(d.sal$Antibiotics == "No"),]
 
 ### Test Delta Curve Slope
 ```{r}
+### Test Normality - Inulin
+hist(d.inu.abx$Slope)
+qqnorm(d.inu.abx$Slope)
+qqline(d.inu.abx$Slope)
+shapiro.test(d.inu.abx$Slope)
+  # p-value = 0.54
+  # Normal
+hist(d.inu.noabx$Slope)
+qqnorm(d.inu.noabx$Slope)
+qqline(d.inu.noabx$Slope)
+shapiro.test(d.inu.noabx$Slope)
+  # p-value = 0.4073
+  # Normal
+hist(d.inu.abx$BodyMass)
+qqnorm(d.inu.abx$BodyMass)
+qqline(d.inu.abx$BodyMass)
+shapiro.test(d.inu.abx$BodyMass)
+  # p-value = 0.06204
+  # Normal
+hist(d.inu.noabx$BodyMass)
+qqnorm(d.inu.noabx$BodyMass)
+qqline(d.inu.noabx$BodyMass)
+shapiro.test(d.inu.noabx$BodyMass)
+  # p-value = 0.1061
+  # Normal
+hist(d.inu.abx$BodyTemp)
+qqnorm(d.inu.abx$BodyTemp)
+qqline(d.inu.abx$BodyTemp)
+shapiro.test(d.inu.abx$BodyTemp)
+  # p-value = 0.1146
+  # Normal
+hist(d.inu.noabx$BodyTemp)
+qqnorm(d.inu.noabx$BodyTemp)
+qqline(d.inu.noabx$BodyTemp)
+shapiro.test(d.inu.noabx$BodyTemp)
+  # p-value = 0.3356
+  # Normal
+hist(d.inu.abx$Ketones)
+qqnorm(d.inu.abx$Ketones)
+qqline(d.inu.abx$Ketones)
+shapiro.test(d.inu.abx$Ketones)
+  # p-value = 0.004391
+  # Not Normal
+hist(d.inu.noabx$Ketones)
+qqnorm(d.inu.noabx$Ketones)
+qqline(d.inu.noabx$Ketones)
+shapiro.test(d.inu.noabx$Ketones)
+  # p-value = 0.001238
+  # Not Normal
+
+
+
+### Test Normality - Saline
+hist(d.sal.abx$Slope)
+qqnorm(d.sal.abx$Slope)
+qqline(d.sal.abx$Slope)
+shapiro.test(d.sal.abx$Slope)
+  # p-value = 0.007636
+  # Not Normal
+hist(d.sal.noabx$Slope)
+qqnorm(d.sal.noabx$Slope)
+qqline(d.sal.noabx$Slope)
+shapiro.test(d.sal.noabx$Slope)
+  # p-value = 1.228e-05
+  # Not Normal
+hist(d.sal.abx$BodyMass)
+qqnorm(d.sal.abx$BodyMass)
+qqline(d.sal.abx$BodyMass)
+shapiro.test(d.sal.abx$BodyMass)
+  # p-value = 0.02654
+  # Not Normal
+hist(d.sal.noabx$BodyMass)
+qqnorm(d.sal.noabx$BodyMass)
+qqline(d.sal.noabx$BodyMass)
+shapiro.test(d.sal.noabx$BodyMass)
+  # p-value = 0.9226
+  # Normal
+hist(d.sal.abx$BodyTemp)
+qqnorm(d.sal.abx$BodyTemp)
+qqline(d.sal.abx$BodyTemp)
+shapiro.test(d.sal.abx$BodyTemp)
+  # p-value = 0.2093
+  # Normal
+hist(d.sal.noabx$BodyTemp)
+qqnorm(d.sal.noabx$BodyTemp)
+qqline(d.sal.noabx$BodyTemp)
+shapiro.test(d.sal.noabx$BodyTemp)
+  # p-value = 0.0617
+  # Normal
+hist(d.sal.abx$Ketones)
+qqnorm(d.sal.abx$Ketones)
+qqline(d.sal.abx$Ketones)
+shapiro.test(d.sal.abx$Ketones)
+  # p-value = 0.0182
+  # Not Normal
+hist(d.sal.noabx$Ketones)
+qqnorm(d.sal.noabx$Ketones)
+qqline(d.sal.noabx$Ketones)
+shapiro.test(d.sal.noabx$Ketones)
+  # p-value = 2.14e-05
+  # Not Normal
+
+
+
 ### Test BodyMass Correlation
-cor.test(d.inu.abx$Slope, d.inu.abx$BodyMass, method = "spearman")
-  # p-value = 0.2886
-cor.test(d.inu.noabx$Slope, d.inu.noabx$BodyMass, method = "spearman")
-  # p-value = 0.01366
-  # rho = 0.5350649
+cor.test(d.inu.abx$Slope, d.inu.abx$BodyMass, method = "pearson")
+  # p-value = 0.3353
+  # cor = -0.2338237
+cor.test(d.inu.noabx$Slope, d.inu.noabx$BodyMass, method = "pearson")
+  # p-value = 0.05717
+  # cor = 0.4212852
 cor.test(d.sal.abx$Slope, d.sal.abx$BodyMass, method = "spearman")
   # p-value = 0.1474
 cor.test(d.sal.noabx$Slope, d.sal.noabx$BodyMass, method = "spearman")
@@ -132,10 +237,12 @@ cor.test(d.sal.noabx$Slope, d.sal.noabx$BodyMass, method = "spearman")
 
 
 ### Test BodyTemp Correlation
-cor.test(d.inu.abx$Slope, d.inu.abx$BodyTemp, method = "spearman")
-  # p-value = 0.7341
-cor.test(d.inu.noabx$Slope, d.inu.noabx$BodyTemp, method = "spearman")
-  # p-value = 0.4785
+cor.test(d.inu.abx$Slope, d.inu.abx$BodyTemp, method = "pearson")
+  # p-value = 0.5397
+  # cor = -0.1500966
+cor.test(d.inu.noabx$Slope, d.inu.noabx$BodyTemp, method = "pearson")
+  # p-value = 0.7412
+  # cor = 0.07665387 
 cor.test(d.sal.abx$Slope, d.sal.abx$BodyTemp, method = "spearman")
   # p-value = 0.6344
 cor.test(d.sal.noabx$Slope, d.sal.noabx$BodyTemp, method = "spearman")
@@ -145,6 +252,7 @@ cor.test(d.sal.noabx$Slope, d.sal.noabx$BodyTemp, method = "spearman")
 ### Test Ketones Correlation
 cor.test(d.inu.abx$Slope, d.inu.abx$Ketones, method = "spearman")
   # p-value = 0.1377
+  # rho = 0.3878695
 cor.test(d.inu.noabx$Slope, d.inu.noabx$Ketones, method = "spearman")
   # p-value = 0.001904
   # rho = -0.7136781
@@ -251,16 +359,49 @@ auc.sal.noabx <- auc.sal[which(auc.sal$Antibiotics == "No"),]
 
 ### Test AUC
 ```{r}
+### Test AUC Normality
+
+# Inulin
+hist(auc.inu.abx$AUC)
+qqnorm(auc.inu.abx$AUC)
+qqline(auc.inu.abx$AUC)
+shapiro.test(auc.inu.abx$AUC)
+  # p-value = 0.6626
+  # Normal
+hist(auc.inu.noabx$AUC)
+qqnorm(auc.inu.noabx$AUC)
+qqline(auc.inu.noabx$AUC)
+shapiro.test(auc.inu.noabx$AUC)
+  # p-value = 0.03022
+  # Not Normal
+
+# Saline
+hist(auc.sal.abx$AUC)
+qqnorm(auc.sal.abx$AUC)
+qqline(auc.sal.abx$AUC)
+shapiro.test(auc.sal.abx$AUC)
+  # p-value = 0.9535
+  # Normal
+hist(auc.sal.noabx$AUC)
+qqnorm(auc.sal.noabx$AUC)
+qqline(auc.sal.noabx$AUC)
+shapiro.test(auc.sal.noabx$AUC)
+  # p-value = 0.277
+  # Normal
+
+
+
 ### Test AUC - BodyMass Correlation ###
 
 # Inulin
 cor.test(auc.inu.noabx$AUC, auc.inu.noabx$BodyMass, method = "spearman")
   # p-value = 0.3091
-
+  # rho = 0.2324675
 
 # Saline
-cor.test(auc.sal.noabx$AUC, auc.sal.noabx$BodyMass, method = "spearman")
-  # p-value = 0.1106
+cor.test(auc.sal.noabx$AUC, auc.sal.noabx$BodyMass, method = "pearson")
+  # p-value = 0.07001
+  # cor = -0.4134084 
 
 
 
@@ -270,11 +411,12 @@ cor.test(auc.sal.noabx$AUC, auc.sal.noabx$BodyMass, method = "spearman")
 # Inulin
 cor.test(auc.inu.noabx$AUC, auc.inu.noabx$BodyTemp, method = "spearman")
   # p-value = 0.08249
-
+  # rho = 0.3876749
 
 # Saline
-cor.test(auc.sal.noabx$AUC, auc.sal.noabx$BodyTemp, method = "spearman")
-  # p-value = 0.2831
+cor.test(auc.sal.noabx$AUC, auc.sal.noabx$BodyTemp, method = "pearson")
+  # p-value = 0.3344
+  # cor = 0.2276363 
 
 
 
@@ -283,12 +425,12 @@ cor.test(auc.sal.noabx$AUC, auc.sal.noabx$BodyTemp, method = "spearman")
 # Inulin
 cor.test(auc.inu.noabx$AUC, auc.inu.noabx$Ketones, method = "spearman")
   # p-value = 0.3699
-
+  # rho = -0.2403656
 
 # Saline
-cor.test(auc.sal.noabx$AUC, auc.sal.noabx$Ketones, method = "spearman")
-  # p-value = 0.08728
-
+cor.test(auc.sal.noabx$AUC, auc.sal.noabx$Ketones, method = "pearson")
+  # p-value = 0.1922
+  # cor = 0.3438483
 ```
 
 
@@ -358,16 +500,40 @@ dna.c.inu <- dna.con[which(dna.con$Substrate == "Inulin"),]
 dna.c.inu.abx <- dna.c.inu[which(dna.c.inu$Antibiotics == "Antibiotics"),]
 dna.c.inu.noabx <- dna.c.inu[which(dna.c.inu$Antibiotics == "No Antibiotics"),]
 
+
+
+### Test Normality
+hist(dna.c.inu$DNA_Yield_.ng.mg.)
+qqnorm(dna.c.inu$DNA_Yield_.ng.mg.)
+qqline(dna.c.inu$DNA_Yield_.ng.mg.)
+shapiro.test(dna.c.inu$DNA_Yield_.ng.mg.)
+  # p-value = 4.09e-05
+  # Not Normal
+hist(dna.c.inu.noabx$DNA_Yield_.ng.mg.)
+qqnorm(dna.c.inu.noabx$DNA_Yield_.ng.mg.)
+qqline(dna.c.inu.noabx$DNA_Yield_.ng.mg.)
+shapiro.test(dna.c.inu.noabx$DNA_Yield_.ng.mg.)
+  # p-value = 0.6838
+  # Normal
+hist(dna.c.inu.abx$DNA_Yield_.ng.mg.)
+qqnorm(dna.c.inu.abx$DNA_Yield_.ng.mg.)
+qqline(dna.c.inu.abx$DNA_Yield_.ng.mg.)
+shapiro.test(dna.c.inu.abx$DNA_Yield_.ng.mg.)
+  # p-value = 0.0003157
+  # Not Normal
+
+
+
 ### Test
 cor.test(dna.c.inu$DNA_Yield_.ng.mg., dna.c.inu$AUC, method = "spearman")
   # p-value = 7.727e-05
 cor.test(dna.c.inu$DNA_Yield_.ng.mg., dna.c.inu$Slope, method = "spearman")
   # p-value = 1.795e-06
 
-cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$AUC, method = "spearman")
-  # p-value = 0.4152
-cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$Slope, method = "spearman")
-  # p- value = 0.9707
+cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$AUC, method = "pearson")
+  # p-value = 0.1728
+cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$Slope, method = "pearson")
+  # p- value = 0.9098
 
 cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$AUC, method = "spearman")
   # p-value = 0.6108
@@ -394,10 +560,13 @@ dates_use <- dates_use[-3,]
 # Add d metrics + AUC
 for(k in 1:nrow(dates_use)){
   ID <- dates_use$ID[k]
+  
   rowUse <- which(d.metrics$ID == ID)
   dates_use$Slope[k] <- d.metrics$Slope[rowUse]
+  
   rowUse2 <- which(auc.df$ID == ID)
   dates_use$AUC[k] <- auc.df$AUC[rowUse2]
+  
   rowUse3 <- which(dna.con$Squirrel == ID)
   dates_use$DNA_Yield[k] <- dna.con$DNA_Yield_.ng.mg.[rowUse3]
 }
@@ -712,4 +881,96 @@ cor.test(dates.sal.w$Num_IBA, dates.sal.w$DNA_Yield, method = "pearson")
   # rho = 0.2761441
 
 
+
+### Combine RPKG + Hib Dates
+rpkg.dates <- exo_rpkg[which(exo_rpkg$Season != "Summer"),]
+
+for(m in 1:nrow(rpkg.dates)){
+  ID <- substr(rpkg.dates$Sample, 3, 5)[m]
+  
+  useRow <- which(dates_use$ID == ID)
+  rpkg.dates$Days_Hib[m] <- dates_use$Days_Hib[useRow]
+  rpkg.dates$IBA.Hib[m] <- dates_use$IBA.Hib[useRow]
+  rpkg.dates$Num_IBA[m] <- dates_use$Num_IBA[useRow]
+}
+
+# Separate by Season
+rpkg.dates.w <- rpkg.dates[which(rpkg.dates$Season == "Winter"),]
+rpkg.dates.p <- rpkg.dates[which(rpkg.dates$Season == "Spring"),]
+
+# Test Normality
+hist(rpkg.dates.w$RPKG)
+qqnorm(rpkg.dates.w$RPKG)
+qqline(rpkg.dates.w$RPKG)
+shapiro.test(rpkg.dates.w$RPKG)
+  # p-value = 0.6909
+  # Normal
+hist(rpkg.dates.p$RPKG)
+qqnorm(rpkg.dates.p$RPKG)
+qqline(rpkg.dates.p$RPKG)
+shapiro.test(rpkg.dates.p$RPKG)
+  # p-value = 0.8464
+  # Normal
+
+hist(rpkg.dates.w$Days_Hib)
+qqnorm(rpkg.dates.w$Days_Hib)
+qqline(rpkg.dates.w$Days_Hib)
+shapiro.test(rpkg.dates.w$Days_Hib)
+  # p-value = 0.09208
+  # Normal
+hist(rpkg.dates.p$Days_Hib)
+qqnorm(rpkg.dates.p$Days_Hib)
+qqline(rpkg.dates.p$Days_Hib)
+shapiro.test(rpkg.dates.p$Days_Hib)
+  # p-value = 0.7618
+  # Normal
+
+hist(rpkg.dates.w$IBA.Hib)
+qqnorm(rpkg.dates.w$IBA.Hib)
+qqline(rpkg.dates.w$IBA.Hib)
+shapiro.test(rpkg.dates.w$IBA.Hib)
+  # p-value = 0.7023
+  # Normal
+hist(rpkg.dates.p$IBA.Hib)
+qqnorm(rpkg.dates.p$IBA.Hib)
+qqline(rpkg.dates.p$IBA.Hib)
+shapiro.test(rpkg.dates.p$IBA.Hib)
+  # p-value = 0.8422
+  # Normal
+
+hist(rpkg.dates.w$Num_IBA)
+qqnorm(rpkg.dates.w$Num_IBA)
+qqline(rpkg.dates.w$Num_IBA)
+shapiro.test(rpkg.dates.w$Num_IBA)
+  # p-value = 0.7583
+  # Normal
+hist(rpkg.dates.p$Num_IBA)
+qqnorm(rpkg.dates.p$Num_IBA)
+qqline(rpkg.dates.p$Num_IBA)
+shapiro.test(rpkg.dates.p$Num_IBA)
+  # p-value = 0.9208
+  # Normal
+
+
+### Correlate RPKG w/ Hib Dates ###
+cor.test(rpkg.dates.w$Days_Hib, rpkg.dates.w$RPKG, method = "pearson")
+  # p-value = 0.5756
+  # cor = -0.3400072 
+cor.test(rpkg.dates.p$Days_Hib, rpkg.dates.p$RPKG, method = "pearson")
+  # p-value = 0.3231
+  # cor = 0.490652
+
+cor.test(rpkg.dates.w$IBA.Hib, rpkg.dates.w$RPKG, method = "pearson")
+  # p-value = 0.6959
+  # cor = -0.2411816 
+cor.test(rpkg.dates.p$IBA.Hib, rpkg.dates.p$RPKG, method = "pearson")
+  # p-value = 0.8018
+  # cor = -0.1329302
+
+cor.test(rpkg.dates.w$Num_IBA, rpkg.dates.w$RPKG, method = "pearson")
+  # p-value = 0.5854
+  # cor = -0.3317989  
+cor.test(rpkg.dates.p$Num_IBA, rpkg.dates.p$RPKG, method = "pearson")
+  # p-value = 0.9493
+  # cor = -0.03380939 
 ```
