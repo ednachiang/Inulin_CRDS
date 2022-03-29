@@ -398,6 +398,8 @@ for(k in 1:nrow(dates_use)){
   dates_use$Slope[k] <- d.metrics$Slope[rowUse]
   rowUse2 <- which(auc.df$ID == ID)
   dates_use$AUC[k] <- auc.df$AUC[rowUse2]
+  rowUse3 <- which(dna.con$Squirrel == ID)
+  dates_use$DNA_Yield[k] <- dna.con$DNA_Yield_.ng.mg.[rowUse3]
 }
   
 # Separate by Substrate
@@ -444,6 +446,13 @@ qqline(dates.inu.p$AUC)
 shapiro.test(dates.inu.p$AUC)
   # p-value = 0.3911
   # Normal
+hist(dates.inu.p$DNA_Yield)
+qqnorm(dates.inu.p$DNA_Yield)
+qqline(dates.inu.p$DNA_Yield)
+shapiro.test(dates.inu.p$DNA_Yield)
+  # p-value = 0.352
+  # Normal
+
 
 # Inulin Winter
 hist(dates.inu.w$Days_Hib)
@@ -475,6 +484,12 @@ qqnorm(dates.inu.w$AUC)
 qqline(dates.inu.w$AUC)
 shapiro.test(dates.inu.w$AUC)
   # p-value = 0.0009432*
+  # Not Normal
+hist(dates.inu.w$DNA_Yield)
+qqnorm(dates.inu.w$DNA_Yield)
+qqline(dates.inu.w$DNA_Yield)
+shapiro.test(dates.inu.w$DNA_Yield)
+  # p-value = 0.01071*
   # Not Normal
 
 
@@ -509,6 +524,13 @@ qqline(dates.sal.p$AUC)
 shapiro.test(dates.sal.p$AUC)
   # p-value = 0.9211
   # Normal
+hist(dates.sal.p$DNA_Yield)
+qqnorm(dates.sal.p$DNA_Yield)
+qqline(dates.sal.p$DNA_Yield)
+shapiro.test(dates.sal.p$DNA_Yield)
+  # p-value = 0.1695
+  # Normal
+
 
 # Inulin Winter
 hist(dates.sal.w$Days_Hib)
@@ -541,7 +563,12 @@ qqline(dates.sal.w$AUC)
 shapiro.test(dates.sal.w$AUC)
   # p-value = 0.0003896*
   # Not Normal
-
+hist(dates.sal.w$DNA_Yield)
+qqnorm(dates.sal.w$DNA_Yield)
+qqline(dates.sal.w$DNA_Yield)
+shapiro.test(dates.sal.w$DNA_Yield)
+  # p-value = 0.1583
+  # Normal
 
 
 ### Correlate Hib Dates ###
@@ -568,6 +595,18 @@ cor.test(dates.inu.p$Num_IBA, dates.inu.p$AUC, method = "pearson")
   # p-value = 0.4433
   # rho = -0.4533077
 
+# Inulin Spring - DNA_Yield
+cor.test(dates.inu.p$Days_Hib, dates.inu.p$DNA_Yield, method = "pearson")
+  # p-value = 0.3117
+  # rho = -0.5738266 
+cor.test(dates.inu.p$IBA.Hib, dates.inu.p$DNA_Yield, method = "pearson")
+  # p-value = 0.4015
+  # rho = -0.4905393  
+cor.test(dates.inu.p$Num_IBA, dates.inu.p$DNA_Yield, method = "pearson")
+  # p-value = 0.3104
+  # rho = -0.5750791 
+
+
 
 # Inulin Winter - Slope
 cor.test(dates.inu.w$Days_Hib, dates.inu.w$Slope, method = "spearman")
@@ -590,6 +629,17 @@ cor.test(dates.inu.w$IBA.Hib, dates.inu.w$AUC, method = "spearman")
 cor.test(dates.inu.w$Num_IBA, dates.inu.w$AUC, method = "spearman")
   # p-value = 0.788
   # rho = -0.09786345
+
+# Inulin Winter - DNA_Yield
+cor.test(dates.inu.w$Days_Hib, dates.inu.w$DNA_Yield, method = "spearman")
+  # p-value = 0.01408
+  # rho = -0.7416448 
+cor.test(dates.inu.w$IBA.Hib, dates.inu.w$DNA_Yield, method = "spearman")
+  # p-value = 0.5599
+  # rho = -0.2121212
+cor.test(dates.inu.w$Num_IBA, dates.inu.w$DNA_Yield, method = "spearman")
+  # p-value = 0.6119
+  # rho = 0.183494
 
 
 
@@ -616,6 +666,17 @@ cor.test(dates.sal.p$Num_IBA, dates.sal.p$AUC, method = "pearson")
   # p-value = 0.1391
   # rho = -0.6776587
 
+# Saline Spring - DNA_Yield
+cor.test(dates.sal.p$Days_Hib, dates.sal.p$DNA_Yield, method = "pearson")
+  # p-value = 0.0259*
+  # rho = 0.8655442 
+cor.test(dates.sal.p$IBA.Hib, dates.sal.p$DNA_Yield, method = "pearson")
+  # p-value = 0.96
+  # rho = -0.02670578 
+cor.test(dates.sal.p$Num_IBA, dates.sal.p$DNA_Yield, method = "pearson")
+  # p-value = 0.3918
+  # rho = 0.432449
+
 
 # Saline Winter - Slope
 cor.test(dates.sal.w$Days_Hib, dates.sal.w$Slope, method = "spearman")
@@ -639,7 +700,16 @@ cor.test(dates.sal.w$Num_IBA, dates.sal.w$AUC, method = "spearman")
   # p-value = 0.8141
   # rho = -0.08563052
 
-
+# Saline Winter - DNA_Yield
+cor.test(dates.sal.w$Days_Hib, dates.sal.w$DNA_Yield, method = "pearson")
+  # p-value = 0.43
+  # rho = 0.2819454 
+cor.test(dates.sal.w$IBA.Hib, dates.sal.w$DNA_Yield, method = "pearson")
+  # p-value = 0.7003
+  # rho = 0.1396959 
+cor.test(dates.sal.w$Num_IBA, dates.sal.w$DNA_Yield, method = "pearson")
+  # p-value = 0.4399
+  # rho = 0.2761441
 
 
 ```
