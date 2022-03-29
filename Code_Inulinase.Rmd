@@ -162,10 +162,6 @@ fligner.test(RPKG ~ Metabolism, data=exo_rpkg)
   # p-value = 0.7648
 ```
 
-### Correlate RPKG w/ Delta
-```{r}
-
-```
 
 ### Plot - Rel Abund
 ```{r}
@@ -227,6 +223,8 @@ ggplot(exo_rpkg, aes(x=Season, y=RPKG, fill=Season)) +
 
 
 ```
+
+
 
 ### DON'T RUN - Prepare taxonomic data
 ```{r}
