@@ -376,3 +376,150 @@ cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$Slope, method = "spearma
   # rho = 0.4938496
 ```
 
+
+### Hib Dates
+```{r}
+### Load data ###
+
+# Dates
+dates <- read.csv('metadata_dates.csv')
+dates_use <- dates[-which(dates$Season == "Summer"),]
+rownames(dates_use) <- 1:nrow(dates_use)
+dates_use <- dates_use[-13:-28,]
+rownames(dates_use) <- 1:nrow(dates_use)
+dates_use <- dates_use[-33:-40,]
+dates_use <- dates_use[-3,]
+  # Remove outlier P04
+
+# Add d metrics + AUC
+for(k in 1:nrow(dates_use)){
+  ID <- dates_use$ID[k]
+  rowUse <- which(d.metrics$ID == ID)
+  dates_use$Slope[k] <- d.metrics$Slope[rowUse]
+  rowUse2 <- which(auc.df$ID == ID)
+  dates_use$AUC[k] <- auc.df$AUC[rowUse2]
+}
+  
+# Separate by Substrate
+dates.inu <- dates_use[which(dates_use$Substrate == "Inulin"),]
+dates.sal <- dates_use[which(dates_use$Substrate == "Saline"),]
+
+
+
+### Test normality ###
+
+# Inulin
+hist(dates.inu$Days_Hib)
+qqnorm(dates.inu$Days_Hib)
+qqline(dates.inu$Days_Hib)
+shapiro.test(dates.inu$Days_Hib)
+  # p-value = 0.07263
+  # Normal
+hist(dates.inu$IBA.Hib)
+qqnorm(dates.inu$IBA.Hib)
+qqline(dates.inu$IBA.Hib)
+shapiro.test(dates.inu$IBA.Hib)
+  # p-value = 0.146
+  # Normal
+hist(dates.inu$Num_IBA)
+qqnorm(dates.inu$Num_IBA)
+qqline(dates.inu$Num_IBA)
+shapiro.test(dates.inu$Num_IBA)
+  # p-value = 0.04046*
+  # Not Normal
+hist(dates.inu$Slope)
+qqnorm(dates.inu$Slope)
+qqline(dates.inu$Slope)
+shapiro.test(dates.inu$Slope)
+  # p-value = 0.001961*
+  # Not Normal
+hist(dates.inu$AUC)
+qqnorm(dates.inu$AUC)
+qqline(dates.inu$AUC)
+shapiro.test(dates.inu$AUC)
+  # p-value = 0.001499*
+  # Not Normal
+
+
+# Saline
+hist(dates.sal$Days_Hib)
+qqnorm(dates.sal$Days_Hib)
+qqline(dates.sal$Days_Hib)
+shapiro.test(dates.sal$Days_Hib)
+  # p-value = 0.5374
+  # Normal
+hist(dates.sal$IBA.Hib)
+qqnorm(dates.sal$IBA.Hib)
+qqline(dates.sal$IBA.Hib)
+shapiro.test(dates.sal$IBA.Hib)
+  # p-value = 0.5105
+  # Normal
+hist(dates.sal$Num_IBA)
+qqnorm(dates.sal$Num_IBA)
+qqline(dates.sal$Num_IBA)
+shapiro.test(dates.sal$Num_IBA)
+  # p-value = 0.9989
+  # Normal
+hist(dates.sal$Slope)
+qqnorm(dates.sal$Slope)
+qqline(dates.sal$Slope)
+shapiro.test(dates.sal$Slope)
+  # p-value = 1.081e-06
+  # Not Normal
+hist(dates.sal$AUC)
+qqnorm(dates.sal$AUC)
+qqline(dates.sal$AUC)
+shapiro.test(dates.sal$AUC)
+  # p-value = 0.001118
+  # Not Normal
+
+
+### Correlate Hib Dates ###
+
+# Inulin Slope
+cor.test(dates.inu$Days_Hib, dates.inu$Slope, method = "spearman")
+  # p-value = 0.000532*
+  # rho = 0.7846294
+cor.test(dates.inu$IBA.Hib, dates.inu$Slope, method = "spearman")
+  # p-value = 0.6482
+  # rho = -0.1285714
+cor.test(dates.inu$Num_IBA, dates.inu$Slope, method = "spearman")
+  # p-value = 0.009235*
+  # rho = 0.6462858
+
+# Inulin AUC
+cor.test(dates.inu$Days_Hib, dates.inu$AUC, method = "spearman")
+  # p-value = 0.06278*
+  # rho = 0.4915105
+cor.test(dates.inu$IBA.Hib, dates.inu$AUC, method = "spearman")
+  # p-value = 0.4578
+  # rho = -0.2071429
+cor.test(dates.inu$Num_IBA, dates.inu$AUC, method = "spearman")
+  # p-value = 0.2332
+  # rho = 0.3276435 
+
+
+
+# Saline Slope
+cor.test(dates.sal$Days_Hib, dates.sal$Slope, method = "spearman")
+  # p-value = 0.5597
+  # rho = -0.1577012 
+cor.test(dates.sal$IBA.Hib, dates.sal$Slope, method = "spearman")
+  # p-value = 0.4632
+  # rho = -0.1970588 
+cor.test(dates.sal$Num_IBA, dates.sal$Slope, method = "spearman")
+  # p-value = 0.3231
+  # rho = -0.2640129
+
+# Saline AUC
+cor.test(dates.sal$Days_Hib, dates.sal$AUC, method = "spearman")
+  # p-value = 0.1164
+  # rho = -0.4082545
+cor.test(dates.sal$IBA.Hib, dates.sal$AUC, method = "spearman")
+  # p-value = 0.1764
+  # rho = -0.3558824
+cor.test(dates.sal$Num_IBA, dates.sal$AUC, method = "spearman")
+  # p-value = 0.01614*
+  # rho = -0.5899731
+
+```
