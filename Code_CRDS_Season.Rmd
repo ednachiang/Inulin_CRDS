@@ -830,8 +830,117 @@ carb.plot
 
 
 
+### Hib Dates
+```{r}
+### Load data
 
-### Plot
+# Dates
+dates <- read.csv('metadata_dates.csv')
+dates_use <- dates[-which(dates$Season == "Summer"),]
+rownames(dates_use) <- 1:nrow(dates_use)
+dates_use <- dates_use[-13:-28,]
+rownames(dates_use) <- 1:nrow(dates_use)
+dates_use <- dates_use[-33:-40,]
+dates_use <- dates_use[-3,]
+  # Remove outlier P04
+
+# Add d metrics + AUC
+for(k in 1:nrow(dates_use)){
+  ID <- dates_use$ID[k]
+  rowUse <- which(d.metrics$ID == ID)
+  dates_use$Slope[k] <- d.metrics$Slope[rowUse]
+  rowUse2 <- which(auc.df$ID == ID)
+  dates_use$AUC[k] <- auc.df$AUC[rowUse2]
+}
+  
+# Separate Spring
+dates.spr <- dates_use[which(dates_use$Season == "Spring"),]
+
+
+
+### Test IBA-Hib Ratio
+
+# Test normality
+hist(dates_use$IBA.Hib)
+qqnorm(dates_use$IBA.Hib)
+qqline(dates_use$IBA.Hib)
+shapiro.test(dates_use$IBA.Hib)
+  # p-value = 0.9558
+
+# Test
+t.test(IBA.Hib ~ Season, dates_use)
+  # p-value = 0.3668
+
+# Test variance
+leveneTest(IBA.Hib ~ Season, dates_use)
+  # p-value = 0.6908
+
+
+
+### Test Days_Hib in Spring
+
+# Test normality
+hist(dates.spr$Days_Hib)
+qqnorm(dates.spr$Days_Hib)
+qqline(dates.spr$Days_Hib)
+shapiro.test(dates.spr$Days_Hib)
+  # p-value = 0.4172
+  # Normal
+
+
+
+##### Prepare data to test correlations by Substrate + ABX #####
+
+# Separate by substrate
+dates.inu <- dates_use[which(dates_use$Substrate == "Inulin"),]
+dates.inu <- dates.inu[which(dates.inu$Season == "Spring"),]
+  # Only No ABX samples
+
+#dates.sal <- dates_use[which(dates_use$Substrate == "Saline"),]
+#dates.sal <- dates.sal[which(dates.sal$Season == "Spring"),]
+#dates.sal.noabx <- dates.sal[which(dates.sal$Antibiotics == "No"),]
+#dates.sal.abx <- dates.sal[which(dates.sal$Antibiotics == "Yes"),]
+
+
+### Test normality
+
+hist(dates.inu$Days_Hib)
+qqnorm(dates.inu$Days_Hib)
+qqline(dates.inu$Days_Hib)
+shapiro.test(dates.inu$Days_Hib)
+  # p-value = 0.814
+  # Normal
+hist(dates.inu$AUC)
+qqnorm(dates.inu$AUC)
+qqline(dates.inu$AUC)
+shapiro.test(dates.inu$AUC)
+  # p-value = 0.3911
+  # Normal
+hist(dates.inu$Slope)
+qqnorm(dates.inu$Slope)
+qqline(dates.inu$Slope)
+shapiro.test(dates.inu$Slope)
+  # p-value = 0.2886
+  # Normal
+
+
+
+
+
+### Test correlations
+
+cor.test(dates.inu$Days_Hib, dates.inu.noabx$AUC, method = "pearson")
+  # p-value = 0.3325
+  # cor = -0.5540971
+cor.test(dates.inu$Days_Hib, dates.inu.noabx$Slope, method = "pearson")
+  # p-value = 0.8691
+  # cor = 0.1030024
+
+```
+
+
+
+### Plot Misc
 ```{r}
 ## All individuals
 ggplot(crds.bin, aes(x=BinTime, y=Delta, color=ID)) +
