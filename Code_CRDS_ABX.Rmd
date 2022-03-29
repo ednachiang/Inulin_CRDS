@@ -543,3 +543,118 @@ fligner.test(AUC ~ Antibiotics, auc.sal.p)
 p.adjust(c(0.2125, 0.01802, 0.02858, 0.2235, 0.5236, 0.0888), method = "BH")
   # 0.26820 0.08574 0.08574 0.26820 0.52360 0.17760
 ```
+
+
+
+### Hib Dates
+```{r}
+### Load data ###
+
+# Dates
+dates <- read.csv('metadata_dates.csv')
+dates_use <- dates[-which(dates$Season == "Summer"),]
+rownames(dates_use) <- 1:nrow(dates_use)
+dates_use <- dates_use[-13:-28,]
+rownames(dates_use) <- 1:nrow(dates_use)
+dates_use <- dates_use[-33:-40,]
+dates_use <- dates_use[-3,]
+  # Remove outlier P04
+
+# Add d metrics + AUC
+for(k in 1:nrow(dates_use)){
+  ID <- dates_use$ID[k]
+  rowUse <- which(d.metrics$ID == ID)
+  dates_use$Slope[k] <- d.metrics$Slope[rowUse]
+  rowUse2 <- which(auc.df$ID == ID)
+  dates_use$AUC[k] <- auc.df$AUC[rowUse2]
+}
+  
+# Separate by Season
+dates.spr <- dates_use[which(dates_use$ Season == "Spring"),]
+dates.win <- dates_use[which(dates_use$ Season == "Winter"),]
+
+
+
+### Test normality ###
+
+# Spring
+hist(dates.spr$Days_Hib)
+qqnorm(dates.spr$Days_Hib)
+qqline(dates.spr$Days_Hib)
+shapiro.test(dates.spr$Days_Hib)
+  # p-value = 0.4172
+  # Normal
+hist(dates.spr$IBA.Hib)
+qqnorm(dates.spr$IBA.Hib)
+qqline(dates.spr$IBA.Hib)
+shapiro.test(dates.spr$IBA.Hib)
+  # p-value = 0.8294
+  # Normal
+hist(dates.spr$Num_IBA)
+qqnorm(dates.spr$Num_IBA)
+qqline(dates.spr$Num_IBA)
+shapiro.test(dates.spr$Num_IBA)
+  # p-value = 0.401
+  # Normal
+
+# Winter
+hist(dates.win$Days_Hib)
+qqnorm(dates.win$Days_Hib)
+qqline(dates.win$Days_Hib)
+shapiro.test(dates.win$Days_Hib)
+  # p-value = 0.1513
+  # Normal
+hist(dates.win$IBA.Hib)
+qqnorm(dates.win$IBA.Hib)
+qqline(dates.win$IBA.Hib)
+shapiro.test(dates.win$IBA.Hib)
+  # p-value = 0.9897
+  # Normal
+hist(dates.win$Num_IBA)
+qqnorm(dates.win$Num_IBA)
+qqline(dates.win$Num_IBA)
+shapiro.test(dates.win$Num_IBA)
+  # p-value = 0.2462
+  # Normal
+
+
+
+### Test ABX within Season ###
+
+# Spring
+t.test(Days_Hib ~ Antibiotics, dates.spr)
+  # p-value = 0.2672
+t.test(IBA.Hib ~ Antibiotics, dates.spr)
+  # p-value = 9.588
+t.test(Num_IBA ~ Antibiotics, dates.spr)
+  # p-value = 0.4637
+
+# Spring variance
+leveneTest(Days_Hib ~ Antibiotics, dates.spr)
+  # p-value = 0.8931
+leveneTest(IBA.Hib ~ Antibiotics, dates.spr)
+  # p-value = 0.5261
+leveneTest(Num_IBA ~ Antibiotics, dates.spr)
+  # p-value = 0.3318
+
+
+
+# Winter
+t.test(Days_Hib ~ Antibiotics, dates.win)
+  # p-value = 0.0006263*
+t.test(IBA.Hib ~ Antibiotics, dates.win)
+  # p-value = 0.4635
+t.test(Num_IBA ~ Antibiotics, dates.win)
+  # p-value = 0.2693
+
+# Winter variance
+leveneTest(Days_Hib ~ Antibiotics, dates.win)
+  # p-value = 0.6559
+leveneTest(IBA.Hib ~ Antibiotics, dates.win)
+  # p-value = 0.2451
+leveneTest(Num_IBA ~ Antibiotics, dates.win)
+  # p-value = 0.7173
+```
+
+
+```
