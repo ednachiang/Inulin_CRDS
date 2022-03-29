@@ -554,11 +554,11 @@ sig.hib <- subset_taxa(sig, Family == "GH20" | Family == "GH33" | Family == "GH8
 
 
 #tiff("cazy.heatmap.active.tiff", width=13, height=9.5, units="in", res=300)
-plot_heatmap(sig.active, sample.label = "Season", sample.order = c("S.S05", "I.S07", "S.S08", "I.S29",
-                                                                    "S.S32", "I.S34", "I.W31",
-                                                                    "I.W32", "I.W33", "S.W36", "S.W37",
-                                                                    "I.P01", "S.P03", "I.P07", "S.P09",
-                                                                    "I.P11", "S.P12"), 
+plot_heatmap(sig.active, sample.label = "Season", sample.order = c("I.S07", "S.S08", "I.S29", "S.S32",
+                                                                   "I.S34", "S.S05", "S.W36", "I.W32",
+                                                                   "I.W31", "I.W33",  "S.W37", "I.P01",
+                                                                   "S.P03", "I.P07", "S.P09", "I.P11",
+                                                                   "S.P12"), 
              taxa.order = c("PL9", "CE2", "GH120", "GH94", "GH9", "GH3", "PL11", "PL1", "CE12", "GT11",
                             "GH115", "GH51", "GH44", "GH43", "GH42", "GH31", "GH10", "GH5")) +
   geom_tile(colour="gray40") +
@@ -566,8 +566,7 @@ plot_heatmap(sig.active, sample.label = "Season", sample.order = c("S.S05", "I.S
   xlab("Season\n\n") +
   ylab("CAZyme Family\n\n") +
   scale_fill_gradientn(name=expression("Hellinger-\ntransformed\nnormalized\ncounts"),
-                       colours = c("#FFFFFF", "#ffffcc", "#ffeda0", "#fed976", "#feb24c", "#fd8d3c",
-                                   "#fc4e2a", "#e31a1c", "#bd0026", "#800026", "#33000f"),
+                       colours = c("#FFFFFF", "#FDF8F3", "#f9e7d7", "#f6c6a9", "#f49c74", "#d9444f", "#7b1c59", "#2e1438", "#000000"),
                        limits = c(0.000, 0.133), breaks = c(0.000, 0.033, 0.066, 0.099, 0.132),
                        labels = c("0.000", "0.033", "0.066", "0.099", "0.132")) +
   theme(axis.text.x = element_blank(),
@@ -586,20 +585,20 @@ plot_heatmap(sig.active, sample.label = "Season", sample.order = c("S.S05", "I.S
 
 
 
-tiff("cazy.heatmap.active.high.tiff", width=18, height=2.4, units="in", res=300)
-plot_heatmap(sig.active.high, sample.label = "Season", sample.order = c("S.S05", "I.S07", "S.S08", "I.S29",
-                                                                    "S.S32", "I.S34", "S.W20", "I.W31",
-                                                                    "I.W32", "I.W33", "S.W36", "S.W37",
-                                                                    "I.P01", "S.P03", "I.P07", "S.P09",
-                                                                    "I.P11", "S.P12"), 
+#tiff("cazy.heatmap.active.high.tiff", width=18, height=2.4, units="in", res=300)
+plot_heatmap(sig.active.high, sample.label = "Season", sample.order = c("I.S07", "S.S08", "I.S29", 
+                                                                        "S.S32", "I.S34", "S.S05",
+                                                                        "S.W36", "I.W32", "I.W31",
+                                                                        "I.W33",  "S.W37", "I.P01",
+                                                                        "S.P03", "I.P07", "S.P09",
+                                                                        "I.P11", "S.P12"), 
              taxa.order = c("GH3", "GH43")) +
   geom_tile(colour="gray40") +
   #scale_x_discrete(position = "top", labels=c(rep("Summer",6), rep("Winter", 5), rep("Spring", 6))) +
   xlab("Season\n\n") +
   ylab("CAZyme Family\n\n") +
   scale_fill_gradientn(name=expression("Hellinger-\ntransformed\nnormalized\ncounts"),
-                       colours = c("#FFFFFF", "#ffffcc", "#ffeda0", "#fed976", "#feb24c", "#fd8d3c",
-                                   "#fc4e2a", "#e31a1c", "#bd0026", "#800026", "#33000f"),
+                       colours = c("#FFFFFF", "#FDF8F3", "#f9e7d7", "#f6c6a9", "#f49c74", "#d9444f", "#7b1c59", "#2e1438", "#000000"),
                        limits = c(0.156, 0.244), breaks = c(0.156, 0.178, 0.200, 0.222, 0.244),
                        labels = c("0.156", "0.178", "0.200", "0.222", "0.244")) +
   theme(axis.text.x = element_blank(),
@@ -614,7 +613,7 @@ plot_heatmap(sig.active.high, sample.label = "Season", sample.order = c("S.S05",
   guides(fill = guide_colorbar(barheight = unit(1,"in"),
                                frame.colour="black",
                                frame.linewidth=1))
-dev.off()
+#dev.off()
 
 
 
@@ -622,19 +621,18 @@ dev.off()
 
 
 #tiff("cazy.heatmap.hib.tiff", width=17, height=8.7, units="in", res=300)
-plot_heatmap(sig.hib, sample.label = "Season", sample.order = c("S.S05", "I.S07", "S.S08", "I.S29",
-                                                                    "S.S32", "I.S34", "S.W20", "I.W31",
-                                                                    "I.W32", "I.W33", "S.W36", "S.W37",
-                                                                    "I.P01", "S.P03", "I.P07", "S.P09",
-                                                                    "I.P11", "S.P12"), 
+plot_heatmap(sig.hib, sample.label = "Season", sample.order = c("I.S07", "S.S08", "I.S29","S.S32",
+                                                                "I.S34", "S.S05", "S.W36", "I.W32",
+                                                                "I.W31", "I.W33",  "S.W37", "I.P01",
+                                                                "S.P03", "I.P07", "S.P09", "I.P11",
+                                                                "S.P12"), 
              taxa.order = c("GT3", "GH92", "GH57", "GH23", "GH109", "GH85", "GH84", "GH33", "GH20")) +
   geom_tile(colour="gray40") +
   scale_x_discrete(position = "top", labels=c(rep("Summer",6), rep("Winter", 6), rep("Spring", 6))) +
   xlab("Season\n\n") +
   ylab("CAZyme Family\n\n") +
   scale_fill_gradientn(name=expression("Hellinger-\ntransformed\nnormalized\ncounts"),
-                       colours = c("#FFFFFF", "#ffffcc", "#ffeda0", "#fed976", "#feb24c", "#fd8d3c",
-                                   "#fc4e2a", "#e31a1c", "#bd0026", "#800026", "#33000f"),
+                       colours = c("#FFFFFF", "#FDF8F3", "#f9e7d7", "#f6c6a9", "#f49c74", "#d9444f", "#7b1c59", "#2e1438", "#000000"),
                        limits = c(0.02, 0.14), breaks = c(0.02, 0.05, 0.08, 0.11, 0.14),
                        labels = c("0.02", "0.05", "0.08", "0.11", "0.14")) +
   theme(axis.text.x = element_blank(),
