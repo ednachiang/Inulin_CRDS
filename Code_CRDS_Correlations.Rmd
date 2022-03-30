@@ -227,10 +227,8 @@ shapiro.test(d.sal.noabx$Ketones)
 ### Test BodyMass Correlation
 cor.test(d.inu.abx$Slope, d.inu.abx$BodyMass, method = "pearson")
   # p-value = 0.3353
-  # cor = -0.2338237
 cor.test(d.inu.noabx$Slope, d.inu.noabx$BodyMass, method = "pearson")
   # p-value = 0.05717
-  # cor = 0.4212852
 cor.test(d.sal.abx$Slope, d.sal.abx$BodyMass, method = "spearman")
   # p-value = 0.1474
 cor.test(d.sal.noabx$Slope, d.sal.noabx$BodyMass, method = "spearman")
@@ -240,10 +238,8 @@ cor.test(d.sal.noabx$Slope, d.sal.noabx$BodyMass, method = "spearman")
 ### Test BodyTemp Correlation
 cor.test(d.inu.abx$Slope, d.inu.abx$BodyTemp, method = "pearson")
   # p-value = 0.5397
-  # cor = -0.1500966
 cor.test(d.inu.noabx$Slope, d.inu.noabx$BodyTemp, method = "pearson")
   # p-value = 0.7412
-  # cor = 0.07665387 
 cor.test(d.sal.abx$Slope, d.sal.abx$BodyTemp, method = "spearman")
   # p-value = 0.6344
 cor.test(d.sal.noabx$Slope, d.sal.noabx$BodyTemp, method = "spearman")
@@ -834,7 +830,7 @@ cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$TimeMaxD, method = "
 cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$AUC, method = "spearman")
   # p-value = 0.6108
 cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$Slope, method = "spearman")
-  # p- value = 0.03163*
+  # p-value = 0.03163*
   # rho = 0.4938496
 cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$SlopeTime, method = "spearman")
   # p-value = 0.3483
@@ -1270,7 +1266,7 @@ cor.test(dates.sal.p$Days_Hib, dates.sal.p$MaxD, method = "spearman")
   # p-value = 0.08014
 cor.test(dates.sal.p$IBA.Hib, dates.sal.p$MaxD, method = "spearman")
   # p-value = 0.0206
-  # cor = -0.8804063
+  # rho = -0.8804063
 cor.test(dates.sal.p$Num_IBA, dates.sal.p$MaxD, method = "spearman")
   # p-value = 0.4315
 
@@ -1411,22 +1407,16 @@ shapiro.test(rpkg.dates.p$Num_IBA)
 ### Correlate RPKG w/ Hib Dates ###
 cor.test(rpkg.dates.w$Days_Hib, rpkg.dates.w$RPKG, method = "pearson")
   # p-value = 0.5756
-  # cor = -0.3400072 
 cor.test(rpkg.dates.p$Days_Hib, rpkg.dates.p$RPKG, method = "pearson")
   # p-value = 0.3231
-  # cor = 0.490652
 
 cor.test(rpkg.dates.w$IBA.Hib, rpkg.dates.w$RPKG, method = "pearson")
   # p-value = 0.6959
-  # cor = -0.2411816 
 cor.test(rpkg.dates.p$IBA.Hib, rpkg.dates.p$RPKG, method = "pearson")
   # p-value = 0.8018
-  # cor = -0.1329302
 
 cor.test(rpkg.dates.w$Num_IBA, rpkg.dates.w$RPKG, method = "pearson")
   # p-value = 0.5854
-  # cor = -0.3317989  
 cor.test(rpkg.dates.p$Num_IBA, rpkg.dates.p$RPKG, method = "pearson")
   # p-value = 0.9493
-  # cor = -0.03380939 
 ```
