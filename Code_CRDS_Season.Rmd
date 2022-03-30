@@ -17,6 +17,7 @@ library(Bolstad2)
 library(phyloseq)
 library(psych)
 library(car)
+library(dunn.test)
 source('scripts/import_crds.R')
 source('scripts/bin_crds.R')
 source('scripts/misc.R')
@@ -86,16 +87,17 @@ d.metrics <- calc.delta.metrics(crds.rem)
 #write.csv(d.metrics, "delta_metrics.csv", row.names = F)
 
 # Load metadata
-meta <- read.csv('metadata.csv', fileEncoding="UTF-8-BOM")
+meta <- read.csv('metadata.csv')
 
 # Add metadata to delta metrics
 d.metrics[,colnames(meta)[3:13]] <- NA
 for(sq in 1:nrow(d.metrics)){
   meta.row <- which(meta$ID == d.metrics$ID[sq])
-  d.metrics[sq, 5:15] <- meta[meta.row, 3:13]
+  d.metrics[sq, 6:16] <- meta[meta.row, 3:13]
 }
 
 # Convert to numeric
+d.metrics$MaxD <- as.numeric(d.metrics$MaxD)
 d.metrics$TimeMaxD <- as.numeric(d.metrics$TimeMaxD)
 d.metrics$Slope <- as.numeric(d.metrics$Slope)
 d.metrics$SlopeTime <- as.numeric(d.metrics$SlopeTime)
@@ -114,10 +116,395 @@ d.sal.abx <- d.sal[which(d.sal$Antibiotics == "Yes"),]
 d.sal.noabx <- d.sal[which(d.sal$Antibiotics == "No"),]
 ```
 
+### Test MaxD
+```{r}
+### Test for normality
+hist(d.inu.abx$MaxD)
+qqnorm(d.inu.abx$MaxD)
+qqline(d.inu.abx$MaxD)
+shapiro.test(d.inu.abx$MaxD)
+  # p-value = 0.02368
+  # Not Normal
+
+hist(d.inu.noabx$MaxD)
+qqnorm(d.inu.noabx$MaxD)
+qqline(d.inu.noabx$MaxD)
+shapiro.test(d.inu.noabx$MaxD)
+  # p-value = 0.1398
+  # Normal
+
+hist(d.sal.abx$MaxD)
+qqnorm(d.sal.abx$MaxD)
+qqline(d.sal.abx$MaxD)
+shapiro.test(d.sal.abx$MaxD)
+  # p-value = 0.006034
+  # Not Normal
+
+hist(d.sal.noabx$MaxD)
+qqnorm(d.sal.noabx$MaxD)
+qqline(d.sal.noabx$MaxD)
+shapiro.test(d.sal.noabx$MaxD)
+  # p-value = 0.2412
+  # Normal
 
 
 
-### Test Delta Curve Slope
+### Test Mean ###
+
+# Inulin ABX
+kruskal.test(formula = MaxD ~ Season, data = d.inu.abx)
+  # p-value = 0.8123
+
+# Inulin No ABX
+summary(aov(MaxD ~ Season, data = d.inu.noabx))
+  # p-value = 0.0036
+TukeyHSD(aov(MaxD ~ Season, data = d.inu.noabx))
+  # Summer-Spring = 0.4333231
+  # Winter-Spring = 0.0030199*
+  # Winter-Summer = 0.0442557*
+
+# Saline ABX
+kruskal.test(formula = MaxD ~ Season, data = d.sal.abx)
+  # p-value = 0.04615*
+dunn.test(x = as.numeric(d.sal.abx$MaxD), g = as.factor(d.sal.abx$Season), method = "bh", label = T)
+  # Summer-Winter = 0.0263
+  # Summer-Spring = 0.0630
+  # Winter-Spring = 0.2662
+
+# Saline No ABX
+summary(aov(formula = MaxD ~ Season, data = d.sal.noabx))
+  # p-value = 0.0452*
+TukeyHSD(aov(formula = MaxD ~ Season, data = d.sal.noabx))
+  # Summer-Winter = 0.0359449*
+  # Summer-Spring = 0.2943738
+  # Spring-Winter = 0.4511079
+
+
+
+### Test Variance
+fligner.test(MaxD ~ Season, d.inu.abx)
+  # p-value = 0.02643*
+fligner.test(MaxD ~ Season, d.inu.abx[which(d.inu.abx$Season != "Spring"),])
+  # Summer vs. Winter
+  # p-value = 0.003642
+  # adj p = 0.010926
+fligner.test(MaxD ~ Season, d.inu.abx[which(d.inu.abx$Season != "Winter"),])
+  # Summer vs. Spring
+  # p-value = 0.1438
+  # adj p = 0.215700
+fligner.test(MaxD ~ Season, d.inu.abx[which(d.inu.abx$Season != "Summer"),])
+  # Spring vs. Winter
+  # p-value = 0.8838
+  # adj p = 0.883800
+p.adjust( c(0.003642, 0.1438, 0.8838), "BH")
+
+
+leveneTest(MaxD ~ Season, d.inu.noabx)
+  # p-value = 0.05409
+fligner.test(MaxD ~ Season, d.sal.abx)
+  # p-value = 0.5107
+leveneTest(MaxD ~ Season, d.sal.noabx)
+  # p-value = 0.5111
+```
+
+
+### Plot MaxD
+```{r}
+### Prepare data for plotting
+# Inulin
+d.inu$SeasonABX <- interaction(d.inu$Season, d.inu$Antibiotics)
+d.inu$SeasonABX <- ordered(d.inu$SeasonABX, levels=c("Summer.No", "Summer.Yes", "Winter.No", "Winter.Yes", "Spring.No", "Spring.Yes"))
+
+# Saline
+d.sal$SeasonABX <- interaction(d.sal$Season, d.sal$Antibiotics)
+d.sal$SeasonABX <- ordered(d.sal$SeasonABX, levels=c("Summer.No", "Summer.Yes", "Winter.No", "Winter.Yes", "Spring.No", "Spring.Yes"))
+
+
+### AUC Dot Plots
+
+# Steal Season legend
+season.legend <- g_legend(ggplot(d.inu, aes(x = Season, y = MaxD, color = Season, fill = Season)) +
+                            geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+                                         position = position_dodge(0.7), stackratio = 0.5) +
+                            scale_color_manual(values = c("#c98b00", "#006096", "#00966d")) +
+                            scale_fill_manual(values = c("#E69F00", "#0072B2", "#00bf8b")) +
+                            theme(legend.title = element_text(size=10, face="bold"),
+                                  legend.text = element_text(size=10),
+                                  legend.margin = margin(t=1, unit='cm')))
+
+
+# Steal ABX legend
+abx.legend <- g_legend(ggplot(d.inu, aes(x = Season, y = MaxD, fill = Antibiotics)) + 
+                         geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5, 
+                                      position = position_dodge(0.7), stackratio = 0.5) +
+                         scale_fill_manual(values = c("black", "white")) +
+                            theme(legend.title = element_text(size=10, face="bold"),
+                                  legend.text = element_text(size=10),
+                                  legend.margin = margin(b=1, unit='cm')))
+
+
+
+
+  
+# Inulin
+inu.MaxD.plot <- ggplot(d.inu, aes(x = Season, y = MaxD, color = SeasonABX,
+                                    fill = SeasonABX)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+               position = position_dodge(0.7), stackratio = 0.5) +
+  scale_color_manual(values = c("#c98b00", "#E69F00", "#004166", "#006299", "#00966d",
+                                "#00bf8b")) +
+  scale_fill_manual(values = c("#E69F00", "white", "#006299", "white", "#00bf8b",
+                               "white")) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ggtitle("Inulin")  + 
+  ylab(expression("Maximum Observed"~~delta^13~"C"~"(%"[o]~")")) +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(face="bold", size=10),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(hjust = 0.5, size = 12, face = "bold"),
+        legend.position = "none")
+
+
+
+# Saline
+sal.MaxD.plot <- ggplot(d.sal, aes(x = Season, y = MaxD, color = SeasonABX,
+                                    fill = SeasonABX)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+               position = position_dodge(0.7), stackratio = 0.5) +
+  scale_color_manual(values = c("#c98b00", "#E69F00", "#004166", "#006299", "#00966d",
+                                "#00bf8b")) +
+  scale_fill_manual(values = c("#E69F00", "white", "#006299", "white", "#00bf8b",
+                               "white")) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ggtitle("Saline")  + 
+  ylab(expression("Maximum Observed"~~delta^13~"C"~"(%"[o]~")")) +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(face="bold", size=10),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(hjust = 0.5, size = 12, face = "bold"),
+        legend.position = "none")
+
+
+
+### Plot
+
+#png("d.maxD.png", width = 200, height = 75, units = "mm", res = 400)
+grid.newpage()
+pushViewport(viewport(layout=grid.layout(2,3, widths = c(1, 1, 0.3))))
+
+print(inu.MaxD.plot, vp=viewport(layout.pos.row=1:2, layout.pos.col=1))
+grid.text("A", x=unit(0.065, "npc"), y=unit(0.93, "npc"), 
+          vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=20,fontface="bold"))
+
+
+print(sal.MaxD.plot, vp=viewport(layout.pos.row=1:2, layout.pos.col=2))
+grid.text("B", x=unit(0.065, "npc"), y=unit(0.93, "npc"),
+          vp=viewport(layout.pos.row=1, layout.pos.col=2), gp=gpar(fontsize=20,fontface="bold"))
+
+season.legend$vp <- viewport(layout.pos.row=1, layout.pos.col=3)
+grid.draw(season.legend)
+abx.legend$vp <- viewport(layout.pos.row=2, layout.pos.col=3)
+grid.draw(abx.legend)
+#dev.off()
+
+
+#png("d.MaxD.png", width = 170, height = 75, units = "mm", res = 300)
+```
+
+
+### Test TimeMaxD
+```{r}
+### Test for normality
+hist(d.inu.abx$TimeMaxD)
+qqnorm(d.inu.abx$TimeMaxD)
+qqline(d.inu.abx$TimeMaxD)
+shapiro.test(d.inu.abx$TimeMaxD)
+  # p-value = 0.02942
+  # Not Normal
+
+hist(d.inu.noabx$TimeMaxD)
+qqnorm(d.inu.noabx$TimeMaxD)
+qqline(d.inu.noabx$TimeMaxD)
+shapiro.test(d.inu.noabx$TimeMaxD)
+  # p-value = 0.01792
+  # Not Normal
+
+hist(d.sal.abx$TimeMaxD)
+qqnorm(d.sal.abx$TimeMaxD)
+qqline(d.sal.abx$TimeMaxD)
+shapiro.test(d.sal.abx$TimeMaxD)
+  # p-value = 0.04198
+  # Not Normal
+
+hist(d.sal.noabx$TimeMaxD)
+qqnorm(d.sal.noabx$TimeMaxD)
+qqline(d.sal.noabx$TimeMaxD)
+shapiro.test(d.sal.noabx$TimeMaxD)
+  # p-value = 0.1402
+  # Normal
+
+
+
+### Test Mean ###
+
+# Inulin
+kruskal.test(formula = TimeMaxD ~ Season, data = d.inu.abx)
+  # p-value = 0.1145
+kruskal.test(formula = TimeMaxD ~ Season, data = d.inu.noabx)
+  # p-value = 0.3363
+
+# Saline
+kruskal.test(formula = TimeMaxD ~ Season, data = d.sal.abx)
+  # p-value = 0.001572*
+dunn.test(x = as.numeric(d.sal.abx$TimeMaxD), g = as.factor(d.sal.abx$Season), method = "bh", label = T)
+  # Summer-Winter = 0.0005*
+  # Summer-Spring = 0.0903
+  # Winter-Spring = 0.0233*
+summary(aov(formula = TimeMaxD ~ Season, data = d.sal.noabx))
+  # p-value = 0.977
+
+
+
+
+### Test Variance
+fligner.test(TimeMaxD ~ Season, d.inu.abx)
+  # p-value = 0.7034
+fligner.test(TimeMaxD ~ Season, d.inu.noabx)
+  # p-value = 0.5083
+fligner.test(TimeMaxD ~ Season, d.sal.abx)
+  # p-value = 0.4475
+leveneTest(TimeMaxD ~ Season, d.sal.noabx)
+  # p-value = 0.9561
+```
+
+
+
+### Plot TimeMaxD
+```{r}
+### Prepare data for plotting
+# Inulin
+d.inu$SeasonABX <- interaction(d.inu$Season, d.inu$Antibiotics)
+d.inu$SeasonABX <- ordered(d.inu$SeasonABX, levels=c("Summer.No", "Summer.Yes", "Winter.No", "Winter.Yes", "Spring.No", "Spring.Yes"))
+
+# Saline
+d.sal$SeasonABX <- interaction(d.sal$Season, d.sal$Antibiotics)
+d.sal$SeasonABX <- ordered(d.sal$SeasonABX, levels=c("Summer.No", "Summer.Yes", "Winter.No", "Winter.Yes", "Spring.No", "Spring.Yes"))
+
+
+### AUC Dot Plots
+
+# Steal Season legend
+season.legend <- g_legend(ggplot(d.inu, aes(x = Season, y = TimeMaxD, color = Season, fill = Season)) +
+                            geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+                                         position = position_dodge(0.7), stackratio = 0.5) +
+                            scale_color_manual(values = c("#c98b00", "#006096", "#00966d")) +
+                            scale_fill_manual(values = c("#E69F00", "#0072B2", "#00bf8b")) +
+                            theme(legend.title = element_text(size=10, face="bold"),
+                                  legend.text = element_text(size=10),
+                                  legend.margin = margin(t=1, unit='cm')))
+
+
+# Steal ABX legend
+abx.legend <- g_legend(ggplot(d.inu, aes(x = Season, y = TimeMaxD, fill = Antibiotics)) + 
+                         geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5, 
+                                      position = position_dodge(0.7), stackratio = 0.5) +
+                         scale_fill_manual(values = c("black", "white")) +
+                            theme(legend.title = element_text(size=10, face="bold"),
+                                  legend.text = element_text(size=10),
+                                  legend.margin = margin(b=1, unit='cm')))
+
+
+
+
+  
+# Inulin
+inu.TimeMaxD.plot <- ggplot(d.inu, aes(x = Season, y = TimeMaxD, color = SeasonABX,
+                                    fill = SeasonABX)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+               position = position_dodge(0.7), stackratio = 0.5) +
+  scale_color_manual(values = c("#c98b00", "#E69F00", "#004166", "#006299", "#00966d",
+                                "#00bf8b")) +
+  scale_fill_manual(values = c("#E69F00", "white", "#006299", "white", "#00bf8b",
+                               "white")) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ggtitle("Inulin")  + 
+  ylab(expression("Time of maximum observed"~~delta^13~"C (hr)")) +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(face="bold", size=10),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(hjust = 0.5, size = 12, face = "bold"),
+        legend.position = "none")
+
+
+
+# Saline
+sal.TimeMaxD.plot <- ggplot(d.sal, aes(x = Season, y = TimeMaxD, color = SeasonABX,
+                                    fill = SeasonABX)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+               position = position_dodge(0.7), stackratio = 0.5) +
+  scale_color_manual(values = c("#c98b00", "#E69F00", "#004166", "#006299", "#00966d",
+                                "#00bf8b")) +
+  scale_fill_manual(values = c("#E69F00", "white", "#006299", "white", "#00bf8b",
+                               "white")) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ggtitle("Saline")  + 
+  ylab(expression("Time of maximum observed"~~delta^13~"C (hr)")) +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(face="bold", size=10),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(hjust = 0.5, size = 12, face = "bold"),
+        legend.position = "none")
+
+
+
+### Plot
+
+png("d.TimeMaxD.png", width = 200, height = 80, units = "mm", res = 400)
+grid.newpage()
+pushViewport(viewport(layout=grid.layout(2,3, widths = c(1, 1, 0.3))))
+
+print(inu.TimeMaxD.plot, vp=viewport(layout.pos.row=1:2, layout.pos.col=1))
+grid.text("A", x=unit(0.065, "npc"), y=unit(0.93, "npc"), 
+          vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=20,fontface="bold"))
+
+
+print(sal.TimeMaxD.plot, vp=viewport(layout.pos.row=1:2, layout.pos.col=2))
+grid.text("B", x=unit(0.065, "npc"), y=unit(0.93, "npc"),
+          vp=viewport(layout.pos.row=1, layout.pos.col=2), gp=gpar(fontsize=20,fontface="bold"))
+
+season.legend$vp <- viewport(layout.pos.row=1, layout.pos.col=3)
+grid.draw(season.legend)
+abx.legend$vp <- viewport(layout.pos.row=2, layout.pos.col=3)
+grid.draw(abx.legend)
+dev.off()
+
+
+#png("d.TimeMaxD.png", width = 170, height = 75, units = "mm", res = 300)
+```
+
+
+
+### Test Slope
 ```{r}
 ### Test for normality
 hist(d.inu.abx$Slope)
@@ -196,7 +583,7 @@ cor.test(d.inu.p.noabx$Slope, d.inu.p.noabx$Day, method = "spearman")
 ```
 
 
-### Plot Delta Curve Slope
+### Plot Slope
 ```{r}
 ### Prepare data for plotting
 # Inulin
@@ -328,6 +715,210 @@ grid.draw(abx.legend)
 
 ```
 
+
+
+### Test Slope Time
+```{r}
+### Test for normality
+hist(d.inu.abx$SlopeTime)
+qqnorm(d.inu.abx$SlopeTime)
+qqline(d.inu.abx$SlopeTime)
+shapiro.test(d.inu.abx$SlopeTime)
+  # p-value = 3.271e-05
+  # Not Normal
+
+hist(d.inu.noabx$SlopeTime)
+qqnorm(d.inu.noabx$SlopeTime)
+qqline(d.inu.noabx$SlopeTime)
+shapiro.test(d.inu.noabx$SlopeTime)
+  # p-value = 0.4223
+  # Normal
+
+hist(d.sal.abx$SlopeTime)
+qqnorm(d.sal.abx$SlopeTime)
+qqline(d.sal.abx$SlopeTime)
+shapiro.test(d.sal.abx$SlopeTime)
+  # p-value = 0.003004
+  # Not Normal
+
+hist(d.sal.noabx$SlopeTime)
+qqnorm(d.sal.noabx$SlopeTime)
+qqline(d.sal.noabx$SlopeTime)
+shapiro.test(d.sal.noabx$SlopeTime)
+  # p-value = 0.351
+  # Normal
+
+
+
+### Test Mean
+
+kruskal.test(SlopeTime ~ Season, data = d.inu.abx)
+  # p-value = 0.06022
+summary(aov(SlopeTime ~ Season, data = d.inu.noabx))
+  # p-value = 0.546
+kruskal.test(formula = SlopeTime ~ Season, data = d.sal.abx)
+  # p-value = 0.8848
+summary(aov(SlopeTime ~ Season, data = d.sal.noabx))
+  # p-value = 0.575
+
+
+
+### Test Variance
+
+# Inulin ABX
+fligner.test(SlopeTime ~ Season, d.inu.abx)
+  # p-value = 0.02879*
+fligner.test(SlopeTime ~ Season, d.inu.abx[which(d.inu.abx$Season != "Spring"),])
+  # Summer vs. Winter
+  # p-value = 0.003586
+  # adj p = 0.010758
+fligner.test(SlopeTime ~ Season, d.inu.abx[which(d.inu.abx$Season != "Winter"),])
+  # Summer vs. Spring
+  # p-value = 0.1422
+  # adj p = 0.213300
+fligner.test(SlopeTime ~ Season, d.inu.abx[which(d.inu.abx$Season != "Summer"),])
+  # Winter vs. Spring
+  # p-value = 0.9815
+  # adj p = 0.981500
+p.adjust(c(0.003586, 0.1422, 0.9815), "BH")
+
+
+leveneTest(SlopeTime ~ Season, d.inu.noabx)
+  # p-value = 0.07205
+fligner.test(SlopeTime ~ Season, d.sal.abx)
+  # p-value = 0.9703
+leveneTest(SlopeTime ~ Season, d.sal.noabx)
+  # p-value = 0.4775
+
+
+
+### Test Spring Variance
+d.inu.p.noabx <- d.inu.noabx[which(d.inu.noabx$Season == "Spring"),]
+d.inu.p.noabx$Day <- substr(d.inu.p.noabx$Date_Sampled, 3, 4)
+d.inu.p.noabx$Day[1] <- 8
+d.inu.p.noabx$Day <- as.numeric(d.inu.p.noabx$Day)
+
+# Spearman Correlation
+cor.test(d.inu.p.noabx$SlopeTime, d.inu.p.noabx$Day, method = "spearman")
+  # p-value = 0.7825
+  # rho = 0.1428571
+
+```
+
+
+
+### Plot SlopeTime
+```{r}
+### Prepare data for plotting
+# Inulin
+d.inu$SeasonABX <- interaction(d.inu$Season, d.inu$Antibiotics)
+d.inu$SeasonABX <- ordered(d.inu$SeasonABX, levels=c("Summer.No", "Summer.Yes", "Winter.No", "Winter.Yes", "Spring.No", "Spring.Yes"))
+
+# Saline
+d.sal$SeasonABX <- interaction(d.sal$Season, d.sal$Antibiotics)
+d.sal$SeasonABX <- ordered(d.sal$SeasonABX, levels=c("Summer.No", "Summer.Yes", "Winter.No", "Winter.Yes", "Spring.No", "Spring.Yes"))
+
+
+### AUC Dot Plots
+
+# Steal Season legend
+season.legend <- g_legend(ggplot(d.inu, aes(x = Season, y = SlopeTime, color = Season, fill = Season)) +
+                            geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+                                         position = position_dodge(0.7), stackratio = 0.5) +
+                            scale_color_manual(values = c("#c98b00", "#006096", "#00966d")) +
+                            scale_fill_manual(values = c("#E69F00", "#0072B2", "#00bf8b")) +
+                            theme(legend.title = element_text(size=10, face="bold"),
+                                  legend.text = element_text(size=10),
+                                  legend.margin = margin(t=1, unit='cm')))
+
+
+# Steal ABX legend
+abx.legend <- g_legend(ggplot(d.inu, aes(x = Season, y = SlopeTime, fill = Antibiotics)) + 
+                         geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5, 
+                                      position = position_dodge(0.7), stackratio = 0.5) +
+                         scale_fill_manual(values = c("black", "white")) +
+                            theme(legend.title = element_text(size=10, face="bold"),
+                                  legend.text = element_text(size=10),
+                                  legend.margin = margin(b=1, unit='cm')))
+
+
+
+
+  
+# Inulin
+inu.SlopeTime.plot <- ggplot(d.inu, aes(x = Season, y = SlopeTime, color = SeasonABX,
+                                    fill = SeasonABX)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+               position = position_dodge(0.7), stackratio = 0.5) +
+  scale_color_manual(values = c("#c98b00", "#E69F00", "#004166", "#006299", "#00966d",
+                                "#00bf8b")) +
+  scale_fill_manual(values = c("#E69F00", "white", "#006299", "white", "#00bf8b",
+                               "white")) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ggtitle("Inulin")  + 
+  ylab(expression("Time of maximum observed"~~delta^13~"C slope (hr)")) +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(face="bold", size=10),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(hjust = 0.5, size = 12, face = "bold"),
+        legend.position = "none")
+
+
+
+# Saline
+sal.SlopeTime.plot <- ggplot(d.sal, aes(x = Season, y = SlopeTime, color = SeasonABX,
+                                    fill = SeasonABX)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+               position = position_dodge(0.7), stackratio = 0.5) +
+  scale_color_manual(values = c("#c98b00", "#E69F00", "#004166", "#006299", "#00966d",
+                                "#00bf8b")) +
+  scale_fill_manual(values = c("#E69F00", "white", "#006299", "white", "#00bf8b",
+                               "white")) +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ggtitle("Saline")  + 
+  ylab(expression("Time of maximum observed"~~delta^13~"C slope (hr)")) +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(face="bold", size=10),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(hjust = 0.5, size = 12, face = "bold"),
+        legend.position = "none")
+
+
+
+### Plot
+
+png("d.SlopeTime.png", width = 200, height = 90, units = "mm", res = 400)
+grid.newpage()
+pushViewport(viewport(layout=grid.layout(2,3, widths = c(1, 1, 0.3))))
+
+print(inu.SlopeTime.plot, vp=viewport(layout.pos.row=1:2, layout.pos.col=1))
+grid.text("A", x=unit(0.065, "npc"), y=unit(0.93, "npc"), 
+          vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=20,fontface="bold"))
+
+
+print(sal.SlopeTime.plot, vp=viewport(layout.pos.row=1:2, layout.pos.col=2))
+grid.text("B", x=unit(0.065, "npc"), y=unit(0.93, "npc"),
+          vp=viewport(layout.pos.row=1, layout.pos.col=2), gp=gpar(fontsize=20,fontface="bold"))
+
+season.legend$vp <- viewport(layout.pos.row=1, layout.pos.col=3)
+grid.draw(season.legend)
+abx.legend$vp <- viewport(layout.pos.row=2, layout.pos.col=3)
+grid.draw(abx.legend)
+dev.off()
+
+
+#png("d.SlopeTime.png", width = 170, height = 75, units = "mm", res = 300)
+```
 
 
 ### Separate by substrate
