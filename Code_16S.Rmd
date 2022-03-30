@@ -634,3 +634,76 @@ ggplot(phy.c.abx.top.df, aes(x=Season, y=Abundance, fill=Season)) +
         panel.grid.minor = element_blank()
   ) 
 ```
+### Alpha Div
+```{r}
+adiv.c <- data.frame(sample_data(phy.c))
+adiv.c.noabx <- adiv.c[which(adiv.c$Antibiotics == "No"),]
+adiv.c.noabx.act <- adiv.c.noabx[which(adiv.c.noabx$Season != "Winter"),]
+  # Removing lone Winter sample left
+
+
+### Chao ###
+hist(adiv.c.noabx.act$chao, breaks=10)
+qqnorm(adiv.c.noabx.act$chao)
+qqline(adiv.c.noabx.act$chao)
+shapiro.test(adiv.c.noabx.act$chao)
+  # p-value = 0.8795
+  # Normal
+
+t.test(chao ~ Season, adiv.c.noabx.act)
+  # p-value = 0.2791
+
+leveneTest(chao ~ Season, adiv.c.noabx.act)
+  # p-value = 0.7901
+
+
+
+### Shannon ###
+hist(adiv.c.noabx.act$shannon, breaks=10)
+qqnorm(adiv.c.noabx.act$shannon)
+qqline(adiv.c.noabx.act$shannon)
+shapiro.test(adiv.c.noabx.act$shannon)
+  # p-value = 0.008157
+  # Not Normal
+
+wilcox.test(shannon ~ Season, adiv.c.noabx.act)
+  # p-value = 0.3817
+
+fligner.test(shannon ~ Season, adiv.c.noabx.act)
+  # p-value = 0.4269
+
+
+
+### Inverse Simpson ###
+hist(adiv.c.noabx.act$invsimpson, breaks=10)
+qqnorm(adiv.c.noabx.act$invsimpson)
+qqline(adiv.c.noabx.act$invsimpson)
+shapiro.test(adiv.c.noabx.act$invsimpson)
+  # p-value = 0.07148
+  # Normal
+
+t.test(invsimpson ~ Season, adiv.c.noabx.act)
+  # p-value = 0.1551
+
+leveneTest(invsimpson ~ Season, adiv.c.noabx.act)
+  # p-value = 0.154
+```
+### Beta Div
+```{r}
+### Bray-Curtis ###
+phy.act.noabx <- subset_samples(phy.c, Antibiotics == "No")
+phy.act.noabx <- subset_samples(phy.act.noabx, Season != "Winter")
+
+bray.pcoa <- ordinate(physeq=phy.act.noabx, method="PCoA", distance="bray")
+
+# Test
+sampdf <- data.frame(sample_data(phy.act.noabx))
+bray <- phyloseq::distance(physeq = phy.act.noabx, method = "bray")
+beta.tax <- betadisper(d = bray, group = sampdf$Season)
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.803
+adonis(bray ~ Season, data=sampdf, permutations = 9999)
+  # p-value = 0.1385
+
+```
