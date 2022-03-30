@@ -213,10 +213,11 @@ meta <- read.csv('metadata.csv', fileEncoding="UTF-8-BOM")
 d.metrics[,colnames(meta)[3:12]] <- NA
 for(sq in 1:nrow(d.metrics)){
   meta.row <- which(meta$ID == d.metrics$ID[sq])
-  d.metrics[sq, 5:14] <- meta[meta.row, 3:12]
+  d.metrics[sq, 6:15] <- meta[meta.row, 3:12]
 }
 
 # Convert to numeric
+d.metrics$MaxD <- as.numeric(d.metrics$MaxD)
 d.metrics$TimeMaxD <- as.numeric(d.metrics$TimeMaxD)
 d.metrics$Slope <- as.numeric(d.metrics$Slope)
 d.metrics$SlopeTime <- as.numeric(d.metrics$SlopeTime)
@@ -350,6 +351,347 @@ var.test(Slope ~ Antibiotics, d.sal.p)
 p.adjust(c(0.05126, 0.08439, 0.06578, 0.1186, 0.9316, 0.3398), method = "BH")
   # p-value = 0.16878 0.16878 0.16878 0.17790 0.93160 0.40776
 ```
+
+### Test SlopeTime
+```{r}
+### Test for normality
+
+# Inulin Summer
+hist(d.inu.s$SlopeTime)
+qqnorm(d.inu.s$SlopeTime)
+qqline(d.inu.s$SlopeTime)
+shapiro.test(d.inu.s$SlopeTime)
+  # p-value = 0.3354
+  # Normal
+
+# Inulin Winter
+hist(d.inu.w$SlopeTime)
+qqnorm(d.inu.w$SlopeTime)
+qqline(d.inu.w$SlopeTime)
+shapiro.test(d.inu.w$SlopeTime)
+  # p-value = 0.004898
+  # Not Normal
+
+# Inulin Spring
+hist(d.inu.p$SlopeTime)
+qqnorm(d.inu.p$SlopeTime)
+qqline(d.inu.p$SlopeTime)
+shapiro.test(d.inu.p$SlopeTime)
+  # p-value = 0.03859
+  # Not Normal
+
+# Saline Summer
+hist(d.sal.s$SlopeTime)
+qqnorm(d.sal.s$SlopeTime)
+qqline(d.sal.s$SlopeTime)
+shapiro.test(d.sal.s$SlopeTime)
+  # p-value = 0.1082
+  # Normal
+
+# Saline Winter
+hist(d.sal.w$SlopeTime)
+qqnorm(d.sal.w$SlopeTime)
+qqline(d.sal.w$SlopeTime)
+shapiro.test(d.sal.w$SlopeTime)
+  # p-value = 0.2088
+  # Normal
+
+# Saline Spring
+hist(d.sal.p$SlopeTime)
+qqnorm(d.sal.p$SlopeTime)
+qqline(d.sal.p$SlopeTime)
+shapiro.test(d.sal.p$SlopeTime)
+  # p-value = 0.4747
+  # Normal
+
+
+### Test Inulin
+
+t.test(SlopeTime ~ Antibiotics, data = d.inu.s)
+  # p-value = 0.6313
+  # adj P = 0.6747000
+wilcox.test(SlopeTime ~ Antibiotics, data = d.inu.w)
+  # p-value = 0.0005828*
+  # adj P = 0.0034968
+wilcox.test(SlopeTime ~ Antibiotics, data = d.inu.p)
+  # p-value = 0.01826*
+  # adj P = 0.0547800
+
+
+### Test Saline
+# Summer
+t.test(SlopeTime ~ Antibiotics, data = d.sal.s)
+  # p-value = 0.5457
+  # adj P = 0.6747000
+# Winter
+t.test(SlopeTime ~ Antibiotics, data = d.sal.w)
+  # p-value = 0.5459
+  # adj P = 0.6747000
+# Spring
+t.test(SlopeTime ~ Antibiotics, data = d.sal.p)
+  # p-value = 0.6747
+  # adj P = 0.6747000
+
+p.adjust(c(0.6313, 0.0005828, 0.01826, 0.5457, 0.5459, 0.6747), "BH")
+  # 0.6747000 0.0034968 0.0547800 0.6747000 0.6747000 0.6747000
+
+
+
+## Test SlopeTime Variance
+# Inulin
+var.test(SlopeTime ~ Antibiotics, d.inu.s)
+  # p-value = 0.02056*
+  # adj P = 0.06168
+fligner.test(SlopeTime ~ Antibiotics, d.inu.w)
+  # p-value = 0.01802*
+  # adj P = 0.06168
+fligner.test(SlopeTime ~ Antibiotics, d.inu.p)
+  # p-value = 0.5442
+  # adj P = 0.81630
+
+# Saline
+var.test(SlopeTime ~ Antibiotics, d.sal.s)
+  # p-value = 0.7846
+  # adj P = 0.90760
+var.test(SlopeTime ~ Antibiotics, d.sal.w)
+  # p-value = 0.1833
+  # adj P = 0.36660
+var.test(SlopeTime ~ Antibiotics, d.sal.p)
+  # p-value = 0.9076
+  # adj P = 0.90760
+
+
+p.adjust(c(0.02056, 0.01802, 0.5442, 0.7846, 0.1833, 0.9076), "BH")
+  # 0.06168 0.06168 0.81630 0.90760 0.36660 0.90760
+```
+
+
+
+### Test MaxD
+```{r}
+### Test for normality
+
+# Inulin Summer
+hist(d.inu.s$MaxD)
+qqnorm(d.inu.s$MaxD)
+qqline(d.inu.s$MaxD)
+shapiro.test(d.inu.s$MaxD)
+  # p-value = 0.06959
+  # Normal
+
+# Inulin Winter
+hist(d.inu.w$MaxD)
+qqnorm(d.inu.w$MaxD)
+qqline(d.inu.w$MaxD)
+shapiro.test(d.inu.w$MaxD)
+  # p-value = 0.001098
+  # Not Normal
+
+# Inulin Spring
+hist(d.inu.p$MaxD)
+qqnorm(d.inu.p$MaxD)
+qqline(d.inu.p$MaxD)
+shapiro.test(d.inu.p$MaxD)
+  # p-value = 0.008604
+  # Not Normal
+
+# Saline Summer
+hist(d.sal.s$MaxD)
+qqnorm(d.sal.s$MaxD)
+qqline(d.sal.s$MaxD)
+shapiro.test(d.sal.s$MaxD)
+  # p-value = 2.311e-05
+  # Not Normal
+
+# Saline Winter
+hist(d.sal.w$MaxD)
+qqnorm(d.sal.w$MaxD)
+qqline(d.sal.w$MaxD)
+shapiro.test(d.sal.w$MaxD)
+  # p-value = 5.211e-06
+  # Not Normal
+
+# Saline Spring
+hist(d.sal.p$MaxD)
+qqnorm(d.sal.p$MaxD)
+qqline(d.sal.p$MaxD)
+shapiro.test(d.sal.p$MaxD)
+  # p-value = 0.01185
+  # Not Normal
+
+
+### Test Inulin
+
+t.test(MaxD ~ Antibiotics, data = d.inu.s)
+  # p-value = 0.0004686*
+  # adj P = 0.0028116*
+wilcox.test(MaxD ~ Antibiotics, data = d.inu.w)
+  # p-value = 0.006993*
+  # adj P = 0.0139860*
+wilcox.test(MaxD ~ Antibiotics, data = d.inu.p)
+  # p-value = 0.001166*
+  # adj P = 0.0034980*
+
+
+### Test Saline
+# Summer
+wilcox.test(MaxD ~ Antibiotics, data = d.sal.s)
+  # p-value = 0.1627
+  # adj P = 0.1952400
+# Winter
+wilcox.test(MaxD ~ Antibiotics, data = d.sal.w)
+  # p-value = 0.06136
+  # adj P = 0.0920400
+# Spring
+wilcox.test(MaxD ~ Antibiotics, data = d.sal.p)
+  # p-value = 0.9427
+  # adj P = 0.9427000
+
+p.adjust(c(0.0004686, 0.006993, 0.001166, 0.1627, 0.06136, 0.9427), "BH")
+  # 0.0028116 0.0139860 0.0034980 0.1952400 0.0920400 0.9427000
+
+
+
+## Test MaxD Variance
+# Inulin
+var.test(MaxD ~ Antibiotics, d.inu.s)
+  # p-value = 0.0003629*
+  # adj P = 0.0021774*
+fligner.test(MaxD ~ Antibiotics, d.inu.w)
+  # p-value = 0.03219*
+  # adj P = 0.0482850*
+fligner.test(MaxD ~ Antibiotics, d.inu.p)
+  # p-value = 0.02858*
+  # adj P = 0.0482850*
+
+# Saline
+fligner.test(MaxD ~ Antibiotics, d.sal.s)
+  # p-value = 0.003496*
+  # adj P = 0.0104880*
+fligner.test(MaxD ~ Antibiotics, d.sal.w)
+  # p-value = 0.2361
+  # adj P = 0.2833200
+fligner.test(MaxD ~ Antibiotics, d.sal.p)
+  # p-value = 0.9384
+  # adj P = 0.9384000
+
+
+p.adjust(c(0.0003629, 0.03219, 0.02858, 0.003496, 0.2361, 0.9384), "BH")
+  # 0.0021774 0.0482850 0.0482850 0.0104880 0.2833200 0.9384000
+```
+
+
+
+### Test TimeMaxD
+```{r}
+### Test for normality
+
+# Inulin Summer
+hist(d.inu.s$TimeMaxD)
+qqnorm(d.inu.s$TimeMaxD)
+qqline(d.inu.s$TimeMaxD)
+shapiro.test(d.inu.s$TimeMaxD)
+  # p-value = 0.01215
+  # Not Normal
+
+# Inulin Winter
+hist(d.inu.w$TimeMaxD)
+qqnorm(d.inu.w$TimeMaxD)
+qqline(d.inu.w$TimeMaxD)
+shapiro.test(d.inu.w$TimeMaxD)
+  # p-value = 0.01511
+  # Not Normal
+
+# Inulin Spring
+hist(d.inu.p$TimeMaxD)
+qqnorm(d.inu.p$TimeMaxD)
+qqline(d.inu.p$TimeMaxD)
+shapiro.test(d.inu.p$TimeMaxD)
+  # p-value = 0.0408
+  # Not Normal
+
+# Saline Summer
+hist(d.sal.s$TimeMaxD)
+qqnorm(d.sal.s$TimeMaxD)
+qqline(d.sal.s$TimeMaxD)
+shapiro.test(d.sal.s$TimeMaxD)
+  # p-value = 0.04462
+  # Not Normal
+
+# Saline Winter
+hist(d.sal.w$TimeMaxD)
+qqnorm(d.sal.w$TimeMaxD)
+qqline(d.sal.w$TimeMaxD)
+shapiro.test(d.sal.w$TimeMaxD)
+  # p-value = 0.01351
+  # Not Normal
+
+# Saline Spring
+hist(d.sal.p$TimeMaxD)
+qqnorm(d.sal.p$TimeMaxD)
+qqline(d.sal.p$TimeMaxD)
+shapiro.test(d.sal.p$TimeMaxD)
+  # p-value = 0.2392
+  # Normal
+
+
+### Test Inulin
+
+wilcox.test(TimeMaxD ~ Antibiotics, data = d.inu.s)
+  # p-value = 0.001166*
+  # adj P = 0.003498*
+wilcox.test(TimeMaxD ~ Antibiotics, data = d.inu.w)
+  # p-value = 0.00326*
+  # adj P = 0.006400*
+wilcox.test(TimeMaxD ~ Antibiotics, data = d.inu.p)
+  # p-value = 0.001166*
+  # adj P = 0.003498*
+
+
+### Test Saline
+wilcox.test(TimeMaxD ~ Antibiotics, data = d.sal.s)
+  # p-value = 0.05346
+  # adj P = 0.064152
+wilcox.test(TimeMaxD ~ Antibiotics, data = d.sal.w)
+  # p-value = 0.042*
+  # adj P = 0.063000
+t.test(TimeMaxD ~ Antibiotics, data = d.sal.p)
+  # p-value = 0.8299
+  # adj P = 0.829900
+
+p.adjust(c(0.001166, 0.0032, 0.001166, 0.05346, 0.042, 0.8299), "BH")
+  # 0.003498 0.006400 0.003498 0.064152 0.063000 0.829900
+
+
+
+## Test TimeMaxD Variance
+# Inulin
+fligner.test(TimeMaxD ~ Antibiotics, d.inu.s)
+  # p-value = 0.8986
+  # adj P = 0.8986
+fligner.test(TimeMaxD ~ Antibiotics, d.inu.w)
+  # p-value = 0.2142
+  # adj P = 0.3339
+fligner.test(TimeMaxD ~ Antibiotics, d.inu.p)
+  # p-value = 0.1445
+  # adj P = 0.3339
+
+# Saline
+fligner.test(TimeMaxD ~ Antibiotics, d.sal.s)
+  # p-value = 0.2226
+  # adj P = 0.3339
+fligner.test(TimeMaxD ~ Antibiotics, d.sal.w)
+  # p-value = 0.1231
+  # adj P = 0.3339
+var.test(TimeMaxD ~ Antibiotics, d.sal.p)
+  # p-value = 0.8626
+  # adj P = 0.8986
+
+
+p.adjust(c(0.8986, 0.2142, 0.1445, 0.2226, 0.1231, 0.8626), "BH")
+  # 0.8986 0.3339 0.3339 0.3339 0.3339 0.8986
+```
+
 
 
 ### Calculate AUC
