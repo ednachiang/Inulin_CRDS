@@ -87,16 +87,17 @@ d.metrics <- calc.delta.metrics(crds.rem)
 #write.csv(d.metrics, "delta_metrics.csv", row.names = F)
 
 # Load metadata
-meta <- read.csv('metadata.csv', fileEncoding="UTF-8-BOM")
+meta <- read.csv('metadata.csv')
 
 # Add metadata to delta metrics
 d.metrics[,colnames(meta)[3:12]] <- NA
 for(sq in 1:nrow(d.metrics)){
   meta.row <- which(meta$ID == d.metrics$ID[sq])
-  d.metrics[sq, 5:14] <- meta[meta.row, 3:12]
+  d.metrics[sq, 6:15] <- meta[meta.row, 3:12]
 }
 
 # Convert to numeric
+d.metrics$MaxD <- as.numeric(d.metrics$MaxD)
 d.metrics$TimeMaxD <- as.numeric(d.metrics$TimeMaxD)
 d.metrics$Slope <- as.numeric(d.metrics$Slope)
 d.metrics$SlopeTime <- as.numeric(d.metrics$SlopeTime)
@@ -117,7 +118,7 @@ d.sal.noabx <- d.sal[which(d.sal$Antibiotics == "No"),]
 
 
 
-### Test Delta Curve Slope
+### Test Slope
 ```{r}
 ### Test Normality - Inulin
 hist(d.inu.abx$Slope)
@@ -254,13 +255,230 @@ cor.test(d.inu.abx$Slope, d.inu.abx$Ketones, method = "spearman")
   # p-value = 0.1377
   # rho = 0.3878695
 cor.test(d.inu.noabx$Slope, d.inu.noabx$Ketones, method = "spearman")
-  # p-value = 0.001904
+  # p-value = 0.001904*
   # rho = -0.7136781
 cor.test(d.sal.abx$Slope, d.sal.abx$Ketones, method = "spearman")
   # p-value = 0.9702
 cor.test(d.sal.noabx$Slope, d.sal.noabx$Ketones, method = "spearman")
   # p-value = 0.7203
 ```
+
+
+
+
+### Test SlopeTime
+```{r}
+### Test Normality - Inulin
+hist(d.inu.abx$SlopeTime)
+qqnorm(d.inu.abx$SlopeTime)
+qqline(d.inu.abx$SlopeTime)
+shapiro.test(d.inu.abx$SlopeTime)
+  # p-value = 3.271e-05
+  # Not Normal
+hist(d.inu.noabx$SlopeTime)
+qqnorm(d.inu.noabx$SlopeTime)
+qqline(d.inu.noabx$SlopeTime)
+shapiro.test(d.inu.noabx$SlopeTime)
+  # p-value = 0.4223
+  # Normal
+
+
+
+### Test Normality - Saline
+hist(d.sal.abx$SlopeTime)
+qqnorm(d.sal.abx$SlopeTime)
+qqline(d.sal.abx$SlopeTime)
+shapiro.test(d.sal.abx$SlopeTime)
+  # p-value = 0.005973
+  # Not Normal
+hist(d.sal.noabx$SlopeTime)
+qqnorm(d.sal.noabx$SlopeTime)
+qqline(d.sal.noabx$SlopeTime)
+shapiro.test(d.sal.noabx$SlopeTime)
+  # p-value = 0.351
+  # Normal
+
+
+
+### Test BodyMass Correlation
+cor.test(d.inu.abx$SlopeTime, d.inu.abx$BodyMass, method = "spearman")
+  # p-value = 0.2517
+cor.test(d.inu.noabx$SlopeTime, d.inu.noabx$BodyMass, method = "pearson")
+  # p-value = 0.3422
+cor.test(d.sal.abx$SlopeTime, d.sal.abx$BodyMass, method = "spearman")
+  # p-value = 0.1286
+cor.test(d.sal.noabx$SlopeTime, d.sal.noabx$BodyMass, method = "pearson")
+  # p-value = 0.2093
+
+
+### Test BodyTemp Correlation
+cor.test(d.inu.abx$SlopeTime, d.inu.abx$BodyTemp, method = "spearman")
+  # p-value = 0.8737
+cor.test(d.inu.noabx$SlopeTime, d.inu.noabx$BodyTemp, method = "pearson")
+  # p-value = 0.3439
+cor.test(d.sal.abx$SlopeTime, d.sal.abx$BodyTemp, method = "spearman")
+  # p-value = 0.3324
+cor.test(d.sal.noabx$SlopeTime, d.sal.noabx$BodyTemp, method = "pearson")
+  # p-value = 0.8783
+
+
+### Test Ketones Correlation
+cor.test(d.inu.abx$SlopeTime, d.inu.abx$Ketones, method = "spearman")
+  # p-value = 0.09738
+cor.test(d.inu.noabx$SlopeTime, d.inu.noabx$Ketones, method = "spearman")
+  # p-value = 0.4216
+cor.test(d.sal.abx$SlopeTime, d.sal.abx$Ketones, method = "spearman")
+  # p-value = 0.6085
+cor.test(d.sal.noabx$SlopeTime, d.sal.noabx$Ketones, method = "spearman")
+  # p-value = 0.8088
+```
+
+
+
+
+### Test MaxD
+```{r}
+### Test Normality - Inulin
+hist(d.inu.abx$MaxD)
+qqnorm(d.inu.abx$MaxD)
+qqline(d.inu.abx$MaxD)
+shapiro.test(d.inu.abx$MaxD)
+  # p-value = 0.02368
+  # Not Normal
+hist(d.inu.noabx$MaxD)
+qqnorm(d.inu.noabx$MaxD)
+qqline(d.inu.noabx$MaxD)
+shapiro.test(d.inu.noabx$MaxD)
+  # p-value = 0.1398
+  # Normal
+
+
+
+### Test Normality - Saline
+hist(d.sal.abx$MaxD)
+qqnorm(d.sal.abx$MaxD)
+qqline(d.sal.abx$MaxD)
+shapiro.test(d.sal.abx$MaxD)
+  # p-value = 0.0002345
+  # Not Normal
+hist(d.sal.noabx$MaxD)
+qqnorm(d.sal.noabx$MaxD)
+qqline(d.sal.noabx$MaxD)
+shapiro.test(d.sal.noabx$MaxD)
+  # p-value = 1.386e-06
+  # Not Normal
+
+
+
+### Test BodyMass Correlation
+cor.test(d.inu.abx$MaxD, d.inu.abx$BodyMass, method = "spearman")
+  # p-value = 0.6887
+cor.test(d.inu.noabx$MaxD, d.inu.noabx$BodyMass, method = "pearson")
+  # p-value = 0.1138
+cor.test(d.sal.abx$MaxD, d.sal.abx$BodyMass, method = "spearman")
+  # p-value = 0.1803
+cor.test(d.sal.noabx$MaxD, d.sal.noabx$BodyMass, method = "spearman")
+  # p-value = 0.3421
+
+
+### Test BodyTemp Correlation
+cor.test(d.inu.abx$MaxD, d.inu.abx$BodyTemp, method = "spearman")
+  # p-value = 0.8398
+cor.test(d.inu.noabx$MaxD, d.inu.noabx$BodyTemp, method = "pearson")
+  # p-value = 0.127
+cor.test(d.sal.abx$MaxD, d.sal.abx$BodyTemp, method = "spearman")
+  # p-value = 0.6429
+cor.test(d.sal.noabx$MaxD, d.sal.noabx$BodyTemp, method = "spearman")
+  # p-value = 0.6301
+
+
+### Test Ketones Correlation
+cor.test(d.inu.abx$MaxD, d.inu.abx$Ketones, method = "spearman")
+  # p-value = 0.8832
+cor.test(d.inu.noabx$MaxD, d.inu.noabx$Ketones, method = "spearman")
+  # p-value = 0.02764*
+  # rho = -0.5489832
+cor.test(d.sal.abx$MaxD, d.sal.abx$Ketones, method = "spearman")
+  # p-value = 0.7765
+cor.test(d.sal.noabx$MaxD, d.sal.noabx$Ketones, method = "spearman")
+  # p-value = 0.07819
+```
+
+
+
+
+
+### Test TimeMaxD
+```{r}
+### Test Normality - Inulin
+hist(d.inu.abx$TimeMaxD)
+qqnorm(d.inu.abx$TimeMaxD)
+qqline(d.inu.abx$TimeMaxD)
+shapiro.test(d.inu.abx$TimeMaxD)
+  # p-value = 0.02942
+  # Not Normal
+hist(d.inu.noabx$TimeMaxD)
+qqnorm(d.inu.noabx$TimeMaxD)
+qqline(d.inu.noabx$TimeMaxD)
+shapiro.test(d.inu.noabx$TimeMaxD)
+  # p-value = 0.01792
+  # Not Normal
+
+
+
+### Test Normality - Saline
+hist(d.sal.abx$TimeMaxD)
+qqnorm(d.sal.abx$TimeMaxD)
+qqline(d.sal.abx$TimeMaxD)
+shapiro.test(d.sal.abx$TimeMaxD)
+  # p-value = 0.05436
+  # Normal
+hist(d.sal.noabx$TimeMaxD)
+qqnorm(d.sal.noabx$TimeMaxD)
+qqline(d.sal.noabx$TimeMaxD)
+shapiro.test(d.sal.noabx$TimeMaxD)
+  # p-value = 0.1402
+  # Normal
+
+
+
+### Test BodyMass Correlation
+cor.test(d.inu.abx$TimeMaxD, d.inu.abx$BodyMass, method = "spearman")
+  # p-value = 0.8752
+cor.test(d.inu.noabx$TimeMaxD, d.inu.noabx$BodyMass, method = "spearman")
+  # p-value = 0.09366
+cor.test(d.sal.abx$TimeMaxD, d.sal.abx$BodyMass, method = "spearman")
+  # p-value = 0.006558*
+  # rho = -0.6153847
+cor.test(d.sal.noabx$TimeMaxD, d.sal.noabx$BodyMass, method = "pearson")
+  # p-value = 0.7745
+
+
+### Test BodyTemp Correlation
+cor.test(d.inu.abx$TimeMaxD, d.inu.abx$BodyTemp, method = "spearman")
+  # p-value = 0.3558
+cor.test(d.inu.noabx$TimeMaxD, d.inu.noabx$BodyTemp, method = "spearman")
+  # p-value = 0.9616
+cor.test(d.sal.abx$TimeMaxD, d.sal.abx$BodyTemp, method = "pearson")
+  # p-value = 0.3758
+cor.test(d.sal.noabx$TimeMaxD, d.sal.noabx$BodyTemp, method = "pearson")
+  # p-value = 0.9567
+
+
+### Test Ketones Correlation
+cor.test(d.inu.abx$TimeMaxD, d.inu.abx$Ketones, method = "spearman")
+  # p-value = 0.1491
+cor.test(d.inu.noabx$TimeMaxD, d.inu.noabx$Ketones, method = "spearman")
+  # p-value = 0.8164
+cor.test(d.sal.abx$TimeMaxD, d.sal.abx$Ketones, method = "spearman")
+  # p-value = 0.01623*
+  # rho = 0.6277548
+cor.test(d.sal.noabx$TimeMaxD, d.sal.noabx$Ketones, method = "spearman")
+  # p-value = 0.954
+```
+
+
+
 
 
 ### Separate by substrate
@@ -394,43 +612,50 @@ shapiro.test(auc.sal.noabx$AUC)
 ### Test AUC - BodyMass Correlation ###
 
 # Inulin
+cor.test(auc.inu.abx$AUC, auc.inu.abx$BodyMass, method = "spearman")
+  # p-value = 0.8768
 cor.test(auc.inu.noabx$AUC, auc.inu.noabx$BodyMass, method = "spearman")
   # p-value = 0.3091
-  # rho = 0.2324675
 
 # Saline
+cor.test(auc.sal.abx$AUC, auc.sal.abx$BodyMass, method = "spearman")
+  # p-value = 0.4666
 cor.test(auc.sal.noabx$AUC, auc.sal.noabx$BodyMass, method = "pearson")
   # p-value = 0.07001
-  # cor = -0.4134084 
-
 
 
 
 ### Test AUC - BodyTemp Correlation ###
 
 # Inulin
+cor.test(auc.inu.abx$AUC, auc.inu.abx$BodyTemp, method = "pearson")
+  # p-value = 0.9251
 cor.test(auc.inu.noabx$AUC, auc.inu.noabx$BodyTemp, method = "spearman")
   # p-value = 0.08249
-  # rho = 0.3876749
 
 # Saline
+cor.test(auc.sal.abx$AUC, auc.sal.abx$BodyTemp, method = "pearson")
+  # p-value = 0.6659
 cor.test(auc.sal.noabx$AUC, auc.sal.noabx$BodyTemp, method = "pearson")
   # p-value = 0.3344
-  # cor = 0.2276363 
+
+
 
 
 
 ### Test AUC - Ketones Correlation ###
 
 # Inulin
+cor.test(auc.inu.abx$AUC, auc.inu.abx$Ketones, method = "spearman")
+  # p-value = 0.3297
 cor.test(auc.inu.noabx$AUC, auc.inu.noabx$Ketones, method = "spearman")
   # p-value = 0.3699
-  # rho = -0.2403656
 
 # Saline
-cor.test(auc.sal.noabx$AUC, auc.sal.noabx$Ketones, method = "pearson")
-  # p-value = 0.1922
-  # cor = 0.3438483
+cor.test(auc.sal.abx$AUC, auc.sal.abx$Ketones, method = "spearman")
+  # p-value = 0.736
+cor.test(auc.sal.noabx$AUC, auc.sal.noabx$Ketones, method = "spearman")
+  # p-value = 0.08728
 ```
 
 
@@ -451,20 +676,42 @@ for(sample in 1:nrow(exo_rpkg)){
   exo_rpkg$AUC[sample] <- auc.df$AUC[useRow]
   useRowD <- which(d.metrics$ID == sampName)
   exo_rpkg$Slope[sample] <- d.metrics$Slope[useRowD]
+  exo_rpkg$SlopeTime[sample] <- d.metrics$SlopeTime[useRowD]
+  exo_rpkg$MaxD[sample] <- d.metrics$MaxD[useRowD]
+  exo_rpkg$TimeMaxD[sample] <- d.metrics$TimeMaxD[useRowD]
 }
 
 # Subset out inulin samples
 exo_rpkg_inu <- exo_rpkg[1:9,]
 
+# Test normality
+hist(exo_rpkg_inu$RPKG)
+qqnorm(exo_rpkg_inu$RPKG)
+qqline(exo_rpkg_inu$RPKG)
+shapiro.test(exo_rpkg_inu$RPKG)
+  # p-value = 0.7523
+  # Normal
 
 
 ### Test RPKG - AUC
-cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$AUC, method = "spearman")
-  # p-value = 0.8801
+cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$AUC, method = "pearson")
+  # p-value = 0.6815
 
 ### Test RPKG - Slope
-cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$Slope, method = "spearman")
-  # p-value = 0.8432
+cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$Slope, method = "pearson")
+  # p-value = 0.8562
+
+### Test RPKG - SlopeTime
+cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$SlopeTime, method = "pearson")
+  # p-value = 0.1434
+
+### Test RPKG - MaxD
+cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$MaxD, method = "pearson")
+  # p-value = 0.7158
+
+### Test RPKG - TimeMaxD
+cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$TimeMaxD, method = "spearman")
+  # p-value = 0.1938
 ```
 
 
@@ -491,6 +738,9 @@ for(sample in 1:nrow(dna.con)){
   dna.con$AUC[sample] <- auc.df$AUC[useRow]
   useRowD <- which(d.metrics$ID == sampName)
   dna.con$Slope[sample] <- d.metrics$Slope[useRowD]
+  dna.con$SlopeTime[sample] <- d.metrics$SlopeTime[useRowD]
+  dna.con$MaxD[sample] <- d.metrics$MaxD[useRowD]
+  dna.con$TimeMaxD[sample] <- d.metrics$TimeMaxD[useRowD]
 }
 
 # Subset out inulin
@@ -521,25 +771,77 @@ qqline(dna.c.inu.abx$DNA_Yield_.ng.mg.)
 shapiro.test(dna.c.inu.abx$DNA_Yield_.ng.mg.)
   # p-value = 0.0003157
   # Not Normal
-
+hist(dna.c.inu$AUC)
+qqnorm(dna.c.inu$AUC)
+qqline(dna.c.inu$AUC)
+shapiro.test(dna.c.inu$AUC)
+  # p-value = 1.06e-06
+  # Not Normal
+hist(dna.c.inu$Slope)
+qqnorm(dna.c.inu$Slope)
+qqline(dna.c.inu$Slope)
+shapiro.test(dna.c.inu$Slope)
+  # p-value = 1.076e-05
+  # Not Normal
+hist(dna.c.inu$SlopeTime)
+qqnorm(dna.c.inu$SlopeTime)
+qqline(dna.c.inu$SlopeTime)
+shapiro.test(dna.c.inu$SlopeTime)
+  # p-value = 0.001114
+  # Not Normal
+hist(dna.c.inu$MaxD)
+qqnorm(dna.c.inu$MaxD)
+qqline(dna.c.inu$MaxD)
+shapiro.test(dna.c.inu$MaxD)
+  # p-value = 2.952e-06
+  # Not Normal
+hist(dna.c.inu$TimeMaxD)
+qqnorm(dna.c.inu$TimeMaxD)
+qqline(dna.c.inu$TimeMaxD)
+shapiro.test(dna.c.inu$TimeMaxD)
+  # p-value = 8.742e-05
+  # Not Normal
 
 
 ### Test
 cor.test(dna.c.inu$DNA_Yield_.ng.mg., dna.c.inu$AUC, method = "spearman")
-  # p-value = 7.727e-05
+  # p-value = 7.727e-05*
 cor.test(dna.c.inu$DNA_Yield_.ng.mg., dna.c.inu$Slope, method = "spearman")
-  # p-value = 1.795e-06
+  # p-value = 1.795e-06*
+cor.test(dna.c.inu$DNA_Yield_.ng.mg., dna.c.inu$SlopeTime, method = "spearman")
+  # p-value = 0.05915
+cor.test(dna.c.inu$DNA_Yield_.ng.mg., dna.c.inu$MaxD, method = "spearman")
+  # p-value = 9.042e-05
+  # rho = 0.5790955
+cor.test(dna.c.inu$DNA_Yield_.ng.mg., dna.c.inu$TimeMaxD, method = "spearman")
+  # p-value = 2.295e-08
+  # rho = 0.7515135
 
-cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$AUC, method = "pearson")
+
+cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$AUC, method = "spearman")
   # p-value = 0.1728
 cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$Slope, method = "pearson")
   # p- value = 0.9098
+cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$SlopeTime, method = "pearson")
+  # p-value = 0.3932
+cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$MaxD, method = "pearson")
+  # p-value = 0.1957
+cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$TimeMaxD, method = "spearman")
+  # p-value = 0.9866
+
+
 
 cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$AUC, method = "spearman")
   # p-value = 0.6108
 cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$Slope, method = "spearman")
   # p- value = 0.03163*
   # rho = 0.4938496
+cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$SlopeTime, method = "spearman")
+  # p-value = 0.3483
+cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$MaxD, method = "spearman")
+  # p-value = 0.1794
+cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$TimeMaxD, method = "spearman")
+  # p-value = 0.1186
 ```
 
 
@@ -569,6 +871,10 @@ for(k in 1:nrow(dates_use)){
   
   rowUse3 <- which(dna.con$Squirrel == ID)
   dates_use$DNA_Yield[k] <- dna.con$DNA_Yield_.ng.mg.[rowUse3]
+  dates_use$Slope[k] <- dna.con$Slope[rowUse3]
+  dates_use$SlopeTime[k] <- dna.con$SlopeTime[rowUse3]
+  dates_use$MaxD[k] <- dna.con$MaxD[rowUse3]
+  dates_use$TimeMaxD[k] <- dna.con$TimeMaxD[rowUse3]
 }
   
 # Separate by Substrate
@@ -621,6 +927,25 @@ qqline(dates.inu.p$DNA_Yield)
 shapiro.test(dates.inu.p$DNA_Yield)
   # p-value = 0.352
   # Normal
+hist(dates.inu.p$SlopeTime)
+qqnorm(dates.inu.p$SlopeTime)
+qqline(dates.inu.p$SlopeTime)
+shapiro.test(dates.inu.p$SlopeTime)
+  # p-value = 0.5876
+  # Normal
+hist(dates.inu.p$MaxD)
+qqnorm(dates.inu.p$MaxD)
+qqline(dates.inu.p$MaxD)
+shapiro.test(dates.inu.p$MaxD)
+  # p-value = 0.1783
+  # Normal
+hist(dates.inu.p$TimeMaxD)
+qqnorm(dates.inu.p$TimeMaxD)
+qqline(dates.inu.p$TimeMaxD)
+shapiro.test(dates.inu.p$TimeMaxD)
+  # p-value = 0.8548
+  # Normal
+
 
 
 # Inulin Winter
@@ -660,6 +985,25 @@ qqline(dates.inu.w$DNA_Yield)
 shapiro.test(dates.inu.w$DNA_Yield)
   # p-value = 0.01071*
   # Not Normal
+hist(dates.inu.w$SlopeTime)
+qqnorm(dates.inu.w$SlopeTime)
+qqline(dates.inu.w$SlopeTime)
+shapiro.test(dates.inu.w$SlopeTime)
+  # p-value = 0.01045
+  # Not Normal
+hist(dates.inu.w$MaxD)
+qqnorm(dates.inu.w$MaxD)
+qqline(dates.inu.w$MaxD)
+shapiro.test(dates.inu.w$MaxD)
+  # p-value = 0.0005169
+  # Not Normal
+hist(dates.inu.w$TimeMaxD)
+qqnorm(dates.inu.w$TimeMaxD)
+qqline(dates.inu.w$TimeMaxD)
+shapiro.test(dates.inu.w$TimeMaxD)
+  # p-value = 0.01739
+  # Not Normal
+
 
 
 # Saline Spring
@@ -699,9 +1043,30 @@ qqline(dates.sal.p$DNA_Yield)
 shapiro.test(dates.sal.p$DNA_Yield)
   # p-value = 0.1695
   # Normal
+hist(dates.sal.p$SlopeTime)
+qqnorm(dates.sal.p$SlopeTime)
+qqline(dates.sal.p$SlopeTime)
+shapiro.test(dates.sal.p$SlopeTime)
+  # p-value = 0.8502
+  # Normal
+hist(dates.sal.p$MaxD)
+qqnorm(dates.sal.p$MaxD)
+qqline(dates.sal.p$MaxD)
+shapiro.test(dates.sal.p$MaxD)
+  # p-value = 0.01553
+  # Not Normal
+hist(dates.sal.p$TimeMaxD)
+qqnorm(dates.sal.p$TimeMaxD)
+qqline(dates.sal.p$TimeMaxD)
+shapiro.test(dates.sal.p$TimeMaxD)
+  # p-value = 0.3634
+  # Normal
 
 
-# Inulin Winter
+
+
+
+# Saline Winter
 hist(dates.sal.w$Days_Hib)
 qqnorm(dates.sal.w$Days_Hib)
 qqline(dates.sal.w$Days_Hib)
@@ -738,6 +1103,25 @@ qqline(dates.sal.w$DNA_Yield)
 shapiro.test(dates.sal.w$DNA_Yield)
   # p-value = 0.1583
   # Normal
+hist(dates.sal.w$SlopeTime)
+qqnorm(dates.sal.w$SlopeTime)
+qqline(dates.sal.w$SlopeTime)
+shapiro.test(dates.sal.w$SlopeTime)
+  # p-value = 0.03469
+  # Not Normal
+hist(dates.sal.w$MaxD)
+qqnorm(dates.sal.w$MaxD)
+qqline(dates.sal.w$MaxD)
+shapiro.test(dates.sal.w$MaxD)
+  # p-value = 6.777e-07
+  # Not Normal
+hist(dates.sal.w$TimeMaxD)
+qqnorm(dates.sal.w$TimeMaxD)
+qqline(dates.sal.w$TimeMaxD)
+shapiro.test(dates.sal.w$TimeMaxD)
+  # p-value = 0.06743
+  # Normal
+
 
 
 ### Correlate Hib Dates ###
@@ -745,70 +1129,104 @@ shapiro.test(dates.sal.w$DNA_Yield)
 # Inulin Spring - Slope
 cor.test(dates.inu.p$Days_Hib, dates.inu.p$Slope, method = "pearson")
   # p-value = 0.8691
-  # rho = 0.1030024
 cor.test(dates.inu.p$IBA.Hib, dates.inu.p$Slope, method = "pearson")
   # p-value = 0.8053
-  # rho = -0.1534977
 cor.test(dates.inu.p$Num_IBA, dates.inu.p$Slope, method = "pearson")
   # p-value = 0.8329
-  # rho = -0.1316374
 
 # Inulin Spring - AUC
 cor.test(dates.inu.p$Days_Hib, dates.inu.p$AUC, method = "pearson")
   # p-value = 0.3325
-  # rho = -0.5540971
 cor.test(dates.inu.p$IBA.Hib, dates.inu.p$AUC, method = "pearson")
   # p-value = 0.5419
-  # rho = -0.36826 
 cor.test(dates.inu.p$Num_IBA, dates.inu.p$AUC, method = "pearson")
   # p-value = 0.4433
-  # rho = -0.4533077
 
 # Inulin Spring - DNA_Yield
 cor.test(dates.inu.p$Days_Hib, dates.inu.p$DNA_Yield, method = "pearson")
   # p-value = 0.3117
-  # rho = -0.5738266 
 cor.test(dates.inu.p$IBA.Hib, dates.inu.p$DNA_Yield, method = "pearson")
   # p-value = 0.4015
-  # rho = -0.4905393  
 cor.test(dates.inu.p$Num_IBA, dates.inu.p$DNA_Yield, method = "pearson")
   # p-value = 0.3104
-  # rho = -0.5750791 
+
+# Inulin Spring - SlopeTime
+cor.test(dates.inu.p$Days_Hib, dates.inu.p$SlopeTime, method = "pearson")
+  # p-value = 0.8924
+cor.test(dates.inu.p$IBA.Hib, dates.inu.p$SlopeTime, method = "pearson")
+  # p-value = 0.8308
+cor.test(dates.inu.p$Num_IBA, dates.inu.p$SlopeTime, method = "pearson")
+  # p-value = 0.8077
+
+# Inulin Spring - MaxD
+cor.test(dates.inu.p$Days_Hib, dates.inu.p$MaxD, method = "pearson")
+  # p-value = 0.523
+cor.test(dates.inu.p$IBA.Hib, dates.inu.p$MaxD, method = "pearson")
+  # p-value = 0.4702
+cor.test(dates.inu.p$Num_IBA, dates.inu.p$MaxD, method = "pearson")
+  # p-value = 0.4091
+
+# Inulin Spring - TimeMaxD
+cor.test(dates.inu.p$Days_Hib, dates.inu.p$TimeMaxD, method = "pearson")
+  # p-value = 0.4632
+cor.test(dates.inu.p$IBA.Hib, dates.inu.p$TimeMaxD, method = "pearson")
+  # p-value = 0.6911
+cor.test(dates.inu.p$Num_IBA, dates.inu.p$TimeMaxD, method = "pearson")
+  # p-value = 0.7957
 
 
 
 # Inulin Winter - Slope
 cor.test(dates.inu.w$Days_Hib, dates.inu.w$Slope, method = "spearman")
   # p-value = 0.3001
-  # rho = 0.3647433
 cor.test(dates.inu.w$IBA.Hib, dates.inu.w$Slope, method = "spearman")
   # p-value = 1
-  # rho = 0.006060606
 cor.test(dates.inu.w$Num_IBA, dates.inu.w$Slope, method = "spearman")
   # p-value = 0.431
-  # rho = 0.2813574
 
 # Inulin Winter - AUC
 cor.test(dates.inu.w$Days_Hib, dates.inu.w$AUC, method = "spearman")
   # p-value = 0.7126
-  # rho = -0.1337392 
 cor.test(dates.inu.w$IBA.Hib, dates.inu.w$AUC, method = "spearman")
   # p-value = 0.6818
-  # rho = -0.1515152
 cor.test(dates.inu.w$Num_IBA, dates.inu.w$AUC, method = "spearman")
   # p-value = 0.788
-  # rho = -0.09786345
 
 # Inulin Winter - DNA_Yield
 cor.test(dates.inu.w$Days_Hib, dates.inu.w$DNA_Yield, method = "spearman")
   # p-value = 0.01408
-  # rho = -0.7416448 
 cor.test(dates.inu.w$IBA.Hib, dates.inu.w$DNA_Yield, method = "spearman")
   # p-value = 0.5599
-  # rho = -0.2121212
 cor.test(dates.inu.w$Num_IBA, dates.inu.w$DNA_Yield, method = "spearman")
   # p-value = 0.6119
-  # rho = 0.183494
+
+# Inulin Winter - SlopeTime
+cor.test(dates.inu.w$Days_Hib, dates.inu.w$SlopeTime, method = "spearman")
+  # p-value = 0.007245*
+  # rho = 0.7841982
+cor.test(dates.inu.w$IBA.Hib, dates.inu.w$SlopeTime, method = "spearman")
+  # p-value = 0.9728
+cor.test(dates.inu.w$Num_IBA, dates.inu.w$SlopeTime, method = "spearman")
+  # p-value = 0.2883
+
+# Inulin Winter - MaxD
+cor.test(dates.inu.w$Days_Hib, dates.inu.w$MaxD, method = "spearman")
+  # p-value = 0.3833
+cor.test(dates.inu.w$IBA.Hib, dates.inu.w$MaxD, method = "spearman")
+  # p-value = 0.8916
+cor.test(dates.inu.w$Num_IBA, dates.inu.w$MaxD, method = "spearman")
+  # p-value = 0.3608
+
+# Inulin Winter - TimeMaxD
+cor.test(dates.inu.w$Days_Hib, dates.inu.w$TimeMaxD, method = "spearman")
+  # p-value = 0.03021*
+  # rho = 0.6808542
+cor.test(dates.inu.w$IBA.Hib, dates.inu.w$TimeMaxD, method = "spearman")
+  # p-value = 0.3677
+cor.test(dates.inu.w$Num_IBA, dates.inu.w$TimeMaxD, method = "spearman")
+  # p-value = 0.8141
+
+
 
 
 
@@ -816,69 +1234,107 @@ cor.test(dates.inu.w$Num_IBA, dates.inu.w$DNA_Yield, method = "spearman")
 # Saline Spring - Slope
 cor.test(dates.sal.p$Days_Hib, dates.sal.p$Slope, method = "pearson")
   # p-value = 0.3953
-  # rho = 0.4295193
 cor.test(dates.sal.p$IBA.Hib, dates.sal.p$Slope, method = "pearson")
   # p-value = 0.4813
-  # rho = -0.3615395
 cor.test(dates.sal.p$Num_IBA, dates.sal.p$Slope, method = "pearson")
   # p-value = 0.8253
-  # rho = -0.1170047
 
 # Saline Spring - AUC
 cor.test(dates.sal.p$Days_Hib, dates.sal.p$AUC, method = "pearson")
   # p-value = 0.4381
-  # rho = 0.3951984 
 cor.test(dates.sal.p$IBA.Hib, dates.sal.p$AUC, method = "pearson")
   # p-value = 0.02985*
   # rho = -0.8554158
 cor.test(dates.sal.p$Num_IBA, dates.sal.p$AUC, method = "pearson")
   # p-value = 0.1391
-  # rho = -0.6776587
 
 # Saline Spring - DNA_Yield
 cor.test(dates.sal.p$Days_Hib, dates.sal.p$DNA_Yield, method = "pearson")
   # p-value = 0.0259*
   # rho = 0.8655442 
 cor.test(dates.sal.p$IBA.Hib, dates.sal.p$DNA_Yield, method = "pearson")
-  # p-value = 0.96
   # rho = -0.02670578 
 cor.test(dates.sal.p$Num_IBA, dates.sal.p$DNA_Yield, method = "pearson")
   # p-value = 0.3918
-  # rho = 0.432449
+
+# Saline Spring - SlopeTime
+cor.test(dates.sal.p$Days_Hib, dates.sal.p$SlopeTime, method = "pearson")
+  # p-value = 0.7059
+cor.test(dates.sal.p$IBA.Hib, dates.sal.p$SlopeTime, method = "pearson")
+  # p-value = 0.4259
+cor.test(dates.sal.p$Num_IBA, dates.sal.p$SlopeTime, method = "pearson")
+  # p-value = 0.5572
+
+# Saline Spring - MaxD
+cor.test(dates.sal.p$Days_Hib, dates.sal.p$MaxD, method = "spearman")
+  # p-value = 0.08014
+cor.test(dates.sal.p$IBA.Hib, dates.sal.p$MaxD, method = "spearman")
+  # p-value = 0.0206
+  # cor = -0.8804063
+cor.test(dates.sal.p$Num_IBA, dates.sal.p$MaxD, method = "spearman")
+  # p-value = 0.4315
+
+# Saline Spring - TimeMaxD
+cor.test(dates.sal.p$Days_Hib, dates.sal.p$TimeMaxD, method = "pearson")
+  # p-value = 0.9531
+cor.test(dates.sal.p$IBA.Hib, dates.sal.p$TimeMaxD, method = "pearson")
+  # p-value = 0.6576
+cor.test(dates.sal.p$Num_IBA, dates.sal.p$TimeMaxD, method = "pearson")
+  # p-value = 0.6511
+
+
 
 
 # Saline Winter - Slope
 cor.test(dates.sal.w$Days_Hib, dates.sal.w$Slope, method = "spearman")
   # p-value = 0.9599
-  # rho = 0.0183494
 cor.test(dates.sal.w$IBA.Hib, dates.sal.w$Slope, method = "spearman")
   # p-value = 0.8916
-  # rho = 0.05454545
 cor.test(dates.sal.w$Num_IBA, dates.sal.w$Slope, method = "spearman")
   # p-value = 0.8799
-  # rho = -0.05504819
 
 # Saline Winter - AUC
 cor.test(dates.sal.w$Days_Hib, dates.sal.w$AUC, method = "spearman")
   # p-value = 0.6732
-  # rho = 0.1529116 
 cor.test(dates.sal.w$IBA.Hib, dates.sal.w$AUC, method = "spearman")
   # p-value = 0.9728
-  # rho = -0.01818182
 cor.test(dates.sal.w$Num_IBA, dates.sal.w$AUC, method = "spearman")
   # p-value = 0.8141
-  # rho = -0.08563052
 
 # Saline Winter - DNA_Yield
 cor.test(dates.sal.w$Days_Hib, dates.sal.w$DNA_Yield, method = "pearson")
   # p-value = 0.43
-  # rho = 0.2819454 
 cor.test(dates.sal.w$IBA.Hib, dates.sal.w$DNA_Yield, method = "pearson")
   # p-value = 0.7003
-  # rho = 0.1396959 
 cor.test(dates.sal.w$Num_IBA, dates.sal.w$DNA_Yield, method = "pearson")
   # p-value = 0.4399
-  # rho = 0.2761441
+
+# Saline Winter - SlopeTime
+cor.test(dates.sal.w$Days_Hib, dates.sal.w$SlopeTime, method = "spearman")
+  # p-value = 0.742
+cor.test(dates.sal.w$IBA.Hib, dates.sal.w$SlopeTime, method = "spearman")
+  # p-value = 0.1854
+cor.test(dates.sal.w$Num_IBA, dates.sal.w$SlopeTime, method = "spearman")
+  # p-value = 0.4453
+
+# Saline Winter - MaxD
+cor.test(dates.sal.w$Days_Hib, dates.sal.w$MaxD, method = "spearman")
+  # p-value = 0.953
+cor.test(dates.sal.w$IBA.Hib, dates.sal.w$MaxD, method = "spearman")
+  # p-value = 0.7635
+cor.test(dates.sal.w$Num_IBA, dates.sal.w$MaxD, method = "spearman")
+  # p-value = 0.7614
+
+# Saline Winter - TimeMaxD
+cor.test(dates.sal.w$Days_Hib, dates.sal.w$TimeMaxD, method = "pearson")
+  # p-value = 0.03251
+  # cor = -0.6742094
+cor.test(dates.sal.w$IBA.Hib, dates.sal.w$TimeMaxD, method = "pearson")
+  # p-value = 0.7602
+cor.test(dates.sal.w$Num_IBA, dates.sal.w$TimeMaxD, method = "pearson")
+  # p-value = 0.4732
+
+
 
 
 
