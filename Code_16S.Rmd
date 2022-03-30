@@ -653,8 +653,8 @@ shapiro.test(adiv.c.noabx.act$chao)
 t.test(chao ~ Season, adiv.c.noabx.act)
   # p-value = 0.2791
 
-leveneTest(chao ~ Season, adiv.c.noabx.act)
-  # p-value = 0.7901
+var.test(chao ~ Season, adiv.c.noabx.act)
+  # p-value = 0.6088
 
 
 
@@ -685,8 +685,8 @@ shapiro.test(adiv.c.noabx.act$invsimpson)
 t.test(invsimpson ~ Season, adiv.c.noabx.act)
   # p-value = 0.1551
 
-leveneTest(invsimpson ~ Season, adiv.c.noabx.act)
-  # p-value = 0.154
+var.test(invsimpson ~ Season, adiv.c.noabx.act)
+  # p-value = 0.2264
 ```
 ### Beta Div
 ```{r}
