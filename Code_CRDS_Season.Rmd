@@ -1407,7 +1407,7 @@ carb.plot <- ggplot(crds.sum, aes(x=BinTime, y=Y_Mean, color=Season)) +
 
 
 
-#png("prospectus.delta.sd.curves.png", width = 240, height = 110, units = "mm", res = 400)
+#png("deltaCurves.sd.png", width = 240, height = 110, units = "mm", res = 400)
 carb.plot
 #dev.off()
 ```
