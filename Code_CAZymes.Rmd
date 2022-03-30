@@ -247,6 +247,11 @@ TukeyHSD(aov(Abundance ~ Season, data = ce))
   # Summer-Spring = 0.7254842
   # Winter-Spring = 0.0252833*
 
+# Test CE variance
+leveneTest(Abundance ~ Season, data = ce)
+  # p-value = 0.9892
+
+
 
 ### GH
 gh <- class.df[which(class.df$Class == "Glycoside Hydrolase"),]
@@ -267,6 +272,10 @@ TukeyHSD(aov(Abundance ~ Season, data = gh))
   # Summer-Spring = 0.9011395
   # Winter-Spring = 0.0218147*
 
+# Test GH variance
+leveneTest(Abundance ~ Season, gh)
+  # p-value = 0.5304
+
 
 
 ### GT
@@ -284,6 +293,9 @@ shapiro.test(gt$Abundance)
 summary(aov(Abundance ~ Season, data = gt))
   # p-value = 0.173
 
+# Test GT variance
+leveneTest(Abundance ~ Season, gt)
+  # p-value = 0.4508
 
 
 
@@ -302,6 +314,9 @@ shapiro.test(pl$Abundance)
 kruskal.test(Abundance ~ Season, pl)
   # p-value = 0.7604
 
+# Test PL variance
+fligner.test(Abundance ~ Season, pl)
+  # p-value = 0.04577*
 ```
 
 
