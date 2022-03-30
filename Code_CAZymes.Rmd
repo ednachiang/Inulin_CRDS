@@ -248,8 +248,8 @@ TukeyHSD(aov(Abundance ~ Season, data = ce))
   # Winter-Spring = 0.0252833*
 
 # Test CE variance
-leveneTest(Abundance ~ Season, data = ce)
-  # p-value = 0.9892
+fligner.test(Abundance ~ Season, data = ce)
+  # p-value = 0.993
 
 
 
@@ -273,8 +273,8 @@ TukeyHSD(aov(Abundance ~ Season, data = gh))
   # Winter-Spring = 0.0218147*
 
 # Test GH variance
-leveneTest(Abundance ~ Season, gh)
-  # p-value = 0.5304
+fligner.test(Abundance ~ Season, gh)
+  # p-value = 0.7951
 
 
 
@@ -294,8 +294,8 @@ summary(aov(Abundance ~ Season, data = gt))
   # p-value = 0.173
 
 # Test GT variance
-leveneTest(Abundance ~ Season, gt)
-  # p-value = 0.4508
+fligner.test(Abundance ~ Season, gt)
+  # p-value = 0.4993
 
 
 
