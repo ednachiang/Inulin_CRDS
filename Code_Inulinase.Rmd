@@ -55,11 +55,11 @@ shapiro.test(ags$Genome_Equivalents)
 
 
 summary(aov(Avg_Genome_Size ~ Season, data = ags))
-  # p-value = 0.00868
+  # p-value = 0.00868*
 TukeyHSD(aov(Avg_Genome_Size ~ Season, data = ags))
-  # Summer-Winter = 0.0104046
+  # Summer-Winter = 0.0104046*
   # Summer-Spring = 0.8820160
-  # Winter-Spring = 0.0250999
+  # Winter-Spring = 0.0250999*
   # Winter Genomes < Summer and Spring Genomes
     # Winter has more specialists?
 summary(aov(Genome_Equivalents ~ Season, data = ags))
@@ -129,14 +129,14 @@ wilcox.test(formula = RelAbund.100000 ~ Metabolism, data = endo_mapped)
   # p-value = 0.5
 
 # Variance
-leveneTest(RelAbund.100000 ~ Season, data=exoMapped)
-  # p-value = 0.3954
-leveneTest(RelAbund.100000 ~ Season, data=endo_mapped)
-  # p-value = 0.4414
-leveneTest(RelAbund.100000 ~ Metabolism, data=exoMapped)
-  # p-value = 0.8994
-leveneTest(RelAbund.100000 ~ Metabolism, data=endo_mapped)
-  # p-value = 0.5622
+fligner.test(RelAbund.100000 ~ Season, data=exoMapped)
+  # p-value = 0.451
+fligner.test(RelAbund.100000 ~ Season, data=endo_mapped)
+  # p-value = 0.3358
+fligner.test(RelAbund.100000 ~ Metabolism, data=exoMapped)
+  # p-value = 0.9497
+fligner.test(RelAbund.100000 ~ Metabolism, data=endo_mapped)
+  # p-value = 0.1653
 
 
 
