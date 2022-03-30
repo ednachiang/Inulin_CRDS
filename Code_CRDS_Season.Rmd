@@ -192,8 +192,8 @@ fligner.test(MaxD ~ Season, d.inu.abx[which(d.inu.abx$Season != "Summer"),])
 p.adjust( c(0.003642, 0.1438, 0.8838), "BH")
 
 
-leveneTest(MaxD ~ Season, d.inu.noabx)
-  # p-value = 0.05409
+fligner.test(MaxD ~ Season, d.inu.noabx)
+  # p-value = 0.07364
 fligner.test(MaxD ~ Season, d.sal.abx)
   # p-value = 0.2829
 fligner.test(MaxD ~ Season, d.sal.noabx)
@@ -374,10 +374,10 @@ fligner.test(TimeMaxD ~ Season, d.inu.abx)
   # p-value = 0.7034
 fligner.test(TimeMaxD ~ Season, d.inu.noabx)
   # p-value = 0.5083
-leveneTest(TimeMaxD ~ Season, d.sal.abx)
-  # p-value = 0.2609
-leveneTest(TimeMaxD ~ Season, d.sal.noabx)
-  # p-value = 0.9561
+fligner.test(TimeMaxD ~ Season, d.sal.abx)
+  # p-value = 0.2844
+fligner.test(TimeMaxD ~ Season, d.sal.noabx)
+  # p-value = 0.7989
 ```
 
 
@@ -551,10 +551,10 @@ kruskal.test(formula = Slope ~ Season, data = d.sal.noabx)
 
 
 ### Test Variance
-leveneTest(Slope ~ Season, d.inu.abx)
-  # p-value = 0.1217
-leveneTest(Slope ~ Season, d.inu.noabx)
-  # p-value = 0.3009
+fligner.test(Slope ~ Season, d.inu.abx)
+  # p-value = 0.1514
+fligner.test(Slope ~ Season, d.inu.noabx)
+  # p-value = 0.3065
 fligner.test(Slope ~ Season, d.sal.abx)
   # p-value = 0.317
 fligner.test(Slope ~ Season, d.sal.noabx)
@@ -776,12 +776,12 @@ fligner.test(SlopeTime ~ Season, d.inu.abx[which(d.inu.abx$Season != "Summer"),]
 p.adjust(c(0.003586, 0.1422, 0.9815), "BH")
 
 
-leveneTest(SlopeTime ~ Season, d.inu.noabx)
-  # p-value = 0.07205
+fligner.test(SlopeTime ~ Season, d.inu.noabx)
+  # p-value = 0.08891
 fligner.test(SlopeTime ~ Season, d.sal.abx)
   # p-value = 0.9563
-leveneTest(SlopeTime ~ Season, d.sal.noabx)
-  # p-value = 0.4775
+fligner.test(SlopeTime ~ Season, d.sal.noabx)
+  # p-value = 0.2962
 
 
 
@@ -1070,12 +1070,12 @@ fligner.test(AUC ~ Season, auc.inu.noabx[which(auc.inu.noabx$Season != "Summer")
 p.adjust(c(0.3274, 0.04832, 0.01802), method = "fdr")
   # 0.32740 0.07248 0.05406
 
-leveneTest(AUC ~ Season, auc.sal.noabx)
-  # p-value = 0.7845
-leveneTest(AUC ~ Season, auc.inu.abx)
-  # p-value = 0.4093
-leveneTest(AUC ~ Season, auc.sal.abx)
-  # p-value = 0.6819
+fligner.test(AUC ~ Season, auc.sal.noabx)
+  # p-value = 0.8339
+fligner.test(AUC ~ Season, auc.inu.abx)
+  # p-value = 0.4247
+fligner.test(AUC ~ Season, auc.sal.abx)
+  # p-value = 0.8241
 
 
 
@@ -1456,8 +1456,8 @@ t.test(IBA.Hib ~ Season, dates_use)
   # p-value = 0.3668
 
 # Test variance
-leveneTest(IBA.Hib ~ Season, dates_use)
-  # p-value = 0.6908
+fligner.test(IBA.Hib ~ Season, dates_use)
+  # p-value = 0.5841
 
 
 
