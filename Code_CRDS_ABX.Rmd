@@ -655,6 +655,3 @@ leveneTest(IBA.Hib ~ Antibiotics, dates.win)
 leveneTest(Num_IBA ~ Antibiotics, dates.win)
   # p-value = 0.7173
 ```
-
-
-```
