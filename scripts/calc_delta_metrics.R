@@ -6,8 +6,8 @@ calc.delta.metrics <- function(x){
   IDs <- levels(as.factor(x$ID))
   
   # Create output dataframe
-  output <- data.frame(matrix(ncol = 5, nrow = length(levels(IDs))))
-  colnames(output) <- c("ID", "MaxD", "TimeMaxD", "Slope", "SlopeTime")
+  output <- data.frame(matrix(ncol = 3, nrow = length(levels(IDs))))
+  colnames(output) <- c("ID", "MaxD", "Slope")
   
   
   # Iterate through each squirrel ID
@@ -21,15 +21,10 @@ calc.delta.metrics <- function(x){
       # Remove first measurement after gavage
     
     # Pull out time of max value
-    maxDuse <- max(curve.df$Delta)
+    maxD_sorted <- sort(curve.df$Delta[2:nrow(curve.df)], decreasing = T)
+    maxDuse <- mean(maxD_sorted[1:3])
     maxD <- which(curve.df$Delta == max(curve.df$Delta))
-    timeMaxD <- curve.df$RelTime[maxD]
-    if(timeMaxD < 0){
-      sortDelta <- sort(curve.df$Delta, decreasing = T)
-      newD <- sortDelta[2]
-      newMaxD <- which(curve.df$Delta == newD)
-      timeMaxD <- curve.df$RelTime[newMaxD]
-    }
+
     
     # Calculate slope
     slope = 0
@@ -38,19 +33,14 @@ calc.delta.metrics <- function(x){
         # Go row-by-row through curve.df
       rise <- curve.df$Delta[j] - curve.df$Delta[j-1]
       run <- curve.df$RelTime[j] - curve.df$RelTime[j-1]
-      slope <- c(slope, (rise/run) )
-      slopeTime <- c(slopeTime, curve.df$RelTime[j])
-    }
+      slope <- c(slope, (rise/run) )    }
     
     slope <- slope[-1]
       # Remove initial 0
-    slopeTime <- slopeTime[-1]
-      # Remove initial 0
     maxSlope <- max(slope, na.rm = T)
-    useSlopeTime <- slopeTime[which(slope == maxSlope)]
 
     # Populate output dataframe
-    output[i,] <- c(IDs[i], maxDuse, timeMaxD, maxSlope, useSlopeTime)
+    output[i,] <- c(IDs[i], maxDuse, maxSlope)
     
   }
   
