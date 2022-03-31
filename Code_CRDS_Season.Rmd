@@ -1475,6 +1475,17 @@ ggplot(crds.rem, aes(x=BinTime, y=Delta, color=ID)) +
   facet_grid(Season ~ Antibiotics)
 
 
+
+
+
+ggplot(crds, aes(x=BinTime, y=Delta, color=ID)) +
+  geom_line() +
+  geom_point() +
+  facet_grid(Season ~ Antibiotics) +
+  guides(colour=F, linetype=F)
+  
+
+
 ### Split into experimental groups --- INCLUDES OUTLIERS (switch to crds.bin to crds.rem if want to exclude outliers)
 crds.split <- crds.bin %>%
   group_split(Substrate, Antibiotics, Season) %>%
@@ -1494,9 +1505,9 @@ for(group in 1:length(crds.split$.)){
   geom_point() +
   facet_grid(ID ~.)
   
-  tiff(plotName, width = 10, height = 10, units = "in", res = 300)
+  #tiff(plotName, width = 10, height = 10, units = "in", res = 300)
   print(plot)
-  dev.off()
+  #dev.off()
 
 }
 
