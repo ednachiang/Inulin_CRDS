@@ -45,17 +45,20 @@ crds.bin <- bin.crds(crds)
 #crds.rem <- crds.bin[-which(crds.bin$ID == "S34"),]
 crds.rem <- crds.bin[-which(crds.bin$ID == "S37"),]
   # ABX didn't work; high [DNA]
-#crds.rem <- crds.rem[-which(crds.rem$ID == "S37"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "S23"),]
+  # Low baseline
 #crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
 #crds.rem <- crds.rem[-which(crds.rem$ID == "P30"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "W31"),]
+  # Weird baseline. Decreased over time and was lower than ABX squirrels.
 
 # Remove Saline outliers
 #crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
-  # Weird baseline & AUC
+  # Weird baseline, AUC, and MaxD
 crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
+  # Baseline (both values are high), AUC, MaxD
 crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
-#crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
   # This is an adult, not pup
 
 crds.rem$Season <- ordered(crds.rem$Season, levels=c("Summer", "Winter", "Spring"))
@@ -87,22 +90,20 @@ crds.rem$Season <- ordered(crds.rem$Season, levels=c("Summer", "Winter", "Spring
 # Calculate delta metrics
 d.metrics <- calc.delta.metrics(crds.rem)
 #write.csv(d.metrics, "delta_metrics.csv", row.names = F)
-#d.metrics <- read.csv('delta_metrics.csv')
 
 # Load metadata
-meta <- read.csv('metadata.csv', fileEncoding="UTF-8-BOM")
+meta <- read.csv('metadata.csv')
 
 # Add metadata to delta metrics
 d.metrics[,colnames(meta)[3:12]] <- NA
 for(sq in 1:nrow(d.metrics)){
   meta.row <- which(meta$ID == d.metrics$ID[sq])
-  d.metrics[sq, 5:14] <- meta[meta.row, 3:12]
+  d.metrics[sq, 4:13] <- meta[meta.row, 3:12]
 }
 
 # Convert to numeric
-d.metrics$TimeMaxD <- as.numeric(d.metrics$TimeMaxD)
+d.metrics$MaxD <- as.numeric(d.metrics$MaxD)
 d.metrics$Slope <- as.numeric(d.metrics$Slope)
-d.metrics$SlopeTime <- as.numeric(d.metrics$SlopeTime)
 
 # Order seasons
 d.metrics$Season <- ordered(d.metrics$Season, levels=c("Summer", "Winter", "Spring"))
@@ -137,12 +138,14 @@ ids <- unique(crds.rem$ID)
 auc.df <- data.frame(crds.rem[1,])
 auc.df <- auc.df[,-2:-3]
   # Remove Delta and CO2 cols
-auc.df <- auc.df[,-13]
+auc.df <- auc.df[,-14]
   # Remove BinTime col
-colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate", "Diet", "Mom", "Mom_Location", "BodyMass", "BodyTemp")
+colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate", "Diet", "Mom", "Mom_Location", "BodyMass", "BodyTemp", "Date_Sampled")
 auc.df$Ketones <- NA
+#auc.df$Date_Sampled <- NA
+
   # Rename cols
-meta <- read.csv('metadata.csv', fileEncoding="UTF-8-BOM")
+meta <- read.csv('metadata.csv')
 
 #crds.rem= crds.bin
 # First normalize Rel Time so 
@@ -190,11 +193,12 @@ for (i in 1:length(ids)){
   }
     
   auc.df[i,1] <- AUC
-  auc.df[i, 2:12] <- select[1, 4:14]
+  auc.df[i, 2:14] <- select[1, 4:15]
   
   use <- which(meta$ID == ID)
   auc.df$Ketones[i] <- meta$Ketones[use]
 }
+
 
 
 ### Subset by Substrate & ABX
@@ -209,7 +213,7 @@ auc.sal.p <- auc.sal[which(auc.sal$Season == "Spring"),]
 ```
 
 
-### Separate Samples
+### Baseline
 ```{r}
 ### Separate samples
 crds.base <- crds.rem[which(crds.rem$RelTime < 0),]
@@ -221,6 +225,88 @@ base.inu.p <- base.inu[which(base.inu$Season == "Spring"),]
 base.sal.s <- base.sal[which(base.sal$Season == "Summer"),]
 base.sal.w <- base.sal[which(base.sal$Season == "Winter"),]
 base.sal.p <- base.sal[which(base.sal$Season == "Spring"),]
+base.noabx <- crds.base[which(crds.base$Antibiotics == "No"),]
+base.abx <- crds.base[which(crds.base$Antibiotics == "Yes"),]
+base.noabx.s <- base.noabx[which(base.noabx$Season == "Summer"),]
+base.noabx.w <- base.noabx[which(base.noabx$Season == "Winter"),]
+base.noabx.p <- base.noabx[which(base.noabx$Season == "Spring"),]
+base.abx.p <- base.abx[which(base.abx$Season == "Spring"),]
+base.s <- crds.base[which(crds.base$Season == "Summer"),]
+base.w <- crds.base[which(crds.base$Season == "Winter"),]
+base.p <- crds.base[which(crds.base$Season == "Spring"),]
+
+
+# All
+hist(crds.base$Delta)
+qqnorm(crds.base$Delta)
+qqline(crds.base$Delta)
+shapiro.test(crds.base$Delta)
+  # p-value = 0.0002832
+  # Not Normal
+kruskal.test(Delta ~ Season, crds.base)
+  # p-value = 8.278e-09
+wilcox.test(Delta ~ Antibiotics, crds.base)
+  # p-value = 0.03488
+wilcox.test(Delta ~ Substrate, crds.base)
+  # p-value = 0.4112
+wilcox.test(Delta ~ Diet, crds.base)
+  # p-value = 0.05552
+
+
+# Summer
+hist(base.s$Delta)
+qqnorm(base.s$Delta)
+qqline(base.s$Delta)
+shapiro.test(base.s$Delta)
+  # p-value = 0.3867
+  # Normal
+summary(aov(Delta ~ Antibiotics + Substrate + Diet, base.s))
+  # No sig
+
+# Winter
+hist(base.w$Delta)
+qqnorm(base.w$Delta)
+qqline(base.w$Delta)
+shapiro.test(base.w$Delta)
+  # p-value = 0.746
+  # Normal
+summary(aov(Delta ~ Antibiotics + Substrate + Diet, base.w))
+  # No sig
+
+# Spring
+hist(base.p$Delta)
+qqnorm(base.p$Delta)
+qqline(base.p$Delta)
+shapiro.test(base.p$Delta)
+  # p-value = 0.0834
+  # Normal
+summary(aov(Delta ~ Antibiotics + Diet + Substrate, base.p))
+  # ABX & Diet sig
+
+
+# No ABX Spring
+hist(base.noabx.p$Delta)
+qqnorm(base.noabx.p$Delta)
+qqline(base.noabx.p$Delta)
+shapiro.test(base.noabx.p$Delta)
+  # p-value = 0.09155
+  # Normal
+summary(aov(Delta ~ Diet + Substrate, base.noabx.p))
+  # Diet p = 0.0216*
+  # Substrate p = 0.4869
+  # Diet:Substrate
+
+# ABX Spring
+hist(base.abx.p$Delta)
+qqnorm(base.abx.p$Delta)
+qqline(base.abx.p$Delta)
+shapiro.test(base.abx.p$Delta)
+  # p-value = 0.1459
+  # Normal
+summary(aov(Delta ~ Diet + Substrate, base.abx.p))
+  # Diet = 0.000358
+  # Substrate = 0.426050
+
 ```
 
 
@@ -264,7 +350,17 @@ ggplot(auc.sal.w, aes(x = Antibiotics, y = AUC, fill = Antibiotics)) +
 ggplot(auc.sal.p, aes(x = Antibiotics, y = AUC, fill = Antibiotics)) +
   geom_boxplot()
 
+
+
 ### Boxplot - baseline
+ggplot(base.s, aes(x = Antibiotics, y = Delta, fill = Antibiotics)) +
+  geom_boxplot()
+ggplot(base.w, aes(x = Antibiotics, y = Delta, fill = Antibiotics)) +
+  geom_boxplot()
+ggplot(base.p, aes(x = Antibiotics, y = Delta, fill = Antibiotics)) +
+  geom_boxplot()
+
+
 ggplot(base.inu.s, aes(x = Antibiotics, y = Delta, fill = Antibiotics)) +
   geom_boxplot()
   # 1 ABX
@@ -283,6 +379,7 @@ ggplot(base.sal.w, aes(x = Antibiotics, y = Delta, fill = Antibiotics)) +
   # 2 ABX
 ggplot(base.sal.p, aes(x = Antibiotics, y = Delta, fill = Antibiotics)) +
   geom_boxplot()
+
 
 ### Boxplot - Slope
 ggplot(d.inu.s, aes(x = Antibiotics, y = Slope, fill = Antibiotics)) +
@@ -304,25 +401,32 @@ ggplot(d.sal.p, aes(x = Antibiotics, y = Slope, fill = Antibiotics)) +
   # 1 ABX
 
 
-### Boxplot - Slope Time
-ggplot(d.inu.s, aes(x = Antibiotics, y = SlopeTime, fill = Antibiotics)) +
+### Boxplot - MaxD
+ggplot(d.inu.s, aes(x = Antibiotics, y = MaxD, fill = Antibiotics)) +
+  geom_boxplot()
+ggplot(d.inu.w, aes(x = Antibiotics, y = MaxD, fill = Antibiotics)) +
+  geom_boxplot()
+ggplot(d.inu.p, aes(x = Antibiotics, y = MaxD, fill = Antibiotics)) +
+  geom_boxplot()
+  # 2 ABX
+ggplot(d.sal.s, aes(x = Antibiotics, y = MaxD, fill = Antibiotics)) +
+  geom_boxplot()
+ggplot(d.sal.w, aes(x = Antibiotics, y = MaxD, fill = Antibiotics)) +
   geom_boxplot()
   # 1 No ABX
-ggplot(d.inu.w, aes(x = Antibiotics, y = SlopeTime, fill = Antibiotics)) +
-  geom_boxplot()
-ggplot(d.inu.p, aes(x = Antibiotics, y = SlopeTime, fill = Antibiotics)) +
-  geom_boxplot()
-  # 1 ABX
-ggplot(d.sal.s, aes(x = Antibiotics, y = SlopeTime, fill = Antibiotics)) +
-  geom_boxplot()
-ggplot(d.sal.w, aes(x = Antibiotics, y = SlopeTime, fill = Antibiotics)) +
-  geom_boxplot()
-ggplot(d.sal.p, aes(x = Antibiotics, y = SlopeTime, fill = Antibiotics)) +
+  # 2 ABX
+ggplot(d.sal.p, aes(x = Antibiotics, y = MaxD, fill = Antibiotics)) +
   geom_boxplot()
 
 
 
 ### Boxplot - DNA Concentration
+ggplot(dna.inu[which(dna.inu$Antibiotics == "No Antibiotics"),], aes(x = Season, y = DNA_Yield_.ng.mg., fill = Season)) +
+  geom_boxplot()
+ggplot(dna.inu[which(dna.inu$Antibiotics == "Antibiotics"),], aes(x = Season, y = DNA_Yield_.ng.mg., fill = Season)) +
+  geom_boxplot()
+
+
 ggplot(dna.inu.s, aes(x = Antibiotics, y = DNA_Yield_.ng.mg., fill = Antibiotics)) +
   geom_boxplot()
   # 1 ABX
