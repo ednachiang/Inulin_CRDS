@@ -153,7 +153,7 @@ cor.test(d.inu.abx$Slope, d.inu.abx$Ketones, method = "kendall")
 cor.test(d.inu.noabx$Slope, d.inu.noabx$Ketones, method = "kendall")
   # p-value = 0.008291*
   # tau = -0.5002975
-  # adj p = 0.033164
+  # adj p = 0.033164*
 cor.test(d.sal.abx$Slope, d.sal.abx$Ketones, method = "kendall")
   # p-value = 0.9702
 cor.test(d.sal.noabx$Slope, d.sal.noabx$Ketones, method = "kendall")
@@ -510,23 +510,6 @@ dna.c.inu.noabx <- dna.c.inu[which(dna.c.inu$Antibiotics == "No Antibiotics"),]
 
 
 ### Test
-cor.test(dna.c.inu$DNA_Yield_.ng.mg., dna.c.inu$AUC, method = "kendall")
-  # p-value = 0.0002205*
-  # tau = 0.4071941
-cor.test(dna.c.inu$DNA_Yield_.ng.mg., dna.c.inu$Slope, method = "kendall")
-  # p-value = 5.805e-06*
-  # tau = 0.4996798
-cor.test(dna.c.inu$DNA_Yield_.ng.mg., dna.c.inu$SlopeTime, method = "kendall")
-  # p-value = 0.04135*
-  # tau = 0.2253703 
-cor.test(dna.c.inu$DNA_Yield_.ng.mg., dna.c.inu$MaxD, method = "kendall")
-  # p-value = 0.0003169*
-  # tau = 0.3969179
-cor.test(dna.c.inu$DNA_Yield_.ng.mg., dna.c.inu$TimeMaxD, method = "kendall")
-  # p-value = 3.942e-07*
-  # tau = 0.5609295
-
-
 cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$AUC, method = "kendall")
   # p-value = 0.5306
 cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$Slope, method = "kendall")
@@ -537,7 +520,6 @@ cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$MaxD, method = "kend
   # p-value = 0.6982
 cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$TimeMaxD, method = "kendall")
   # p-value = 0.8559
-
 
 
 cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$AUC, method = "kendall")
@@ -668,8 +650,11 @@ cor.test(dates.inu.w$Num_IBA, dates.inu.w$AUC, method = "kendall")
 
 # Inulin Winter - DNA_Yield
 cor.test(dates.inu.w$Days_Hib, dates.inu.w$DNA_Yield, method = "kendall")
-  # p-value = 0.03114*
-  # tau = 0.5393599
+  # p-value = 0.03114
+  # adj p = 0.12456
+    p.adjust(c(0.2333, 0.03114, 0.1361, 0.2773), "BH")
+        # For all 4 comparisons of Days_Hib X DNA_Yield (Inulin & Saline, Spring & Winter)
+        # 0.27730 0.12456 0.27220 0.27730
 cor.test(dates.inu.w$IBA.Hib, dates.inu.w$DNA_Yield, method = "kendall")
   # p-value = 0.4843
 cor.test(dates.inu.w$Num_IBA, dates.inu.w$DNA_Yield, method = "kendall")
