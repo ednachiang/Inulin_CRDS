@@ -384,6 +384,19 @@ auc.sal.noabx <- auc.sal[which(auc.sal$Antibiotics == "No"),]
 
 ### Test AUC
 ```{r}
+### Test Slope Correlation ###
+cor.test(auc.inu.abx$AUC, auc.inu.abx$Slope, method = "kendall")
+  # p-value = 0.73
+cor.test(auc.inu.noabx$AUC, auc.inu.noabx$Slope, method = "kendall")
+  # p-value = 0.3536
+cor.test(auc.sal.abx$AUC, auc.sal.abx$Slope, method = "kendall")
+  # p-value = 0.4101
+cor.test(auc.sal.noabx$AUC, auc.sal.noabx$Slope, method = "kendall")
+  # p-value = 0.1126
+
+
+
+
 ### Test BodyMass Correlation ###
 cor.test(auc.inu.abx$AUC, auc.inu.abx$BodyMass, method = "kendall")
   # p-value = 0.73
@@ -504,6 +517,20 @@ dna.c.inu <- dna.con[which(dna.con$Substrate == "Inulin"),]
 # Subset out ABX treatments
 dna.c.inu.abx <- dna.c.inu[which(dna.c.inu$Antibiotics == "Antibiotics"),]
 dna.c.inu.noabx <- dna.c.inu[which(dna.c.inu$Antibiotics == "No Antibiotics"),]
+
+
+
+
+cor.test(dna.c.inu.abx$AUC, dna.c.inu.abx$Slope, method = "kendall")
+  # p-value = 0.4893
+cor.test(dna.c.inu.noabx$AUC, dna.c.inu.noabx$Slope, method = "kendall")
+  # p-value = 0.0001152**
+  # tau = 0.5809524
+cor.test(dna.c.sal.abx$AUC, dna.c.sal.abx$Slope, method = "kendall")
+  # p-value = 0.4101
+cor.test(dna.c.sal.noabx$AUC, dna.c.sal.noabx$Slope, method = "kendall")
+  # p-value = 0.1126
+
 
 
 
