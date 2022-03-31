@@ -707,3 +707,75 @@ adonis(bray ~ Season, data=sampdf, permutations = 9999)
   # p-value = 0.1385
 
 ```
+
+### Test Diet
+```{r}
+phy.diet <- subset_samples(phy.c, Individual == "S03" | Individual == "S05" | Individual == "S06" | Individual == "S07" | Individual == "S08" | Individual == "S10" | Individual == "S11" | Individual == "S12" | Individual == "S21" | Individual == "S23" | Individual == "S24" | Individual == "S29"  | Individual == "S30" | Individual == "S32" | Individual == "S34" | Individual == "S39" | Individual == "S47" | Individual == "S48" | Individual == "S49" | Individual == "S50")
+
+
+adiv.diet <- data.frame(sample_data(phy.diet))
+
+
+### Chao ###
+hist(adiv.diet$chao, breaks=10)
+qqnorm(adiv.diet$chao)
+qqline(adiv.diet$chao)
+shapiro.test(adiv.diet$chao)
+  # p-value = 0.3446
+  # Normal
+
+t.test(chao ~ Diet, adiv.diet)
+  # p-value = 0.08385
+
+var.test(chao ~ Diet, adiv.diet)
+  # p-value = 0.6259
+
+
+
+### Shannon ###
+hist(adiv.diet$shannon, breaks=10)
+qqnorm(adiv.diet$shannon)
+qqline(adiv.diet$shannon)
+shapiro.test(adiv.diet$shannon)
+  # p-value = 0.01137
+  # Not Normal
+
+wilcox.test(shannon ~ Diet, adiv.diet)
+  # p-value = 0.02398*
+
+fligner.test(shannon ~ Diet, adiv.diet)
+  # p-value = 0.08924
+
+
+
+### Inverse Simpson ###
+hist(adiv.diet$invsimpson, breaks=10)
+qqnorm(adiv.diet$invsimpson)
+qqline(adiv.diet$invsimpson)
+shapiro.test(adiv.diet$invsimpson)
+  # p-value = 0.2037
+  # Normal
+
+t.test(invsimpson ~ Diet, adiv.diet)
+  # p-value = 0.06893
+
+var.test(invsimpson ~ Diet, adiv.diet)
+  # p-value = 0.8414
+
+
+
+
+
+### Bray-Curtis ###
+bray.pcoa <- ordinate(physeq=phy.diet, method="PCoA", distance="bray")
+
+# Test
+sampdf <- data.frame(sample_data(phy.diet))
+bray <- phyloseq::distance(physeq = phy.diet, method = "bray")
+beta.tax <- betadisper(d = bray, group = sampdf$Diet)
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.024
+adonis(bray ~ Diet, data=sampdf, permutations = 9999)
+  # p-value = 0.1621
+```
