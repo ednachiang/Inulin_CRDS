@@ -1,0 +1,3823 @@
+RID: 4TBHVRVN01R	
+Job Title:OTU 6				
+Program: BLASTN 
+Database: nt Nucleotide collection (nt)
+Query #1:  Query ID: lcl|Query_486559 Length: 253
+
+Sequences producing significant alignments:
+                                                                  Scientific      Common                     Max    Total Query   E    Per.   Acc.                        
+Description                                                       Name            Name            Taxid      Score  Score cover Value  Ident  Len        Accession        
+Uncultured bacterium clone A365 16S ribosomal RNA gene, partia... uncultured b... NA              77133      468    468   100%  2e-127 100.00 429        MF046947.1       
+Lactobacillus murinus strain 700 16S ribosomal RNA gene, parti... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1415       MT585453.1       
+Lactobacillus murinus strain 583 16S ribosomal RNA gene, parti... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1406       MT573140.1       
+Lactobacillus animalis strain 8372 16S ribosomal RNA gene,...     Ligilactobac... NA              1605       468    468   100%  2e-127 100.00 1430       MT538999.1       
+Lactobacillus animalis strain 8872 16S ribosomal RNA gene,...     Ligilactobac... NA              1605       468    468   100%  2e-127 100.00 1464       MT538857.1       
+Lactobacillus animalis strain 7456 16S ribosomal RNA gene,...     Ligilactobac... NA              1605       468    468   100%  2e-127 100.00 1431       MT516091.1       
+Lactobacillus animalis strain 7070 16S ribosomal RNA gene,...     Ligilactobac... NA              1605       468    468   100%  2e-127 100.00 1427       MT516001.1       
+Uncultured bacterium clone 16S(V3-V4)-161 16S ribosomal RNA...    uncultured b... NA              77133      468    468   100%  2e-127 100.00 428        MH291562.1       
+Ligilactobacillus murinus strain V10 chromosome, complete genome  Ligilactobac... NA              1622       468    2804  100%  2e-127 100.00 2612556    CP040852.1       
+Uncultured bacterium clone a327 16S ribosomal RNA gene, partia... uncultured b... NA              77133      468    468   100%  2e-127 100.00 253        MN474357.1       
+Ligilactobacillus animalis strain P38 chromosome, complete genome Ligilactobac... NA              1605       468    2809  100%  2e-127 100.00 1906794    CP047141.1       
+Lactobacillus faecis JCM 17300 gene for 16S rRNA, partial...      Ligilactobac... NA              762833     468    468   100%  2e-127 100.00 1486       LC519991.1       
+Lactobacillus apodemi JCM 16172 gene for 16S rRNA, partial...     Ligilactobac... NA              307126     468    468   100%  2e-127 100.00 1504       LC519852.1       
+Lactobacillus animalis strain pZL8a 16S ribosomal RNA gene,...    Ligilactobac... NA              1605       468    468   100%  2e-127 100.00 1392       MN865794.1       
+Lactobacillus animalis strain BpZL5c 16S ribosomal RNA gene,...   Ligilactobac... NA              1605       468    468   100%  2e-127 100.00 1427       MN865793.1       
+Lactobacillus animalis strain BpZL3e 16S ribosomal RNA gene,...   Ligilactobac... NA              1605       468    468   100%  2e-127 100.00 1416       MN865792.1       
+Lactobacillus murinus ALB-6 gene for 16S ribosomal RNA, partia... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1511       LC511018.1       
+Lactobacillus murinus ALB-4 gene for 16S ribosomal RNA, partia... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1516       LC511016.1       
+Lactobacillus murinus ALB-2 gene for 16S ribosomal RNA, partia... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1506       LC511014.1       
+Lactobacillus murinus ALB-1 gene for 16S ribosomal RNA, partia... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1514       LC511013.1       
+Lactobacillus murinus strain 0.1X_D42_36 16S ribosomal RNA gen... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1448       MN081616.1       
+Lactobacillus murinus PS6 gene for 16S rRNA, partial sequence     Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1508       LC488239.1       
+Lactobacillus murinus PS3 gene for 16S rRNA, partial sequence     Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1381       LC488236.1       
+Lactobacillus murinus strain NM28_3M-8 16S ribosomal RNA gene,... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1571       MK929062.1       
+Lactobacillus murinus strain NM26_J9 16S ribosomal RNA gene,...   Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1572       MK929061.1       
+Ligilactobacillus animalis strain LL1 chromosome, complete genome Ligilactobac... NA              1605       468    2809  100%  2e-127 100.00 2280577    CP039849.1       
+Lactobacillus murinus Spice-23 gene for 16S ribosomal RNA,...     Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1478       LC469764.1       
+Lactobacillus murinus Spice-13 gene for 16S ribosomal RNA,...     Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1349       LC469761.1       
+Lactobacillus murinus strain C-30 16S ribosomal RNA gene,...      Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1436       MK287622.1       
+Uncultured bacterium clone OTU11286 16S ribosomal RNA gene,...    uncultured b... NA              77133      468    468   100%  2e-127 100.00 430        MG270239.1       
+Bacilli bacterium strain AGP1-12-28-08 16S ribosomal RNA gene,... Bacilli bact... NA              1903720    468    468   100%  2e-127 100.00 900        MH699371.1       
+Bacilli bacterium strain AGP1-12-28-06 16S ribosomal RNA gene,... Bacilli bact... NA              1903720    468    468   100%  2e-127 100.00 900        MH699370.1       
+Bacilli bacterium strain AGP1-12-28-02 16S ribosomal RNA gene,... Bacilli bact... NA              1903720    468    468   100%  2e-127 100.00 868        MH699369.1       
+Lactobacillaceae bacterium strain AGP1-07-35-08 16S ribosomal...  Lactobacilla... NA              2291323    468    468   100%  2e-127 100.00 1524       MH699306.1       
+Lactobacillus murinus strain LPB0238 16S ribosomal RNA gene,...   Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1358       MK002979.1       
+Lactobacillus murinus Egg-7 gene for 16S ribosomal RNA, partia... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1363       LC416475.1       
+Lactobacillus murinus Egg-6 gene for 16S ribosomal RNA, partia... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1371       LC416474.1       
+Ligilactobacillus murinus strain CR141 chromosome, complete...    Ligilactobac... NA              1622       468    2809  100%  2e-127 100.00 2288482    CP023566.1       
+Ligilactobacillus murinus strain CR147 chromosome, complete...    Ligilactobac... NA              1622       468    2809  100%  2e-127 100.00 2290452    CP023565.1       
+Lactobacillus murinus strain TCD6 16S ribosomal RNA gene,...      Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1417       MH496645.1       
+Lactobacillus murinus Coffee-5 gene for 16S ribosomal RNA,...     Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1464       LC389166.1       
+Uncultured bacterium clone OTU526 16S ribosomal RNA gene,...      uncultured b... NA              77133      468    468   100%  2e-127 100.00 420        MH226301.1       
+Uncultured bacterium clone OTU2312 16S ribosomal RNA gene,...     uncultured b... NA              77133      468    468   100%  2e-127 100.00 392        MH223036.1       
+Uncultured bacterium clone OTU1610 16S ribosomal RNA gene,...     uncultured b... NA              77133      468    468   100%  2e-127 100.00 402        MH222753.1       
+Uncultured bacterium clone OTU2 16S ribosomal RNA gene, partia... uncultured b... NA              77133      468    468   100%  2e-127 100.00 430        MH221888.1       
+Lactobacillus murinus strain HF12 16S ribosomal RNA gene,...      Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 966        MH071125.1       
+Uncultured bacterium clone OTU1332_Y_1_F0_1967964 16S ribosoma... uncultured b... NA              77133      468    468   100%  2e-127 100.00 450        MG859118.1       
+Lactobacillus murinus B-RB1 gene for 16S ribosomal RNA, partia... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1310       LC369119.1       
+Lactobacillus murinus Spice-24 gene for 16S ribosomal RNA,...     Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1486       LC469765.1       
+Lactobacillus murinus strain CR141 16S ribosomal RNA gene,...     Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1486       MF992194.1       
+Uncultured bacterium clone OTU_163 16S ribosomal RNA gene,...     uncultured b... NA              77133      468    468   100%  2e-127 100.00 253        MG558609.1       
+Lactobacillus sp. gene for 16S ribosomal RNA, partial sequence... Lactobacillu... NA              1591       468    468   100%  2e-127 100.00 429        LC333646.1       
+Lactobacillus murinus strain N6 16S ribosomal RNA gene, partia... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1493       MF754142.1       
+Lactobacillus murinus gene for 16S rRNA, partial sequence,...     Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1524       LC159538.1       
+Uncultured bacterium clone denovo35037_595_37842 16S ribosomal... uncultured b... NA              77133      468    468   100%  2e-127 100.00 305        MF305246.1       
+Uncultured bacterium clone denovo16805_574_13146 16S ribosomal... uncultured b... NA              77133      468    468   100%  2e-127 100.00 305        MF296444.1       
+Uncultured bacterium clone denovo12250_N16_83837 16S ribosomal... uncultured b... NA              77133      468    468   100%  2e-127 100.00 469        MF231034.1       
+Uncultured bacterium clone denovo22123_556_17839 16S ribosomal... uncultured b... NA              77133      468    468   100%  2e-127 100.00 305        MF219437.1       
+Uncultured bacterium clone denovo11045_556_41164 16S ribosomal... uncultured b... NA              77133      468    468   100%  2e-127 100.00 305        MF219161.1       
+Uncultured bacterium clone denovo12830_582_11396 16S ribosomal... uncultured b... NA              77133      468    468   100%  2e-127 100.00 305        MF209654.1       
+Lactobacillus murinus strain Kaw2 16S ribosomal RNA gene,...      Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 795        KX430761.1       
+Ligilactobacillus murinus strain NBRC 14220 16S ribosomal RNA...  Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1486       OK626599.1       
+Uncultured Lactobacillus sp. clone abc933 16S ribosomal RNA...    uncultured L... NA              153152     468    468   100%  2e-127 100.00 429        MN664499.1       
+Uncultured Lactobacillus sp. clone abc942 16S ribosomal RNA...    uncultured L... NA              153152     468    468   100%  2e-127 100.00 441        MN663385.1       
+Uncultured Lactobacillus sp. clone EPRD0 16S ribosomal RNA gen... uncultured L... NA              153152     468    468   100%  2e-127 100.00 429        MT890054.1       
+Uncultured bacterium clone B311 16S ribosomal RNA gene, partia... uncultured b... NA              77133      468    468   100%  2e-127 100.00 429        MF584060.1       
+Ligilactobacillus murinus strain SY111 16S ribosomal RNA gene,... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1369       MW530425.2       
+Ligilactobacillus animalis strain MG7006 16S ribosomal RNA gen... Ligilactobac... NA              1605       468    468   100%  2e-127 100.00 1433       MW947199.1       
+Uncultured Lactobacillus sp. clone Otu53 16S ribosomal RNA gen... uncultured L... NA              153152     468    468   100%  2e-127 100.00 429        MT114664.1       
+Ligilactobacillus animalis strain 16990 16S ribosomal RNA gene... Ligilactobac... NA              1605       468    468   100%  2e-127 100.00 1434       MW866776.1       
+Ligilactobacillus animalis strain 16989 16S ribosomal RNA gene... Ligilactobac... NA              1605       468    468   100%  2e-127 100.00 1433       MW866775.1       
+Ligilactobacillus animalis strain 19601 16S ribosomal RNA gene... Ligilactobac... NA              1605       468    468   100%  2e-127 100.00 1437       MW866589.1       
+Lactobacillus murinus strain CD1.13 16S ribosomal RNA gene,...    Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1476       MW175853.1       
+Lactobacillus murinus strain DK12_230217 16S ribosomal RNA gen... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1404       MW175831.1       
+Lactobacillus murinus strain MCURPg_BL12 16S ribosomal RNA gen... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1480       MW175675.1       
+Lactobacillus murinus strain MCURPg_BL03 16S ribosomal RNA gen... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1480       MW175674.1       
+Lactobacillus murinus strain WF11 16S ribosomal RNA gene,...      Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1420       MW175673.1       
+Lactobacillus murinus strain 16910 16S ribosomal RNA gene,...     Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1404       MW175670.1       
+Lactobacillus murinus strain AN7_FF 16S ribosomal RNA gene,...    Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1396       MW175669.1       
+Lactobacillus murinus strain FP16 16S ribosomal RNA gene,...      Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1482       MW175668.1       
+Lactobacillus murinus strain BalbC12ANO 16S ribosomal RNA gene... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1484       MW175667.1       
+Lactobacillus murinus strain 15_C3H 16S ribosomal RNA gene,...    Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1301       MW175666.1       
+Lactobacillus murinus strain S4_FF 16S ribosomal RNA gene,...     Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1476       MW175665.1       
+Lactobacillus murinus strain P2218 16S ribosomal RNA gene,...     Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1483       MW175662.1       
+Lactobacillus murinus strain S11_FF 16S ribosomal RNA gene,...    Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1477       MW175661.1       
+Lactobacillus murinus strain M2 16S ribosomal RNA gene, partia... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1337       MW175660.1       
+Lactobacillus murinus strain HT12 16S ribosomal RNA gene,...      Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1485       MW175659.1       
+Lactobacillus murinus strain AN6 16S ribosomal RNA gene, parti... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1473       MW175658.1       
+Lactobacillus murinus strain CF2 16S ribosomal RNA gene, parti... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1313       MW175656.1       
+Lactobacillus murinus strain P1812 16S ribosomal RNA gene,...     Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1399       MW175655.1       
+Lactobacillus murinus strain P136 16S ribosomal RNA gene,...      Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1424       MW175654.1       
+Lactobacillus murinus strain S8_FF 16S ribosomal RNA gene,...     Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1465       MW175653.1       
+Lactobacillus murinus strain GFCX19 16S ribosomal RNA gene,...    Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1475       MW175652.1       
+Lactobacillus murinus strain M20 16S ribosomal RNA gene, parti... Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1341       MW175650.1       
+Lactobacillus murinus strain F1OF 16S ribosomal RNA gene,...      Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1335       MW175648.1       
+Lactobacillus murinus strain P1218 16S ribosomal RNA gene,...     Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1483       MW175647.1       
+Lactobacillus murinus strain S5_FF 16S ribosomal RNA gene,...     Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1476       MW175646.1       
+Lactobacillus murinus strain O12_C3H 16S ribosomal RNA gene,...   Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1311       MW175645.1       
+Lactobacillus murinus strain MGM008 16S rRNA gene, partial...     Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1480       MT765001.1       
+Lactobacillus murinus strain MGM007 16S rRNA gene, partial...     Ligilactobac... NA              1622       468    468   100%  2e-127 100.00 1470       MT764999.1       
+
+
+Alignments:
+
+>Uncultured bacterium clone A365 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF046947.1 Length: 429
+Range 1: 177 to 429
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  177  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  236
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  237  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  296
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  297  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  356
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  357  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  416
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  417  GGTAGCAAACAGG  429
+
+
+
+
+>Lactobacillus murinus strain 700 16S ribosomal RNA gene, partial sequence
+Sequence ID: MT585453.1 Length: 1415
+Range 1: 498 to 750
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  498  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  557
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  558  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  617
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  618  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  677
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  678  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  737
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  738  GGTAGCAAACAGG  750
+
+
+
+
+>Lactobacillus murinus strain 583 16S ribosomal RNA gene, partial sequence
+Sequence ID: MT573140.1 Length: 1406
+Range 1: 491 to 743
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  491  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  550
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  551  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  610
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  611  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  670
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  671  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  730
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  731  GGTAGCAAACAGG  743
+
+
+
+
+>Lactobacillus animalis strain 8372 16S ribosomal RNA gene, partial sequence
+Sequence ID: MT538999.1 Length: 1430
+Range 1: 506 to 758
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  506  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  565
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  566  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  625
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  626  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  685
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  686  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  745
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  746  GGTAGCAAACAGG  758
+
+
+
+
+>Lactobacillus animalis strain 8872 16S ribosomal RNA gene, partial sequence
+Sequence ID: MT538857.1 Length: 1464
+Range 1: 501 to 753
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  501  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  560
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  561  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  620
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  621  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  680
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  681  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  740
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  741  GGTAGCAAACAGG  753
+
+
+
+
+>Lactobacillus animalis strain 7456 16S ribosomal RNA gene, partial sequence
+Sequence ID: MT516091.1 Length: 1431
+Range 1: 502 to 754
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  502  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  561
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  562  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  621
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  622  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  681
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  682  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  741
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  742  GGTAGCAAACAGG  754
+
+
+
+
+>Lactobacillus animalis strain 7070 16S ribosomal RNA gene, partial sequence
+Sequence ID: MT516001.1 Length: 1427
+Range 1: 499 to 751
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  499  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  558
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  559  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  618
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  619  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  678
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  679  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  738
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  739  GGTAGCAAACAGG  751
+
+
+
+
+>Uncultured bacterium clone 16S(V3-V4)-161 16S ribosomal RNA gene, partial sequence
+Sequence ID: MH291562.1 Length: 428
+Range 1: 176 to 428
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  176  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  235
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  236  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  295
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  296  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  355
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  356  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  415
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  416  GGTAGCAAACAGG  428
+
+
+
+
+>Ligilactobacillus murinus strain V10 chromosome, complete genome
+Sequence ID: CP040852.1 Length: 2612556
+Range 1: 472469 to 472721
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1       TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  472721  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  472662
+
+Query  61      TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  472661  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  472602
+
+Query  121     GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  472601  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  472542
+
+Query  181     GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  472541  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  472482
+
+Query  241     GGTAGCAAACAGG  253
+               |||||||||||||
+Sbjct  472481  GGTAGCAAACAGG  472469
+
+
+
+
+Range 2: 987662 to 987914
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1       TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  987662  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  987721
+
+Query  61      TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  987722  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  987781
+
+Query  121     GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  987782  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  987841
+
+Query  181     GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  987842  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  987901
+
+Query  241     GGTAGCAAACAGG  253
+               |||||||||||||
+Sbjct  987902  GGTAGCAAACAGG  987914
+
+
+
+
+Range 3: 1077706 to 1077958
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1077706  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  1077765
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1077766  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  1077825
+
+Query  121      GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1077826  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  1077885
+
+Query  181      GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1077886  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  1077945
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  1077946  GGTAGCAAACAGG  1077958
+
+
+
+
+Range 4: 1375249 to 1375501
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1375249  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  1375308
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1375309  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  1375368
+
+Query  121      GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1375369  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  1375428
+
+Query  181      GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1375429  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  1375488
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  1375489  GGTAGCAAACAGG  1375501
+
+
+
+
+Range 5: 2610034 to 2610286
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1        TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2610286  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  2610227
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2610226  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  2610167
+
+Query  121      GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2610166  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  2610107
+
+Query  181      GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2610106  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  2610047
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  2610046  GGTAGCAAACAGG  2610034
+
+
+
+
+Range 6: 1265183 to 1265435
+
+Score:462 bits(250), Expect:8e-126, 
+Identities:252/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1265183  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  1265242
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1265243  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  1265302
+
+Query  121      GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1265303  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  1265362
+
+Query  181      GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  1265363  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGTGTG  1265422
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  1265423  GGTAGCAAACAGG  1265435
+
+
+
+
+>Uncultured bacterium clone a327 16S ribosomal RNA gene, partial sequence
+Sequence ID: MN474357.1 Length: 253
+Range 1: 1 to 253
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  241  GGTAGCAAACAGG  253
+
+
+
+
+>Ligilactobacillus animalis strain P38 chromosome, complete genome
+Sequence ID: CP047141.1 Length: 1906794
+Range 1: 257668 to 257920
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1       TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  257668  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  257727
+
+Query  61      TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  257728  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  257787
+
+Query  121     GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  257788  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  257847
+
+Query  181     GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  257848  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  257907
+
+Query  241     GGTAGCAAACAGG  253
+               |||||||||||||
+Sbjct  257908  GGTAGCAAACAGG  257920
+
+
+
+
+Range 2: 355841 to 356093
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1       TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  355841  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  355900
+
+Query  61      TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  355901  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  355960
+
+Query  121     GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  355961  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  356020
+
+Query  181     GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  356021  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  356080
+
+Query  241     GGTAGCAAACAGG  253
+               |||||||||||||
+Sbjct  356081  GGTAGCAAACAGG  356093
+
+
+
+
+Range 3: 489189 to 489441
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1       TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  489189  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  489248
+
+Query  61      TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  489249  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  489308
+
+Query  121     GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  489309  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  489368
+
+Query  181     GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  489369  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  489428
+
+Query  241     GGTAGCAAACAGG  253
+               |||||||||||||
+Sbjct  489429  GGTAGCAAACAGG  489441
+
+
+
+
+Range 4: 560830 to 561082
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1       TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  560830  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  560889
+
+Query  61      TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  560890  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  560949
+
+Query  121     GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  560950  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  561009
+
+Query  181     GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  561010  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  561069
+
+Query  241     GGTAGCAAACAGG  253
+               |||||||||||||
+Sbjct  561070  GGTAGCAAACAGG  561082
+
+
+
+
+Range 5: 1461534 to 1461786
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1        TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1461786  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  1461727
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1461726  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  1461667
+
+Query  121      GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1461666  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  1461607
+
+Query  181      GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1461606  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  1461547
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  1461546  GGTAGCAAACAGG  1461534
+
+
+
+
+Range 6: 1792301 to 1792553
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1        TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1792553  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  1792494
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1792493  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  1792434
+
+Query  121      GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1792433  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  1792374
+
+Query  181      GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1792373  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  1792314
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  1792313  GGTAGCAAACAGG  1792301
+
+
+
+
+>Lactobacillus faecis JCM 17300 gene for 16S rRNA, partial sequence
+Sequence ID: LC519991.1 Length: 1486
+Range 1: 523 to 775
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  523  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  582
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  583  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  642
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  643  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  702
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  703  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  762
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  763  GGTAGCAAACAGG  775
+
+
+
+
+>Lactobacillus apodemi JCM 16172 gene for 16S rRNA, partial sequence
+Sequence ID: LC519852.1 Length: 1504
+Range 1: 537 to 789
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  537  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  596
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  597  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  656
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  657  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  716
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  717  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  776
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  777  GGTAGCAAACAGG  789
+
+
+
+
+>Lactobacillus animalis strain pZL8a 16S ribosomal RNA gene, partial sequence
+Sequence ID: MN865794.1 Length: 1392
+Range 1: 492 to 744
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  492  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  551
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  552  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  611
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  612  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  671
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  672  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  731
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  732  GGTAGCAAACAGG  744
+
+
+
+
+>Lactobacillus animalis strain BpZL5c 16S ribosomal RNA gene, partial sequence
+Sequence ID: MN865793.1 Length: 1427
+Range 1: 499 to 751
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  499  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  558
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  559  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  618
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  619  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  678
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  679  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  738
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  739  GGTAGCAAACAGG  751
+
+
+
+
+>Lactobacillus animalis strain BpZL3e 16S ribosomal RNA gene, partial sequence
+Sequence ID: MN865792.1 Length: 1416
+Range 1: 498 to 750
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  498  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  557
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  558  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  617
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  618  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  677
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  678  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  737
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  738  GGTAGCAAACAGG  750
+
+
+
+
+>Lactobacillus murinus ALB-6 gene for 16S ribosomal RNA, partial sequence
+Sequence ID: LC511018.1 Length: 1511
+Range 1: 537 to 789
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  537  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  596
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  597  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  656
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  657  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  716
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  717  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  776
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  777  GGTAGCAAACAGG  789
+
+
+
+
+>Lactobacillus murinus ALB-4 gene for 16S ribosomal RNA, partial sequence
+Sequence ID: LC511016.1 Length: 1516
+Range 1: 542 to 794
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  542  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  601
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  602  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  661
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  662  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  721
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  722  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  781
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  782  GGTAGCAAACAGG  794
+
+
+
+
+>Lactobacillus murinus ALB-2 gene for 16S ribosomal RNA, partial sequence
+Sequence ID: LC511014.1 Length: 1506
+Range 1: 537 to 789
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  537  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  596
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  597  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  656
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  657  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  716
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  717  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  776
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  777  GGTAGCAAACAGG  789
+
+
+
+
+>Lactobacillus murinus ALB-1 gene for 16S ribosomal RNA, partial sequence
+Sequence ID: LC511013.1 Length: 1514
+Range 1: 543 to 795
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  543  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  602
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  603  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  662
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  663  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  722
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  723  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  782
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  783  GGTAGCAAACAGG  795
+
+
+
+
+>Lactobacillus murinus strain 0.1X_D42_36 16S ribosomal RNA gene, partial sequence
+Sequence ID: MN081616.1 Length: 1448
+Range 1: 509 to 761
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  509  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  568
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  569  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  628
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  629  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  688
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  689  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  748
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  749  GGTAGCAAACAGG  761
+
+
+
+
+>Lactobacillus murinus PS6 gene for 16S rRNA, partial sequence
+Sequence ID: LC488239.1 Length: 1508
+Range 1: 535 to 787
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  535  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  594
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  595  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  654
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  655  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  714
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  715  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  774
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  775  GGTAGCAAACAGG  787
+
+
+
+
+>Lactobacillus murinus PS3 gene for 16S rRNA, partial sequence
+Sequence ID: LC488236.1 Length: 1381
+Range 1: 534 to 786
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  534  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  593
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  594  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  653
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  654  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  713
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  714  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  773
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  774  GGTAGCAAACAGG  786
+
+
+
+
+>Lactobacillus murinus strain NM28_3M-8 16S ribosomal RNA gene, partial sequence
+Sequence ID: MK929062.1 Length: 1571
+Range 1: 556 to 808
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  556  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  615
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  616  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  675
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  676  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  735
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  736  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  795
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  796  GGTAGCAAACAGG  808
+
+
+
+
+>Lactobacillus murinus strain NM26_J9 16S ribosomal RNA gene, partial sequence
+Sequence ID: MK929061.1 Length: 1572
+Range 1: 557 to 809
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  557  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  616
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  617  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  676
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  677  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  736
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  737  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  796
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  797  GGTAGCAAACAGG  809
+
+
+
+
+>Ligilactobacillus animalis strain LL1 chromosome, complete genome
+Sequence ID: CP039849.1 Length: 2280577
+Range 1: 305104 to 305356
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1       TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  305104  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  305163
+
+Query  61      TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  305164  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  305223
+
+Query  121     GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  305224  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  305283
+
+Query  181     GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  305284  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  305343
+
+Query  241     GGTAGCAAACAGG  253
+               |||||||||||||
+Sbjct  305344  GGTAGCAAACAGG  305356
+
+
+
+
+Range 2: 410979 to 411231
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1       TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  410979  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  411038
+
+Query  61      TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  411039  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  411098
+
+Query  121     GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  411099  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  411158
+
+Query  181     GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  411159  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  411218
+
+Query  241     GGTAGCAAACAGG  253
+               |||||||||||||
+Sbjct  411219  GGTAGCAAACAGG  411231
+
+
+
+
+Range 3: 562114 to 562366
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1       TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  562114  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  562173
+
+Query  61      TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  562174  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  562233
+
+Query  121     GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  562234  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  562293
+
+Query  181     GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  562294  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  562353
+
+Query  241     GGTAGCAAACAGG  253
+               |||||||||||||
+Sbjct  562354  GGTAGCAAACAGG  562366
+
+
+
+
+Range 4: 633798 to 634050
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1       TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  633798  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  633857
+
+Query  61      TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  633858  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  633917
+
+Query  121     GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  633918  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  633977
+
+Query  181     GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  633978  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  634037
+
+Query  241     GGTAGCAAACAGG  253
+               |||||||||||||
+Sbjct  634038  GGTAGCAAACAGG  634050
+
+
+
+
+Range 5: 1638326 to 1638578
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1        TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1638578  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  1638519
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1638518  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  1638459
+
+Query  121      GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1638458  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  1638399
+
+Query  181      GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1638398  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  1638339
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  1638338  GGTAGCAAACAGG  1638326
+
+
+
+
+Range 6: 2126739 to 2126991
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1        TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2126991  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  2126932
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2126931  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  2126872
+
+Query  121      GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2126871  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  2126812
+
+Query  181      GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2126811  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  2126752
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  2126751  GGTAGCAAACAGG  2126739
+
+
+
+
+>Lactobacillus murinus Spice-23 gene for 16S ribosomal RNA, partial sequence
+Sequence ID: LC469764.1 Length: 1478
+Range 1: 529 to 781
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  529  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  588
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  589  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  648
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  649  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  708
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  709  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  768
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  769  GGTAGCAAACAGG  781
+
+
+
+
+>Lactobacillus murinus Spice-13 gene for 16S ribosomal RNA, partial sequence
+Sequence ID: LC469761.1 Length: 1349
+Range 1: 529 to 781
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  529  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  588
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  589  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  648
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  649  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  708
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  709  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  768
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  769  GGTAGCAAACAGG  781
+
+
+
+
+>Lactobacillus murinus strain C-30 16S ribosomal RNA gene, partial sequence
+Sequence ID: MK287622.1 Length: 1436
+>Lactobacillus murinus strain 0.1XD8_9 16S ribosomal RNA gene, partial sequence
+Sequence ID: MN081617.1 Length: 1436 
+Range 1: 500 to 752
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  500  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  559
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  560  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  619
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  620  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  679
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  680  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  739
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  740  GGTAGCAAACAGG  752
+
+
+
+
+>Uncultured bacterium clone OTU11286 16S ribosomal RNA gene, partial sequence
+Sequence ID: MG270239.1 Length: 430
+Range 1: 178 to 430
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  178  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  237
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  238  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  297
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  298  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  357
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  358  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  417
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  418  GGTAGCAAACAGG  430
+
+
+
+
+>Bacilli bacterium strain AGP1-12-28-08 16S ribosomal RNA gene, partial sequence
+Sequence ID: MH699371.1 Length: 900
+Range 1: 490 to 742
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  490  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  549
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  550  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  609
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  610  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  669
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  670  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  729
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  730  GGTAGCAAACAGG  742
+
+
+
+
+>Bacilli bacterium strain AGP1-12-28-06 16S ribosomal RNA gene, partial sequence
+Sequence ID: MH699370.1 Length: 900
+Range 1: 490 to 742
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  490  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  549
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  550  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  609
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  610  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  669
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  670  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  729
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  730  GGTAGCAAACAGG  742
+
+
+
+
+>Bacilli bacterium strain AGP1-12-28-02 16S ribosomal RNA gene, partial sequence
+Sequence ID: MH699369.1 Length: 868
+Range 1: 506 to 758
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  506  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  565
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  566  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  625
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  626  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  685
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  686  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  745
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  746  GGTAGCAAACAGG  758
+
+
+
+
+>Lactobacillaceae bacterium strain AGP1-07-35-08 16S ribosomal RNA gene, partial sequence
+Sequence ID: MH699306.1 Length: 1524
+Range 1: 548 to 800
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  548  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  607
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  608  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  667
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  668  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  727
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  728  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  787
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  788  GGTAGCAAACAGG  800
+
+
+
+
+>Lactobacillus murinus strain LPB0238 16S ribosomal RNA gene, partial sequence
+Sequence ID: MK002979.1 Length: 1358
+Range 1: 467 to 719
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  467  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  526
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  527  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  586
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  587  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  646
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  647  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  706
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  707  GGTAGCAAACAGG  719
+
+
+
+
+>Lactobacillus murinus Egg-7 gene for 16S ribosomal RNA, partial sequence
+Sequence ID: LC416475.1 Length: 1363
+Range 1: 531 to 783
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  531  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  590
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  591  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  650
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  651  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  710
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  711  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  770
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  771  GGTAGCAAACAGG  783
+
+
+
+
+>Lactobacillus murinus Egg-6 gene for 16S ribosomal RNA, partial sequence
+Sequence ID: LC416474.1 Length: 1371
+Range 1: 539 to 791
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  539  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  598
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  599  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  658
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  659  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  718
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  719  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  778
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  779  GGTAGCAAACAGG  791
+
+
+
+
+>Ligilactobacillus murinus strain CR141 chromosome, complete genome
+Sequence ID: CP023566.1 Length: 2288482
+Range 1: 339733 to 339985
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1       TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  339985  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  339926
+
+Query  61      TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  339925  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  339866
+
+Query  121     GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  339865  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  339806
+
+Query  181     GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  339805  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  339746
+
+Query  241     GGTAGCAAACAGG  253
+               |||||||||||||
+Sbjct  339745  GGTAGCAAACAGG  339733
+
+
+
+
+Range 2: 832869 to 833121
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1       TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  832869  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  832928
+
+Query  61      TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  832929  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  832988
+
+Query  121     GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  832989  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  833048
+
+Query  181     GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  833049  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  833108
+
+Query  241     GGTAGCAAACAGG  253
+               |||||||||||||
+Sbjct  833109  GGTAGCAAACAGG  833121
+
+
+
+
+Range 3: 922432 to 922684
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1       TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  922432  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  922491
+
+Query  61      TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  922492  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  922551
+
+Query  121     GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  922552  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  922611
+
+Query  181     GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  922612  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  922671
+
+Query  241     GGTAGCAAACAGG  253
+               |||||||||||||
+Sbjct  922672  GGTAGCAAACAGG  922684
+
+
+
+
+Range 4: 1064724 to 1064976
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1064724  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  1064783
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1064784  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  1064843
+
+Query  121      GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1064844  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  1064903
+
+Query  181      GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1064904  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  1064963
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  1064964  GGTAGCAAACAGG  1064976
+
+
+
+
+Range 5: 1164402 to 1164654
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1164402  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  1164461
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1164462  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  1164521
+
+Query  121      GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1164522  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  1164581
+
+Query  181      GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1164582  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  1164641
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  1164642  GGTAGCAAACAGG  1164654
+
+
+
+
+Range 6: 2220661 to 2220913
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1        TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2220913  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  2220854
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2220853  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  2220794
+
+Query  121      GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2220793  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  2220734
+
+Query  181      GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2220733  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  2220674
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  2220673  GGTAGCAAACAGG  2220661
+
+
+
+
+>Ligilactobacillus murinus strain CR147 chromosome, complete genome
+Sequence ID: CP023565.1 Length: 2290452
+Range 1: 115678 to 115930
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1       TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  115678  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  115737
+
+Query  61      TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  115738  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  115797
+
+Query  121     GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  115798  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  115857
+
+Query  181     GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  115858  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  115917
+
+Query  241     GGTAGCAAACAGG  253
+               |||||||||||||
+Sbjct  115918  GGTAGCAAACAGG  115930
+
+
+
+
+Range 2: 1176036 to 1176288
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1        TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1176288  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  1176229
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1176228  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  1176169
+
+Query  121      GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1176168  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  1176109
+
+Query  181      GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1176108  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  1176049
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  1176048  GGTAGCAAACAGG  1176036
+
+
+
+
+Range 3: 1250925 to 1251177
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1        TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1251177  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  1251118
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1251117  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  1251058
+
+Query  121      GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1251057  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  1250998
+
+Query  181      GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1250997  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  1250938
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  1250937  GGTAGCAAACAGG  1250925
+
+
+
+
+Range 4: 1412833 to 1413085
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1        TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1413085  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  1413026
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1413025  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  1412966
+
+Query  121      GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1412965  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  1412906
+
+Query  181      GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1412905  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  1412846
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  1412845  GGTAGCAAACAGG  1412833
+
+
+
+
+Range 5: 1631333 to 1631585
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1        TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1631585  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  1631526
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1631525  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  1631466
+
+Query  121      GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1631465  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  1631406
+
+Query  181      GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1631405  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  1631346
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  1631345  GGTAGCAAACAGG  1631333
+
+
+
+
+Range 6: 2130551 to 2130803
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2130551  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  2130610
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2130611  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  2130670
+
+Query  121      GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2130671  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  2130730
+
+Query  181      GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2130731  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  2130790
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  2130791  GGTAGCAAACAGG  2130803
+
+
+
+
+>Lactobacillus murinus strain TCD6 16S ribosomal RNA gene, partial sequence
+Sequence ID: MH496645.1 Length: 1417
+Range 1: 499 to 751
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  499  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  558
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  559  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  618
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  619  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  678
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  679  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  738
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  739  GGTAGCAAACAGG  751
+
+
+
+
+>Lactobacillus murinus Coffee-5 gene for 16S ribosomal RNA, partial sequence
+Sequence ID: LC389166.1 Length: 1464
+Range 1: 530 to 782
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  530  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  589
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  590  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  649
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  650  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  709
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  710  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  769
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  770  GGTAGCAAACAGG  782
+
+
+
+
+>Uncultured bacterium clone OTU526 16S ribosomal RNA gene, partial sequence
+Sequence ID: MH226301.1 Length: 420
+Range 1: 168 to 420
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  168  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  227
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  228  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  287
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  288  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  347
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  348  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  407
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  408  GGTAGCAAACAGG  420
+
+
+
+
+>Uncultured bacterium clone OTU2312 16S ribosomal RNA gene, partial sequence
+Sequence ID: MH223036.1 Length: 392
+Range 1: 140 to 392
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  140  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  199
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  200  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  259
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  260  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  319
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  320  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  379
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  380  GGTAGCAAACAGG  392
+
+
+
+
+>Uncultured bacterium clone OTU1610 16S ribosomal RNA gene, partial sequence
+Sequence ID: MH222753.1 Length: 402
+Range 1: 150 to 402
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  150  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  209
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  210  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  269
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  270  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  329
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  330  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  389
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  390  GGTAGCAAACAGG  402
+
+
+
+
+>Uncultured bacterium clone OTU2 16S ribosomal RNA gene, partial sequence
+Sequence ID: MH221888.1 Length: 430
+Range 1: 178 to 430
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  178  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  237
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  238  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  297
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  298  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  357
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  358  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  417
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  418  GGTAGCAAACAGG  430
+
+
+
+
+>Lactobacillus murinus strain HF12 16S ribosomal RNA gene, partial sequence
+Sequence ID: MH071125.1 Length: 966
+Range 1: 504 to 756
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  504  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  563
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  564  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  623
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  624  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  683
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  684  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  743
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  744  GGTAGCAAACAGG  756
+
+
+
+
+>Uncultured bacterium clone OTU1332_Y_1_F0_1967964 16S ribosomal RNA gene, partial sequence
+Sequence ID: MG859118.1 Length: 450
+Range 1: 178 to 430
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  178  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  237
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  238  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  297
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  298  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  357
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  358  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  417
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  418  GGTAGCAAACAGG  430
+
+
+
+
+>Lactobacillus murinus B-RB1 gene for 16S ribosomal RNA, partial sequence
+Sequence ID: LC369119.1 Length: 1310
+Range 1: 533 to 785
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  533  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  592
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  593  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  652
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  653  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  712
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  713  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  772
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  773  GGTAGCAAACAGG  785
+
+
+
+
+>Lactobacillus murinus Spice-24 gene for 16S ribosomal RNA, partial sequence
+Sequence ID: LC469765.1 Length: 1486
+>Lactobacillus murinus strain CR147 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF992195.1 Length: 1486 
+Range 1: 529 to 781
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  529  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  588
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  589  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  648
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  649  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  708
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  709  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  768
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  769  GGTAGCAAACAGG  781
+
+
+
+
+>Lactobacillus murinus strain CR141 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF992194.1 Length: 1486
+Range 1: 529 to 781
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  529  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  588
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  589  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  648
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  649  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  708
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  709  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  768
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  769  GGTAGCAAACAGG  781
+
+
+
+
+>Uncultured bacterium clone OTU_163 16S ribosomal RNA gene, partial sequence
+Sequence ID: MG558609.1 Length: 253
+Range 1: 1 to 253
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  241  GGTAGCAAACAGG  253
+
+
+
+
+>Lactobacillus sp. gene for 16S ribosomal RNA, partial sequence, note: Otu047
+Sequence ID: LC333646.1 Length: 429
+Range 1: 177 to 429
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  177  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  236
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  237  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  296
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  297  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  356
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  357  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  416
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  417  GGTAGCAAACAGG  429
+
+
+
+
+>Lactobacillus murinus strain N6 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF754142.1 Length: 1493
+Range 1: 536 to 788
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  536  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  595
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  596  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  655
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  656  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  715
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  716  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  775
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  776  GGTAGCAAACAGG  788
+
+
+
+
+>Lactobacillus murinus gene for 16S rRNA, partial sequence, strain: KM-1
+Sequence ID: LC159538.1 Length: 1524
+Range 1: 549 to 801
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  549  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  608
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  609  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  668
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  669  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  728
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  729  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  788
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  789  GGTAGCAAACAGG  801
+
+
+
+
+>Uncultured bacterium clone denovo35037_595_37842 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF305246.1 Length: 305
+Range 1: 25 to 277
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  25   TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  84
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  85   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  144
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  145  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  204
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  205  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  264
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  265  GGTAGCAAACAGG  277
+
+
+
+
+>Uncultured bacterium clone denovo16805_574_13146 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF296444.1 Length: 305
+Range 1: 29 to 281
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  29   TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  88
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  89   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  148
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  149  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  208
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  209  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  268
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  269  GGTAGCAAACAGG  281
+
+
+
+
+>Uncultured bacterium clone denovo12250_N16_83837 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF231034.1 Length: 469
+Range 1: 201 to 453
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  201  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  260
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  261  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  320
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  321  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  380
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  381  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  440
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  441  GGTAGCAAACAGG  453
+
+
+
+
+>Uncultured bacterium clone denovo22123_556_17839 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF219437.1 Length: 305
+Range 1: 31 to 283
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  31   TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  90
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  91   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  150
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  151  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  210
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  211  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  270
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  271  GGTAGCAAACAGG  283
+
+
+
+
+>Uncultured bacterium clone denovo11045_556_41164 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF219161.1 Length: 305
+Range 1: 31 to 283
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  31   TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  90
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  91   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  150
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  151  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  210
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  211  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  270
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  271  GGTAGCAAACAGG  283
+
+
+
+
+>Uncultured bacterium clone denovo12830_582_11396 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF209654.1 Length: 305
+Range 1: 31 to 283
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  31   TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  90
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  91   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  150
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  151  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  210
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  211  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  270
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  271  GGTAGCAAACAGG  283
+
+
+
+
+>Lactobacillus murinus strain Kaw2 16S ribosomal RNA gene, partial sequence
+Sequence ID: KX430761.1 Length: 795
+Range 1: 525 to 777
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  525  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  584
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  585  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  644
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  645  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  704
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  705  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  764
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  765  GGTAGCAAACAGG  777
+
+
+
+
+>Ligilactobacillus murinus strain NBRC 14220 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK626599.1 Length: 1486
+Range 1: 529 to 781
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  529  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  588
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  589  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  648
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  649  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  708
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  709  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  768
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  769  GGTAGCAAACAGG  781
+
+
+
+
+>Uncultured Lactobacillus sp. clone abc933 16S ribosomal RNA gene, partial sequence
+Sequence ID: MN664499.1 Length: 429
+Range 1: 177 to 429
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  177  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  236
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  237  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  296
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  297  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  356
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  357  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  416
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  417  GGTAGCAAACAGG  429
+
+
+
+
+>Uncultured Lactobacillus sp. clone abc942 16S ribosomal RNA gene, partial sequence
+Sequence ID: MN663385.1 Length: 441
+Range 1: 183 to 435
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  183  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  242
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  243  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  302
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  303  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  362
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  363  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  422
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  423  GGTAGCAAACAGG  435
+
+
+
+
+>Uncultured Lactobacillus sp. clone EPRD0 16S ribosomal RNA gene, partial sequence
+Sequence ID: MT890054.1 Length: 429
+Range 1: 177 to 429
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  177  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  236
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  237  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  296
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  297  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  356
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  357  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  416
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  417  GGTAGCAAACAGG  429
+
+
+
+
+>Uncultured bacterium clone B311 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF584060.1 Length: 429
+Range 1: 177 to 429
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  177  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  236
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  237  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  296
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  297  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  356
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  357  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  416
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  417  GGTAGCAAACAGG  429
+
+
+
+
+>Ligilactobacillus murinus strain SY111 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW530425.2 Length: 1369
+Range 1: 442 to 694
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  442  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  501
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  502  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  561
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  562  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  621
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  622  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  681
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  682  GGTAGCAAACAGG  694
+
+
+
+
+>Ligilactobacillus animalis strain MG7006 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW947199.1 Length: 1433
+Range 1: 502 to 754
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  502  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  561
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  562  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  621
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  622  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  681
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  682  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  741
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  742  GGTAGCAAACAGG  754
+
+
+
+
+>Uncultured Lactobacillus sp. clone Otu53 16S ribosomal RNA gene, partial sequence
+Sequence ID: MT114664.1 Length: 429
+Range 1: 177 to 429
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  177  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  236
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  237  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  296
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  297  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  356
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  357  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  416
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  417  GGTAGCAAACAGG  429
+
+
+
+
+>Ligilactobacillus animalis strain 16990 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW866776.1 Length: 1434
+Range 1: 502 to 754
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  502  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  561
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  562  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  621
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  622  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  681
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  682  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  741
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  742  GGTAGCAAACAGG  754
+
+
+
+
+>Ligilactobacillus animalis strain 16989 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW866775.1 Length: 1433
+Range 1: 502 to 754
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  502  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  561
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  562  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  621
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  622  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  681
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  682  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  741
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  742  GGTAGCAAACAGG  754
+
+
+
+
+>Ligilactobacillus animalis strain 19601 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW866589.1 Length: 1437
+Range 1: 504 to 756
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  504  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  563
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  564  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  623
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  624  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  683
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  684  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  743
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  744  GGTAGCAAACAGG  756
+
+
+
+
+>Lactobacillus murinus strain CD1.13 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175853.1 Length: 1476
+Range 1: 531 to 783
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  531  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  590
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  591  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  650
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  651  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  710
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  711  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  770
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  771  GGTAGCAAACAGG  783
+
+
+
+
+>Lactobacillus murinus strain DK12_230217 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175831.1 Length: 1404
+Range 1: 491 to 743
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  491  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  550
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  551  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  610
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  611  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  670
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  671  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  730
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  731  GGTAGCAAACAGG  743
+
+
+
+
+>Lactobacillus murinus strain MCURPg_BL12 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175675.1 Length: 1480
+Range 1: 530 to 782
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  530  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  589
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  590  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  649
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  650  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  709
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  710  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  769
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  770  GGTAGCAAACAGG  782
+
+
+
+
+>Lactobacillus murinus strain MCURPg_BL03 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175674.1 Length: 1480
+Range 1: 530 to 782
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  530  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  589
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  590  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  649
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  650  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  709
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  710  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  769
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  770  GGTAGCAAACAGG  782
+
+
+
+
+>Lactobacillus murinus strain WF11 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175673.1 Length: 1420
+Range 1: 498 to 750
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  498  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  557
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  558  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  617
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  618  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  677
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  678  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  737
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  738  GGTAGCAAACAGG  750
+
+
+
+
+>Lactobacillus murinus strain 16910 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175670.1 Length: 1404
+Range 1: 488 to 740
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  488  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  547
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  548  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  607
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  608  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  667
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  668  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  727
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  728  GGTAGCAAACAGG  740
+
+
+
+
+>Lactobacillus murinus strain AN7_FF 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175669.1 Length: 1396
+Range 1: 486 to 738
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  486  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  545
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  546  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  605
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  606  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  665
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  666  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  725
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  726  GGTAGCAAACAGG  738
+
+
+
+
+>Lactobacillus murinus strain FP16 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175668.1 Length: 1482
+Range 1: 529 to 781
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  529  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  588
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  589  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  648
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  649  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  708
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  709  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  768
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  769  GGTAGCAAACAGG  781
+
+
+
+
+>Lactobacillus murinus strain BalbC12ANO 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175667.1 Length: 1484
+Range 1: 530 to 782
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  530  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  589
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  590  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  649
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  650  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  709
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  710  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  769
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  770  GGTAGCAAACAGG  782
+
+
+
+
+>Lactobacillus murinus strain 15_C3H 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175666.1 Length: 1301
+Range 1: 506 to 758
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  506  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  565
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  566  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  625
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  626  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  685
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  686  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  745
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  746  GGTAGCAAACAGG  758
+
+
+
+
+>Lactobacillus murinus strain S4_FF 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175665.1 Length: 1476
+Range 1: 529 to 781
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  529  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  588
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  589  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  648
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  649  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  708
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  709  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  768
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  769  GGTAGCAAACAGG  781
+
+
+
+
+>Lactobacillus murinus strain P2218 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175662.1 Length: 1483
+Range 1: 531 to 783
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  531  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  590
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  591  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  650
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  651  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  710
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  711  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  770
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  771  GGTAGCAAACAGG  783
+
+
+
+
+>Lactobacillus murinus strain S11_FF 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175661.1 Length: 1477
+Range 1: 530 to 782
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  530  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  589
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  590  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  649
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  650  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  709
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  710  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  769
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  770  GGTAGCAAACAGG  782
+
+
+
+
+>Lactobacillus murinus strain M2 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175660.1 Length: 1337
+Range 1: 510 to 762
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  510  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  569
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  570  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  629
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  630  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  689
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  690  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  749
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  750  GGTAGCAAACAGG  762
+
+
+
+
+>Lactobacillus murinus strain HT12 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175659.1 Length: 1485
+Range 1: 531 to 783
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  531  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  590
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  591  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  650
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  651  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  710
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  711  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  770
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  771  GGTAGCAAACAGG  783
+
+
+
+
+>Lactobacillus murinus strain AN6 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175658.1 Length: 1473
+Range 1: 530 to 782
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  530  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  589
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  590  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  649
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  650  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  709
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  710  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  769
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  770  GGTAGCAAACAGG  782
+
+
+
+
+>Lactobacillus murinus strain CF2 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175656.1 Length: 1313
+Range 1: 501 to 753
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  501  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  560
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  561  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  620
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  621  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  680
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  681  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  740
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  741  GGTAGCAAACAGG  753
+
+
+
+
+>Lactobacillus murinus strain P1812 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175655.1 Length: 1399
+Range 1: 489 to 741
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  489  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  548
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  549  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  608
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  609  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  668
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  669  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  728
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  729  GGTAGCAAACAGG  741
+
+
+
+
+>Lactobacillus murinus strain P136 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175654.1 Length: 1424
+Range 1: 501 to 753
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  501  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  560
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  561  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  620
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  621  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  680
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  681  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  740
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  741  GGTAGCAAACAGG  753
+
+
+
+
+>Lactobacillus murinus strain S8_FF 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175653.1 Length: 1465
+Range 1: 521 to 773
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  521  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  580
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  581  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  640
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  641  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  700
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  701  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  760
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  761  GGTAGCAAACAGG  773
+
+
+
+
+>Lactobacillus murinus strain GFCX19 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175652.1 Length: 1475
+Range 1: 527 to 779
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  527  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  586
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  587  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  646
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  647  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  706
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  707  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  766
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  767  GGTAGCAAACAGG  779
+
+
+
+
+>Lactobacillus murinus strain M20 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175650.1 Length: 1341
+Range 1: 509 to 761
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  509  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  568
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  569  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  628
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  629  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  688
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  689  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  748
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  749  GGTAGCAAACAGG  761
+
+
+
+
+>Lactobacillus murinus strain F1OF 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175648.1 Length: 1335
+Range 1: 508 to 760
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  508  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  567
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  568  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  627
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  628  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  687
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  688  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  747
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  748  GGTAGCAAACAGG  760
+
+
+
+
+>Lactobacillus murinus strain P1218 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175647.1 Length: 1483
+Range 1: 533 to 785
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  533  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  592
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  593  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  652
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  653  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  712
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  713  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  772
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  773  GGTAGCAAACAGG  785
+
+
+
+
+>Lactobacillus murinus strain S5_FF 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175646.1 Length: 1476
+Range 1: 530 to 782
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  530  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  589
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  590  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  649
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  650  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  709
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  710  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  769
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  770  GGTAGCAAACAGG  782
+
+
+
+
+>Lactobacillus murinus strain O12_C3H 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW175645.1 Length: 1311
+Range 1: 507 to 759
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  507  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  566
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  567  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  626
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  627  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  686
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  687  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  746
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  747  GGTAGCAAACAGG  759
+
+
+
+
+>Lactobacillus murinus strain MGM008 16S rRNA gene, partial sequence 16S ribosomal RNA gene, partial sequence
+Sequence ID: MT765001.1 Length: 1480
+Range 1: 529 to 781
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  529  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  588
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  589  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  648
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  649  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  708
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  709  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  768
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  769  GGTAGCAAACAGG  781
+
+
+
+
+>Lactobacillus murinus strain MGM007 16S rRNA gene, partial sequence 16S ribosomal RNA gene, partial sequence
+Sequence ID: MT764999.1 Length: 1470
+Range 1: 519 to 771
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  519  TACGTAGGTGGCAAGCGTTATCCGGATTTATTGGGCGTAAAGGGAACGCAGGCGGTCTTT  578
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  579  TAAGTCTGATGTGAAAGCCTTCGGCTTAACCGGAGTAGTGCATTGGAAACTGGGAGACTT  638
+
+Query  121  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  639  GAGTGCAGAAGAGGAGAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  698
+
+Query  181  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  699  GAACACCAGTGGCGAAAGCGGCTCTCTGGTCTGTAACTGACGCTGAGGTTCGAAAGCGTG  758
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  759  GGTAGCAAACAGG  771
+
+
+
+
+
+
+
+		
+
+

@@ -1,0 +1,3119 @@
+RID: 4TAA32YY01R	
+Job Title:OTU 297				
+Program: BLASTN 
+Database: nt Nucleotide collection (nt)
+Query #1:  Query ID: lcl|Query_424743 Length: 253
+
+Sequences producing significant alignments:
+                                                                  Scientific      Common                     Max    Total Query   E    Per.   Acc.                        
+Description                                                       Name            Name            Taxid      Score  Score cover Value  Ident  Len        Accession        
+Latilactobacillus sakei strain RS33 16S ribosomal RNA gene,...    Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1466       ON007102.1       
+Latilactobacillus sakei strain RS25 16S ribosomal RNA gene,...    Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1467       ON007101.1       
+Latilactobacillus sakei strain RS16 16S ribosomal RNA gene,...    Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1482       ON007100.1       
+Latilactobacillus curvatus strain HBUAS62513 16S ribosomal RNA... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1492       ON005286.1       
+Latilactobacillus sakei strain HBUAS62564 16S ribosomal RNA...    Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1496       ON005212.1       
+Latilactobacillus curvatus strain HBUAS62534 16S ribosomal RNA... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1492       ON000304.1       
+Latilactobacillus sakei strain KKP 3813 16S ribosomal RNA gene... Latilactobac... NA              1599       468    468   100%  2e-127 100.00 802        OM996997.1       
+Latilactobacillus sakei strain KKP 3808 16S ribosomal RNA gene... Latilactobac... NA              1599       468    468   100%  2e-127 100.00 799        OM996207.1       
+Latilactobacillus curvatus strain HBUAS62350 16S ribosomal RNA... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1492       OM982527.1       
+Latilactobacillus sakei strain HBUAS62322 16S ribosomal RNA...    Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1496       OM978679.1       
+Latilactobacillus sakei strain HBUAS62321 16S ribosomal RNA...    Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1496       OM978678.1       
+Latilactobacillus sakei strain HBUAS62251 16S ribosomal RNA...    Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1496       OM978608.1       
+Latilactobacillus curvatus strain HBUAS62224 16S ribosomal RNA... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1492       OM978581.1       
+Latilactobacillus curvatus strain HBUAS51998 16S ribosomal RNA... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1492       OM943899.1       
+Latilactobacillus sakei strain HBUAS51986 16S ribosomal RNA...    Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1496       OM943887.1       
+Latilactobacillus curvatus strain HBUAS51985 16S ribosomal RNA... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1492       OM943886.1       
+Latilactobacillus curvatus strain HBUAS51981 16S ribosomal RNA... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1492       OM943882.1       
+Latilactobacillus sakei strain HBUAS51977 16S ribosomal RNA...    Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1496       OM943878.1       
+Latilactobacillus curvatus strain HBUAS51976 16S ribosomal RNA... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1492       OM943877.1       
+Latilactobacillus sakei strain HBUAS51967 16S ribosomal RNA...    Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1496       OM943868.1       
+Latilactobacillus sakei strain E23B chromosome                    Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1973327    CP043731.1       
+Latilactobacillus sakei strain C21B chromosome                    Latilactobac... NA              1599       468    468   100%  2e-127 100.00 2011032    CP043730.1       
+Latilactobacillus sakei strain C22G chromosome                    Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1976879    CP043729.1       
+Latilactobacillus sakei strain E28G chromosome                    Latilactobac... NA              1599       468    468   100%  2e-127 100.00 2012210    CP043728.1       
+Uncultured Lactobacillus sp. clone OTU_1450 16S ribosomal RNA...  uncultured L... NA              153152     468    468   100%  2e-127 100.00 429        OM537547.1       
+Latilactobacillus sakei strain TMPC 63113 16S ribosomal RNA...    Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1464       OM267635.1       
+Latilactobacillus sakei strain TMPC 3B122 16S ribosomal RNA...    Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1511       OM267634.1       
+Latilactobacillus sakei strain TMPC 3B121 16S ribosomal RNA...    Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1505       OM267633.1       
+Latilactobacillus sakei strain TMPC 3B113 16S ribosomal RNA...    Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1504       OM267632.1       
+Latilactobacillus curvatus strain TMPC 3332D 16S ribosomal RNA... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1497       OM265415.1       
+Latilactobacillus sakei strain WM7 16S ribosomal RNA gene,...     Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1456       OM250081.1       
+Latilactobacillus sakei strain ICMP 6915 16S ribosomal RNA gen... Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1438       OM200164.1       
+Latilactobacillus sakei strain ICMP 6713 16S ribosomal RNA gen... Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1442       OM200154.1       
+Latilactobacillus sakei strain LC4 16S ribosomal RNA gene,...     Latilactobac... NA              1599       468    468   100%  2e-127 100.00 1475       OM149720.1       
+Latilactobacillus sakei strain LC3 16S ribosomal RNA gene,...     Latilactobac... NA              1599       468    468   100%  2e-127 100.00 957        OM074019.1       
+Latilactobacillus sakei subsp. sakei strain Y3-I-105 16S...       Latilactobac... NA              214326     468    468   100%  2e-127 100.00 1508       OK326666.1       
+Latilactobacillus curvatus strain Y3-I-104 16S ribosomal RNA...   Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1518       OK326665.1       
+Latilactobacillus curvatus strain Y2-I-100 16S ribosomal RNA...   Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1507       OK326591.1       
+Latilactobacillus curvatus strain Y2-I-2 16S ribosomal RNA gen... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1519       OK326589.1       
+Latilactobacillus sp. strain Y1-I-107 16S ribosomal RNA gene,...  Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1510       OK326548.1       
+Latilactobacillus sakei subsp. sakei strain Y1-G-3 16S ribosom... Latilactobac... NA              214326     468    468   100%  2e-127 100.00 1498       OK326539.1       
+Latilactobacillus sp. strain W1-I-4 16S ribosomal RNA gene,...    Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1506       OK326495.1       
+Latilactobacillus curvatus strain W1-I-2 16S ribosomal RNA gen... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1506       OK326493.1       
+Latilactobacillus curvatus strain TG-I-100 16S ribosomal RNA...   Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1505       OK326467.1       
+Latilactobacillus sakei subsp. sakei strain S1-I-1 16S ribosom... Latilactobac... NA              214326     468    468   100%  2e-127 100.00 1525       OK326344.1       
+Latilactobacillus sp. strain S1-G-9 16S ribosomal RNA gene,...    Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1523       OK326340.1       
+Latilactobacillus curvatus strain P1-S-104 16S ribosomal RNA...   Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1518       OK326292.1       
+Latilactobacillus curvatus strain P1-S-101 16S ribosomal RNA...   Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1497       OK326291.1       
+Latilactobacillus curvatus strain P1-I-100 16S ribosomal RNA...   Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1503       OK326278.1       
+Latilactobacillus curvatus strain P1-I-5 16S ribosomal RNA gen... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1519       OK326274.1       
+Latilactobacillus sakei subsp. sakei strain P1-G-10 16S...        Latilactobac... NA              214326     468    468   100%  2e-127 100.00 1494       OK326266.1       
+Latilactobacillus sp. strain N1-I-5 16S ribosomal RNA gene,...    Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1512       OK326239.1       
+Latilactobacillus sakei subsp. sakei strain N1-I-2 16S ribosom... Latilactobac... NA              214326     468    468   100%  2e-127 100.00 1524       OK326236.1       
+Latilactobacillus curvatus strain M3-S-100 16S ribosomal RNA...   Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1482       OK326210.1       
+Latilactobacillus sp. strain M3-I-100 16S ribosomal RNA gene,...  Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1511       OK326191.1       
+Latilactobacillus sp. strain M3-I-3 16S ribosomal RNA gene,...    Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1510       OK326190.1       
+Latilactobacillus sp. strain M3-I-2 16S ribosomal RNA gene,...    Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1507       OK326189.1       
+Latilactobacillus sp. strain M3-I-1 16S ribosomal RNA gene,...    Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1509       OK326188.1       
+Latilactobacillus curvatus strain C2-I-3 16S ribosomal RNA gen... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1504       OK326126.1       
+Latilactobacillus sp. strain C2-I-2 16S ribosomal RNA gene,...    Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1508       OK326125.1       
+Latilactobacillus curvatus strain C2-I-1 16S ribosomal RNA gen... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1441       OK326124.1       
+Latilactobacillus sp. strain BG-I-100 16S ribosomal RNA gene,...  Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1519       OK326011.1       
+Latilactobacillus sp. strain BG-I-3 16S ribosomal RNA gene,...    Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1520       OK326010.1       
+Latilactobacillus sakei subsp. sakei strain BG-G-3 16S ribosom... Latilactobac... NA              214326     468    468   100%  2e-127 100.00 1458       OK326004.1       
+Latilactobacillus curvatus strain B5-S-102 16S ribosomal RNA...   Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1504       OK325860.1       
+Latilactobacillus curvatus strain B5-S-101 16S ribosomal RNA...   Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1508       OK325859.1       
+Latilactobacillus curvatus strain B5-S-100 16S ribosomal RNA...   Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1504       OK325858.1       
+Latilactobacillus curvatus strain B5-I-102 16S ribosomal RNA...   Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1507       OK325851.1       
+Latilactobacillus sakei subsp. sakei strain B2-I-102 16S...       Latilactobac... NA              214326     468    468   100%  2e-127 100.00 1511       OK325740.1       
+Latilactobacillus curvatus strain B2-I-3 16S ribosomal RNA gen... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1517       OK325736.1       
+Latilactobacillus curvatus strain B2-I-2 16S ribosomal RNA gen... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1493       OK325735.1       
+Latilactobacillus curvatus strain B2-I-1 16S ribosomal RNA gen... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1508       OK325734.1       
+Latilactobacillus sakei subsp. sakei strain B2-G-3 16S ribosom... Latilactobac... NA              214326     468    468   100%  2e-127 100.00 1507       OK325725.1       
+Latilactobacillus sp. strain B1-I-2 16S ribosomal RNA gene,...    Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1507       OK325700.1       
+Latilactobacillus curvatus strain KKP 3578 16S ribosomal RNA...   Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1418       OK298400.1       
+Latilactobacillus sp. strain Y3-D-105 16S ribosomal RNA gene,...  Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1513       OK272421.1       
+Latilactobacillus sp. strain Y3-D-102 16S ribosomal RNA gene,...  Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1507       OK272418.1       
+Latilactobacillus sp. strain Y3-D-101 16S ribosomal RNA gene,...  Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1523       OK272417.1       
+Latilactobacillus sakei subsp. sakei strain Y3-B-101 16S...       Latilactobac... NA              214326     468    468   100%  2e-127 100.00 1511       OK272403.1       
+Latilactobacillus sakei subsp. sakei strain Y3-B-100 16S...       Latilactobac... NA              214326     468    468   100%  2e-127 100.00 1484       OK272402.1       
+Latilactobacillus sakei subsp. sakei strain Y2-D-106 16S...       Latilactobac... NA              214326     468    468   100%  2e-127 100.00 1482       OK272341.1       
+Latilactobacillus sp. strain Y2-D-101 16S ribosomal RNA gene,...  Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1509       OK272336.1       
+Latilactobacillus sp. strain Y2-D-1 16S ribosomal RNA gene,...    Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1513       OK272332.1       
+Latilactobacillus sakei subsp. sakei strain Y2-C-1 16S ribosom... Latilactobac... NA              214326     468    468   100%  2e-127 100.00 1523       OK272312.1       
+Latilactobacillus sakei subsp. sakei strain Y2-B-105 16S...       Latilactobac... NA              214326     468    468   100%  2e-127 100.00 1513       OK272310.1       
+Latilactobacillus sakei subsp. sakei strain Y1-Y-10 16S...        Latilactobac... NA              214326     468    468   100%  2e-127 100.00 1523       OK272302.1       
+Latilactobacillus sp. strain Y1-D-100 16S ribosomal RNA gene,...  Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1484       OK272242.1       
+Latilactobacillus sp. strain Y1-D-6 16S ribosomal RNA gene,...    Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1508       OK272241.1       
+Latilactobacillus sp. strain Y1-D-5 16S ribosomal RNA gene,...    Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1509       OK272240.1       
+Latilactobacillus sp. strain Y1-D-3 16S ribosomal RNA gene,...    Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1517       OK272239.1       
+Latilactobacillus sp. strain Y1-C-18 16S ribosomal RNA gene,...   Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1524       OK272229.1       
+Latilactobacillus sp. strain Y1-C-17 16S ribosomal RNA gene,...   Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1524       OK272228.1       
+Latilactobacillus curvatus strain Y1-C-15 16S ribosomal RNA...    Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1520       OK272227.1       
+Latilactobacillus sp. strain Y1-C-14 16S ribosomal RNA gene,...   Latilactobac... NA              2767917    468    468   100%  2e-127 100.00 1524       OK272226.1       
+Latilactobacillus curvatus strain Y1-C-7 16S ribosomal RNA gen... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1508       OK272220.1       
+Latilactobacillus curvatus strain Y1-C-3 16S ribosomal RNA gen... Latilactobac... NA              28038      468    468   100%  2e-127 100.00 1508       OK272216.1       
+Latilactobacillus sakei subsp. sakei strain Y1-B-111 16S...       Latilactobac... NA              214326     468    468   100%  2e-127 100.00 1526       OK272210.1       
+Latilactobacillus sp. strain Y1-I-100 16S ribosomal RNA gene,...  Latilactobac... NA              2767917    464    464   100%  2e-126 99.60  1523       OK326546.1       
+Latilactobacillus sp. strain P1-I-6 16S ribosomal RNA gene,...    Latilactobac... NA              2767917    464    464   100%  2e-126 99.60  1524       OK326275.1       
+Latilactobacillus sp. strain N1-I-101 16S ribosomal RNA gene,...  Latilactobac... NA              2767917    464    464   100%  2e-126 99.60  1508       OK326241.1       
+
+
+Alignments:
+
+>Latilactobacillus sakei strain RS33 16S ribosomal RNA gene, partial sequence
+Sequence ID: ON007102.1 Length: 1466
+Range 1: 519 to 771
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  519  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  578
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  579  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  638
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  639  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  698
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  699  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  758
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  759  GGTAGCAAACAGG  771
+
+
+
+
+>Latilactobacillus sakei strain RS25 16S ribosomal RNA gene, partial sequence
+Sequence ID: ON007101.1 Length: 1467
+Range 1: 524 to 776
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  524  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  583
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  584  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  643
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  644  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  703
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  704  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  763
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  764  GGTAGCAAACAGG  776
+
+
+
+
+>Latilactobacillus sakei strain RS16 16S ribosomal RNA gene, partial sequence
+Sequence ID: ON007100.1 Length: 1482
+Range 1: 532 to 784
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  532  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  591
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  592  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  651
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  652  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  711
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  712  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  771
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  772  GGTAGCAAACAGG  784
+
+
+
+
+>Latilactobacillus curvatus strain HBUAS62513 16S ribosomal RNA gene, partial sequence
+Sequence ID: ON005286.1 Length: 1492
+Range 1: 535 to 787
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  535  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  594
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  595  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  654
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  655  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  714
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  715  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  774
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  775  GGTAGCAAACAGG  787
+
+
+
+
+>Latilactobacillus sakei strain HBUAS62564 16S ribosomal RNA gene, partial sequence
+Sequence ID: ON005212.1 Length: 1496
+Range 1: 537 to 789
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  537  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  596
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  597  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  656
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  657  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  716
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  717  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  776
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  777  GGTAGCAAACAGG  789
+
+
+
+
+>Latilactobacillus curvatus strain HBUAS62534 16S ribosomal RNA gene, partial sequence
+Sequence ID: ON000304.1 Length: 1492
+Range 1: 535 to 787
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  535  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  594
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  595  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  654
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  655  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  714
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  715  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  774
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  775  GGTAGCAAACAGG  787
+
+
+
+
+>Latilactobacillus sakei strain KKP 3813 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM996997.1 Length: 802
+Range 1: 504 to 756
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  504  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  563
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  564  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  623
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  624  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  683
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  684  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  743
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  744  GGTAGCAAACAGG  756
+
+
+
+
+>Latilactobacillus sakei strain KKP 3808 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM996207.1 Length: 799
+Range 1: 508 to 760
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  508  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  567
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  568  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  627
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  628  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  687
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  688  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  747
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  748  GGTAGCAAACAGG  760
+
+
+
+
+>Latilactobacillus curvatus strain HBUAS62350 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM982527.1 Length: 1492
+Range 1: 535 to 787
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  535  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  594
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  595  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  654
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  655  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  714
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  715  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  774
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  775  GGTAGCAAACAGG  787
+
+
+
+
+>Latilactobacillus sakei strain HBUAS62322 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM978679.1 Length: 1496
+Range 1: 537 to 789
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  537  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  596
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  597  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  656
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  657  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  716
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  717  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  776
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  777  GGTAGCAAACAGG  789
+
+
+
+
+>Latilactobacillus sakei strain HBUAS62321 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM978678.1 Length: 1496
+Range 1: 537 to 789
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  537  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  596
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  597  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  656
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  657  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  716
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  717  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  776
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  777  GGTAGCAAACAGG  789
+
+
+
+
+>Latilactobacillus sakei strain HBUAS62251 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM978608.1 Length: 1496
+Range 1: 537 to 789
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  537  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  596
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  597  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  656
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  657  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  716
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  717  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  776
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  777  GGTAGCAAACAGG  789
+
+
+
+
+>Latilactobacillus curvatus strain HBUAS62224 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM978581.1 Length: 1492
+Range 1: 535 to 787
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  535  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  594
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  595  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  654
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  655  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  714
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  715  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  774
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  775  GGTAGCAAACAGG  787
+
+
+
+
+>Latilactobacillus curvatus strain HBUAS51998 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM943899.1 Length: 1492
+Range 1: 535 to 787
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  535  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  594
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  595  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  654
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  655  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  714
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  715  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  774
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  775  GGTAGCAAACAGG  787
+
+
+
+
+>Latilactobacillus sakei strain HBUAS51986 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM943887.1 Length: 1496
+Range 1: 537 to 789
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  537  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  596
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  597  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  656
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  657  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  716
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  717  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  776
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  777  GGTAGCAAACAGG  789
+
+
+
+
+>Latilactobacillus curvatus strain HBUAS51985 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM943886.1 Length: 1492
+Range 1: 535 to 787
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  535  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  594
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  595  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  654
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  655  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  714
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  715  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  774
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  775  GGTAGCAAACAGG  787
+
+
+
+
+>Latilactobacillus curvatus strain HBUAS51981 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM943882.1 Length: 1492
+Range 1: 535 to 787
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  535  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  594
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  595  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  654
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  655  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  714
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  715  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  774
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  775  GGTAGCAAACAGG  787
+
+
+
+
+>Latilactobacillus sakei strain HBUAS51977 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM943878.1 Length: 1496
+Range 1: 537 to 789
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  537  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  596
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  597  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  656
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  657  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  716
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  717  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  776
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  777  GGTAGCAAACAGG  789
+
+
+
+
+>Latilactobacillus curvatus strain HBUAS51976 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM943877.1 Length: 1492
+Range 1: 535 to 787
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  535  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  594
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  595  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  654
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  655  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  714
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  715  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  774
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  775  GGTAGCAAACAGG  787
+
+
+
+
+>Latilactobacillus sakei strain HBUAS51967 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM943868.1 Length: 1496
+Range 1: 537 to 789
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  537  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  596
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  597  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  656
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  657  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  716
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  717  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  776
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  777  GGTAGCAAACAGG  789
+
+
+
+
+>Latilactobacillus sakei strain E23B chromosome
+Sequence ID: CP043731.1 Length: 1973327
+Range 1: 1951197 to 1951449
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1951197  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  1951256
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1951257  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  1951316
+
+Query  121      GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1951317  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  1951376
+
+Query  181      GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1951377  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  1951436
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  1951437  GGTAGCAAACAGG  1951449
+
+
+
+
+>Latilactobacillus sakei strain C21B chromosome
+Sequence ID: CP043730.1 Length: 2011032
+Range 1: 1996273 to 1996525
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1996273  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  1996332
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1996333  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  1996392
+
+Query  121      GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1996393  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  1996452
+
+Query  181      GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1996453  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  1996512
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  1996513  GGTAGCAAACAGG  1996525
+
+
+
+
+>Latilactobacillus sakei strain C22G chromosome
+Sequence ID: CP043729.1 Length: 1976879
+Range 1: 1962897 to 1963149
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1962897  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  1962956
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1962957  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  1963016
+
+Query  121      GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1963017  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  1963076
+
+Query  181      GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1963077  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  1963136
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  1963137  GGTAGCAAACAGG  1963149
+
+
+
+
+>Latilactobacillus sakei strain E28G chromosome
+Sequence ID: CP043728.1 Length: 2012210
+Range 1: 1998750 to 1999002
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1998750  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  1998809
+
+Query  61       TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1998810  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  1998869
+
+Query  121      GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1998870  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  1998929
+
+Query  181      GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1998930  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  1998989
+
+Query  241      GGTAGCAAACAGG  253
+                |||||||||||||
+Sbjct  1998990  GGTAGCAAACAGG  1999002
+
+
+
+
+>Uncultured Lactobacillus sp. clone OTU_1450 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM537547.1 Length: 429
+Range 1: 177 to 429
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  177  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  236
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  237  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  296
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  297  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  356
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  357  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  416
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  417  GGTAGCAAACAGG  429
+
+
+
+
+>Latilactobacillus sakei strain TMPC 63113 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM267635.1 Length: 1464
+Range 1: 523 to 775
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  523  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  582
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  583  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  642
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  643  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  702
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  703  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  762
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  763  GGTAGCAAACAGG  775
+
+
+
+
+>Latilactobacillus sakei strain TMPC 3B122 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM267634.1 Length: 1511
+Range 1: 529 to 781
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  529  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  588
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  589  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  648
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  649  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  708
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  709  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  768
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  769  GGTAGCAAACAGG  781
+
+
+
+
+>Latilactobacillus sakei strain TMPC 3B121 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM267633.1 Length: 1505
+Range 1: 524 to 776
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  524  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  583
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  584  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  643
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  644  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  703
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  704  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  763
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  764  GGTAGCAAACAGG  776
+
+
+
+
+>Latilactobacillus sakei strain TMPC 3B113 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM267632.1 Length: 1504
+Range 1: 524 to 776
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  524  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  583
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  584  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  643
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  644  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  703
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  704  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  763
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  764  GGTAGCAAACAGG  776
+
+
+
+
+>Latilactobacillus curvatus strain TMPC 3332D 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM265415.1 Length: 1497
+Range 1: 522 to 774
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  522  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  581
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  582  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  641
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  642  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  701
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  702  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  761
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  762  GGTAGCAAACAGG  774
+
+
+
+
+>Latilactobacillus sakei strain WM7 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM250081.1 Length: 1456
+Range 1: 522 to 774
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  522  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  581
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  582  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  641
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  642  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  701
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  702  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  761
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  762  GGTAGCAAACAGG  774
+
+
+
+
+>Latilactobacillus sakei strain ICMP 6915 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM200164.1 Length: 1438
+Range 1: 505 to 757
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  505  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  564
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  565  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  624
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  625  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  684
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  685  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  744
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  745  GGTAGCAAACAGG  757
+
+
+
+
+>Latilactobacillus sakei strain ICMP 6713 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM200154.1 Length: 1442
+Range 1: 509 to 761
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  509  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  568
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  569  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  628
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  629  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  688
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  689  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  748
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  749  GGTAGCAAACAGG  761
+
+
+
+
+>Latilactobacillus sakei strain LC4 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM149720.1 Length: 1475
+Range 1: 524 to 776
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  524  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  583
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  584  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  643
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  644  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  703
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  704  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  763
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  764  GGTAGCAAACAGG  776
+
+
+
+
+>Latilactobacillus sakei strain LC3 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM074019.1 Length: 957
+Range 1: 525 to 777
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  525  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  584
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  585  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  644
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  645  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  704
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  705  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  764
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  765  GGTAGCAAACAGG  777
+
+
+
+
+>Latilactobacillus sakei subsp. sakei strain Y3-I-105 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326666.1 Length: 1508
+Range 1: 541 to 793
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  541  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  600
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  601  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  660
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  661  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  720
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  721  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  780
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  781  GGTAGCAAACAGG  793
+
+
+
+
+>Latilactobacillus curvatus strain Y3-I-104 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326665.1 Length: 1518
+Range 1: 539 to 791
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  539  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  598
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  599  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  658
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  659  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  718
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  719  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  778
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  779  GGTAGCAAACAGG  791
+
+
+
+
+>Latilactobacillus curvatus strain Y2-I-100 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326591.1 Length: 1507
+Range 1: 537 to 789
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  537  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  596
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  597  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  656
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  657  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  716
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  717  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  776
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  777  GGTAGCAAACAGG  789
+
+
+
+
+>Latilactobacillus curvatus strain Y2-I-2 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326589.1 Length: 1519
+Range 1: 539 to 791
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  539  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  598
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  599  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  658
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  659  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  718
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  719  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  778
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  779  GGTAGCAAACAGG  791
+
+
+
+
+>Latilactobacillus sp. strain Y1-I-107 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326548.1 Length: 1510
+Range 1: 539 to 791
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  539  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  598
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  599  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  658
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  659  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  718
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  719  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  778
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  779  GGTAGCAAACAGG  791
+
+
+
+
+>Latilactobacillus sakei subsp. sakei strain Y1-G-3 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326539.1 Length: 1498
+Range 1: 516 to 768
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  516  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  575
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  576  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  635
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  636  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  695
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  696  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  755
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  756  GGTAGCAAACAGG  768
+
+
+
+
+>Latilactobacillus sp. strain W1-I-4 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326495.1 Length: 1506
+Range 1: 539 to 791
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  539  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  598
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  599  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  658
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  659  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  718
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  719  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  778
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  779  GGTAGCAAACAGG  791
+
+
+
+
+>Latilactobacillus curvatus strain W1-I-2 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326493.1 Length: 1506
+Range 1: 537 to 789
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  537  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  596
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  597  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  656
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  657  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  716
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  717  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  776
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  777  GGTAGCAAACAGG  789
+
+
+
+
+>Latilactobacillus curvatus strain TG-I-100 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326467.1 Length: 1505
+Range 1: 540 to 792
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  540  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  599
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  600  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  659
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  660  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  719
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  720  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  779
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  780  GGTAGCAAACAGG  792
+
+
+
+
+>Latilactobacillus sakei subsp. sakei strain S1-I-1 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326344.1 Length: 1525
+Range 1: 542 to 794
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  542  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  601
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  602  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  661
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  662  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  721
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  722  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  781
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  782  GGTAGCAAACAGG  794
+
+
+
+
+>Latilactobacillus sp. strain S1-G-9 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326340.1 Length: 1523
+Range 1: 542 to 794
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  542  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  601
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  602  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  661
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  662  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  721
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  722  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  781
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  782  GGTAGCAAACAGG  794
+
+
+
+
+>Latilactobacillus curvatus strain P1-S-104 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326292.1 Length: 1518
+Range 1: 539 to 791
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  539  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  598
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  599  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  658
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  659  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  718
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  719  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  778
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  779  GGTAGCAAACAGG  791
+
+
+
+
+>Latilactobacillus curvatus strain P1-S-101 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326291.1 Length: 1497
+Range 1: 518 to 770
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  518  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  577
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  578  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  637
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  638  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  697
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  698  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  757
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  758  GGTAGCAAACAGG  770
+
+
+
+
+>Latilactobacillus curvatus strain P1-I-100 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326278.1 Length: 1503
+Range 1: 538 to 790
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  538  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  597
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  598  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  657
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  658  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  717
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  718  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  777
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  778  GGTAGCAAACAGG  790
+
+
+
+
+>Latilactobacillus curvatus strain P1-I-5 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326274.1 Length: 1519
+Range 1: 540 to 792
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  540  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  599
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  600  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  659
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  660  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  719
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  720  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  779
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  780  GGTAGCAAACAGG  792
+
+
+
+
+>Latilactobacillus sakei subsp. sakei strain P1-G-10 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326266.1 Length: 1494
+Range 1: 513 to 765
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  513  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  572
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  573  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  632
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  633  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  692
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  693  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  752
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  753  GGTAGCAAACAGG  765
+
+
+
+
+>Latilactobacillus sp. strain N1-I-5 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326239.1 Length: 1512
+Range 1: 540 to 792
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  540  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  599
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  600  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  659
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  660  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  719
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  720  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  779
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  780  GGTAGCAAACAGG  792
+
+
+
+
+>Latilactobacillus sakei subsp. sakei strain N1-I-2 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326236.1 Length: 1524
+Range 1: 542 to 794
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  542  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  601
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  602  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  661
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  662  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  721
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  722  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  781
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  782  GGTAGCAAACAGG  794
+
+
+
+
+>Latilactobacillus curvatus strain M3-S-100 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326210.1 Length: 1482
+Range 1: 513 to 765
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  513  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  572
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  573  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  632
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  633  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  692
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  693  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  752
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  753  GGTAGCAAACAGG  765
+
+
+
+
+>Latilactobacillus sp. strain M3-I-100 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326191.1 Length: 1511
+Range 1: 543 to 795
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  543  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  602
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  603  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  662
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  663  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  722
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  723  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  782
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  783  GGTAGCAAACAGG  795
+
+
+
+
+>Latilactobacillus sp. strain M3-I-3 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326190.1 Length: 1510
+Range 1: 539 to 791
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  539  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  598
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  599  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  658
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  659  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  718
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  719  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  778
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  779  GGTAGCAAACAGG  791
+
+
+
+
+>Latilactobacillus sp. strain M3-I-2 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326189.1 Length: 1507
+Range 1: 537 to 789
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  537  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  596
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  597  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  656
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  657  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  716
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  717  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  776
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  777  GGTAGCAAACAGG  789
+
+
+
+
+>Latilactobacillus sp. strain M3-I-1 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326188.1 Length: 1509
+Range 1: 540 to 792
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  540  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  599
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  600  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  659
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  660  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  719
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  720  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  779
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  780  GGTAGCAAACAGG  792
+
+
+
+
+>Latilactobacillus curvatus strain C2-I-3 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326126.1 Length: 1504
+Range 1: 539 to 791
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  539  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  598
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  599  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  658
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  659  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  718
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  719  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  778
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  779  GGTAGCAAACAGG  791
+
+
+
+
+>Latilactobacillus sp. strain C2-I-2 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326125.1 Length: 1508
+Range 1: 541 to 793
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  541  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  600
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  601  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  660
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  661  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  720
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  721  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  780
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  781  GGTAGCAAACAGG  793
+
+
+
+
+>Latilactobacillus curvatus strain C2-I-1 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326124.1 Length: 1441
+Range 1: 476 to 728
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  476  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  535
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  536  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  595
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  596  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  655
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  656  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  715
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  716  GGTAGCAAACAGG  728
+
+
+
+
+>Latilactobacillus sp. strain BG-I-100 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326011.1 Length: 1519
+Range 1: 540 to 792
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  540  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  599
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  600  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  659
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  660  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  719
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  720  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  779
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  780  GGTAGCAAACAGG  792
+
+
+
+
+>Latilactobacillus sp. strain BG-I-3 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326010.1 Length: 1520
+Range 1: 540 to 792
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  540  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  599
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  600  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  659
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  660  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  719
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  720  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  779
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  780  GGTAGCAAACAGG  792
+
+
+
+
+>Latilactobacillus sakei subsp. sakei strain BG-G-3 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326004.1 Length: 1458
+Range 1: 477 to 729
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  477  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  536
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  537  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  596
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  597  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  656
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  657  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  716
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  717  GGTAGCAAACAGG  729
+
+
+
+
+>Latilactobacillus curvatus strain B5-S-102 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK325860.1 Length: 1504
+Range 1: 539 to 791
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  539  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  598
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  599  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  658
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  659  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  718
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  719  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  778
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  779  GGTAGCAAACAGG  791
+
+
+
+
+>Latilactobacillus curvatus strain B5-S-101 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK325859.1 Length: 1508
+Range 1: 539 to 791
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  539  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  598
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  599  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  658
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  659  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  718
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  719  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  778
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  779  GGTAGCAAACAGG  791
+
+
+
+
+>Latilactobacillus curvatus strain B5-S-100 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK325858.1 Length: 1504
+Range 1: 538 to 790
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  538  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  597
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  598  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  657
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  658  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  717
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  718  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  777
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  778  GGTAGCAAACAGG  790
+
+
+
+
+>Latilactobacillus curvatus strain B5-I-102 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK325851.1 Length: 1507
+Range 1: 538 to 790
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  538  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  597
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  598  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  657
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  658  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  717
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  718  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  777
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  778  GGTAGCAAACAGG  790
+
+
+
+
+>Latilactobacillus sakei subsp. sakei strain B2-I-102 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK325740.1 Length: 1511
+Range 1: 541 to 793
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  541  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  600
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  601  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  660
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  661  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  720
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  721  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  780
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  781  GGTAGCAAACAGG  793
+
+
+
+
+>Latilactobacillus curvatus strain B2-I-3 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK325736.1 Length: 1517
+Range 1: 538 to 790
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  538  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  597
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  598  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  657
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  658  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  717
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  718  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  777
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  778  GGTAGCAAACAGG  790
+
+
+
+
+>Latilactobacillus curvatus strain B2-I-2 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK325735.1 Length: 1493
+Range 1: 513 to 765
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  513  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  572
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  573  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  632
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  633  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  692
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  693  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  752
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  753  GGTAGCAAACAGG  765
+
+
+
+
+>Latilactobacillus curvatus strain B2-I-1 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK325734.1 Length: 1508
+Range 1: 539 to 791
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  539  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  598
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  599  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  658
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  659  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  718
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  719  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  778
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  779  GGTAGCAAACAGG  791
+
+
+
+
+>Latilactobacillus sakei subsp. sakei strain B2-G-3 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK325725.1 Length: 1507
+Range 1: 540 to 792
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  540  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  599
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  600  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  659
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  660  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  719
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  720  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  779
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  780  GGTAGCAAACAGG  792
+
+
+
+
+>Latilactobacillus sp. strain B1-I-2 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK325700.1 Length: 1507
+Range 1: 539 to 791
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  539  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  598
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  599  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  658
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  659  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  718
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  719  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  778
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  779  GGTAGCAAACAGG  791
+
+
+
+
+>Latilactobacillus curvatus strain KKP 3578 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK298400.1 Length: 1418
+Range 1: 503 to 755
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  503  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  562
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  563  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  622
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  623  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  682
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  683  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  742
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  743  GGTAGCAAACAGG  755
+
+
+
+
+>Latilactobacillus sp. strain Y3-D-105 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272421.1 Length: 1513
+Range 1: 540 to 792
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  540  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  599
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  600  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  659
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  660  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  719
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  720  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  779
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  780  GGTAGCAAACAGG  792
+
+
+
+
+>Latilactobacillus sp. strain Y3-D-102 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272418.1 Length: 1507
+Range 1: 540 to 792
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  540  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  599
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  600  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  659
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  660  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  719
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  720  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  779
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  780  GGTAGCAAACAGG  792
+
+
+
+
+>Latilactobacillus sp. strain Y3-D-101 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272417.1 Length: 1523
+Range 1: 541 to 793
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  541  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  600
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  601  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  660
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  661  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  720
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  721  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  780
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  781  GGTAGCAAACAGG  793
+
+
+
+
+>Latilactobacillus sakei subsp. sakei strain Y3-B-101 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272403.1 Length: 1511
+Range 1: 543 to 795
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  543  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  602
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  603  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  662
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  663  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  722
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  723  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  782
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  783  GGTAGCAAACAGG  795
+
+
+
+
+>Latilactobacillus sakei subsp. sakei strain Y3-B-100 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272402.1 Length: 1484
+Range 1: 515 to 767
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  515  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  574
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  575  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  634
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  635  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  694
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  695  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  754
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  755  GGTAGCAAACAGG  767
+
+
+
+
+>Latilactobacillus sakei subsp. sakei strain Y2-D-106 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272341.1 Length: 1482
+Range 1: 515 to 767
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  515  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  574
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  575  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  634
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  635  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  694
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  695  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  754
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  755  GGTAGCAAACAGG  767
+
+
+
+
+>Latilactobacillus sp. strain Y2-D-101 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272336.1 Length: 1509
+Range 1: 541 to 793
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  541  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  600
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  601  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  660
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  661  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  720
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  721  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  780
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  781  GGTAGCAAACAGG  793
+
+
+
+
+>Latilactobacillus sp. strain Y2-D-1 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272332.1 Length: 1513
+Range 1: 542 to 794
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  542  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  601
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  602  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  661
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  662  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  721
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  722  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  781
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  782  GGTAGCAAACAGG  794
+
+
+
+
+>Latilactobacillus sakei subsp. sakei strain Y2-C-1 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272312.1 Length: 1523
+Range 1: 542 to 794
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  542  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  601
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  602  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  661
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  662  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  721
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  722  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  781
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  782  GGTAGCAAACAGG  794
+
+
+
+
+>Latilactobacillus sakei subsp. sakei strain Y2-B-105 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272310.1 Length: 1513
+Range 1: 542 to 794
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  542  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  601
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  602  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  661
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  662  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  721
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  722  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  781
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  782  GGTAGCAAACAGG  794
+
+
+
+
+>Latilactobacillus sakei subsp. sakei strain Y1-Y-10 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272302.1 Length: 1523
+Range 1: 542 to 794
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  542  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  601
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  602  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  661
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  662  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  721
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  722  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  781
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  782  GGTAGCAAACAGG  794
+
+
+
+
+>Latilactobacillus sp. strain Y1-D-100 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272242.1 Length: 1484
+Range 1: 515 to 767
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  515  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  574
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  575  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  634
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  635  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  694
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  695  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  754
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  755  GGTAGCAAACAGG  767
+
+
+
+
+>Latilactobacillus sp. strain Y1-D-6 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272241.1 Length: 1508
+Range 1: 541 to 793
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  541  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  600
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  601  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  660
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  661  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  720
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  721  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  780
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  781  GGTAGCAAACAGG  793
+
+
+
+
+>Latilactobacillus sp. strain Y1-D-5 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272240.1 Length: 1509
+Range 1: 542 to 794
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  542  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  601
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  602  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  661
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  662  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  721
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  722  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  781
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  782  GGTAGCAAACAGG  794
+
+
+
+
+>Latilactobacillus sp. strain Y1-D-3 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272239.1 Length: 1517
+Range 1: 540 to 792
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  540  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  599
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  600  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  659
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  660  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  719
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  720  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  779
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  780  GGTAGCAAACAGG  792
+
+
+
+
+>Latilactobacillus sp. strain Y1-C-18 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272229.1 Length: 1524
+Range 1: 542 to 794
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  542  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  601
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  602  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  661
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  662  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  721
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  722  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  781
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  782  GGTAGCAAACAGG  794
+
+
+
+
+>Latilactobacillus sp. strain Y1-C-17 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272228.1 Length: 1524
+Range 1: 542 to 794
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  542  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  601
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  602  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  661
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  662  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  721
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  722  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  781
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  782  GGTAGCAAACAGG  794
+
+
+
+
+>Latilactobacillus curvatus strain Y1-C-15 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272227.1 Length: 1520
+Range 1: 540 to 792
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  540  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  599
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  600  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  659
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  660  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  719
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  720  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  779
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  780  GGTAGCAAACAGG  792
+
+
+
+
+>Latilactobacillus sp. strain Y1-C-14 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272226.1 Length: 1524
+Range 1: 542 to 794
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  542  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  601
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  602  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  661
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  662  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  721
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  722  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  781
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  782  GGTAGCAAACAGG  794
+
+
+
+
+>Latilactobacillus curvatus strain Y1-C-7 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272220.1 Length: 1508
+Range 1: 540 to 792
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  540  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  599
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  600  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  659
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  660  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  719
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  720  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  779
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  780  GGTAGCAAACAGG  792
+
+
+
+
+>Latilactobacillus curvatus strain Y1-C-3 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272216.1 Length: 1508
+Range 1: 541 to 793
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  541  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  600
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  601  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  660
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  661  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  720
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  721  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  780
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  781  GGTAGCAAACAGG  793
+
+
+
+
+>Latilactobacillus sakei subsp. sakei strain Y1-B-111 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK272210.1 Length: 1526
+Range 1: 545 to 797
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  545  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  604
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  605  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  664
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  665  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  724
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  725  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  784
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  785  GGTAGCAAACAGG  797
+
+
+
+
+>Latilactobacillus sp. strain Y1-I-100 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326546.1 Length: 1523
+Range 1: 542 to 794
+
+Score:464 bits(251), Expect:2e-126, 
+Identities:252/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| |
+Sbjct  542  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTYT  601
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  602  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  661
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  662  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  721
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  722  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  781
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  782  GGTAGCAAACAGG  794
+
+
+
+
+>Latilactobacillus sp. strain P1-I-6 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326275.1 Length: 1524
+Range 1: 542 to 794
+
+Score:464 bits(251), Expect:2e-126, 
+Identities:252/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| |
+Sbjct  542  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTYT  601
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  602  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  661
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  662  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  721
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  722  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  781
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  782  GGTAGCAAACAGG  794
+
+
+
+
+>Latilactobacillus sp. strain N1-I-101 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326241.1 Length: 1508
+Range 1: 541 to 793
+
+Score:464 bits(251), Expect:2e-126, 
+Identities:252/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| |
+Sbjct  541  TACGTAGGTGGCAAGCGTTGTCCGGATTTATTGGGCGTAAAGCGAGCGCAGGCGGTTTYT  600
+
+Query  61   TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  601  TAAGTCTGATGTGAAAGCCTTCGGCTCAACCGAAGAAGTGCATCGGAAACTGGGAAACTT  660
+
+Query  121  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  661  GAGTGCAGAAGAGGACAGTGGAACTCCATGTGTAGCGGTGAAATGCGTAGATATATGGAA  720
+
+Query  181  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  721  GAACACCAGTGGCGAAGGCGGCTGTCTGGTCTGTAACTGACGCTGAGGCTCGAAAGCATG  780
+
+Query  241  GGTAGCAAACAGG  253
+            |||||||||||||
+Sbjct  781  GGTAGCAAACAGG  793
+
+
+
+
+
+
+
+		
+
+

@@ -1,0 +1,3151 @@
+RID: 4TASH87N016	
+Job Title:OTU 182				
+Program: BLASTN 
+Database: nt Nucleotide collection (nt)
+Query #1:  Query ID: lcl|Query_40003 Length: 252
+
+Sequences producing significant alignments:
+                                                                  Scientific      Common                     Max    Total Query   E    Per.   Acc.                        
+Description                                                       Name            Name            Taxid      Score  Score cover Value  Ident  Len        Accession        
+Uncultured bacterium clone A454 16S ribosomal RNA gene, partia... uncultured b... NA              77133      416    416   100%  6e-112 96.43  415        MF047036.1       
+Uncultured bacterium clone OTU_1341 16S ribosomal RNA gene,...    uncultured b... NA              77133      405    405   100%  1e-108 95.63  406        OK038537.1       
+Uncultured bacterium clone AS1_aao37e06.Contig1 16S ribosomal...  uncultured b... NA              77133      405    405   100%  1e-108 95.63  1348       EU465551.1       
+Uncultured bacterium clone gir_aah95c04 16S ribosomal RNA gene... uncultured b... NA              77133      399    399   100%  6e-107 95.24  1348       EU464163.1       
+Uncultured bacterium clone LI3_aah75g10 16S ribosomal RNA gene... uncultured b... NA              77133      394    394   100%  3e-105 94.84  1382       EU776572.1       
+Uncultured bacterium clone FF_a02 16S ribosomal RNA gene,...      uncultured b... NA              77133      394    394   100%  3e-105 94.84  1348       EU469564.1       
+Uncultured bacterium clone COL_aai14h01 16S ribosomal RNA gene... uncultured b... NA              77133      394    394   100%  3e-105 94.84  817        EU460112.1       
+Uncultured bacterium clone COL_aai14d08 16S ribosomal RNA gene... uncultured b... NA              77133      394    394   100%  3e-105 94.84  921        EU460089.1       
+Uncultured bacterium clone COL_aai13c06 16S ribosomal RNA gene... uncultured b... NA              77133      394    394   100%  3e-105 94.84  922        EU460033.1       
+Uncultured Anaeroplasma sp. clone DA DC 1039 16S ribosomal RNA... uncultured A... NA              538969     388    388   100%  1e-103 94.44  405        ON027893.1       
+Uncultured bacterium clone OK3_a08_1 16S ribosomal RNA gene,...   uncultured b... NA              77133      388    388   100%  1e-103 94.44  1311       EU468788.1       
+Uncultured bacterium clone COL_aai16f12 16S ribosomal RNA gene... uncultured b... NA              77133      388    388   100%  1e-103 94.47  924        EU460212.1       
+Uncultured bacterium clone COL_aai14b06 16S ribosomal RNA gene... uncultured b... NA              77133      388    388   100%  1e-103 94.44  922        EU460076.1       
+Uncultured rumen bacterium 16S rRNA, partial sequence, clone:...  uncultured r... NA              136703     387    387   99%   5e-103 94.42  1466       AB614722.1       
+Uncultured Mycoplasma sp. clone 1 16S ribosomal RNA gene,...      uncultured M... NA              167967     383    383   100%  6e-102 94.05  878        MG786618.1       
+Uncultured bacterium clone denovo18672_N12_25737 16S ribosomal... uncultured b... NA              77133      383    383   100%  6e-102 94.05  446        MF261362.1       
+Uncultured rumen bacterium 16S rRNA, partial sequence, clone:...  uncultured r... NA              136703     383    383   100%  6e-102 94.05  1466       AB614663.1       
+Uncultured Mycoplasma sp. clone W02.2.20 16S ribosomal RNA gen... uncultured M... NA              167967     383    383   100%  6e-102 94.05  912        MW355431.1       
+Uncultured Tenericutes bacterium clone p1j08cow63 16S ribosoma... uncultured T... NA              658143     383    383   100%  6e-102 94.05  778        HM104789.1       
+Uncultured Tenericutes bacterium clone p1a16cow63 16S ribosoma... uncultured T... NA              658143     383    383   100%  6e-102 94.05  777        HM104712.1       
+Uncultured prokaryote clone OTU_234 16S ribosomal RNA gene,...    uncultured p... NA              198431     379    379   99%   8e-101 94.00  250        KT168631.1       
+Uncultured bacterium clone OTU_586 16S ribosomal RNA gene,...     uncultured b... NA              77133      377    377   100%  3e-100 93.65  409        OK049250.1       
+Uncultured bacterium clone OTU_586 16S ribosomal RNA gene,...     uncultured b... NA              77133      377    377   100%  3e-100 93.65  409        OK038080.1       
+Uncultured rumen bacterium 16S rRNA, partial sequence, clone:...  uncultured r... NA              136703     377    377   100%  3e-100 93.65  1466       AB555154.1       
+Uncultured rumen bacterium clone KF34-140 16S ribosomal RNA...    uncultured r... NA              136703     375    375   99%   1e-99  93.63  1467       HQ616131.1       
+Uncultured bacterium clone 362 16S ribosomal RNA gene, partial... uncultured b... NA              77133      372    372   100%  1e-98  93.25  410        KY285652.1       
+Uncultured Anaeroplasma sp. clone denovo195412 16S ribosomal R... uncultured A... NA              538969     372    372   100%  1e-98  93.25  440        KY664092.1       
+Uncultured bacterium clone 219 16S ribosomal RNA gene, partial... uncultured b... NA              77133      372    372   100%  1e-98  93.25  411        KX593353.1       
+Uncultured bacterium clone 401 16S ribosomal RNA gene, partial... uncultured b... NA              77133      372    372   100%  1e-98  93.25  431        KU505615.1       
+Uncultured bacterium clone 8-6G22 16S ribosomal RNA gene,...      uncultured b... NA              77133      372    372   100%  1e-98  93.25  1355       FJ683346.1       
+Uncultured bacterium clone 6-1G23 16S ribosomal RNA gene,...      uncultured b... NA              77133      372    372   100%  1e-98  93.25  1360       FJ684896.1       
+Uncultured bacterium clone 6-1E16 16S ribosomal RNA gene,...      uncultured b... NA              77133      372    372   100%  1e-98  93.25  1356       FJ684846.1       
+Uncultured bacterium clone 130-5L2 16S ribosomal RNA gene,...     uncultured b... NA              77133      372    372   100%  1e-98  93.25  1353       FJ673598.1       
+Uncultured Anaeroplasma sp. clone CSMB_2105 16S ribosomal RNA...  uncultured A... NA              538969     370    370   97%   5e-98  93.88  245        MF895488.1       
+Uncultured prokaryote clone OTU_5397 16S ribosomal RNA gene,...   uncultured p... NA              198431     368    368   99%   2e-97  93.20  250        KT173735.1       
+Uncultured prokaryote clone OTU_382 16S ribosomal RNA gene,...    uncultured p... NA              198431     368    368   99%   2e-97  93.20  250        KT168779.1       
+Uncultured bacterium clone 6-3O5 16S ribosomal RNA gene, parti... uncultured b... NA              77133      368    368   100%  2e-97  92.86  1331       FJ684157.1       
+Uncultured Anaeroplasma sp. clone denovo321078 16S ribosomal R... uncultured A... NA              538969     366    366   100%  6e-97  92.86  440        KY666262.1       
+Uncultured Anaeroplasma sp. clone denovo318500 16S ribosomal R... uncultured A... NA              538969     366    366   100%  6e-97  92.86  440        KY666211.1       
+Uncultured Anaeroplasma sp. clone DA DC 917 16S ribosomal RNA...  uncultured A... NA              538969     366    366   100%  6e-97  92.89  411        ON027774.1       
+Uncultured Anaeroplasma sp. clone DA DC 625 16S ribosomal RNA...  uncultured A... NA              538969     366    366   100%  6e-97  92.91  410        ON027485.1       
+Uncultured rumen bacterium gene 16S rRNA, partial sequence,...    uncultured r... NA              136703     366    366   100%  6e-97  92.91  876        AB665904.1       
+Uncultured rumen bacterium gene 16S rRNA, partial sequence,...    uncultured r... NA              136703     366    366   100%  6e-97  92.86  876        AB665798.1       
+Uncultured rumen bacterium clone CAPT2C01 16S ribosomal RNA...    uncultured r... NA              136703     366    366   100%  6e-97  92.86  1308       GQ327377.1       
+Uncultured bacterium clone 6-1J21 16S ribosomal RNA gene,...      uncultured b... NA              77133      366    366   98%   6e-97  93.17  1356       FJ684957.1       
+Uncultured bacterium clone 6-8P13 16S ribosomal RNA gene,...      uncultured b... NA              77133      366    366   100%  6e-97  92.86  1355       FJ684746.1       
+Uncultured rumen bacterium clone CF426 16S ribosomal RNA gene,... uncultured r... NA              136703     366    366   100%  6e-97  92.91  1412       EU871422.1       
+Uncultured bacterium clone 5-6A6 16S ribosomal RNA gene, parti... uncultured b... NA              77133      364    364   100%  2e-96  92.86  1355       FJ681194.1       
+Uncultured prokaryote clone OTU_5697 16S ribosomal RNA gene,...   uncultured p... NA              198431     363    363   99%   8e-96  92.80  250        KT174032.1       
+Uncultured prokaryote clone OTU_2022 16S ribosomal RNA gene,...   uncultured p... NA              198431     363    363   99%   8e-96  92.80  250        KT170417.1       
+Uncultured prokaryote clone OTU_553 16S ribosomal RNA gene,...    uncultured p... NA              198431     363    363   99%   8e-96  92.86  250        KT168950.1       
+Uncultured Anaeroplasma sp. partial 16S rRNA gene, OTU01521       uncultured A... NA              538969     363    363   99%   8e-96  92.80  405        LT008382.1       
+Uncultured Anaeroplasma sp. partial 16S rRNA gene, OTU01518       uncultured A... NA              538969     363    363   99%   8e-96  92.86  405        LT008379.1       
+Anaeroplasma abactoclasticum strain 6-1 16S ribosomal RNA,...     Anaeroplasma... NA              2087       363    363   100%  8e-96  92.46  1446       NR_029167.1      
+A.abactoclasticum 16S ribosomal RNA small subunit                 Anaeroplasma... NA              2087       363    363   100%  8e-96  92.46  1453       M25050.1         
+Uncultured bacterium clone A41 16S ribosomal RNA gene, partial... uncultured b... NA              77133      361    361   100%  3e-95  92.46  412        MF046623.1       
+Uncultured Anaeroplasma sp. clone denovo98310 16S ribosomal RN... uncultured A... NA              538969     361    361   100%  3e-95  92.46  440        KY670560.1       
+Uncultured Anaeroplasma sp. clone denovo462243 16S ribosomal R... uncultured A... NA              538969     361    361   100%  3e-95  92.46  440        KY668667.1       
+Uncultured bacterium clone OTU_1685 16S ribosomal RNA gene,...    uncultured b... NA              77133      361    361   100%  3e-95  92.46  410        OK049769.1       
+Uncultured bacterium clone OTU_1685 16S ribosomal RNA gene,...    uncultured b... NA              77133      361    361   100%  3e-95  92.46  410        OK038693.1       
+Uncultured bacterium clone nby251h06c1 16S ribosomal RNA gene,... uncultured b... NA              77133      361    361   100%  3e-95  92.46  1323       HM808099.1       
+Uncultured bacterium clone 6-1H16 16S ribosomal RNA gene,...      uncultured b... NA              77133      361    361   100%  3e-95  92.49  1387       FJ684910.1       
+Uncultured bacterium clone 130-6J2 16S ribosomal RNA gene,...     uncultured b... NA              77133      361    361   100%  3e-95  92.49  1354       FJ673891.1       
+Uncultured rumen bacterium clone CF126 16S ribosomal RNA gene,... uncultured r... NA              136703     361    361   100%  3e-95  92.46  1410       EU871364.1       
+Uncultured bacterium clone 8-6L23 16S ribosomal RNA gene,...      uncultured b... NA              77133      359    359   100%  1e-94  92.06  1356       FJ683438.1       
+Uncultured bacterium clone 5-5M1 16S ribosomal RNA gene, parti... uncultured b... NA              77133      359    359   100%  1e-94  92.46  1405       FJ681135.1       
+Uncultured prokaryote clone OTU_1909 16S ribosomal RNA gene,...   uncultured p... NA              198431     357    357   99%   4e-94  92.46  250        KT170304.1       
+Uncultured bacterium clone Otu904 16S ribosomal RNA gene,...      uncultured b... NA              77133      355    355   100%  1e-93  92.06  252        MH216859.1       
+Uncultured bacterium clone 429 16S ribosomal RNA gene, partial... uncultured b... NA              77133      355    355   100%  1e-93  92.13  410        KY285719.1       
+Uncultured Anaeroplasma sp. clone denovo67708 16S ribosomal RN... uncultured A... NA              538969     355    355   100%  1e-93  92.06  440        KY670057.1       
+Uncultured bacterium clone OTU_445 16S ribosomal RNA gene,...     uncultured b... NA              77133      355    355   100%  1e-93  92.06  252        MG558871.1       
+Uncultured bacterium clone 62 16S ribosomal RNA gene, partial...  uncultured b... NA              77133      355    355   100%  1e-93  92.13  411        KX593196.1       
+Uncultured bacterium clone denovo3630_551_23032 16S ribosomal...  uncultured b... NA              77133      355    355   100%  1e-93  92.06  305        MF301687.1       
+Uncultured bacterium clone denovo65702_N19_52723 16S ribosomal... uncultured b... NA              77133      355    355   100%  1e-93  92.06  450        MF275943.1       
+Uncultured bacterium clone denovo42782_N19_5701 16S ribosomal...  uncultured b... NA              77133      355    355   100%  1e-93  92.06  445        MF272578.1       
+Uncultured bacterium clone denovo38483_N19_49412 16S ribosomal... uncultured b... NA              77133      355    355   100%  1e-93  92.06  449        MF271963.1       
+Uncultured bacterium clone denovo27532_N19_53432 16S ribosomal... uncultured b... NA              77133      355    355   100%  1e-93  92.06  464        MF270385.1       
+Uncultured bacterium clone denovo13194_N19_45124 16S ribosomal... uncultured b... NA              77133      355    355   100%  1e-93  92.06  468        MF268337.1       
+Uncultured bacterium clone denovo27428_N21_119289 16S ribosoma... uncultured b... NA              77133      355    355   100%  1e-93  92.06  467        MF254982.1       
+Uncultured bacterium clone OTU_278 16S ribosomal RNA gene,...     uncultured b... NA              77133      355    355   100%  1e-93  92.06  412        KY671706.1       
+Uncultured bacterium clone 1351 16S ribosomal RNA gene, partia... uncultured b... NA              77133      355    355   100%  1e-93  92.13  431        KU506565.1       
+Uncultured Anaeroplasma sp. clone 5758 16S ribosomal RNA gene,... uncultured A... NA              538969     355    355   100%  1e-93  92.13  428        KP106963.1       
+Uncultured Anaeroplasma sp. clone DA DC 570 16S ribosomal RNA...  uncultured A... NA              538969     355    355   100%  1e-93  92.13  410        ON027431.1       
+Uncultured Anaeroplasma sp. clone OTU_1095 16S ribosomal RNA...   uncultured A... NA              538969     355    355   100%  1e-93  92.06  410        OM537257.1       
+Uncultured bacterium clone Evans.12.11_01459 16S ribosomal RNA... uncultured b... NA              77133      355    355   100%  1e-93  92.06  252        KJ267181.1       
+Uncultured bacterium clone Abx.1_27674 16S ribosomal RNA gene,... uncultured b... NA              77133      355    355   100%  1e-93  92.06  442        OK665948.1       
+Uncultured bacterium clone YO00840F03 16S ribosomal RNA gene,...  uncultured b... NA              77133      355    355   100%  1e-93  92.06  782        KC920385.1       
+Uncultured bacterium clone YO00840B12 16S ribosomal RNA gene,...  uncultured b... NA              77133      355    355   100%  1e-93  92.06  851        KC920345.1       
+Uncultured bacterium clone YO00837B08 16S ribosomal RNA gene,...  uncultured b... NA              77133      355    355   100%  1e-93  92.06  855        KC920200.1       
+Uncultured bacterium clone YO00825E10 16S ribosomal RNA gene,...  uncultured b... NA              77133      355    355   100%  1e-93  92.06  880        KC919903.1       
+Uncultured bacterium clone YO00825C03 16S ribosomal RNA gene,...  uncultured b... NA              77133      355    355   100%  1e-93  92.06  882        KC919902.1       
+Uncultured bacterium clone YO00825B06 16S ribosomal RNA gene,...  uncultured b... NA              77133      355    355   100%  1e-93  92.06  874        KC919899.1       
+Uncultured bacterium clone YO00825H07 16S ribosomal RNA gene,...  uncultured b... NA              77133      355    355   100%  1e-93  92.06  870        KC919885.1       
+Uncultured bacterium clone YO00825H05 16S ribosomal RNA gene,...  uncultured b... NA              77133      355    355   100%  1e-93  92.06  857        KC919878.1       
+Uncultured bacterium clone YO00825A11 16S ribosomal RNA gene,...  uncultured b... NA              77133      355    355   100%  1e-93  92.06  854        KC919877.1       
+Uncultured bacterium clone YO00825C10 16S ribosomal RNA gene,...  uncultured b... NA              77133      355    355   100%  1e-93  92.06  870        KC919860.1       
+Uncultured bacterium clone YO00825H01 16S ribosomal RNA gene,...  uncultured b... NA              77133      355    355   100%  1e-93  92.06  870        KC919855.1       
+Uncultured bacterium clone YO00824H10 16S ribosomal RNA gene,...  uncultured b... NA              77133      355    355   100%  1e-93  92.06  747        KC919835.1       
+Uncultured bacterium clone YO00824D01 16S ribosomal RNA gene,...  uncultured b... NA              77133      355    355   100%  1e-93  92.06  854        KC919774.1       
+Uncultured bacterium clone YO00824D02 16S ribosomal RNA gene,...  uncultured b... NA              77133      355    355   100%  1e-93  92.06  885        KC919765.1       
+
+
+Alignments:
+
+>Uncultured bacterium clone A454 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF047036.1 Length: 415
+Range 1: 164 to 415
+
+Score:416 bits(225), Expect:6e-112, 
+Identities:243/252(96%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  164  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAC  223
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+             |||||| |||||||||||||||||||||||||||||||||| ||| |||| ||||||||
+Sbjct  224  CAAGTTTTTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAAAGGAAACTGGTAAGCTAG  283
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||||| ||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  284  AGTACAACAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  343
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||| ||||||||||||||||||||| |||||||||||||||||||||||||||||||
+Sbjct  344  AACACCGGTGGCGAAGGCGGCTTGCTGGGTTGATACTGACATTGAGGCACGAAAGCGTGG  403
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  404  GGAGCAAACAGG  415
+
+
+
+
+>Uncultured bacterium clone OTU_1341 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK038537.1 Length: 406
+Range 1: 155 to 406
+
+Score:405 bits(219), Expect:1e-108, 
+Identities:241/252(96%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  155  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  214
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| |||||||||| ||||| ||||||| ||||  |||||| || ||| |||||||||
+Sbjct  215  TAAGTCTGTTGTAAAAGTGCTAGGCTCAACCTAGTGAGGCAATAGAAACTAATAAGCTAG  274
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            |||||| |||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  275  AGTACAGAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  334
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            ||||||||||||||||||||||||||||| ||||||||||||||||||||||||||||||
+Sbjct  335  AACACCAGTGGCGAAGGCGGCTTGCTGGTCTGATACTGACATTGAGGCACGAAAGCGTGG  394
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  395  GGAGCAAACAGG  406
+
+
+
+
+>Uncultured bacterium clone AS1_aao37e06.Contig1 16S ribosomal RNA gene, partial sequence
+Sequence ID: EU465551.1 Length: 1348
+Range 1: 486 to 737
+
+Score:405 bits(219), Expect:1e-108, 
+Identities:241/252(96%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  486  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  545
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+             |||| |||||||||| ||||| ||||||| ||||  |||||| || |||||||||||||
+Sbjct  546  AAAGTCTGTTGTAAAAGTGCTAGGCTCAACCTAGTGAGGCAATAGAAACTGATAAGCTAG  605
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  606  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  665
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| |||||||||||||||||||||||||||||||
+Sbjct  666  AACACCAGTGGCGAAGGCGGCTTGCTGGATTGATACTGACATTGAGGCACGAAAGCGTGG  725
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  726  GGAGCAAACAGG  737
+
+
+
+
+>Uncultured bacterium clone gir_aah95c04 16S ribosomal RNA gene, partial sequence
+Sequence ID: EU464163.1 Length: 1348
+Range 1: 486 to 737
+
+Score:399 bits(216), Expect:6e-107, 
+Identities:240/252(95%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  486  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  545
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+             |||| | |||||||| ||||| ||||||| ||||  |||||| || |||||||||||||
+Sbjct  546  AAAGTCTATTGTAAAAGTGCTAGGCTCAACCTAGTGAGGCAATAGAAACTGATAAGCTAG  605
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  606  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  665
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| |||||||||||||||||||||||||||||||
+Sbjct  666  AACACCAGTGGCGAAGGCGGCTTGCTGGATTGATACTGACATTGAGGCACGAAAGCGTGG  725
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  726  GGAGCAAACAGG  737
+
+
+
+
+>Uncultured bacterium clone LI3_aah75g10 16S ribosomal RNA gene, partial sequence
+Sequence ID: EU776572.1 Length: 1382
+Range 1: 521 to 772
+
+Score:394 bits(213), Expect:3e-105, 
+Identities:239/252(95%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  521  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  580
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+             |||| | |||||||| ||||| ||||||| ||||  |||||| || ||| |||||||||
+Sbjct  581  AAAGTCTATTGTAAAAGTGCTAGGCTCAACCTAGTGAGGCAATAGAAACTAATAAGCTAG  640
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            |||||| |||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  641  AGTACAGAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  700
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            ||||||||||||||||||||||||||||| ||||||||||||||||||||||||||||||
+Sbjct  701  AACACCAGTGGCGAAGGCGGCTTGCTGGTCTGATACTGACATTGAGGCACGAAAGCGTGG  760
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  761  GGAGCAAACAGG  772
+
+
+
+
+>Uncultured bacterium clone FF_a02 16S ribosomal RNA gene, partial sequence
+Sequence ID: EU469564.1 Length: 1348
+Range 1: 486 to 737
+
+Score:394 bits(213), Expect:3e-105, 
+Identities:239/252(95%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  486  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  545
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+             |||| | |||||||| ||||| ||||||| ||||  |||||| || |||||||||||||
+Sbjct  546  AAAGTCTATTGTAAAAGTGCTAGGCTCAACCTAGTGAGGCAATAGAAACTGATAAGCTAG  605
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||||||||||||||| ||||||||||||||||||||||||||||||||||||||||||
+Sbjct  606  AGTACAAAAGAGGCAAGCGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  665
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| |||||||||||||||||||||||||||||||
+Sbjct  666  AACACCAGTGGCGAAGGCGGCTTGCTGGATTGATACTGACATTGAGGCACGAAAGCGTGG  725
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  726  GGAGCAAACAGG  737
+
+
+
+
+>Uncultured bacterium clone COL_aai14h01 16S ribosomal RNA gene, partial sequence
+Sequence ID: EU460112.1 Length: 817
+Range 1: 533 to 784
+
+Score:394 bits(213), Expect:3e-105, 
+Identities:239/252(95%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  533  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  592
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+             |||| | |||||||| ||||| ||||||| ||||  |||||| || ||| |||||||||
+Sbjct  593  AAAGTCTATTGTAAAAGTGCTAGGCTCAACCTAGTGAGGCAATAGAAACTAATAAGCTAG  652
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            |||||| |||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  653  AGTACAGAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  712
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            ||||||||||||||||||||||||||||| ||||||||||||||||||||||||||||||
+Sbjct  713  AACACCAGTGGCGAAGGCGGCTTGCTGGTCTGATACTGACATTGAGGCACGAAAGCGTGG  772
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  773  GGAGCAAACAGG  784
+
+
+
+
+>Uncultured bacterium clone COL_aai14d08 16S ribosomal RNA gene, partial sequence
+Sequence ID: EU460089.1 Length: 921
+Range 1: 60 to 311
+
+Score:394 bits(213), Expect:3e-105, 
+Identities:239/252(95%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  60   TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  119
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+             |||| | |||||||| ||||| ||||||| ||||  |||||| || ||| |||||||||
+Sbjct  120  AAAGTCTATTGTAAAAGTGCTAGGCTCAACCTAGTGAGGCAATAGAAACTAATAAGCTAG  179
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            |||||| |||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  180  AGTACAGAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  239
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            ||||||||||||||||||||||||||||| ||||||||||||||||||||||||||||||
+Sbjct  240  AACACCAGTGGCGAAGGCGGCTTGCTGGTCTGATACTGACATTGAGGCACGAAAGCGTGG  299
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  300  GGAGCAAACAGG  311
+
+
+
+
+>Uncultured bacterium clone COL_aai13c06 16S ribosomal RNA gene, partial sequence
+Sequence ID: EU460033.1 Length: 922
+>Uncultured bacterium clone COL_aai16h05 16S ribosomal RNA gene, partial sequence
+Sequence ID: EU460221.1 Length: 922 
+Range 1: 60 to 311
+
+Score:394 bits(213), Expect:3e-105, 
+Identities:239/252(95%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  60   TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  119
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+             |||| | |||||||| ||||| ||||||| ||||  |||||| || ||| |||||||||
+Sbjct  120  AAAGTCTATTGTAAAAGTGCTAGGCTCAACCTAGTGAGGCAATAGAAACTAATAAGCTAG  179
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            |||||| |||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  180  AGTACAGAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  239
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            ||||||||||||||||||||||||||||| ||||||||||||||||||||||||||||||
+Sbjct  240  AACACCAGTGGCGAAGGCGGCTTGCTGGTCTGATACTGACATTGAGGCACGAAAGCGTGG  299
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  300  GGAGCAAACAGG  311
+
+
+
+
+>Uncultured Anaeroplasma sp. clone DA DC 1039 16S ribosomal RNA gene, partial sequence
+Sequence ID: ON027893.1 Length: 405
+Range 1: 154 to 405
+
+Score:388 bits(210), Expect:1e-103, 
+Identities:238/252(94%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  154  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAA  213
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+             |||| | |||||||| ||||| ||||||| ||||  |||||| || ||| |||||||||
+Sbjct  214  AAAGTCTATTGTAAAAGTGCTAGGCTCAACCTAGTGAGGCAATAGAAACTAATAAGCTAG  273
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            |||||| |||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  274  AGTACAGAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  333
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            ||||||||||||||||||||||||||||| ||||||||||||||||||||||||||||||
+Sbjct  334  AACACCAGTGGCGAAGGCGGCTTGCTGGTCTGATACTGACATTGAGGCACGAAAGCGTGG  393
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  394  GGAGCAAACAGG  405
+
+
+
+
+>Uncultured bacterium clone OK3_a08_1 16S ribosomal RNA gene, partial sequence
+Sequence ID: EU468788.1 Length: 1311
+Range 1: 467 to 718
+
+Score:388 bits(210), Expect:1e-103, 
+Identities:238/252(94%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  467  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  526
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+             |||| | |||||||| ||||| ||||||| ||||  |||||| || ||| |||||||||
+Sbjct  527  AAAGTCTATTGTAAAAGTGCTAGGCTCAACCTAGTGAGGCAATAGAAACTAATAAGCTAG  586
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            |||||| |||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  587  AGTACAGAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  646
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            ||||||||||||||||||||||||||||| ||||||| ||||||||||||||||||||||
+Sbjct  647  AACACCAGTGGCGAAGGCGGCTTGCTGGTCTGATACTAACATTGAGGCACGAAAGCGTGG  706
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  707  GGAGCAAACAGG  718
+
+
+
+
+>Uncultured bacterium clone COL_aai16f12 16S ribosomal RNA gene, partial sequence
+Sequence ID: EU460212.1 Length: 924
+Range 1: 60 to 312
+
+Score:388 bits(210), Expect:1e-103, 
+Identities:239/253(94%),  Gaps:1/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  60   TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  119
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+             |||| | |||||||| ||||| ||||||| ||||  |||||| || ||| |||||||||
+Sbjct  120  AAAGTCTATTGTAAAAGTGCTAGGCTCAACCTAGTGAGGCAATAGAAACTAATAAGCTAG  179
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            |||||| |||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  180  AGTACAGAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  239
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGA-GGCACGAAAGCGTG  239
+            ||||||||||||||||||||||||||||| ||||||||||||||| ||||||||||||||
+Sbjct  240  AACACCAGTGGCGAAGGCGGCTTGCTGGTCTGATACTGACATTGAGGGCACGAAAGCGTG  299
+
+Query  240  GGGAGCAAACAGG  252
+            |||||||||||||
+Sbjct  300  GGGAGCAAACAGG  312
+
+
+
+
+>Uncultured bacterium clone COL_aai14b06 16S ribosomal RNA gene, partial sequence
+Sequence ID: EU460076.1 Length: 922
+Range 1: 60 to 311
+
+Score:388 bits(210), Expect:1e-103, 
+Identities:238/252(94%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  60   TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCAGAT  119
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+             |||| | |||||||| ||||| ||||||| ||||  |||||| || ||| |||||||||
+Sbjct  120  AAAGTCTATTGTAAAAGTGCTAGGCTCAACCTAGTGAGGCAATAGAAACTAATAAGCTAG  179
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            |||||| |||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  180  AGTACAGAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  239
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            ||||||||||||||||||||||||||||| ||||||||||||||||||||||||||||||
+Sbjct  240  AACACCAGTGGCGAAGGCGGCTTGCTGGTCTGATACTGACATTGAGGCACGAAAGCGTGG  299
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  300  GGAGCAAACAGG  311
+
+
+
+
+>Uncultured rumen bacterium 16S rRNA, partial sequence, clone: R-A-172
+Sequence ID: AB614722.1 Length: 1466
+Range 1: 502 to 752
+
+Score:387 bits(209), Expect:5e-103, 
+Identities:237/251(94%),  Gaps:0/251(0%), Strand: Plus/Plus
+
+Query  2    ACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATATT  61
+            ||||||||||||||||||||||||||||||||||||||||||||||| |||||||| |||
+Sbjct  502  ACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGCAGATGGCACATT  561
+
+Query  62   AAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAGA  121
+            |||||| |||||||||||||| ||||||| ||||| |||||  ||||||||| |||||||
+Sbjct  562  AAGTTTCTTGTAAAAATGCTAGGCTCAACCTAGTAAGGCAAGAGATACTGATGAGCTAGA  621
+
+Query  122  GTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGGA  181
+            |||| |||||||||||||||||||||||||||||||||||||||||||||||||||  ||
+Sbjct  622  GTACGAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGCAGA  681
+
+Query  182  ACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGGG  241
+            ||||||||||||||||||||||||| ||| ||||||||||||||||||||||||||||||
+Sbjct  682  ACACCAGTGGCGAAGGCGGCTTGCTAGTTCGATACTGACATTGAGGCACGAAAGCGTGGG  741
+
+Query  242  GAGCAAACAGG  252
+            |||||||||||
+Sbjct  742  GAGCAAACAGG  752
+
+
+
+
+>Uncultured Mycoplasma sp. clone 1 16S ribosomal RNA gene, partial sequence
+Sequence ID: MG786618.1 Length: 878
+Range 1: 411 to 662
+
+Score:383 bits(207), Expect:6e-102, 
+Identities:237/252(94%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  411  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAA  470
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+             |||| | |||||||| ||||||||| ||||||||  |||||| || |||  ||||||||
+Sbjct  471  GAAGTCTATTGTAAAAGTGCTAAGCTTAACTTAGTGAGGCAATAGAAACTCTTAAGCTAG  530
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            |||| || ||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  531  AGTATAACAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  590
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| |||||||||||||||||||||||||||||||
+Sbjct  591  AACACCAGTGGCGAAGGCGGCTTGCTGGGTTGATACTGACATTGAGGCACGAAAGCGTGG  650
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  651  GGAGCAAACAGG  662
+
+
+
+
+>Uncultured bacterium clone denovo18672_N12_25737 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF261362.1 Length: 446
+Range 1: 176 to 427
+
+Score:383 bits(207), Expect:6e-102, 
+Identities:237/252(94%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  176  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAA  235
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+             |||| | |||||||| ||||||||| ||||||||  |||||| || |||  ||||||||
+Sbjct  236  GAAGTCTATTGTAAAAGTGCTAAGCTTAACTTAGTGAGGCAATAGAAACTCTTAAGCTAG  295
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            |||| || ||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  296  AGTATAACAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  355
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| |||||||||||||||||||||||||||||||
+Sbjct  356  AACACCAGTGGCGAAGGCGGCTTGCTGGGTTGATACTGACATTGAGGCACGAAAGCGTGG  415
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  416  GGAGCAAACAGG  427
+
+
+
+
+>Uncultured rumen bacterium 16S rRNA, partial sequence, clone: R-A-113
+Sequence ID: AB614663.1 Length: 1466
+Range 1: 501 to 752
+
+Score:383 bits(207), Expect:6e-102, 
+Identities:237/252(94%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||| |||||||| ||
+Sbjct  501  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGCAGATGGCACAT  560
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||||||||| ||||||| |||||||||||  ||||||||| ||||||
+Sbjct  561  TAAGTTTCTTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAAGAGATACTGATGAGCTAG  620
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||||||||||||||||||||||||||||||||||||||  |
+Sbjct  621  AGTACGAGAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGCAG  680
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  681  AACACCAGTGGCGAAGGCGGCTTGCTAGCTCGATACTGACATTGAGGCACGAAAGCGTGG  740
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  741  GGAGCAAACAGG  752
+
+
+
+
+>Uncultured Mycoplasma sp. clone W02.2.20 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW355431.1 Length: 912
+Range 1: 431 to 682
+
+Score:383 bits(207), Expect:6e-102, 
+Identities:237/252(94%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  431  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAA  490
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+             |||| | |||||||| ||||||||| ||||||||  |||||| || |||  ||||||||
+Sbjct  491  GAAGTCTATTGTAAAAGTGCTAAGCTTAACTTAGTGAGGCAATAGAAACTCTTAAGCTAG  550
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            |||| || ||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  551  AGTATAACAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  610
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| |||||||||||||||||||||||||||||||
+Sbjct  611  AACACCAGTGGCGAAGGCGGCTTGCTGGGTTGATACTGACATTGAGGCACGAAAGCGTGG  670
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  671  GGAGCAAACAGG  682
+
+
+
+
+>Uncultured Tenericutes bacterium clone p1j08cow63 16S ribosomal RNA gene, partial sequence
+Sequence ID: HM104789.1 Length: 778
+Range 1: 504 to 755
+
+Score:383 bits(207), Expect:6e-102, 
+Identities:237/252(94%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||| |||||||| ||
+Sbjct  504  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGCAGATGGCACAT  563
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||||||||| ||||||| |||||||||||  ||||||||| ||||||
+Sbjct  564  TAAGTTTCTTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAAGAGATACTGATGAGCTAG  623
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||||||||||||||||||||||||||||||||||||||  |
+Sbjct  624  AGTACGAGAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGCAG  683
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  684  AACACCAGTGGCGAAGGCGGCTTGCTAGCTCGATACTGACATTGAGGCACGAAAGCGTGG  743
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  744  GGAGCAAACAGG  755
+
+
+
+
+>Uncultured Tenericutes bacterium clone p1a16cow63 16S ribosomal RNA gene, partial sequence
+Sequence ID: HM104712.1 Length: 777
+Range 1: 503 to 754
+
+Score:383 bits(207), Expect:6e-102, 
+Identities:237/252(94%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||| |||||||| ||
+Sbjct  503  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGCAGATGGCACAT  562
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||||||||| ||||||| |||||||||||  ||||||||| ||||||
+Sbjct  563  TAAGTTTCTTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAAGAGATACTGATGAGCTAG  622
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||||||||||||||||||||||||||||||||||||||  |
+Sbjct  623  AGTACGAGAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGCAG  682
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  683  AACACCAGTGGCGAAGGCGGCTTGCTAGCTCGATACTGACATTGAGGCACGAAAGCGTGG  742
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  743  GGAGCAAACAGG  754
+
+
+
+
+>Uncultured prokaryote clone OTU_234 16S ribosomal RNA gene, partial sequence
+Sequence ID: KT168631.1 Length: 250
+Range 1: 1 to 250
+
+Score:379 bits(205), Expect:8e-101, 
+Identities:235/250(94%),  Gaps:0/250(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||| |||||||| ||
+Sbjct  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGCAGATGGCACAT  60
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||||||||| ||||||| |||||||||||  ||||||||| ||||||
+Sbjct  61   TAAGTTTCTTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAAGAGATACTGATGAGCTAG  120
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||||||||||||||||||||||||||||||||||||||  |
+Sbjct  121  AGTACGAGAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGCAG  180
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  181  AACACCAGTGGCGAAGGCGGCTTGCTAGCTCGATACTGACATTGAGGCACGAAAGCGTGG  240
+
+Query  241  GGAGCAAACA  250
+            ||||||||||
+Sbjct  241  GGAGCAAACA  250
+
+
+
+
+>Uncultured bacterium clone OTU_586 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK049250.1 Length: 409
+Range 1: 158 to 409
+
+Score:377 bits(204), Expect:3e-100, 
+Identities:236/252(94%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||| |||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  158  TACGTAGGGAGCAAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAA  217
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+             |||| | |||| |||||||||||||||||||||||| ||||  || |||  ||||||||
+Sbjct  218  GAAGTCTTTTGTTAAAATGCTAAGCTCAACTTAGTAGTGCAAAAGAAACTCTTAAGCTAG  277
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            |||||| |||||| ||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  278  AGTACAGAAGAGGTAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  337
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            ||||||||||||||||||||||| ||||| ||||||||||||||||||||||||||||||
+Sbjct  338  AACACCAGTGGCGAAGGCGGCTTACTGGTCTGATACTGACATTGAGGCACGAAAGCGTGG  397
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  398  GGAGCAAACAGG  409
+
+
+
+
+>Uncultured bacterium clone OTU_586 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK038080.1 Length: 409
+Range 1: 158 to 409
+
+Score:377 bits(204), Expect:3e-100, 
+Identities:236/252(94%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||| |||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  158  TACGTAGGGAGCAAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAA  217
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+             |||| | |||| |||||||||||||||||||||||| ||||  || |||  ||||||||
+Sbjct  218  GAAGTCTTTTGTTAAAATGCTAAGCTCAACTTAGTAGTGCAAAAGAAACTCTTAAGCTAG  277
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            |||||| |||||| ||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  278  AGTACAGAAGAGGTAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  337
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            ||||||||||||||||||||||| ||||| ||||||||||||||||||||||||||||||
+Sbjct  338  AACACCAGTGGCGAAGGCGGCTTACTGGTCTGATACTGACATTGAGGCACGAAAGCGTGG  397
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  398  GGAGCAAACAGG  409
+
+
+
+
+>Uncultured rumen bacterium 16S rRNA, partial sequence, clone: R-B-5
+Sequence ID: AB555154.1 Length: 1466
+Range 1: 501 to 752
+
+Score:377 bits(204), Expect:3e-100, 
+Identities:236/252(94%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||| ||||||||||||||||||||||||||||||||||| |||||||| ||
+Sbjct  501  TACGTAGGGAGCAAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGCAGATGGCACAT  560
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||||||||| ||||||| |||||||||||  ||||||||| ||||||
+Sbjct  561  TAAGTTTCTTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAAGAGATACTGATGAGCTAG  620
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||||||||||||||||||||||||||||||||||||||  |
+Sbjct  621  AGTACGAGAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGCAG  680
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  681  AACACCAGTGGCGAAGGCGGCTTGCTAGCTCGATACTGACATTGAGGCACGAAAGCGTGG  740
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  741  GGAGCAAACAGG  752
+
+
+
+
+>Uncultured rumen bacterium clone KF34-140 16S ribosomal RNA gene, partial sequence
+Sequence ID: HQ616131.1 Length: 1467
+Range 1: 500 to 750
+
+Score:375 bits(203), Expect:1e-99, 
+Identities:235/251(94%),  Gaps:0/251(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||| |||||||| ||
+Sbjct  500  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGCAGATGGCACAT  559
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||||||||| ||||||| |||||||||||  ||||||||| ||||||
+Sbjct  560  TAAGTTTCTTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAAGAGATACTGATGAGCTAG  619
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||||||||||||||||||||||||||||||||||||||  |
+Sbjct  620  AGTACGAGAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGCAG  679
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            ||||||||||||||| |||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  680  AACACCAGTGGCGAACGCGGCTTGCTAGCTCGATACTGACATTGAGGCACGAAAGCGTGG  739
+
+Query  241  GGAGCAAACAG  251
+            |||||||||||
+Sbjct  740  GGAGCAAACAG  750
+
+
+
+
+>Uncultured bacterium clone 362 16S ribosomal RNA gene, partial sequence
+Sequence ID: KY285652.1 Length: 410
+Range 1: 159 to 410
+
+Score:372 bits(201), Expect:1e-98, 
+Identities:235/252(93%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  159  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  218
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            |||||||  ||||||||||||| ||||||| ||||||||||    |||||||| ||||||
+Sbjct  219  TAAGTTTTCTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAGAAAATACTGATGAGCTAG  278
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  279  AGTACGACAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  338
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  339  AACACCAGTGGCGAAGGCGGCTTGCTAGGTCGATACTGACATTGAGGCACGAAAGCGTGG  398
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  399  GGAGCAAACAGG  410
+
+
+
+
+>Uncultured Anaeroplasma sp. clone denovo195412 16S ribosomal RNA gene, partial sequence
+Sequence ID: KY664092.1 Length: 440
+Range 1: 173 to 424
+
+Score:372 bits(201), Expect:1e-98, 
+Identities:235/252(93%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||| ||||||||||||||||||||||||||||||  |
+Sbjct  173  TACGTAGGGAGCGAGCGTTATCCGGATTTATTGGGCGTAAAGGGTGCGTAGATGGCACGT  232
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||| |||||||||||||||||||||||| |||| |||||||||  ||||||
+Sbjct  233  TAAGTTTCTTGTTAAAATGCTAAGCTCAACTTAGTAGTGCAAGGGATACTGACGAGCTAG  292
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||   ||||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  293  AGTATGGAAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  352
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||||   ||||||||||||||||||||||||||||
+Sbjct  353  AACACCAGTGGCGAAGGCGGCTTGCTGGTCCAATACTGACATTGAGGCACGAAAGCGTGG  412
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  413  GGAGCAAACAGG  424
+
+
+
+
+>Uncultured bacterium clone 219 16S ribosomal RNA gene, partial sequence
+Sequence ID: KX593353.1 Length: 411
+Range 1: 159 to 410
+
+Score:372 bits(201), Expect:1e-98, 
+Identities:235/252(93%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  159  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  218
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            |||||||  ||||||||||||| ||||||| ||||||||||    |||||||| ||||||
+Sbjct  219  TAAGTTTTCTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAGAAAATACTGATGAGCTAG  278
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  279  AGTACGACAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  338
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  339  AACACCAGTGGCGAAGGCGGCTTGCTAGGTCGATACTGACATTGAGGCACGAAAGCGTGG  398
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  399  GGAGCAAACAGG  410
+
+
+
+
+>Uncultured bacterium clone 401 16S ribosomal RNA gene, partial sequence
+Sequence ID: KU505615.1 Length: 431
+Range 1: 160 to 411
+
+Score:372 bits(201), Expect:1e-98, 
+Identities:235/252(93%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  160  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  219
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            |||||||  ||||||||||||| ||||||| ||||||||||    |||||||| ||||||
+Sbjct  220  TAAGTTTTCTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAGAAAATACTGATGAGCTAG  279
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  280  AGTACGACAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  339
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  340  AACACCAGTGGCGAAGGCGGCTTGCTAGGTCGATACTGACATTGAGGCACGAAAGCGTGG  399
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  400  GGAGCAAACAGG  411
+
+
+
+
+>Uncultured bacterium clone 8-6G22 16S ribosomal RNA gene, partial sequence
+Sequence ID: FJ683346.1 Length: 1355
+Range 1: 497 to 748
+
+Score:372 bits(201), Expect:1e-98, 
+Identities:235/252(93%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  497  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  556
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            |||||||  ||||||||||||| ||||||| ||||||||||    |||||||| ||||||
+Sbjct  557  TAAGTTTTCTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAGAAAATACTGATGAGCTAG  616
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  617  AGTACGACAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  676
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  677  AACACCAGTGGCGAAGGCGGCTTGCTAGGTCGATACTGACATTGAGGCACGAAAGCGTGG  736
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  737  GGAGCAAACAGG  748
+
+
+
+
+>Uncultured bacterium clone 6-1G23 16S ribosomal RNA gene, partial sequence
+Sequence ID: FJ684896.1 Length: 1360
+Range 1: 498 to 749
+
+Score:372 bits(201), Expect:1e-98, 
+Identities:235/252(93%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  498  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  557
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            |||||||  ||||||||||||| ||||||| ||||||||||    |||||||| ||||||
+Sbjct  558  TAAGTTTTCTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAGAAAATACTGATGAGCTAG  617
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  618  AGTACGACAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  677
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  678  AACACCAGTGGCGAAGGCGGCTTGCTAGGTCGATACTGACATTGAGGCACGAAAGCGTGG  737
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  738  GGAGCAAACAGG  749
+
+
+
+
+>Uncultured bacterium clone 6-1E16 16S ribosomal RNA gene, partial sequence
+Sequence ID: FJ684846.1 Length: 1356
+Range 1: 498 to 749
+
+Score:372 bits(201), Expect:1e-98, 
+Identities:235/252(93%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  498  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  557
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            |||||||  ||||||||||||| ||||||| ||||||||||    |||||||| ||||||
+Sbjct  558  TAAGTTTTCTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAGAAAATACTGATGAGCTAG  617
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  618  AGTACGACAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  677
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  678  AACACCAGTGGCGAAGGCGGCTTGCTAGGTCGATACTGACATTGAGGCACGAAAGCGTGG  737
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  738  GGAGCAAACAGG  749
+
+
+
+
+>Uncultured bacterium clone 130-5L2 16S ribosomal RNA gene, partial sequence
+Sequence ID: FJ673598.1 Length: 1353
+Range 1: 497 to 748
+
+Score:372 bits(201), Expect:1e-98, 
+Identities:235/252(93%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  497  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  556
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            |||||||  ||||||||||||| ||||||| ||||||||||    |||||||| ||||||
+Sbjct  557  TAAGTTTTCTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAGAAAATACTGATGAGCTAG  616
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  617  AGTACGACAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  676
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  677  AACACCAGTGGCGAAGGCGGCTTGCTAGGTCGATACTGACATTGAGGCACGAAAGCGTGG  736
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  737  GGAGCAAACAGG  748
+
+
+
+
+>Uncultured Anaeroplasma sp. clone CSMB_2105 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF895488.1 Length: 245
+Range 1: 1 to 245
+
+Score:370 bits(200), Expect:5e-98, 
+Identities:230/245(94%),  Gaps:0/245(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||| |||||||| ||
+Sbjct  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGCAGATGGCACAT  60
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||||||||| ||||||| |||||||||||  ||||||||| ||||||
+Sbjct  61   TAAGTTTCTTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAAGAGATACTGATGAGCTAG  120
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||||||||||||||||||||||||||||||||||||||  |
+Sbjct  121  AGTACGAGAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGCAG  180
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  181  AACACCAGTGGCGAAGGCGGCTTGCTAGCTCGATACTGACATTGAGGCACGAAAGCGTGG  240
+
+Query  241  GGAGC  245
+            |||||
+Sbjct  241  GGAGC  245
+
+
+
+
+>Uncultured prokaryote clone OTU_5397 16S ribosomal RNA gene, partial sequence
+Sequence ID: KT173735.1 Length: 250
+Range 1: 1 to 250
+
+Score:368 bits(199), Expect:2e-97, 
+Identities:233/250(93%),  Gaps:0/250(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||| |||||||| ||
+Sbjct  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGCAGATGGCACAT  60
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||||||||| ||||||| ||||| |||||  |||||||||  |||||
+Sbjct  61   TAAGTTTCTTGTAAAAATGCTAGGCTCAACCTAGTAAGGCAAGAGATACTGATGGGCTAG  120
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            |||||||||||||||||||||||||||||||||||||||||||||| ||||||||||  |
+Sbjct  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGCAAATATATGGCAG  180
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||| ||||||||||||||| ||||| |||| ||||||||||||||||||||||
+Sbjct  181  AACACCAGTGACGAAGGCGGCTTGCTAGTTTGGTACTAACATTGAGGCACGAAAGCGTGG  240
+
+Query  241  GGAGCAAACA  250
+            ||||||||||
+Sbjct  241  GGAGCAAACA  250
+
+
+
+
+>Uncultured prokaryote clone OTU_382 16S ribosomal RNA gene, partial sequence
+Sequence ID: KT168779.1 Length: 250
+Range 1: 1 to 250
+
+Score:368 bits(199), Expect:2e-97, 
+Identities:233/250(93%),  Gaps:0/250(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  60
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||||||||  |||||||  ||||| |||| |||||||||| ||||||
+Sbjct  61   TAAGTTTCTTGTAAAAATGCTGGGCTCAACCCAGTAGCGCAAGGGATACTGATGAGCTAG  120
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            | ||||  |||||||||||||||||||||||||||||||||||||||||||||||||  |
+Sbjct  121  AATACAGGAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGCAG  180
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| || ||||| ||||||||||||||||||||||||
+Sbjct  181  AACACCAGTGGCGAAGGCGGCTTGCTAGTCTGATATTGACATTGAGGCACGAAAGCGTGG  240
+
+Query  241  GGAGCAAACA  250
+            ||||||||||
+Sbjct  241  GGAGCAAACA  250
+
+
+
+
+>Uncultured bacterium clone 6-3O5 16S ribosomal RNA gene, partial sequence
+Sequence ID: FJ684157.1 Length: 1331
+Range 1: 499 to 750
+
+Score:368 bits(199), Expect:2e-97, 
+Identities:234/252(93%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  499  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  558
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            |||||||  ||||||||||||| ||||||| ||||||||||    |||||||| ||||||
+Sbjct  559  TAAGTTTTCTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAGAAAATACTGATGAGCTAG  618
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  619  AGTACCACAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  678
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  679  AACACCAGTGGCGAAGGCGGCTTGCTAGGTCGATACTGACATTGAGGCACGAAAGCGTGG  738
+
+Query  241  GGAGCAAACAGG  252
+            |||||| |||||
+Sbjct  739  GGAGCANACAGG  750
+
+
+
+
+>Uncultured Anaeroplasma sp. clone denovo321078 16S ribosomal RNA gene, partial sequence
+Sequence ID: KY666262.1 Length: 440
+Range 1: 173 to 424
+
+Score:366 bits(198), Expect:6e-97, 
+Identities:234/252(93%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  173  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  232
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||| ||||  |||||||  ||||| ||||  ||||||||| ||||||
+Sbjct  233  TAAGTTTCTTGTAAAATTGCTGGGCTCAACCCAGTAGTGCAAGAGATACTGATGAGCTAG  292
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||||||||||||||||||||||||||||||||||||||  |
+Sbjct  293  AGTACGAGAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGCAG  352
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  353  AACACCAGTGGCGAAGGCGGCTTGCTAGCTCGATACTGACATTGAGGCACGAAAGCGTGG  412
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  413  GGAGCAAACAGG  424
+
+
+
+
+>Uncultured Anaeroplasma sp. clone denovo318500 16S ribosomal RNA gene, partial sequence
+Sequence ID: KY666211.1 Length: 440
+Range 1: 173 to 424
+
+Score:366 bits(198), Expect:6e-97, 
+Identities:234/252(93%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||| |||||||| ||
+Sbjct  173  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGCAGATGGCACAT  232
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||||||||  |||||||  ||||||||||  ||||||||| ||||||
+Sbjct  233  TAAGTTTCTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAGAGATACTGATGAGCTAG  292
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  293  AGTACGACAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  352
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | ||||| |||||||||||||||||||||||
+Sbjct  353  AACACCAGTGGCGAAGGCGGCTTGCTAGGTCGATACAGACATTGAGGCACGAAAGCGTGG  412
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  413  GGAGCAAACAGG  424
+
+
+
+
+>Uncultured Anaeroplasma sp. clone DA DC 917 16S ribosomal RNA gene, partial sequence
+Sequence ID: ON027774.1 Length: 411
+Range 1: 159 to 411
+
+Score:366 bits(198), Expect:6e-97, 
+Identities:235/253(93%),  Gaps:1/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  159  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  218
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            |||||||  ||||||||||||| ||||||| ||||||||||    |||||||| ||||||
+Sbjct  219  TAAGTTTTCTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAGAAAATACTGATGAGCTAG  278
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGT-AAAATGCGTAAATATATGGAG  179
+            ||||| | |||||||||||||| ||||||||||||||| |||||||||||||||||||| 
+Sbjct  279  AGTACGACAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAAATGCGTAAATATATGGAA  338
+
+Query  180  GAACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTG  239
+            ||||||||||||||||||||||||||| | | ||||||||||||||||||||||||||||
+Sbjct  339  GAACACCAGTGGCGAAGGCGGCTTGCTAGGTCGATACTGACATTGAGGCACGAAAGCGTG  398
+
+Query  240  GGGAGCAAACAGG  252
+            |||||||||||||
+Sbjct  399  GGGAGCAAACAGG  411
+
+
+
+
+>Uncultured Anaeroplasma sp. clone DA DC 625 16S ribosomal RNA gene, partial sequence
+Sequence ID: ON027485.1 Length: 410
+Range 1: 159 to 410
+
+Score:366 bits(198), Expect:6e-97, 
+Identities:236/254(93%),  Gaps:4/254(1%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||| |||| ||
+Sbjct  159  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGACGGCA-AT  217
+
+Query  61   T-AAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTG-ATAAGCT  118
+              |||| |||||||||||||||||||| |||||||||| ||||| ||||||| || ||||
+Sbjct  218  AAAAGTCTGTTGTAAAAATGCTAAGCTTAACTTAGTAGAGCAATAGATACTGTAT-AGCT  276
+
+Query  119  AGAGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  178
+            ||||||   ||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  277  AGAGTATGGAAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  336
+
+Query  179  GGAACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGT  238
+             ||||||||||||||||||||||||||||||  ||||||||| |||||||||||||||||
+Sbjct  337  AGAACACCAGTGGCGAAGGCGGCTTGCTGGTCCGATACTGACGTTGAGGCACGAAAGCGT  396
+
+Query  239  GGGGAGCAAACAGG  252
+            ||||||||||||||
+Sbjct  397  GGGGAGCAAACAGG  410
+
+
+
+
+>Uncultured rumen bacterium gene 16S rRNA, partial sequence, clone: RSW14
+Sequence ID: AB665904.1 Length: 876
+Range 1: 20 to 271
+
+Score:366 bits(198), Expect:6e-97, 
+Identities:236/254(93%),  Gaps:4/254(1%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  20   TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCA-AT  78
+
+Query  61   T-AAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATA-AGCT  118
+              |||||| |||||||||||||| ||||||| ||||||||||| ||||||| ||| ||||
+Sbjct  79   AAAAGTTTCTTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAAGGGATACT-ATATAGCT  137
+
+Query  119  AGAGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  178
+            ||||||  | |||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  138  AGAGTATGATAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  197
+
+Query  179  GGAACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGT  238
+             ||||||||||||||||||||||||||| | |  ||||||||||||||||||||||||||
+Sbjct  198  AGAACACCAGTGGCGAAGGCGGCTTGCTAGGTCAATACTGACATTGAGGCACGAAAGCGT  257
+
+Query  239  GGGGAGCAAACAGG  252
+            ||||||||||||||
+Sbjct  258  GGGGAGCAAACAGG  271
+
+
+
+
+>Uncultured rumen bacterium gene 16S rRNA, partial sequence, clone: CPH11
+Sequence ID: AB665798.1 Length: 876
+Range 1: 20 to 271
+
+Score:366 bits(198), Expect:6e-97, 
+Identities:234/252(93%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||| |||||||
+Sbjct  20   TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGACGGCATAT  79
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||||| ||| ||||||| ||||   ||||  ||||||||||||||||
+Sbjct  80   TAAGTTTCTTGTAAAAATTCTAGGCTCAACCTAGTCAAGCAAGAGATACTGATAAGCTAG  139
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||   ||||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  140  AGTATGGAAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  199
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||||  ||||||||| |||||||||||||||||||
+Sbjct  200  AACACCAGTGGCGAAGGCGGCTTGCTGGTCCGATACTGACGTTGAGGCACGAAAGCGTGG  259
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  260  GGAGCAAACAGG  271
+
+
+
+
+>Uncultured rumen bacterium clone CAPT2C01 16S ribosomal RNA gene, partial sequence
+Sequence ID: GQ327377.1 Length: 1308
+Range 1: 466 to 717
+
+Score:366 bits(198), Expect:6e-97, 
+Identities:234/252(93%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||| |||||||| ||
+Sbjct  466  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGCAGATGGCACAT  525
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||||||||  |||||||  ||||| ||||  ||||||||| ||||||
+Sbjct  526  TAAGTTTCTTGTAAAAATGCTGGGCTCAACCCAGTAGAGCAAGAGATACTGATGAGCTAG  585
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||||||||||||||||||||||||||||||||||||||  |
+Sbjct  586  AGTACGAGAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGCAG  645
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  646  AACACCAGTGGCGAAGGCGGCTTGCTAGCTCGATACTGACATTGAGGCACGAAAGCGTGG  705
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  706  GGAGCAAACAGG  717
+
+
+
+
+>Uncultured bacterium clone 6-1J21 16S ribosomal RNA gene, partial sequence
+Sequence ID: FJ684957.1 Length: 1356
+Range 1: 498 to 746
+
+Score:366 bits(198), Expect:6e-97, 
+Identities:232/249(93%),  Gaps:0/249(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  498  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  557
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            |||||||  ||||||||||||| ||||||| ||||||||||    |||||||| ||||||
+Sbjct  558  TAAGTTTTCTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAGAAAATACTGATGAGCTAG  617
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  618  AGTACGACAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  677
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  678  AACACCAGTGGCGAAGGCGGCTTGCTAGGTCGATACTGACATTGAGGCACGAAAGCGTGG  737
+
+Query  241  GGAGCAAAC  249
+            |||||||||
+Sbjct  738  GGAGCAAAC  746
+
+
+
+
+>Uncultured bacterium clone 6-8P13 16S ribosomal RNA gene, partial sequence
+Sequence ID: FJ684746.1 Length: 1355
+Range 1: 497 to 748
+
+Score:366 bits(198), Expect:6e-97, 
+Identities:234/252(93%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  497  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  556
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            |||||||  | ||||||||||| ||||||| ||||||||||    |||||||| ||||||
+Sbjct  557  TAAGTTTTCTATAAAAATGCTAGGCTCAACCTAGTAGGGCAGAAAATACTGATGAGCTAG  616
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  617  AGTACGACAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  676
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  677  AACACCAGTGGCGAAGGCGGCTTGCTAGGTCGATACTGACATTGAGGCACGAAAGCGTGG  736
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  737  GGAGCAAACAGG  748
+
+
+
+
+>Uncultured rumen bacterium clone CF426 16S ribosomal RNA gene, partial sequence
+Sequence ID: EU871422.1 Length: 1412
+Range 1: 473 to 724
+
+Score:366 bits(198), Expect:6e-97, 
+Identities:236/254(93%),  Gaps:4/254(1%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  473  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCA-AT  531
+
+Query  61   T-AAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATA-AGCT  118
+              |||||| |||||||||||||| ||||||| ||||||||||| ||||||| ||| ||||
+Sbjct  532  AAAAGTTTCTTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAAGGGATACT-ATATAGCT  590
+
+Query  119  AGAGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  178
+            ||||||  | |||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  591  AGAGTATGATAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  650
+
+Query  179  GGAACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGT  238
+             ||||||||||||||||||||||||||| | |  ||||||||||||||||||||||||||
+Sbjct  651  AGAACACCAGTGGCGAAGGCGGCTTGCTAGGTCAATACTGACATTGAGGCACGAAAGCGT  710
+
+Query  239  GGGGAGCAAACAGG  252
+            ||||||||||||||
+Sbjct  711  GGGGAGCAAACAGG  724
+
+
+
+
+>Uncultured bacterium clone 5-6A6 16S ribosomal RNA gene, partial sequence
+Sequence ID: FJ681194.1 Length: 1355
+Range 1: 498 to 748
+
+Score:364 bits(197), Expect:2e-96, 
+Identities:234/252(93%),  Gaps:1/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  498  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  557
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| | |||||||||||| ||||||| ||||||||||    |||||||| ||||||
+Sbjct  558  TAAGTTT-TCGTAAAAATGCTAGGCTCAACCTAGTAGGGCAGAAAATACTGATGAGCTAG  616
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||| ||||||||| ||||||||||||||||||||||||| |
+Sbjct  617  AGTACGACAGAGGCAAGTGGAACTCCATGTGTGGCGGTAAAATGCGTAAATATATGGAAG  676
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  677  AACACCAGTGGCGAAGGCGGCTTGCTAGGTCGATACTGACATTGAGGCACGAAAGCGTGG  736
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  737  GGAGCAAACAGG  748
+
+
+
+
+>Uncultured prokaryote clone OTU_5697 16S ribosomal RNA gene, partial sequence
+Sequence ID: KT174032.1 Length: 250
+Range 1: 1 to 250
+
+Score:363 bits(196), Expect:8e-96, 
+Identities:232/250(93%),  Gaps:0/250(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||| |||| ||| ||
+Sbjct  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGCAGATAGCACAT  60
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| || ||||||||||| ||||||| ||||| |||||   |||||||| ||||||
+Sbjct  61   TAAGTTTCTTATAAAAATGCTAGGCTCAACCTAGTAAGGCAAAAAATACTGATGAGCTAG  120
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||||  |
+Sbjct  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGCAG  180
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            ||||||||||||||||||| |||| | |||||||||||||||||||||||||||||||||
+Sbjct  181  AACACCAGTGGCGAAGGCGACTTGGTAGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+
+Query  241  GGAGCAAACA  250
+            ||| ||||||
+Sbjct  241  GGAACAAACA  250
+
+
+
+
+>Uncultured prokaryote clone OTU_2022 16S ribosomal RNA gene, partial sequence
+Sequence ID: KT170417.1 Length: 250
+Range 1: 1 to 250
+
+Score:363 bits(196), Expect:8e-96, 
+Identities:232/250(93%),  Gaps:0/250(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||| |||||||
+Sbjct  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGACGGCATAT  60
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||||| ||| ||||||| ||||   ||||  ||||||||||||||||
+Sbjct  61   TAAGTTTCTTGTAAAAATTCTAGGCTCAACCTAGTCAAGCAAGAGATACTGATAAGCTAG  120
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||   ||||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  121  AGTATGGAAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  180
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||||  ||||||||| |||||||||||||||||||
+Sbjct  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTCCGATACTGACGTTGAGGCACGAAAGCGTGG  240
+
+Query  241  GGAGCAAACA  250
+            ||||||||||
+Sbjct  241  GGAGCAAACA  250
+
+
+
+
+>Uncultured prokaryote clone OTU_553 16S ribosomal RNA gene, partial sequence
+Sequence ID: KT168950.1 Length: 250
+Range 1: 1 to 250
+
+Score:363 bits(196), Expect:8e-96, 
+Identities:234/252(93%),  Gaps:4/252(1%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCA-AT  59
+
+Query  61   T-AAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATA-AGCT  118
+              |||||| |||||||||||||| ||||||| ||||||||||| ||||||| ||| ||||
+Sbjct  60   AAAAGTTTCTTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAAGGGATACT-ATATAGCT  118
+
+Query  119  AGAGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  178
+            ||||||  | |||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  119  AGAGTATGATAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  178
+
+Query  179  GGAACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGT  238
+             ||||||||||||||||||||||||||| | |  ||||||||||||||||||||||||||
+Sbjct  179  AGAACACCAGTGGCGAAGGCGGCTTGCTAGGTCAATACTGACATTGAGGCACGAAAGCGT  238
+
+Query  239  GGGGAGCAAACA  250
+            ||||||||||||
+Sbjct  239  GGGGAGCAAACA  250
+
+
+
+
+>Uncultured Anaeroplasma sp. partial 16S rRNA gene, OTU01521
+Sequence ID: LT008382.1 Length: 405
+Range 1: 156 to 405
+
+Score:363 bits(196), Expect:8e-96, 
+Identities:232/250(93%),  Gaps:0/250(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||| |||||||||||||||||||||||||||||| ||
+Sbjct  156  TACGTAGGGAGCGAGCGTTATCCGGATTTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  215
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||| | ||  ||| |||  ||||||||||  ||||||||| ||||||
+Sbjct  216  TAAGTTTCTTGTAAAATTTCTGGGCTTAACCCAGTAGGGCAAGAGATACTGATGAGCTAG  275
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| |||||||||||||||||||||||||||||||||||||||||||||||||||  |
+Sbjct  276  AGTACGAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGCAG  335
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| ||| |||||||||||||||||||||||||||||
+Sbjct  336  AACACCAGTGGCGAAGGCGGCTTGCTAGTTCGATACTGACATTGAGGCACGAAAGCGTGG  395
+
+Query  241  GGAGCAAACA  250
+            ||||||||||
+Sbjct  396  GGAGCAAACA  405
+
+
+
+
+>Uncultured Anaeroplasma sp. partial 16S rRNA gene, OTU01518
+Sequence ID: LT008379.1 Length: 405
+Range 1: 156 to 405
+
+Score:363 bits(196), Expect:8e-96, 
+Identities:234/252(93%),  Gaps:4/252(1%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  156  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCA-AT  214
+
+Query  61   T-AAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATA-AGCT  118
+              |||||| |||||||||||||| ||||||| ||||||||||| ||||||| ||| ||||
+Sbjct  215  AAAAGTTTCTTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAAGGGATACT-ATATAGCT  273
+
+Query  119  AGAGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  178
+            ||||||  | |||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  274  AGAGTATGATAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  333
+
+Query  179  GGAACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGT  238
+             ||||||||||||||||||||||||||| | |  ||||||||||||||||||||||||||
+Sbjct  334  AGAACACCAGTGGCGAAGGCGGCTTGCTAGGTCAATACTGACATTGAGGCACGAAAGCGT  393
+
+Query  239  GGGGAGCAAACA  250
+            ||||||||||||
+Sbjct  394  GGGGAGCAAACA  405
+
+
+
+
+>Anaeroplasma abactoclasticum strain 6-1 16S ribosomal RNA, partial sequence
+Sequence ID: NR_029167.1 Length: 1446
+Range 1: 502 to 753
+
+Score:363 bits(196), Expect:8e-96, 
+Identities:233/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||| ||||||||||||||||||||||||||||||||||| |||||||| ||
+Sbjct  502  TACGTAGGGAGCNAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGCAGATGGCACAT  561
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||||||||  |||||||  ||||| ||||  ||||||||| ||||||
+Sbjct  562  TAAGTTTCTTGTAAAAATGCTGGGCTCAACCCAGTAGAGCAAGAGATACTGATGAGCTAG  621
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||||||||||||||||||||||||||||||||||||||  |
+Sbjct  622  AGTACGAGAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGCAG  681
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  682  AACACCAGTGGCGAAGGCGGCTTGCTAGCTCGATACTGACATTGAGGCACGAAAGCGTGG  741
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  742  GGAGCAAACAGG  753
+
+
+
+
+>A.abactoclasticum 16S ribosomal RNA small subunit
+Sequence ID: M25050.1 Length: 1453
+Range 1: 509 to 760
+
+Score:363 bits(196), Expect:8e-96, 
+Identities:233/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||| ||||||||||||||||||||||||||||||||||| |||||||| ||
+Sbjct  509  TACGTAGGGAGCNAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGCAGATGGCACAT  568
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||||||||  |||||||  ||||| ||||  ||||||||| ||||||
+Sbjct  569  TAAGTTTCTTGTAAAAATGCTGGGCTCAACCCAGTAGAGCAAGAGATACTGATGAGCTAG  628
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||||||||||||||||||||||||||||||||||||||  |
+Sbjct  629  AGTACGAGAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGCAG  688
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  689  AACACCAGTGGCGAAGGCGGCTTGCTAGCTCGATACTGACATTGAGGCACGAAAGCGTGG  748
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  749  GGAGCAAACAGG  760
+
+
+
+
+>Uncultured bacterium clone A41 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF046623.1 Length: 412
+Range 1: 161 to 412
+
+Score:361 bits(195), Expect:3e-95, 
+Identities:233/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||||  |
+Sbjct  161  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCAATT  220
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||||||||| ||||||| |||||||||||  ||||||||  ||||||
+Sbjct  221  TAAGTTTCTTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAAGAGATACTGAATAGCTAG  280
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  281  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  340
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||| ||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  341  AACACCGGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  400
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  401  GGAGCAAACAGG  412
+
+
+
+
+>Uncultured Anaeroplasma sp. clone denovo98310 16S ribosomal RNA gene, partial sequence
+Sequence ID: KY670560.1 Length: 440
+Range 1: 173 to 424
+
+Score:361 bits(195), Expect:3e-95, 
+Identities:233/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||| |||||||||||||||||||||||||||||| ||
+Sbjct  173  TACGTAGGGAGCGAGCGTTATCCGGATTTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  232
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||| ||||||||  |||||||  ||||| |||| |||||||||| ||||||
+Sbjct  233  TAAGTTTCTTGTTAAAATGCTGGGCTCAACCCAGTAGTGCAAGGGATACTGATGAGCTAG  292
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||   ||||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  293  AGTATGGAAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  352
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||||   ||||||||||||||||||||||||||||
+Sbjct  353  AACACCAGTGGCGAAGGCGGCTTGCTGGTCCAATACTGACATTGAGGCACGAAAGCGTGG  412
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  413  GGAGCAAACAGG  424
+
+
+
+
+>Uncultured Anaeroplasma sp. clone denovo462243 16S ribosomal RNA gene, partial sequence
+Sequence ID: KY668667.1 Length: 440
+Range 1: 173 to 424
+
+Score:361 bits(195), Expect:3e-95, 
+Identities:233/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||| |||||||| ||
+Sbjct  173  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGCAGATGGCACAT  232
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||| ||||||||  |||||||  ||||| ||||  ||||||||| ||||||
+Sbjct  233  TAAGTTTCTTGTTAAAATGCTGGGCTCAACCCAGTAGAGCAAGAGATACTGATGAGCTAG  292
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  293  AGTACGACAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  352
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  353  AACACCAGTGGCGAAGGCGGCTTGCTAGGTCGATACTGACATTGAGGCACGAAAGCGTGG  412
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  413  GGAGCAAACAGG  424
+
+
+
+
+>Uncultured bacterium clone OTU_1685 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK049769.1 Length: 410
+Range 1: 159 to 410
+
+Score:361 bits(195), Expect:3e-95, 
+Identities:233/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||| |||| | 
+Sbjct  159  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGACGGCAAAA  218
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | ||||||||||||| ||||||||| ||||| ||||| ||||||| | ||||||
+Sbjct  219  TAAGTCTATTGTAAAAATGCTGAGCTCAACTCAGTAGAGCAATAGATACTGTTTAGCTAG  278
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||   ||||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  279  AGTATGGAAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  338
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||||  ||||||||| |||||||||||||||||||
+Sbjct  339  AACACCAGTGGCGAAGGCGGCTTGCTGGTCCGATACTGACGTTGAGGCACGAAAGCGTGG  398
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  399  GGAGCAAACAGG  410
+
+
+
+
+>Uncultured bacterium clone OTU_1685 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK038693.1 Length: 410
+Range 1: 159 to 410
+
+Score:361 bits(195), Expect:3e-95, 
+Identities:233/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||| |||| | 
+Sbjct  159  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGACGGCAAAA  218
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | ||||||||||||| ||||||||| ||||| ||||| ||||||| | ||||||
+Sbjct  219  TAAGTCTATTGTAAAAATGCTGAGCTCAACTCAGTAGAGCAATAGATACTGTTTAGCTAG  278
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||   ||||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  279  AGTATGGAAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  338
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||||  ||||||||| |||||||||||||||||||
+Sbjct  339  AACACCAGTGGCGAAGGCGGCTTGCTGGTCCGATACTGACGTTGAGGCACGAAAGCGTGG  398
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  399  GGAGCAAACAGG  410
+
+
+
+
+>Uncultured bacterium clone nby251h06c1 16S ribosomal RNA gene, partial sequence
+Sequence ID: HM808099.1 Length: 1323
+Range 1: 480 to 731
+
+Score:361 bits(195), Expect:3e-95, 
+Identities:233/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  480  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  539
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  |||||||||| ||||||||  |||||||
+Sbjct  540  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAGGGATACTGCAAAGCTAG  599
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  600  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGCAAG  659
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  660  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  719
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  720  GGAGCAAACAGG  731
+
+
+
+
+>Uncultured bacterium clone 6-1H16 16S ribosomal RNA gene, partial sequence
+Sequence ID: FJ684910.1 Length: 1387
+Range 1: 554 to 806
+
+Score:361 bits(195), Expect:3e-95, 
+Identities:234/253(92%),  Gaps:1/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  554  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  613
+
+Query  61   TAAGTTTGT-TGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTA  119
+            |||||||   |||||||||| || ||||||| ||||||||||    |||||||| |||||
+Sbjct  614  TAAGTTTTCCTGTAAAAATGGTAGGCTCAACCTAGTAGGGCAGAAAATACTGATGAGCTA  673
+
+Query  120  GAGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAG  179
+            |||||| | |||||||||||||| ||||||||||||||||||||||||||||||||||| 
+Sbjct  674  GAGTACGACAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAA  733
+
+Query  180  GAACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTG  239
+            ||||||||||||||||||||||||||| | | ||||||||||||||||||||||||||||
+Sbjct  734  GAACACCAGTGGCGAAGGCGGCTTGCTAGGTCGATACTGACATTGAGGCACGAAAGCGTG  793
+
+Query  240  GGGAGCAAACAGG  252
+            |||||||||||||
+Sbjct  794  GGGAGCAAACAGG  806
+
+
+
+
+>Uncultured bacterium clone 130-6J2 16S ribosomal RNA gene, partial sequence
+Sequence ID: FJ673891.1 Length: 1354
+Range 1: 497 to 748
+
+Score:361 bits(195), Expect:3e-95, 
+Identities:234/253(92%),  Gaps:2/253(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  497  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  556
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            |||||||  ||||||||||||| ||||||| ||||||||||    |||||||| ||||||
+Sbjct  557  TAAGTTTTCTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAGAAAATACTGATGAGCTAG  616
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  617  AGTACGACAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  676
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGA-GGCACGAAAGCGTG  239
+            |||||||||||||||||||||||||| | | ||||||||||| || ||||||||||||||
+Sbjct  677  AACACCAGTGGCGAAGGCGGCTTGCTAGGTCGATACTGACAT-GAGGGCACGAAAGCGTG  735
+
+Query  240  GGGAGCAAACAGG  252
+            |||||||||||||
+Sbjct  736  GGGAGCAAACAGG  748
+
+
+
+
+>Uncultured rumen bacterium clone CF126 16S ribosomal RNA gene, partial sequence
+Sequence ID: EU871364.1 Length: 1410
+Range 1: 470 to 721
+
+Score:361 bits(195), Expect:3e-95, 
+Identities:233/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||| ||||||||||| |||||||
+Sbjct  470  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAGGGGTGCGTAGACGGCATAT  529
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||||||||| ||| ||||||| ||||   ||||  ||||||||||||||||
+Sbjct  530  TAAGTTTCTTGTAAAAATTCTAGGCTCAACCTAGTCAAGCAAGAGATACTGATAAGCTAG  589
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||   ||||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  590  AGTATGGAAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  649
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||||  ||||||||| |||||||||||||||||||
+Sbjct  650  AACACCAGTGGCGAAGGCGGCTTGCTGGTCCGATACTGACGTTGAGGCACGAAAGCGTGG  709
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  710  GGAGCAAACAGG  721
+
+
+
+
+>Uncultured bacterium clone 8-6L23 16S ribosomal RNA gene, partial sequence
+Sequence ID: FJ683438.1 Length: 1356
+Range 1: 498 to 749
+
+Score:359 bits(194), Expect:1e-94, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||| |||||| ||
+Sbjct  498  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTANATGGCACAT  557
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| |  ||||||||||||| ||||||| ||||||||||    |||||||| ||||||
+Sbjct  558  TAAGTNTTCTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAGAAAATACTGATGAGCTAG  617
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  618  AGTACGACAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  677
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||| ||||||||
+Sbjct  678  AACACCAGTGGCGAAGGCGGCTTGCTAGGTCGATACTGACATTGAGGCACGGAAGCGTGG  737
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  738  GGAGCAAACAGG  749
+
+
+
+
+>Uncultured bacterium clone 5-5M1 16S ribosomal RNA gene, partial sequence
+Sequence ID: FJ681135.1 Length: 1405
+Range 1: 549 to 799
+
+Score:359 bits(194), Expect:1e-94, 
+Identities:233/252(92%),  Gaps:1/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||||||||||| |||||||||||||||||||||| ||
+Sbjct  549  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGACGTAAAGGGTGCGTAGATGGCACAT  608
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            |||||||  ||||||||||||| ||||||| ||||||||||    |||||||| ||||||
+Sbjct  609  TAAGTTTTCTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAGAAAATACTGATGAGCTAG  668
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||| | |||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  669  AGTACGACAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  728
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||| | | |||||||||||||||||||||||||||||
+Sbjct  729  AACACCAGTGGCGAAGGCGGCTTGCTAGGTCGATACTGACATTGAGGCACGAAAGCGTGG  788
+
+Query  241  GGAGCAAACAGG  252
+            ||||||| ||||
+Sbjct  789  GGAGCAA-CAGG  799
+
+
+
+
+>Uncultured prokaryote clone OTU_1909 16S ribosomal RNA gene, partial sequence
+Sequence ID: KT170304.1 Length: 250
+Range 1: 1 to 250
+
+Score:357 bits(193), Expect:4e-94, 
+Identities:233/252(92%),  Gaps:4/252(1%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCA-AT  59
+
+Query  61   TAA-GTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATA-AGCT  118
+             || |||  |||||||||||||| ||||||| ||||||||||| ||||||| ||| ||||
+Sbjct  60   AAAAGTTCTTTGTAAAAATGCTAGGCTCAACCTAGTAGGGCAAGGGATACT-ATATAGCT  118
+
+Query  119  AGAGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  178
+            |||||| |  |||||||||||||| ||||||||||||||||||||| |||||||||||||
+Sbjct  119  AGAGTATAGCAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGTGTAAATATATGGA  178
+
+Query  179  GGAACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGT  238
+             ||||||| |||||||||||||||||||||  ||||||||||||||||||||||||||||
+Sbjct  179  AGAACACCGGTGGCGAAGGCGGCTTGCTGGGCTGATACTGACATTGAGGCACGAAAGCGT  238
+
+Query  239  GGGGAGCAAACA  250
+            ||||||||||||
+Sbjct  239  GGGGAGCAAACA  250
+
+
+
+
+>Uncultured bacterium clone Otu904 16S ribosomal RNA gene, partial sequence
+Sequence ID: MH216859.1 Length: 252
+Range 1: 1 to 252
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  60
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  61   TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  120
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  121  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  180
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  181  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  240
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  241  GGAGCAAACAGG  252
+
+
+
+
+>Uncultured bacterium clone 429 16S ribosomal RNA gene, partial sequence
+Sequence ID: KY285719.1 Length: 410
+Range 1: 159 to 410
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:234/254(92%),  Gaps:4/254(1%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCA-TA  59
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  159  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCAATA  218
+
+Query  60   TTAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTG-ATAAGCT  118
+              |||||  |||| |||||||||||||||||||||||  |||| | | |||| || ||||
+Sbjct  219  C-AAGTTCTTTGTTAAAATGCTAAGCTCAACTTAGTATAGCAAAGAAAACTGTAT-AGCT  276
+
+Query  119  AGAGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  178
+            ||||||| | |||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  277  AGAGTACGATAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  336
+
+Query  179  GGAACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGT  238
+             ||||||||||||||||||||||||||| | | |||||||||||||||||||||||||||
+Sbjct  337  AGAACACCAGTGGCGAAGGCGGCTTGCTAGATCGATACTGACATTGAGGCACGAAAGCGT  396
+
+Query  239  GGGGAGCAAACAGG  252
+            ||||||||||||||
+Sbjct  397  GGGGAGCAAACAGG  410
+
+
+
+
+>Uncultured Anaeroplasma sp. clone denovo67708 16S ribosomal RNA gene, partial sequence
+Sequence ID: KY670057.1 Length: 440
+Range 1: 173 to 424
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            |||||||||||||||||||||||||| |||||||||||||||||||||||||||||| ||
+Sbjct  173  TACGTAGGGAGCGAGCGTTATCCGGATTTATTGGGCGTAAAGGGTGCGTAGATGGCACAT  232
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||||| |||| ||||||||  |||||||  ||||| ||||  ||||||||| ||||||
+Sbjct  233  TAAGTTTCTTGTTAAAATGCTTGGCTCAACCAAGTAGTGCAAGAGATACTGATGAGCTAG  292
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||   ||||||||||||||| ||||||||||||||||||||||||||||||||||| |
+Sbjct  293  AGTATGGAAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAAG  352
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||||   ||||||||||||||||||||||||||||
+Sbjct  353  AACACCAGTGGCGAAGGCGGCTTGCTGGTCCAATACTGACATTGAGGCACGAAAGCGTGG  412
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  413  GGAGCAAACAGG  424
+
+
+
+
+>Uncultured bacterium clone OTU_445 16S ribosomal RNA gene, partial sequence
+Sequence ID: MG558871.1 Length: 252
+Range 1: 1 to 252
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  60
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  61   TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  120
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  121  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  180
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  181  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  240
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  241  GGAGCAAACAGG  252
+
+
+
+
+>Uncultured bacterium clone 62 16S ribosomal RNA gene, partial sequence
+Sequence ID: KX593196.1 Length: 411
+Range 1: 159 to 410
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:234/254(92%),  Gaps:4/254(1%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCA-TA  59
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  159  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCAATA  218
+
+Query  60   TTAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTG-ATAAGCT  118
+              |||||  |||| |||||||||||||||||||||||  |||| | | |||| || ||||
+Sbjct  219  C-AAGTTCTTTGTTAAAATGCTAAGCTCAACTTAGTATAGCAAAGAAAACTGTAT-AGCT  276
+
+Query  119  AGAGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  178
+            ||||||| | |||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  277  AGAGTACGATAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  336
+
+Query  179  GGAACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGT  238
+             ||||||||||||||||||||||||||| | | |||||||||||||||||||||||||||
+Sbjct  337  AGAACACCAGTGGCGAAGGCGGCTTGCTAGATCGATACTGACATTGAGGCACGAAAGCGT  396
+
+Query  239  GGGGAGCAAACAGG  252
+            ||||||||||||||
+Sbjct  397  GGGGAGCAAACAGG  410
+
+
+
+
+>Uncultured bacterium clone denovo3630_551_23032 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF301687.1 Length: 305
+Range 1: 29 to 280
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  29   TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  88
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  89   TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  148
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  149  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  208
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  209  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  268
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  269  GGAGCAAACAGG  280
+
+
+
+
+>Uncultured bacterium clone denovo65702_N19_52723 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF275943.1 Length: 450
+Range 1: 183 to 434
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  183  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  242
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  243  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  302
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  303  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  362
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  363  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  422
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  423  GGAGCAAACAGG  434
+
+
+
+
+>Uncultured bacterium clone denovo42782_N19_5701 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF272578.1 Length: 445
+Range 1: 178 to 429
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  178  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  237
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  238  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  297
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  298  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  357
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  358  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  417
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  418  GGAGCAAACAGG  429
+
+
+
+
+>Uncultured bacterium clone denovo38483_N19_49412 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF271963.1 Length: 449
+Range 1: 180 to 431
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  180  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  239
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  240  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  299
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  300  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  359
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  360  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  419
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  420  GGAGCAAACAGG  431
+
+
+
+
+>Uncultured bacterium clone denovo27532_N19_53432 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF270385.1 Length: 464
+Range 1: 196 to 447
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  196  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  255
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  256  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  315
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  316  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  375
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  376  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  435
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  436  GGAGCAAACAGG  447
+
+
+
+
+>Uncultured bacterium clone denovo13194_N19_45124 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF268337.1 Length: 468
+Range 1: 200 to 451
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  200  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  259
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  260  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  319
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  320  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  379
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  380  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  439
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  440  GGAGCAAACAGG  451
+
+
+
+
+>Uncultured bacterium clone denovo27428_N21_119289 16S ribosomal RNA gene, partial sequence
+Sequence ID: MF254982.1 Length: 467
+Range 1: 198 to 449
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  198  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  257
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  258  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  317
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  318  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  377
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  378  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  437
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  438  GGAGCAAACAGG  449
+
+
+
+
+>Uncultured bacterium clone OTU_278 16S ribosomal RNA gene, partial sequence
+Sequence ID: KY671706.1 Length: 412
+Range 1: 160 to 411
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  160  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  219
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  220  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  279
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  280  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  339
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  340  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  399
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  400  GGAGCAAACAGG  411
+
+
+
+
+>Uncultured bacterium clone 1351 16S ribosomal RNA gene, partial sequence
+Sequence ID: KU506565.1 Length: 431
+Range 1: 160 to 411
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:234/254(92%),  Gaps:4/254(1%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCA-TA  59
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  160  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCAATA  219
+
+Query  60   TTAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTG-ATAAGCT  118
+              |||||  |||| |||||||||||||||||||||||  |||| | | |||| || ||||
+Sbjct  220  C-AAGTTCTTTGTTAAAATGCTAAGCTCAACTTAGTATAGCAAAGAAAACTGTAT-AGCT  277
+
+Query  119  AGAGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  178
+            ||||||| | |||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  278  AGAGTACGATAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  337
+
+Query  179  GGAACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGT  238
+             ||||||||||||||||||||||||||| | | |||||||||||||||||||||||||||
+Sbjct  338  AGAACACCAGTGGCGAAGGCGGCTTGCTAGATCGATACTGACATTGAGGCACGAAAGCGT  397
+
+Query  239  GGGGAGCAAACAGG  252
+            ||||||||||||||
+Sbjct  398  GGGGAGCAAACAGG  411
+
+
+
+
+>Uncultured Anaeroplasma sp. clone 5758 16S ribosomal RNA gene, partial sequence
+Sequence ID: KP106963.1 Length: 428
+Range 1: 159 to 410
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:234/254(92%),  Gaps:4/254(1%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCA-TA  59
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  159  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCAATA  218
+
+Query  60   TTAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTG-ATAAGCT  118
+              |||||  |||| |||||||||||||||||||||||  |||| | | |||| || ||||
+Sbjct  219  C-AAGTTCTTTGTTAAAATGCTAAGCTCAACTTAGTATAGCAAAGAAAACTGTAT-AGCT  276
+
+Query  119  AGAGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  178
+            ||||||| | |||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  277  AGAGTACGATAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  336
+
+Query  179  GGAACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGT  238
+             ||||||||||||||||||||||||||| | | |||||||||||||||||||||||||||
+Sbjct  337  AGAACACCAGTGGCGAAGGCGGCTTGCTAGATCGATACTGACATTGAGGCACGAAAGCGT  396
+
+Query  239  GGGGAGCAAACAGG  252
+            ||||||||||||||
+Sbjct  397  GGGGAGCAAACAGG  410
+
+
+
+
+>Uncultured Anaeroplasma sp. clone DA DC 570 16S ribosomal RNA gene, partial sequence
+Sequence ID: ON027431.1 Length: 410
+Range 1: 159 to 410
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:234/254(92%),  Gaps:4/254(1%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCA-TA  59
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  159  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCAATA  218
+
+Query  60   TTAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTG-ATAAGCT  118
+              |||||  |||| |||||||||||||||||||||||  |||| | | |||| || ||||
+Sbjct  219  C-AAGTTCTTTGTTAAAATGCTAAGCTCAACTTAGTATAGCAAAGAAAACTGTAT-AGCT  276
+
+Query  119  AGAGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  178
+            ||||||| | |||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  277  AGAGTACGATAGAGGCAAGTGGAACTCCATGTGTAGCGGTAAAATGCGTAAATATATGGA  336
+
+Query  179  GGAACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGT  238
+             ||||||||||||||||||||||||||| | | |||||||||||||||||||||||||||
+Sbjct  337  AGAACACCAGTGGCGAAGGCGGCTTGCTAGATCGATACTGACATTGAGGCACGAAAGCGT  396
+
+Query  239  GGGGAGCAAACAGG  252
+            ||||||||||||||
+Sbjct  397  GGGGAGCAAACAGG  410
+
+
+
+
+>Uncultured Anaeroplasma sp. clone OTU_1095 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM537257.1 Length: 410
+Range 1: 159 to 410
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  159  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  218
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  219  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  278
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  279  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  338
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  339  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  398
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  399  GGAGCAAACAGG  410
+
+
+
+
+>Uncultured bacterium clone Evans.12.11_01459 16S ribosomal RNA gene, partial sequence
+Sequence ID: KJ267181.1 Length: 252
+>Uncultured bacterium clone Evans.12.2_02205 16S ribosomal RNA gene, partial sequence
+Sequence ID: KJ290506.1 Length: 252
+>Uncultured bacterium clone Evans.12.10_01180 16S ribosomal RNA gene, partial sequence
+Sequence ID: KJ302828.1 Length: 252
+>Uncultured bacterium clone Evans.12.10_01285 16S ribosomal RNA gene, partial sequence
+Sequence ID: KJ302933.1 Length: 252
+>Uncultured bacterium clone Evans.12.10_01384 16S ribosomal RNA gene, partial sequence
+Sequence ID: KJ303032.1 Length: 252
+>Uncultured bacterium clone Evans.12.10_01496 16S ribosomal RNA gene, partial sequence
+Sequence ID: KJ303144.1 Length: 252
+>Uncultured bacterium clone Evans.12.10_02600 16S ribosomal RNA gene, partial sequence
+Sequence ID: KJ304247.1 Length: 252
+>Uncultured bacterium clone Evans.12.10_02924 16S ribosomal RNA gene, partial sequence
+Sequence ID: KJ304570.1 Length: 252
+>Uncultured bacterium clone Evans.12.14_00079 16S ribosomal RNA gene, partial sequence
+Sequence ID: KJ306143.1 Length: 252
+>Uncultured bacterium clone Evans.12.14_02027 16S ribosomal RNA gene, partial sequence
+Sequence ID: KJ308090.1 Length: 252
+>Uncultured bacterium clone Evans.12.14_05129 16S ribosomal RNA gene, partial sequence
+Sequence ID: KJ311187.1 Length: 252
+>Uncultured bacterium clone Evans.12.14_05182 16S ribosomal RNA gene, partial sequence
+Sequence ID: KJ311240.1 Length: 252
+>Uncultured bacterium clone Evans.12.14_06793 16S ribosomal RNA gene, partial sequence
+Sequence ID: KJ312849.1 Length: 252
+>Uncultured bacterium clone Evans.12.14_09079 16S ribosomal RNA gene, partial sequence
+Sequence ID: KJ315132.1 Length: 252
+>Uncultured bacterium clone Evans.12.14_09476 16S ribosomal RNA gene, partial sequence
+Sequence ID: KJ315529.1 Length: 252
+>Uncultured bacterium clone Evans.12.18_01274 16S ribosomal RNA gene, partial sequence
+Sequence ID: KJ318384.1 Length: 252 
+Range 1: 1 to 252
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  60
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  61   TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  120
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  121  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  180
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  181  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  240
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  241  GGAGCAAACAGG  252
+
+
+
+
+>Uncultured bacterium clone Abx.1_27674 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK665948.1 Length: 442
+Range 1: 176 to 427
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  176  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  235
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  236  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  295
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  296  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  355
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  356  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  415
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  416  GGAGCAAACAGG  427
+
+
+
+
+>Uncultured bacterium clone YO00840F03 16S ribosomal RNA gene, partial sequence
+Sequence ID: KC920385.1 Length: 782
+Range 1: 386 to 637
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  386  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  445
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  446  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  505
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  506  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  565
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  566  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  625
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  626  GGAGCAAACAGG  637
+
+
+
+
+>Uncultured bacterium clone YO00840B12 16S ribosomal RNA gene, partial sequence
+Sequence ID: KC920345.1 Length: 851
+Range 1: 429 to 680
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  429  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  488
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  489  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  548
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  549  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  608
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  609  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  668
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  669  GGAGCAAACAGG  680
+
+
+
+
+>Uncultured bacterium clone YO00837B08 16S ribosomal RNA gene, partial sequence
+Sequence ID: KC920200.1 Length: 855
+Range 1: 438 to 689
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  438  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  497
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  498  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  557
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  558  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  617
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  618  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  677
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  678  GGAGCAAACAGG  689
+
+
+
+
+>Uncultured bacterium clone YO00825E10 16S ribosomal RNA gene, partial sequence
+Sequence ID: KC919903.1 Length: 880
+Range 1: 431 to 682
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  431  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  490
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  491  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  550
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  551  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  610
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  611  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  670
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  671  GGAGCAAACAGG  682
+
+
+
+
+>Uncultured bacterium clone YO00825C03 16S ribosomal RNA gene, partial sequence
+Sequence ID: KC919902.1 Length: 882
+Range 1: 430 to 681
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  430  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  489
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  490  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  549
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  550  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  609
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  610  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  669
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  670  GGAGCAAACAGG  681
+
+
+
+
+>Uncultured bacterium clone YO00825B06 16S ribosomal RNA gene, partial sequence
+Sequence ID: KC919899.1 Length: 874
+Range 1: 446 to 697
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  446  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  505
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  506  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  565
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  566  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  625
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  626  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  685
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  686  GGAGCAAACAGG  697
+
+
+
+
+>Uncultured bacterium clone YO00825H07 16S ribosomal RNA gene, partial sequence
+Sequence ID: KC919885.1 Length: 870
+Range 1: 446 to 697
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  446  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  505
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  506  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  565
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  566  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  625
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  626  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  685
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  686  GGAGCAAACAGG  697
+
+
+
+
+>Uncultured bacterium clone YO00825H05 16S ribosomal RNA gene, partial sequence
+Sequence ID: KC919878.1 Length: 857
+Range 1: 432 to 683
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  432  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  491
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  492  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  551
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  552  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  611
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  612  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  671
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  672  GGAGCAAACAGG  683
+
+
+
+
+>Uncultured bacterium clone YO00825A11 16S ribosomal RNA gene, partial sequence
+Sequence ID: KC919877.1 Length: 854
+Range 1: 430 to 681
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  430  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  489
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  490  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  549
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  550  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  609
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  610  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  669
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  670  GGAGCAAACAGG  681
+
+
+
+
+>Uncultured bacterium clone YO00825C10 16S ribosomal RNA gene, partial sequence
+Sequence ID: KC919860.1 Length: 870
+Range 1: 446 to 697
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  446  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  505
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  506  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  565
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  566  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  625
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  626  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  685
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  686  GGAGCAAACAGG  697
+
+
+
+
+>Uncultured bacterium clone YO00825H01 16S ribosomal RNA gene, partial sequence
+Sequence ID: KC919855.1 Length: 870
+Range 1: 446 to 697
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  446  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  505
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  506  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  565
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  566  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  625
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  626  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  685
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  686  GGAGCAAACAGG  697
+
+
+
+
+>Uncultured bacterium clone YO00824H10 16S ribosomal RNA gene, partial sequence
+Sequence ID: KC919835.1 Length: 747
+Range 1: 384 to 635
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  384  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  443
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  444  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  503
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  504  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  563
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  564  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  623
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  624  GGAGCAAACAGG  635
+
+
+
+
+>Uncultured bacterium clone YO00824D01 16S ribosomal RNA gene, partial sequence
+Sequence ID: KC919774.1 Length: 854
+Range 1: 430 to 681
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  430  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  489
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  490  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  549
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  550  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  609
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  610  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  669
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  670  GGAGCAAACAGG  681
+
+
+
+
+>Uncultured bacterium clone YO00824D02 16S ribosomal RNA gene, partial sequence
+Sequence ID: KC919765.1 Length: 885
+Range 1: 432 to 683
+
+Score:355 bits(192), Expect:1e-93, 
+Identities:232/252(92%),  Gaps:0/252(0%), Strand: Plus/Plus
+
+Query  1    TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct  432  TACGTAGGGAGCGAGCGTTATCCGGAATTATTGGGCGTAAAGGGTGCGTAGATGGCATAG  491
+
+Query  61   TAAGTTTGTTGTAAAAATGCTAAGCTCAACTTAGTAGGGCAATGGATACTGATAAGCTAG  120
+            ||||| | |||||||||||||  |||||||  ||||||||||  |||||||  |||||||
+Sbjct  492  TAAGTCTTTTGTAAAAATGCTGGGCTCAACCCAGTAGGGCAAAAGATACTGCAAAGCTAG  551
+
+Query  121  AGTACAAAAGAGGCAAGTGGAATTCCATGTGTAGCGGTAAAATGCGTAAATATATGGAGG  180
+            ||||  | |||||||||||||| | ||||||||||||||||||||||||||||||| | |
+Sbjct  552  AGTATGACAGAGGCAAGTGGAACTACATGTGTAGCGGTAAAATGCGTAAATATATGTAAG  611
+
+Query  181  AACACCAGTGGCGAAGGCGGCTTGCTGGTTTGATACTGACATTGAGGCACGAAAGCGTGG  240
+            |||||||||||||||||||||||||||| | |||||||||||||||||||||||||||||
+Sbjct  612  AACACCAGTGGCGAAGGCGGCTTGCTGGGTCGATACTGACATTGAGGCACGAAAGCGTGG  671
+
+Query  241  GGAGCAAACAGG  252
+            ||||||||||||
+Sbjct  672  GGAGCAAACAGG  683
+
+
+
+
+
+
+
+		
+
+

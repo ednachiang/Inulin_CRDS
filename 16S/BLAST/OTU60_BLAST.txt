@@ -1,0 +1,3629 @@
+RID: 4TCY6C93013	
+Job Title:OTU 60				
+Program: BLASTN 
+Database: nt Nucleotide collection (nt)
+Query #1:  Query ID: lcl|Query_27409 Length: 253
+
+Sequences producing significant alignments:
+                                                                  Scientific      Common                     Max    Total Query   E    Per.   Acc.                        
+Description                                                       Name            Name            Taxid      Score  Score cover Value  Ident  Len        Accession        
+Uncultured organism clone ELU0131-T346-S-NI_000045 small subun... uncultured o... NA              155900     468    468   100%  2e-127 100.00 1436       HQ793344.1       
+Uncultured organism clone ELU0013-T78-S-NI_000239 small subuni... uncultured o... NA              155900     468    468   100%  2e-127 100.00 1423       HQ742664.1       
+Bacteroides stercorirosoris JCM 17103 16S ribosomal RNA, parti... Bacteroides ... NA              1236514    468    468   100%  2e-127 100.00 1484       NR_113207.1      
+Bacteroides stercorirosoris gene for 16S rRNA, partial sequence   Bacteroides ... NA              871324     468    468   100%  2e-127 100.00 1484       AB574479.1       
+Uncultured bacterium clone 16saw139-3a11 16S ribosomal RNA gen... uncultured b... NA              77133      468    468   100%  2e-127 100.00 659        GU242414.1       
+Uncultured bacterium clone 16saw139-2c06 16S ribosomal RNA gen... uncultured b... NA              77133      468    468   100%  2e-127 100.00 659        GU242358.1       
+Uncultured bacterium clone 16saw139-1a07 16S ribosomal RNA gen... uncultured b... NA              77133      468    468   100%  2e-127 100.00 659        GU242277.1       
+Bacteroides oleiciplenus YIT 12058 strain JCM 16102 16S...        Bacteroides ... NA              742727     468    468   100%  2e-127 100.00 1485       NR_113070.1      
+16S rDNA sequence amplified from human fecal sample               uncultured b... NA              77133      468    468   100%  2e-127 100.00 1017       FP083153.1       
+Bacteroides oleiciplenus YIT 12058 16S ribosomal RNA, partial...  Bacteroides ... NA              742727     468    468   100%  2e-127 100.00 1476       NR_112895.1      
+Uncultured bacterium clone R-8788 16S ribosomal RNA gene,...      uncultured b... NA              77133      468    468   100%  2e-127 100.00 1483       FJ880188.1       
+Uncultured bacterium clone C2_047 16S small subunit ribosomal...  uncultured b... NA              77133      468    468   100%  2e-127 100.00 1354       EU767211.1       
+Uncultured bacterium clone A4_483 16S small subunit ribosomal...  uncultured b... NA              77133      468    468   100%  2e-127 100.00 1353       EU763682.1       
+Uncultured bacterium clone A4_727 16S small subunit ribosomal...  uncultured b... NA              77133      468    468   100%  2e-127 100.00 1353       EU763436.1       
+Uncultured bacterium clone A4_271 16S small subunit ribosomal...  uncultured b... NA              77133      468    468   100%  2e-127 100.00 1353       EU763372.1       
+Uncultured bacterium clone A4_638 16S small subunit ribosomal...  uncultured b... NA              77133      468    468   100%  2e-127 100.00 1355       EU763266.1       
+Uncultured bacterium clone 29c-a9 16S ribosomal RNA gene,...      uncultured b... NA              77133      468    468   100%  2e-127 100.00 1578       DQ905881.2       
+Uncultured bacterium clone 29A-b1 16S ribosomal RNA gene,...      uncultured b... NA              77133      468    468   100%  2e-127 100.00 1509       DQ905712.2       
+Uncultured bacterium clone RL307_aam08d12 16S ribosomal RNA...    uncultured b... NA              77133      468    468   100%  2e-127 100.00 808        DQ807575.1       
+Uncultured bacterium clone RL244_aaj46e05 16S ribosomal RNA...    uncultured b... NA              77133      468    468   100%  2e-127 100.00 1397       DQ807118.1       
+Uncultured bacterium clone RL198_aaj75a03 16S ribosomal RNA...    uncultured b... NA              77133      468    468   100%  2e-127 100.00 1397       DQ806895.1       
+Uncultured bacterium clone Eldhufec021 16S ribosomal RNA gene,... uncultured b... NA              77133      468    468   100%  2e-127 100.00 536        AY919896.1       
+Uncultured bacterium clone bdbf 16S ribosomal RNA gene, partia... uncultured b... NA              77133      464    464   99%   2e-126 100.00 251        MT545284.1       
+Uncultured organism clone ELU0098-T213-S-NI_000036 small subun... uncultured o... NA              155900     462    462   100%  8e-126 99.60  1437       HQ783822.1       
+Uncultured organism clone ELU0086-T395-S-NI_000292 small subun... uncultured o... NA              155900     462    462   100%  8e-126 99.60  1442       HQ779108.1       
+Uncultured organism clone ELU0086-T395-S-NI_000193 small subun... uncultured o... NA              155900     462    462   100%  8e-126 99.60  1435       HQ779009.1       
+Uncultured organism clone ELU0086-T395-S-NI_000086 small subun... uncultured o... NA              155900     462    462   100%  8e-126 99.60  1445       HQ778902.1       
+Uncultured bacterium clone HFV02_63 16S ribosomal RNA gene,...    uncultured b... NA              77133      462    462   100%  8e-126 99.60  842        GU103705.1       
+Uncultured bacterium clone R-9624 16S ribosomal RNA gene,...      uncultured b... NA              77133      462    462   100%  8e-126 99.60  1484       FJ880576.1       
+Uncultured bacterium clone R-8842 16S ribosomal RNA gene,...      uncultured b... NA              77133      462    462   100%  8e-126 99.60  1483       FJ880239.1       
+Uncultured bacterium clone R-9488 16S ribosomal RNA gene,...      uncultured b... NA              77133      462    462   100%  8e-126 99.60  1483       FJ879857.1       
+Uncultured bacterium clone A4_264 16S small subunit ribosomal...  uncultured b... NA              77133      462    462   100%  8e-126 99.61  1356       EU763468.1       
+Uncultured bacterium clone 2dbb 16S ribosomal RNA gene, partia... uncultured b... NA              77133      459    459   99%   1e-124 99.60  251        MT545712.1       
+Uncultured bacterium clone 5660 16S ribosomal RNA gene, partia... uncultured b... NA              77133      457    457   100%  4e-124 99.21  435        KP804663.1       
+Uncultured bacterium clone 5471 16S ribosomal RNA gene, partia... uncultured b... NA              77133      457    457   100%  4e-124 99.21  434        KP804474.1       
+Uncultured bacterium clone Otu10384 16S ribosomal RNA gene,...    uncultured b... NA              77133      457    457   100%  4e-124 99.21  434        KM366886.1       
+Uncultured organism clone ELU0107-T266-S-NI_000019 small subun... uncultured o... NA              155900     457    457   100%  4e-124 99.21  1441       HQ786268.1       
+Uncultured bacterium clone sww96 16S ribosomal RNA gene, parti... uncultured b... NA              77133      457    457   100%  4e-124 99.21  425        MW015243.1       
+Uncultured Bacteroides sp. clone OTU0665 16S ribosomal RNA gen... uncultured B... NA              162156     453    453   99%   5e-123 99.20  422        KM059516.1       
+Uncultured bacterium clone OTU12145 16S ribosomal RNA gene,...    uncultured b... NA              77133      451    451   100%  2e-122 98.81  425        MG270268.1       
+Uncultured bacterium clone OTU_919 16S ribosomal RNA gene,...     uncultured b... NA              77133      451    451   100%  2e-122 98.81  253        MG559287.1       
+Uncultured Bacteroides sp. clone OTU_1045 16S ribosomal RNA...    uncultured B... NA              162156     451    451   100%  2e-122 98.81  460        MG052588.1       
+Uncultured bacterium clone 5483 16S ribosomal RNA gene, partia... uncultured b... NA              77133      451    451   100%  2e-122 98.82  435        KP804486.1       
+Uncultured bacterium clone Otu10396 16S ribosomal RNA gene,...    uncultured b... NA              77133      451    451   100%  2e-122 98.82  435        KM366890.1       
+Uncultured bacterium clone G08_M78 16S ribosomal RNA gene,...     uncultured b... NA              77133      451    451   100%  2e-122 98.81  699        GQ225292.1       
+Uncultured Bacteroides sp. clone DA DC 1265 16S ribosomal RNA...  uncultured B... NA              162156     451    451   100%  2e-122 98.81  424        ON028112.1       
+Uncultured Bacteroides sp. clone abc107 16S ribosomal RNA gene... uncultured B... NA              162156     451    451   100%  2e-122 98.81  436        MN664359.1       
+Uncultured Petrimonas sp. clone a30 16S ribosomal RNA gene,...    uncultured P... NA              543114     451    451   100%  2e-122 98.81  436        MW287191.1       
+Uncultured bacterium clone 5621 16S ribosomal RNA gene, partia... uncultured b... NA              77133      446    446   100%  8e-121 98.43  435        KP804624.1       
+Uncultured bacterium clone 5606 16S ribosomal RNA gene, partia... uncultured b... NA              77133      446    446   100%  8e-121 98.42  435        KP804609.1       
+Uncultured organism clone ELU0046-T235-S-NIPCRAMgANb_000059...    uncultured o... NA              155900     446    446   100%  8e-121 98.42  1437       HQ760351.1       
+Uncultured organism clone ELU0101-T236-S-NI_000120 small subun... uncultured o... NA              155900     446    446   100%  8e-121 98.42  1446       HQ784687.1       
+Uncultured organism clone UUAV5DA021 16S ribosomal RNA gene,...   uncultured o... NA              155900     446    446   100%  8e-121 98.42  1017       HM476168.1       
+16S rDNA sequence amplified from human fecal sample               uncultured b... NA              77133      446    446   100%  8e-121 98.42  1017       FP076282.1       
+Uncultured bacterium clone B4_253 16S small subunit ribosomal...  uncultured b... NA              77133      446    446   100%  8e-121 98.42  1357       EU766033.1       
+Uncultured bacterium clone RHSD_aaa02b12 16S ribosomal RNA gen... uncultured b... NA              77133      446    446   100%  8e-121 98.42  1399       EU475381.1       
+Uncultured bacterium clone S07SD332 16S ribosomal RNA gene,...    uncultured b... NA              77133      446    446   100%  8e-121 98.42  478        EU202185.1       
+Uncultured bacterium clone RL305aal88b07 16S ribosomal RNA gen... uncultured b... NA              77133      446    446   100%  8e-121 98.42  1400       DQ799601.1       
+Uncultured bacterium clone RL305aal85d11 16S ribosomal RNA gen... uncultured b... NA              77133      446    446   100%  8e-121 98.42  1397       DQ799369.1       
+Uncultured bacterium clone RL305aal85c11 16S ribosomal RNA gen... uncultured b... NA              77133      446    446   100%  8e-121 98.42  1396       DQ799357.1       
+Uncultured bacterium clone RL305aal85c09 16S ribosomal RNA gen... uncultured b... NA              77133      446    446   100%  8e-121 98.42  1400       DQ799355.1       
+Uncultured bacterium clone RL305aal85a11 16S ribosomal RNA gen... uncultured b... NA              77133      446    446   100%  8e-121 98.42  1393       DQ799336.1       
+Uncultured bacterium clone RL176_aan58h11 16S ribosomal RNA...    uncultured b... NA              77133      446    446   100%  8e-121 98.42  1350       DQ794166.1       
+Uncultured bacterium clone CFT211F7 16S ribosomal RNA gene,...    uncultured b... NA              77133      446    446   100%  8e-121 98.42  1450       DQ456297.1       
+Uncultured bacterium clone 16S(V3-V4)-18 16S ribosomal RNA gen... uncultured b... NA              77133      442    442   98%   1e-119 98.79  248        MW667609.1       
+Uncultured bacterium clone a261 16S ribosomal RNA gene, partia... uncultured b... NA              77133      440    440   100%  4e-119 98.02  253        MN474291.1       
+Bacteroides sp. Marseille-P8574 partial 16S rRNA gene, strain...  Bacteroides ... NA              2697504    440    440   100%  4e-119 98.02  1523       LR745843.1       
+Uncultured Bacteroides sp. clone OTU_16 16S ribosomal RNA gene... uncultured B... NA              162156     440    440   100%  4e-119 98.02  424        OM536215.1       
+Uncultured Bacteroides sp. clone abc1271 16S ribosomal RNA gen... uncultured B... NA              162156     440    440   100%  4e-119 98.02  424        MN663576.1       
+Bacteroides sp. KGMB10229 chromosome, complete genome             Bacteroides ... NA              2884447    440    1762  100%  4e-119 98.02  4248411    CP085132.1       
+Bacteroides uniformis strain CLA-AA-H218 16S ribosomal RNA gen... Bacteroides ... NA              820        440    440   100%  4e-119 98.02  1403       OK510344.1       
+Bacteroides sp. KGMB07931 chromosome, complete genome             Bacteroides ... NA              2792859    440    1762  100%  4e-119 98.02  4240638    CP084680.1       
+Bacteroides sp. strain Y3-J-111 16S ribosomal RNA gene, partia... Bacteroides sp. NA              29523      440    440   100%  4e-119 98.02  1475       OK326672.1       
+Bacteroides sp. strain W1-V-105 16S ribosomal RNA gene, partia... Bacteroides sp. NA              29523      440    440   100%  4e-119 98.02  1463       OK326534.1       
+Bacteroides sp. strain W1-U-103 16S ribosomal RNA gene, partia... Bacteroides sp. NA              29523      440    440   100%  4e-119 98.02  1468       OK326528.1       
+Bacteroides uniformis strain TG-Q-101 16S ribosomal RNA gene,...  Bacteroides ... NA              820        440    440   100%  4e-119 98.02  1467       OK326478.1       
+Bacteroides sp. strain TA-T-101 16S ribosomal RNA gene, partia... Bacteroides sp. NA              29523      440    440   100%  4e-119 98.02  1477       OK326444.1       
+Bacteroides sp. strain TA-T-100 16S ribosomal RNA gene, partia... Bacteroides sp. NA              29523      440    440   100%  4e-119 98.02  1490       OK326443.1       
+Bacteroides sp. strain TA-Q-101 16S ribosomal RNA gene, partia... Bacteroides sp. NA              29523      440    440   100%  4e-119 98.02  1481       OK326436.1       
+Bacteroides sp. strain S1-T-103 16S ribosomal RNA gene, partia... Bacteroides sp. NA              29523      440    440   100%  4e-119 98.02  1466       OK326373.1       
+Bacteroides sp. strain S1-Q-101 16S ribosomal RNA gene, partia... Bacteroides sp. NA              29523      440    440   100%  4e-119 98.02  1466       OK326362.1       
+Bacteroides sp. strain S1-Q-100 16S ribosomal RNA gene, partia... Bacteroides sp. NA              29523      440    440   100%  4e-119 98.02  1468       OK326361.1       
+Bacteroides sp. strain BL-T-108 16S ribosomal RNA gene, partia... Bacteroides sp. NA              29523      440    440   100%  4e-119 98.02  1484       OK326087.1       
+Bacteroides sp. strain BB1-R-105 16S ribosomal RNA gene, parti... Bacteroides sp. NA              29523      440    440   100%  4e-119 98.02  1466       OK325946.1       
+Bacteroides sp. strain B2-R-123 16S ribosomal RNA gene, partia... Bacteroides sp. NA              29523      440    440   100%  4e-119 98.02  1462       OK325799.1       
+Uncultured Bacteroides sp. clone R101.P1.UK_19542 16S ribosoma... uncultured B... NA              162156     440    440   100%  4e-119 98.02  443        MW768159.1       
+Bacteroides uniformis CL03T12C37 chromosome, complete genome      Bacteroides ... NA              997890     440    1762  100%  4e-119 98.02  4874733    CP072255.1       
+Bacteroides uniformis strain CL06T03C05 chromosome, complete...   Bacteroides ... NA              820        440    1745  100%  4e-119 98.02  5364439    CP072239.1       
+Bacteroides uniformis strain CL06T06C18 chromosome, complete...   Bacteroides ... NA              820        440    1762  100%  4e-119 98.02  4905795    CP072236.1       
+Bacteroides uniformis strain CL11T00C07 chromosome, complete...   Bacteroides ... NA              820        440    1751  100%  4e-119 98.02  5225614    CP072220.1       
+Bacteroides uniformis TL01 gene for 16S rRNA, partial sequence    Bacteroides ... NA              820        440    440   100%  4e-119 98.02  1452       LC612543.1       
+Bacteroides uniformis partial 16S rRNA gene, strain 23836         Bacteroides ... NA              820        440    440   100%  4e-119 98.02  1121       LR999668.1       
+Bacteroides uniformis H-Lam2 gene for 16S rRNA, partial sequence  Bacteroides ... NA              820        440    440   100%  4e-119 98.02  1395       LC602153.1       
+Bacteroides uniformis H-Lam1 gene for 16S rRNA, partial sequence  Bacteroides ... NA              820        440    440   100%  4e-119 98.02  1400       LC602152.1       
+Bacteroides sp. strain KGMB07931 16S ribosomal RNA gene, parti... Bacteroides sp. NA              29523      440    440   100%  4e-119 98.02  1419       MW228414.1       
+Bacteroides sp. strain CACC 731 16S ribosomal RNA gene, partia... Bacteroides sp. NA              29523      440    440   100%  4e-119 98.02  1237       MT755941.1       
+Bacteroides sp. strain CACC 737 16S ribosomal RNA gene, partia... Bacteroides sp. NA              29523      440    440   100%  4e-119 98.02  1521       MT755906.1       
+Bacteroides uniformis strain PB-SMSXL 16S ribosomal RNA gene,...  Bacteroides ... NA              820        440    440   100%  4e-119 98.02  1218       MT749284.1       
+Bacteroides uniformis strain PB-SWTWH 16S ribosomal RNA gene,...  Bacteroides ... NA              820        440    440   100%  4e-119 98.02  1383       MT749281.1       
+Bacteroides uniformis strain PB-SARUR 16S ribosomal RNA gene,...  Bacteroides ... NA              820        440    440   100%  4e-119 98.02  1383       MT749280.1       
+
+
+Alignments:
+
+>Uncultured organism clone ELU0131-T346-S-NI_000045 small subunit ribosomal RNA gene, partial sequence
+Sequence ID: HQ793344.1 Length: 1436
+Range 1: 490 to 742
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  490  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  549
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  550  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  609
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  610  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  669
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  670  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  729
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  730  GGTATCAAACAGG  742
+
+
+
+
+>Uncultured organism clone ELU0013-T78-S-NI_000239 small subunit ribosomal RNA gene, partial sequence
+Sequence ID: HQ742664.1 Length: 1423
+Range 1: 480 to 732
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  480  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  539
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  540  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  599
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  600  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  659
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  660  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  719
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  720  GGTATCAAACAGG  732
+
+
+
+
+>Bacteroides stercorirosoris JCM 17103 16S ribosomal RNA, partial sequence
+Sequence ID: NR_113207.1 Length: 1484
+>Bacteroides stercorirosoris gene for 16S rRNA, partial sequence
+Sequence ID: AB574481.1 Length: 1484 
+Range 1: 522 to 774
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  522  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  581
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  582  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  641
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  642  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  701
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  702  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  761
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  762  GGTATCAAACAGG  774
+
+
+
+
+>Bacteroides stercorirosoris gene for 16S rRNA, partial sequence
+Sequence ID: AB574479.1 Length: 1484
+Range 1: 522 to 774
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  522  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  581
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  582  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  641
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  642  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  701
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  702  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  761
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  762  GGTATCAAACAGG  774
+
+
+
+
+>Uncultured bacterium clone 16saw139-3a11 16S ribosomal RNA gene, partial sequence
+Sequence ID: GU242414.1 Length: 659
+Range 1: 335 to 587
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  335  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  394
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  395  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  454
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  455  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  514
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  515  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  574
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  575  GGTATCAAACAGG  587
+
+
+
+
+>Uncultured bacterium clone 16saw139-2c06 16S ribosomal RNA gene, partial sequence
+Sequence ID: GU242358.1 Length: 659
+Range 1: 335 to 587
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  335  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  394
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  395  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  454
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  455  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  514
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  515  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  574
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  575  GGTATCAAACAGG  587
+
+
+
+
+>Uncultured bacterium clone 16saw139-1a07 16S ribosomal RNA gene, partial sequence
+Sequence ID: GU242277.1 Length: 659
+Range 1: 335 to 587
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  335  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  394
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  395  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  454
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  455  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  514
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  515  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  574
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  575  GGTATCAAACAGG  587
+
+
+
+
+>Bacteroides oleiciplenus YIT 12058 strain JCM 16102 16S ribosomal RNA, partial sequence
+Sequence ID: NR_113070.1 Length: 1485
+>Bacteroides oleiciplenus gene for 16S ribosomal RNA, partial sequence, strain: JCM 16102
+Sequence ID: AB547644.1 Length: 1485 
+Range 1: 522 to 774
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  522  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  581
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  582  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  641
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  642  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  701
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  702  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  761
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  762  GGTATCAAACAGG  774
+
+
+
+
+>16S rDNA sequence amplified from human fecal sample
+Sequence ID: FP083153.1 Length: 1017
+Range 1: 172 to 424
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  172  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  231
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  232  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  291
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  292  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  351
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  352  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  411
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  412  GGTATCAAACAGG  424
+
+
+
+
+>Bacteroides oleiciplenus YIT 12058 16S ribosomal RNA, partial sequence
+Sequence ID: NR_112895.1 Length: 1476
+>Bacteroides oleiciplenus gene for 16S rRNA, partial sequence, strain: YIT 12058
+Sequence ID: AB490803.1 Length: 1476 
+Range 1: 502 to 754
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  502  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  561
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  562  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  621
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  622  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  681
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  682  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  741
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  742  GGTATCAAACAGG  754
+
+
+
+
+>Uncultured bacterium clone R-8788 16S ribosomal RNA gene, partial sequence
+Sequence ID: FJ880188.1 Length: 1483
+Range 1: 521 to 773
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  521  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  580
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  581  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  640
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  641  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  700
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  701  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  760
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  761  GGTATCAAACAGG  773
+
+
+
+
+>Uncultured bacterium clone C2_047 16S small subunit ribosomal RNA gene, partial sequence
+Sequence ID: EU767211.1 Length: 1354
+Range 1: 503 to 755
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  503  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  562
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  563  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  622
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  623  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  682
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  683  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  742
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  743  GGTATCAAACAGG  755
+
+
+
+
+>Uncultured bacterium clone A4_483 16S small subunit ribosomal RNA gene, partial sequence
+Sequence ID: EU763682.1 Length: 1353
+Range 1: 502 to 754
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  502  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  561
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  562  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  621
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  622  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  681
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  682  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  741
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  742  GGTATCAAACAGG  754
+
+
+
+
+>Uncultured bacterium clone A4_727 16S small subunit ribosomal RNA gene, partial sequence
+Sequence ID: EU763436.1 Length: 1353
+Range 1: 502 to 754
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  502  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  561
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  562  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  621
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  622  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  681
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  682  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  741
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  742  GGTATCAAACAGG  754
+
+
+
+
+>Uncultured bacterium clone A4_271 16S small subunit ribosomal RNA gene, partial sequence
+Sequence ID: EU763372.1 Length: 1353
+Range 1: 502 to 754
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  502  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  561
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  562  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  621
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  622  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  681
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  682  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  741
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  742  GGTATCAAACAGG  754
+
+
+
+
+>Uncultured bacterium clone A4_638 16S small subunit ribosomal RNA gene, partial sequence
+Sequence ID: EU763266.1 Length: 1355
+Range 1: 502 to 754
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  502  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  561
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  562  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  621
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  622  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  681
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  682  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  741
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  742  GGTATCAAACAGG  754
+
+
+
+
+>Uncultured bacterium clone 29c-a9 16S ribosomal RNA gene, partial sequence
+Sequence ID: DQ905881.2 Length: 1578
+Range 1: 546 to 798
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  546  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  605
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  606  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  665
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  666  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  725
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  726  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  785
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  786  GGTATCAAACAGG  798
+
+
+
+
+>Uncultured bacterium clone 29A-b1 16S ribosomal RNA gene, partial sequence
+Sequence ID: DQ905712.2 Length: 1509
+Range 1: 545 to 797
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  545  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  604
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  605  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  664
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  665  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  724
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  725  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  784
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  785  GGTATCAAACAGG  797
+
+
+
+
+>Uncultured bacterium clone RL307_aam08d12 16S ribosomal RNA gene, partial sequence
+Sequence ID: DQ807575.1 Length: 808
+Range 1: 526 to 778
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  526  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  585
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  586  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  645
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  646  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  705
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  706  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  765
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  766  GGTATCAAACAGG  778
+
+
+
+
+>Uncultured bacterium clone RL244_aaj46e05 16S ribosomal RNA gene, partial sequence
+Sequence ID: DQ807118.1 Length: 1397
+Range 1: 526 to 778
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  526  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  585
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  586  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  645
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  646  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  705
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  706  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  765
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  766  GGTATCAAACAGG  778
+
+
+
+
+>Uncultured bacterium clone RL198_aaj75a03 16S ribosomal RNA gene, partial sequence
+Sequence ID: DQ806895.1 Length: 1397
+Range 1: 526 to 778
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  526  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  585
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  586  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  645
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  646  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  705
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  706  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  765
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  766  GGTATCAAACAGG  778
+
+
+
+
+>Uncultured bacterium clone Eldhufec021 16S ribosomal RNA gene, partial sequence
+Sequence ID: AY919896.1 Length: 536
+Range 1: 192 to 444
+
+Score:468 bits(253), Expect:2e-127, 
+Identities:253/253(100%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  192  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  251
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  252  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  311
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  312  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  371
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  372  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  431
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  432  GGTATCAAACAGG  444
+
+
+
+
+>Uncultured bacterium clone bdbf 16S ribosomal RNA gene, partial sequence
+Sequence ID: MT545284.1 Length: 251
+Range 1: 1 to 251
+
+Score:464 bits(251), Expect:2e-126, 
+Identities:251/251(100%),  Gaps:0/251(0%), Strand: Plus/Plus
+
+Query  2    ACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCTT  61
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1    ACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCTT  60
+
+Query  62   AAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTTG  121
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  61   AAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTTG  120
+
+Query  122  AGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAAG  181
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  121  AGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAAG  180
+
+Query  182  AACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTGG  241
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  181  AACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTGG  240
+
+Query  242  GTATCAAACAG  252
+            |||||||||||
+Sbjct  241  GTATCAAACAG  251
+
+
+
+
+>Uncultured organism clone ELU0098-T213-S-NI_000036 small subunit ribosomal RNA gene, partial sequence
+Sequence ID: HQ783822.1 Length: 1437
+Range 1: 492 to 744
+
+Score:462 bits(250), Expect:8e-126, 
+Identities:252/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  492  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  551
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            |||||||||||||||||| |||||||||||||||||||||||||||||||||||||||||
+Sbjct  552  TAAGTCAGTTGTGAAAGTCTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  611
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  612  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  671
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  672  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  731
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  732  GGTATCAAACAGG  744
+
+
+
+
+>Uncultured organism clone ELU0086-T395-S-NI_000292 small subunit ribosomal RNA gene, partial sequence
+Sequence ID: HQ779108.1 Length: 1442
+Range 1: 501 to 753
+
+Score:462 bits(250), Expect:8e-126, 
+Identities:252/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||| |||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  501  TACGGAGGATCCAAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  560
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  561  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  620
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  621  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  680
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  681  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  740
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  741  GGTATCAAACAGG  753
+
+
+
+
+>Uncultured organism clone ELU0086-T395-S-NI_000193 small subunit ribosomal RNA gene, partial sequence
+Sequence ID: HQ779009.1 Length: 1435
+Range 1: 504 to 756
+
+Score:462 bits(250), Expect:8e-126, 
+Identities:252/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||| |||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  504  TACGGAGGATCCAAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  563
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  564  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  623
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  624  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  683
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  684  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  743
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  744  GGTATCAAACAGG  756
+
+
+
+
+>Uncultured organism clone ELU0086-T395-S-NI_000086 small subunit ribosomal RNA gene, partial sequence
+Sequence ID: HQ778902.1 Length: 1445
+Range 1: 500 to 752
+
+Score:462 bits(250), Expect:8e-126, 
+Identities:252/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||| |||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  500  TACGGAGGATCCAAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  559
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  560  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  619
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  620  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  679
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  680  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  739
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  740  GGTATCAAACAGG  752
+
+
+
+
+>Uncultured bacterium clone HFV02_63 16S ribosomal RNA gene, partial sequence
+Sequence ID: GU103705.1 Length: 842
+Range 1: 479 to 731
+
+Score:462 bits(250), Expect:8e-126, 
+Identities:252/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  479  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  538
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            |||||||||||||||||||||||||||||||||||||||||||||||| |||||||||||
+Sbjct  539  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATGCTGGGTTTCTT  598
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  599  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  658
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  659  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  718
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  719  GGTATCAAACAGG  731
+
+
+
+
+>Uncultured bacterium clone R-9624 16S ribosomal RNA gene, partial sequence
+Sequence ID: FJ880576.1 Length: 1484
+Range 1: 521 to 773
+
+Score:462 bits(250), Expect:8e-126, 
+Identities:252/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||| |||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  521  TACGGAGGATTCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  580
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  581  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  640
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  641  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  700
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  701  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  760
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  761  GGTATCAAACAGG  773
+
+
+
+
+>Uncultured bacterium clone R-8842 16S ribosomal RNA gene, partial sequence
+Sequence ID: FJ880239.1 Length: 1483
+Range 1: 521 to 773
+
+Score:462 bits(250), Expect:8e-126, 
+Identities:252/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  521  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  580
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||| ||||||||||||||||||||||||||||||||||
+Sbjct  581  TAAGTCAGTTGTGAAAGTTTGCGGCCCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  640
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  641  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  700
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  701  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  760
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  761  GGTATCAAACAGG  773
+
+
+
+
+>Uncultured bacterium clone R-9488 16S ribosomal RNA gene, partial sequence
+Sequence ID: FJ879857.1 Length: 1483
+Range 1: 521 to 773
+
+Score:462 bits(250), Expect:8e-126, 
+Identities:252/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||| |||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  521  TACGGAGGATTCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  580
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  581  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  640
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  641  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  700
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  701  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  760
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  761  GGTATCAAACAGG  773
+
+
+
+
+>Uncultured bacterium clone A4_264 16S small subunit ribosomal RNA gene, partial sequence
+Sequence ID: EU763468.1 Length: 1356
+Range 1: 502 to 755
+
+Score:462 bits(250), Expect:8e-126, 
+Identities:253/254(99%),  Gaps:1/254(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  502  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  561
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGC-GGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCT  119
+            |||||||||||||||||||||| |||||||||||||||||||||||||||||||||||||
+Sbjct  562  TAAGTCAGTTGTGAAAGTTTGCGGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCT  621
+
+Query  120  TGAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGA  179
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  622  TGAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGA  681
+
+Query  180  AGAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGT  239
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  682  AGAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGT  741
+
+Query  240  GGGTATCAAACAGG  253
+            ||||||||||||||
+Sbjct  742  GGGTATCAAACAGG  755
+
+
+
+
+>Uncultured bacterium clone 2dbb 16S ribosomal RNA gene, partial sequence
+Sequence ID: MT545712.1 Length: 251
+Range 1: 1 to 251
+
+Score:459 bits(248), Expect:1e-124, 
+Identities:250/251(99%),  Gaps:0/251(0%), Strand: Plus/Plus
+
+Query  2    ACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCTT  61
+            ||||||||||| ||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1    ACGGAGGATCCAAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCTT  60
+
+Query  62   AAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTTG  121
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  61   AAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTTG  120
+
+Query  122  AGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAAG  181
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  121  AGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAAG  180
+
+Query  182  AACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTGG  241
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  181  AACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTGG  240
+
+Query  242  GTATCAAACAG  252
+            |||||||||||
+Sbjct  241  GTATCAAACAG  251
+
+
+
+
+>Uncultured bacterium clone 5660 16S ribosomal RNA gene, partial sequence
+Sequence ID: KP804663.1 Length: 435
+Range 1: 173 to 425
+
+Score:457 bits(247), Expect:4e-124, 
+Identities:251/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  173  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  232
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  233  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  292
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  293  GAGTGCAGCAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  352
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  353  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  412
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  413  GGTATCAAACAGG  425
+
+
+
+
+>Uncultured bacterium clone 5471 16S ribosomal RNA gene, partial sequence
+Sequence ID: KP804474.1 Length: 434
+Range 1: 172 to 424
+
+Score:457 bits(247), Expect:4e-124, 
+Identities:251/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  172  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  231
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            |||||||||||||||||||||||||| |||||||||||||||||||||||||||||||||
+Sbjct  232  TAAGTCAGTTGTGAAAGTTTGCGGCTTAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  291
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  292  GAGTGCAGCAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  351
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  352  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  411
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  412  GGTATCAAACAGG  424
+
+
+
+
+>Uncultured bacterium clone Otu10384 16S ribosomal RNA gene, partial sequence
+Sequence ID: KM366886.1 Length: 434
+Range 1: 172 to 424
+
+Score:457 bits(247), Expect:4e-124, 
+Identities:251/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  172  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  231
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            |||||||||||||||||||||||||| |||||||||||||||||||||||||||||||||
+Sbjct  232  TAAGTCAGTTGTGAAAGTTTGCGGCTTAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  291
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  292  GAGTGCAGCAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  351
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  352  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  411
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  412  GGTATCAAACAGG  424
+
+
+
+
+>Uncultured organism clone ELU0107-T266-S-NI_000019 small subunit ribosomal RNA gene, partial sequence
+Sequence ID: HQ786268.1 Length: 1441
+Range 1: 493 to 745
+
+Score:457 bits(247), Expect:4e-124, 
+Identities:251/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  493  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  552
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  553  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  612
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  613  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  672
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  673  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  732
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  733  GGTATCAAACAGG  745
+
+
+
+
+>Uncultured bacterium clone sww96 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW015243.1 Length: 425
+Range 1: 173 to 425
+
+Score:457 bits(247), Expect:4e-124, 
+Identities:251/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  173  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  232
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            |||||||||||||||||||||||||| |||||||||||||||||||||||||||||||||
+Sbjct  233  TAAGTCAGTTGTGAAAGTTTGCGGCTTAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  292
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  293  GAGTGCAGCAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  352
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  353  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  412
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  413  GGTATCAAACAGG  425
+
+
+
+
+>Uncultured Bacteroides sp. clone OTU0665 16S ribosomal RNA gene, partial sequence
+Sequence ID: KM059516.1 Length: 422
+Range 1: 172 to 422
+
+Score:453 bits(245), Expect:5e-123, 
+Identities:249/251(99%),  Gaps:0/251(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  172  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  231
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            |||||||||||||||||||||||||| |||||||||||||||||||||||||||||||||
+Sbjct  232  TAAGTCAGTTGTGAAAGTTTGCGGCTTAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  291
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  292  GAGTGCAGCAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  351
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  352  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  411
+
+Query  241  GGTATCAAACA  251
+            |||||||||||
+Sbjct  412  GGTATCAAACA  422
+
+
+
+
+>Uncultured bacterium clone OTU12145 16S ribosomal RNA gene, partial sequence
+Sequence ID: MG270268.1 Length: 425
+Range 1: 173 to 425
+
+Score:451 bits(244), Expect:2e-122, 
+Identities:250/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  173  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  232
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  233  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  292
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  293  GAGTGCAGCAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  352
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  353  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  412
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  413  GGTATCAAACAGG  425
+
+
+
+
+>Uncultured bacterium clone OTU_919 16S ribosomal RNA gene, partial sequence
+Sequence ID: MG559287.1 Length: 253
+Range 1: 1 to 253
+
+Score:451 bits(244), Expect:2e-122, 
+Identities:250/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  60
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  120
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  121  GAGTGCAGCAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  241  GGTATCAAACAGG  253
+
+
+
+
+>Uncultured Bacteroides sp. clone OTU_1045 16S ribosomal RNA gene, partial sequence
+Sequence ID: MG052588.1 Length: 460
+Range 1: 189 to 441
+
+Score:451 bits(244), Expect:2e-122, 
+Identities:250/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  189  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  248
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  249  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  308
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  309  GAGTGCAGCAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  368
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  369  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  428
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  429  GGTATCAAACAGG  441
+
+
+
+
+>Uncultured bacterium clone 5483 16S ribosomal RNA gene, partial sequence
+Sequence ID: KP804486.1 Length: 435
+Range 1: 172 to 425
+
+Score:451 bits(244), Expect:2e-122, 
+Identities:251/254(99%),  Gaps:1/254(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  172  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  231
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            |||||||||||||||||||||||||| |||||||||||||||||||||||||||||||||
+Sbjct  232  TAAGTCAGTTGTGAAAGTTTGCGGCTTAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  291
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  292  GAGTGCAGCAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  351
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  352  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  411
+
+Query  241  GG-TATCAAACAGG  253
+            || |||||||||||
+Sbjct  412  GGGTATCAAACAGG  425
+
+
+
+
+>Uncultured bacterium clone Otu10396 16S ribosomal RNA gene, partial sequence
+Sequence ID: KM366890.1 Length: 435
+Range 1: 172 to 425
+
+Score:451 bits(244), Expect:2e-122, 
+Identities:251/254(99%),  Gaps:1/254(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  172  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  231
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            |||||||||||||||||||||||||| |||||||||||||||||||||||||||||||||
+Sbjct  232  TAAGTCAGTTGTGAAAGTTTGCGGCTTAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  291
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  292  GAGTGCAGCAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  351
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  352  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  411
+
+Query  241  GG-TATCAAACAGG  253
+            || |||||||||||
+Sbjct  412  GGGTATCAAACAGG  425
+
+
+
+
+>Uncultured bacterium clone G08_M78 16S ribosomal RNA gene, partial sequence
+Sequence ID: GQ225292.1 Length: 699
+Range 1: 431 to 683
+
+Score:451 bits(244), Expect:2e-122, 
+Identities:250/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  431  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  490
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  491  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  550
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  551  GAGTGCAGCAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  610
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  611  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  670
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  671  GGTATCAAACAGG  683
+
+
+
+
+>Uncultured Bacteroides sp. clone DA DC 1265 16S ribosomal RNA gene, partial sequence
+Sequence ID: ON028112.1 Length: 424
+Range 1: 172 to 424
+
+Score:451 bits(244), Expect:2e-122, 
+Identities:250/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  172  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  231
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  232  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  291
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  292  GAGTGCAGCAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  351
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  352  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  411
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  412  GGTATCAAACAGG  424
+
+
+
+
+>Uncultured Bacteroides sp. clone abc107 16S ribosomal RNA gene, partial sequence
+Sequence ID: MN664359.1 Length: 436
+Range 1: 178 to 430
+
+Score:451 bits(244), Expect:2e-122, 
+Identities:250/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  178  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  237
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  238  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  297
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  298  GAGTGCAGCAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  357
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  358  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  417
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  418  GGTATCAAACAGG  430
+
+
+
+
+>Uncultured Petrimonas sp. clone a30 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW287191.1 Length: 436
+Range 1: 172 to 424
+
+Score:451 bits(244), Expect:2e-122, 
+Identities:250/253(99%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  172  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  231
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  232  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  291
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  292  GAGTGCAGCAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  351
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  352  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  411
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  412  GGTATCAAACAGG  424
+
+
+
+
+>Uncultured bacterium clone 5621 16S ribosomal RNA gene, partial sequence
+Sequence ID: KP804624.1 Length: 435
+Range 1: 172 to 425
+
+Score:446 bits(241), Expect:8e-121, 
+Identities:250/254(98%),  Gaps:1/254(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||| |||||||
+Sbjct  172  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGTGGAAGCT  231
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            |||||||||||||||||||||||||| |||||||||||||||||||||||||||||||||
+Sbjct  232  TAAGTCAGTTGTGAAAGTTTGCGGCTTAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  291
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  292  GAGTGCAGCAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  351
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  352  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  411
+
+Query  241  GG-TATCAAACAGG  253
+            || |||||||||||
+Sbjct  412  GGGTATCAAACAGG  425
+
+
+
+
+>Uncultured bacterium clone 5606 16S ribosomal RNA gene, partial sequence
+Sequence ID: KP804609.1 Length: 435
+Range 1: 173 to 425
+
+Score:446 bits(241), Expect:8e-121, 
+Identities:249/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  173  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  232
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  233  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  292
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  293  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  352
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  353  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  412
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  413  GGTATCAAACAGG  425
+
+
+
+
+>Uncultured organism clone ELU0046-T235-S-NIPCRAMgANb_000059 small subunit ribosomal RNA gene, partial sequence
+Sequence ID: HQ760351.1 Length: 1437
+Range 1: 498 to 750
+
+Score:446 bits(241), Expect:8e-121, 
+Identities:249/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  498  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  557
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  558  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  617
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  618  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  677
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  678  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  737
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  738  GGTATCAAACAGG  750
+
+
+
+
+>Uncultured organism clone ELU0101-T236-S-NI_000120 small subunit ribosomal RNA gene, partial sequence
+Sequence ID: HQ784687.1 Length: 1446
+Range 1: 495 to 747
+
+Score:446 bits(241), Expect:8e-121, 
+Identities:249/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  495  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  554
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  555  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  614
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  615  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  674
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||| | |||||||||||||||||||||||||||||||||||
+Sbjct  675  GAACTCCGATTGCGAAGGCAGCCTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  734
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  735  GGTATCAAACAGG  747
+
+
+
+
+>Uncultured organism clone UUAV5DA021 16S ribosomal RNA gene, partial sequence
+Sequence ID: HM476168.1 Length: 1017
+Range 1: 171 to 423
+
+Score:446 bits(241), Expect:8e-121, 
+Identities:249/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  171  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  230
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  231  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  290
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||||||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  291  GAGTGCAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  350
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  351  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  410
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  411  GGTATCAAACAGG  423
+
+
+
+
+>16S rDNA sequence amplified from human fecal sample
+Sequence ID: FP076282.1 Length: 1017
+Range 1: 172 to 424
+
+Score:446 bits(241), Expect:8e-121, 
+Identities:249/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  172  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  231
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  232  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  291
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  292  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  351
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  352  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  411
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  412  GGTATCAAACAGG  424
+
+
+
+
+>Uncultured bacterium clone B4_253 16S small subunit ribosomal RNA gene, partial sequence
+Sequence ID: EU766033.1 Length: 1357
+Range 1: 506 to 758
+
+Score:446 bits(241), Expect:8e-121, 
+Identities:249/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  506  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  565
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  566  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  625
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  626  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  685
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  686  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  745
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  746  GGTATCAAACAGG  758
+
+
+
+
+>Uncultured bacterium clone RHSD_aaa02b12 16S ribosomal RNA gene, partial sequence
+Sequence ID: EU475381.1 Length: 1399
+Range 1: 522 to 774
+
+Score:446 bits(241), Expect:8e-121, 
+Identities:249/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  522  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  581
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||| ||||||| ||||
+Sbjct  582  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGAAACTGGGTGTCTT  641
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  642  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  701
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  702  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  761
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  762  GGTATCAAACAGG  774
+
+
+
+
+>Uncultured bacterium clone S07SD332 16S ribosomal RNA gene, partial sequence
+Sequence ID: EU202185.1 Length: 478
+Range 1: 171 to 423
+
+Score:446 bits(241), Expect:8e-121, 
+Identities:249/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  171  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  230
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  231  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  290
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||||||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  291  GAGTGCAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  350
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  351  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  410
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  411  GGTATCAAACAGG  423
+
+
+
+
+>Uncultured bacterium clone RL305aal88b07 16S ribosomal RNA gene, partial sequence
+Sequence ID: DQ799601.1 Length: 1400
+Range 1: 529 to 781
+
+Score:446 bits(241), Expect:8e-121, 
+Identities:249/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  529  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  588
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||| ||||||| ||||
+Sbjct  589  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGAAACTGGGTGTCTT  648
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  649  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  708
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  709  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  768
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  769  GGTATCAAACAGG  781
+
+
+
+
+>Uncultured bacterium clone RL305aal85d11 16S ribosomal RNA gene, partial sequence
+Sequence ID: DQ799369.1 Length: 1397
+Range 1: 524 to 776
+
+Score:446 bits(241), Expect:8e-121, 
+Identities:249/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  524  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  583
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||| ||||||| ||||
+Sbjct  584  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGAAACTGGGTGTCTT  643
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  644  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  703
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  704  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  763
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  764  GGTATCAAACAGG  776
+
+
+
+
+>Uncultured bacterium clone RL305aal85c11 16S ribosomal RNA gene, partial sequence
+Sequence ID: DQ799357.1 Length: 1396
+Range 1: 525 to 777
+
+Score:446 bits(241), Expect:8e-121, 
+Identities:249/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  525  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  584
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||| ||||||| ||||
+Sbjct  585  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGAAACTGGGTGTCTT  644
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  645  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  704
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  705  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  764
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  765  GGTATCAAACAGG  777
+
+
+
+
+>Uncultured bacterium clone RL305aal85c09 16S ribosomal RNA gene, partial sequence
+Sequence ID: DQ799355.1 Length: 1400
+Range 1: 527 to 779
+
+Score:446 bits(241), Expect:8e-121, 
+Identities:249/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  527  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  586
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||| ||||||| ||||
+Sbjct  587  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGAAACTGGGTGTCTT  646
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  647  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  706
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  707  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  766
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  767  GGTATCAAACAGG  779
+
+
+
+
+>Uncultured bacterium clone RL305aal85a11 16S ribosomal RNA gene, partial sequence
+Sequence ID: DQ799336.1 Length: 1393
+Range 1: 522 to 774
+
+Score:446 bits(241), Expect:8e-121, 
+Identities:249/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  522  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  581
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||| ||||||| ||||
+Sbjct  582  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGAAACTGGGTGTCTT  641
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  642  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  701
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  702  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  761
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  762  GGTATCAAACAGG  774
+
+
+
+
+>Uncultured bacterium clone RL176_aan58h11 16S ribosomal RNA gene, partial sequence
+Sequence ID: DQ794166.1 Length: 1350
+Range 1: 511 to 763
+
+Score:446 bits(241), Expect:8e-121, 
+Identities:249/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  511  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  570
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  571  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  630
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  631  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  690
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  691  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  750
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  751  GGTATCAAACAGG  763
+
+
+
+
+>Uncultured bacterium clone CFT211F7 16S ribosomal RNA gene, partial sequence
+Sequence ID: DQ456297.1 Length: 1450
+Range 1: 506 to 758
+
+Score:446 bits(241), Expect:8e-121, 
+Identities:249/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  506  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  565
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  566  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  625
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  626  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  685
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  686  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  745
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  746  GGTATCAAACAGG  758
+
+
+
+
+>Uncultured bacterium clone 16S(V3-V4)-18 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW667609.1 Length: 248
+Range 1: 1 to 248
+
+Score:442 bits(239), Expect:1e-119, 
+Identities:245/248(99%),  Gaps:0/248(0%), Strand: Plus/Plus
+
+Query  2    ACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCTT  61
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  1    ACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCTT  60
+
+Query  62   AAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTTG  121
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||| |||||
+Sbjct  61   AAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTTG  120
+
+Query  122  AGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAAG  181
+            ||||||| ||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  121  AGTGCAGCAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAAG  180
+
+Query  182  AACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTGG  241
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  181  AACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTGG  240
+
+Query  242  GTATCAAA  249
+            ||||||||
+Sbjct  241  GTATCAAA  248
+
+
+
+
+>Uncultured bacterium clone a261 16S ribosomal RNA gene, partial sequence
+Sequence ID: MN474291.1 Length: 253
+Range 1: 1 to 253
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  60
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  120
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| |||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  121  GAGTACAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||| | |||||||||||||||||||||||||||||||||||
+Sbjct  181  GAACTCCGATTGCGAAGGCAGCCTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  241  GGTATCAAACAGG  253
+
+
+
+
+>Bacteroides sp. Marseille-P8574 partial 16S rRNA gene, strain Marseille-P8574
+Sequence ID: LR745843.1 Length: 1523
+Range 1: 530 to 782
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  530  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  589
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  590  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  649
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  650  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  709
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  710  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  769
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  770  GGTATCAAACAGG  782
+
+
+
+
+>Uncultured Bacteroides sp. clone OTU_16 16S ribosomal RNA gene, partial sequence
+Sequence ID: OM536215.1 Length: 424
+Range 1: 172 to 424
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  172  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  231
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  232  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  291
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  292  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  351
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  352  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  411
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  412  GGTATCAAACAGG  424
+
+
+
+
+>Uncultured Bacteroides sp. clone abc1271 16S ribosomal RNA gene, partial sequence
+Sequence ID: MN663576.1 Length: 424
+Range 1: 172 to 424
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  172  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  231
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  232  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  291
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  292  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  351
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  352  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  411
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  412  GGTATCAAACAGG  424
+
+
+
+
+>Bacteroides sp. KGMB10229 chromosome, complete genome
+Sequence ID: CP085132.1 Length: 4248411
+Range 1: 302055 to 302307
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1       TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+               |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  302307  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  302248
+
+Query  61      TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  302247  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  302188
+
+Query  121     GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+               |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  302187  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  302128
+
+Query  181     GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+               |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  302127  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  302068
+
+Query  241     GGTATCAAACAGG  253
+               |||||||||||||
+Sbjct  302067  GGTATCAAACAGG  302055
+
+
+
+
+Range 2: 1572839 to 1573091
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  1572839  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  1572898
+
+Query  61       TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  1572899  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  1572958
+
+Query  121      GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+                |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1572959  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  1573018
+
+Query  181      GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+                |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  1573019  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  1573078
+
+Query  241      GGTATCAAACAGG  253
+                |||||||||||||
+Sbjct  1573079  GGTATCAAACAGG  1573091
+
+
+
+
+Range 3: 2121724 to 2121976
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  2121724  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  2121783
+
+Query  61       TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  2121784  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  2121843
+
+Query  121      GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+                |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2121844  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  2121903
+
+Query  181      GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+                |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  2121904  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  2121963
+
+Query  241      GGTATCAAACAGG  253
+                |||||||||||||
+Sbjct  2121964  GGTATCAAACAGG  2121976
+
+
+
+
+Range 4: 3512234 to 3512486
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1        TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  3512486  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  3512427
+
+Query  61       TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  3512426  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  3512367
+
+Query  121      GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+                |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  3512366  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  3512307
+
+Query  181      GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+                |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  3512306  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  3512247
+
+Query  241      GGTATCAAACAGG  253
+                |||||||||||||
+Sbjct  3512246  GGTATCAAACAGG  3512234
+
+
+
+
+>Bacteroides uniformis strain CLA-AA-H218 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK510344.1 Length: 1403
+Range 1: 514 to 766
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  514  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  573
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  574  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  633
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  634  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  693
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  694  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  753
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  754  GGTATCAAACAGG  766
+
+
+
+
+>Bacteroides sp. KGMB07931 chromosome, complete genome
+Sequence ID: CP084680.1 Length: 4240638
+Range 1: 302019 to 302271
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1       TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+               |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  302271  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  302212
+
+Query  61      TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  302211  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  302152
+
+Query  121     GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+               |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  302151  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  302092
+
+Query  181     GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+               |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  302091  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  302032
+
+Query  241     GGTATCAAACAGG  253
+               |||||||||||||
+Sbjct  302031  GGTATCAAACAGG  302019
+
+
+
+
+Range 2: 1572947 to 1573199
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  1572947  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  1573006
+
+Query  61       TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  1573007  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  1573066
+
+Query  121      GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+                |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1573067  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  1573126
+
+Query  181      GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+                |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  1573127  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  1573186
+
+Query  241      GGTATCAAACAGG  253
+                |||||||||||||
+Sbjct  1573187  GGTATCAAACAGG  1573199
+
+
+
+
+Range 3: 2113616 to 2113868
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  2113616  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  2113675
+
+Query  61       TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  2113676  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  2113735
+
+Query  121      GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+                |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2113736  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  2113795
+
+Query  181      GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+                |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  2113796  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  2113855
+
+Query  241      GGTATCAAACAGG  253
+                |||||||||||||
+Sbjct  2113856  GGTATCAAACAGG  2113868
+
+
+
+
+Range 4: 3504195 to 3504447
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1        TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  3504447  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  3504388
+
+Query  61       TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  3504387  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  3504328
+
+Query  121      GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+                |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  3504327  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  3504268
+
+Query  181      GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+                |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  3504267  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  3504208
+
+Query  241      GGTATCAAACAGG  253
+                |||||||||||||
+Sbjct  3504207  GGTATCAAACAGG  3504195
+
+
+
+
+>Bacteroides sp. strain Y3-J-111 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326672.1 Length: 1475
+Range 1: 511 to 763
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  511  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  570
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  571  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  630
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  631  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  690
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  691  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  750
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  751  GGTATCAAACAGG  763
+
+
+
+
+>Bacteroides sp. strain W1-V-105 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326534.1 Length: 1463
+Range 1: 512 to 764
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  512  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  571
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  572  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  631
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  632  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  691
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  692  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  751
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  752  GGTATCAAACAGG  764
+
+
+
+
+>Bacteroides sp. strain W1-U-103 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326528.1 Length: 1468
+Range 1: 512 to 764
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  512  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  571
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  572  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  631
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  632  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  691
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  692  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  751
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  752  GGTATCAAACAGG  764
+
+
+
+
+>Bacteroides uniformis strain TG-Q-101 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326478.1 Length: 1467
+Range 1: 511 to 763
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  511  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  570
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  571  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  630
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  631  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  690
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  691  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  750
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  751  GGTATCAAACAGG  763
+
+
+
+
+>Bacteroides sp. strain TA-T-101 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326444.1 Length: 1477
+Range 1: 511 to 763
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  511  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  570
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  571  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  630
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  631  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  690
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  691  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  750
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  751  GGTATCAAACAGG  763
+
+
+
+
+>Bacteroides sp. strain TA-T-100 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326443.1 Length: 1490
+Range 1: 524 to 776
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  524  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  583
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  584  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  643
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  644  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  703
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  704  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  763
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  764  GGTATCAAACAGG  776
+
+
+
+
+>Bacteroides sp. strain TA-Q-101 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326436.1 Length: 1481
+Range 1: 514 to 766
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  514  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  573
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  574  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  633
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  634  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  693
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  694  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  753
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  754  GGTATCAAACAGG  766
+
+
+
+
+>Bacteroides sp. strain S1-T-103 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326373.1 Length: 1466
+Range 1: 511 to 763
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  511  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  570
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  571  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  630
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  631  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  690
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  691  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  750
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  751  GGTATCAAACAGG  763
+
+
+
+
+>Bacteroides sp. strain S1-Q-101 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326362.1 Length: 1466
+Range 1: 511 to 763
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  511  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  570
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  571  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  630
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  631  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  690
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  691  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  750
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  751  GGTATCAAACAGG  763
+
+
+
+
+>Bacteroides sp. strain S1-Q-100 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326361.1 Length: 1468
+Range 1: 511 to 763
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  511  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  570
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  571  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  630
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  631  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  690
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  691  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  750
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  751  GGTATCAAACAGG  763
+
+
+
+
+>Bacteroides sp. strain BL-T-108 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK326087.1 Length: 1484
+Range 1: 517 to 769
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  517  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  576
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  577  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  636
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  637  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  696
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  697  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  756
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  757  GGTATCAAACAGG  769
+
+
+
+
+>Bacteroides sp. strain BB1-R-105 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK325946.1 Length: 1466
+Range 1: 509 to 761
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  509  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  568
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  569  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  628
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  629  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  688
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  689  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  748
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  749  GGTATCAAACAGG  761
+
+
+
+
+>Bacteroides sp. strain B2-R-123 16S ribosomal RNA gene, partial sequence
+Sequence ID: OK325799.1 Length: 1462
+Range 1: 511 to 763
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  511  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  570
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  571  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  630
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  631  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  690
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  691  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  750
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  751  GGTATCAAACAGG  763
+
+
+
+
+>Uncultured Bacteroides sp. clone R101.P1.UK_19542 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW768159.1 Length: 443
+Range 1: 189 to 441
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  189  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  248
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  249  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  308
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  309  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  368
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  369  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  428
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  429  GGTATCAAACAGG  441
+
+
+
+
+>Bacteroides uniformis CL03T12C37 chromosome, complete genome
+Sequence ID: CP072255.1 Length: 4874733
+Range 1: 441607 to 441859
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1       TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+               |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  441607  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  441666
+
+Query  61      TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  441667  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  441726
+
+Query  121     GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+               |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  441727  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  441786
+
+Query  181     GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+               |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  441787  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  441846
+
+Query  241     GGTATCAAACAGG  253
+               |||||||||||||
+Sbjct  441847  GGTATCAAACAGG  441859
+
+
+
+
+Range 2: 2171433 to 2171685
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1        TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  2171685  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  2171626
+
+Query  61       TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  2171625  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  2171566
+
+Query  121      GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+                |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2171565  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  2171506
+
+Query  181      GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+                |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  2171505  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  2171446
+
+Query  241      GGTATCAAACAGG  253
+                |||||||||||||
+Sbjct  2171445  GGTATCAAACAGG  2171433
+
+
+
+
+Range 3: 3360317 to 3360569
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1        TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  3360569  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  3360510
+
+Query  61       TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  3360509  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  3360450
+
+Query  121      GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+                |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  3360449  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  3360390
+
+Query  181      GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+                |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  3360389  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  3360330
+
+Query  241      GGTATCAAACAGG  253
+                |||||||||||||
+Sbjct  3360329  GGTATCAAACAGG  3360317
+
+
+
+
+Range 4: 4723301 to 4723553
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  4723301  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  4723360
+
+Query  61       TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  4723361  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  4723420
+
+Query  121      GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+                |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  4723421  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  4723480
+
+Query  181      GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+                |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  4723481  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  4723540
+
+Query  241      GGTATCAAACAGG  253
+                |||||||||||||
+Sbjct  4723541  GGTATCAAACAGG  4723553
+
+
+
+
+>Bacteroides uniformis strain CL06T03C05 chromosome, complete genome
+Sequence ID: CP072239.1 Length: 5364439
+Range 1: 2686853 to 2687105
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  2686853  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  2686912
+
+Query  61       TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  2686913  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  2686972
+
+Query  121      GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+                |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2686973  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  2687032
+
+Query  181      GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+                |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  2687033  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  2687092
+
+Query  241      GGTATCAAACAGG  253
+                |||||||||||||
+Sbjct  2687093  GGTATCAAACAGG  2687105
+
+
+
+
+Range 2: 556349 to 556601
+
+Score:435 bits(235), Expect:2e-117, 
+Identities:247/253(98%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1       TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+               |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  556601  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  556542
+
+Query  61      TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  556541  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  556482
+
+Query  121     GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+               |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  556481  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  556422
+
+Query  181     GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+               |||||||||||||||||||||| | |||||||||||||||||||||||||||||||||||
+Sbjct  556421  GAACTCCGATTGCGAAGGCAGCCTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  556362
+
+Query  241     GGTATCAAACAGG  253
+               |||||||||||||
+Sbjct  556361  GGTATCAAACAGG  556349
+
+
+
+
+Range 3: 1949775 to 1950027
+
+Score:435 bits(235), Expect:2e-117, 
+Identities:247/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  1949775  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  1949834
+
+Query  61       TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  1949835  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  1949894
+
+Query  121      GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+                |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1949895  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  1949954
+
+Query  181      GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+                |||||||||||||||||||||| | |||||||||||||||||||||||||||||||||||
+Sbjct  1949955  GAACTCCGATTGCGAAGGCAGCCTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  1950014
+
+Query  241      GGTATCAAACAGG  253
+                |||||||||||||
+Sbjct  1950015  GGTATCAAACAGG  1950027
+
+
+
+
+Range 4: 4308913 to 4309165
+
+Score:435 bits(235), Expect:2e-117, 
+Identities:247/253(98%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1        TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  4309165  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  4309106
+
+Query  61       TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  4309105  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  4309046
+
+Query  121      GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+                |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  4309045  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  4308986
+
+Query  181      GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+                |||||||||||||||||||||| | |||||||||||||||||||||||||||||||||||
+Sbjct  4308985  GAACTCCGATTGCGAAGGCAGCCTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  4308926
+
+Query  241      GGTATCAAACAGG  253
+                |||||||||||||
+Sbjct  4308925  GGTATCAAACAGG  4308913
+
+
+
+
+>Bacteroides uniformis strain CL06T06C18 chromosome, complete genome
+Sequence ID: CP072236.1 Length: 4905795
+Range 1: 384543 to 384795
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1       TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+               |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  384795  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  384736
+
+Query  61      TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  384735  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  384676
+
+Query  121     GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+               |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  384675  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  384616
+
+Query  181     GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+               |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  384615  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  384556
+
+Query  241     GGTATCAAACAGG  253
+               |||||||||||||
+Sbjct  384555  GGTATCAAACAGG  384543
+
+
+
+
+Range 2: 1000677 to 1000929
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1        TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  1000929  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  1000870
+
+Query  61       TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  1000869  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  1000810
+
+Query  121      GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+                |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1000809  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  1000750
+
+Query  181      GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+                |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  1000749  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  1000690
+
+Query  241      GGTATCAAACAGG  253
+                |||||||||||||
+Sbjct  1000689  GGTATCAAACAGG  1000677
+
+
+
+
+Range 3: 2315541 to 2315793
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  2315541  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  2315600
+
+Query  61       TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  2315601  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  2315660
+
+Query  121      GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+                |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2315661  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  2315720
+
+Query  181      GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+                |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  2315721  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  2315780
+
+Query  241      GGTATCAAACAGG  253
+                |||||||||||||
+Sbjct  2315781  GGTATCAAACAGG  2315793
+
+
+
+
+Range 4: 3527775 to 3528027
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  3527775  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  3527834
+
+Query  61       TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  3527835  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  3527894
+
+Query  121      GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+                |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  3527895  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  3527954
+
+Query  181      GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+                |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  3527955  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  3528014
+
+Query  241      GGTATCAAACAGG  253
+                |||||||||||||
+Sbjct  3528015  GGTATCAAACAGG  3528027
+
+
+
+
+>Bacteroides uniformis strain CL11T00C07 chromosome, complete genome
+Sequence ID: CP072220.1 Length: 5225614
+Range 1: 624504 to 624756
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1       TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+               |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  624504  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  624563
+
+Query  61      TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+               ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  624564  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  624623
+
+Query  121     GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+               |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  624624  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  624683
+
+Query  181     GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+               |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  624684  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  624743
+
+Query  241     GGTATCAAACAGG  253
+               |||||||||||||
+Sbjct  624744  GGTATCAAACAGG  624756
+
+
+
+
+Range 2: 2587290 to 2587542
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  2587290  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  2587349
+
+Query  61       TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  2587350  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  2587409
+
+Query  121      GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+                |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  2587410  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  2587469
+
+Query  181      GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+                |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  2587470  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  2587529
+
+Query  241      GGTATCAAACAGG  253
+                |||||||||||||
+Sbjct  2587530  GGTATCAAACAGG  2587542
+
+
+
+
+Range 3: 1816807 to 1817059
+
+Score:435 bits(235), Expect:2e-117, 
+Identities:247/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1        TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  1816807  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  1816866
+
+Query  61       TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  1816867  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  1816926
+
+Query  121      GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+                |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  1816927  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  1816986
+
+Query  181      GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+                |||||||||||||||||||||| | |||||||||||||||||||||||||||||||||||
+Sbjct  1816987  GAACTCCGATTGCGAAGGCAGCCTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  1817046
+
+Query  241      GGTATCAAACAGG  253
+                |||||||||||||
+Sbjct  1817047  GGTATCAAACAGG  1817059
+
+
+
+
+Range 4: 4233793 to 4234045
+
+Score:435 bits(235), Expect:2e-117, 
+Identities:247/253(98%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1        TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+                |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  4234045  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  4233986
+
+Query  61       TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+                ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  4233985  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  4233926
+
+Query  121      GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+                |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  4233925  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  4233866
+
+Query  181      GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+                |||||||||||||||||||||| | |||||||||||||||||||||||||||||||||||
+Sbjct  4233865  GAACTCCGATTGCGAAGGCAGCCTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  4233806
+
+Query  241      GGTATCAAACAGG  253
+                |||||||||||||
+Sbjct  4233805  GGTATCAAACAGG  4233793
+
+
+
+
+>Bacteroides uniformis TL01 gene for 16S rRNA, partial sequence
+Sequence ID: LC612543.1 Length: 1452
+Range 1: 506 to 758
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  506  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  565
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  566  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  625
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  626  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  685
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  686  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  745
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  746  GGTATCAAACAGG  758
+
+
+
+
+>Bacteroides uniformis partial 16S rRNA gene, strain 23836
+Sequence ID: LR999668.1 Length: 1121
+Range 1: 497 to 749
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Minus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  749  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  690
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  689  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  630
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  629  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  570
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  569  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  510
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  509  GGTATCAAACAGG  497
+
+
+
+
+>Bacteroides uniformis H-Lam2 gene for 16S rRNA, partial sequence
+Sequence ID: LC602153.1 Length: 1395
+Range 1: 484 to 736
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  484  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  543
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  544  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  603
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  604  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  663
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  664  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  723
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  724  GGTATCAAACAGG  736
+
+
+
+
+>Bacteroides uniformis H-Lam1 gene for 16S rRNA, partial sequence
+Sequence ID: LC602152.1 Length: 1400
+Range 1: 482 to 734
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  482  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  541
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  542  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  601
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  602  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  661
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  662  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  721
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  722  GGTATCAAACAGG  734
+
+
+
+
+>Bacteroides sp. strain KGMB07931 16S ribosomal RNA gene, partial sequence
+Sequence ID: MW228414.1 Length: 1419
+Range 1: 510 to 762
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  510  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  569
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  570  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  629
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  630  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  689
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  690  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  749
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  750  GGTATCAAACAGG  762
+
+
+
+
+>Bacteroides sp. strain CACC 731 16S ribosomal RNA gene, partial sequence
+Sequence ID: MT755941.1 Length: 1237
+Range 1: 250 to 502
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  250  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  309
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  310  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  369
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  370  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  429
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  430  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  489
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  490  GGTATCAAACAGG  502
+
+
+
+
+>Bacteroides sp. strain CACC 737 16S ribosomal RNA gene, partial sequence
+Sequence ID: MT755906.1 Length: 1521
+Range 1: 523 to 775
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  523  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGATGCT  582
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  583  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  642
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  643  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  702
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  703  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  762
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  763  GGTATCAAACAGG  775
+
+
+
+
+>Bacteroides uniformis strain PB-SMSXL 16S ribosomal RNA gene, partial sequence
+Sequence ID: MT749284.1 Length: 1218
+Range 1: 474 to 726
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  474  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  533
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  534  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  593
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  594  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  653
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  654  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  713
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  714  GGTATCAAACAGG  726
+
+
+
+
+>Bacteroides uniformis strain PB-SWTWH 16S ribosomal RNA gene, partial sequence
+Sequence ID: MT749281.1 Length: 1383
+Range 1: 471 to 723
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  471  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  530
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  531  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  590
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  591  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  650
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  651  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  710
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  711  GGTATCAAACAGG  723
+
+
+
+
+>Bacteroides uniformis strain PB-SARUR 16S ribosomal RNA gene, partial sequence
+Sequence ID: MT749280.1 Length: 1383
+Range 1: 471 to 723
+
+Score:440 bits(238), Expect:4e-119, 
+Identities:248/253(98%),  Gaps:0/253(0%), Strand: Plus/Plus
+
+Query  1    TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGAAGCT  60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||
+Sbjct  471  TACGGAGGATCCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGAGCGTAGGCGGACGCT  530
+
+Query  61   TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTTTCTT  120
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||
+Sbjct  531  TAAGTCAGTTGTGAAAGTTTGCGGCTCAACCGTAAAATTGCAGTTGATACTGGGTGTCTT  590
+
+Query  121  GAGTGCAGTAGAGGTAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  180
+            |||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  591  GAGTACAGTAGAGGCAGGCGGAATTCGTGGTGTAGCGGTGAAATGCTTAGATATCACGAA  650
+
+Query  181  GAACTCCGATTGCGAAGGCAGCTTACTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  240
+            |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||
+Sbjct  651  GAACTCCGATTGCGAAGGCAGCTTGCTGGACTGTAACTGACGCTGATGCTCGAAAGTGTG  710
+
+Query  241  GGTATCAAACAGG  253
+            |||||||||||||
+Sbjct  711  GGTATCAAACAGG  723
+
+
+
+
+
+
+
+		
+
+
