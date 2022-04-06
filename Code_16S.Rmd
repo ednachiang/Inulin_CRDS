@@ -22,6 +22,7 @@ library(vegan)
 library(miLineage)
 library(pwr)
 library(effsize)
+library(equivalence)
 #source('scripts/import_crds.R')
 #source('scripts/bin_crds.R')
 source('scripts/misc.R')
@@ -143,8 +144,6 @@ phy.use <- subset_samples(phy.rem, ID != "P28")
 #########crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
 #########crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
 phy.use <- subset_samples(phy.use, ID != "W50")
-phy.use <- subset_samples(phy.use, ID != "P04")
-  # This is an adult, not pup
 
 
 # Calculate relative abundance
@@ -778,4 +777,123 @@ p$tab
   # p-value = 0.024
 adonis(bray ~ Diet, data=sampdf, permutations = 9999)
   # p-value = 0.1621
+```
+
+### Diet - RTOST
+```{r}
+# Code modified from Skarlupka, et al. (2019)
+# https://doi.org/10.1186/s40104-019-0375-0
+
+
+# Format OTU table
+TOST.otu <- data.frame(t(data.frame(otu_table(phy.diet))))
+TOST.otu$Sample <- rownames(TOST.otu)
+TOST.otu$Diet <- "Diet 1"
+diet2 <- c("CC1_S47", "CC1_S48", "CC1_S49", "CC1_S50")
+for (diet_samp in 1:length(diet2)){
+  x <- which(TOST.otu$Sample == diet2[diet_samp])
+  TOST.otu$Diet[x] <- "Diet 2"
+}
+
+
+# Separate by Diet
+TOST.otu.diet1 <- TOST.otu[which(TOST.otu$Diet == "Diet 1"),]
+TOST.otu.diet2 <- TOST.otu[which(TOST.otu$Diet == "Diet 2"),]
+
+
+# Calculate mean OTUs for diet 1 and pull out diet 2 samples; remove Sample and Diet cols I made
+TOST.otu.diet1.mean <- aggregate(TOST.otu.diet1[ , 1: ( ncol(TOST.otu.diet1)-2 ) ],
+                               list(TOST.otu.diet1$Diet), mean)
+TOST.otu.diet1.mean <- TOST.otu.diet1.mean[-1]
+TOST.S47 <- TOST.otu.diet2[1,]
+TOST.S48 <- TOST.otu.diet2[2,]
+TOST.S49 <- TOST.otu.diet2[3,]
+TOST.S50 <- TOST.otu.diet2[4,]
+
+
+# Prepare data
+TOST.otu.diet1.t <- t(as.matrix(sapply(TOST.otu.diet1.mean[,1:ncol(TOST.otu.diet1.mean)],
+                                       as.numeric)))
+TOST.S47.t <- t(as.matrix(sapply(TOST.S47[,1:ncol(TOST.otu.diet1.mean)], as.numeric)))
+TOST.S48.t <- t(as.matrix(sapply(TOST.S48[,1:ncol(TOST.otu.diet1.mean)], as.numeric)))
+TOST.S49.t <- t(as.matrix(sapply(TOST.S49[,1:ncol(TOST.otu.diet1.mean)], as.numeric)))
+TOST.S50.t <- t(as.matrix(sapply(TOST.S50[,1:ncol(TOST.otu.diet1.mean)], as.numeric)))
+
+
+### Explore Data
+summary(as.vector(TOST.otu.diet1.t))
+length(which(TOST.otu.diet1.t > 100, arr.ind = T))
+  # 0 values above 100
+jj <- scale(as.vector(TOST.otu.diet1.t))
+qqnorm(jj, main = "QQ-Plot for Summer No ABX Diet 1")
+abline(0, 1, col="red")
+  # Not Normal
+plot(density(as.vector(TOST.otu.diet1.t)), main="Density Plot for Summer No ABX Diet 1")
+  # Skewed right
+shapiro.test(TOST.otu.diet1.t)
+  # p-value  < 2.2e-16
+
+summary(as.vector(TOST.S47.t))
+length(which(TOST.S47.t > 100, arr.ind = T))
+  # 0 values above 100
+jj <- scale(as.vector(TOST.S47.t))
+qqnorm(jj, main = "QQ-Plot for S47 Cecal Content")
+abline(0, 1, col="red")
+  # Not Normal
+plot(density(as.vector(TOST.S47.t)), main="Density Plot for S47 Cecal Content")
+  # Skewed right
+shapiro.test(TOST.S47.t)
+  # p-value  < 2.2e-16
+
+summary(as.vector(TOST.S48.t))
+length(which(TOST.S48.t > 100, arr.ind = T))
+  # 0 values above 100
+jj <- scale(as.vector(TOST.S48.t))
+qqnorm(jj, main = "QQ-Plot for S48 Cecal Content")
+abline(0, 1, col="red")
+  # Not Normal
+plot(density(as.vector(TOST.S48.t)), main="Density Plot for S48 Cecal Content")
+  # Skewed right
+shapiro.test(TOST.S48.t)
+  # p-value  < 2.2e-16
+
+summary(as.vector(TOST.S49.t))
+length(which(TOST.S49.t > 100, arr.ind = T))
+  # 0 values above 100
+jj <- scale(as.vector(TOST.S49.t))
+qqnorm(jj, main = "QQ-Plot for S49 Cecal Content")
+abline(0, 1, col="red")
+  # Not Normal
+plot(density(as.vector(TOST.S49.t)), main="Density Plot for S49 Cecal Content")
+  # Skewed right
+shapiro.test(TOST.S49.t)
+  # p-value  < 2.2e-16
+
+summary(as.vector(TOST.S50.t))
+length(which(TOST.S50.t > 100, arr.ind = T))
+  # 0 values above 100
+jj <- scale(as.vector(TOST.S50.t))
+qqnorm(jj, main = "QQ-Plot for S50 Cecal Content")
+abline(0, 1, col="red")
+  # Not Normal
+plot(density(as.vector(TOST.S50.t)), main="Density Plot for S50 Cecal Content")
+  # Skewed right
+shapiro.test(TOST.S50.t)
+  # p-value  < 2.2e-16
+
+
+### Because data isn't Normally distributed, I'll use RTOST instead of TOST ###
+### RTOST ###
+rtost(TOST.otu.diet1.t, TOST.S47.t, alpha = 0.05)
+  # p-value = 0
+  # Reject hypothesis that random & mean have non-equivalent means
+rtost(TOST.otu.diet1.t, TOST.S48.t, alpha = 0.05)
+  # p-value = 0
+  # Reject hypothesis that random & mean have non-equivalent means
+rtost(TOST.otu.diet1.t, TOST.S49.t, alpha = 0.05)
+  # p-value = 0
+  # Reject hypothesis that random & mean have non-equivalent means
+rtost(TOST.otu.diet1.t, TOST.S50.t, alpha = 0.05)
+  # p-value = 0
+  # Reject hypothesis that random & mean have non-equivalent means
 ```
