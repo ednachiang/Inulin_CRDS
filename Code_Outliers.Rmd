@@ -58,8 +58,7 @@ crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
   # Weird baseline, AUC, and MaxD
 crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
   # Baseline (both values are high), AUC, MaxD
-crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
-  # This is an adult, not pup
+
 
 crds.rem$Season <- ordered(crds.rem$Season, levels=c("Summer", "Winter", "Spring"))
 

@@ -53,8 +53,6 @@ crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
 #crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "P04"),]
-  # This is an adult, not pup
 
 crds.rem$Season <- ordered(crds.rem$Season, levels=c("Summer", "Winter", "Spring"))
 

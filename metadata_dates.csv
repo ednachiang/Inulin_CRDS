@@ -1,7 +1,6 @@
 Number,ID,Season,Sex,Antibiotics,Substrate,Diet,Mom,Mom_Location,BodyMass,BodyTemp,Ketones,Date_Sampled,Date_To_Cold,Date_Start_Torpor,Date_To_Warm,Days_Hib,IBA_Sep,IBA_Oct,IBA_Nov,IBA_Dec,IBA_Jan,IBA_Feb,IBA_Mar,Num_IBA,IBA/Hib
 3998,P01,Spring,Female,No,Inulin,1,3948,Tumbledown,153.8,39,0.6,3/8/2018,9/19/2017,9/21/2017,2/22/2018,154,4,5,4,3,2,1,0,19,0.123376623
 3987,P03,Spring,Male,No,Saline,1,3961,AgStation,172.6,36.5,0.6,3/12/2018,9/18/2017,9/21/2017,2/26/2018,158,3,4,5,5,2,5,0,24,0.151898734
-3957,P04,Spring,Female,Yes,Saline,1,Adult,AgStation,143.6,37.5,0.1,3/15/2018,9/22/2017,9/23/2017,3/1/2018,159,2,4,2,3,5,4,0,20,0.125786164
 4023,P05,Spring,Female,Yes,Saline,1,3946,Tumbledown,170.3,39,0.3,3/16/2018,9/29/2017,10/1/2017,3/2/2018,152,0,12,4,3,3,2,0,24,0.157894737
 3993,P06,Spring,Female,Yes,Saline,1,3948,Tumbledown,152.1,40,0.6,3/19/2018,9/20/2017,9/24/2017,3/5/2018,162,3,8,3,4,3,1,0,22,0.135802469
 4033,P07,Spring,Female,No,Inulin,1,3949,Tumbledown,154.6,38.5,0.4,3/20/2018,9/22/2017,9/23/2017,3/6/2018,164,3,9,4,4,4,1,0,25,0.152439024
