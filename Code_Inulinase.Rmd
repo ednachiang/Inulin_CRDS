@@ -465,6 +465,12 @@ length(which(taxa_sums(spe.phy.p) == 0))
 spe.phy.act <- subset_samples(spe.phy, Metabolism == "Active")
 length(which(taxa_sums(spe.phy.act) == 0))
   # Active seasons have 2 fewer species than the whole dataset
+
+# Total dataset = 106 taxa - 1 unclassified = 105
+# Winter taxa = 65 - 1 = 64
+# Summer taxa = 102 -1 = 101
+# Spring taxa = 98 -1 = 97
+# Active taxa = 104 - 1 = 103
 ```
 
 
@@ -476,8 +482,7 @@ otus <- data.frame(otu_table(phy.phy))
 kw.phy <- data.frame()
 for(taxon in 1:dim(data.frame(otu_table(phy.phy)))[1]){
   kw <- kruskal.test(x=as.numeric(otus[taxon,]), g=meta$Season)
-  es <- effectsize(kw)
-  kw.phy <- rbind(kw.phy, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value, effect_size = es[[1]]))
+  kw.phy <- rbind(kw.phy, data.frame(taxon = rownames(otus)[taxon], pval = kw$p.value))
 }
 kw.phy$padj <- p.adjust(kw.phy$pval, method = "BH")
 
@@ -533,7 +538,8 @@ kw.spe$padj <- p.adjust(kw.spe$pval, method = "BH")
 ### Prep
 MetabOrder <- c(rep("Active",6), rep("Hibernating", 3), rep("Active", 6), rep ("Hibernating", 2))
   # Order that samples appear in OTU table
-pwr.t2n.test(n1 = length(which(meta$Metabolism == "Active")), n2 = length(which(meta$Metabolism == "Hibernating")), power = 0.8)
+pwr.t2n.test(n1 = length(which(meta$Metabolism == "Active")),
+             n2 = length(which(meta$Metabolism == "Hibernating")), power = 0.8)
   # d = 1.595744
   # Detectable effect size if power = 0.8
 
@@ -543,10 +549,10 @@ pwr.t2n.test(n1 = length(which(meta$Metabolism == "Active")), n2 = length(which(
 otus <- data.frame(otu_table(phy.phy))
 wil.phy <- data.frame()
 for(taxon in 1:dim(data.frame(otu_table(phy.phy)))[1]){
-  es <- cohen.d(as.numeric(otus[taxon,]) ~ MetabOrder)
+  es <- cohen.d(as.numeric(otus[taxon,]) ~ MetabOrder, hedges.correction = T)
   pwr <- pwr.t2n.test(n1 = length(which(meta$Metabolism == "Active")),
             n2 = length(which(meta$Metabolism == "Hibernating")), d = es$estimate)
-  wil.phy <- rbind(wil.phy, data.frame(taxon = rownames(otus)[taxon], cohenD = es$estimate, power = pwr[[5]]))
+  wil.phy <- rbind(wil.phy, data.frame(taxon = rownames(otus)[taxon], HedgesG = es$estimate, power = pwr[[5]]))
 }
 wil.phy$fdr <- mt(phy.phy, classlabel = "Metabolism")$fdr
 #write.csv(wil.phy, "kaiju/inulinase/tax_wilcox_output/exo.phylum.output.csv")
@@ -557,10 +563,10 @@ wil.phy$fdr <- mt(phy.phy, classlabel = "Metabolism")$fdr
 otus <- data.frame(otu_table(cla.phy))
 wil.cla <- data.frame()
 for(taxon in 1:dim(data.frame(otu_table(cla.phy)))[1]){
-  es <- cohen.d(as.numeric(otus[taxon,]) ~ MetabOrder)
+  es <- cohen.d(as.numeric(otus[taxon,]) ~ MetabOrder, hedges.correction = T)
   pwr <- pwr.t2n.test(n1 = length(which(meta$Metabolism == "Active")),
             n2 = length(which(meta$Metabolism == "Hibernating")), d = es$estimate)
-  wil.cla <- rbind(wil.cla, data.frame(taxon = rownames(otus)[taxon], cohenD = es$estimate, power = pwr[[5]]))
+  wil.cla <- rbind(wil.cla, data.frame(taxon = rownames(otus)[taxon], HedgesG = es$estimate, power = pwr[[5]]))
 }
 wil.cla$fdr <- mt(cla.phy, classlabel = "Metabolism")$fdr
 #write.csv(wil.cla, "kaiju/inulinase/tax_wilcox_output/exo.class.output.csv")
@@ -571,10 +577,10 @@ wil.cla$fdr <- mt(cla.phy, classlabel = "Metabolism")$fdr
 otus <- data.frame(otu_table(ord.phy))
 wil.ord <- data.frame()
 for(taxon in 1:dim(data.frame(otu_table(ord.phy)))[1]){
-  es <- cohen.d(as.numeric(otus[taxon,]) ~ MetabOrder)
+  es <- cohen.d(as.numeric(otus[taxon,]) ~ MetabOrder, hedges.correction = T)
   pwr <- pwr.t2n.test(n1 = length(which(meta$Metabolism == "Active")),
             n2 = length(which(meta$Metabolism == "Hibernating")), es$estimate)
-  wil.ord <- rbind(wil.ord, data.frame(taxon = rownames(otus)[taxon], cohenD = es$estimate, power = pwr[[5]]))
+  wil.ord <- rbind(wil.ord, data.frame(taxon = rownames(otus)[taxon], HedgesG = es$estimate, power = pwr[[5]]))
 }
 wil.ord$fdr <- mt(ord.phy, classlabel = "Metabolism")$fdr
 #write.csv(wil.ord, "kaiju/inulinase/tax_wilcox_output/exo.order.output.csv")
@@ -585,10 +591,10 @@ wil.ord$fdr <- mt(ord.phy, classlabel = "Metabolism")$fdr
 otus <- data.frame(otu_table(fam.phy))
 wil.fam <- data.frame()
 for(taxon in 1:dim(data.frame(otu_table(fam.phy)))[1]){
-  es <- cohen.d(as.numeric(otus[taxon,]) ~ MetabOrder)
+  es <- cohen.d(as.numeric(otus[taxon,]) ~ MetabOrder, hedges.correction = T)
   pwr <- pwr.t2n.test(n1 = length(which(meta$Metabolism == "Active")),
             n2 = length(which(meta$Metabolism == "Hibernating")), d = es$estimate)
-  wil.fam <- rbind(wil.fam, data.frame(taxon = rownames(otus)[taxon], cohenD = es$estimate, power = pwr[[5]]))
+  wil.fam <- rbind(wil.fam, data.frame(taxon = rownames(otus)[taxon], HedgesG = es$estimate, power = pwr[[5]]))
 }
 wil.fam$fdr <- mt(fam.phy, classlabel = "Metabolism")$fdr
 #write.csv(wil.fam, "kaiju/inulinase/tax_wilcox_output/exo.family.output.csv")
@@ -599,10 +605,10 @@ wil.fam$fdr <- mt(fam.phy, classlabel = "Metabolism")$fdr
 otus <- data.frame(otu_table(gen.phy))
 wil.gen <- data.frame()
 for(taxon in 1:dim(data.frame(otu_table(gen.phy)))[1]){
-  es <- cohen.d(as.numeric(otus[taxon,]) ~ MetabOrder)
+  es <- cohen.d(as.numeric(otus[taxon,]) ~ MetabOrder, hedges.correction = T)
   pwr <- pwr.t2n.test(n1 = length(which(meta$Metabolism == "Active")),
             n2 = length(which(meta$Metabolism == "Hibernating")), d = es$estimate)
-  wil.gen <- rbind(wil.gen, data.frame(taxon = rownames(otus)[taxon], cohenD = es$estimate, power = pwr[[5]]))
+  wil.gen <- rbind(wil.gen, data.frame(taxon = rownames(otus)[taxon], HedgesG = es$estimate, power = pwr[[5]]))
 }
 wil.gen$fdr <- mt(gen.phy, classlabel = "Metabolism")$fdr
 #write.csv(wil.gen, "kaiju/inulinase/tax_wilcox_output/exo.genus.output.csv")
@@ -613,10 +619,10 @@ wil.gen$fdr <- mt(gen.phy, classlabel = "Metabolism")$fdr
 otus <- data.frame(otu_table(spe.phy))
 wil.spe <- data.frame()
 for(taxon in 1:dim(data.frame(otu_table(spe.phy)))[1]){
-  es <- cohen.d(as.numeric(otus[taxon,]) ~ MetabOrder)
+  es <- cohen.d(as.numeric(otus[taxon,]) ~ MetabOrder, hedges.correction = T)
   pwr <- pwr.t2n.test(n1 = length(which(meta$Metabolism == "Active")),
             n2 = length(which(meta$Metabolism == "Hibernating")), d = es$estimate)
-  wil.spe <- rbind(wil.spe, data.frame(taxon = rownames(otus)[taxon], cohenD = es$estimate, power = pwr[[5]]))
+  wil.spe <- rbind(wil.spe, data.frame(taxon = rownames(otus)[taxon], HedgesG = es$estimate, power = pwr[[5]]))
 }
 wil.spe$fdr <- mt(spe.phy, classlabel = "Metabolism")$fdr
 #write.csv(wil.spe, "kaiju/inulinase/tax_wilcox_output/exo.species.output.csv")
