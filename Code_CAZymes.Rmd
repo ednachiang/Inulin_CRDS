@@ -115,8 +115,8 @@ cazy.dds <- DESeqDataSetFromMatrix(countData = cazy.class.otu,
                                    colData = data.frame(sample_data(cazy.phy)), 
                                    design = ~ Season)
 cazy.dds <- estimateSizeFactors(cazy.dds)
-cazy.norm <- counts(cazy.dds, normalized=T)
-#write.csv(cazy.norm, file="dbcan/cazy.Normalized.Counts.Class.csv")
+cazy.class.norm <- counts(cazy.dds, normalized=T)
+#write.csv(cazy.class.norm, file="dbcan/cazy.Normalized.Counts.Class.csv")
 
 cazy.class.norm <- read.csv('dbcan/cazy.Normalized.Counts.Class.csv', row.names=1)
 rownames(cazy.class.norm) <- c("Carbohydrate Esterase", "Glycoside Hydrolase", "Glycosyltransferase", "Polysaccharide Lyase")
