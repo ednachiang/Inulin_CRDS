@@ -223,79 +223,7 @@ ggplot(dna.c.noabx, aes(x=Season, y=DNA_Yield_.ng.mg., fill=Season)) +
 
 
 
-### Combine % microbial * DNA yield
-```{r}
-### Load taxonomic classification
-load("kaiju/all_shortreads/use/physeq/phylum.RData")
 
-
-
-### Calculate % microbial
-phy.microbial <- subset_taxa(physeq, ta1 != "Viruses")
-phy.microbial <- subset_taxa(phy.microbial, ta1 != "Unclassified")
-microbe.ra <- data.frame(matrix(nrow = 18, ncol = 1))
-colnames(microbe.ra) <- "%_Microbial"
-microbe.otu <- data.frame(otu_table(phy.microbial))
-rownames(microbe.ra) <- colnames(microbe.otu)
-
-for(i in 1:ncol(microbe.otu)) {
-  sum.microbe <- sum(microbe.otu[,i])
-  microbe.ra[i,] <- sum.microbe
-}
-
-
-
-### Load DNA
-dna <- read.csv('dna.csv')
-dna.c <- dna[which(grepl("CC", dna$Sample) == T),]
-dna.c$Metabolism <- "a"
-dna.c$Metabolism[which(dna.c$Season == "Winter")] <- "Hibernation"
-dna.c$Metabolism[which(dna.c$Season != "Winter")] <- "Active"
-dna.c$Metabolism <- ordered(dna.c$Metabolism, levels = c("Active", "Hibernation"))
-dna.c$Season <- ordered(dna.c$Season, levels = c("Summer", "Winter", "Spring"))
-dna.c.noabx <- dna.c[which(dna.c$Antibiotics == "No Antibiotics"),]
-
-
-### Load % Host DNA from Short Reads
-host.dna <- read.csv('hostDNA_shortreads.csv')
-colnames(host.dna) <- c("Sample", "%_Host")
-
-
-### Combine % microbial and DNA yield
-microbe.ra$Squirrel <- substr(rownames(microbe.ra),3,5)
-microbe.ra$Host_Percentage <- (host.dna$`%_Host` / 100)
-microbe.ra$DNAyield <- NA
-microbe.ra$Season <- NA
-microbe.ra$Metabolism <- NA
-
-for(j in 1:nrow(microbe.ra)){
-  row <- which(dna.c.noabx$Squirrel == microbe.ra$Squirrel[j])
-  microbe.ra$DNAyield[j] <- dna.c.noabx$DNA_Yield_.ng.mg.[row]
-  microbe.ra$Season[j] <- as.character(dna.c.noabx$Season[row])
-  microbe.ra$Metabolism[j] <- as.character(dna.c.noabx$Metabolism[row])
-}
-microbe.ra$Season <- ordered(microbe.ra$Season, c("Summer", "Winter", "Spring"))
-microbe.ra$Metabolism <- ordered(microbe.ra$Metabolism, c("Active", "Hibernation"))
-
-microbe.ra$NonHost_DNA_Yield <- (1 - microbe.ra$Host_Percentage) * microbe.ra$DNAyield
-
-microbe.ra$Microbial_DNA_Yield <- (microbe.ra$`%_Microbial` / 100) * microbe.ra$NonHost_DNA_Yield
-```
-
-### Test microbial DNA yield
-```{r}
-### Test Normality
-shapiro.test(microbe.ra$Microbial_DNA_Yield)
-  # p-value = 0.7821
-  # Normal
-
-summary(aov(formula = Microbial_DNA_Yield ~ Season, data = microbe.ra))
-  # p-value = 0.26
-
-t.test(formula = Microbial_DNA_Yield ~ Metabolism, data = microbe.ra)
-  # p-value = 0.7692
-
-```
 
 ### Test host DNA yield
 ```{r}
