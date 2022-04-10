@@ -194,7 +194,7 @@ length(which(class == "PL"))
 ```
 
 
-### Class-level dot plot
+### Prepare Class data
 ```{r}
 # Create phyloseq object to summarize data
 class.tax <- data.frame(c("Carbohydrate Esterase", "Glycoside Hydrolase", "Glycosyltransferase", 
@@ -317,6 +317,15 @@ kruskal.test(Abundance ~ Season, pl)
 # Test PL variance
 fligner.test(Abundance ~ Season, pl)
   # p-value = 0.04577*
+
+
+
+# Fligner P Adj
+p.adjust(c(0.993, 0.7951, 0.4993, 0.04577), "BH")
+  # CE = 0.99300
+  # GH = 0.99300
+  # GT = 0.99300
+  # PL = 0.18308
 ```
 
 
@@ -444,30 +453,30 @@ pl.plot <- ggplot(class.df[which(class.df$OTU == "Polysaccharide Lyase"),],
 
 ### Plot - Class dotplot
 ```{r}
-png("prospectus.cazy.class.png", width = 250, height = 70, units = "mm", res = 400)
+#png("cazy.class.png", width = 250, height = 70, units = "mm", res = 400)
 grid.newpage()
-pushViewport(viewport(layout=grid.layout(1,4, widths = c(1,1,1,1))))
+pushViewport(viewport(layout=grid.layout(1,5, widths = c(1,1,1,1, 0.45))))
 
 print(gh.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
-#grid.text("A", x=unit(0.065, "npc"), y=unit(0.95, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=20,fontface="bold"))
+grid.text("A", x=unit(0.065, "npc"), y=unit(0.95, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=18,fontface="bold"))
 
 
 print(gt.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
-#grid.text("B", x=unit(0.065, "npc"), y=unit(0.95, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=2), gp=gpar(fontsize=20,fontface="bold"))
+grid.text("B", x=unit(0.065, "npc"), y=unit(0.95, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=2), gp=gpar(fontsize=18,fontface="bold"))
 
 
 print(ce.plot, vp=viewport(layout.pos.row=1, layout.pos.col=3))
-#grid.text("C", x=unit(0.065, "npc"), y=unit(0.95, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=3), gp=gpar(fontsize=20,fontface="bold"))
+grid.text("C", x=unit(0.065, "npc"), y=unit(0.95, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=3), gp=gpar(fontsize=18,fontface="bold"))
 
 
 
 print(pl.plot, vp=viewport(layout.pos.row=1, layout.pos.col=4))
-#grid.text("D", x=unit(0.065, "npc"), y=unit(0.95, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=4), gp=gpar(fontsize=20,fontface="bold"))
+grid.text("D", x=unit(0.075, "npc"), y=unit(0.95, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=4), gp=gpar(fontsize=18,fontface="bold"))
 
 
-#season.legend$vp <- viewport(layout.pos.row=1:4, layout.pos.col=2)
-#grid.draw(season.legend)
-dev.off()
+season.legend$vp <- viewport(layout.pos.row=1, layout.pos.col=5)
+grid.draw(season.legend)
+#dev.off()
 ```
 
 
@@ -569,7 +578,7 @@ sig.hib <- subset_taxa(sig, Family == "GH20" | Family == "GH33" | Family == "GH8
 
 
 #tiff("cazy.heatmap.active.tiff", width=13, height=9.5, units="in", res=300)
-plot_heatmap(sig.active, sample.label = "Season", sample.order = c("I.S07", "S.S08", "I.S29", "S.S32",
+hm.active <- plot_heatmap(sig.active, sample.label = "Season", sample.order = c("I.S07", "S.S08", "I.S29", "S.S32",
                                                                    "I.S34", "S.S05", "S.W36", "I.W32",
                                                                    "I.W31", "I.W33",  "S.W37", "I.P01",
                                                                    "S.P03", "I.P07", "S.P09", "I.P11",
@@ -577,7 +586,7 @@ plot_heatmap(sig.active, sample.label = "Season", sample.order = c("I.S07", "S.S
              taxa.order = c("PL9", "CE2", "GH120", "GH94", "GH9", "GH3", "PL11", "PL1", "CE12", "GT11",
                             "GH115", "GH51", "GH44", "GH43", "GH42", "GH31", "GH10", "GH5")) +
   geom_tile(colour="gray40") +
-  #scale_x_discrete(position = "top", labels=c(rep("Summer",6), rep("Winter", 5), rep("Spring", 6))) +
+  scale_x_discrete(position = "top", labels=c(rep("Summer",6), rep("Winter", 5), rep("Spring", 6))) +
   xlab("Season\n\n") +
   ylab("CAZyme Family\n\n") +
   scale_fill_gradientn(name=expression("Hellinger-\ntransformed\nnormalized\ncounts"),
@@ -585,15 +594,16 @@ plot_heatmap(sig.active, sample.label = "Season", sample.order = c("I.S07", "S.S
                        limits = c(0.000, 0.133), breaks = c(0.000, 0.033, 0.066, 0.099, 0.132),
                        labels = c("0.000", "0.033", "0.066", "0.099", "0.132")) +
   theme(axis.text.x = element_blank(),
-        axis.text.y = element_text(size=20),
+        axis.text.y = element_text(size=30),
         axis.ticks.x = element_blank(),
         axis.ticks.y = element_blank(),
         panel.border=element_blank(),
-        axis.title.x = element_text(size=20, face="bold"),
-        axis.title.y = element_text(size=20, face="bold"),
-        legend.title = element_text(size=20, face="bold"),
-        legend.text = element_text(size=20)) +
-  guides(fill = guide_colorbar(barheight = unit(7,"in"),
+        axis.title.x = element_text(size=30, face="bold"),
+        axis.title.y = element_text(size=30, face="bold"),
+        legend.title = element_text(size=30, face="bold"),
+        legend.text = element_text(size=30),
+        plot.margin = margin(t=0, r=0, b=0, l=0)) +
+  guides(fill = guide_colorbar(barheight = unit(11,"in"),
                                frame.colour="black",
                                frame.linewidth=1))
 #dev.off()
@@ -601,7 +611,7 @@ plot_heatmap(sig.active, sample.label = "Season", sample.order = c("I.S07", "S.S
 
 
 #tiff("cazy.heatmap.active.high.tiff", width=18, height=2.4, units="in", res=300)
-plot_heatmap(sig.active.high, sample.label = "Season", sample.order = c("I.S07", "S.S08", "I.S29", 
+hm.active.high <- plot_heatmap(sig.active.high, sample.label = "Season", sample.order = c("I.S07", "S.S08", "I.S29", 
                                                                         "S.S32", "I.S34", "S.S05",
                                                                         "S.W36", "I.W32", "I.W31",
                                                                         "I.W33",  "S.W37", "I.P01",
@@ -609,23 +619,24 @@ plot_heatmap(sig.active.high, sample.label = "Season", sample.order = c("I.S07",
                                                                         "I.P11", "S.P12"), 
              taxa.order = c("GH3", "GH43")) +
   geom_tile(colour="gray40") +
-  #scale_x_discrete(position = "top", labels=c(rep("Summer",6), rep("Winter", 5), rep("Spring", 6))) +
+  scale_x_discrete(position = "top", labels=c(rep("Summer",6), rep("Winter", 5), rep("Spring", 6))) +
   xlab("Season\n\n") +
   ylab("CAZyme Family\n\n") +
   scale_fill_gradientn(name=expression("Hellinger-\ntransformed\nnormalized\ncounts"),
                        colours = c("#FFFFFF", "#FDF8F3", "#f9e7d7", "#f6c6a9", "#f49c74", "#d9444f", "#7b1c59", "#2e1438", "#000000"),
-                       limits = c(0.156, 0.244), breaks = c(0.156, 0.178, 0.200, 0.222, 0.244),
-                       labels = c("0.156", "0.178", "0.200", "0.222", "0.244")) +
+                       limits = c(0.156, 0.244), breaks = c(0.156, 0.200, 0.244),
+                       labels = c("0.156", "0.200", "0.244")) +
   theme(axis.text.x = element_blank(),
-        axis.text.y = element_text(size=10),
+        axis.text.y = element_text(size=30),
         axis.ticks.x = element_blank(),
         axis.ticks.y = element_blank(),
         panel.border=element_blank(),
-        axis.title.x = element_text(size=10, face="bold"),
-        axis.title.y = element_text(size=10, face="bold"),
-        legend.title = element_text(size=10, face="bold"),
-        legend.text = element_text(size=10)) +
-  guides(fill = guide_colorbar(barheight = unit(1,"in"),
+        axis.title.x = element_text(size=30, face="bold"),
+        axis.title.y = element_text(size=30, face="bold"),
+        legend.title = element_text(size=28, face="bold"),
+        legend.text = element_text(size=28),
+        plot.margin = margin(t=65, r=5, b=85, l=15)) +
+  guides(fill = guide_colorbar(barheight = unit(1.75,"in"),
                                frame.colour="black",
                                frame.linewidth=1))
 #dev.off()
@@ -636,7 +647,7 @@ plot_heatmap(sig.active.high, sample.label = "Season", sample.order = c("I.S07",
 
 
 #tiff("cazy.heatmap.hib.tiff", width=17, height=8.7, units="in", res=300)
-plot_heatmap(sig.hib, sample.label = "Season", sample.order = c("I.S07", "S.S08", "I.S29","S.S32",
+hm.hib <- plot_heatmap(sig.hib, sample.label = "Season", sample.order = c("I.S07", "S.S08", "I.S29","S.S32",
                                                                 "I.S34", "S.S05", "S.W36", "I.W32",
                                                                 "I.W31", "I.W33",  "S.W37", "I.P01",
                                                                 "S.P03", "I.P07", "S.P09", "I.P11",
@@ -651,15 +662,16 @@ plot_heatmap(sig.hib, sample.label = "Season", sample.order = c("I.S07", "S.S08"
                        limits = c(0.02, 0.14), breaks = c(0.02, 0.05, 0.08, 0.11, 0.14),
                        labels = c("0.02", "0.05", "0.08", "0.11", "0.14")) +
   theme(axis.text.x = element_blank(),
-        axis.text.y = element_text(size=20),
+        axis.text.y = element_text(size=30),
         axis.ticks.x = element_blank(),
         axis.ticks.y = element_blank(),
         panel.border=element_blank(),
-        axis.title.x = element_text(size=20, face="bold"),
-        axis.title.y = element_text(size=20, face="bold"),
-        legend.title = element_text(size=20, face="bold"),
-        legend.text = element_text(size=20)) +
-  guides(fill = guide_colorbar(barheight = unit(7,"in"),
+        axis.title.x = element_text(size=30, face="bold"),
+        axis.title.y = element_text(size=30, face="bold"),
+        legend.title = element_text(size=28, face="bold"),
+        legend.text = element_text(size=28), 
+        plot.margin = margin(t=0, r=0, b=10, l=0)) +
+  guides(fill = guide_colorbar(barheight = unit(5.75,"in"),
                                frame.colour="black",
                                frame.linewidth=1))
 #dev.off()
@@ -667,7 +679,122 @@ plot_heatmap(sig.hib, sample.label = "Season", sample.order = c("I.S07", "S.S08"
 
 ```
 
+### Plot - Heatmaps
+```{r}
+tiff("cazy.heatmaps.tiff", width=18, height=28, units="in", res=300)
+grid.newpage()
+pushViewport(viewport(layout=grid.layout(3,1, heights = c(1,0.35,0.6))))
 
+
+print(hm.active, vp=viewport(layout.pos.row=1, layout.pos.col=1))
+grid.text("A", x=unit(0.02, "npc"), y=unit(0.96, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=50,fontface="bold"))
+
+grid.rect(x=unit(0.278, "npc"), y=unit(0.934, "npc"), width=unit(0.245, "npc"),
+          height=unit(0.06,"npc"), draw = T, 
+          vp=viewport(layout.pos.row=1, layout.pos.col=1),
+          gp=gpar(fill = "#E69F00", color = "#E69F00"))
+grid.rect(x=unit(0.5045, "npc"), y=unit(0.934, "npc"), width=unit(0.203, "npc"),
+          height=unit(0.06,"npc"), draw = T, 
+          vp=viewport(layout.pos.row=1, layout.pos.col=1),
+          gp=gpar(fill = "#0072B2", color = "#0072B2"))
+grid.rect(x=unit(0.731, "npc"), y=unit(0.934, "npc"), width=unit(0.245, "npc"),
+          height=unit(0.06,"npc"), draw = T, 
+          vp=viewport(layout.pos.row=1, layout.pos.col=1),
+          gp=gpar(fill = "#00bf8b", color = "#00bf8b"))
+
+grid.text("Summer", x=unit(0.278, "npc"), y=unit(0.935, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=40))
+grid.text("Winter", x=unit(0.505, "npc"), y=unit(0.935, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=40))
+grid.text("Spring", x=unit(0.731, "npc"), y=unit(0.935, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=40))
+
+grid.text("ab", x=unit(0.05, "npc"), y=unit(0.879, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("ab", x=unit(0.05, "npc"), y=unit(0.818, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("ab", x=unit(0.05, "npc"), y=unit(0.76, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("ab", x=unit(0.05, "npc"), y=unit(0.705, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("ab", x=unit(0.05, "npc"), y=unit(0.65, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("ab", x=unit(0.05, "npc"), y=unit(0.595, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("ab", x=unit(0.05, "npc"), y=unit(0.535, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("ab", x=unit(0.05, "npc"), y=unit(0.479, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("ab", x=unit(0.05, "npc"), y=unit(0.425, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("ab", x=unit(0.05, "npc"), y=unit(0.37, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("b", x=unit(0.0565, "npc"), y=unit(0.315, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("b", x=unit(0.0565, "npc"), y=unit(0.26, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("b", x=unit(0.0565, "npc"), y=unit(0.204, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("b", x=unit(0.0565, "npc"), y=unit(0.146, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("b", x=unit(0.0565, "npc"), y=unit(0.09, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("b", x=unit(0.0565, "npc"), y=unit(0.035, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=28))
+
+
+
+
+
+
+
+
+
+print(hm.active.high, vp=viewport(layout.pos.row=2, layout.pos.col=1))
+grid.text("B", x=unit(0.02, "npc"), y=unit(0.85, "npc"), vp=viewport(layout.pos.row=2, layout.pos.col=1), gp=gpar(fontsize=50,fontface="bold"))
+
+grid.rect(x=unit(0.277, "npc"), y=unit(0.625, "npc"), width=unit(0.246, "npc"),
+          height=unit(0.16,"npc"), draw = T, 
+          vp=viewport(layout.pos.row=2, layout.pos.col=1),
+          gp=gpar(fill = "#E69F00", color = "#E69F00"))
+grid.rect(x=unit(0.506, "npc"), y=unit(0.625, "npc"), width=unit(0.207, "npc"),
+          height=unit(0.16,"npc"), draw = T, 
+          vp=viewport(layout.pos.row=2, layout.pos.col=1),
+          gp=gpar(fill = "#0072B2", color = "#0072B2"))
+grid.rect(x=unit(0.735, "npc"), y=unit(0.625, "npc"), width=unit(0.247, "npc"),
+          height=unit(0.16,"npc"), draw = T, 
+          vp=viewport(layout.pos.row=2, layout.pos.col=1),
+          gp=gpar(fill = "#00bf8b", color = "#00bf8b"))
+
+grid.text("Summer", x=unit(0.277, "npc"), y=unit(0.63, "npc"), vp=viewport(layout.pos.row=2, layout.pos.col=1), gp=gpar(fontsize=40))
+grid.text("Winter", x=unit(0.506, "npc"), y=unit(0.63, "npc"), vp=viewport(layout.pos.row=2, layout.pos.col=1), gp=gpar(fontsize=40))
+grid.text("Spring", x=unit(0.735, "npc"), y=unit(0.63, "npc"), vp=viewport(layout.pos.row=2, layout.pos.col=1), gp=gpar(fontsize=40))
+
+grid.text("ab", x=unit(0.061, "npc"), y=unit(0.47, "npc"), vp=viewport(layout.pos.row=2, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("a", x=unit(0.055, "npc"), y=unit(0.33, "npc"), vp=viewport(layout.pos.row=2, layout.pos.col=1), gp=gpar(fontsize=28))
+
+
+
+
+
+
+
+
+
+
+print(hm.hib, vp=viewport(layout.pos.row=3, layout.pos.col=1))
+grid.text("C", x=unit(0.02, "npc"), y=unit(0.95, "npc"), vp=viewport(layout.pos.row=3, layout.pos.col=1), gp=gpar(fontsize=50,fontface="bold"))
+
+grid.rect(x=unit(0.279, "npc"), y=unit(0.889, "npc"), width=unit(0.248, "npc"),
+          height=unit(0.1,"npc"), draw = T, 
+          vp=viewport(layout.pos.row=3, layout.pos.col=1),
+          gp=gpar(fill = "#E69F00", color = "#E69F00"))
+grid.rect(x=unit(0.509, "npc"), y=unit(0.889, "npc"), width=unit(0.207, "npc"),
+          height=unit(0.1,"npc"), draw = T, 
+          vp=viewport(layout.pos.row=3, layout.pos.col=1),
+          gp=gpar(fill = "#0072B2", color = "#0072B2"))
+grid.rect(x=unit(0.739, "npc"), y=unit(0.889, "npc"), width=unit(0.248, "npc"),
+          height=unit(0.1,"npc"), draw = T, 
+          vp=viewport(layout.pos.row=3, layout.pos.col=1),
+          gp=gpar(fill = "#00bf8b", color = "#00bf8b"))
+
+grid.text("Summer", x=unit(0.279, "npc"), y=unit(0.891, "npc"), vp=viewport(layout.pos.row=3, layout.pos.col=1), gp=gpar(fontsize=40))
+grid.text("Winter", x=unit(0.509, "npc"), y=unit(0.891, "npc"), vp=viewport(layout.pos.row=3, layout.pos.col=1), gp=gpar(fontsize=40))
+grid.text("Spring", x=unit(0.738, "npc"), y=unit(0.891, "npc"), vp=viewport(layout.pos.row=3, layout.pos.col=1), gp=gpar(fontsize=40))
+
+
+grid.text("cd", x=unit(0.05, "npc"), y=unit(0.79, "npc"), vp=viewport(layout.pos.row=3, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("cd", x=unit(0.05, "npc"), y=unit(0.7, "npc"), vp=viewport(layout.pos.row=3, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("cd", x=unit(0.05, "npc"), y=unit(0.61, "npc"), vp=viewport(layout.pos.row=3, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("cd", x=unit(0.05, "npc"), y=unit(0.52, "npc"), vp=viewport(layout.pos.row=3, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("cd", x=unit(0.05, "npc"), y=unit(0.43, "npc"), vp=viewport(layout.pos.row=3, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("cd", x=unit(0.05, "npc"), y=unit(0.34, "npc"), vp=viewport(layout.pos.row=3, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("d", x=unit(0.056, "npc"), y=unit(0.25, "npc"), vp=viewport(layout.pos.row=3, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("d", x=unit(0.056, "npc"), y=unit(0.16, "npc"), vp=viewport(layout.pos.row=3, layout.pos.col=1), gp=gpar(fontsize=28))
+grid.text("d", x=unit(0.056, "npc"), y=unit(0.07, "npc"), vp=viewport(layout.pos.row=3, layout.pos.col=1), gp=gpar(fontsize=28))
+dev.off()
+```
 
 
 ### DESeq sample dist heatmap / dendrogram
@@ -737,6 +864,7 @@ pcoa <- pcoa(dist)
 phy.ord <- cazy.phy
 sample_data(phy.ord)$Season <- ordered(sample_data(phy.ord)$Season, levels = c("Summer", "Winter", "Spring"))
 
+
 #tiff("prospectus.pcoa.tiff", width=8, height=6, units="in", res=300)
 plot_ordination(physeq = phy.ord, ordination = pcoa, axes = c(1,2),
                 color = "Season") +
@@ -755,12 +883,19 @@ plot_ordination(physeq = phy.ord, ordination = pcoa, axes = c(1,2),
 
 
 ### Run PERMANOVA on DESEq Hellinger distance
+adonis(dist ~ Season, data=meta, permutations = 99999)
+  # p-value = 0.1619
+beta.tax = betadisper(d=dist, group=meta$Season) 
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.06
+
 adonis(dist ~ Metabolism, data=meta, permutations = 99999)
-  # p-value = 0.1737
+  # p-value = 0.1738
 beta.tax = betadisper(d=dist, group=meta$Metabolism) 
 p <- permutest(beta.tax)
 p$tab
-  # p-value = 0.711
+  # p-value = 0.072
 ```
 
 
