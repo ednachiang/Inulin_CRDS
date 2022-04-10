@@ -98,48 +98,8 @@ ggplot(ags, aes(x = Season, y = AGS_kb, fill = Season)) +
 #dev.off()
 ```
 
-### Endo/Exo Rel Abund & RPKG
+### RPKG
 ```{r}
-### Rel Abund
-mapped_all <- read.csv('eCAMI/inulinase/mapped_reads_all.csv')
-exo_mapped <- mapped_all[which(mapped_all$Protein == "Exo"),]
-endo_mapped <- mapped_all[which(mapped_all$Protein == "Endo"),]
-
-# Remove outlier W20 (not in endo)
-exoMapped <- exo_mapped[-which(exo_mapped$Sample == "S-W20"),]
-
-# Normality
-shapiro.test(exoMapped$RelAbund.100000)
-  # p-value = 0.4807
-  # Normal
-shapiro.test(endo_mapped$RelAbund.100000)
-  # p-value = 3.281e-06
-  # Not Normal
-
-# Kruskal-Wallis
-summary(aov(RelAbund.100000 ~ Season, data = exoMapped))
-  # p-value = 0.992
-t.test(RelAbund.100000 ~ Metabolism, data = exoMapped)
-  # p-value = 0.979
-  
-  
-kruskal.test(formula = RelAbund.100000 ~ Season, data = endo_mapped)
-  # p-value = 0.3329
-wilcox.test(formula = RelAbund.100000 ~ Metabolism, data = endo_mapped)
-  # p-value = 0.5
-
-# Variance
-fligner.test(RelAbund.100000 ~ Season, data=exoMapped)
-  # p-value = 0.451
-fligner.test(RelAbund.100000 ~ Season, data=endo_mapped)
-  # p-value = 0.3358
-fligner.test(RelAbund.100000 ~ Metabolism, data=exoMapped)
-  # p-value = 0.9497
-fligner.test(RelAbund.100000 ~ Metabolism, data=endo_mapped)
-  # p-value = 0.1653
-
-
-
 ### Exo - RPKG
 exo_rpkg <- read.csv('eCAMI/inulinase/exoRPKG.csv')
 exo_rpkg$Season <- ordered(exo_rpkg$Season, c("Summer", "Winter", "Spring"))
@@ -163,42 +123,102 @@ fligner.test(RPKG ~ Metabolism, data=exo_rpkg)
 ```
 
 
-### Plot - Rel Abund
+### Combine % microbial * DNA yield
 ```{r}
-tiff("inulinase.relAbund.tiff", width = 175, height = 100, units = "mm", res = 400)
-ggplot(exoMapped, aes(x=Season, y=RelAbund.100000, fill=Season)) +
-  geom_dotplot(binaxis='y', stackdir='center', dotsize = 1.5) +
-  scale_fill_manual(name="Season", values=c("#E69F00", "#0072B2", "#00bf8b")) +
-  ylab("Relative Abundance (%) *\n100000") +
-  scale_y_continuous(breaks=c(1.40, 2.69, 3.98, 5.27, 6.56, 7.85),
-                     limits=c(1.40, 7.85)) +
-  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.75,
-               show.legend = F) +
-  theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.text.x = element_text(size=14),
-        axis.text.y = element_text(size=14),
-        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
-        strip.text.x = element_text(size=20),
-        strip.text.y = element_text(size=14),
-        panel.spacing=unit(1, "lines"),
-        legend.title = element_text(size = 18, face="bold"),
-        legend.text = element_text(size=16),
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()
-  ) 
-dev.off()
+### Load taxonomic classification
+load("kaiju/all_shortreads/use/physeq/phylum.RData")
+
+
+### Calculate % microbial
+phy.microbial <- subset_taxa(physeq, ta1 != "Viruses")
+phy.microbial <- subset_taxa(phy.microbial, ta1 != "Unclassified")
+microbe.ra <- data.frame(matrix(nrow = 18, ncol = 1))
+colnames(microbe.ra) <- "%_Microbial"
+microbe.otu <- data.frame(otu_table(phy.microbial))
+rownames(microbe.ra) <- colnames(microbe.otu)
+
+for(i in 1:ncol(microbe.otu)) {
+  sum.microbe <- sum(microbe.otu[,i])
+  microbe.ra[i,] <- sum.microbe
+}
+
+
+
+### Load DNA
+dna <- read.csv('dna.csv')
+dna.c <- dna[which(grepl("CC", dna$Sample) == T),]
+dna.c$Metabolism <- "a"
+dna.c$Metabolism[which(dna.c$Season == "Winter")] <- "Hibernation"
+dna.c$Metabolism[which(dna.c$Season != "Winter")] <- "Active"
+dna.c$Metabolism <- ordered(dna.c$Metabolism, levels = c("Active", "Hibernation"))
+dna.c$Season <- ordered(dna.c$Season, levels = c("Summer", "Winter", "Spring"))
+dna.c.noabx <- dna.c[which(dna.c$Antibiotics == "No Antibiotics"),]
+
+
+### Load % Host DNA from Short Reads
+host.dna <- read.csv('hostDNA_shortreads.csv')
+colnames(host.dna) <- c("Sample", "%_Host")
+
+
+### Combine % microbial and DNA yield
+microbe.ra$Squirrel <- substr(rownames(microbe.ra),3,5)
+microbe.ra$Host_Percentage <- (host.dna$`%_Host` / 100)
+microbe.ra$DNAyield <- NA
+microbe.ra$Season <- NA
+microbe.ra$Metabolism <- NA
+
+for(j in 1:nrow(microbe.ra)){
+  row <- which(dna.c.noabx$Squirrel == microbe.ra$Squirrel[j])
+  microbe.ra$DNAyield[j] <- dna.c.noabx$DNA_Yield_.ng.mg.[row]
+  microbe.ra$Season[j] <- as.character(dna.c.noabx$Season[row])
+  microbe.ra$Metabolism[j] <- as.character(dna.c.noabx$Metabolism[row])
+}
+microbe.ra$Season <- ordered(microbe.ra$Season, c("Summer", "Winter", "Spring"))
+microbe.ra$Metabolism <- ordered(microbe.ra$Metabolism, c("Active", "Hibernation"))
+
+microbe.ra$NonHost_DNA_Yield <- (1 - microbe.ra$Host_Percentage) * microbe.ra$DNAyield
+
+microbe.ra$Microbial_DNA_Yield <- (microbe.ra$`%_Microbial` / 100) * microbe.ra$NonHost_DNA_Yield
+```
+
+### Test microbial DNA yield
+```{r}
+### Test Normality
+shapiro.test(microbe.ra$Microbial_DNA_Yield)
+  # p-value = 0.7821
+  # Normal
+
+summary(aov(formula = Microbial_DNA_Yield ~ Season, data = microbe.ra))
+  # p-value = 0.26
+
+t.test(formula = Microbial_DNA_Yield ~ Metabolism, data = microbe.ra)
+  # p-value = 0.7692
 
 ```
 
-### Plot - RPKG
+### Prepare Plot - RPKG + Microbial DNA Yield
 ```{r}
-#tiff("inulinase.rpkg.tiff", width = 175, height = 100, units = "mm", res = 400)
-ggplot(exo_rpkg, aes(x=Season, y=RPKG, fill=Season)) +
+### Steal Season legend
+season.legend <- g_legend(ggplot(exo_rpkg, aes(x=Season, y=RPKG, fill=Season)) +
+                            geom_dotplot(binaxis='y', stackdir='center', dotsize = 1.5) +
+                            scale_fill_manual(name="Season",
+                                              values=c("#E69F00", "#0072B2", "#00bf8b")) +
+                            theme(legend.title = element_text(size = 18, face="bold"),
+                                  legend.text = element_text(size=16),
+                                  panel.grid.major = element_blank(),
+                                  panel.grid.minor = element_blank()
+                                  )
+                          )
+  
+
+
+### RPKG Plot
+rpkg.ann <- data.frame(lab = c("ns", "", ""), Season = factor(c("Summer", "Winter", "Spring")))
+
+rpkg.plot <- ggplot(exo_rpkg, aes(x=Season, y=RPKG, fill=Season)) +
   geom_dotplot(binaxis='y', stackdir='center', dotsize = 1.5) +
   scale_fill_manual(name="Season", values=c("#E69F00", "#0072B2", "#00bf8b")) +
-  ylab("Reads per kilobase\nper genome equivalent") +
+  ylab("Exo-inulinase reads per\nkilobase per genome equivalent") +
   scale_y_continuous(breaks=c(0.00, 0.142, 0.284, 0.426, 0.568, 0.710),
                      limits=c(0.000, 0.710)) +
   stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
@@ -207,23 +227,65 @@ ggplot(exo_rpkg, aes(x=Season, y=RPKG, fill=Season)) +
   theme(plot.title=element_text(hjust=0.5, size=20),
         axis.text.x = element_text(size=14),
         axis.text.y = element_text(size=14),
-        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
-        strip.text.x = element_text(size=20),
-        strip.text.y = element_text(size=14),
+        axis.title.x = element_text(size=18, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=18, margin=margin(t=0, r=10, b=0, l=0)),
+        strip.text.x = element_text(size=18),
+        strip.text.y = element_text(size=12),
         panel.spacing=unit(1, "lines"),
-        legend.title = element_text(size = 18, face="bold"),
-        legend.text = element_text(size=16),
+        legend.title = element_text(size = 16, face="bold"),
+        legend.text = element_text(size=14),
         panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()
-  ) 
-#dev.off()
+        panel.grid.minor = element_blank(),
+        legend.position = "none") +
+  geom_text(data = rpkg.ann, aes(label=lab), x=c(2,0,0), y=c(0.71, 0, 0), size=5, color="black")
 
 
+
+### Microbial DNA Yield Plot
+microbeDNA.plot <- ggplot(microbe.ra, aes(x=Season, y=Microbial_DNA_Yield, fill=Season)) +
+  geom_dotplot(binaxis='y', stackdir='center', dotsize = 1.5) +
+  scale_fill_manual(name="Season", values=c("#E69F00", "#0072B2", "#00bf8b")) +
+  ylab("Microbial DNA Yield\n(ng / mg cecal content)") +
+  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.75,
+               show.legend = F) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.text.x = element_text(size=14),
+        axis.text.y = element_text(size=14),
+        axis.title.x = element_text(size=18, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=18, margin=margin(t=0, r=10, b=0, l=0)),
+        strip.text.x = element_text(size=18),
+        strip.text.y = element_text(size=12),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 16, face="bold"),
+        legend.text = element_text(size=14),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        legend.position = "none") +
+  geom_text(data = rpkg.ann, aes(label=lab), x=c(2,0,0), y=c(78, 0, 0), size=5, color="black")
 
 
 ```
 
+
+### Plot - RPKG + Microbial DNA Yield
+```{r}
+png("rpkg.microbeDNA.png", width = 300, height = 110, units = "mm", res = 400)
+grid.newpage()
+pushViewport(viewport(layout=grid.layout(1,3, widths = c(1,1, 0.25))))
+
+print(rpkg.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
+grid.text("A", x=unit(0.03, "npc"), y=unit(0.96, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=26,fontface="bold"))
+
+
+print(microbeDNA.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
+grid.text("B", x=unit(0.03, "npc"), y=unit(0.96, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=2), gp=gpar(fontsize=26,fontface="bold"))
+
+
+season.legend$vp <- viewport(layout.pos.row=1, layout.pos.col=3)
+grid.draw(season.legend)
+dev.off()
+```
 
 
 ### DON'T RUN - Prepare taxonomic data
