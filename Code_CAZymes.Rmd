@@ -24,6 +24,7 @@ library(labdsv)
 library(ggdendro)
 library(ape)
 library(pvclust)
+library(reshape2)
 #source('scripts/import_crds.R')
 #source('scripts/bin_crds.R')
 source('scripts/misc.R')
@@ -899,13 +900,65 @@ p$tab
 ```
 
 
-### Taxa
+### DON'T RUN - Load Taxa
 ```{r}
-#removeTaxa('kaiju/sig_cazymes/CE12/')
+### Remove taxa found in < 3 samples
+#removeTaxa('kaiju/sig_cazymes/relAbund/')
 
-### Remove taxa in < 3 samples
-#removeTaxa('kaiju/all_shortreads/')
+### Import metadata
+meta <- read.csv('metadata_metag.csv', header=T)
+meta <- meta[-which(meta$ID == "S.W20"),]
+meta.samp <- sample_data(meta)
+sample_names(meta.samp) <- meta$ID
+meta.samp$Season <- ordered(meta$Season, levels=c("Summer", "Winter", "Spring"))
 
-### Create phyloseq objects
-#kaijuCreatePhyseq('kaiju/all_shortreads/', 'metadata_metag.csv')
+
+### Import rel abund tables
+fileList <- list.files('kaiju/sig_cazymes/relAbund/rem/test/', pattern = ".csv")
+  # List of all .csv files
+for(file in 1:length(fileList)){
+  fileImport <- read.csv(paste("kaiju/sig_cazymes/relAbund/rem/test/", fileList[file], sep=""), header=T, row.names=2)
+  fileImport <- fileImport[,-1]
+  print(fileList[file])
+  
+  # Create OTU table
+  file.otu <- otu_table(fileImport, taxa_are_rows = T)
+  
+  # Create tax table
+  taxa.names <- data.frame(full = taxa_names(file.otu))
+  taxa.names <- cbind(taxa.names, colsplit(taxa.names$full, pattern = ";", names = c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")))
+  rownames(taxa.names) <- taxa.names$full
+  taxa.names <- taxa.names[,-1]
+  file.tax <- tax_table(taxa.names)
+  
+  # Make phyloseq object
+  taxa_names(file.tax) <- taxa_names(file.otu)
+  file.phy <- merge_phyloseq(file.tax, file.otu, meta.samp)
+  print(file.phy)
+  
+  # Save physeq object
+  fileName <- strsplit(fileList[file], split = "[.]")
+  fileName <- unlist(fileName)
+  newName <- paste("kaiju/sig_cazymes/relAbund/rem/test/", fileName[1], ".", fileName[2], ".RData", sep="")
+  save(file.phy, file=newName)
+}
+```
+
+### DON'T RUN - Taxa Summary
+```{r}
+fileList <- list.files('kaiju/sig_cazymes/relAbund/rem/physeq/', pattern = ".RData")
+
+for(file in 1:length(fileList)){
+  load(paste("kaiju/sig_cazymes/relAbund/rem/physeq/", fileList[file], sep=""))
+    # output = file.phy
+  print(fileList[file])
+  
+  physeq.melt <- psmelt(file.phy)
+  physeqSum <- physeq.melt %>%
+    group_by(Season, OTU) %>%
+    summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+  write.csv(physeqSum, file = paste("kaiju/sig_cazymes/relAbund/rem/physeq/", fileList[file],".summarized.table.csv", sep=""))
+}
 ```
