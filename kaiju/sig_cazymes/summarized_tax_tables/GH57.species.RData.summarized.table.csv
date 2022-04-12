@@ -1,0 +1,106 @@
+Season,Domain,Phylum,Class,Order,Family,Genus,Species,Mean,SD,SE
+Spring,Archaea,Euryarchaeota,Methanomicrobia,Methanosarcinales,Methanosarcinaceae,Methanococcoides,Methanococcoides methylutens,0.4385965,1.074337628,0.4385965
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides ihuae,0.490196,1.200730074,0.490196
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. CAG:927,2.739516667,1.895443902,0.773811732
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides uniformis,1.656525333,1.317916852,0.538037302
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-002 (NCI),1.4189885,1.558529459,0.636266987
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-013 (NCI),0.490196,1.200730074,0.490196
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-104 (HZI),1.217928833,1.365552587,0.557484509
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-110 (HZI),3.071375167,2.988683115,1.220124772
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium,0.826193333,1.283585796,0.524021707
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Odoribacteraceae,Odoribacter,Odoribacter sp. Z80,0.830332,1.317477805,0.537858061
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. CAG:1031,1.320528,1.483455242,0.605618067
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. CAG:485,0,0,0
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. CAG:873,0.490196,1.200730074,0.490196
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes communis,0,0,0
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes ihumii,0.490196,1.200730074,0.490196
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes provencensis,0,0,0
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes sp. An66,0.340136,0.833159643,0.340136
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes sp. Z76,4.7320395,1.906296098,0.778242123
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,NA,Rikenellaceae bacterium,0.490196,1.200730074,0.490196
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,Parabacteroides johnsonii,2.146721333,1.108965517,0.452733277
+Spring,Bacteria,Bacteroidetes,NA,NA,NA,NA,Bacteroidetes bacterium HGW-Bacteroidetes-14,0,0,0
+Spring,Bacteria,Candidatus Melainabacteria,NA,Candidatus Gastranaerophilales,NA,NA,Candidatus Gastranaerophilales bacterium HUM_1,0.340136,0.833159643,0.340136
+Spring,Bacteria,Candidatus Melainabacteria,NA,Candidatus Gastranaerophilales,NA,NA,Candidatus Gastranaerophilales bacterium HUM_21,0.490196,1.200730074,0.490196
+Spring,Bacteria,Candidatus Melainabacteria,NA,Candidatus Gastranaerophilales,NA,NA,Candidatus Gastranaerophilales bacterium,0,0,0
+Spring,Bacteria,Candidatus Melainabacteria,NA,Candidatus Gastranaerophilales,NA,NA,Candidatus Gastranaerophilus sp. (ex Termes propinquus),0.490196,1.200730074,0.490196
+Spring,Bacteria,Candidatus Melainabacteria,NA,NA,NA,NA,Candidatus Melainabacteria bacterium,0.727732833,1.13098952,0.461724538
+Spring,Bacteria,Elusimicrobia,Elusimicrobia,Elusimicrobiales,Elusimicrobiaceae,Elusimicrobium,Elusimicrobium sp. An273,2.435858167,2.731105709,1.114969237
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium sp. CAG:343,0.490196,1.200730074,0.490196
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium sp. CAG:768,0.490196,1.200730074,0.490196
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium sp. CAG:967,0,0,0
+Spring,Bacteria,Fusobacteria,Fusobacteriia,Fusobacteriales,Fusobacteriaceae,Fusobacterium,Fusobacterium sp. CAG:439,0,0,0
+Spring,Bacteria,Spirochaetes,Spirochaetia,Brachyspirales,Brachyspiraceae,Brachyspira,Brachyspira sp. CAG:484,0.980392,1.518816756,0.620054344
+Spring,Bacteria,Verrucomicrobia,Verrucomicrobiae,Verrucomicrobiales,Akkermansiaceae,Akkermansia,Akkermansia glycaniphila,2.146721333,1.108965517,0.452733277
+Spring,Bacteria,Verrucomicrobia,Verrucomicrobiae,Verrucomicrobiales,Akkermansiaceae,Akkermansia,Akkermansia muciniphila,0.387596833,0.949414468,0.387596833
+Spring,Unclassified,NA,NA,NA,NA,NA,NA,67.83091767,7.387945205,3.016116
+Summer,Archaea,Euryarchaeota,Methanomicrobia,Methanosarcinales,Methanosarcinaceae,Methanococcoides,Methanococcoides methylutens,0.362318833,0.887496266,0.362318833
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides ihuae,0.252525333,0.618558214,0.252525333
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. CAG:927,3.8602905,2.8674427,1.17062858
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides uniformis,3.784687,1.136945272,0.464155964
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-002 (NCI),0.838509333,1.316858112,0.537605073
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-013 (NCI),0.709918667,0.780242821,0.318532798
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-104 (HZI),1.4430015,2.213415695,0.903623174
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-110 (HZI),3.3305845,1.738983998,0.709937244
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium,0.238095167,0.583211669,0.238095167
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Odoribacteraceae,Odoribacter,Odoribacter sp. Z80,0.252525333,0.618558214,0.252525333
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. CAG:1031,0.728715833,1.206050671,0.492368125
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. CAG:485,0.4761905,1.166423745,0.4761905
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. CAG:873,1.678221167,1.676757855,0.684533528
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes communis,0.728715833,1.206050671,0.492368125
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes ihumii,1.177248667,1.385975851,0.565822272
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes provencensis,0.9391535,1.455146794,0.594061191
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes sp. An66,0.4906205,0.760558983,0.310496905
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes sp. Z76,3.870901167,2.619325198,1.069335034
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,NA,Rikenellaceae bacterium,1.263878333,1.398772729,0.571046575
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,Parabacteroides johnsonii,0.614844167,0.975026484,0.398052895
+Summer,Bacteria,Bacteroidetes,NA,NA,NA,NA,Bacteroidetes bacterium HGW-Bacteroidetes-14,0.966811,1.174003897,0.479285084
+Summer,Bacteria,Candidatus Melainabacteria,NA,Candidatus Gastranaerophilales,NA,NA,Candidatus Gastranaerophilales bacterium HUM_1,0.581617,0.941013115,0.384166996
+Summer,Bacteria,Candidatus Melainabacteria,NA,Candidatus Gastranaerophilales,NA,NA,Candidatus Gastranaerophilales bacterium HUM_21,0.238095167,0.583211669,0.238095167
+Summer,Bacteria,Candidatus Melainabacteria,NA,Candidatus Gastranaerophilales,NA,NA,Candidatus Gastranaerophilales bacterium,1.37775,1.510983415,0.616856396
+Summer,Bacteria,Candidatus Melainabacteria,NA,Candidatus Gastranaerophilales,NA,NA,Candidatus Gastranaerophilus sp. (ex Termes propinquus),0.995671,1.830508772,0.747302077
+Summer,Bacteria,Candidatus Melainabacteria,NA,NA,NA,NA,Candidatus Melainabacteria bacterium,1.8495735,1.62672577,0.664108015
+Summer,Bacteria,Elusimicrobia,Elusimicrobia,Elusimicrobiales,Elusimicrobiaceae,Elusimicrobium,Elusimicrobium sp. An273,1.4157595,1.794337469,0.732535204
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium sp. CAG:343,0.4718235,0.733659565,0.299515263
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium sp. CAG:768,0.895989833,1.600358869,0.653343772
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium sp. CAG:967,0.9391535,1.455146794,0.594061191
+Summer,Bacteria,Fusobacteria,Fusobacteriia,Fusobacteriales,Fusobacteriaceae,Fusobacterium,Fusobacterium sp. CAG:439,0.695488667,1.182568383,0.482781521
+Summer,Bacteria,Spirochaetes,Spirochaetia,Brachyspirales,Brachyspiraceae,Brachyspira,Brachyspira sp. CAG:484,1.171679167,1.401487818,0.572155006
+Summer,Bacteria,Verrucomicrobia,Verrucomicrobiae,Verrucomicrobiales,Akkermansiaceae,Akkermansia,Akkermansia glycaniphila,0.691121833,1.127386117,0.460253455
+Summer,Bacteria,Verrucomicrobia,Verrucomicrobiae,Verrucomicrobiales,Akkermansiaceae,Akkermansia,Akkermansia muciniphila,0.457393333,0.709487678,0.289647132
+Summer,Unclassified,NA,NA,NA,NA,NA,NA,60.21112717,3.919429392,1.600100349
+Winter,Archaea,Euryarchaeota,Methanomicrobia,Methanosarcinales,Methanosarcinaceae,Methanococcoides,Methanococcoides methylutens,0.6060606,1.3551927,0.6060606
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides ihuae,0,0,0
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. CAG:927,6.8399544,4.469158211,1.998668312
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides uniformis,1.8609624,1.705026111,0.762510857
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-002 (NCI),0,0,0
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-013 (NCI),0,0,0
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-104 (HZI),0.8333334,1.86339013,0.8333334
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-110 (HZI),3.3025212,3.126284713,1.398117027
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium,1.2549018,1.72392956,0.770964737
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Odoribacteraceae,Odoribacter,Odoribacter sp. Z80,0.9215686,1.339948854,0.599243345
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. CAG:1031,3.7727272,5.132652641,2.295392042
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. CAG:485,0.939394,1.37370027,0.614337437
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. CAG:873,3.4562008,2.573332809,1.150829418
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes communis,1.302521,1.797415964,0.803828856
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes ihumii,2.1358544,1.997333545,0.893234716
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes provencensis,0.3333334,0.745356142,0.3333334
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes sp. An66,0.7142858,1.597191604,0.7142858
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes sp. Z76,3.1456582,3.614036886,1.61624643
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,NA,Rikenellaceae bacterium,0,0,0
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,Parabacteroides johnsonii,1.754902,1.829686031,0.818260469
+Winter,Bacteria,Bacteroidetes,NA,NA,NA,NA,Bacteroidetes bacterium HGW-Bacteroidetes-14,0.3333334,0.745356142,0.3333334
+Winter,Bacteria,Candidatus Melainabacteria,NA,Candidatus Gastranaerophilales,NA,NA,Candidatus Gastranaerophilales bacterium HUM_1,0.3333334,0.745356142,0.3333334
+Winter,Bacteria,Candidatus Melainabacteria,NA,Candidatus Gastranaerophilales,NA,NA,Candidatus Gastranaerophilales bacterium HUM_21,1.5276292,1.495223776,0.668684401
+Winter,Bacteria,Candidatus Melainabacteria,NA,Candidatus Gastranaerophilales,NA,NA,Candidatus Gastranaerophilales bacterium,2.5324676,3.979094458,1.779505139
+Winter,Bacteria,Candidatus Melainabacteria,NA,Candidatus Gastranaerophilales,NA,NA,Candidatus Gastranaerophilus sp. (ex Termes propinquus),0,0,0
+Winter,Bacteria,Candidatus Melainabacteria,NA,NA,NA,NA,Candidatus Melainabacteria bacterium,0.3333334,0.745356142,0.3333334
+Winter,Bacteria,Elusimicrobia,Elusimicrobia,Elusimicrobiales,Elusimicrobiaceae,Elusimicrobium,Elusimicrobium sp. An273,1.8787878,2.747400407,1.228674814
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium sp. CAG:343,0.9215686,1.339948854,0.599243345
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium sp. CAG:768,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium sp. CAG:967,0.6060606,1.3551927,0.6060606
+Winter,Bacteria,Fusobacteria,Fusobacteriia,Fusobacteriales,Fusobacteriaceae,Fusobacterium,Fusobacterium sp. CAG:439,0.6060606,1.3551927,0.6060606
+Winter,Bacteria,Spirochaetes,Spirochaetia,Brachyspirales,Brachyspiraceae,Brachyspira,Brachyspira sp. CAG:484,0.8333334,1.86339013,0.8333334
+Winter,Bacteria,Verrucomicrobia,Verrucomicrobiae,Verrucomicrobiales,Akkermansiaceae,Akkermansia,Akkermansia glycaniphila,1.4215686,1.994200575,0.891833609
+Winter,Bacteria,Verrucomicrobia,Verrucomicrobiae,Verrucomicrobiales,Akkermansiaceae,Akkermansia,Akkermansia muciniphila,1.439394,2.011502841,0.899571418
+Winter,Unclassified,NA,NA,NA,NA,NA,NA,54.0589502,8.777454023,3.925396773

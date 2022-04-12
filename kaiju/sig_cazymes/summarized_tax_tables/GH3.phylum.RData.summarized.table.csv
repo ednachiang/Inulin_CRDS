@@ -1,0 +1,46 @@
+Season,Domain,Phylum,Mean,SD,SE
+Spring,Archaea,Candidatus Bathyarchaeota,0.0291885,0.071496931,0.0291885
+Spring,Bacteria,Acidobacteria,0.051050833,0.081535064,0.03328655
+Spring,Bacteria,Actinobacteria,3.144769333,0.777211942,0.317295446
+Spring,Bacteria,Bacteroidetes,23.91545083,7.173650932,2.92863073
+Spring,Bacteria,Candidatus Melainabacteria,0.0291885,0.071496931,0.0291885
+Spring,Bacteria,Chlamydiae,0.108088,0.087311223,0.035644658
+Spring,Bacteria,Chloroflexi,0.319888667,0.198184207,0.080908364
+Spring,Bacteria,Elusimicrobia,0.260434167,0.287286238,0.117284116
+Spring,Bacteria,Firmicutes,47.3471655,5.063848511,2.067307498
+Spring,Bacteria,Fusobacteria,0,0,0
+Spring,Bacteria,Proteobacteria,0.605310833,0.240606537,0.098227207
+Spring,Bacteria,Spirochaetes,0.186843,0.231949975,0.094693181
+Spring,Bacteria,Tenericutes,0.796075167,0.669202856,0.273200922
+Spring,Bacteria,Verrucomicrobia,0.257566667,0.094100667,0.038416437
+Spring,Unclassified,NA,22.94898,2.506615832,1.023321628
+Summer,Archaea,Candidatus Bathyarchaeota,0,0,0
+Summer,Bacteria,Acidobacteria,0.177469667,0.177671671,0.072534156
+Summer,Bacteria,Actinobacteria,3.077110167,0.865418634,0.353305678
+Summer,Bacteria,Bacteroidetes,26.08422533,4.337055157,1.770595353
+Summer,Bacteria,Candidatus Melainabacteria,0.066718167,0.079925927,0.032629623
+Summer,Bacteria,Chlamydiae,0.025484167,0.062423205,0.025484167
+Summer,Bacteria,Chloroflexi,0.312074833,0.263736372,0.107669923
+Summer,Bacteria,Elusimicrobia,0.193771,0.169196455,0.069074164
+Summer,Bacteria,Firmicutes,45.56648067,5.996685118,2.448136448
+Summer,Bacteria,Fusobacteria,0.041133667,0.066399871,0.027107634
+Summer,Bacteria,Proteobacteria,0.7388875,0.325616744,0.132932479
+Summer,Bacteria,Spirochaetes,0.075984167,0.086344938,0.035250173
+Summer,Bacteria,Tenericutes,0.634996167,0.358206307,0.146237113
+Summer,Bacteria,Verrucomicrobia,0.451697,0.339026309,0.138406911
+Summer,Unclassified,NA,22.5539675,2.129067857,0.869188313
+Winter,Archaea,Candidatus Bathyarchaeota,0.0905656,0.124438101,0.055650411
+Winter,Bacteria,Acidobacteria,0.0481928,0.107762377,0.0481928
+Winter,Bacteria,Actinobacteria,2.1666436,0.691364165,0.309187454
+Winter,Bacteria,Bacteroidetes,29.8147956,4.902686336,2.192547984
+Winter,Bacteria,Candidatus Melainabacteria,0.1375162,0.196602783,0.087923437
+Winter,Bacteria,Chlamydiae,0.143336,0.132138031,0.059093924
+Winter,Bacteria,Chloroflexi,0.2091352,0.220556644,0.09863593
+Winter,Bacteria,Elusimicrobia,0.2311976,0.278393864,0.124501521
+Winter,Bacteria,Firmicutes,47.883323,5.993097187,2.680194541
+Winter,Bacteria,Fusobacteria,0.0680272,0.152113444,0.0680272
+Winter,Bacteria,Proteobacteria,0.4524738,0.144453974,0.064601781
+Winter,Bacteria,Spirochaetes,0.2293242,0.331349953,0.148184204
+Winter,Bacteria,Tenericutes,0.1631704,0.15578337,0.069668441
+Winter,Bacteria,Verrucomicrobia,0.3546264,0.388481252,0.173734098
+Winter,Unclassified,NA,18.0076724,2.232212191,0.99827564

@@ -1,0 +1,13 @@
+Season,Domain,Phylum,Mean,SD,SE
+Spring,Bacteria,Actinobacteria,4.824735667,4.031840209,1.645991873
+Spring,Bacteria,Bacteroidetes,11.70063767,8.955877782,3.656221794
+Spring,Bacteria,Firmicutes,76.86057033,6.621198758,2.703093074
+Spring,Unclassified,NA,6.614056333,5.483351942,2.238569056
+Summer,Bacteria,Actinobacteria,5.3182455,3.629743845,1.48183672
+Summer,Bacteria,Bacteroidetes,12.57502717,10.82553167,4.419504797
+Summer,Bacteria,Firmicutes,74.263939,7.419367156,3.028943958
+Summer,Unclassified,NA,7.842788333,4.494371665,1.834819549
+Winter,Bacteria,Actinobacteria,1.8181818,4.0655781,1.8181818
+Winter,Bacteria,Bacteroidetes,24.2077934,22.47721593,10.05211655
+Winter,Bacteria,Firmicutes,68.155845,17.83585549,7.976437063
+Winter,Unclassified,NA,5.8181798,8.851391776,3.958462742

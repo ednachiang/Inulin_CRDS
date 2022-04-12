@@ -1,0 +1,67 @@
+Season,Domain,Phylum,Class,Order,Family,Genus,Species,Mean,SD,SE
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides thetaiotaomicron,1.3466425,1.545000924,0.630743986
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides timonensis,0.273224,0.669259385,0.273224
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Barnesiellaceae,Coprobacter,Coprobacter secundus,0.5555555,1.360827499,0.5555555
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella copri,1.130268167,1.75138114,0.714998356
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella ruminicola,0.7118205,1.146518752,0.46806432
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. P5-64,0.888888833,1.440164486,0.58794469
+Spring,Bacteria,Bacteroidetes,Flavobacteriia,Flavobacteriales,Flavobacteriaceae,Flavobacterium,Flavobacterium sp. ZT3R18,0.574712667,1.407752782,0.574712667
+Spring,Bacteria,Bacteroidetes,Sphingobacteriia,Sphingobacteriales,Sphingobacteriaceae,Pedobacter,Pedobacter heparinus,0.7118205,1.146518752,0.46806432
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,uncultured Clostridium sp.,0.643594333,1.013946485,0.413941919
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,NA,Clostridiaceae bacterium,0.370370333,0.907218333,0.370370333
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium AC3007,0.370370333,0.907218333,0.370370333
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium MD335,0.916818333,1.459090846,0.595671343
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium,2.107195833,1.263787162,0.515938948
+Spring,Bacteria,Firmicutes,NA,NA,NA,NA,Firmicutes bacterium CAG:534,1.7368255,1.52248403,0.621551502
+Spring,Bacteria,NA,NA,NA,NA,NA,bacterium 0.1xD8-71,3.519141167,3.937337369,1.60741125
+Spring,Bacteria,NA,NA,NA,NA,NA,bacterium 1xD42-62,1.162112833,1.392517161,0.56849275
+Spring,Bacteria,NA,NA,NA,NA,NA,bacterium 1xD42-87,2.260872333,3.11404792,1.27130474
+Spring,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Bradyrhizobiaceae,Bradyrhizobium,Bradyrhizobium sp. SUTN9-2,0.847936667,1.43276492,0.584923829
+Spring,Bacteria,Proteobacteria,Betaproteobacteria,Burkholderiales,Comamonadaceae,NA,Comamonadaceae bacterium,0,0,0
+Spring,Bacteria,Proteobacteria,Deltaproteobacteria,Desulfuromonadales,Geobacteraceae,NA,Geobacteraceae bacterium GWC2_53_11,0.945083,1.514581574,0.618325339
+Spring,Bacteria,Verrucomicrobia,Verrucomicrobiae,Verrucomicrobiales,Akkermansiaceae,Akkermansia,Akkermansia muciniphila,1.142300167,1.267626177,0.51750622
+Spring,Unclassified,NA,NA,NA,NA,NA,NA,77.7844465,6.900480111,2.817109209
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides thetaiotaomicron,1.386013333,1.831678298,0.747779534
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides timonensis,0.185185167,0.453609166,0.185185167
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Barnesiellaceae,Coprobacter,Coprobacter secundus,0.942761,1.820051592,0.743032951
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella copri,0.387596833,0.949414468,0.387596833
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella ruminicola,0.724637667,1.774992532,0.724637667
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. P5-64,1.4822135,2.297085585,0.937781263
+Summer,Bacteria,Bacteroidetes,Flavobacteriia,Flavobacteriales,Flavobacteriaceae,Flavobacterium,Flavobacterium sp. ZT3R18,0.838047333,1.303763053,0.532259038
+Summer,Bacteria,Bacteroidetes,Sphingobacteriia,Sphingobacteriales,Sphingobacteriaceae,Pedobacter,Pedobacter heparinus,2.320260833,1.998800669,0.816006956
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,uncultured Clostridium sp.,0.387596833,0.949414468,0.387596833
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,NA,Clostridiaceae bacterium,1.314237833,1.450025525,0.591970442
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium AC3007,1.145172667,1.907929009,0.778908756
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium MD335,1.3770915,2.280499689,0.931010099
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium,2.4425925,2.308033287,0.942250644
+Summer,Bacteria,Firmicutes,NA,NA,NA,NA,Firmicutes bacterium CAG:534,0.724637667,1.774992532,0.724637667
+Summer,Bacteria,NA,NA,NA,NA,NA,bacterium 0.1xD8-71,2.160083667,3.035445768,1.239215545
+Summer,Bacteria,NA,NA,NA,NA,NA,bacterium 1xD42-62,2.424974333,3.674228679,1.499997577
+Summer,Bacteria,NA,NA,NA,NA,NA,bacterium 1xD42-87,0.661375667,1.163900953,0.475160574
+Summer,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Bradyrhizobiaceae,Bradyrhizobium,Bradyrhizobium sp. SUTN9-2,0.572782,0.966893926,0.394732793
+Summer,Bacteria,Proteobacteria,Betaproteobacteria,Burkholderiales,Comamonadaceae,NA,Comamonadaceae bacterium,0.185185167,0.453609166,0.185185167
+Summer,Bacteria,Proteobacteria,Deltaproteobacteria,Desulfuromonadales,Geobacteraceae,NA,Geobacteraceae bacterium GWC2_53_11,1.1122345,1.837907746,0.750322695
+Summer,Bacteria,Verrucomicrobia,Verrucomicrobiae,Verrucomicrobiales,Akkermansiaceae,Akkermansia,Akkermansia muciniphila,0.185185167,0.453609166,0.185185167
+Summer,Unclassified,NA,NA,NA,NA,NA,NA,77.04013483,9.126312661,3.725801542
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides thetaiotaomicron,1.25,2.795084972,1.25
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides timonensis,1.0526316,2.353755813,1.0526316
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Barnesiellaceae,Coprobacter,Coprobacter secundus,1.8526316,2.57583059,1.151946459
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella copri,1.0526316,2.353755813,1.0526316
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella ruminicola,0,0,0
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. P5-64,0.8,1.788854382,0.8
+Winter,Bacteria,Bacteroidetes,Flavobacteriia,Flavobacteriales,Flavobacteriaceae,Flavobacterium,Flavobacterium sp. ZT3R18,0.8,1.788854382,0.8
+Winter,Bacteria,Bacteroidetes,Sphingobacteriia,Sphingobacteriales,Sphingobacteriaceae,Pedobacter,Pedobacter heparinus,2.3026316,3.172253564,1.418674922
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,uncultured Clostridium sp.,3.3,3.149404706,1.408456602
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,NA,Clostridiaceae bacterium,3.3,5.42678542,2.42693222
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium AC3007,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium MD335,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium,4.3526316,5.128933196,2.293728656
+Winter,Bacteria,Firmicutes,NA,NA,NA,NA,Firmicutes bacterium CAG:534,2.05,2.917618892,1.304798835
+Winter,Bacteria,NA,NA,NA,NA,NA,bacterium 0.1xD8-71,0,0,0
+Winter,Bacteria,NA,NA,NA,NA,NA,bacterium 1xD42-62,2.5,5.590169944,2.5
+Winter,Bacteria,NA,NA,NA,NA,NA,bacterium 1xD42-87,0,0,0
+Winter,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Bradyrhizobiaceae,Bradyrhizobium,Bradyrhizobium sp. SUTN9-2,1.0526316,2.353755813,1.0526316
+Winter,Bacteria,Proteobacteria,Betaproteobacteria,Burkholderiales,Comamonadaceae,NA,Comamonadaceae bacterium,3.5526316,5.496473317,2.458097595
+Winter,Bacteria,Proteobacteria,Deltaproteobacteria,Desulfuromonadales,Geobacteraceae,NA,Geobacteraceae bacterium GWC2_53_11,1.25,2.795084972,1.25
+Winter,Bacteria,Verrucomicrobia,Verrucomicrobiae,Verrucomicrobiales,Akkermansiaceae,Akkermansia,Akkermansia muciniphila,3.3,3.149404706,1.408456602
+Winter,Unclassified,NA,NA,NA,NA,NA,NA,66.2315788,5.415473728,2.421873477

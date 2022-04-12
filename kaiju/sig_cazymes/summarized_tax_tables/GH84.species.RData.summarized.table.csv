@@ -1,0 +1,55 @@
+Season,Domain,Phylum,Class,Order,Family,Genus,Species,Mean,SD,SE
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides fluxus,3.6871695,2.89466166,1.181740674
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides helcogenes,1.041666667,2.551551815,1.041666667
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. CAG:661,0.925926,2.26804624,0.925926
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. CAG:927,5.522486833,5.013864335,2.046901543
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides uniformis,5.770502833,0.599904404,0.244909947
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Porphyromonadaceae,Porphyromonas,Porphyromonas sp. 31_2,0,0,0
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Porphyromonadaceae,Porphyromonas,Porphyromonas sp. COT-239 OH1446,1.041666667,2.551551815,1.041666667
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Alloprevotella,Alloprevotella sp.,3.802910167,2.996404088,1.223276846
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. CAG:891,1.967592667,3.056081709,1.247640133
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. MGM2,1.8353175,2.881940224,1.17654717
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes dispar,2.893518667,3.179817708,1.298155143
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,Parabacteroides johnsonii,2.7612435,3.06123007,1.249741943
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Marinilabiliales,Marinilabiliaceae,Marinilabilia,Marinilabilia salmonicolor,2.7612435,3.06123007,1.249741943
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium,0,0,0
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,NA,NA,Clostridiales bacterium VE202-01,0,0,0
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,uncultured Ruminococcus sp.,0,0,0
+Spring,Bacteria,Firmicutes,Erysipelotrichia,Erysipelotrichales,Erysipelotrichaceae,Erysipelatoclostridium,[Clostridium] saccharogumia,0,0,0
+Spring,Unclassified,NA,NA,NA,NA,NA,NA,65.9887555,7.28539964,2.974251948
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides fluxus,5.600905,2.0623533,0.841952209
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides helcogenes,2.656911167,3.199847658,1.306332336
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. CAG:661,0.574712667,1.407752782,0.574712667
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. CAG:927,9.798891667,5.584885171,2.280019824
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides uniformis,4.212016,2.592157338,1.058243802
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Porphyromonadaceae,Porphyromonas,Porphyromonas sp. 31_2,0.757575833,1.855674233,0.757575833
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Porphyromonadaceae,Porphyromonas,Porphyromonas sp. COT-239 OH1446,0,0,0
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Alloprevotella,Alloprevotella sp.,0,0,0
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. CAG:891,2.7211775,3.393151401,1.385248259
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. MGM2,0.574712667,1.407752782,0.574712667
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes dispar,3.126857,3.634399134,1.483737233
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,Parabacteroides johnsonii,2.929964667,2.423349375,0.98932824
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Marinilabiliales,Marinilabiliaceae,Marinilabilia,Marinilabilia salmonicolor,0.757575833,1.855674233,0.757575833
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium,1.851852,4.536092479,1.851852
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,NA,NA,Clostridiales bacterium VE202-01,0.980392167,2.401460556,0.980392167
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,uncultured Ruminococcus sp.,1.597676167,2.569205532,1.048873766
+Summer,Bacteria,Firmicutes,Erysipelotrichia,Erysipelotrichales,Erysipelotrichaceae,Erysipelatoclostridium,[Clostridium] saccharogumia,0.980392167,2.401460556,0.980392167
+Summer,Unclassified,NA,NA,NA,NA,NA,NA,60.8783875,11.35660589,4.636314942
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides fluxus,5.3571432,6.070261654,2.71470354
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides helcogenes,0,0,0
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. CAG:661,1,2.236067977,1
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. CAG:927,6.3333336,3.979112296,1.779513117
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides uniformis,3.5000002,3.555121744,1.589898777
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Porphyromonadaceae,Porphyromonas,Porphyromonas sp. 31_2,1.4285716,3.194383208,1.4285716
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Porphyromonadaceae,Porphyromonas,Porphyromonas sp. COT-239 OH1446,1.8333334,2.527625225,1.130388365
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Alloprevotella,Alloprevotella sp.,0,0,0
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. CAG:891,0,0,0
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. MGM2,0,0,0
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes dispar,0.8333334,1.86339013,0.8333334
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,Parabacteroides johnsonii,4.261905,2.624993483,1.173932774
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Marinilabiliales,Marinilabiliaceae,Marinilabilia,Marinilabilia salmonicolor,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium,3.0952384,4.259177509,1.904762088
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,NA,NA,Clostridiales bacterium VE202-01,8.8333338,12.52220332,5.60009957
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,uncultured Ruminococcus sp.,4.0952384,3.924601515,1.755135154
+Winter,Bacteria,Firmicutes,Erysipelotrichia,Erysipelotrichales,Erysipelotrichaceae,Erysipelatoclostridium,[Clostridium] saccharogumia,4,5.477225575,2.449489743
+Winter,Unclassified,NA,NA,NA,NA,NA,NA,55.428569,11.99891328,5.366077151

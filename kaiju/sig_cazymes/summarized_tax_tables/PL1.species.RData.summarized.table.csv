@@ -1,0 +1,40 @@
+Season,Domain,Phylum,Class,Order,Family,Genus,Species,Mean,SD,SE
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. 214,1.967592667,3.056081709,1.247640133
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,NA,Prevotellaceae bacterium LKV-178-WT-2A,2.083333333,3.227486122,1.317615692
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. CAG:732,1.041666667,2.551551815,1.041666667
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. MGM1,2.692230333,3.01136741,1.229385597
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. tc2-28,1.041666667,2.551551815,1.041666667
+Spring,Bacteria,Bacteroidetes,Flavobacteriia,Flavobacteriales,Flavobacteriaceae,Flavobacterium,Flavobacterium jejuense,2.022058833,3.134716742,1.279742751
+Spring,Bacteria,Bacteroidetes,Flavobacteriia,Flavobacteriales,Flavobacteriaceae,Wenyingzhuangia,Wenyingzhuangia marina,1.967592667,3.056081709,1.247640133
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium sp. CAG:307,1.041666667,2.551551815,1.041666667
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,Eubacterium sp. CAG:248,0,0,0
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,NA,NA,[Bacteroides] pectinophilus,4.854303,5.648753339,2.306093894
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus albus,3.048355667,3.503793934,1.430417884
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus flavefaciens,2.630955833,2.927056495,1.19496581
+Spring,Unclassified,NA,NA,NA,NA,NA,NA,75.60857767,13.14124833,5.364892164
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. 214,6.0084035,5.597862645,2.285317855
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,NA,Prevotellaceae bacterium LKV-178-WT-2A,1.969697,4.000688645,1.6332743
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. CAG:732,0.980392167,2.401460556,0.980392167
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. MGM1,2.647058833,4.302570255,1.756516951
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. tc2-28,0.980392167,2.401460556,0.980392167
+Summer,Bacteria,Bacteroidetes,Flavobacteriia,Flavobacteriales,Flavobacteriaceae,Flavobacterium,Flavobacterium jejuense,0.303030333,0.742269693,0.303030333
+Summer,Bacteria,Bacteroidetes,Flavobacteriia,Flavobacteriales,Flavobacteriaceae,Wenyingzhuangia,Wenyingzhuangia marina,0.980392167,2.401460556,0.980392167
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium sp. CAG:307,5.147058833,10.00648579,4.085130716
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,Eubacterium sp. CAG:248,2.647058833,4.302570255,1.756516951
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,NA,NA,[Bacteroides] pectinophilus,1.666666667,4.082482905,1.666666667
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus albus,4.772727333,10.01548387,4.088804169
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus flavefaciens,2.3809525,5.832118727,2.3809525
+Summer,Unclassified,NA,NA,NA,NA,NA,NA,69.51616967,17.14704829,7.000253152
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. 214,3.3333336,7.453560521,3.3333336
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,NA,Prevotellaceae bacterium LKV-178-WT-2A,14,21.9089023,9.797958971
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. CAG:732,3.3333336,7.453560521,3.3333336
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. MGM1,0,0,0
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. tc2-28,6.6666672,14.90712104,6.6666672
+Winter,Bacteria,Bacteroidetes,Flavobacteriia,Flavobacteriales,Flavobacteriaceae,Flavobacterium,Flavobacterium jejuense,0,0,0
+Winter,Bacteria,Bacteroidetes,Flavobacteriia,Flavobacteriales,Flavobacteriaceae,Wenyingzhuangia,Wenyingzhuangia marina,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium sp. CAG:307,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,Eubacterium sp. CAG:248,10,22.36067977,10
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,NA,NA,[Bacteroides] pectinophilus,4,8.94427191,4
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus albus,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus flavefaciens,0,0,0
+Winter,Unclassified,NA,NA,NA,NA,NA,NA,58.6666656,8.36659899,3.741656817

@@ -1,0 +1,55 @@
+Season,Domain,Phylum,Class,Order,Family,Genus,Species,Mean,SD,SE
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. AR29,0.326797333,0.800486716,0.326797333
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides uniformis,1.185383167,1.402196067,0.572444147
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-110 (HZI),2.467166667,1.57248188,0.641963039
+Spring,Bacteria,Firmicutes,Bacilli,Bacillales,Bacillaceae,Virgibacillus,Virgibacillus dakarensis,1.3827935,1.606637622,0.655907063
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,Eubacterium sp. CAG:115,2.3945335,2.797646516,1.142134408
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,Eubacterium sp. CAG:786,1.690433667,1.435193991,0.585915493
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Blautia,[Ruminococcus] gnavus,1.818181833,3.6363636,1.484539223
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Marvinbryantia,Marvinbryantia formatexigens,0,0,0
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium 10-1,0.858585833,1.413780526,0.577173483
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium KM106-2,0.757575833,1.855674233,0.757575833
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium MD308,2.645419667,3.568105139,1.456672823
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium,2.74643,2.647441661,1.080813532
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Roseburia,Roseburia inulinivorans,0.757575833,1.855674233,0.757575833
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,NA,NA,Clostridiales bacterium 52_15,0,0,0
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus sp. CAG:579,0.303030333,0.742269693,0.303030333
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruthenibacterium,Ruthenibacterium lactatiformans,0.5050505,1.237116019,0.5050505
+Spring,Bacteria,NA,NA,NA,NA,NA,bacterium 0.1xD8-71,1.659085833,1.994043511,0.814064854
+Spring,Unclassified,NA,NA,NA,NA,NA,NA,78.5019565,9.73089303,3.972620444
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. AR29,0.4385965,1.074337628,0.4385965
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides uniformis,0.416666667,1.020620726,0.416666667
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-110 (HZI),1.836973833,1.642420053,0.670515179
+Summer,Bacteria,Firmicutes,Bacilli,Bacillales,Bacillaceae,Virgibacillus,Virgibacillus dakarensis,0.2283105,0.559244228,0.2283105
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,Eubacterium sp. CAG:115,1.329908667,2.265500026,0.924886513
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,Eubacterium sp. CAG:786,0.2283105,0.559244228,0.2283105
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Blautia,[Ruminococcus] gnavus,1.886596833,1.497760214,0.611458047
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Marvinbryantia,Marvinbryantia formatexigens,0.416666667,1.020620726,0.416666667
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium 10-1,0.416666667,1.020620726,0.416666667
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium KM106-2,0.644977167,1.06118343,0.433226321
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium MD308,2.704678333,4.192364553,1.711525662
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium,4.032791333,3.488400919,1.424133712
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Roseburia,Roseburia inulinivorans,1.013309167,1.590914366,0.64948807
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,NA,NA,Clostridiales bacterium 52_15,1.429975833,1.599801869,0.653116378
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus sp. CAG:579,0.8455945,1.503580234,0.61383406
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruthenibacterium,Ruthenibacterium lactatiformans,1.388889,3.402069359,1.388889
+Summer,Bacteria,NA,NA,NA,NA,NA,bacterium 0.1xD8-71,0,0,0
+Summer,Unclassified,NA,NA,NA,NA,NA,NA,80.74108783,5.27419895,2.153182705
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. AR29,2.3376626,3.330099451,1.489265749
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides uniformis,0,0,0
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-110 (HZI),6.5476196,5.223193363,2.335883084
+Winter,Bacteria,Firmicutes,Bacilli,Bacillales,Bacillaceae,Virgibacillus,Virgibacillus dakarensis,1.7424244,2.389668444,1.068692217
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,Eubacterium sp. CAG:115,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,Eubacterium sp. CAG:786,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Blautia,[Ruminococcus] gnavus,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Marvinbryantia,Marvinbryantia formatexigens,2.857143,6.388765969,2.857143
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium 10-1,0.909091,2.032789274,0.909091
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium KM106-2,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium MD308,3.6904764,6.191621085,2.768977128
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium,1.7424244,2.389668444,1.068692217
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Roseburia,Roseburia inulinivorans,4.2857146,6.388766025,2.857143025
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,NA,NA,Clostridiales bacterium 52_15,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus sp. CAG:579,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruthenibacterium,Ruthenibacterium lactatiformans,2.857143,6.388765969,2.857143
+Winter,Bacteria,NA,NA,NA,NA,NA,bacterium 0.1xD8-71,0,0,0
+Winter,Unclassified,NA,NA,NA,NA,NA,NA,73.030301,17.7288457,7.928580831

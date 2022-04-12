@@ -1,0 +1,64 @@
+Season,Domain,Phylum,Class,Order,Family,Genus,Species,Mean,SD,SE
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides cellulosilyticus,0,0,0
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides rodentium,3.1227605,2.901245407,1.184428478
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides uniformis,6.106943833,2.048621002,0.836346022
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella ruminicola,3.562732167,3.307713367,1.350368327
+Spring,Bacteria,Bacteroidetes,Sphingobacteriia,Sphingobacteriales,Sphingobacteriaceae,Sphingobacterium,Sphingobacterium sp. HMA12,0.724637667,1.774992532,0.724637667
+Spring,Bacteria,Chloroflexi,Ktedonobacteria,Ktedonobacterales,Dictyobacteraceae,Dictyobacter,Dictyobacter sp. Uno17,2.238247833,2.642271345,1.078702759
+Spring,Bacteria,Firmicutes,Bacilli,Bacillales,Paenibacillaceae,Paenibacillus,Paenibacillus sp. UNC496MF,0,0,0
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Hungatella,Hungatella hathewayi,1.319875833,2.059430151,0.840758839
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,[Eubacterium] cellulosolvens,1.236263833,1.917181061,0.782685891
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Butyrivibrio,Butyrivibrio sp. AC2005,1.7174145,1.895919782,0.77400601
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Kineothrix,Kineothrix alysoides,2.039052,2.337218833,0.954165593
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium,1.1160715,1.734764338,0.708214575
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus albus,1.076388833,1.668835304,0.68129916
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus callidus,0.595238167,1.458029784,0.595238167
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus flavefaciens,1.5625,3.827327723,1.5625
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus sp. 37_24,5.879631667,4.795232317,1.957645396
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus sp. CAG:254,4.750458,5.506240506,2.247913274
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus sp. CAG:403,1.161859,1.814333353,0.74069849
+Spring,Bacteria,Firmicutes,NA,NA,NA,NA,Firmicutes bacterium CAG:534,2.073774167,2.358033327,0.962663074
+Spring,Bacteria,NA,NA,NA,NA,NA,bacterium 1xD42-87,1.076388833,1.668835304,0.68129916
+Spring,Unclassified,NA,NA,NA,NA,NA,NA,58.63976167,11.64169623,4.752702583
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides cellulosilyticus,1.527777833,2.381448435,0.972222252
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides rodentium,8.337047167,2.655741678,1.084202
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides uniformis,5.8901515,4.572002703,1.866512287
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella ruminicola,2.4242425,4.132782379,1.687201341
+Summer,Bacteria,Bacteroidetes,Sphingobacteriia,Sphingobacteriales,Sphingobacteriaceae,Sphingobacterium,Sphingobacterium sp. HMA12,0,0,0
+Summer,Bacteria,Chloroflexi,Ktedonobacteria,Ktedonobacterales,Dictyobacteraceae,Dictyobacter,Dictyobacter sp. Uno17,3.251262667,4.312890094,1.760730008
+Summer,Bacteria,Firmicutes,Bacilli,Bacillales,Paenibacillaceae,Paenibacillus,Paenibacillus sp. UNC496MF,0.757575833,1.855674233,0.757575833
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Hungatella,Hungatella hathewayi,0,0,0
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,[Eubacterium] cellulosolvens,2.160947667,2.680454599,1.094291008
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Butyrivibrio,Butyrivibrio sp. AC2005,1.327614333,2.381889766,0.972402425
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Kineothrix,Kineothrix alysoides,1.458333333,2.684187349,1.095814896
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium,1.8137255,2.823631551,1.152742754
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus albus,1.104798,1.880317304,0.767636325
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus callidus,2.291666667,2.907724492,1.187073553
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus flavefaciens,4.236111333,6.616565758,2.701201659
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus sp. 37_24,1.674836667,2.650763043,1.082169481
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus sp. CAG:254,3.982843,6.89843194,2.816273046
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus sp. CAG:403,1.805555667,2.906729268,1.186667254
+Summer,Bacteria,Firmicutes,NA,NA,NA,NA,Firmicutes bacterium CAG:534,1.5151515,3.711348058,1.5151515
+Summer,Bacteria,NA,NA,NA,NA,NA,bacterium 1xD42-87,1.041666667,2.551551815,1.041666667
+Summer,Unclassified,NA,NA,NA,NA,NA,NA,53.39869217,9.072664291,3.703899687
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides cellulosilyticus,2.857143,6.388765969,2.857143
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides rodentium,2,4.472135955,2
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides uniformis,10.6666672,12.33783784,5.517648819
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella ruminicola,1.3333334,2.981424119,1.3333334
+Winter,Bacteria,Bacteroidetes,Sphingobacteriia,Sphingobacteriales,Sphingobacteriaceae,Sphingobacterium,Sphingobacterium sp. HMA12,2,4.472135955,2
+Winter,Bacteria,Chloroflexi,Ktedonobacteria,Ktedonobacterales,Dictyobacteraceae,Dictyobacter,Dictyobacter sp. Uno17,0,0,0
+Winter,Bacteria,Firmicutes,Bacilli,Bacillales,Paenibacillaceae,Paenibacillus,Paenibacillus sp. UNC496MF,3.3333334,4.714045267,2.108185133
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Hungatella,Hungatella hathewayi,11.2380954,18.5946132,8.315763827
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,[Eubacterium] cellulosolvens,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Butyrivibrio,Butyrivibrio sp. AC2005,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Kineothrix,Kineothrix alysoides,2.857143,6.388765969,2.857143
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus albus,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus callidus,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus flavefaciens,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus sp. 37_24,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus sp. CAG:254,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,Ruminococcus sp. CAG:403,0,0,0
+Winter,Bacteria,Firmicutes,NA,NA,NA,NA,Firmicutes bacterium CAG:534,4.1904764,6.338880809,2.834833678
+Winter,Bacteria,NA,NA,NA,NA,NA,bacterium 1xD42-87,0,0,0
+Winter,Unclassified,NA,NA,NA,NA,NA,NA,59.5238082,11.91428213,5.328228951

@@ -1,0 +1,46 @@
+Season,Domain,Phylum,Class,Order,Family,Genus,Species,Mean,SD,SE
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. CAG:927,1.960784333,4.802921112,1.960784333
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Alloprevotella,Alloprevotella sp. E39,4.047619167,6.415330507,2.619047712
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Alloprevotella,Alloprevotella sp. OH1205_COT-284,6.1391225,5.603485136,2.287613227
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. 885,3.181818167,4.937627474,2.015777975
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. P4-51,6.678550167,7.80029338,3.184456438
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella timonensis,4.615384667,8.140773288,3.323456778
+Spring,Bacteria,Firmicutes,Bacilli,Lactobacillales,Enterococcaceae,Enterococcus,Enterococcus canis,2.3015875,3.568782402,1.456949315
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium perfringens,2.626262667,4.140182164,1.690222291
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,Eubacterium plexicaudatum,2.797202833,4.355919344,1.778296626
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Marvinbryantia,Marvinbryantia formatexigens,4.817927333,5.480039871,2.237216909
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium A4,10.2305865,7.74053581,3.160060512
+Spring,Bacteria,Firmicutes,NA,NA,NA,NA,Firmicutes bacterium CAG:137,2.564102667,6.280743181,2.564102667
+Spring,Bacteria,Firmicutes,NA,NA,NA,NA,Firmicutes bacterium CAG:137_57_8,0,0,0
+Spring,Bacteria,Firmicutes,NA,NA,NA,NA,Firmicutes bacterium CAG:646,4.433312,5.112236268,2.087061717
+Spring,Unclassified,NA,NA,NA,NA,NA,NA,43.6057395,10.35231323,4.22631418
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. CAG:927,12.05484367,13.88468322,5.668398186
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Alloprevotella,Alloprevotella sp. E39,2.307692333,4.070386644,1.661728389
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Alloprevotella,Alloprevotella sp. OH1205_COT-284,3.205128333,6.161854011,2.515566366
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. 885,0,0,0
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. P4-51,6.538461667,8.887861658,3.628454328
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella timonensis,2.029914667,3.450044487,1.408474764
+Summer,Bacteria,Firmicutes,Bacilli,Lactobacillales,Enterococcaceae,Enterococcus,Enterococcus canis,2.592592667,4.255231652,1.737191047
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium perfringens,0.641025667,1.570185795,0.641025667
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,Eubacterium plexicaudatum,0,0,0
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Marvinbryantia,Marvinbryantia formatexigens,2.029914667,3.450044487,1.408474764
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium A4,4.059829333,6.900088975,2.816949528
+Summer,Bacteria,Firmicutes,NA,NA,NA,NA,Firmicutes bacterium CAG:137,3.490028667,3.90193815,1.592959579
+Summer,Bacteria,Firmicutes,NA,NA,NA,NA,Firmicutes bacterium CAG:137_57_8,2.492877667,4.49361939,1.834512434
+Summer,Bacteria,Firmicutes,NA,NA,NA,NA,Firmicutes bacterium CAG:646,9.793447667,9.296631911,3.795334085
+Summer,Unclassified,NA,NA,NA,NA,NA,NA,48.764243,9.690970054,3.956321958
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sp. CAG:927,7.2222228,7.243558807,3.239417979
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Alloprevotella,Alloprevotella sp. E39,0,0,0
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Alloprevotella,Alloprevotella sp. OH1205_COT-284,0,0,0
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. 885,1.6666668,3.726780261,1.6666668
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella sp. P4-51,6.8333336,6.51920261,2.915476039
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella timonensis,0.8333334,1.86339013,0.8333334
+Winter,Bacteria,Firmicutes,Bacilli,Lactobacillales,Enterococcaceae,Enterococcus,Enterococcus canis,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium perfringens,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,Eubacterium plexicaudatum,1.3333334,2.981424119,1.3333334
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Marvinbryantia,Marvinbryantia formatexigens,3.0555558,4.85118072,2.169513972
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium A4,0,0,0
+Winter,Bacteria,Firmicutes,NA,NA,NA,NA,Firmicutes bacterium CAG:137,14.6666664,16.69372791,7.46566208
+Winter,Bacteria,Firmicutes,NA,NA,NA,NA,Firmicutes bacterium CAG:137_57_8,5.5833336,5.710006144,2.553592378
+Winter,Bacteria,Firmicutes,NA,NA,NA,NA,Firmicutes bacterium CAG:646,5.1388892,4.998070987,2.235205297
+Winter,Unclassified,NA,NA,NA,NA,NA,NA,53.666665,17.3665545,7.76655928

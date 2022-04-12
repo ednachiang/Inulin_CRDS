@@ -1,0 +1,82 @@
+Season,Domain,Phylum,Class,Order,Family,Genus,Species,Mean,SD,SE
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides congonensis,1.518218667,2.394318492,0.977476431
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides finegoldii,1.831502,2.008816235,0.820095794
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides fragilis,0.641025667,1.570185795,0.641025667
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides gallinarum,0.595238167,1.458029784,0.595238167
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides intestinalis,0,0,0
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides plebeius,0,0,0
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sartorii,1.674860333,1.878418,0.766860937
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides vulgatus,4.178059,3.725155622,1.520788414
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,Muribaculum,Muribaculum sp. TLL-A4,1.993839667,2.207115183,0.901051
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-110 (HZI),5.414322667,3.919184842,1.600000512
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,NA,NA,Bacteroidales bacterium,1.079622167,1.716077183,0.700585576
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella brevis,0.641025667,1.570185795,0.641025667
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella copri,2.2700985,1.80600308,0.73729767
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella oryzae,2.2700985,1.80600308,0.73729767
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes senegalensis,0,0,0
+Spring,Bacteria,Bacteroidetes,Chitinophagia,Chitinophagales,Chitinophagaceae,Chitinophaga,Chitinophaga jiangningensis,1.8772895,2.058912873,0.84054766
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium sp. CAG:62,1.831502,2.008816235,0.820095794
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,Eubacterium xylanophilum,1.472431167,2.342973154,0.956514785
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Enterocloster,Enterocloster lavalensis,1.236263833,1.917181061,0.782685891
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Lachnoclostridium,[Clostridium] polysaccharolyticum,1.993839667,2.207115183,0.901051
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Marvinbryantia,Marvinbryantia formatexigens,1.7914105,2.05360974,0.838382666
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium MD329,0.595238167,1.458029784,0.595238167
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Roseburia,Roseburia sp. CAG:309,3.073461833,1.627898623,0.66458683
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,NA,NA,Clostridiales bacterium KLE1615,0.757575833,1.855674233,0.757575833
+Spring,Bacteria,NA,NA,NA,NA,NA,bacterium D16-50,1.282051333,1.986145385,0.810840458
+Spring,Bacteria,Verrucomicrobia,NA,NA,NA,NA,Verrucomicrobia bacterium,0.595238167,1.458029784,0.595238167
+Spring,Unclassified,NA,NA,NA,NA,NA,NA,59.385787,4.950743736,2.021132667
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides congonensis,0.537634333,1.316929785,0.537634333
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides finegoldii,0.793650833,1.944039576,0.793650833
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides fragilis,1.283846833,2.07058829,0.84531413
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides gallinarum,1.654217167,1.99228108,0.813345345
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides intestinalis,1.164021167,1.97404854,0.805901942
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides plebeius,1.8353175,2.881940224,1.17654717
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sartorii,1.041666667,2.551551815,1.041666667
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides vulgatus,3.1666025,4.000175843,1.633064949
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,Muribaculum,Muribaculum sp. TLL-A4,0.860566333,1.352430434,0.552127413
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-110 (HZI),6.597391667,4.961521544,2.025532688
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,NA,NA,Bacteroidales bacterium,2.372951833,2.769789203,1.130761707
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella brevis,2.1918515,1.889183552,0.771255956
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella copri,0.537634333,1.316929785,0.537634333
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella oryzae,0.537634333,1.316929785,0.537634333
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes senegalensis,0.908004667,1.442030521,0.588706495
+Summer,Bacteria,Bacteroidetes,Chitinophagia,Chitinophagales,Chitinophagaceae,Chitinophaga,Chitinophaga jiangningensis,3.7375505,4.662592062,1.903495238
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium sp. CAG:62,0.490196,1.200730074,0.490196
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,Eubacterium xylanophilum,0.370370333,0.907218333,0.370370333
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Enterocloster,Enterocloster lavalensis,1.331285167,2.118850746,0.865017195
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Lachnoclostridium,[Clostridium] polysaccharolyticum,0,0,0
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Marvinbryantia,Marvinbryantia formatexigens,0.490196,1.200730074,0.490196
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium MD329,2.985502167,3.499091596,1.428498162
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Roseburia,Roseburia sp. CAG:309,1.654217167,1.99228108,0.813345345
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,NA,NA,Clostridiales bacterium KLE1615,1.283846833,2.07058829,0.84531413
+Summer,Bacteria,NA,NA,NA,NA,NA,bacterium D16-50,2.152777833,3.337670879,1.362598431
+Summer,Bacteria,Verrucomicrobia,NA,NA,NA,NA,Verrucomicrobia bacterium,0.908004667,1.442030521,0.588706495
+Summer,Unclassified,NA,NA,NA,NA,NA,NA,59.11306167,6.827704319,2.787398616
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides congonensis,0,0,0
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides finegoldii,1.0526316,2.353755813,1.0526316
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides fragilis,2.1637428,2.964629828,1.325822765
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides gallinarum,2.1637428,2.964629828,1.325822765
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides intestinalis,2.2222224,4.969040348,2.2222224
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides plebeius,1.1111112,2.484520174,1.1111112
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides sartorii,2.2222224,4.969040348,2.2222224
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides vulgatus,9.0526316,17.44957118,7.803685468
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,Muribaculum,Muribaculum sp. TLL-A4,0,0,0
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,NA,Muribaculaceae bacterium Isolate-110 (HZI),13.1578952,8.347428561,3.73308354
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,NA,NA,Bacteroidales bacterium,1.1111112,2.484520174,1.1111112
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella brevis,0,0,0
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella copri,2.1637428,2.964629828,1.325822765
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,Prevotella oryzae,0,0,0
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,Alistipes senegalensis,0,0,0
+Winter,Bacteria,Bacteroidetes,Chitinophagia,Chitinophagales,Chitinophagaceae,Chitinophaga,Chitinophaga jiangningensis,2.2222224,3.042903341,1.360827744
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium sp. CAG:62,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,Eubacterium xylanophilum,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Enterocloster,Enterocloster lavalensis,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Lachnoclostridium,[Clostridium] polysaccharolyticum,1.1111112,2.484520174,1.1111112
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Marvinbryantia,Marvinbryantia formatexigens,7.3333336,8.447367991,3.777777812
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,NA,Lachnospiraceae bacterium MD329,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Roseburia,Roseburia sp. CAG:309,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,NA,NA,Clostridiales bacterium KLE1615,0,0,0
+Winter,Bacteria,NA,NA,NA,NA,NA,bacterium D16-50,0,0,0
+Winter,Bacteria,Verrucomicrobia,NA,NA,NA,NA,Verrucomicrobia bacterium,4,8.94427191,4
+Winter,Unclassified,NA,NA,NA,NA,NA,NA,48.9122788,17.99942577,8.049587916

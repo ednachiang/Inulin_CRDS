@@ -1,0 +1,19 @@
+Season,Domain,Phylum,Class,Order,Family,Genus,Species,Mean,SD,SE
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Barnesiellaceae,Barnesiella,Barnesiella viscericola,4.2380955,5.715476405,2.333333471
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,Parabacteroides johnsonii,1.857143,3.043896834,1.242665679
+Spring,Bacteria,Firmicutes,Bacilli,Lactobacillales,Lactobacillaceae,Lactobacillus,Lactobacillus murinus,1.851852,4.536092479,1.851852
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruthenibacterium,Ruthenibacterium lactatiformans,2.3809525,5.832118727,2.3809525
+Spring,Bacteria,Planctomycetes,NA,NA,NA,NA,Planctomycetes bacterium CA13,0.666666667,1.632993162,0.666666667
+Spring,Unclassified,NA,NA,NA,NA,NA,NA,89.00529033,10.60719812,4.330370499
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Barnesiellaceae,Barnesiella,Barnesiella viscericola,4.166666667,6.454972244,2.635231383
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,Parabacteroides johnsonii,2.960526333,5.125671373,2.092546575
+Summer,Bacteria,Firmicutes,Bacilli,Lactobacillales,Lactobacillaceae,Lactobacillus,Lactobacillus murinus,8.888889333,14.4016469,5.879447727
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruthenibacterium,Ruthenibacterium lactatiformans,2.083333333,5.103103631,2.083333333
+Summer,Bacteria,Planctomycetes,NA,NA,NA,NA,Planctomycetes bacterium CA13,4.627193,5.576474545,2.2765862
+Summer,Unclassified,NA,NA,NA,NA,NA,NA,77.27339133,11.43828806,4.669661546
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Barnesiellaceae,Barnesiella,Barnesiella viscericola,4,8.94427191,4
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,Parabacteroides johnsonii,15,22.36067977,10
+Winter,Bacteria,Firmicutes,Bacilli,Lactobacillales,Lactobacillaceae,Lactobacillus,Lactobacillus murinus,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruthenibacterium,Ruthenibacterium lactatiformans,24,25.0998008,11.22497216
+Winter,Bacteria,Planctomycetes,NA,NA,NA,NA,Planctomycetes bacterium CA13,0,0,0
+Winter,Unclassified,NA,NA,NA,NA,NA,NA,57,37.01351105,16.55294536

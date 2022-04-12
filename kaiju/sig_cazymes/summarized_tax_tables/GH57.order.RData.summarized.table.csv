@@ -1,0 +1,31 @@
+Season,Domain,Phylum,Class,Order,Mean,SD,SE
+Spring,Archaea,Euryarchaeota,Methanomicrobia,Methanosarcinales,0.4385965,1.074337628,0.4385965
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,63.90371267,4.804158783,1.96128961
+Spring,Bacteria,Bacteroidetes,Cytophagia,Cytophagales,0.387596833,0.949414468,0.387596833
+Spring,Bacteria,Candidatus Melainabacteria,NA,Candidatus Gastranaerophilales,2.099260667,1.699682113,0.693892317
+Spring,Bacteria,Elusimicrobia,Elusimicrobia,Elusimicrobiales,2.435858167,2.731105709,1.114969237
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,4.210105,4.15694921,1.697067408
+Spring,Bacteria,Fusobacteria,Fusobacteriia,Fusobacteriales,0,0,0
+Spring,Bacteria,Spirochaetes,Spirochaetia,Brachyspirales,0.980392,1.518816756,0.620054344
+Spring,Bacteria,Verrucomicrobia,Verrucomicrobiae,Verrucomicrobiales,2.534318333,1.515775133,0.618812607
+Spring,Unclassified,NA,NA,NA,23.01015983,6.814831105,2.782143149
+Summer,Archaea,Euryarchaeota,Methanomicrobia,Methanosarcinales,0.362318833,0.887496266,0.362318833
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,65.33132417,13.85275467,5.655363412
+Summer,Bacteria,Bacteroidetes,Cytophagia,Cytophagales,0,0,0
+Summer,Bacteria,Candidatus Melainabacteria,NA,Candidatus Gastranaerophilales,4.676309833,2.615401828,1.067733325
+Summer,Bacteria,Elusimicrobia,Elusimicrobia,Elusimicrobiales,1.778078333,2.560648271,1.045380279
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,4.666373333,3.277430575,1.338005429
+Summer,Bacteria,Fusobacteria,Fusobacteriia,Fusobacteriales,0.695488667,1.182568383,0.482781521
+Summer,Bacteria,Spirochaetes,Spirochaetia,Brachyspirales,1.171679167,1.401487818,0.572155006
+Summer,Bacteria,Verrucomicrobia,Verrucomicrobiae,Verrucomicrobiales,1.148515167,1.549431656,0.632552825
+Summer,Unclassified,NA,NA,NA,20.1699125,7.462476634,3.046543329
+Winter,Archaea,Euryarchaeota,Methanomicrobia,Methanosarcinales,0.6060606,1.3551927,0.6060606
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,65.4158402,12.31207331,5.506126571
+Winter,Bacteria,Bacteroidetes,Cytophagia,Cytophagales,1.0476192,1.584720326,0.708708475
+Winter,Bacteria,Candidatus Melainabacteria,NA,Candidatus Gastranaerophilales,5.9210596,5.626519463,2.516255999
+Winter,Bacteria,Elusimicrobia,Elusimicrobia,Elusimicrobiales,1.8787878,2.747400407,1.228674814
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,4.0146422,1.226991163,0.54872713
+Winter,Bacteria,Fusobacteria,Fusobacteriia,Fusobacteriales,0.6060606,1.3551927,0.6060606
+Winter,Bacteria,Spirochaetes,Spirochaetia,Brachyspirales,0.8333334,1.86339013,0.8333334
+Winter,Bacteria,Verrucomicrobia,Verrucomicrobiae,Verrucomicrobiales,2.8609626,3.404121513,1.522369421
+Winter,Unclassified,NA,NA,NA,16.8156338,6.04846067,2.704953844

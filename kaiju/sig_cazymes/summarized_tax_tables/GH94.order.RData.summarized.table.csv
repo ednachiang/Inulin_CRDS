@@ -1,0 +1,28 @@
+Season,Domain,Phylum,Class,Order,Mean,SD,SE
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,5.508845333,3.088442703,1.260851454
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Marinilabiliales,0.803329333,1.244647934,0.508125391
+Spring,Bacteria,Firmicutes,Bacilli,Bacillales,1.185410333,1.888905501,0.771142442
+Spring,Bacteria,Firmicutes,Clostridia,Candidatus Borkfalkiales,2.208048833,1.785003593,0.728724665
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,63.38480067,4.753014964,1.940410234
+Spring,Bacteria,Proteobacteria,Deltaproteobacteria,Desulfovibrionales,0.8826945,1.373841819,0.560868574
+Spring,Bacteria,Proteobacteria,Gammaproteobacteria,Pseudomonadales,0,0,0
+Spring,Bacteria,Spirochaetes,Spirochaetia,Spirochaetales,0.406504,0.995727378,0.406504
+Spring,Unclassified,NA,NA,NA,25.620367,6.25370636,2.55306493
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,9.279837333,4.099769101,1.673723727
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Marinilabiliales,0.282485833,0.691946151,0.282485833
+Summer,Bacteria,Firmicutes,Bacilli,Bacillales,1.009999,1.284327551,0.524324527
+Summer,Bacteria,Firmicutes,Clostridia,Candidatus Borkfalkiales,0.824175833,1.278120636,0.521790564
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,62.70611567,7.173823223,2.928701067
+Summer,Bacteria,Proteobacteria,Deltaproteobacteria,Desulfovibrionales,0.881834333,1.521260018,0.621051802
+Summer,Bacteria,Proteobacteria,Gammaproteobacteria,Pseudomonadales,0.625763167,1.062297515,0.433681145
+Summer,Bacteria,Spirochaetes,Spirochaetia,Spirochaetales,0.282485833,0.691946151,0.282485833
+Summer,Unclassified,NA,NA,NA,24.107303,4.337874119,1.770929693
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,6.7628668,6.655698218,2.976518731
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Marinilabiliales,0,0,0
+Winter,Bacteria,Firmicutes,Bacilli,Bacillales,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Candidatus Borkfalkiales,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,62.7468742,6.584016778,2.944461816
+Winter,Bacteria,Proteobacteria,Deltaproteobacteria,Desulfovibrionales,1.4814814,3.312693118,1.4814814
+Winter,Bacteria,Proteobacteria,Gammaproteobacteria,Pseudomonadales,1.2310606,1.686031603,0.754016255
+Winter,Bacteria,Spirochaetes,Spirochaetia,Spirochaetales,0.625,1.397542486,0.625
+Winter,Unclassified,NA,NA,NA,27.152717,6.124605764,2.739006965

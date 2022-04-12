@@ -1,0 +1,97 @@
+Season,Domain,Phylum,Class,Order,Family,Genus,Mean,SD,SE
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,8.658003333,2.800987403,1.143498319
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Barnesiellaceae,Barnesiella,0.553153167,0.447382765,0.182643249
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,Candidatus Amulumruptor,0.234020833,0.365481993,0.149207399
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,Duncaniella,0.2310845,0.360298577,0.147091278
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Odoribacteraceae,Butyricimonas,0.2884615,0.451001427,0.184120561
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Odoribacteraceae,Odoribacter,1.184993833,1.051546286,0.429291973
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Paraprevotella,0.648745,0.33509776,0.136803088
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,8.126406167,1.749557648,0.714253919
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,5.413561,1.972006369,0.805068229
+Spring,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,1.692329167,0.456457747,0.186348095
+Spring,Bacteria,Firmicutes,Bacilli,Bacillales,Bacillaceae,Bacillus,0.448331333,0.497004454,0.202901219
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,0.6614735,0.814743554,0.332617663
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiales Family XIII. Incertae Sedis,Aminipila,0.129199,0.316471625,0.129199
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiales Family XIII. Incertae Sedis,Emergencia,0,0,0
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,0.915379167,0.194122545,0.079250197
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Blautia,0.566990667,0.886205297,0.361791797
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Enterocloster,0.160256333,0.392546245,0.160256333
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Lachnoclostridium,0,0,0
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Roseburia,0.499099,0.567996303,0.23188352
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,NA,Intestinimonas,0.126262667,0.309279107,0.126262667
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Faecalibacterium,0.161812333,0.396357651,0.161812333
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Neglecta,0.619630167,0.756633758,0.308894438
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Pseudoflavonifractor,0.363219833,0.633669515,0.258694496
+Spring,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,0.835928167,0.85518941,0.349129615
+Spring,Bacteria,Firmicutes,Negativicutes,Selenomonadales,Selenomonadaceae,Selenomonas,0.129199,0.316471625,0.129199
+Spring,Bacteria,Proteobacteria,Alphaproteobacteria,Rhodobacterales,Rhodobacteraceae,Pseudooceanicola,0,0,0
+Spring,Bacteria,Proteobacteria,Alphaproteobacteria,Rhodospirillales,Rhodospirillaceae,Azospirillum,0.742007667,0.965514672,0.394169714
+Spring,Bacteria,Proteobacteria,Deltaproteobacteria,Desulfovibrionales,Desulfovibrionaceae,Desulfovibrio,1.089015667,0.981362508,0.400639566
+Spring,Bacteria,Proteobacteria,Deltaproteobacteria,Desulfovibrionales,Desulfovibrionaceae,Mailhella,0.161812333,0.396357651,0.161812333
+Spring,Bacteria,Proteobacteria,Epsilonproteobacteria,Campylobacterales,Campylobacteraceae,Campylobacter,0.161812333,0.396357651,0.161812333
+Spring,Bacteria,Spirochaetes,Spirochaetia,Brachyspirales,Brachyspiraceae,Brachyspira,0.254467833,0.394237101,0.160946622
+Spring,Unclassified,NA,NA,NA,NA,NA,64.9433445,3.845802027,1.570042103
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,8.252647667,2.119670961,0.865352046
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Barnesiellaceae,Barnesiella,0.314809,0.374970313,0.153080989
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,Candidatus Amulumruptor,0.2808025,0.435134477,0.177642907
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,Duncaniella,0.099206333,0.243004896,0.099206333
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Odoribacteraceae,Butyricimonas,0.557299833,0.736286098,0.300587541
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Odoribacteraceae,Odoribacter,0.7268035,1.153298798,0.470832263
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Paraprevotella,0.137741,0.337395167,0.137741
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,7.384818333,1.592392077,0.650091343
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,6.1598745,1.350731329,0.551433756
+Summer,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,0.728824,0.686697225,0.280342968
+Summer,Bacteria,Firmicutes,Bacilli,Bacillales,Bacillaceae,Bacillus,0.435481667,0.477120961,0.194783817
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,1.736298833,1.444122634,0.589560597
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiales Family XIII. Incertae Sedis,Aminipila,0.209271833,0.347690826,0.141944185
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiales Family XIII. Incertae Sedis,Emergencia,0,0,0
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,0.6286075,0.639383368,0.261027167
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Blautia,0.604664,0.652457471,0.266364647
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Enterocloster,0.1449275,0.354998425,0.1449275
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Lachnoclostridium,0.216458333,0.363102683,0.14823605
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Roseburia,0.242267833,0.384432933,0.156944088
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,NA,Intestinimonas,0.244133833,0.388031853,0.158413341
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Faecalibacterium,0,0,0
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Neglecta,1.061431167,1.356187501,0.553661229
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Pseudoflavonifractor,0.099206333,0.243004896,0.099206333
+Summer,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,0.475794333,0.38629837,0.157705649
+Summer,Bacteria,Firmicutes,Negativicutes,Selenomonadales,Selenomonadaceae,Selenomonas,0.2826685,0.438120393,0.178861902
+Summer,Bacteria,Proteobacteria,Alphaproteobacteria,Rhodobacterales,Rhodobacteraceae,Pseudooceanicola,0.479215167,0.540214843,0.220541786
+Summer,Bacteria,Proteobacteria,Alphaproteobacteria,Rhodospirillales,Rhodospirillaceae,Azospirillum,0.454672667,0.919625172,0.375435404
+Summer,Bacteria,Proteobacteria,Deltaproteobacteria,Desulfovibrionales,Desulfovibrionaceae,Desulfovibrio,0.830659333,0.937201398,0.382610869
+Summer,Bacteria,Proteobacteria,Deltaproteobacteria,Desulfovibrionales,Desulfovibrionaceae,Mailhella,0.147492667,0.361281774,0.147492667
+Summer,Bacteria,Proteobacteria,Epsilonproteobacteria,Campylobacterales,Campylobacteraceae,Campylobacter,0.481081167,0.541803443,0.221190329
+Summer,Bacteria,Spirochaetes,Spirochaetia,Brachyspirales,Brachyspiraceae,Brachyspira,0.454672667,0.919625172,0.375435404
+Summer,Unclassified,NA,NA,NA,NA,NA,66.128168,4.310714257,1.759841726
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,9.861913,1.273248438,0.569414012
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Barnesiellaceae,Barnesiella,0,0,0
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,Candidatus Amulumruptor,0.7543356,0.697384284,0.311879733
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Muribaculaceae,Duncaniella,0.212766,0.475759239,0.212766
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Odoribacteraceae,Butyricimonas,1.6989374,1.380095798,0.617197604
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Odoribacteraceae,Odoribacter,2.6763924,2.068562388,0.925089223
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Paraprevotella,0.2857142,0.638876373,0.2857142
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Prevotellaceae,Prevotella,5.2252428,1.504491176,0.672828908
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Rikenellaceae,Alistipes,8.5678688,4.759577459,2.128547748
+Winter,Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,2.5439988,2.674682429,1.196154346
+Winter,Bacteria,Firmicutes,Bacilli,Bacillales,Bacillaceae,Bacillus,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiaceae,Clostridium,1.5070716,1.289470178,0.576668595
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiales Family XIII. Incertae Sedis,Aminipila,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Clostridiales Family XIII. Incertae Sedis,Emergencia,2.0446132,1.53975226,0.688598144
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Eubacteriaceae,Eubacterium,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Blautia,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Enterocloster,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Lachnoclostridium,0.4686214,0.642581738,0.287371289
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Roseburia,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,NA,Intestinimonas,0,0,0
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Faecalibacterium,0.6666832,0.650249941,0.290800614
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Neglecta,0.224719,0.50248696,0.224719
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Pseudoflavonifractor,0.224719,0.50248696,0.224719
+Winter,Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus,0.224719,0.50248696,0.224719
+Winter,Bacteria,Firmicutes,Negativicutes,Selenomonadales,Selenomonadaceae,Selenomonas,0,0,0
+Winter,Bacteria,Proteobacteria,Alphaproteobacteria,Rhodobacterales,Rhodobacteraceae,Pseudooceanicola,0,0,0
+Winter,Bacteria,Proteobacteria,Alphaproteobacteria,Rhodospirillales,Rhodospirillaceae,Azospirillum,0,0,0
+Winter,Bacteria,Proteobacteria,Deltaproteobacteria,Desulfovibrionales,Desulfovibrionaceae,Desulfovibrio,1.595175,1.775723795,0.794127823
+Winter,Bacteria,Proteobacteria,Deltaproteobacteria,Desulfovibrionales,Desulfovibrionaceae,Mailhella,0.4686214,0.642581738,0.287371289
+Winter,Bacteria,Proteobacteria,Epsilonproteobacteria,Campylobacterales,Campylobacteraceae,Campylobacter,0.2439024,0.545382346,0.2439024
+Winter,Bacteria,Spirochaetes,Spirochaetia,Brachyspirales,Brachyspiraceae,Brachyspira,0.212766,0.475759239,0.212766
+Winter,Unclassified,NA,NA,NA,NA,NA,60.2912198,8.291826481,3.708217534
