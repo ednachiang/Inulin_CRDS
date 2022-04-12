@@ -59,6 +59,16 @@ gen.phy <- physeq
 load("kaiju/all_shortreads/use/physeq/species.RData")
 spe.phy <- physeq
 
+### Remove W20
+phy.phy <- subset_samples(phy.phy, ID != "S.W20")
+cla.phy <- subset_samples(cla.phy, ID != "S.W20")
+ord.phy <- subset_samples(ord.phy, ID != "S.W20")
+fam.phy <- subset_samples(fam.phy, ID != "S.W20")
+gen.phy <- subset_samples(gen.phy, ID != "S.W20")
+spe.phy <- subset_samples(spe.phy, ID != "S.W20")
+
+
+
 ### Melt physeq objects into dataframes
 phy.melt <- psmelt(phy.phy)
 cla.melt <- psmelt(cla.phy)
@@ -120,6 +130,48 @@ spe.sum <- spe.melt %>%
 ```
 
 
+### Taxa Broad Stats - Paper
+```{r}
+### Load Data
+domain <- read.csv("kaiju/all_shortreads/use/tables/domain.csv", row.names = 1)
+dom.otu <- otu_table(domain, taxa_are_rows = T)
+dom.tax <- data.frame(rownames(domain))
+dom.tax <- tax_table(dom.tax)
+taxa_names(dom.tax) <- taxa_names(dom.otu)
+dom.meta <- sample_data(meta)
+sample_names(dom.meta) <- meta$ID
+dom.phy <- merge_phyloseq(dom.otu, dom.tax, dom.meta)
+
+# Remove outlier
+dom.phy <- subset_samples(dom.phy, ID != "S.W20")
+
+dom.melt <- psmelt(dom.phy)
+
+dom.sum <- dom.melt %>%
+  group_by(Season, OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance))
+
+dom.overall <- dom.melt %>%
+  group_by(OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance),
+            Min = min(Abundance),
+            Max = max(Abundance))
+
+phy.overall <- phy.melt %>%
+  group_by(OTU) %>%
+  summarize(Mean = mean(Abundance),
+            SD = sd(Abundance),
+            SE = se(Abundance),
+            Min = min(Abundance),
+            Max = max(Abundance))
+#write.csv(phy.overall, file = "phy.overall.csv", row.names = F)
+
+#write.csv(dom.sum, file = "kaiju/all_shortreads/use/summarized/domain.sum.csv", row.names = F)
+```
 
 ### Sample dist PCoA & PERMANOVA
 ```{r}
@@ -140,19 +192,6 @@ plot_ordination(physeq = spe.phy, ordination = bray.pcoa, axes = c(1,2),
         legend.text = element_text(size=18),
         plot.title = element_blank())
 #dev.off()
-
-
-
-### Run PERMANOVA on DESEq Hellinger distance
-sampdf <- data.frame(sample_data(spe.phy))
-bray <- phyloseq::distance(physeq = spe.phy, method = "bray")
-adonis(bray ~ Season, data = sampdf, permutations = 9999)
-  # p-value = 2e-04
-beta.tax <- betadisper(d = bray, group = sampdf$Season)
-p <- permutest(beta.tax)
-p$tab
-  # 0.412
-
 
 ```
 
