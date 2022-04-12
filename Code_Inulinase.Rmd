@@ -179,20 +179,23 @@ microbe.ra$Metabolism <- ordered(microbe.ra$Metabolism, c("Active", "Hibernation
 microbe.ra$NonHost_DNA_Yield <- (1 - microbe.ra$Host_Percentage) * microbe.ra$DNAyield
 
 microbe.ra$Microbial_DNA_Yield <- (microbe.ra$`%_Microbial` / 100) * microbe.ra$NonHost_DNA_Yield
+
+# Remove outlier W20
+microbe.ra <- microbe.ra[-which(rownames(microbe.ra) == "S.W20"),]
 ```
 
 ### Test microbial DNA yield
 ```{r}
 ### Test Normality
 shapiro.test(microbe.ra$Microbial_DNA_Yield)
-  # p-value = 0.7821
+  # p-value = 0.8837
   # Normal
 
 summary(aov(formula = Microbial_DNA_Yield ~ Season, data = microbe.ra))
-  # p-value = 0.26
+  # p-value = 0.258
 
 t.test(formula = Microbial_DNA_Yield ~ Metabolism, data = microbe.ra)
-  # p-value = 0.7692
+  # p-value = 0.6647
 
 ```
 
@@ -270,7 +273,7 @@ microbeDNA.plot <- ggplot(microbe.ra, aes(x=Season, y=Microbial_DNA_Yield, fill=
 
 ### Plot - RPKG + Microbial DNA Yield
 ```{r}
-png("rpkg.microbeDNA.png", width = 300, height = 110, units = "mm", res = 400)
+#png("rpkg.microbeDNA.png", width = 300, height = 110, units = "mm", res = 400)
 grid.newpage()
 pushViewport(viewport(layout=grid.layout(1,3, widths = c(1,1, 0.25))))
 
@@ -284,7 +287,7 @@ grid.text("B", x=unit(0.03, "npc"), y=unit(0.96, "npc"), vp=viewport(layout.pos.
 
 season.legend$vp <- viewport(layout.pos.row=1, layout.pos.col=3)
 grid.draw(season.legend)
-dev.off()
+#dev.off()
 ```
 
 
@@ -310,7 +313,7 @@ gen.otu <- otu_table(gen.ra, taxa_are_rows = T)
 spe.otu <- otu_table(spe.ra, taxa_are_rows = T)
 
 
-### Import metadatac
+### Import metadata
 meta <- read.csv('metadata_metag.csv', header=T)
 meta <- meta[-which(meta$ID == "S.W20"),]
 meta.samp <- sample_data(meta)
