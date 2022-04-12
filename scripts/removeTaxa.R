@@ -47,9 +47,10 @@ removeTaxa <- function(x) {
     df.rem[(1 + nrow(df.rem)),] <- c("Unclassified", df.Unclass)
     
     # Return dataframe
-    fileName <- strsplit(files[taxon], split = "[.]")
-    taxonLevel <- unlist(fileName)[2]
-    output <- paste(x, taxonLevel, ".csv", sep = "")
+    #fileName <- strsplit(files[taxon], split = "[.]")
+    #taxonLevel <- unlist(fileName)[2]
+    #output <- paste(x, taxonLevel, ".csv", sep = "")
+    output <- paste(x, files[taxon], ".rem.csv", sep="")
     write.csv(df.rem, output, row.names = T)
     print(output)
 
