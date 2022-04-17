@@ -19,14 +19,11 @@ library(psych)
 library(car)
 source('scripts/import_crds.R')
 source('scripts/bin_crds.R')
+source('scripts/norm_time_CRDS.R')
+source('scripts/calc_CRDS_metrics.R')
 source('scripts/misc.R')
-source('scripts/calc_delta_metrics.R')
 set.seed(1)
 theme_set(theme_bw())
-
-### Stats Notes
-# Use 'subset' in kruskal.test
-# Do NOT use 'subset' in kruskalmc or pairwise.wilcox.test; it doesn't work!
 ```
 
 ### Load Data
@@ -37,6 +34,16 @@ crds <- import.crds('CSV', 'metadata.csv')
 ### Bin RelTime
 ```{r}
 crds.bin <- bin.crds(crds)
+```
+
+### Normalize Time
+```{r}
+crds.norm <- norm.time.crds(crds.bin)
+```
+
+### Calculate Metrics
+```{r}
+crds.use <- calc.CRDS.metrics(crds.norm)
 ```
 
 ### Summarize by Substrate + ABX
@@ -199,6 +206,15 @@ for (i in 1:length(ids)){
 }
 
 
+# Order seasons
+auc.df$Season <- ordered(auc.df$Season, levels=c("Summer", "Winter", "Spring"))
+auc.df$Antibiotics <- ordered(auc.df$Antibiotics, level=c("No", "Yes"))
+
+# Calculate square root of AUC
+auc.df$AUC_norm <- auc.df$AUC + (min(auc.df$AUC) * -1)
+  # Since the min value is negative, normalize data so that min = 0
+  # Square root can't be done on a negative value
+auc.df$AUC_sqrt <- sqrt(auc.df$AUC_norm)
 
 ### Subset by Substrate & ABX
 auc.inu <- auc.df[which(auc.df$Substrate == "Inulin"),]
@@ -236,59 +252,64 @@ base.p <- crds.base[which(crds.base$Season == "Spring"),]
 
 
 # All
-hist(crds.base$Delta)
-qqnorm(crds.base$Delta)
-qqline(crds.base$Delta)
-shapiro.test(crds.base$Delta)
-  # p-value = 0.0002832
+res <- resid(lm(Delta ~ Season, crds.base))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # p-value = 4.017e-15
   # Not Normal
 kruskal.test(Delta ~ Season, crds.base)
-  # p-value = 8.278e-09
+  # p-value = 1.753e-08
 wilcox.test(Delta ~ Antibiotics, crds.base)
-  # p-value = 0.03488
+  # p-value = 0.07652
 wilcox.test(Delta ~ Substrate, crds.base)
-  # p-value = 0.4112
+  # p-value = 0.3642
 wilcox.test(Delta ~ Diet, crds.base)
-  # p-value = 0.05552
+  # p-value = 0.09588
 
 
 # Summer
-hist(base.s$Delta)
-qqnorm(base.s$Delta)
-qqline(base.s$Delta)
-shapiro.test(base.s$Delta)
-  # p-value = 0.3867
+res <- resid(lm(Delta ~ Antibiotics, base.s))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # p-value = 0.7892
   # Normal
 summary(aov(Delta ~ Antibiotics + Substrate + Diet, base.s))
   # No sig
 
 # Winter
-hist(base.w$Delta)
-qqnorm(base.w$Delta)
-qqline(base.w$Delta)
-shapiro.test(base.w$Delta)
-  # p-value = 0.746
-  # Normal
+res <- resid(lm(Delta ~ Antibiotics, base.w))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # p-value = 3.085e-09
+  # But looks Normal
 summary(aov(Delta ~ Antibiotics + Substrate + Diet, base.w))
   # No sig
 
 # Spring
-hist(base.p$Delta)
-qqnorm(base.p$Delta)
-qqline(base.p$Delta)
-shapiro.test(base.p$Delta)
-  # p-value = 0.0834
+res <- resid(lm(Delta ~ Antibiotics, base.p))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # p-value = 0.8872
   # Normal
 summary(aov(Delta ~ Antibiotics + Diet + Substrate, base.p))
   # ABX & Diet sig
 
 
 # No ABX Spring
-hist(base.noabx.p$Delta)
-qqnorm(base.noabx.p$Delta)
-qqline(base.noabx.p$Delta)
-shapiro.test(base.noabx.p$Delta)
-  # p-value = 0.09155
+res <- resid(lm(Delta ~ Diet, base.noabx.p))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # p-value = 0.08701
   # Normal
 summary(aov(Delta ~ Diet + Substrate, base.noabx.p))
   # Diet p = 0.0216*
@@ -296,11 +317,12 @@ summary(aov(Delta ~ Diet + Substrate, base.noabx.p))
   # Diet:Substrate
 
 # ABX Spring
-hist(base.abx.p$Delta)
-qqnorm(base.abx.p$Delta)
-qqline(base.abx.p$Delta)
-shapiro.test(base.abx.p$Delta)
-  # p-value = 0.1459
+res <- resid(lm(Delta ~ Diet, base.abx.p))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # p-value = 0.7651
   # Normal
 summary(aov(Delta ~ Diet + Substrate, base.abx.p))
   # Diet = 0.000358
@@ -332,34 +354,26 @@ dna.sal.p <- dna.sal[which(dna.sal$Season == "Spring"),]
 ### Find outliers
 ```{r}
 ### Boxplot - AUC
-ggplot(auc.inu.s, aes(x = Antibiotics, y = AUC, fill = Antibiotics)) +
+ggplot(auc.inu.s, aes(x = Antibiotics, y = AUC_sqrt, fill = Antibiotics)) +
   geom_boxplot()
-  # 1 No ABX
-ggplot(auc.inu.w, aes(x = Antibiotics, y = AUC, fill = Antibiotics)) +
+  # 1 ABX
+ggplot(auc.inu.w, aes(x = Antibiotics, y = AUC_sqrt, fill = Antibiotics)) +
   geom_boxplot()
-ggplot(auc.inu.p, aes(x = Antibiotics, y = AUC, fill = Antibiotics)) +
+ggplot(auc.inu.p, aes(x = Antibiotics, y = AUC_sqrt, fill = Antibiotics)) +
   geom_boxplot()
   # 2 ABX
-ggplot(auc.sal.s, aes(x = Antibiotics, y = AUC, fill = Antibiotics)) +
+ggplot(auc.sal.s, aes(x = Antibiotics, y = AUC_sqrt, fill = Antibiotics)) +
   geom_boxplot()
-ggplot(auc.sal.w, aes(x = Antibiotics, y = AUC, fill = Antibiotics)) +
+ggplot(auc.sal.w, aes(x = Antibiotics, y = AUC_sqrt, fill = Antibiotics)) +
   geom_boxplot()
   # 1 No ABX
   # 2 ABX
-ggplot(auc.sal.p, aes(x = Antibiotics, y = AUC, fill = Antibiotics)) +
+ggplot(auc.sal.p, aes(x = Antibiotics, y = AUC_sqrt, fill = Antibiotics)) +
   geom_boxplot()
 
 
 
 ### Boxplot - baseline
-ggplot(base.s, aes(x = Antibiotics, y = Delta, fill = Antibiotics)) +
-  geom_boxplot()
-ggplot(base.w, aes(x = Antibiotics, y = Delta, fill = Antibiotics)) +
-  geom_boxplot()
-ggplot(base.p, aes(x = Antibiotics, y = Delta, fill = Antibiotics)) +
-  geom_boxplot()
-
-
 ggplot(base.inu.s, aes(x = Antibiotics, y = Delta, fill = Antibiotics)) +
   geom_boxplot()
   # 1 ABX
@@ -380,29 +394,12 @@ ggplot(base.sal.p, aes(x = Antibiotics, y = Delta, fill = Antibiotics)) +
   geom_boxplot()
 
 
-### Boxplot - Slope
-ggplot(d.inu.s, aes(x = Antibiotics, y = Slope, fill = Antibiotics)) +
-  geom_boxplot()
-ggplot(d.inu.w, aes(x = Antibiotics, y = Slope, fill = Antibiotics)) +
-  geom_boxplot()
-  # 2 ABX
-ggplot(d.inu.p, aes(x = Antibiotics, y = Slope, fill = Antibiotics)) +
-  geom_boxplot()
-ggplot(d.sal.s, aes(x = Antibiotics, y = Slope, fill = Antibiotics)) +
-  geom_boxplot()
-ggplot(d.sal.w, aes(x = Antibiotics, y = Slope, fill = Antibiotics)) +
-  geom_boxplot()
-  # 1 No ABX
-  # 1 ABX
-ggplot(d.sal.p, aes(x = Antibiotics, y = Slope, fill = Antibiotics)) +
-  geom_boxplot()
-  # 1 No ABX
-  # 1 ABX
 
 
 ### Boxplot - MaxD
 ggplot(d.inu.s, aes(x = Antibiotics, y = MaxD, fill = Antibiotics)) +
   geom_boxplot()
+  # 1 ABX
 ggplot(d.inu.w, aes(x = Antibiotics, y = MaxD, fill = Antibiotics)) +
   geom_boxplot()
 ggplot(d.inu.p, aes(x = Antibiotics, y = MaxD, fill = Antibiotics)) +
@@ -416,6 +413,27 @@ ggplot(d.sal.w, aes(x = Antibiotics, y = MaxD, fill = Antibiotics)) +
   # 2 ABX
 ggplot(d.sal.p, aes(x = Antibiotics, y = MaxD, fill = Antibiotics)) +
   geom_boxplot()
+
+
+
+
+### Boxplot - Slope
+ggplot(d.inu.s, aes(x = Antibiotics, y = Slope, fill = Antibiotics)) +
+  geom_boxplot()
+  # 1 ABX
+ggplot(d.inu.w, aes(x = Antibiotics, y = Slope, fill = Antibiotics)) +
+  geom_boxplot()
+ggplot(d.inu.p, aes(x = Antibiotics, y = Slope, fill = Antibiotics)) +
+  geom_boxplot()
+  # 1 No ABX
+ggplot(d.sal.s, aes(x = Antibiotics, y = Slope, fill = Antibiotics)) +
+  geom_boxplot()
+  # 1 No ABX
+ggplot(d.sal.w, aes(x = Antibiotics, y = Slope, fill = Antibiotics)) +
+  geom_boxplot()
+ggplot(d.sal.p, aes(x = Antibiotics, y = Slope, fill = Antibiotics)) +
+  geom_boxplot()
+  # 1 No ABX
 
 
 
