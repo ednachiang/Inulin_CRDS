@@ -17,10 +17,6 @@ library(Bolstad2)
 library(phyloseq)
 library(psych)
 library(car)
-source('scripts/import_crds.R')
-source('scripts/bin_crds.R')
-source('scripts/norm_time_CRDS.R')
-source('scripts/calc_CRDS_metrics.R')
 source('scripts/misc.R')
 set.seed(1)
 theme_set(theme_bw())
@@ -28,210 +24,73 @@ theme_set(theme_bw())
 
 ### Load Data
 ```{r}
-crds <- import.crds('CSV', 'metadata.csv')
-```
-
-### Bin RelTime
-```{r}
-crds.bin <- bin.crds(crds)
-```
-
-### Normalize Time
-```{r}
-crds.norm <- norm.time.crds(crds.bin)
-```
-
-### Calculate Metrics
-```{r}
-crds.use <- calc.CRDS.metrics(crds.norm)
-```
-
-### Summarize by Substrate + ABX
-```{r}
-### Remove Inulin outliers
-#crds.rem <- crds.bin[-which(crds.bin$ID == "S34"),]
-crds.rem <- crds.bin[-which(crds.bin$ID == "S37"),]
-  # ABX didn't work; high [DNA]
-crds.rem <- crds.rem[-which(crds.rem$ID == "S23"),]
-  # Low baseline
-#crds.rem <- crds.rem[-which(crds.rem$ID == "P28"),]
-#crds.rem <- crds.rem[-which(crds.rem$ID == "P30"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "W31"),]
-  # Weird baseline. Decreased over time and was lower than ABX squirrels.
-
-# Remove Saline outliers
-#crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
-  # Weird baseline, AUC, and MaxD
-crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
-  # Baseline (both values are high), AUC, MaxD
-
-
-crds.rem$Season <- ordered(crds.rem$Season, levels=c("Summer", "Winter", "Spring"))
-
-
-# Summarize
-#crds.sum <- crds.rem %>%
-  group_by(Substrate, Antibiotics, Season, BinTime) %>%
-  summarize(Y_Mean = mean(Delta),
-            Y_Median = median(Delta),
-            Y_SD = sd(Delta),
-            Y_SE = se(Delta),
-            Y_IQR = IQR(Delta),
-            X_Mean = mean(RelTime),
-            X_Median = median(RelTime),
-            X_SD = sd(RelTime),
-            X_SE = se(RelTime),
-            X_IQR = IQR(RelTime),
-            SampSize = n())
-  # X_Mean is different from BinTime because BinTime was calculated with ABX and non-ABX combined
-    # BinTime was calculated this way to make sure datapoints for all individuals will align together on x-axis. If datapoints are misaligned that can be confusing for the audience. So binning was done this way for the clearest visualization.
-    # X_Mean is calculated for ABX and non-ABX separately, so there will be some variation
-#crds.sum$Season <- ordered(crds.sum$Season, levels=c("Summer", "Winter", "Spring"))
-```
-
-
-### Calculate Delta Metrics
-```{r}
-# Calculate delta metrics
-d.metrics <- calc.delta.metrics(crds.rem)
-#write.csv(d.metrics, "delta_metrics.csv", row.names = F)
-
-# Load metadata
+load('crds.norm.RData')
+load('crds.use.Rdata')
 meta <- read.csv('metadata.csv')
-
-# Add metadata to delta metrics
-d.metrics[,colnames(meta)[3:12]] <- NA
-for(sq in 1:nrow(d.metrics)){
-  meta.row <- which(meta$ID == d.metrics$ID[sq])
-  d.metrics[sq, 4:13] <- meta[meta.row, 3:12]
-}
-
-# Convert to numeric
-d.metrics$MaxD <- as.numeric(d.metrics$MaxD)
-d.metrics$Slope <- as.numeric(d.metrics$Slope)
-
-# Order seasons
-d.metrics$Season <- ordered(d.metrics$Season, levels=c("Summer", "Winter", "Spring"))
-
-# Separate by substrate
-d.inu <- d.metrics[which(d.metrics$Substrate == "Inulin"),]
-d.sal <- d.metrics[which(d.metrics$Substrate == "Saline"),]
-
-# Separate by substrate + ABX
-d.inu.abx <- d.inu[which(d.inu$Antibiotics == "Yes"),]
-d.inu.noabx <- d.inu[which(d.inu$Antibiotics == "No"),]
-d.sal.abx <- d.sal[which(d.sal$Antibiotics == "Yes"),]
-d.sal.noabx <- d.sal[which(d.sal$Antibiotics == "No"),]
-
-# Separate by substrate + season
-d.inu.s <- d.inu[which(d.inu$Season == "Summer"),]
-d.inu.w <- d.inu[which(d.inu$Season == "Winter"),]
-d.inu.p <- d.inu[which(d.inu$Season == "Spring"),]
-d.sal.s <- d.sal[which(d.sal$Season == "Summer"),]
-d.sal.w <- d.sal[which(d.sal$Season == "Winter"),]
-d.sal.p <- d.sal[which(d.sal$Season == "Spring"),]
 ```
 
-
-### Calculate AUC
+### Prepare CRDS data
 ```{r}
-# AUC = Area Under Curve
-# Trapezoid Method
-
-### Calculate AUC
-ids <- unique(crds.rem$ID)
-auc.df <- data.frame(crds.rem[1,])
-auc.df <- auc.df[,-2:-3]
-  # Remove Delta and CO2 cols
-auc.df <- auc.df[,-14]
-  # Remove BinTime col
-colnames(auc.df) <- c("AUC", "Number", "ID", "Season", "Sex", "Antibiotics", "Substrate", "Diet", "Mom", "Mom_Location", "BodyMass", "BodyTemp", "Date_Sampled")
-auc.df$Ketones <- NA
-#auc.df$Date_Sampled <- NA
-
-  # Rename cols
-meta <- read.csv('metadata.csv')
-
-#crds.rem= crds.bin
-# First normalize Rel Time so 
-#for (i in 2){
-for (i in 1:length(ids)){
-  ID <- ids[i]
-  select <- crds.rem[which(crds.rem$ID == ID),]
-    # Dataframe with CRDS values for 1 squirrel
-
-  # Normalize delta value to baseline
-  select$Delta <- select$Delta - select$Delta[1]
-  
-  # Remove baseline from AUC calculation because we care about the AUC after gavage
-  # Since we already normalized delta value to baseline, we don't need that value anymore
-  # Set baseline to gavage time = 0
-  select[1,1] <- 0
-  
-  # Normalize AUC end time
-  # Since length of experiment varies for each individual, we don't want experimental length to bias our AUC calculations
-  # Normalize length to min time within each substrate
-    # Inu = 4.0667
-    # Sal = 2.21667
-  if (select$Substrate == "Inulin") {
-    max <- which(select$RelTime > 4.06667)
-    select$RelTime[max] <- 4.06667
-  } else if (select$Substrate == "Saline") {
-    max <- which(select$RelTime > 2.21666667)
-    select$RelTime[max] <- 2.21666667
-  }
-
-  # Create auc variable
-  AUC <- 0
-  
-  # Run rectangle method integration - less accurate
-  #for (j in 1:(nrow(select)-1)){
-  #  AUC <- AUC + ((select$RelTime[j+1]-select$RelTime[j])*select$Delta[j+1])
-  #}
-  
-  # Run trapezoid method integration - more accurate
-  for(j in 1:(nrow(select)-1)){
-    avgH <- (select$Delta[j+1]+select$Delta[j])/2
-      # Calculates average height between start and end point
-    width <- (select$RelTime[j+1]-select$RelTime[j])
-    AUC <- AUC + (avgH*width)
-  }
-    
-  auc.df[i,1] <- AUC
-  auc.df[i, 2:14] <- select[1, 4:15]
-  
-  use <- which(meta$ID == ID)
-  auc.df$Ketones[i] <- meta$Ketones[use]
+# Add metadata
+crds.use[, colnames(meta)[3:ncol(meta)]] <- NA
+for(i in 1:nrow(crds.use)){
+  meta.row <- which(meta$ID == crds.use$ID[i])
+  crds.use[i, 6:ncol(crds.use)] <- meta[meta.row, 3:ncol(meta)]
 }
-
-
-# Order seasons
-auc.df$Season <- ordered(auc.df$Season, levels=c("Summer", "Winter", "Spring"))
-auc.df$Antibiotics <- ordered(auc.df$Antibiotics, level=c("No", "Yes"))
 
 # Calculate square root of AUC
-auc.df$AUC_norm <- auc.df$AUC + (min(auc.df$AUC) * -1)
-  # Since the min value is negative, normalize data so that min = 0
-  # Square root can't be done on a negative value
-auc.df$AUC_sqrt <- sqrt(auc.df$AUC_norm)
+minAUC <- min(crds.use$AUC)
+crds.use$AUC_Sqrt <- crds.use$AUC + (minAUC * -1)
+crds.use$AUC_sqrt <- sqrt(crds.use$AUC_Sqrt)
 
-### Subset by Substrate & ABX
-auc.inu <- auc.df[which(auc.df$Substrate == "Inulin"),]
-auc.sal <- auc.df[which(auc.df$Substrate == "Saline"),]
-auc.inu.s <- auc.inu[which(auc.inu$Season == "Summer"),]
-auc.inu.w <- auc.inu[which(auc.inu$Season == "Winter"),]
-auc.inu.p <- auc.inu[which(auc.inu$Season == "Spring"),]
-auc.sal.s <- auc.sal[which(auc.sal$Season == "Summer"),]
-auc.sal.w <- auc.sal[which(auc.sal$Season == "Winter"),]
-auc.sal.p <- auc.sal[which(auc.sal$Season == "Spring"),]
+# Convert to numeric
+crds.use$AvgDelta <- as.numeric(crds.use$AvgDelta)
+crds.use$MaxD <- as.numeric(crds.use$MaxD)
+crds.use$MaxSlope <- as.numeric(crds.use$MaxSlope)
+crds.use$AUC <- as.numeric(crds.use$AUC)
+crds.use$AUC_sqrt <- as.numeric(crds.use$AUC_sqrt)
+
+# Order categorical variables
+crds.use$Season <- ordered(crds.use$Season, levels = c("Summer", "Winter", "Spring"))
+crds.use$Sex <- ordered(crds.use$Sex, levels = c("Female", "Male"))
+crds.use$Antibiotics <- ordered(crds.use$Antibiotics, levels = c("No", "Yes"))
+crds.use$Substrate <- ordered(crds.use$Substrate, levels = c("Inulin", "Saline"))
+crds.use$Diet <- ordered(crds.use$Diet, levels = c("1", "2"))
+
+# Remove outliers
+#crds.rem <- crds.bin[-which(crds.bin$ID == "S34"),]
+#crds.rem <- crds.bin[-which(crds.bin$ID == "S37"),]
+
+
+# Separate by substrate
+crds.inu <- crds.use[which(crds.use$Substrate == "Inulin"),]
+crds.sal <- crds.use[which(crds.use$Substrate == "Saline"),]
+
+# Separate by substrate + ABX
+crds.inu.abx <- crds.inu[which(crds.inu$Antibiotics == "Yes"),]
+crds.inu.noabx <- crds.inu[which(crds.inu$Antibiotics == "No"),]
+crds.sal.abx <- crds.sal[which(crds.sal$Antibiotics == "Yes"),]
+crds.sal.noabx <- crds.sal[which(crds.sal$Antibiotics == "No"),]
+
+# Separate by substrate + season
+crds.inu.s <- crds.inu[which(crds.inu$Season == "Summer"),]
+crds.inu.w <- crds.inu[which(crds.inu$Season == "Winter"),]
+crds.inu.p <- crds.inu[which(crds.inu$Season == "Spring"),]
+crds.sal.s <- crds.sal[which(crds.sal$Season == "Summer"),]
+crds.sal.w <- crds.sal[which(crds.sal$Season == "Winter"),]
+crds.sal.p <- crds.sal[which(crds.sal$Season == "Spring"),]
+
 ```
+
+
+
+
 
 
 ### Baseline
 ```{r}
 ### Separate samples
-crds.base <- crds.rem[which(crds.rem$RelTime < 0),]
+crds.base <- crds.norm[which(crds.norm$RelTime == 0),]
 base.inu <- crds.base[which(crds.base$Substrate == "Inulin"),]
 base.sal <- crds.base[which(crds.base$Substrate == "Saline"),]
 base.inu.s <- base.inu[which(base.inu$Season == "Summer"),]
@@ -353,26 +212,6 @@ dna.sal.p <- dna.sal[which(dna.sal$Season == "Spring"),]
 
 ### Find outliers
 ```{r}
-### Boxplot - AUC
-ggplot(auc.inu.s, aes(x = Antibiotics, y = AUC_sqrt, fill = Antibiotics)) +
-  geom_boxplot()
-  # 1 ABX
-ggplot(auc.inu.w, aes(x = Antibiotics, y = AUC_sqrt, fill = Antibiotics)) +
-  geom_boxplot()
-ggplot(auc.inu.p, aes(x = Antibiotics, y = AUC_sqrt, fill = Antibiotics)) +
-  geom_boxplot()
-  # 2 ABX
-ggplot(auc.sal.s, aes(x = Antibiotics, y = AUC_sqrt, fill = Antibiotics)) +
-  geom_boxplot()
-ggplot(auc.sal.w, aes(x = Antibiotics, y = AUC_sqrt, fill = Antibiotics)) +
-  geom_boxplot()
-  # 1 No ABX
-  # 2 ABX
-ggplot(auc.sal.p, aes(x = Antibiotics, y = AUC_sqrt, fill = Antibiotics)) +
-  geom_boxplot()
-
-
-
 ### Boxplot - baseline
 ggplot(base.inu.s, aes(x = Antibiotics, y = Delta, fill = Antibiotics)) +
   geom_boxplot()
@@ -394,6 +233,23 @@ ggplot(base.sal.p, aes(x = Antibiotics, y = Delta, fill = Antibiotics)) +
   geom_boxplot()
 
 
+### Boxplot - AUC
+ggplot(crds.inu.s, aes(x = Antibiotics, y = AUC_sqrt, fill = Antibiotics)) +
+  geom_boxplot()
+  # 1 ABX
+ggplot(crds.inu.w, aes(x = Antibiotics, y = AUC_sqrt, fill = Antibiotics)) +
+  geom_boxplot()
+ggplot(crds.inu.p, aes(x = Antibiotics, y = AUC_sqrt, fill = Antibiotics)) +
+  geom_boxplot()
+  # 2 ABX
+ggplot(crds.sal.s, aes(x = Antibiotics, y = AUC_sqrt, fill = Antibiotics)) +
+  geom_boxplot()
+ggplot(crds.sal.w, aes(x = Antibiotics, y = AUC_sqrt, fill = Antibiotics)) +
+  geom_boxplot()
+  # 1 No ABX
+  # 2 ABX
+ggplot(crds.sal.p, aes(x = Antibiotics, y = AUC_sqrt, fill = Antibiotics)) +
+  geom_boxplot()
 
 
 ### Boxplot - MaxD
@@ -415,9 +271,7 @@ ggplot(d.sal.p, aes(x = Antibiotics, y = MaxD, fill = Antibiotics)) +
   geom_boxplot()
 
 
-
-
-### Boxplot - Slope
+### Boxplot - MaxSlope
 ggplot(d.inu.s, aes(x = Antibiotics, y = Slope, fill = Antibiotics)) +
   geom_boxplot()
   # 1 ABX
