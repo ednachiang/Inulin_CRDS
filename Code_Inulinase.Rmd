@@ -46,11 +46,22 @@ ags$Season <- ordered(ags$Season, levels=c("Summer", "Winter", "Spring"))
 # Convert AGS to kb
 ags$AGS_kb <- ags$Avg_Genome_Size / 1000
 
-shapiro.test(ags$Avg_Genome_Size)
-  # p-value = 0.3697
+# Calculate residuals
+ags.res <- resid(lm(Avg_Genome_Size ~ Season, data = ags))
+ge.res <- resid(lm(Genome_Equivalents ~ Season, data = ags))
+
+# Test for Normality
+hist(ags.res)
+qqnorm(ags.res)
+qqline(ags.res)
+shapiro.test(ags.res)
+  # p-value = 0.4657
   # Normal
-shapiro.test(ags$Genome_Equivalents)
-  # p-value = 0.2279
+hist(ge.res)
+qqnorm(ge.res)
+qqline(ge.res)
+shapiro.test(ge.res)
+  # p-value = 0.9985
   # Normal
 
 
