@@ -1,0 +1,53 @@
+---
+title: "Code_PrepareCRDS"
+author: "Edna Chiang"
+date: "4/17/2022"
+output: html_document
+---
+
+### Load Packages, scripts, and functions
+```{r}
+library(ggplot2)
+library(plyr)
+library(dplyr)
+library(grid)
+library(MESS)
+library(pgirmess)
+library(Bolstad2)
+library(phyloseq)
+library(psych)
+library(car)
+source('scripts/import_crds.R')
+source('scripts/bin_crds.R')
+source('scripts/misc.R')
+source('scripts/calc_CRDS_metrics.R')
+source('scripts/norm_time_CRDS.R')
+set.seed(1)
+theme_set(theme_bw())
+
+### Stats Notes
+# Use 'subset' in kruskal.test
+# Do NOT use 'subset' in kruskalmc or pairwise.wilcox.test; it doesn't work!
+```
+
+### Load Data
+```{r}
+crds <- import.crds('CSV', 'metadata.csv')
+```
+
+### Bin RelTime
+```{r}
+crds.bin <- bin.crds(crds)
+```
+
+### Normalize Time
+```{r}
+crds.norm <- norm.time.crds(crds.bin)
+#save(crds.norm, file='crds.norm.RData')
+```
+
+### Calculate Metrics
+```{r}
+crds.use <- calc.CRDS.metrics(crds.norm)
+#save(crds.use, file='crds.use.RData')
+```
