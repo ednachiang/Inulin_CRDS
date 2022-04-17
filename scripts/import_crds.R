@@ -8,7 +8,7 @@ import.crds <- function(x,y) {
   # Load in all outside variables before you start the 'for' loop
   n <- as.numeric(length(list.files(x)))
   meta <- read.csv(y)
-  crds <- data.frame(matrix(ncol=15, nrow=0))
+  crds <- data.frame(matrix(ncol=16, nrow=0))
 
   
   # Import in each squirrel as its own dataframe
