@@ -2,6 +2,7 @@
 bin.crds <- function(x){
   # Remove gavage timepoint
   crds <- x[,-15]
+    # Removes Ketones column due to NAs
   crds <- crds[complete.cases(crds),]
   
   # Separate Inulin, Mannitol, and Saline
@@ -75,7 +76,7 @@ bin.crds <- function(x){
   # Update BinTime in dataframe containing all substrate data
   ## Inulin
   for(i in 1:nrow(inu.sum.noabx)) {
-    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:14], inu.sum.noabx[i,1:14])))] <- inu.sum.noabx$BinTime[i]
+    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:15], inu.sum.noabx[i,1:15])))] <- inu.sum.noabx$BinTime[i]
     # match_df goes through each row of inu.exp and finds the matching row in inu
     # Each row in inu has a unique rowname, so we take the rowname of the match_df and find that row in inu
     # Check unique rownames with sum(duplicated(rownames(inu)). If all rownames are unique, sum = 0
@@ -83,41 +84,41 @@ bin.crds <- function(x){
     # I repeat this for every row in inu.exp so each inu.exp$BinTime gets imported into inu$BinTime
   }
   for(i in 1:nrow(inu.sum.abx)) {
-    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:14], inu.sum.abx[i,1:14])))] <- inu.sum.abx$BinTime[i]
+    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:15], inu.sum.abx[i,1:15])))] <- inu.sum.abx$BinTime[i]
   }
   for(i in 1:nrow(inu.win.noabx)) {
-    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:14], inu.win.noabx[i,1:14])))] <- inu.win.noabx$BinTime[i]
+    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:15], inu.win.noabx[i,1:15])))] <- inu.win.noabx$BinTime[i]
   }
   for(i in 1:nrow(inu.win.abx)) {
-    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:14], inu.win.abx[i,1:14])))] <- inu.win.abx$BinTime[i]
+    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:15], inu.win.abx[i,1:15])))] <- inu.win.abx$BinTime[i]
   }
   for(i in 1:nrow(inu.spr.noabx)) {
-    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:14], inu.spr.noabx[i,1:14])))] <- inu.spr.noabx$BinTime[i]
+    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:15], inu.spr.noabx[i,1:15])))] <- inu.spr.noabx$BinTime[i]
   }
   for(i in 1:nrow(inu.spr.abx)) {
-    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:14], inu.spr.abx[i,1:14])))] <- inu.spr.abx$BinTime[i]
+    inu$BinTime[which(rownames(inu) == rownames(match_df(inu[,1:15], inu.spr.abx[i,1:15])))] <- inu.spr.abx$BinTime[i]
   }
   
   print(inu)
   
   ## Saline
   for(i in 1:nrow(sal.sum.noabx)) {
-    sal$BinTime[which(rownames(sal) == rownames(match_df(sal[,1:14], sal.sum.noabx[i,1:14])))] <- sal.sum.noabx$BinTime[i]
+    sal$BinTime[which(rownames(sal) == rownames(match_df(sal[,1:15], sal.sum.noabx[i,1:15])))] <- sal.sum.noabx$BinTime[i]
   }
   for(i in 1:nrow(sal.sum.abx)) {
-    sal$BinTime[which(rownames(sal) == rownames(match_df(sal[,1:14], sal.sum.abx[i,1:14])))] <- sal.sum.abx$BinTime[i]
+    sal$BinTime[which(rownames(sal) == rownames(match_df(sal[,1:15], sal.sum.abx[i,1:15])))] <- sal.sum.abx$BinTime[i]
   }
   for(i in 1:nrow(sal.win.noabx)) {
-    sal$BinTime[which(rownames(sal) == rownames(match_df(sal[,1:14], sal.win.noabx[i,1:14])))] <- sal.win.noabx$BinTime[i]
+    sal$BinTime[which(rownames(sal) == rownames(match_df(sal[,1:15], sal.win.noabx[i,1:15])))] <- sal.win.noabx$BinTime[i]
   }
   for(i in 1:nrow(sal.win.abx)) {
-    sal$BinTime[which(rownames(sal) == rownames(match_df(sal[,1:14], sal.win.abx[i,1:14])))] <- sal.win.abx$BinTime[i]
+    sal$BinTime[which(rownames(sal) == rownames(match_df(sal[,1:15], sal.win.abx[i,1:15])))] <- sal.win.abx$BinTime[i]
   }
   for(i in 1:nrow(sal.spr.noabx)) {
-    sal$BinTime[which(rownames(sal) == rownames(match_df(sal[,1:14], sal.spr.noabx[i,1:14])))] <- sal.spr.noabx$BinTime[i]
+    sal$BinTime[which(rownames(sal) == rownames(match_df(sal[,1:15], sal.spr.noabx[i,1:15])))] <- sal.spr.noabx$BinTime[i]
   }
   for(i in 1:nrow(sal.spr.abx)) {
-    sal$BinTime[which(rownames(sal) == rownames(match_df(sal[,1:14], sal.spr.abx[i,1:14])))] <- sal.spr.abx$BinTime[i]
+    sal$BinTime[which(rownames(sal) == rownames(match_df(sal[,1:15], sal.spr.abx[i,1:15])))] <- sal.spr.abx$BinTime[i]
   }
 
   
