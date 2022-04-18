@@ -6,8 +6,8 @@ calc.CRDS.metrics <- function(x){
   IDs <- levels(as.factor(x$ID))
   
   # Create output dataframe
-  output <- data.frame(matrix(ncol = 5, nrow = length(levels(IDs))))
-  colnames(output) <- c("ID", "AvgDelta", "MaxD",  "MaxSlope", "AUC")
+  output <- data.frame(matrix(ncol = 6, nrow = length(levels(IDs))))
+  colnames(output) <- c("ID", "AvgDelta", "MaxD",  "MaxSlope", "AUC", "Baseline")
   
   
   # Iterate through each squirrel ID
@@ -53,11 +53,12 @@ calc.CRDS.metrics <- function(x){
       width <- (curve.df$RelTime[k+1]-curve.df$RelTime[k])
       AUC <- AUC + (avgH*width)
     }
+    
 
 
 
     # Populate output dataframe
-    output[i,] <- c(IDs[i], meanD, maxDuse, maxSlope, AUC)
+    output[i,] <- c(IDs[i], meanD, maxDuse, maxSlope, AUC, curve.df$Delta[1])
     
   }
   
