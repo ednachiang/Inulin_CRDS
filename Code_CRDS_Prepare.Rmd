@@ -19,9 +19,9 @@ library(psych)
 library(car)
 source('scripts/import_crds.R')
 source('scripts/bin_crds.R')
-source('scripts/misc.R')
-source('scripts/calc_CRDS_metrics.R')
 source('scripts/norm_time_CRDS.R')
+source('scripts/calc_CRDS_metrics.R')
+source('scripts/misc.R')
 set.seed(1)
 theme_set(theme_bw())
 
@@ -35,6 +35,25 @@ theme_set(theme_bw())
 crds <- import.crds('CSV', 'metadata.csv')
 ```
 
+### Modify data to adjust outliers
+```{r}
+# W31 - use average baseline delta and relTime instead of just the last one.
+w31.avgD <- (-24.65-25.02-28.82)/3
+w31.avgT <- (-0.76667-0.48333-0.2)/3
+
+# P28 -  - use average baseline delta and relTime instead of just the last one.
+p28.avgD <- (-24.87-28.21-27.22)/3
+p28.avgT <- (-0.78333-0.46667-0.2)/3
+
+# Change dataframe values
+w31 <- which(crds$ID == "W31")
+crds$RelTime[w31[1]] <- w31.avgT
+crds$Delta[w31[1]] <- w31.avgD
+
+p28 <- which(crds$ID == "P28")
+crds$RelTime[p28[1]] <- p28.avgT
+crds$Delta[p28[1]] <- p28.avgD
+```
 ### Bin RelTime
 ```{r}
 crds.bin <- bin.crds(crds)
