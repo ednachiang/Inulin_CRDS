@@ -1,0 +1,77 @@
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = Baseline ~ Diet + Antibiotics * Sex, data = crds.rem)
+
+$Diet
+         diff       lwr        upr     p adj
+2-1 -1.214177 -2.260165 -0.1681883 0.0235338
+
+$Antibiotics
+            diff       lwr         upr     p adj
+Yes-No -1.083456 -2.112971 -0.05394081 0.0394272
+
+$Sex
+                 diff        lwr     upr     p adj
+Male-Female 0.1697031 -0.8616041 1.20101 0.7437969
+
+$`Antibiotics:Sex`
+                            diff        lwr        upr     p adj
+Yes:Female-No:Female  0.00314581 -1.8487156  1.8550072 1.0000000
+No:Male-No:Female     1.26333303 -0.6088497  3.1355158 0.2936599
+Yes:Male-No:Female   -1.08547359 -3.1681454  0.9971982 0.5213885
+No:Male-Yes:Female    1.26018722 -0.5437355  3.0641099 0.2644150
+Yes:Male-Yes:Female  -1.08861940 -3.1101512  0.9329124 0.4932094
+Yes:Male-No:Male     -2.34880662 -4.3889705 -0.3086428 0.0175938
+
+
+
+
+
+
+
+
+
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = Baseline ~ Antibiotics + Diet + Sex, data = crds.s)
+
+$Antibiotics
+            diff       lwr         upr     p adj
+Yes-No -1.087762 -2.154004 -0.02152013 0.0459567
+
+$Diet
+          diff       lwr       upr     p adj
+2-1 -0.4447925 -1.542172 0.6525873 0.4078404
+
+$Sex
+                diff        lwr      upr     p adj
+Male-Female 0.236838 -0.8605418 1.334218 0.6574115
+
+
+
+
+
+
+
+
+
+
+
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = Baseline ~ Antibiotics + Diet + Sex, data = crds.p)
+
+$Antibiotics
+            diff       lwr       upr    p adj
+Yes-No -2.814689 -3.887283 -1.742095 1.62e-05
+
+$Diet
+         diff      lwr       upr     p adj
+2-1 -2.226966 -3.31769 -1.136242 0.0003225
+
+$Sex
+                 diff        lwr      upr     p adj
+Male-Female 0.2010295 -0.8896943 1.291753 0.7065017
