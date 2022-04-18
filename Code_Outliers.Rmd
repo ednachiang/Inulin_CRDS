@@ -35,13 +35,14 @@ meta <- read.csv('metadata.csv')
 crds.use[, colnames(meta)[3:ncol(meta)]] <- NA
 for(i in 1:nrow(crds.use)){
   meta.row <- which(meta$ID == crds.use$ID[i])
-  crds.use[i, 6:ncol(crds.use)] <- meta[meta.row, 3:ncol(meta)]
+  crds.use[i, 7:ncol(crds.use)] <- meta[meta.row, 3:ncol(meta)]
 }
 
 # Calculate square root of AUC
+crds.use$AUC <- as.numeric(crds.use$AUC)
 minAUC <- min(crds.use$AUC)
-crds.use$AUC_Sqrt <- crds.use$AUC + (minAUC * -1)
-crds.use$AUC_sqrt <- sqrt(crds.use$AUC_Sqrt)
+crds.use$AUC_sqrt <- crds.use$AUC + (minAUC * -1)
+crds.use$AUC_sqrt <- sqrt(crds.use$AUC_sqrt)
 
 # Convert to numeric
 crds.use$AvgDelta <- as.numeric(crds.use$AvgDelta)
@@ -58,13 +59,18 @@ crds.use$Substrate <- ordered(crds.use$Substrate, levels = c("Inulin", "Saline")
 crds.use$Diet <- ordered(crds.use$Diet, levels = c("1", "2"))
 
 # Remove outliers
-#crds.rem <- crds.bin[-which(crds.bin$ID == "S34"),]
-#crds.rem <- crds.bin[-which(crds.bin$ID == "S37"),]
+crds.rem <- crds.use[-which(crds.use$ID == "S23"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "S37"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "S60"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "W20"),]
+  # This is due to odd metagenome
+crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
 
 
 # Separate by substrate
-crds.inu <- crds.use[which(crds.use$Substrate == "Inulin"),]
-crds.sal <- crds.use[which(crds.use$Substrate == "Saline"),]
+crds.inu <- crds.rem[which(crds.rem$Substrate == "Inulin"),]
+crds.sal <- crds.rem[which(crds.rem$Substrate == "Saline"),]
 
 # Separate by substrate + ABX
 crds.inu.abx <- crds.inu[which(crds.inu$Antibiotics == "Yes"),]
@@ -84,109 +90,144 @@ crds.sal.p <- crds.sal[which(crds.sal$Season == "Spring"),]
 
 
 
-
-
-
-### Baseline
+### Test Baseline
 ```{r}
-### Separate samples
-crds.base <- crds.norm[which(crds.norm$RelTime == 0),]
-base.inu <- crds.base[which(crds.base$Substrate == "Inulin"),]
-base.sal <- crds.base[which(crds.base$Substrate == "Saline"),]
-base.inu.s <- base.inu[which(base.inu$Season == "Summer"),]
-base.inu.w <- base.inu[which(base.inu$Season == "Winter"),]
-base.inu.p <- base.inu[which(base.inu$Season == "Spring"),]
-base.sal.s <- base.sal[which(base.sal$Season == "Summer"),]
-base.sal.w <- base.sal[which(base.sal$Season == "Winter"),]
-base.sal.p <- base.sal[which(base.sal$Season == "Spring"),]
-base.noabx <- crds.base[which(crds.base$Antibiotics == "No"),]
-base.abx <- crds.base[which(crds.base$Antibiotics == "Yes"),]
-base.noabx.s <- base.noabx[which(base.noabx$Season == "Summer"),]
-base.noabx.w <- base.noabx[which(base.noabx$Season == "Winter"),]
-base.noabx.p <- base.noabx[which(base.noabx$Season == "Spring"),]
-base.abx.p <- base.abx[which(base.abx$Season == "Spring"),]
-base.s <- crds.base[which(crds.base$Season == "Summer"),]
-base.w <- crds.base[which(crds.base$Season == "Winter"),]
-base.p <- crds.base[which(crds.base$Season == "Spring"),]
-
-
-# All
-res <- resid(lm(Delta ~ Season, crds.base))
+### All ###
+res <- resid(lm(Baseline ~ Season, crds.rem))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p-value = 4.017e-15
-  # Not Normal
-kruskal.test(Delta ~ Season, crds.base)
-  # p-value = 1.753e-08
-wilcox.test(Delta ~ Antibiotics, crds.base)
-  # p-value = 0.07652
-wilcox.test(Delta ~ Substrate, crds.base)
-  # p-value = 0.3642
-wilcox.test(Delta ~ Diet, crds.base)
-  # p-value = 0.09588
+  # p-value = 0.5284
+  # Normal
+summary(aov(Baseline ~ Season*Diet + Season*Antibiotics + Antibiotics*Sex, crds.rem))
+  # Season p = < 2e-16
+  # Diet p = 1.32e-08
+  # Antibiotics = 0.000393
+  # Sex = 0.378731
+  # Season:Diet = 1.14e-05
+  # Season:Antibiotics = 0.066144
+  # Antibiotics:Sex = 0.034540
+  # Residuals = 76.54
+TukeyHSD(aov(Baseline ~ Season*Diet + Season*Antibiotics + Antibiotics*Sex, crds.rem), conf.level = 0.95)
 
+
+
+### By Season ###
+crds.s <- crds.rem[which(crds.rem$Season == "Summer"),]
+crds.w <- crds.rem[which(crds.rem$Season == "Winter"),]
+crds.p <- crds.rem[which(crds.rem$Season == "Spring"),]
 
 # Summer
-res <- resid(lm(Delta ~ Antibiotics, base.s))
+res <- resid(lm(Baseline ~ Antibiotics, crds.s))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p-value = 0.7892
   # Normal
-summary(aov(Delta ~ Antibiotics + Substrate + Diet, base.s))
-  # No sig
+summary(aov(Baseline ~ Antibiotics + Diet + Sex , crds.s))
+  # Sig
+TukeyHSD(aov(Baseline ~ Antibiotics + Diet + Sex , crds.s))
+
 
 # Winter
-res <- resid(lm(Delta ~ Antibiotics, base.w))
+res <- resid(lm(Baseline ~ Antibiotics, crds.w))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p-value = 3.085e-09
-  # But looks Normal
-summary(aov(Delta ~ Antibiotics + Substrate + Diet, base.w))
-  # No sig
+  # Normal
+summary(aov(Baseline ~ Antibiotics + Diet + Sex, crds.w))
+  # No Sig
+
 
 # Spring
-res <- resid(lm(Delta ~ Antibiotics, base.p))
+res <- resid(lm(Baseline ~ Antibiotics, crds.p))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p-value = 0.8872
   # Normal
-summary(aov(Delta ~ Antibiotics + Diet + Substrate, base.p))
-  # ABX & Diet sig
+summary(aov(Baseline ~ Antibiotics + Diet + Sex, crds.p))
+TukeyHSD(aov(Baseline ~ Antibiotics + Diet + Sex, crds.p))
 
 
-# No ABX Spring
-res <- resid(lm(Delta ~ Diet, base.noabx.p))
+
+
+
+### By Season + Antibiotics ###
+crds.s.noabx <- crds.s[which(crds.s$Antibiotics == "No"),]
+crds.s.abx <- crds.s[which(crds.s$Antibiotics == "Yes"),]
+crds.w.noabx <- crds.w[which(crds.w$Antibiotics == "No"),]
+crds.w.abx <- crds.w[which(crds.w$Antibiotics == "Yes"),]
+crds.p.noabx <- crds.p[which(crds.p$Antibiotics == "No"),]
+crds.p.abx <- crds.p[which(crds.p$Antibiotics == "Yes"),]
+
+# Summer No ABX
+res <- resid(lm(Baseline ~ Diet, crds.s.noabx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p-value = 0.08701
   # Normal
-summary(aov(Delta ~ Diet + Substrate, base.noabx.p))
-  # Diet p = 0.0216*
-  # Substrate p = 0.4869
-  # Diet:Substrate
+summary(aov(Baseline ~ Diet + Sex , crds.s.noabx))
+  # No Sig
 
-# ABX Spring
-res <- resid(lm(Delta ~ Diet, base.abx.p))
+# Summer No ABX
+res <- resid(lm(Baseline ~ Diet, crds.s.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p-value = 0.7651
   # Normal
-summary(aov(Delta ~ Diet + Substrate, base.abx.p))
-  # Diet = 0.000358
-  # Substrate = 0.426050
+summary(aov(Baseline ~ Diet + Sex , crds.s.abx))
+  # No Sig
 
+
+# Winter No ABX
+res <- resid(lm(Baseline ~ Diet, crds.w.noabx))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Normal
+summary(aov(Baseline ~ Diet + Sex , crds.w.noabx))
+  # No Sig
+
+# Winter No ABX
+res <- resid(lm(Baseline ~ Diet, crds.w.abx))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Normal
+summary(aov(Baseline ~ Diet + Sex , crds.w.abx))
+  # No Sig
+
+
+# Spring No ABX
+  # Note: Not n = 3 for each group, so the stats don't really mean anything
+res <- resid(lm(Baseline ~ Diet, crds.p.noabx))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Normal
+summary(aov(Baseline ~ Diet + Sex , crds.p.noabx))
+  # Diet p = 0.0176
+  # Sex = 0.2407
+
+
+# Spring No ABX
+res <- resid(lm(Baseline ~ Diet, crds.p.abx))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Normal
+summary(aov(Baseline ~ Diet + Sex , crds.p.abx))
+  # Diet p = 0.00024
+  # Sex p = 0.65872
 ```
 
 
@@ -218,7 +259,6 @@ ggplot(base.inu.s, aes(x = Antibiotics, y = Delta, fill = Antibiotics)) +
   # 1 ABX
 ggplot(base.inu.w, aes(x = Antibiotics, y = Delta, fill = Antibiotics)) +
   geom_boxplot()
-  # 1 No ABX
   # 1 ABX
 ggplot(base.inu.p, aes(x = Antibiotics, y = Delta, fill = Antibiotics)) +
   geom_boxplot()
@@ -292,12 +332,6 @@ ggplot(d.sal.p, aes(x = Antibiotics, y = Slope, fill = Antibiotics)) +
 
 
 ### Boxplot - DNA Concentration
-ggplot(dna.inu[which(dna.inu$Antibiotics == "No Antibiotics"),], aes(x = Season, y = DNA_Yield_.ng.mg., fill = Season)) +
-  geom_boxplot()
-ggplot(dna.inu[which(dna.inu$Antibiotics == "Antibiotics"),], aes(x = Season, y = DNA_Yield_.ng.mg., fill = Season)) +
-  geom_boxplot()
-
-
 ggplot(dna.inu.s, aes(x = Antibiotics, y = DNA_Yield_.ng.mg., fill = Antibiotics)) +
   geom_boxplot()
   # 1 ABX
