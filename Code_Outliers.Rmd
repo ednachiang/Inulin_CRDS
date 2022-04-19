@@ -50,6 +50,8 @@ crds.use$MaxD <- as.numeric(crds.use$MaxD)
 crds.use$MaxSlope <- as.numeric(crds.use$MaxSlope)
 crds.use$AUC <- as.numeric(crds.use$AUC)
 crds.use$AUC_sqrt <- as.numeric(crds.use$AUC_sqrt)
+crds.use$Baseline <- as.numeric(crds.use$Baseline)
+
 
 # Order categorical variables
 crds.use$Season <- ordered(crds.use$Season, levels = c("Summer", "Winter", "Spring"))
@@ -100,17 +102,55 @@ qqline(res)
 shapiro.test(res)
   # p-value = 0.5284
   # Normal
-summary(aov(Baseline ~ Season*Diet + Season*Antibiotics + Antibiotics*Sex, crds.rem))
-  # Season p = < 2e-16
-  # Diet p = 1.32e-08
-  # Antibiotics = 0.000393
-  # Sex = 0.378731
-  # Season:Diet = 1.14e-05
-  # Season:Antibiotics = 0.066144
-  # Antibiotics:Sex = 0.034540
-  # Residuals = 76.54
-TukeyHSD(aov(Baseline ~ Season*Diet + Season*Antibiotics + Antibiotics*Sex, crds.rem), conf.level = 0.95)
-
+summary(aov(Baseline ~ Season*Antibiotics + Antibiotics*Substrate + Antibiotics*Sex, crds.rem))
+  # Season p < 2e-16
+  # Antibiotics p = 3.24e-05
+  # Substrate = 0.088999
+  # Sex = 0.471015
+  # Season:Antibiotics = 0.000424
+  # Antibiotics:Substrate = 0.068254
+  # Antibiotics:Sex = 0.008661
+TukeyHSD(aov(Baseline ~ Season*Antibiotics + Antibiotics*Substrate + Antibiotics*Sex, crds.rem), conf.level = 0.95)
+  # Season
+    # Summer-Winter adj p = 0, CI = 3.62083 - 5.360883
+    # Summer-Spring adj p = 0, CI = 1.623308 - 3.323205
+    # Winter-Spring adj p = 7e-07, CI = -2.862728 - -1.180926
+  # Antibiotics
+    # Yes-No adj p = 3.25e-05, CI = -1.874653 - -0.7155052
+  # Substrate
+    # Saline-Inulin adj p = 0.089385, CI = -0.791147 - 1.080033
+  # Sex
+    # Male-Female adj p = 0.4879419, CI = -0.3777569 - 0.7834081
+  # Season:Antibiotics
+    # Winter:No - Summer:No adj p = 0, CI = -6.5241983 - -3.6148534
+    # Spring:No - Summer:No adj p = 0.0143505, CI = -3.0790374 - -0.2221174
+    # Summer:Yes - Summer:No adj p = 0.2709376, CI = -2.6369151 - 0.4017966
+    # Winter:Yes - Summer:No adj p = 0, CI = -6.4245534 - -3.4552156
+    # Spring:Yes - Summer:No adj p = 0, CI = -5.8777208 - -2.9683759
+    # Spring:No - Winter:No adj p = 0, CI = 1.9904884 - 4.8474084
+    # Summer:Yes - Winter:No adj p = 0, CI = 2.4326107 - 5.4713224
+    # Winter:Yes - Winter:No adj p = 0.9998426, CI = -1.3550275 - 1.6143102
+    # Spring:Yes - Winter:No adj p = 0.7815858, CI = -0.8081950 - 2.1011500
+    # Summer:Yes - Spring:No adj p = 0.9000736, CI = -0.9612603 - 2.0272966
+    # Winter:Yes - Spring No adj p = 0.0000001, CI = -4.7483025 - -1.8303116
+    # Spring:Yes - Spring:No adj p = 0.0000045, CI = -4.2009309 - -1.3440109
+    # Winter:Yes - Summer:Yes adj p = 0, CI = -5.3704247 - -2.2742258
+    # Spring:Yes - Summer:Yes adj p = 0.0000003, CI = -4.8248449 - -1.7861332
+    # Spring:Yes - Winter:Yes adj p = 0.9090109, CI = -0.9678322 - 2.0015050
+  # Antibiotics:Substrate
+    # Yes:Inulin - No:Inulin adj p = 0.0001656, CI = -2.85310465 - -0.7441286
+    # No:Saline - No:Inulin adj p = 0.9999991, CI = -1.05986342 - 1.0491127
+    # Yes:Saline - No:Inulin adj p = 0.2875164, CI = -1.82427361 - 0.3488568
+    # No:Saline - Yes:Inulin adj p = 0.0002543, CI = 0.71271253 - 2.8737699
+    # Yes:Saline - Yes:Inulin adj p = 0.0668022, CI = -0.05094664 - 2.1727631
+    # Yes:Saline - No:Saline adj p = 0.3135804, CI = -1.84418787 - 0.3795219
+  # Antibiotics:Sex
+    # Yes:Female - No:Female adj p = 0.4656405, CI = -1.6218659 - 0.46421856
+    # No:Male - No:Female adj p = 0.1126607, CI = -0.1414469 - 1.96752922
+    # Yes:Male - No:Female adj p = 0.0460236, CI = -2.3610610 - -0.01497325
+    # No:Male - Yes:Female adj p = 0.0014082, CI = 0.4758236 - 2.50790613
+    # Yes:Male - Yes:Female adj p = 0.4975900, CI = -1.7478009 - 0.52941394
+    # Yes:Male - No:Male adj p = 0.0000513, CI = -3.2501600 - -0.95195662
 
 
 ### By Season ###
@@ -125,10 +165,17 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-summary(aov(Baseline ~ Antibiotics + Diet + Sex , crds.s))
-  # Sig
-TukeyHSD(aov(Baseline ~ Antibiotics + Diet + Sex , crds.s))
-
+summary(aov(Baseline ~ Antibiotics + Substrate + Sex, crds.s))
+  # Antibiotics p = 0.0394
+  # Substrate p = 0.1352
+  # Sex = 0.8551
+TukeyHSD(aov(Baseline ~ Antibiotics + Substrate + Sex, crds.s))
+  # Antibiotics
+    # Yes - No adj p = 0.0394476, CI = -2.11751 - -0.05801414
+  # Substrate
+    # Saline - Inulin adj p = 0.1365095, CI = -0.2630195 - 1.789313 
+  # Sex
+    # Male - Female adj p = 0.8586166, CI = -0.9681393 - 1.151501
 
 # Winter
 res <- resid(lm(Baseline ~ Antibiotics, crds.w))
@@ -137,7 +184,7 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-summary(aov(Baseline ~ Antibiotics + Diet + Sex, crds.w))
+summary(aov(Baseline ~ Antibiotics + Substrate + Sex, crds.w))
   # No Sig
 
 
@@ -148,9 +195,33 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-summary(aov(Baseline ~ Antibiotics + Diet + Sex, crds.p))
-TukeyHSD(aov(Baseline ~ Antibiotics + Diet + Sex, crds.p))
-
+summary(aov(Baseline ~ Antibiotics + Antibiotics*Substrate + Antibiotics*Sex, crds.p))
+  # Antibiotics p = 0.000164
+  # Substrate p = 0.633626
+  # Sex p = 0.980349
+  # Antibiotics:Substrate p = 0.043134
+  # Antibiotics:Sex p = 0.012671
+TukeyHSD(aov(Baseline ~ Antibiotics + Antibiotics*Substrate + Antibiotics*Sex, crds.p))
+  # Antibiotics
+    # Yes - No adj p = 0.000164, CI = -4.093812 - -1.535565
+  # Substrate
+    # Saline - Inulin adj p = 0.6338755, CI = -0.9818493 - 1.576397
+  # Sex
+    # Male - Female adj p = 0.9813636, CI = -1.315529 - 1.285958
+  # Antibiotics:Substrate
+    # Yes:Inulin - No:Inulin adj p = 0.0005620, CI = -6.4470696 - -1.68859627
+    # No:Saline - No:Inulin adj p = 0.6740001, CI = -3.3461172 - 1.41235611
+    # Yes:Saline - No:Inulin adj p = 0.0596263, CI = -4.8765289 - 0.07624711
+    # No:Saline - Yes:Inulin adj p = 0.0078344, CI = 0.7217157 - 5.48018903
+    # Yes:Saline- Yes:Inulin adj p = 0.2676078, CI = -0.8086960 - 4.14408002
+    # Yes:Saline - No:Saline adj p = 0.3930039, CI = -3.9096484 - 1.04312764
+  # Antibiotics:Sex
+    # Yes:Female - No:Female adj p = 0.8653823, CI = -3.5643841 - 2.0154204
+    # No:Male - No:Female adj p = 0.2537241, CI = -0.8279603 - 4.4387045 
+    # Yes:Male - No:Female adj p = 0.1232221, CI = -5.2741028 - 0.4722996
+    # No:Male - Yes:Female adj p = 0.0174139, CI = 0.3863062 - 4.7734018
+    # Yes:Male - Yes:Female adj p = 0.2874963, CI = -4.1028078 - 0.8499682
+    # Yes:Male - No:Male adj p = 0.0002574, CI = -6.5048347 - -1.9077128 
 
 
 
@@ -164,70 +235,173 @@ crds.p.noabx <- crds.p[which(crds.p$Antibiotics == "No"),]
 crds.p.abx <- crds.p[which(crds.p$Antibiotics == "Yes"),]
 
 # Summer No ABX
-res <- resid(lm(Baseline ~ Diet, crds.s.noabx))
+res <- resid(lm(Baseline ~ Substrate, crds.s.noabx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-summary(aov(Baseline ~ Diet + Sex , crds.s.noabx))
-  # No Sig
+summary(aov(Baseline ~ Substrate + Sex, crds.s.noabx))
+  # Substrate p = 0.523
+  # Sex p = 0.547
 
-# Summer No ABX
-res <- resid(lm(Baseline ~ Diet, crds.s.abx))
+# Summer ABX
+res <- resid(lm(Baseline ~ Substrate, crds.s.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-summary(aov(Baseline ~ Diet + Sex , crds.s.abx))
-  # No Sig
-
-
-# Winter No ABX
-res <- resid(lm(Baseline ~ Diet, crds.w.noabx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-summary(aov(Baseline ~ Diet + Sex , crds.w.noabx))
-  # No Sig
+summary(aov(Baseline ~ Substrate + Sex, crds.s.abx))
+  # Substrate p = 0.0292
+  # Sex = 0.2049
+TukeyHSD(aov(Baseline ~ Substrate + Sex, crds.s.abx))
+  # Saline - Inulin adj p = 0.0292041, CI = 0.1304445 - 1.873555
+  # Male - Female adj p = 0.2095546, CI = -1.551012 - 0.3978453
 
 # Winter No ABX
-res <- resid(lm(Baseline ~ Diet, crds.w.abx))
+res <- resid(lm(Baseline ~ Substrate, crds.w.noabx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-summary(aov(Baseline ~ Diet + Sex , crds.w.abx))
-  # No Sig
+summary(aov(Baseline ~ Substrate*Sex, crds.w.noabx))
+  # Substrate p = 0.1177
+  # Sex = 0.1746
+  # Substrate:Sex = 0.0307
+
+# Winter ABX
+res <- resid(lm(Baseline ~ Substrate, crds.w.abx))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Not Normal
+kruskal.test(Baseline ~ Substrate, crds.w.abx)
+  # p = 0.2232
+kruskal.test(Baseline ~ Sex, crds.w.abx)
+  # p = 0.2232
 
 
 # Spring No ABX
   # Note: Not n = 3 for each group, so the stats don't really mean anything
-res <- resid(lm(Baseline ~ Diet, crds.p.noabx))
+res <- resid(lm(Baseline ~ Substrate, crds.p.noabx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-summary(aov(Baseline ~ Diet + Sex , crds.p.noabx))
-  # Diet p = 0.0176
-  # Sex = 0.2407
-
+summary(aov(Baseline ~ Substrate + Sex , crds.p.noabx))
+  # Substrate p = 0.3273
+  # Sex = 0.0746
+TukeyHSD(aov(Baseline ~ Substrate + Sex , crds.p.noabx))
+  # Saline - Inulin adj p = 0.3272579, CI = -3.047856 - 1.110713
+  # Male - Female adj p = 0.0885661, CI = -0.3478459 - 4.254846 
 
 # Spring No ABX
-res <- resid(lm(Baseline ~ Diet, crds.p.abx))
+res <- resid(lm(Baseline ~ Substrate, crds.p.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-summary(aov(Baseline ~ Diet + Sex , crds.p.abx))
-  # Diet p = 0.00024
-  # Sex p = 0.65872
+summary(aov(Baseline ~ Substrate + Sex , crds.p.abx))
+  # Substrate p = 0.0555
+  # Diet p = 0.0861
+TukeyHSD(aov(Baseline ~ Substrate + Sex , crds.p.abx))
+  # Saline - Inulin adj p = 0.0555378, CI = -0.04784369 - 3.386891
+  # Male - Female adj p = 0.0868065, CI = -3.180826 - 0.2539094
+
+
+
+
+### By Season + Antibiotics + Substrate
+crds.s.noabx.inu <- crds.s.noabx[which(crds.s.noabx$Substrate == "Inulin"),]
+#crds.w.noabx.inu <- crds.w.noabx[which(crds.w.noabx$Substrate == "Inulin"),]
+crds.p.noabx.inu <- crds.p.noabx[which(crds.p.noabx$Substrate == "Inulin"),]
+crds.s.noabx.sal <- crds.s.noabx[which(crds.s.noabx$Substrate == "Saline"),]
+crds.w.noabx.sal <- crds.w.noabx[which(crds.w.noabx$Substrate == "Saline"),]
+#crds.p.noabx.sal <- crds.p.noabx[which(crds.p.noabx$Substrate == "Saline"),]
+
+#crds.s.abx.inu <- crds.s.abx[which(crds.s.abx$Substrate == "Inulin"),]
+crds.w.abx.inu <- crds.w.abx[which(crds.w.abx$Substrate == "Inulin"),]
+crds.p.abx.inu <- crds.p.abx[which(crds.p.abx$Substrate == "Inulin"),]
+#crds.s.abx.sal <- crds.s.abx[which(crds.s.abx$Substrate == "Saline"),]
+#crds.w.abx.sal <- crds.w.abx[which(crds.w.abx$Substrate == "Saline"),]
+crds.p.abx.sal <- crds.p.abx[which(crds.p.abx$Substrate == "Saline"),]
+
+
+# Summer No ABX Inulin
+res <- resid(lm(Baseline ~ Sex, crds.s.noabx.inu))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Normal
+t.test(Baseline ~ Sex , crds.s.noabx.inu)
+  # Substrate p = 0.9418
+
+# Spring No ABX Inulin
+res <- resid(lm(Baseline ~ Sex, crds.p.noabx.inu))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Normal
+t.test(Baseline ~ Sex , crds.p.noabx.inu)
+  # Substrate p = 0.07508
+  # CI = -4.1991619 - 0.3141619
+
+# Summer No ABX Saline
+res <- resid(lm(Baseline ~ Sex, crds.s.noabx.sal))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Normal
+t.test(Baseline ~ Sex , crds.s.noabx.sal)
+  # Substrate p = 0.4609
+
+# Winter No ABX Saline
+res <- resid(lm(Baseline ~ Sex, crds.w.noabx.sal))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Normal
+t.test(Baseline ~ Sex , crds.w.noabx.sal)
+  # Substrate p = 0.4405
+
+# Winter ABX Inulin
+res <- resid(lm(Baseline ~ Sex, crds.w.abx.inu))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Normal
+t.test(Baseline ~ Sex , crds.w.abx.inu)
+  # Substrate p = 0.7221
+
+# Spring ABX Inulin
+res <- resid(lm(Baseline ~ Sex, crds.p.abx.inu))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Normal
+t.test(Baseline ~ Sex , crds.p.abx.inu)
+  # Substrate p = 0.4827
+
+# Spring ABX Saline
+res <- resid(lm(Baseline ~ Sex, crds.p.abx.sal))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Normal
+t.test(Baseline ~ Sex , crds.p.abx.sal)
+  # Substrate p = 0.1635
 ```
 
 
