@@ -431,7 +431,7 @@ sal.AUC.plot <- ggplot(crds.sal, aes(x = Season, y = AUC_sqrt, color = SeasonABX
 
 ### Plot
 
-#tiff("crds.AUC.png", width = 200, height = 75, units = "mm", res = 600)
+#tiff("crds.AUC.tiff", width = 200, height = 75, units = "mm", res = 600)
 grid.newpage()
 pushViewport(viewport(layout=grid.layout(2,3, widths = c(1, 1, 0.3))))
 
@@ -607,7 +607,7 @@ sal.avgD.plot <- ggplot(crds.sal, aes(x = Season, y = AvgDelta, color = SeasonAB
 
 ### Plot
 
-#tiff("crds.avgD.png", width = 200, height = 75, units = "mm", res = 600)
+#tiff("crds.avgD.tiff", width = 200, height = 75, units = "mm", res = 600)
 grid.newpage()
 pushViewport(viewport(layout=grid.layout(2,3, widths = c(1, 1, 0.3))))
 
@@ -788,7 +788,7 @@ sal.maxD.plot <- ggplot(crds.sal, aes(x = Season, y = MaxD, color = SeasonABX,
 
 ### Plot
 
-#tiff("crds.maxD.png", width = 200, height = 75, units = "mm", res = 600)
+#tiff("crds.maxD.tiff", width = 200, height = 75, units = "mm", res = 600)
 grid.newpage()
 pushViewport(viewport(layout=grid.layout(2,3, widths = c(1, 1, 0.3))))
 
@@ -990,7 +990,7 @@ sal.slope.plot <- ggplot(crds.sal, aes(x = Season, y = MaxSlope, color = SeasonA
 
 ### Plot
 
-#tiff("crds.slope.png", width = 200, height = 75, units = "mm", res = 600)
+#tiff("crds.slope.tiff", width = 200, height = 75, units = "mm", res = 600)
 grid.newpage()
 pushViewport(viewport(layout=grid.layout(2,3, widths = c(1, 1, 0.3))))
 
