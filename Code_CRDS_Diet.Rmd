@@ -118,10 +118,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(Baseline ~ Diet, crds.sal.s.abx)
-  # Diet p = 0.9143
 var.test(Baseline ~ Diet, crds.sal.s.abx)
   # p = 0.3087
+t.test(Baseline ~ Diet, crds.sal.s.abx)
+  # Diet p = 0.9143
+
 
 
 ### Saline Spring No ABX
@@ -131,10 +132,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(Baseline ~ Diet, crds.sal.p.noabx)
-  # Diet p = 0.1306
 var.test(Baseline ~ Diet, crds.sal.p.noabx)
   # p = 0.1722
+t.test(Baseline ~ Diet, crds.sal.p.noabx)
+  # Diet p = 0.1306
+
 ```
 
 ### Test AUC_sqrt
@@ -146,10 +148,10 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(AUC_sqrt ~ Diet, crds.sal.s.abx)
-  # Diet p = 0.3431
 var.test(AUC_sqrt ~ Diet, crds.sal.s.abx)
   # p = 0.3737
+t.test(AUC_sqrt ~ Diet, crds.sal.s.abx)
+  # Diet p = 0.3431
 
 
 ### Saline Spring No ABX
@@ -159,10 +161,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(AUC_sqrt ~ Diet, crds.sal.p.noabx)
-  # Diet p = 0.1822
 var.test(AUC_sqrt ~ Diet, crds.sal.p.noabx)
   # p = 0.5353
+t.test(AUC_sqrt ~ Diet, crds.sal.p.noabx)
+  # Diet p = 0.1822
+
 ```
 
 
@@ -175,10 +178,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(AvgDelta ~ Diet, crds.sal.s.abx)
-  # Diet p = 0.1895
 var.test(AvgDelta ~ Diet, crds.sal.s.abx)
   # p = 0.4674
+t.test(AvgDelta ~ Diet, crds.sal.s.abx)
+  # Diet p = 0.1895
+
   
 
 ### Saline Spring No ABX
@@ -188,10 +192,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(AvgDelta ~ Diet, crds.sal.p.noabx)
-  # Diet p = 0.1928
 var.test(AvgDelta ~ Diet, crds.sal.p.noabx)
   # p = 0.5345
+t.test(AvgDelta ~ Diet, crds.sal.p.noabx)
+  # Diet p = 0.1928
+
 ```
 
 
@@ -204,10 +209,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(MaxD ~ Diet, crds.sal.s.abx)
-  # Diet p = 0.1291
 var.test(MaxD ~ Diet, crds.sal.s.abx)
   # p = 0.741
+t.test(MaxD ~ Diet, crds.sal.s.abx)
+  # Diet p = 0.1291
+
 
 
 
@@ -218,10 +224,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(MaxD ~ Diet, crds.sal.p.noabx)
-  # Diet p = 0.01552*
 var.test(MaxD ~ Diet, crds.sal.p.noabx)
   # p = 0.8439
+t.test(MaxD ~ Diet, crds.sal.p.noabx)
+  # Diet p = 0.01552*
+
 ```
 
 ### Test Slope
@@ -233,10 +240,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(MaxSlope ~ Diet, crds.sal.s.abx)
-  # Diet p = 0.01531
 var.test(MaxSlope ~ Diet, crds.sal.s.abx)
   # p = 0.6804
+t.test(MaxSlope ~ Diet, crds.sal.s.abx)
+  # Diet p = 0.01531
+
 
 
 
@@ -247,10 +255,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(MaxSlope ~ Diet, crds.sal.p.noabx)
-  # Diet p = 0.128
 var.test(MaxSlope ~ Diet, crds.sal.p.noabx)
   # p = 0.3409
+t.test(MaxSlope ~ Diet, crds.sal.p.noabx)
+  # Diet p = 0.128
+
 ```
 
 
