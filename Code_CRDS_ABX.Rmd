@@ -92,10 +92,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(Baseline ~ Antibiotics, crds.inu.s)
-  # p = 0.06923
 var.test(Baseline ~ Antibiotics, crds.inu.s)
   # p = 0.2
+t.test(Baseline ~ Antibiotics, crds.inu.s)
+  # p = 0.06923
+
 
 # Winter
 res <- resid(lm(Baseline ~ Antibiotics, crds.inu.w))
@@ -104,10 +105,10 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(Baseline ~ Antibiotics, crds.inu.w)
-  # p = 0.695
 var.test(Baseline ~ Antibiotics, crds.inu.w)
   # p = 0.7374
+t.test(Baseline ~ Antibiotics, crds.inu.w)
+  # p = 0.695
 
 # Spring
 res <- resid(lm(Baseline ~ Antibiotics, crds.inu.p))
@@ -116,10 +117,10 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(Baseline ~ Antibiotics, crds.inu.p)
-  # p = 6.8e-05
 var.test(Baseline ~ Antibiotics, crds.inu.p)
   # p = 0.2246
+t.test(Baseline ~ Antibiotics, crds.inu.p)
+  # p = 6.8e-05
 
 
 
@@ -133,10 +134,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(Baseline ~ Antibiotics, crds.sal.s)
-  # p = 0.1954
 var.test(Baseline ~ Antibiotics, crds.sal.s)
   # p = 0.0501
+t.test(Baseline ~ Antibiotics, crds.sal.s)
+  # p = 0.1954
+
 
 # Winter
 res <- resid(lm(Baseline ~ Antibiotics, crds.sal.w))
@@ -145,10 +147,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(Baseline ~ Antibiotics, crds.sal.w)
-  # p = 0.3751
 var.test(Baseline ~ Antibiotics, crds.sal.w)
   # p = 0.02823
+wilcox.test(Baseline ~ Antibiotics, crds.sal.w)
+  # p = 0.7144
+
 
 # Spring
 res <- resid(lm(Baseline ~ Antibiotics, crds.sal.p))
@@ -157,18 +160,19 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(Baseline ~ Antibiotics, crds.sal.p)
-  # p = 0.2762
 var.test(Baseline ~ Antibiotics, crds.sal.p)
   # p = 0.784
+t.test(Baseline ~ Antibiotics, crds.sal.p)
+  # p = 0.2762
+
 
 # T-test
-p.adjust(c(0.06923, 0.695, 6.8e-05, 0.1954, 0.3751, 0.2762), "BH")
+p.adjust(c(0.06923, 0.695, 6.8e-05, 0.1954, 0.7144, 0.2762), "BH")
   # Inulin Summer = 0.20769
-  # Inulin Winter = 0.695
+  # Inulin Winter = 0.7144
   # Inulin Spring = 0.000408*
   # Saline Summer = 0.3908
-  # Saline Winter = 0.45012
+  # Saline Winter = 0.7144
   # Saline Spring = 0.4143
 
 # F test
@@ -193,10 +197,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(AUC_sqrt ~ Antibiotics, crds.inu.s)
-  # p = 0.0004546
 var.test(AUC_sqrt ~ Antibiotics, crds.inu.s)
   # p = 0.01174
+wilcox.test(AUC_sqrt ~ Antibiotics, crds.inu.s)
+  # p = 0.002525
+
 
 # Winter
 res <- resid(lm(AUC_sqrt ~ Antibiotics, crds.inu.w))
@@ -206,10 +211,11 @@ qqline(res)
 shapiro.test(res)
   # p = 0.02794
   # Not Normal
-wilcox.test(AUC_sqrt ~ Antibiotics, crds.inu.w)
-  # p = 0.1282
 fligner.test(AUC_sqrt ~ Antibiotics, crds.inu.w)
   # p = 0.01802
+wilcox.test(AUC_sqrt ~ Antibiotics, crds.inu.w)
+  # p = 0.1282
+
 
 # Spring
 res <- resid(lm(AUC_sqrt ~ Antibiotics, crds.inu.p))
@@ -218,10 +224,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(AUC_sqrt ~ Antibiotics, crds.inu.p)
-  # p = 0.004111
 var.test(AUC_sqrt ~ Antibiotics, crds.inu.p)
   # p = 0.0004868
+wilcox.test(AUC_sqrt ~ Antibiotics, crds.inu.p)
+  # p = 0.001166
+
 
 
 
@@ -235,10 +242,10 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(AUC_sqrt ~ Antibiotics, crds.sal.s)
-  # p = 0.02495
 var.test(AUC_sqrt ~ Antibiotics, crds.sal.s)
   # p = 0.03738
+wilcox.test(AUC_sqrt ~ Antibiotics, crds.sal.s)
+  # p = 0.02597
 
 # Winter
 res <- resid(lm(AUC_sqrt ~ Antibiotics, crds.sal.w))
@@ -246,12 +253,13 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 8.816e-05
+  # p = 0.002705
   # Not Normal
-wilcox.test(AUC_sqrt ~ Antibiotics, crds.sal.w)
-  # p = 0.01732
 fligner.test(AUC_sqrt ~ Antibiotics, crds.sal.w)
   # p = 0.7543
+wilcox.test(AUC_sqrt ~ Antibiotics, crds.sal.w)
+  # p = 0.01732
+
 
 # Spring
 res <- resid(lm(AUC_sqrt ~ Antibiotics, crds.sal.p))
@@ -260,17 +268,18 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(AUC_sqrt ~ Antibiotics, crds.sal.p)
-  # p = 0.7424
 var.test(AUC_sqrt ~ Antibiotics, crds.sal.p)
   # p = 0.1693
+t.test(AUC_sqrt ~ Antibiotics, crds.sal.p)
+  # p = 0.7424
+
 
 # T-test
-p.adjust(c(0.0004546, 0.1282, 0.004111, 0.02495, 0.01732, 0.7424), "BH")
-  # Inulin Summer = 0.0027276*
+p.adjust(c(0.002525, 0.1282, 0.001166, 0.02597, 0.01732, 0.7424), "BH")
+  # Inulin Summer = 0.007575*
   # Inulin Winter = 0.15384
-  # Inulin Spring = 0.012333*
-  # Saline Summer = 0.037425*
+  # Inulin Spring = 0.006996*
+  # Saline Summer = 0.038955*
   # Saline Winter = 0.03464*
   # Saline Spring = 0.7424
 
@@ -297,10 +306,10 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(MaxD ~ Antibiotics, crds.inu.s)
-  # p = 0.002384
 var.test(MaxD ~ Antibiotics, crds.inu.s)
   # p = 0.0004015
+wilcox.test(MaxD ~ Antibiotics, crds.inu.s)
+  # p = 0.002525
 
 # Winter
 res <- resid(lm(MaxD ~ Antibiotics, crds.inu.w))
@@ -310,10 +319,11 @@ qqline(res)
 shapiro.test(res)
   # p = 0.02794
   # Not Normal
-wilcox.test(MaxD ~ Antibiotics, crds.inu.w)
-  # p = 0.07284
 fligner.test(MaxD ~ Antibiotics, crds.inu.w)
   # p = 0.01802
+wilcox.test(MaxD ~ Antibiotics, crds.inu.w)
+  # p = 0.07284
+
 
 # Spring
 res <- resid(lm(MaxD ~ Antibiotics, crds.inu.p))
@@ -322,10 +332,10 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(MaxD ~ Antibiotics, crds.inu.p)
-  # p = 0.004614
 var.test(MaxD ~ Antibiotics, crds.inu.p)
   # p = 2.431e-06
+wilcox.test(MaxD ~ Antibiotics, crds.inu.p)
+  # p = 0.0005828
 
 
 
@@ -339,10 +349,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(MaxD ~ Antibiotics, crds.sal.s)
-  # p = 0.09953
 var.test(MaxD ~ Antibiotics, crds.sal.s)
   # p = 0.0003736
+wilcox.test(MaxD ~ Antibiotics, crds.sal.s)
+  # p = 0.04113
+
 
 # Winter
 res <- resid(lm(MaxD ~ Antibiotics, crds.sal.w))
@@ -352,10 +363,11 @@ qqline(res)
 shapiro.test(res)
   # p = 8.816e-05
   # Not Normal
-wilcox.test(MaxD ~ Antibiotics, crds.sal.w)
-  # p = 0.0303
 fligner.test(MaxD ~ Antibiotics, crds.sal.w)
   # p = 0.2565
+wilcox.test(MaxD ~ Antibiotics, crds.sal.w)
+  # p = 0.0303
+
 
 # Spring
 res <- resid(lm(MaxD ~ Antibiotics, crds.sal.p))
@@ -364,17 +376,18 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(MaxD ~ Antibiotics, crds.sal.p)
-  # p = 0.9345
 var.test(MaxD ~ Antibiotics, crds.sal.p)
   # p = 0.2943
+t.test(MaxD ~ Antibiotics, crds.sal.p)
+  # p = 0.9345
 
-# ANOVA
-p.adjust(c(0.002384, 0.07284, 0.004614, 0.09953, 0.0303, 0.9345), "BH")
-  # Inulin Summer = 0.013842*
-  # Inulin Winter = 0.10926
-  # Inulin Spring = 0.013842*
-  # Saline Summer = 0.119436
+
+# T-test
+p.adjust(c(0.002525, 0.07284, 0.0005828, 0.04113, 0.0303, 0.9345), "BH")
+  # Inulin Summer = 0.007575*
+  # Inulin Winter = 0.087408
+  # Inulin Spring = 0.0034968*
+  # Saline Summer = 0.0616950
   # Saline Winter = 0.0606
   # Saline Spring = 0.9345
 
@@ -404,10 +417,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(AvgDelta ~ Antibiotics, crds.inu.s)
-  # p = 0.001716
 var.test(AvgDelta ~ Antibiotics, crds.inu.s)
   # p = 0.0007286
+wilcox.test(AvgDelta ~ Antibiotics, crds.inu.s)
+  # p = 0.002525
+
 
 # Winter
 res <- resid(lm(AvgDelta ~ Antibiotics, crds.inu.w))
@@ -417,10 +431,11 @@ qqline(res)
 shapiro.test(res)
   # p = 0.0422
   # Not Normal
-wilcox.test(AvgDelta ~ Antibiotics, crds.inu.w)
-  # p = 0.07284
 fligner.test(AvgDelta ~ Antibiotics, crds.inu.w)
   # p = 0.01802
+wilcox.test(AvgDelta ~ Antibiotics, crds.inu.w)
+  # p = 0.07284
+
 
 # Spring
 res <- resid(lm(AvgDelta ~ Antibiotics, crds.inu.p))
@@ -429,10 +444,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(AvgDelta ~ Antibiotics, crds.inu.p)
-  # p = 0.008905
 var.test(AvgDelta ~ Antibiotics, crds.inu.p)
   # p = 3.869e-06
+wilcox.test(AvgDelta ~ Antibiotics, crds.inu.p)
+  # p = 0.001166
+
 
 
 
@@ -446,10 +462,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(AvgDelta ~ Antibiotics, crds.sal.s)
-  # p = 0.06963
 var.test(AvgDelta ~ Antibiotics, crds.sal.s)
   # p = 0.0008584
+wilcox.test(AvgDelta ~ Antibiotics, crds.sal.s)
+  # p = 0.02597
+
 
 # Winter
 res <- resid(lm(AvgDelta ~ Antibiotics, crds.sal.w))
@@ -459,10 +476,11 @@ qqline(res)
 shapiro.test(res)
   # p = 0.0002892
   # Not Normal
-wilcox.test(AvgDelta ~ Antibiotics, crds.sal.w)
-  # p = 0.01762
 fligner.test(AvgDelta ~ Antibiotics, crds.sal.w)
   # p = 0.4757
+wilcox.test(AvgDelta ~ Antibiotics, crds.sal.w)
+  # p = 0.01762
+
 
 # Spring
 res <- resid(lm(AvgDelta ~ Antibiotics, crds.sal.p))
@@ -471,17 +489,18 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(AvgDelta ~ Antibiotics, crds.sal.p)
-  # p = 0.7463
 var.test(AvgDelta ~ Antibiotics, crds.sal.p)
   # p = 0.08643
+t.test(AvgDelta ~ Antibiotics, crds.sal.p)
+  # p = 0.7463
+
 
 # ANOVA
-p.adjust(c(0.001716, 0.07284, 0.008905, 0.06963, 0.01762, 0.7463), "BH")
-  # Inulin Summer = 0.010296*
+p.adjust(c(0.002525, 0.07284, 0.001166, 0.02597, 0.01762, 0.7463), "BH")
+  # Inulin Summer = 0.007575*
   # Inulin Winter = 0.087408
-  # Inulin Spring = 0.026715*
-  # Saline Summer = 0.087408
+  # Inulin Spring = 0.006996*
+  # Saline Summer = 0.038955
   # Saline Winter = 0.03524*
   # Saline Spring = 0.7463
 
@@ -489,7 +508,7 @@ p.adjust(c(0.001716, 0.07284, 0.008905, 0.06963, 0.01762, 0.7463), "BH")
 p.adjust(c(0.0007286, 0.01802, 3.869e-06, 0.0008584, 0.4757, 0.08643), "BH")
   # Inulin Summer = 0.0017168*
   # Inulin Winter = 0.02703*
-  # Inulin Spring = 0.000023214 *
+  # Inulin Spring = 0.000023214*
   # Saline Summer = 0.0017168*
   # Saline Winter = 0.4757
   # Saline Spring = 0.103716
@@ -510,10 +529,11 @@ qqline(res)
 shapiro.test(res)
   # p = 0.04677
   # Not Normal
-wilcox.test(MaxSlope ~ Antibiotics, crds.inu.s)
-  # p = 0.002525
 fligner.test(MaxSlope ~ Antibiotics, crds.inu.s)
   # p = 0.0361
+wilcox.test(MaxSlope ~ Antibiotics, crds.inu.s)
+  # p = 0.002525
+
 
 # Winter
 res <- resid(lm(MaxSlope ~ Antibiotics, crds.inu.w))
@@ -522,10 +542,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(MaxSlope ~ Antibiotics, crds.inu.w)
-  # p = 0.0165
 var.test(MaxSlope ~ Antibiotics, crds.inu.w)
   # p = 9.487e-06
+wilcox.test(MaxSlope ~ Antibiotics, crds.inu.w)
+  # p = 0.006993
+
 
 # Spring
 res <- resid(lm(MaxSlope ~ Antibiotics, crds.inu.p))
@@ -534,10 +555,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(MaxSlope ~ Antibiotics, crds.inu.p)
-  # p = 0.0005086
 var.test(MaxSlope ~ Antibiotics, crds.inu.p)
   # p = 2.543e-06
+wilcox.test(MaxSlope ~ Antibiotics, crds.inu.p)
+  # p = 0.0005828
+
 
 
 
@@ -552,10 +574,11 @@ qqline(res)
 shapiro.test(res)
   # p = 0.005105
   # Not Normal
-wilcox.test(MaxSlope ~ Antibiotics, crds.sal.s)
-  # p = 0.6991
 fligner.test(MaxSlope ~ Antibiotics, crds.sal.s)
   # p = 0.2658
+wilcox.test(MaxSlope ~ Antibiotics, crds.sal.s)
+  # p = 0.6991
+
 
 # Winter
 res <- resid(lm(MaxSlope ~ Antibiotics, crds.sal.w))
@@ -565,10 +588,11 @@ qqline(res)
 shapiro.test(res)
   # p = 0.0002066
   # Not Normal
-wilcox.test(MaxSlope ~ Antibiotics, crds.sal.w)
-  # p = 0.5368
 fligner.test(MaxSlope ~ Antibiotics, crds.sal.w)
   # p = 0.3803
+wilcox.test(MaxSlope ~ Antibiotics, crds.sal.w)
+  # p = 0.5368
+
 
 # Spring
 res <- resid(lm(MaxSlope ~ Antibiotics, crds.sal.p))
@@ -577,16 +601,17 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(MaxSlope ~ Antibiotics, crds.sal.p)
-  # p = 0.7398
 var.test(MaxSlope ~ Antibiotics, crds.sal.p)
   # p = 0.5717
+t.test(MaxSlope ~ Antibiotics, crds.sal.p)
+  # p = 0.7398
+
 
 # T-test
-p.adjust(c(0.002525, 0.0165, 0.0005086, 0.6991, 0.5368, 0.7398), "BH")
+p.adjust(c(0.002525, 0.006993, 0.0005828, 0.6991, 0.5368, 0.7398), "BH")
   # Inulin Summer = 0.007575*
-  # Inulin Winter = 0.033*
-  # Inulin Spring = 0.0030516*
+  # Inulin Winter = 0.013986*
+  # Inulin Spring = 0.0034968*
   # Saline Summer = 0.7398
   # Saline Winter = 0.7398
   # Saline Spring = 0.7398
@@ -645,10 +670,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(Days_Hib ~ Antibiotics, dates.spr)
-  # p = 0.1215
 var.test(Days_Hib ~ Antibiotics, dates.spr)
   # p-value = 0.9201
+t.test(Days_Hib ~ Antibiotics, dates.spr)
+  # p = 0.1215
+
 
 res <- resid(lm(IBA.Hib ~ Antibiotics, dates.spr))
 hist(res)
@@ -656,10 +682,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(IBA.Hib ~ Antibiotics, dates.spr)
-  # p = 0.9588
 var.test(IBA.Hib ~ Antibiotics, dates.spr)
   # p-value = 0.9449
+t.test(IBA.Hib ~ Antibiotics, dates.spr)
+  # p = 0.9588
+
 
 res <- resid(lm(Num_IBA ~ Antibiotics, dates.spr))
 hist(res)
@@ -667,10 +694,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(Num_IBA ~ Antibiotics, dates.spr)
-  # p = 0.4637
 var.test(Num_IBA ~ Antibiotics, dates.spr)
   # p-value = 0.5191
+t.test(Num_IBA ~ Antibiotics, dates.spr)
+  # p = 0.4637
+
 
 
 ### Winter
@@ -680,10 +708,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(Days_Hib ~ Antibiotics, dates.win)
-  # p = 0.01295
 var.test(Days_Hib ~ Antibiotics, dates.win)
   # p-value = 0.1999
+t.test(Days_Hib ~ Antibiotics, dates.win)
+  # p = 0.01295
+
 
 res <- resid(lm(IBA.Hib ~ Antibiotics, dates.win))
 hist(res)
@@ -691,10 +720,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(IBA.Hib ~ Antibiotics, dates.win)
-  # p = 0.4024
 var.test(IBA.Hib ~ Antibiotics, dates.win)
   # p-value = 0.3048
+t.test(IBA.Hib ~ Antibiotics, dates.win)
+  # p = 0.4024
+
 
 res <- resid(lm(Num_IBA ~ Antibiotics, dates.win))
 hist(res)
@@ -702,9 +732,9 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-t.test(Num_IBA ~ Antibiotics, dates.win)
-  # p = 0.469
 var.test(Num_IBA ~ Antibiotics, dates.win)
   # p-value = 0.8388
+t.test(Num_IBA ~ Antibiotics, dates.win)
+  # p = 0.469
 
 ```
