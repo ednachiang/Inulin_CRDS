@@ -102,55 +102,70 @@ qqline(res)
 shapiro.test(res)
   # p-value = 0.5284
   # Normal
-summary(aov(Baseline ~ Season*Antibiotics + Antibiotics*Substrate + Antibiotics*Sex, crds.rem))
+summary(aov(Baseline ~ Season + Diet + Antibiotics + Substrate + Season*Diet + Season*Antibiotics + Antibiotics*Sex, crds.rem))
   # Season p < 2e-16
-  # Antibiotics p = 3.24e-05
-  # Substrate = 0.088999
-  # Sex = 0.471015
-  # Season:Antibiotics = 0.000424
-  # Antibiotics:Substrate = 0.068254
-  # Antibiotics:Sex = 0.008661
-TukeyHSD(aov(Baseline ~ Season*Antibiotics + Antibiotics*Substrate + Antibiotics*Sex, crds.rem), conf.level = 0.95)
+  # Diet p = 1.12e-08
+  # Antibiotics p = 0.000358
+  # Substrate = 0.082294
+  # Sex = 0.503941
+  # Season:Diet = 1.28e-05
+  # Season:Antibiotics = 0.052905
+  # Antibiotics:Sex = 0.040027
+TukeyHSD(aov(Baseline ~ Season + Diet + Antibiotics + Substrate + Season*Diet + Season*Antibiotics + Antibiotics*Sex, crds.rem), conf.level = 0.95)
   # Season
-    # Summer-Winter adj p = 0, CI = 3.62083 - 5.360883
-    # Summer-Spring adj p = 0, CI = 1.623308 - 3.323205
-    # Winter-Spring adj p = 7e-07, CI = -2.862728 - -1.180926
+    # Summer-Winter adj p = 0, CI = 3.757269 - 5.232897
+    # Summer-Spring adj p = 0, CI = 1.748950 - 3.197562
+    # Spring-Winter adj p = 7e-07, CI = 1.305231 - 2.738423
+  # Diet
+    # 1-2 adj p = 0, CI = 1.068405 - 2.071874
   # Antibiotics
-    # Yes-No adj p = 3.25e-05, CI = -1.874653 - -0.7155052
+    # No-Yes adj p = 0.0005154, CI = 0.4104679 - 1.398133
   # Substrate
-    # Saline-Inulin adj p = 0.089385, CI = -0.791147 - 1.080033
+    # Inulin-Saline adj p = 0.0830163, CI = -0.9291451 - 0.05852041
   # Sex
-    # Male-Female adj p = 0.4879419, CI = -0.3777569 - 0.7834081
+    # Female-Male adj p = 0.5204363, CI = -0.6547183 - 0.3346663
+  # Season:Diet
+    # Summer:1-Winter:1 adj p = 0, CI = 3.5868458 - 5.7705237
+    # Summer:1-Spring:1 adj p = 0.4817443, CI = -0.4918827 - 2.0177852
+    # Summer:1-Summer:2 adj p = 0.4966403, CI = -0.5331201 - 2.1325738
+    # Summer:1-Winter:2 adj p = 0, CI = 3.6362841 - 6.6902201
+    # Summer:1-Spring:2 adj p = 0, CI = 3.0190674 - 5.2912685
+    # Spring:1-Winter:1 adj p = 0, CI = 2.7180859 - 5.1133810
+    # Summer:2-Winter:1 adj p = 0, CI = 2.5998049 - 5.1581109
+    # Winter:1-Winter:2 adj p = 0.9282411, CI = -0.9957646 - 1.9648994
+    # Spring:2-Winter:1 adj p = 0.7064592, CI = -1.5961192 - 0.5490856
+    # Summer:2-Spring:1 adj p = 0.9999996, CI = -1.4575952 - 1.3840440
+    # Spring:1-Winter:2 adj p = 0, CI = 2.7959696 - 6.0046321
+    # Spring:1-Spring:2 adj p = 0, CI = 2.1540843 - 4.6303491
+    # Summer:2-Winter:2 adj p = 0, CI = 2.6974666 - 6.0295839
+    # Summer:2-Spring:2 adj p = 0, CI = 2.0383061 - 4.6725762
+    # Spring:2-Winter:2 adj p = 0.3781155, CI = -0.5051888 - 2.5213571
   # Season:Antibiotics
-    # Winter:No - Summer:No adj p = 0, CI = -6.5241983 - -3.6148534
-    # Spring:No - Summer:No adj p = 0.0143505, CI = -3.0790374 - -0.2221174
-    # Summer:Yes - Summer:No adj p = 0.2709376, CI = -2.6369151 - 0.4017966
-    # Winter:Yes - Summer:No adj p = 0, CI = -6.4245534 - -3.4552156
-    # Spring:Yes - Summer:No adj p = 0, CI = -5.8777208 - -2.9683759
-    # Spring:No - Winter:No adj p = 0, CI = 1.9904884 - 4.8474084
-    # Summer:Yes - Winter:No adj p = 0, CI = 2.4326107 - 5.4713224
-    # Winter:Yes - Winter:No adj p = 0.9998426, CI = -1.3550275 - 1.6143102
-    # Spring:Yes - Winter:No adj p = 0.7815858, CI = -0.8081950 - 2.1011500
-    # Summer:Yes - Spring:No adj p = 0.9000736, CI = -0.9612603 - 2.0272966
-    # Winter:Yes - Spring No adj p = 0.0000001, CI = -4.7483025 - -1.8303116
-    # Spring:Yes - Spring:No adj p = 0.0000045, CI = -4.2009309 - -1.3440109
-    # Winter:Yes - Summer:Yes adj p = 0, CI = -5.3704247 - -2.2742258
-    # Spring:Yes - Summer:Yes adj p = 0.0000003, CI = -4.8248449 - -1.7861332
-    # Spring:Yes - Winter:Yes adj p = 0.9090109, CI = -0.9678322 - 2.0015050
-  # Antibiotics:Substrate
-    # Yes:Inulin - No:Inulin adj p = 0.0001656, CI = -2.85310465 - -0.7441286
-    # No:Saline - No:Inulin adj p = 0.9999991, CI = -1.05986342 - 1.0491127
-    # Yes:Saline - No:Inulin adj p = 0.2875164, CI = -1.82427361 - 0.3488568
-    # No:Saline - Yes:Inulin adj p = 0.0002543, CI = 0.71271253 - 2.8737699
-    # Yes:Saline - Yes:Inulin adj p = 0.0668022, CI = -0.05094664 - 2.1727631
-    # Yes:Saline - No:Saline adj p = 0.3135804, CI = -1.84418787 - 0.3795219
+    # Summer:No-Winter:No adj p = 0, CI = 3.76444322 - 6.24423299
+    # Summer:No-Spring:No adj p = 0.0000031, CI = 1.9104995 - 3.62615516
+    # Summer:No-Summer:Yes adj p = 0.0658636, CI = -0.04870372 - 2.54135222
+    # Summer:No-Winter:Yes adj p = 0, CI = 3.86799480 - 6.39891964
+    # Summer:No-Spring:Yes adj p = 0, CI = 2.48939308 - 4.96918285
+    # Spring:No-Winter:No adj p = 0.0000005, CI = 1.37818295 - 3.81328816
+    # Summer:Yes-Winter:No adj p = 0, CI = 2.46298588 - 5.05304183
+    # Winter:No-Winter:Yes adj p = 0.9996598, CI = -1.13634330 - 1.39458153
+    # Spring:Yes-Winter:No adj p = 0.0403404, CI = 0.03515526 - 2.51494503
+    # Summer:Yes-Spring:No adj p = 0.0933025, CI = -0.11137490 - 2.43593150
+    # Spring:No-Winter:Yes adj p = 0.0000003, CI = 1.48127510 - 3.96843424
+    # Spring:No-Spring:Yes adj p = 0.0258917, CI = 0.10313281 - 2.53823802
+    # Summer:Yes-Winter:Yes adj p = 0, CI = 2.56760531 - 5.20666063
+    # Summer:Yes-Spring:Yes adj p = 0.0000062, CI = 1.18793574 - 3.77799168
+    # Spring:Yes-Winter:Yes adj p =0.0211397, CI = 0.13870684 - 2.66963167
   # Antibiotics:Sex
-    # Yes:Female - No:Female adj p = 0.4656405, CI = -1.6218659 - 0.46421856
-    # No:Male - No:Female adj p = 0.1126607, CI = -0.1414469 - 1.96752922
-    # Yes:Male - No:Female adj p = 0.0460236, CI = -2.3610610 - -0.01497325
-    # No:Male - Yes:Female adj p = 0.0014082, CI = 0.4758236 - 2.50790613
-    # Yes:Male - Yes:Female adj p = 0.4975900, CI = -1.7478009 - 0.52941394
-    # Yes:Male - No:Male adj p = 0.0000513, CI = -3.2501600 - -0.95195662
+    # No:Female-Yes:Female adj p = 0.5288121, CI = -0.4306366 - 1.3472318
+    # No:Female-No:Male adj p = 0.3148323, CI = -1.4894694 - 0.3079084
+    # No:Female-Yes:Male adj p = 0.1543947, CI = -0.1921196 - 1.8073370
+    # Yes:Female-No:Male adj p = 0.0113547, CI = -1.9150007 - 0.1831555
+    # Yes:Female-Yes:Male adj p = 0.7782444, CI = -0.6210686 - 1.3196909
+    # No:Male-Yes:Male adj p = 0.0020091, CI = 0.4190657 - 2.3777128
+
+
+
 
 
 ### By Season ###
@@ -222,7 +237,8 @@ TukeyHSD(aov(Baseline ~ Antibiotics + Antibiotics*Substrate + Antibiotics*Sex, c
     # No:Male - Yes:Female adj p = 0.0174139, CI = 0.3863062 - 4.7734018
     # Yes:Male - Yes:Female adj p = 0.2874963, CI = -4.1028078 - 0.8499682
     # Yes:Male - No:Male adj p = 0.0002574, CI = -6.5048347 - -1.9077128 
-
+summary(aov(Baseline ~ Antibiotics + Diet + Substrate + Sex, crds.p))
+TukeyHSD(aov(Baseline ~ Antibiotics + Diet + Substrate + Sex, crds.p))
 
 
 
