@@ -295,6 +295,115 @@ p.adjust(c(0.01174, 0.01802, 0.0004868, 0.03738, 0.7543, 0.1693), "BH")
 ```
 
 
+### Test AvgDelta
+```{r}
+### Inulin ###
+
+# Summer
+res <- resid(lm(AvgDelta ~ Antibiotics, crds.inu.s))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Normal
+var.test(AvgDelta ~ Antibiotics, crds.inu.s)
+  # p = 0.0007286
+wilcox.test(AvgDelta ~ Antibiotics, crds.inu.s)
+  # p = 0.002525
+
+
+# Winter
+res <- resid(lm(AvgDelta ~ Antibiotics, crds.inu.w))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # p = 0.0422
+  # Not Normal
+fligner.test(AvgDelta ~ Antibiotics, crds.inu.w)
+  # p = 0.01802
+wilcox.test(AvgDelta ~ Antibiotics, crds.inu.w)
+  # p = 0.07284
+
+
+# Spring
+res <- resid(lm(AvgDelta ~ Antibiotics, crds.inu.p))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Normal
+var.test(AvgDelta ~ Antibiotics, crds.inu.p)
+  # p = 3.869e-06
+wilcox.test(AvgDelta ~ Antibiotics, crds.inu.p)
+  # p = 0.001166
+
+
+
+
+
+### Saline ###
+
+# Summer
+res <- resid(lm(AvgDelta ~ Antibiotics, crds.sal.s))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Normal
+var.test(AvgDelta ~ Antibiotics, crds.sal.s)
+  # p = 0.0008584
+wilcox.test(AvgDelta ~ Antibiotics, crds.sal.s)
+  # p = 0.02597
+
+
+# Winter
+res <- resid(lm(AvgDelta ~ Antibiotics, crds.sal.w))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # p = 0.0002892
+  # Not Normal
+fligner.test(AvgDelta ~ Antibiotics, crds.sal.w)
+  # p = 0.4757
+wilcox.test(AvgDelta ~ Antibiotics, crds.sal.w)
+  # p = 0.01762
+
+
+# Spring
+res <- resid(lm(AvgDelta ~ Antibiotics, crds.sal.p))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Normal
+var.test(AvgDelta ~ Antibiotics, crds.sal.p)
+  # p = 0.08643
+t.test(AvgDelta ~ Antibiotics, crds.sal.p)
+  # p = 0.7463
+
+
+# ANOVA
+p.adjust(c(0.002525, 0.07284, 0.001166, 0.02597, 0.01762, 0.7463), "BH")
+  # Inulin Summer = 0.007575*
+  # Inulin Winter = 0.087408
+  # Inulin Spring = 0.006996*
+  # Saline Summer = 0.038955
+  # Saline Winter = 0.03524*
+  # Saline Spring = 0.7463
+
+# F test
+p.adjust(c(0.0007286, 0.01802, 3.869e-06, 0.0008584, 0.4757, 0.08643), "BH")
+  # Inulin Summer = 0.0017168*
+  # Inulin Winter = 0.02703*
+  # Inulin Spring = 0.000023214*
+  # Saline Summer = 0.0017168*
+  # Saline Winter = 0.4757
+  # Saline Spring = 0.103716
+
+```
+
 ### Test MaxD
 ```{r}
 ### Inulin ###
@@ -406,114 +515,7 @@ p.adjust(c(0.0004015, 0.01802, 2.431e-06, 0.0003736, 0.2565, 0.2943), "BH")
 
 
 
-### Test AvgDelta
-```{r}
-### Inulin ###
 
-# Summer
-res <- resid(lm(AvgDelta ~ Antibiotics, crds.inu.s))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-var.test(AvgDelta ~ Antibiotics, crds.inu.s)
-  # p = 0.0007286
-wilcox.test(AvgDelta ~ Antibiotics, crds.inu.s)
-  # p = 0.002525
-
-
-# Winter
-res <- resid(lm(AvgDelta ~ Antibiotics, crds.inu.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # p = 0.0422
-  # Not Normal
-fligner.test(AvgDelta ~ Antibiotics, crds.inu.w)
-  # p = 0.01802
-wilcox.test(AvgDelta ~ Antibiotics, crds.inu.w)
-  # p = 0.07284
-
-
-# Spring
-res <- resid(lm(AvgDelta ~ Antibiotics, crds.inu.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-var.test(AvgDelta ~ Antibiotics, crds.inu.p)
-  # p = 3.869e-06
-wilcox.test(AvgDelta ~ Antibiotics, crds.inu.p)
-  # p = 0.001166
-
-
-
-
-
-### Saline ###
-
-# Summer
-res <- resid(lm(AvgDelta ~ Antibiotics, crds.sal.s))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-var.test(AvgDelta ~ Antibiotics, crds.sal.s)
-  # p = 0.0008584
-wilcox.test(AvgDelta ~ Antibiotics, crds.sal.s)
-  # p = 0.02597
-
-
-# Winter
-res <- resid(lm(AvgDelta ~ Antibiotics, crds.sal.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # p = 0.0002892
-  # Not Normal
-fligner.test(AvgDelta ~ Antibiotics, crds.sal.w)
-  # p = 0.4757
-wilcox.test(AvgDelta ~ Antibiotics, crds.sal.w)
-  # p = 0.01762
-
-
-# Spring
-res <- resid(lm(AvgDelta ~ Antibiotics, crds.sal.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-var.test(AvgDelta ~ Antibiotics, crds.sal.p)
-  # p = 0.08643
-t.test(AvgDelta ~ Antibiotics, crds.sal.p)
-  # p = 0.7463
-
-
-# ANOVA
-p.adjust(c(0.002525, 0.07284, 0.001166, 0.02597, 0.01762, 0.7463), "BH")
-  # Inulin Summer = 0.007575*
-  # Inulin Winter = 0.087408
-  # Inulin Spring = 0.006996*
-  # Saline Summer = 0.038955
-  # Saline Winter = 0.03524*
-  # Saline Spring = 0.7463
-
-# F test
-p.adjust(c(0.0007286, 0.01802, 3.869e-06, 0.0008584, 0.4757, 0.08643), "BH")
-  # Inulin Summer = 0.0017168*
-  # Inulin Winter = 0.02703*
-  # Inulin Spring = 0.000023214*
-  # Saline Summer = 0.0017168*
-  # Saline Winter = 0.4757
-  # Saline Spring = 0.103716
-
-```
 
 
 
@@ -625,6 +627,171 @@ p.adjust(c(0.0361, 9.487e-06, 2.543e-06, 0.2658, 0.3803, 0.5717), "BH")
   # Saline Winter = 0.45636
   # Saline Spring = 0.5717
 
+```
+
+
+### Test DNA Yield
+```{r}
+# Load data
+dna <- read.csv('dna.csv')
+dna.c <- dna[which(grepl("CC", dna$Sample) == T),]
+dna.c$Metabolism <- "a"
+dna.c$Metabolism[which(dna.c$Season == "Winter")] <- "Hibernation"
+dna.c$Metabolism[which(dna.c$Season != "Winter")] <- "Active"
+dna.c$Metabolism <- ordered(dna.c$Metabolism, levels = c("Active", "Hibernation"))
+dna.c$Season <- ordered(dna.c$Season, levels = c("Summer", "Winter", "Spring"))
+dna.s <- dna.c[which(dna.c$Season == "Summer"),]
+dna.w <- dna.c[which(dna.c$Season == "Winter"),]
+dna.p <- dna.c[which(dna.c$Season == "Spring"),]
+dna.inu.s <- dna.s[which(dna.s$Substrate == "Inulin"),]
+dna.inu.w <- dna.w[which(dna.w$Substrate == "Inulin"),]
+dna.inu.p <- dna.p[which(dna.p$Substrate == "Inulin"),]
+dna.sal.s <- dna.s[which(dna.s$Substrate == "Saline"),]
+dna.sal.w <- dna.w[which(dna.w$Substrate == "Saline"),]
+dna.sal.p <- dna.p[which(dna.p$Substrate == "Saline"),]
+
+
+# All
+res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.c))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # p = 1.213e-06
+  # Not Normal
+fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.c)
+  # p = 3.367e-08
+wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.c)
+  # p = 1.266e-14
+
+
+# Summer
+res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.s))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # p = 0.005902
+  # Not Normal
+fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.s)
+  # p = 0.0007326
+wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.s)
+  # p = 8.169e-06
+
+
+# Winter
+res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.w))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # p = 0.002462
+  # Not Normal
+fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.w)
+  # p = 0.0002154
+wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.w)
+  # p = 9.971e-08
+
+
+# Spring
+res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.p))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # p = 0.03449
+  # Not Normal
+fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.p)
+  # p = 0.002388
+wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.p)
+  # p = 3.49e-07
+
+
+
+### Inulin
+
+# Summer
+res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.s))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # p = 0.03381
+  # Not Normal
+fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.s)
+  # p = 0.02065
+wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.s)
+  # p = 0.00306
+
+# Winter
+res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.w))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # p = 0.03043
+  # Not Normal
+fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.w)
+  # p = 0.003619
+wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.w)
+  # p = 0.001166
+
+# Spring
+res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.p))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Test says normal, but I disagree. Looks sigmoidal like the others
+  # Not Normal
+fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.p)
+  # p = 0.002404
+wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.p)
+  # p = 0.0003108
+
+
+
+
+### Inulin
+
+# Summer
+res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.s))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # p = 0.01227
+  # Not Normal
+fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.s)
+  # p = 0.01166
+wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.s)
+  # p = 0.00193
+
+# Winter
+res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.w))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Test says normal, but I disagree. Looks sigmoidal like the others
+  # Not Normal
+fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.w)
+  # p = 0.06372
+wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.w)
+  # p = 0.0005828
+
+# Spring
+res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.p))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Test says normal, but I disagree. Looks sigmoidal like the others
+  # Not Normal
+fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.p)
+  # p = 0.08886
+wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.p)
+  # p = 0.002331
 ```
 
 
