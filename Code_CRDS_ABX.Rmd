@@ -651,62 +651,6 @@ dna.sal.w <- dna.w[which(dna.w$Substrate == "Saline"),]
 dna.sal.p <- dna.p[which(dna.p$Substrate == "Saline"),]
 
 
-# All
-res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.c))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # p = 1.213e-06
-  # Not Normal
-fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.c)
-  # p = 3.367e-08
-wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.c)
-  # p = 1.266e-14
-
-
-# Summer
-res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.s))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # p = 0.005902
-  # Not Normal
-fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.s)
-  # p = 0.0007326
-wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.s)
-  # p = 8.169e-06
-
-
-# Winter
-res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # p = 0.002462
-  # Not Normal
-fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.w)
-  # p = 0.0002154
-wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.w)
-  # p = 9.971e-08
-
-
-# Spring
-res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # p = 0.03449
-  # Not Normal
-fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.p)
-  # p = 0.002388
-wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.p)
-  # p = 3.49e-07
-
-
 
 ### Inulin
 
@@ -752,7 +696,7 @@ wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.p)
 
 
 
-### Inulin
+### Saline
 
 # Summer
 res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.s))
@@ -792,6 +736,27 @@ fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.p)
   # p = 0.08886
 wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.p)
   # p = 0.002331
+
+
+
+# Wilcoxon tests
+p.adjust(c(0.02065, 0.001166, 0.0003108, 0.00193, 0.0005828, 0.002331), "BH")
+  # Inulin Summer = 0.0206500*
+  # Inulin Winter = 0.0023320*
+  # Inulin Spring = 0.0017484*
+  # Saline Summer = 0.0027972*
+  # Saline Winter = 0.0017484*
+  # Saline Spring = 0.0027972*
+
+# Fligner tests
+p.adjust(c(0.00306, 0.003619, 0.002404, 0.01166, 0.06372, 0.08886), "BH")
+  # Inulin Summer = 0.007238*
+  # Inulin Winter = 0.007238*
+  # Inulin Spring = 0.007238*
+  # Saline Summer = 0.017490*
+  # Saline Winter = 0.076464
+  # Saline Spring = 0.088860
+
 ```
 
 
