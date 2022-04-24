@@ -55,19 +55,47 @@ colnames(tax_table(mothurdata)) <- c("Domain", "Phylum", "Class", "Order", "Fami
 
 ### Prepare metadata
 meta <- read.csv("metadata.csv")
-auc <- read.csv("auc.csv")
-delta <- read.csv("delta_metrics.csv")
 rownames(meta) <- meta$Sample
 divsum <- read.table("16S/final.0.03.norm.groups.summary", header = T)
 divsum$test <- strsplit(divsum$group, "_")
 dna <- read.csv("dna.csv")
 
+
+
+
+
+### Prepare CRDS metrics
+load('crds.norm.RData')
+load('crds.use.Rdata')
+crds.meta <- read.csv('metadata.csv')
+crds.use[, colnames(crds.meta)[3:ncol(crds.meta)]] <- NA
+for(i in 1:nrow(crds.use)){
+  crds.meta.row <- which(crds.meta$ID == crds.use$ID[i])
+  crds.use[i, 7:ncol(crds.use)] <- crds.meta[crds.meta.row, 3:ncol(crds.meta)]
+}
+
+# Calculate square root of AUC
+crds.use$AUC <- as.numeric(crds.use$AUC)
+minAUC <- min(crds.use$AUC)
+crds.use$AUC_sqrt <- crds.use$AUC + (minAUC * -1)
+crds.use$AUC_sqrt <- sqrt(crds.use$AUC_sqrt)
+
+# Remove outliers
+crds.rem <- crds.use[-which(crds.use$ID == "S23"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "S37"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "S60"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "W20"),]
+  # This is due to odd crds.metagenome
+crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
+
 # Remove samples w/o CRDS metrics
-#divsum <- divsum[-which(divsum$group == "CC1_S11"),]
-#divsum <- divsum[-which(divsum$group == "CC1_S34"),]
-#divsum <- divsum[-which(divsum$group == "CC1_W26"),]
-#divsum <- divsum[-which(divsum$group == "CC2_S37"),]
-  # Since miLineage is not sig, there's no reason to remove these samples anymore
+divsum <- divsum[-which(divsum$group == "CC1_S11"),]
+divsum <- divsum[-which(divsum$group == "CC1_S60"),]
+divsum <- divsum[-which(divsum$group == "CC2_S37"),]
+
+
+
 
 # Fill in metadata
 for(i in 1:nrow(divsum)){
@@ -77,6 +105,13 @@ for(i in 1:nrow(divsum)){
   divsum$Source[i] <- divsum$test[[i]][[1]]
   divsum[i,18:30] <- meta[use,]
   
+  crdsRow <- which(crds.rem$ID == divsum$Individual[i])
+  divsum$Baseline[i] <- crds.rem$Baseline[crdsRow]
+  divsum$AUC_sqrt[i] <- crds.rem$AUC_sqrt[crdsRow]
+  divsum$AvgDelta[i] <- crds.rem$AvgDelta[crdsRow]
+  divsum$MaxD[i] <- crds.rem$MaxD[crdsRow]
+  divsum$MaxSlope[i] <- crds.rem$MaxSlope[crdsRow]
+  
   #auc.use <- which(auc$ID == divsum$Individual[i])
   #divsum$AUC[i] <- auc$AUC[auc.use]
   
@@ -85,16 +120,10 @@ for(i in 1:nrow(divsum)){
   
   dna.use <- which(dna$Sample == divsum$group[i])
   divsum$DNAyield[i] <- dna$DNA_Yield_.ng.mg.[dna.use]
-  
 }
+
 divsum <- divsum[,-1]
-divsum <- divsum[,-6:-7]
-divsum <- divsum[,-7:-8]
-divsum <- divsum[,-8:-10]
-divsum <- divsum[,-22]
-#divsum <- divsum[,-8:-9]
-#divsum <- divsum[,-8:-9]
-#divsum <- divsum[,-21]
+divsum <- divsum[,-14:-15]
 colnames(divsum)[1] <- "Sample"
 divsum$Source <- substr(divsum$Source, start = 2, stop = 2)
 divsum$Source[which(divsum$Source == "C")] <- "Content"
@@ -120,7 +149,7 @@ for(j in 1:nrow(otu)){
       # Create list of OTUs that appear in only 1 sample
   }
 }
-# 2521 OTUs to remove
+# 1833 OTUs to remove
 otu.rem <- otu[-unlist(otu.rem),]
 
 
@@ -131,23 +160,16 @@ phy.rem <- merge_phyloseq(otu_table(otu.rem, taxa_are_rows=T), sample_data(physe
 # Order factors
 sample_data(phy.rem)$Season <- ordered(sample_data(phy.rem)$Season,
                                      levels=c("Summer", "Winter", "Spring"))
-
-# Remove Inulin outliers
-########crds.rem <- crds.bin[-which(crds.bin$ID == "S34"),]
-#phy.use <- subset_samples(phy.rem, ID != "S37")
-  # ABX didn't work; high [DNA]
-  # Already removed
-phy.use <- subset_samples(phy.rem, ID != "P28")
-#########crds.rem <- crds.rem[-which(crds.rem$ID == "P30"),]
-
-# Remove Saline outliers
-#########crds.rem <- crds.rem[-which(crds.rem$ID == "W26"),]
-#########crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
-phy.use <- subset_samples(phy.use, ID != "W50")
+sample_data(phy.rem)$Antibiotics <- ordered(sample_data(phy.rem)$Antibiotics,
+                                     levels=c("No", "Yes"))
+sample_data(phy.rem)$Sex <- ordered(sample_data(phy.rem)$Sex,
+                                     levels=c("Female", "Male"))
+sample_data(phy.rem)$Substrate <- ordered(sample_data(phy.rem)$Substrate,
+                                     levels=c("Inulin", "Saline"))
 
 
 # Calculate relative abundance
-phy.ra <- transform_sample_counts(phy.use, function(x){(x/sum(x))*100})
+phy.ra <- transform_sample_counts(phy.rem, function(x){(x/sum(x))*100})
 
 # Separate by Sample Type
 phy.c <- subset_samples(phy.ra, Source == "Content")
@@ -160,7 +182,7 @@ phy.spr <- subset_samples(phy.ra, Season == "Spring")
 
 # Separate by Season + Sample Type
 phy.sum.c <- subset_samples(phy.sum, Source == "Content")
-  # 17 samples
+  # 14 samples
 phy.sum.m <- subset_samples(phy.sum, Source == "Mucosa")
   # 15 samples
 phy.win.c <- subset_samples(phy.win, Source == "Content")
@@ -174,7 +196,7 @@ phy.spr.m <- subset_samples(phy.spr, Source == "Mucosa")
 
 
 # Save phyloseq objects
-#save(phy.use, file = "16S/physeq/phy.all.counts.RData")
+#save(phy.rem, file = "16S/physeq/phy.all.counts.RData")
 #save(phy.ra, file = "16S/physeq/phy.all.relabund.RData")
 #save(phy.c, file = "16S/physeq/phy.content.RData")
 #save(phy.m, file = "16S/physeq/phy.mucosa.RData")
@@ -186,7 +208,7 @@ phy.spr.m <- subset_samples(phy.spr, Source == "Mucosa")
 
 
 
-### Load Phyloseq Data
+### Load Data
 ```{r}
 load("16S/physeq/phy.all.counts.RData")
 load("16S/physeq/phy.all.relabund.RData")
@@ -196,8 +218,65 @@ load("16S/physeq/phy.summer.content.RData")
 load("16S/physeq/phy.summer.mucosa.RData")
 load("16S/physeq/phy.winter.content.RData")
 load("16S/physeq/phy.spring.content.RData")
+load('crds.norm.RData')
+load('crds.use.Rdata')
 
 meta <- data.frame(sample_data(phy.use))
+
+# Add metadata
+crds.use[, colnames(meta)[3:ncol(meta)]] <- NA
+for(i in 1:nrow(crds.use)){
+  meta.row <- which(meta$ID == crds.use$ID[i])
+  crds.use[i, 7:ncol(crds.use)] <- meta[meta.row, 3:ncol(meta)]
+}
+
+# Calculate square root of AUC
+crds.use$AUC <- as.numeric(crds.use$AUC)
+minAUC <- min(crds.use$AUC)
+crds.use$AUC_sqrt <- crds.use$AUC + (minAUC * -1)
+crds.use$AUC_sqrt <- sqrt(crds.use$AUC_sqrt)
+
+# Convert to numeric
+crds.use$AvgDelta <- as.numeric(crds.use$AvgDelta)
+crds.use$MaxD <- as.numeric(crds.use$MaxD)
+crds.use$MaxSlope <- as.numeric(crds.use$MaxSlope)
+crds.use$AUC <- as.numeric(crds.use$AUC)
+crds.use$MaxD <- as.numeric(crds.use$MaxD)
+crds.use$Baseline <- as.numeric(crds.use$Baseline)
+
+# Order categorical variables
+crds.use$Season <- ordered(crds.use$Season, levels = c("Summer", "Winter", "Spring"))
+crds.use$Sex <- ordered(crds.use$Sex, levels = c("Female", "Male"))
+crds.use$Antibiotics <- ordered(crds.use$Antibiotics, levels = c("No", "Yes"))
+crds.use$Substrate <- ordered(crds.use$Substrate, levels = c("Inulin", "Saline"))
+crds.use$Diet <- ordered(crds.use$Diet, levels = c("1", "2"))
+
+# Remove outliers
+crds.rem <- crds.use[-which(crds.use$ID == "S23"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "S37"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "S60"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "W20"),]
+  # This is due to odd metagenome
+crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
+
+# Separate by substrate
+crds.inu <- crds.rem[which(crds.rem$Substrate == "Inulin"),]
+crds.sal <- crds.rem[which(crds.rem$Substrate == "Saline"),]
+
+# Separate by substrate + season
+crds.inu.s <- crds.inu[which(crds.inu$Season == "Summer"),]
+crds.inu.w <- crds.inu[which(crds.inu$Season == "Winter"),]
+crds.inu.p <- crds.inu[which(crds.inu$Season == "Spring"),]
+crds.sal.s <- crds.sal[which(crds.sal$Season == "Summer"),]
+crds.sal.w <- crds.sal[which(crds.sal$Season == "Winter"),]
+crds.sal.p <- crds.sal[which(crds.sal$Season == "Spring"),]
+
+# Separate by substrate + ABX
+crds.inu.noabx <- crds.inu[which(crds.inu$Antibiotics == "No"),]
+crds.inu.abx <- crds.inu[which(crds.inu$Antibiotics == "Yes"),]
+crds.sal.noabx <- crds.sal[which(crds.sal$Antibiotics == "No"),]
+crds.sal.abx <- crds.sal[which(crds.sal$Antibiotics == "Yes"),]
 ```
 
 
