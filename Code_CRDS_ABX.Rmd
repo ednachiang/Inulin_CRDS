@@ -44,7 +44,7 @@ crds.use$AUC_sqrt <- crds.use$AUC + (minAUC * -1)
 crds.use$AUC_sqrt <- sqrt(crds.use$AUC_sqrt)
 
 # Convert to numeric
-crds.use$AvgDelta <- as.numeric(crds.use$AvgDelta)
+crds.use$AvgD <- as.numeric(crds.use$AvgD)
 crds.use$MaxD <- as.numeric(crds.use$MaxD)
 crds.use$MaxSlope <- as.numeric(crds.use$MaxSlope)
 crds.use$AUC <- as.numeric(crds.use$AUC)
@@ -295,47 +295,47 @@ p.adjust(c(0.01174, 0.01802, 0.0004868, 0.03738, 0.7543, 0.1693), "BH")
 ```
 
 
-### Test AvgDelta
+### Test AvgD
 ```{r}
 ### Inulin ###
 
 # Summer
-res <- resid(lm(AvgDelta ~ Antibiotics, crds.inu.s))
+res <- resid(lm(AvgD ~ Antibiotics, crds.inu.s))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-var.test(AvgDelta ~ Antibiotics, crds.inu.s)
-  # p = 0.0007286
-wilcox.test(AvgDelta ~ Antibiotics, crds.inu.s)
-  # p = 0.002525
+var.test(AvgD ~ Antibiotics, crds.inu.s)
+  # p = 0.0041
+wilcox.test(AvgD ~ Antibiotics, crds.inu.s)
+  # p = 0.006061
 
 
 # Winter
-res <- resid(lm(AvgDelta ~ Antibiotics, crds.inu.w))
+res <- resid(lm(AvgD ~ Antibiotics, crds.inu.w))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.0422
+  # p = 0.04713
   # Not Normal
-fligner.test(AvgDelta ~ Antibiotics, crds.inu.w)
+fligner.test(AvgD ~ Antibiotics, crds.inu.w)
   # p = 0.01802
-wilcox.test(AvgDelta ~ Antibiotics, crds.inu.w)
+wilcox.test(AvgD ~ Antibiotics, crds.inu.w)
   # p = 0.07284
 
 
 # Spring
-res <- resid(lm(AvgDelta ~ Antibiotics, crds.inu.p))
+res <- resid(lm(AvgD ~ Antibiotics, crds.inu.p))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-var.test(AvgDelta ~ Antibiotics, crds.inu.p)
-  # p = 3.869e-06
-wilcox.test(AvgDelta ~ Antibiotics, crds.inu.p)
+var.test(AvgD ~ Antibiotics, crds.inu.p)
+  # p = 4.256e-06
+wilcox.test(AvgD ~ Antibiotics, crds.inu.p)
   # p = 0.001166
 
 
@@ -345,62 +345,62 @@ wilcox.test(AvgDelta ~ Antibiotics, crds.inu.p)
 ### Saline ###
 
 # Summer
-res <- resid(lm(AvgDelta ~ Antibiotics, crds.sal.s))
+res <- resid(lm(AvgD ~ Antibiotics, crds.sal.s))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-var.test(AvgDelta ~ Antibiotics, crds.sal.s)
-  # p = 0.0008584
-wilcox.test(AvgDelta ~ Antibiotics, crds.sal.s)
-  # p = 0.02597
+var.test(AvgD ~ Antibiotics, crds.sal.s)
+  # p = 0.6612
+t.test(AvgD ~ Antibiotics, crds.sal.s)
+  # p = 0.1903
 
 
 # Winter
-res <- resid(lm(AvgDelta ~ Antibiotics, crds.sal.w))
+res <- resid(lm(AvgD ~ Antibiotics, crds.sal.w))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.0002892
+  # p = 0.0002558
   # Not Normal
-fligner.test(AvgDelta ~ Antibiotics, crds.sal.w)
-  # p = 0.4757
-wilcox.test(AvgDelta ~ Antibiotics, crds.sal.w)
-  # p = 0.01762
+fligner.test(AvgD ~ Antibiotics, crds.sal.w)
+  # p = 0.7543
+wilcox.test(AvgD ~ Antibiotics, crds.sal.w)
+  # p = 0.01732
 
 
 # Spring
-res <- resid(lm(AvgDelta ~ Antibiotics, crds.sal.p))
+res <- resid(lm(AvgD ~ Antibiotics, crds.sal.p))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-var.test(AvgDelta ~ Antibiotics, crds.sal.p)
-  # p = 0.08643
-t.test(AvgDelta ~ Antibiotics, crds.sal.p)
-  # p = 0.7463
+var.test(AvgD ~ Antibiotics, crds.sal.p)
+  # p = 0.06873
+t.test(AvgD ~ Antibiotics, crds.sal.p)
+  # p = 0.7143
 
 
-# ANOVA
-p.adjust(c(0.002525, 0.07284, 0.001166, 0.02597, 0.01762, 0.7463), "BH")
-  # Inulin Summer = 0.007575*
-  # Inulin Winter = 0.087408
+# T-tests
+p.adjust(c(0.006061, 0.07284, 0.001166, 0.1903, 0.01732, 0.7143), "BH")
+  # Inulin Summer = 0.018183*
+  # Inulin Winter = 0.109260
   # Inulin Spring = 0.006996*
-  # Saline Summer = 0.038955
-  # Saline Winter = 0.03524*
-  # Saline Spring = 0.7463
+  # Saline Summer = 0.228360
+  # Saline Winter = 0.034640*
+  # Saline Spring = 0.714300
 
 # F test
-p.adjust(c(0.0007286, 0.01802, 3.869e-06, 0.0008584, 0.4757, 0.08643), "BH")
-  # Inulin Summer = 0.0017168*
-  # Inulin Winter = 0.02703*
-  # Inulin Spring = 0.000023214*
-  # Saline Summer = 0.0017168*
-  # Saline Winter = 0.4757
-  # Saline Spring = 0.103716
+p.adjust(c(0.0041, 0.01802, 4.256e-06, 0.6612, 0.7543, 0.06873), "BH")
+  # Inulin Summer = 0.0123*
+  # Inulin Winter = 0.03604*
+  # Inulin Spring = 0.00002553*
+  # Saline Summer = 0.7543*
+  # Saline Winter = 0.7543
+  # Saline Spring = 0.103095000
 
 ```
 
@@ -782,7 +782,7 @@ dates_use <- dates_use[-which(dates_use$ID == "W20"),]
 for(k in 1:nrow(dates_use)){
   ID <- dates_use$ID[k]
   rowUse <- which(crds.rem$ID == ID)
-  dates_use$AvgDelta[k] <- crds.rem$AvgDelta[rowUse]
+  dates_use$AvgD[k] <- crds.rem$AvgD[rowUse]
   dates_use$MaxD[k] <- crds.rem$MaxD[rowUse]
   dates_use$MaxSlope[k] <- crds.rem$MaxSlope[rowUse]
   dates_use$AUC_sqrt[k] <- crds.rem$AUC_sqrt[rowUse]

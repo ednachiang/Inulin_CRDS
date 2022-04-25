@@ -46,7 +46,7 @@ crds.use$AUC_sqrt <- crds.use$AUC + (minAUC * -1)
 crds.use$AUC_sqrt <- sqrt(crds.use$AUC_sqrt)
 
 # Convert to numeric
-crds.use$AvgDelta <- as.numeric(crds.use$AvgDelta)
+crds.use$AvgD <- as.numeric(crds.use$AvgD)
 crds.use$MaxD <- as.numeric(crds.use$MaxD)
 crds.use$MaxSlope <- as.numeric(crds.use$MaxSlope)
 crds.use$AUC <- as.numeric(crds.use$AUC)
@@ -169,33 +169,33 @@ t.test(AUC_sqrt ~ Diet, crds.sal.p.noabx)
 ```
 
 
-### Test AvgDelta
+### Test AvgD
 ```{r}
 ### Saline Summer ABX
-res <- resid(lm(AvgDelta ~ Diet, crds.sal.s.abx))
+res <- resid(lm(AvgD ~ Diet, crds.sal.s.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-var.test(AvgDelta ~ Diet, crds.sal.s.abx)
-  # p = 0.4674
-t.test(AvgDelta ~ Diet, crds.sal.s.abx)
-  # Diet p = 0.1895
+var.test(AvgD ~ Diet, crds.sal.s.abx)
+  # p = 0.4416
+t.test(AvgD ~ Diet, crds.sal.s.abx)
+  # Diet p = 0.1279
 
   
 
 ### Saline Spring No ABX
-res <- resid(lm(AvgDelta ~ Diet, crds.sal.p.noabx))
+res <- resid(lm(AvgD ~ Diet, crds.sal.p.noabx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-var.test(AvgDelta ~ Diet, crds.sal.p.noabx)
-  # p = 0.5345
-t.test(AvgDelta ~ Diet, crds.sal.p.noabx)
-  # Diet p = 0.1928
+var.test(AvgD ~ Diet, crds.sal.p.noabx)
+  # p = 0.4852
+t.test(AvgD ~ Diet, crds.sal.p.noabx)
+  # Diet p = 0.2265
 
 ```
 
@@ -231,7 +231,7 @@ t.test(MaxD ~ Diet, crds.sal.p.noabx)
 
 ```
 
-### Test Slope
+### Test Max Slope
 ```{r}
 ### Saline Summer ABX
 res <- resid(lm(MaxSlope ~ Diet, crds.sal.s.abx))
@@ -267,20 +267,20 @@ t.test(MaxSlope ~ Diet, crds.sal.p.noabx)
 ```{r}
 ### Summer Saline ABX
 # T-tests
-p.adjust(c(0.9143, 0.3431, 0.1895, 0.1291, 0.01531), "BH")
-  # 0.9143000 0.4288750 0.3158333 0.3158333 0.0765500
+p.adjust(c(0.9143, 0.3431, 0.1279, 0.1291, 0.01531), "BH")
+  # 0.9143000 0.4288750 0.2151667 0.2151667 0.0765500
 
 # F-tests
-p.adjust(c(0.3087, 0.3737, 0.4674, 0.741, 0.6804), "BH")
-  # 0.741 0.741 0.741 0.741 0.741
+p.adjust(c(0.3087, 0.3737, 0.4416, 0.741, 0.6804), "BH")
+  # 0.736 0.736 0.736 0.741 0.741
 
 
 ### Spring Saline No ABX
-p.adjust(c(0.1306, 0.1822, 0.1928, 0.01552, 0.1995), "BH")
-  # 0.1995 0.1995 0.1995 0.0776 0.1995
+p.adjust(c(0.1306, 0.1822, 0.2265, 0.01552, 0.1995), "BH")
+  # 0.2265 0.2265 0.2265 0.0776 0.2265
 
 # F-tests
-p.adjust(c(0.1722, 0.5353, 0.5345, 0.8439, 0.3409), "BH")
+p.adjust(c(0.1722, 0.5353, 0.4852, 0.8439, 0.3409), "BH")
   # 0.669125 0.669125 0.669125 0.843900 0.669125
 
 ```

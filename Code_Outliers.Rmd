@@ -45,7 +45,7 @@ crds.use$AUC_sqrt <- crds.use$AUC + (minAUC * -1)
 crds.use$AUC_sqrt <- sqrt(crds.use$AUC_sqrt)
 
 # Convert to numeric
-crds.use$AvgDelta <- as.numeric(crds.use$AvgDelta)
+crds.use$AvgD <- as.numeric(crds.use$AvgD)
 crds.use$MaxD <- as.numeric(crds.use$MaxD)
 crds.use$MaxSlope <- as.numeric(crds.use$MaxSlope)
 crds.use$AUC <- as.numeric(crds.use$AUC)

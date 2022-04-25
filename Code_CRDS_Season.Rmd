@@ -46,7 +46,7 @@ crds.use$AUC_sqrt <- crds.use$AUC + (minAUC * -1)
 crds.use$AUC_sqrt <- sqrt(crds.use$AUC_sqrt)
 
 # Convert to numeric
-crds.use$AvgDelta <- as.numeric(crds.use$AvgDelta)
+crds.use$AvgD <- as.numeric(crds.use$AvgD)
 crds.use$MaxD <- as.numeric(crds.use$MaxD)
 crds.use$MaxSlope <- as.numeric(crds.use$MaxSlope)
 crds.use$AUC <- as.numeric(crds.use$AUC)
@@ -452,72 +452,72 @@ grid.draw(abx.legend)
 ```
 
 
-### Test AvgDelta
+### Test AvgD
 ```{r}
 ### Inulin ###
 
 # No ABX
-res <- resid(lm(AvgDelta ~ Season, crds.inu.noabx))
+res <- resid(lm(AvgD ~ Season, crds.inu.noabx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-leveneTest(AvgDelta ~ Season, crds.inu.noabx)
-  # p = 0.05287
-summary(aov(AvgDelta ~ Season, crds.inu.noabx))
-  # p = 0.0784
+leveneTest(AvgD ~ Season, crds.inu.noabx)
+  # p = 0.03463
+kruskal.test(AvgD ~ Season, crds.inu.noabx)
+  # p = 0.187
 
 # ABX
-res <- resid(lm(AvgDelta ~ Season, crds.inu.abx))
+res <- resid(lm(AvgD ~ Season, crds.inu.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-leveneTest(AvgDelta ~ Season, crds.inu.abx)
-  # p = 0.331
-summary(aov(AvgDelta ~ Season, crds.inu.abx))
-  # p = 0.757
+leveneTest(AvgD ~ Season, crds.inu.abx)
+  # p = 0.2714
+summary(aov(AvgD ~ Season, crds.inu.abx))
+  # p = 0.592
 
 
 
 ### Saline ###
 
 # No ABX
-res <- resid(lm(AvgDelta ~ Season, crds.sal.noabx))
+res <- resid(lm(AvgD ~ Season, crds.sal.noabx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.005062
+  # p = 0.002128
   # Not Normal
-fligner.test(AvgDelta ~ Season, crds.sal.noabx)
-  # p = 0.1024
-kruskal.test(AvgDelta ~ Season, crds.sal.noabx)
-  # p = 0.1006
+fligner.test(AvgD ~ Season, crds.sal.noabx)
+  # p = 0.8126
+kruskal.test(AvgD ~ Season, crds.sal.noabx)
+  # p = 0.05586
 
 # ABX
-res <- resid(lm(AvgDelta ~ Season, crds.sal.abx))
+res <- resid(lm(AvgD ~ Season, crds.sal.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-leveneTest(AvgDelta ~ Season, crds.sal.abx)
-  # p = 0.8285
-summary(aov(AvgDelta ~ Season, crds.sal.abx))
-  # p = 0.0481
-TukeyHSD(aov(AvgDelta ~ Season, crds.sal.abx))
-  # Summer-Winter adj p = 0.0486751; CI = -2.2426872 - -0.00619378
-  # Summer-Spring adj p = 0.1548176; CI = -1.8711392 - 0.26127355
-  # Winter-Spring adj p = 0.7398247; CI = -0.7987391 - 1.43775433
+leveneTest(AvgD ~ Season, crds.sal.abx)
+  # p = 0.6339
+summary(aov(AvgD ~ Season, crds.sal.abx))
+  # p = 0.0492
+TukeyHSD(aov(AvgD ~ Season, crds.sal.abx))
+  # Summer-Winter adj p = 0.049383; CI = -2.3343025 - -0.002986351
+  # Summer-Spring adj p = 0.1598825; CI = -1.9421614 - 0.280661384
+  # Spring-Winter adj p = 0.7334754; CI = -1.503552538 - 0.8277636
 ```
 
 
 
 
-### Plot AvgDelta
+### Plot AvgD
 ```{r}
 ### Prepare data for plotting
 # Inulin
@@ -532,7 +532,7 @@ crds.sal$SeasonABX <- ordered(crds.sal$SeasonABX, levels=c("Summer.No", "Summer.
 ### AUC Dot Plots
 
 # Steal Season legend
-season.legend <- g_legend(ggplot(crds.inu, aes(x = Season, y = AvgDelta, color = Season, fill = Season)) +
+season.legend <- g_legend(ggplot(crds.inu, aes(x = Season, y = AvgD, color = Season, fill = Season)) +
                             geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
                                          position = position_dodge(0.7), stackratio = 0.5) +
                             scale_color_manual(values = c("#c98b00", "#006096", "#00966d")) +
@@ -543,7 +543,7 @@ season.legend <- g_legend(ggplot(crds.inu, aes(x = Season, y = AvgDelta, color =
 
 
 # Steal ABX legend
-abx.legend <- g_legend(ggplot(crds.inu, aes(x = Season, y = AvgDelta, fill = Antibiotics)) + 
+abx.legend <- g_legend(ggplot(crds.inu, aes(x = Season, y = AvgD, fill = Antibiotics)) + 
                          geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5, 
                                       position = position_dodge(0.7), stackratio = 0.5) +
                          scale_fill_manual(values = c("black", "white")) +
@@ -556,7 +556,7 @@ abx.legend <- g_legend(ggplot(crds.inu, aes(x = Season, y = AvgDelta, fill = Ant
 
   
 # Inulin
-inu.avgD.plot <- ggplot(crds.inu, aes(x = Season, y = AvgDelta, color = SeasonABX,
+inu.avgD.plot <- ggplot(crds.inu, aes(x = Season, y = AvgD, color = SeasonABX,
                                     fill = SeasonABX)) +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
                position = position_dodge(0.7), stackratio = 0.5) +
@@ -581,7 +581,7 @@ inu.avgD.plot <- ggplot(crds.inu, aes(x = Season, y = AvgDelta, color = SeasonAB
 
 
 # Saline
-sal.avgD.plot <- ggplot(crds.sal, aes(x = Season, y = AvgDelta, color = SeasonABX,
+sal.avgD.plot <- ggplot(crds.sal, aes(x = Season, y = AvgD, color = SeasonABX,
                                     fill = SeasonABX)) +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
                position = position_dodge(0.7), stackratio = 0.5) +
@@ -1173,7 +1173,7 @@ dates_use <- dates_use[-which(dates_use$ID == "W20"),]
 for(k in 1:nrow(dates_use)){
   ID <- dates_use$ID[k]
   rowUse <- which(crds.rem$ID == ID)
-  dates_use$AvgDelta[k] <- crds.rem$AvgDelta[rowUse]
+  dates_use$AvgD[k] <- crds.rem$AvgD[rowUse]
   dates_use$MaxD[k] <- crds.rem$MaxD[rowUse]
   dates_use$MaxSlope[k] <- crds.rem$MaxSlope[rowUse]
   dates_use$AUC_sqrt[k] <- crds.rem$AUC_sqrt[rowUse]
