@@ -7,7 +7,7 @@ calc.CRDS.metrics <- function(x){
   
   # Create output dataframe
   output <- data.frame(matrix(ncol = 6, nrow = length(levels(IDs))))
-  colnames(output) <- c("ID", "AvgDelta", "MaxD",  "MaxSlope", "AUC", "Baseline")
+  colnames(output) <- c("ID", "AvgD", "MaxD",  "MaxSlope", "AUC", "Baseline")
   
   
   # Iterate through each squirrel ID
@@ -23,7 +23,10 @@ calc.CRDS.metrics <- function(x){
     maxDuse <- mean(maxD_sorted[1:3])
     
     # Calculate average delta
-    meanD <- mean(curve.df$DeltaNorm[2:nrow(curve.df)])
+    trim <- maxD_sorted[-1:-2]
+    trim <- trim[-(length(trim)-1):-length(trim)]
+      # Take trimmed means --> remove top 2 and bottom 2 measurements
+    meanD <- mean(trim)
 
     
     # Calculate average maximum slope
