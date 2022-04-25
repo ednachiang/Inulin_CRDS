@@ -45,7 +45,7 @@ crds.use$AUC_sqrt <- crds.use$AUC + (minAUC * -1)
 crds.use$AUC_sqrt <- sqrt(crds.use$AUC_sqrt)
 
 # Convert to numeric
-crds.use$AvgDelta <- as.numeric(crds.use$AvgDelta)
+crds.use$AvgD <- as.numeric(crds.use$AvgD)
 crds.use$MaxD <- as.numeric(crds.use$MaxD)
 crds.use$MaxSlope <- as.numeric(crds.use$MaxSlope)
 crds.use$AUC <- as.numeric(crds.use$AUC)
@@ -380,52 +380,51 @@ cor.test(crds.sal.abx$AUC_sqrt, crds.sal.abx$Ketones, method = "pearson")
 ```
 
 
-### Test AvgDelta
+### Test AvgD
 ```{r}
 ### Test BodyMass Correlation
 
 # Inulin No ABX
-res <- resid(lm(AvgDelta ~ BodyMass, crds.inu.noabx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Test is right on the edge of normal, but residuals are skewed right and slightly sigmoidal
-  # Not Normal
-cor.test(crds.inu.noabx$AvgDelta, crds.inu.noabx$BodyMass, method = "kendall")
-  # p = 0.3536
-
-
-# Inulin ABX
-res <- resid(lm(AvgDelta ~ BodyMass, crds.inu.abx))
+res <- resid(lm(AvgD ~ BodyMass, crds.inu.noabx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(crds.inu.abx$AvgDelta, crds.inu.abx$BodyMass, method = "pearson")
-  # p = 0.8512
+cor.test(crds.inu.noabx$AvgD, crds.inu.noabx$BodyMass, method = "pearson")
+  # p = 0.5897
+
+
+# Inulin ABX
+res <- resid(lm(AvgD ~ BodyMass, crds.inu.abx))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Normal
+cor.test(crds.inu.abx$AvgD, crds.inu.abx$BodyMass, method = "pearson")
+  # p = 0.9436
 
 # Saline No ABX
-res <- resid(lm(AvgDelta ~ BodyMass, crds.sal.noabx))
+res <- resid(lm(AvgD ~ BodyMass, crds.sal.noabx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # p = 0.0006069
   # Not Normal
-cor.test(crds.sal.noabx$AvgDelta, crds.sal.noabx$BodyMass, method = "kendall")
-  # p = 0.2669
+cor.test(crds.sal.noabx$AvgD, crds.sal.noabx$BodyMass, method = "kendall")
+  # p = 0.116
 
 # Saline ABX
-res <- resid(lm(AvgDelta ~ BodyMass, crds.sal.abx))
+res <- resid(lm(AvgD ~ BodyMass, crds.sal.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(crds.sal.abx$AvgDelta, crds.sal.abx$BodyMass, method = "pearson")
-  # p = 0.3556
+cor.test(crds.sal.abx$AvgD, crds.sal.abx$BodyMass, method = "pearson")
+  # p = 0.3748
 
 
 
@@ -434,44 +433,44 @@ cor.test(crds.sal.abx$AvgDelta, crds.sal.abx$BodyMass, method = "pearson")
 ### Test BodyTemp Correlation
 
 # Inulin No ABX
-res <- resid(lm(AvgDelta ~ BodyTemp, crds.inu.noabx))
+res <- resid(lm(AvgD ~ BodyTemp, crds.inu.noabx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(crds.inu.noabx$AvgDelta, crds.inu.noabx$BodyTemp, method = "pearson")
-  # p = 0.07344
+cor.test(crds.inu.noabx$AvgD, crds.inu.noabx$BodyTemp, method = "pearson")
+  # p = 0.05967
 
 # Inulin ABX
-res <- resid(lm(AvgDelta ~ BodyTemp, crds.inu.abx))
+res <- resid(lm(AvgD ~ BodyTemp, crds.inu.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(crds.inu.abx$AvgDelta, crds.inu.abx$BodyTemp, method = "pearson")
-  # p = 0.8562
+cor.test(crds.inu.abx$AvgD, crds.inu.abx$BodyTemp, method = "pearson")
+  # p = 0.8833
 
 # Saline No ABX
-res <- resid(lm(AvgDelta ~ BodyTemp, crds.sal.noabx))
+res <- resid(lm(AvgD ~ BodyTemp, crds.sal.noabx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # p = 0.0001787
   # Not Normal
-cor.test(crds.sal.noabx$AvgDelta, crds.sal.noabx$BodyTemp, method = "kendall")
-  # p = 0.9145
+cor.test(crds.sal.noabx$AvgD, crds.sal.noabx$BodyTemp, method = "kendall")
+  # p = 0.7125
 
 # Saline ABX
-res <- resid(lm(AvgDelta ~ BodyTemp, crds.sal.abx))
+res <- resid(lm(AvgD ~ BodyTemp, crds.sal.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(crds.sal.abx$AvgDelta, crds.sal.abx$BodyTemp, method = "pearson")
+cor.test(crds.sal.abx$AvgD, crds.sal.abx$BodyTemp, method = "pearson")
   # p = 0.5314
 
 
@@ -481,45 +480,45 @@ cor.test(crds.sal.abx$AvgDelta, crds.sal.abx$BodyTemp, method = "pearson")
 ### Test Ketones Correlation
 
 # Inulin No ABX
-res <- resid(lm(AvgDelta ~ Ketones, crds.inu.noabx))
+res <- resid(lm(AvgD ~ Ketones, crds.inu.noabx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(crds.inu.noabx$AvgDelta, crds.inu.noabx$Ketones, method = "pearson")
-  # p = 0.4744
+cor.test(crds.inu.noabx$AvgD, crds.inu.noabx$Ketones, method = "pearson")
+  # p = 0.722
 
 # Inulin ABX
-res <- resid(lm(AvgDelta ~ Ketones, crds.inu.abx))
+res <- resid(lm(AvgD ~ Ketones, crds.inu.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(crds.inu.abx$AvgDelta, crds.inu.abx$Ketones, method = "pearson")
-  # p = 0.5897
+cor.test(crds.inu.abx$AvgD, crds.inu.abx$Ketones, method = "pearson")
+  # p = 0.3582
 
 # Saline No ABX
-res <- resid(lm(AvgDelta ~ Ketones, crds.sal.noabx))
+res <- resid(lm(AvgD ~ Ketones, crds.sal.noabx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.0002237
+  # p = 0.001431
   # Not normal due to an outlier, so go with Normal
-cor.test(crds.sal.noabx$AvgDelta, crds.sal.noabx$Ketones, method = "pearson")
-  # p = 0.3862
+cor.test(crds.sal.noabx$AvgD, crds.sal.noabx$Ketones, method = "pearson")
+  # p = 0.2854
 
 # Saline ABX
-res <- resid(lm(AvgDelta ~ Ketones, crds.sal.abx))
+res <- resid(lm(AvgD ~ Ketones, crds.sal.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(crds.sal.abx$AvgDelta, crds.sal.abx$Ketones, method = "pearson")
-  # p = 0.162
+cor.test(crds.sal.abx$AvgD, crds.sal.abx$Ketones, method = "pearson")
+  # p = 0.1574
 
 ```
 
@@ -835,7 +834,7 @@ for(sample in 1:nrow(exo_rpkg)){
   useRow <- which(crds.rem$ID == sampName)
   exo_rpkg$Baseline[sample] <- crds.rem$Baseline[useRow]
   exo_rpkg$AUC_sqrt[sample] <- crds.rem$AUC_sqrt[useRow]
-  exo_rpkg$AvgDelta[sample] <- crds.rem$AvgDelta[useRow]
+  exo_rpkg$AvgD[sample] <- crds.rem$AvgD[useRow]
   exo_rpkg$MaxD[sample] <- crds.rem$MaxD[useRow]
   exo_rpkg$MaxSlope[sample] <- crds.rem$MaxSlope[useRow]
 }
@@ -864,15 +863,15 @@ shapiro.test(res)
 cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$AUC_sqrt, method = "pearson")
   # p = 0.6674
 
-# Test RPKG - AvgDelta
-res <- resid(lm(RPKG ~ AvgDelta, exo_rpkg_inu))
+# Test RPKG - AvgD
+res <- resid(lm(RPKG ~ AvgD, exo_rpkg_inu))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$AvgDelta, method = "pearson")
-  # p = 0.7206
+cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$AvgD, method = "pearson")
+  # p = 0.6854
 
 # Test RPKG - MaxD
 res <- resid(lm(RPKG ~ MaxD, exo_rpkg_inu))
@@ -920,7 +919,7 @@ for(sample in 1:nrow(dna.con)){
   useRow <- which(crds.rem$ID == sampName)
   dna.con$Baseline[sample] <- crds.rem$Baseline[useRow]
   dna.con$AUC_sqrt[sample] <- crds.rem$AUC_sqrt[useRow]
-  dna.con$AvgDelta[sample] <- crds.rem$AvgDelta[useRow]
+  dna.con$AvgD[sample] <- crds.rem$AvgD[useRow]
   dna.con$MaxD[sample] <- crds.rem$MaxD[useRow]
   dna.con$MaxSlope[sample] <- crds.rem$MaxSlope[useRow]
 }
@@ -979,24 +978,24 @@ cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$AUC_sqrt, method = "kend
 
 
 
-### Test AvgDelta
-res <- resid(lm(DNA_Yield_.ng.mg. ~ AvgDelta, dna.c.inu.noabx))
+### Test AvgD
+res <- resid(lm(DNA_Yield_.ng.mg. ~ AvgD, dna.c.inu.noabx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$AvgDelta, method = "pearson")
-  # p = 0.2396
+cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$AvgD, method = "pearson")
+  # p = 0.2561
 
-res <- resid(lm(DNA_Yield_.ng.mg. ~ AvgDelta, dna.c.inu.abx))
+res <- resid(lm(DNA_Yield_.ng.mg. ~ AvgD, dna.c.inu.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.0003311
+  # p = 0.001177
   # Not Normal
-cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$AvgDelta, method = "kendall")
+cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$AvgD, method = "kendall")
   # p = 0.6235
 
 
@@ -1067,7 +1066,7 @@ dates_use <- dates_use[-which(dates_use$ID == "W20"),]
 for(k in 1:nrow(dates_use)){
   ID <- dates_use$ID[k]
   rowUse <- which(crds.rem$ID == ID)
-  dates_use$AvgDelta[k] <- crds.rem$AvgDelta[rowUse]
+  dates_use$AvgD[k] <- crds.rem$AvgD[rowUse]
   dates_use$MaxD[k] <- crds.rem$MaxD[rowUse]
   dates_use$MaxSlope[k] <- crds.rem$MaxSlope[rowUse]
   dates_use$AUC_sqrt[k] <- crds.rem$AUC_sqrt[rowUse]
@@ -1332,122 +1331,122 @@ cor.test(dates.sal.p$Num_IBA, dates.sal.p$AUC_sqrt, method = "pearson")
 
 
 
-### Correlate AvgDelta ### 
+### Correlate AvgD ### 
 
 # Inulin Winter
-res <- resid(lm(Days_Hib ~ AvgDelta, dates.inu.w))
+res <- resid(lm(Days_Hib ~ AvgD, dates.inu.w))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(dates.inu.w$Days_Hib, dates.inu.w$AvgDelta, method = "pearson")
-  # p-value = 0.4935
+cor.test(dates.inu.w$Days_Hib, dates.inu.w$AvgD, method = "pearson")
+  # p-value = 0.5222
 
-res <- resid(lm(IBA.Hib ~ AvgDelta, dates.inu.w))
+res <- resid(lm(IBA.Hib ~ AvgD, dates.inu.w))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(dates.inu.w$IBA.Hib, dates.inu.w$AvgDelta, method = "pearson")
-  # p-value = 0.4361
+cor.test(dates.inu.w$IBA.Hib, dates.inu.w$AvgD, method = "pearson")
+  # p-value = 0.4297
 
-res <- resid(lm(Num_IBA ~ AvgDelta, dates.inu.w))
+res <- resid(lm(Num_IBA ~ AvgD, dates.inu.w))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(dates.inu.w$Num_IBA, dates.inu.w$AvgDelta, method = "pearson")
-  # p-value = 0.7595
+cor.test(dates.inu.w$Num_IBA, dates.inu.w$AvgD, method = "pearson")
+  # p-value = 0.7281
 
 
 # Inulin Spring
-res <- resid(lm(Days_Hib ~ AvgDelta, dates.inu.p))
+res <- resid(lm(Days_Hib ~ AvgD, dates.inu.p))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(dates.inu.p$Days_Hib, dates.inu.p$AvgDelta, method = "pearson")
-  # p-value = 0.4437
+cor.test(dates.inu.p$Days_Hib, dates.inu.p$AvgD, method = "pearson")
+  # p-value = 0.4029
 
-res <- resid(lm(IBA.Hib ~ AvgDelta, dates.inu.p))
+res <- resid(lm(IBA.Hib ~ AvgD, dates.inu.p))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(dates.inu.p$IBA.Hib, dates.inu.p$AvgDelta, method = "pearson")
-  # p-value = 0.5327
+cor.test(dates.inu.p$IBA.Hib, dates.inu.p$AvgD, method = "pearson")
+  # p-value = 0.5284
 
-res <- resid(lm(Num_IBA ~ AvgDelta, dates.inu.p))
+res <- resid(lm(Num_IBA ~ AvgD, dates.inu.p))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(dates.inu.p$Num_IBA, dates.inu.p$AvgDelta, method = "pearson")
-  # p-value = 0.4586
+cor.test(dates.inu.p$Num_IBA, dates.inu.p$AvgD, method = "pearson")
+  # p-value = 0.4436
 
 
 # Saline Winter
-res <- resid(lm(Days_Hib ~ AvgDelta, dates.sal.w))
+res <- resid(lm(Days_Hib ~ AvgD, dates.sal.w))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(dates.sal.w$Days_Hib, dates.sal.w$AvgDelta, method = "pearson")
-  # p-value = 0.1656
+cor.test(dates.sal.w$Days_Hib, dates.sal.w$AvgD, method = "pearson")
+  # p-value = 0.1841
 
-res <- resid(lm(IBA.Hib ~ AvgDelta, dates.sal.w))
+res <- resid(lm(IBA.Hib ~ AvgD, dates.sal.w))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(dates.sal.w$IBA.Hib, dates.sal.w$AvgDelta, method = "pearson")
-  # p-value = 0.5026
+cor.test(dates.sal.w$IBA.Hib, dates.sal.w$AvgD, method = "pearson")
+  # p-value = 0.6059
 
-res <- resid(lm(Num_IBA ~ AvgDelta, dates.sal.w))
+res <- resid(lm(Num_IBA ~ AvgD, dates.sal.w))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(dates.sal.w$Num_IBA, dates.sal.w$AvgDelta, method = "pearson")
-  # p-value = 0.8138
+cor.test(dates.sal.w$Num_IBA, dates.sal.w$AvgD, method = "pearson")
+  # p-value = 0.742
 
 
 # Saline Spring
-res <- resid(lm(Days_Hib ~ AvgDelta, dates.sal.p))
+res <- resid(lm(Days_Hib ~ AvgD, dates.sal.p))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(dates.sal.p$Days_Hib, dates.sal.p$AvgDelta, method = "pearson")
-  # p-value = 0.7165
+cor.test(dates.sal.p$Days_Hib, dates.sal.p$AvgD, method = "pearson")
+  # p-value = 0.6049
 
-res <- resid(lm(IBA.Hib ~ AvgDelta, dates.sal.p))
+res <- resid(lm(IBA.Hib ~ AvgD, dates.sal.p))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(dates.sal.p$IBA.Hib, dates.sal.p$AvgDelta, method = "pearson")
-  # p-value = 0.08964
+cor.test(dates.sal.p$IBA.Hib, dates.sal.p$AvgD, method = "pearson")
+  # p-value = 0.0831
 
-res <- resid(lm(Num_IBA ~ AvgDelta, dates.sal.p))
+res <- resid(lm(Num_IBA ~ AvgD, dates.sal.p))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(dates.sal.p$Num_IBA, dates.sal.p$AvgDelta, method = "pearson")
-  # p-value = 0.2057
+cor.test(dates.sal.p$Num_IBA, dates.sal.p$AvgD, method = "pearson")
+  # p-value = 0.2111
 
 
 
@@ -1767,64 +1766,49 @@ cor.test(rpkg.dates.p$Num_IBA, rpkg.dates.p$RPKG, method = "pearson")
 
 ### Adj P
 ```{r}
-p.adjust(c(0.0006718, 0.443, 0.002927, 0.4277, 0.04429, 0.6474, 0.3536, 0.07344, 0.4744, 0.06493, 0.1045, 0.1923, 0.006091, 0.2322, 0.06079, 0.3841, 0.3218, 0.2396, 0.2987, 0.4263, 0.008264, 0.7934, 0.166, 0.8798, 0.7325, 0.4552, 0.8512, 0.8562, 0.5897, 0.8482, 0.7786, 0.9001, 0.2926, 0.7659, 0.09455, 0.04198, 0.2618, 0.6235, 0.8885, 0.04198, 0.1602, 0.5212, 0.0378, 0.2983, 0.858, 0.3477, 0.2669, 0.9145, 0.3862, 0.332, 0.6418, 0.4857, 0.8903, 0.1424, 0.9383, 0.0002925, 0.05815, 0.1171, 0.3556, 0.4753, 0.2177, 0.3356, 0.5314, 0.162, 0.1089, 0.4933, 0.3552, 0.4934, 0.7211, 0.9754), "BH")
-  # 0.02351300 0.71954167 0.06829667
- [4] 0.71954167 0.34447778 0.83922222
- [7] 0.67275676 0.39544615 0.71954167
-[10] 0.37875833 0.47643750 0.61186364
-[13] 0.10659250 0.67088000 0.37875833
-[16] 0.69317949 0.67275676 0.67088000
-[19] 0.67275676 0.71954167 0.11569600
-[22] 0.94040299 0.55333333 0.94040299
-[25] 0.91562500 0.71954167 0.94040299
-[28] 0.94040299 0.80939216 0.94040299
-[31] 0.93968966 0.94040299 0.67275676
-[34] 0.93968966 0.47275000 0.34447778
-[37] 0.67275676 0.83922222 0.94040299
-[40] 0.34447778 0.55333333 0.74396000
-[43] 0.34447778 0.67275676 0.94040299
-[46] 0.67275676 0.67275676 0.94139706
-[49] 0.69317949 0.67275676 0.83922222
-[52] 0.71954167 0.94040299 0.55333333
-[55] 0.95189855 0.02047500 0.37875833
-[58] 0.48217647 0.67275676 0.71954167
-[61] 0.66256522 0.67275676 0.74396000
-[64] 0.55333333 0.47643750 0.71954167
-[67] 0.67275676 0.71954167 0.91562500
-[70] 0.97540000
+p.adjust(c(0.0006718, 0.443, 0.002927, 0.4277, 0.04429, 0.6474, 0.5897, 0.05967, 0.722,
+           0.06493, 0.1045, 0.1923, 0.006091, 0.2322, 0.06079, 0.3841, 0.3218, 0.2561,
+           0.2987, 0.4263, 0.008264, 0.7934, 0.166, 0.8798, 0.7325, 0.4552, 0.9436, 0.8833,
+           0.3582, 0.8482, 0.7786, 0.9001, 0.2926, 0.7659, 0.09455, 0.04198, 0.2618, 0.363,
+           0.8885, 0.04198, 0.1602, 0.5212, 0.0378, 0.2983, 0.858, 0.3477, 0.116, 0.7125,
+           0.2854, 0.332, 0.6418, 0.4857, 0.8903, 0.1424, 0.9383, 0.0002925, 0.05815,
+           0.1171, 0.3556, 0.4753, 0.2177, 0.3748, 0.5766, 0.1574, 0.1089, 0.4933, 0.3552,
+           0.4934, 0.7211, 0.9754), "BH")
+  # 0.02351300 0.71954167 0.06829667 0.71283333 0.34447778 0.85505660 0.80939216
+ [8] 0.34962308 0.89956140 0.34962308 0.45538889 0.58526087 0.10659250 0.65016000
+[15] 0.34962308 0.67217500 0.66868421 0.66868421 0.66868421 0.71283333 0.11569600
+[22] 0.92563333 0.52818182 0.94040299 0.89956140 0.71954167 0.95727536 0.94040299
+[29] 0.66868421 0.94040299 0.92376271 0.94040299 0.66868421 0.92376271 0.45538889
+[36] 0.34447778 0.66868421 0.66868421 0.94040299 0.34447778 0.52818182 0.74457143
+[43] 0.34447778 0.66868421 0.94040299 0.66868421 0.45538889 0.89956140 0.66868421
+[50] 0.66868421 0.85505660 0.71954167 0.94040299 0.52463158 0.95727536 0.02047500
+[57] 0.34962308 0.45538889 0.66868421 0.71954167 0.63495833 0.67217500 0.80724000
+[64] 0.52818182 0.45538889 0.71954167 0.66868421 0.71954167 0.89956140 0.97540000
 
 
 
 
-p.adjust(c(0.8616, 0.6949, 0.3991, 0.5399, 0.4686, 0.7622, 0.4935, 0.4361, 0.7595, 0.4531, 0.4515, 0.8128, 0.3454, 0.4296, 0.9546, 0.09606, 0.5982, 0.4493, 0.4164, 0.5327, 0.4504, 0.4437, 0.5372, 0.4586, 0.7036, 0.5463, 0.5103, 0.7633, 0.6705, 0.6385, 5.62E-05, 0.9251, 0.1271, 0.193, 0.5949, 0.7424, 0.1656, 0.5026, 0.8138, 0.1624, 0.4762, 0.8184, 0.2444, 0.4055, 0.8882, 0.172, 0.6928, 0.3761, 0.6188, 0.162, 0.3363, 0.7165, 0.08964, 0.2057, 0.9127, 0.01461, 0.08477, 0.9362, 0.9958, 0.8852), "BH")
-  # 0.9684828 0.9346531 0.9105000
- [4] 0.9105000 0.9105000 0.9346531
- [7] 0.9105000 0.9105000 0.9346531
-[10] 0.9105000 0.9105000 0.9443077
-[13] 0.9105000 0.9105000 0.9707797
-[16] 0.9105000 0.9346531 0.9105000
-[19] 0.9105000 0.9105000 0.9105000
-[22] 0.9105000 0.9105000 0.9105000
-[25] 0.9346531 0.9105000 0.9105000
-[28] 0.9346531 0.9346531 0.9346531
-[31] 0.0033720 0.9684828 0.9105000
-[34] 0.9105000 0.9346531 0.9346531
-[37] 0.9105000 0.9105000 0.9443077
-[40] 0.9105000 0.9105000 0.9443077
-[43] 0.9105000 0.9105000 0.9684828
-[46] 0.9105000 0.9346531 0.9105000
-[49] 0.9346531 0.9105000 0.9105000
-[52] 0.9346531 0.9105000 0.9105000
-[55] 0.9684828 0.4383000 0.9105000
-[58] 0.9684828 0.9958000 0.9684828
+p.adjust(c(0.8616, 0.6949, 0.3991, 0.5399, 0.4686, 0.7622, 0.5222, 0.4297, 0.7281, 0.4531,
+           0.4515, 0.8128, 0.3454, 0.4296, 0.9546, 0.09606, 0.5982, 0.4493, 0.4164, 0.5327,
+           0.4504, 0.4029, 0.5284, 0.4436, 0.7036, 0.5463, 0.5103, 0.7633, 0.6705, 0.6385,
+           5.62E-05, 0.9251, 0.1271, 0.193, 0.5949, 0.7424, 0.1841, 0.6059, 0.742,0.1624,
+           0.4762, 0.8184, 0.2444, 0.4055, 0.8882, 0.172, 0.6928, 0.3761, 0.6188, 0.162,
+           0.3363, 0.6049, 0.0831, 0.2111, 0.9127, 0.01461, 0.08477, 0.9362, 0.9958, 
+           0.8852), "BH")
+  # 0.9684828 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600
+ [9] 0.9159600 0.9159600 0.9159600 0.9443077 0.9159600 0.9159600 0.9707797 0.9159600
+[17] 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600
+[25] 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.0033720 0.9684828
+[33] 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600
+[41] 0.9159600 0.9443077 0.9159600 0.9159600 0.9684828 0.9159600 0.9159600 0.9159600
+[49] 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9684828 0.4383000
+[57] 0.9159600 0.9684828 0.9958000 0.9684828
 
 
 
 
 
 
-p.adjust(c(0.5756, 0.6959, 0.5854, 0.3231, 0.8018, 0.9493, 0.9096, 0.6674, 0.7206, 0.7554, 0.9127), "BH")
-  # 0.9493 0.9493 0.9493 0.9493 0.9493
- [6] 0.9493 0.9493 0.9493 0.9493 0.9493
-[11] 0.9493
+p.adjust(c(0.5756, 0.6959, 0.5854, 0.3231, 0.8018, 0.9493, 0.9096, 0.6674, 0.6854, 0.7554, 0.9127), "BH")
+  # 0.9493 0.9493 0.9493 0.9493 0.9493 0.9493 0.9493 0.9493 0.9493 0.9493 0.9493
 ```
