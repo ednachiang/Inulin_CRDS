@@ -392,9 +392,9 @@ phy.con.noabx.qcat <- QCAT_GEE(OTU=otu.c, Tax=tax.con, X=delta.use, X.index = 2,
 ```{r}
 ### Separate ABX/No ABX
 phy.sum.c.noabx <- subset_samples(phy.sum.c, Antibiotics == "No")
-  # 13 samples
+  # 14 samples
 phy.sum.c.abx <- subset_samples(phy.sum.c, Antibiotics == "Yes")
-  # 1 samples
+  # 3 samples
 phy.sum.m.noabx <- subset_samples(phy.sum.m, Antibiotics == "No")
   # 12 samples
 phy.sum.m.abx <- subset_samples(phy.sum.m, Antibiotics == "Yes")
@@ -412,32 +412,31 @@ for(a in 1:nrow(otu.sum.c.abx.otu)){
   empty <- length(which(otu.sum.c.abx.otu[a,] == 0))
     # Identifies # of samples w/o OTU
   if(empty == 3){
-    # If OTU appears in < 2 samples
+    # If OTU appears in 0 samples
     otu.sum.c.abx.otu.rem <- append(otu.sum.c.abx.otu.rem, a)
-      # Create list of OTUs that appear in only 1 sample
+      # Create list of empty OTUs
   }
 }
-# 0 OTUs to remove
-#otu.sum.c.abx.otu.rem <- otu.sum.c.abx.otu[-unlist(otu.sum.c.abx.otu.rem),]
+# 1655 OTUs to remove
+otu.sum.c.abx.otu.rem <- otu.sum.c.abx.otu[-unlist(otu.sum.c.abx.otu.rem),]
 # Update physeq object
-#phy.sum.c.abx.rem <- merge_phyloseq(otu_table(otu.sum.c.abx.otu.rem, taxa_are_rows=T),
-                                    #sample_data(phy.sum.c.abx), tax_table(phy.sum.c.abx))
-phy.sum.c.abx.rem <- phy.sum.c.abx
+phy.sum.c.abx.rem <- merge_phyloseq(otu_table(otu.sum.c.abx.otu.rem, taxa_are_rows=T),
+                                    sample_data(phy.sum.c.abx), tax_table(phy.sum.c.abx))
 
 
-### Drop taxa in < 2 samples
+### Drop taxa in 0 samples
 otu.sum.m.abx.otu <- data.frame(otu_table(phy.sum.m.abx))
 otu.sum.m.abx.otu.rem <- list()
 for(b in 1:nrow(otu.sum.m.abx.otu)){
   empty <- length(which(otu.sum.m.abx.otu[b,] == 0))
     # Identifies # of samples w/o OTU
   if(empty == 3){
-    # If OTU appears in < 2 samples
+    # If OTU appears in 0 samples
     otu.sum.m.abx.otu.rem <- append(otu.sum.m.abx.otu.rem, b)
-      # Create list of OTUs that appear in only 1 sample
+      # Create list of OTUs that appear in 0 sample
   }
 }
-# 842 OTUs to remove
+# 1132 OTUs to remove
 otu.sum.m.abx.otu.rem <- otu.sum.m.abx.otu[-unlist(otu.sum.m.abx.otu.rem),]
 # Update physeq object
 phy.sum.m.abx.rem <- merge_phyloseq(otu_table(otu.sum.m.abx.otu.rem, taxa_are_rows=T),
@@ -445,19 +444,19 @@ phy.sum.m.abx.rem <- merge_phyloseq(otu_table(otu.sum.m.abx.otu.rem, taxa_are_ro
 
 
 
-### Drop taxa in < 2 samples
+### Drop taxa in 0 samples
 otu.win.c.abx.otu <- data.frame(otu_table(phy.win.c.abx))
 otu.win.c.abx.otu.rem <- list()
 for(c in 1:nrow(otu.win.c.abx.otu)){
   empty <- length(which(otu.win.c.abx.otu[c,] == 0))
     # Identifies # of samples w/o OTU
   if(empty == 4){
-    # If OTU appears in < 1 samples
+    # If OTU appears in 0 samples
     otu.win.c.abx.otu.rem <- append(otu.win.c.abx.otu.rem, c)
-      # Create list of OTUs that appear in only 1 sample
+      # Create list of OTUs that appear in 0 sample
   }
 }
-# 1551 OTUs to remove
+# 2118 OTUs to remove
 otu.win.c.abx.otu.rem <- otu.win.c.abx.otu[-unlist(otu.win.c.abx.otu.rem),]
 # Update physeq object
 phy.win.c.abx.rem <- merge_phyloseq(otu_table(otu.win.c.abx.otu.rem, taxa_are_rows=T),
@@ -477,9 +476,9 @@ bray.abx <- phyloseq::distance(physeq = abx.use, method = "bray")
 beta.tax <- betadisper(d = bray.abx, group = data.frame(sample_data(abx.use))$Season)
 p <- permutest(beta.tax)
 p$tab
-  # p-value = 0.8083333
+  # p-value = 0.654
 adonis(bray.abx ~ Season, data=data.frame(sample_data(abx.use)), permutations = 9999)
-  # p-value = 0.6
+  # p-value = 0.1429
 
 
 ##### SIMPER
@@ -647,7 +646,7 @@ phy.c.abx.sum <- phy.c.abx.df %>%
 
 ### Effect size calculation
 cohen.d(phy.c.abx.df$Abundance ~ phy.c.abx.df$Season)
-  # d = 8.591606e-18 (negligible)
+  # d = -8.822391e-18 (negligible)
 
 
 ### Power calculation
