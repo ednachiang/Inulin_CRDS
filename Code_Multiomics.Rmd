@@ -1,0 +1,77 @@
+---
+title: "Multiomics"
+author: "Edna Chiang"
+date: "4/27/2022"
+output: html_document
+---
+
+### Load Libraries
+```{r}
+library(ape)
+library(dplyr)
+library(dunn.test)
+library(effsize)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(phyloseq)
+library(picante)
+library(pwr)
+library(tidyr)
+library(vegan)
+library(miLineage)
+library(pwr)
+library(effsize)
+library(equivalence)
+source('scripts/misc.R')
+theme_set(theme_bw())
+set.seed(1)
+```
+
+
+### Load Data
+```{r}
+# Load KEGG table
+KO <- read.table('KEGG/KOtable.txt', header = T, row.names = 1)
+KO <- t(KO)
+
+# Load metabolomic data
+metab <- read.csv('metabolomics/metabolomics.csv', row.names = 1)
+metab <- t(metab)
+
+# Load metadata
+meta <- read.csv('metadata_metag.csv', row.names = 2)
+row.names(meta) <- substr(rownames(meta),3,5)
+meta <- meta[-7:-18,]
+meta <- meta[,-11]
+
+# Load CRDS data
+load('crds.use.Rdata')
+
+
+# Combine data into list
+data <- list(KO = KO, metabolomics = metab)
+
+y <- meta$Season
+```
+
+### Pairwise PLS
+```{r}
+list.keepX = c(25,25)
+list.keepY = c(10,10)
+pls1 <- spls(data[["KO"]], data[["metabolomics"]], keepX = list.keepX, keepY = list.keepY)
+
+plotVar(pls1, cutoff = 0.5, title = "KO vs. Metabolomics", style = 'graphics')
+
+# Calculate correlation of KO and metabolomics
+cor(pls1$variates$X, pls1$variates$Y)
+```
+
+### DIABLO Model
+```{r}
+design = matrix(0.1, ncol = length(data), nrow = length(data),
+                dimnames = list(names(data), names(data)))
+diag(design) <- 0
+
+basic.diablo.model <- block.splsda(X = data, Y = y, ncomp = 5, design = design)
+```
