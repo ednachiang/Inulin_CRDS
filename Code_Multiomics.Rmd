@@ -23,6 +23,7 @@ library(miLineage)
 library(pwr)
 library(effsize)
 library(equivalence)
+library(mixOmics)
 source('scripts/misc.R')
 theme_set(theme_bw())
 set.seed(1)
@@ -34,6 +35,7 @@ set.seed(1)
 # Load KEGG table
 KO <- read.table('KEGG/KOtable.txt', header = T, row.names = 1)
 KO <- t(KO)
+KO <- KO[,1:25]
 
 # Load metabolomic data
 metab <- read.csv('metabolomics/metabolomics.csv', row.names = 1)
@@ -46,14 +48,89 @@ meta <- meta[-7:-18,]
 meta <- meta[,-11]
 
 # Load CRDS data
-load('crds.use.Rdata')
-
+#load('crds.use.Rdata')
 
 # Combine data into list
-data <- list(KO = KO, metabolomics = metab)
+#data <- list(KO = KO, metabolomics = metab)
 
-y <- meta$Season
+
+y = meta$Substrate
 ```
+
+### Initial Analysis
+```{r}
+X11()
+imgCor(KO, metab)
+
+
+
+### Tune rCCA
+grid1 <- seq(0.001, 0.2, length = 10) 
+grid2 <- seq(0.001, 0.2, length = 10)
+
+# Run RCC to optimize
+tune_rcc <- tune.rcc(KO, metab, grid1 = grid1, grid2 = grid2, validation = "loo")
+
+# Pull out optimal lambda values
+optl1 <- tune_rcc$opt.lambda1
+optl2 <- tune_rcc$opt.lambda2
+
+# Save optimized rCCA
+rcc.opt <- rcc(KO, metab, method = "ridge", lambda1 = optl1, lambda2 = optl2)
+
+
+
+
+### Shrinkage Method
+rcc.shrink <- rcc(KO, metab, method = "shrinkage")
+
+
+
+
+
+
+
+### Select # components
+plot(rcc.opt, type = "barplot", main = "Cross Validation")
+plot(rcc.shrink, type = "barplot", main = "Shrinkage")
+
+
+
+
+
+### Plot models
+plotIndiv(rcc.opt, comp = 1:2, rep.space = "XY-variate", legend = T)
+plotArrow(rcc.opt)
+
+plotIndiv(rcc.shrink, comp = 1:2, rep.space = "XY-variate", legend = T)
+plotArrow(rcc.shrink)
+
+plotVar(rcc.opt, var.names = c(T, T), cutoff = 0.5)
+plotVar(rcc.shrink, var.names = c(T, T), cutoff = 0.5)
+
+
+
+
+### Network Plot
+X.11()
+network(rcc.opt, comp = 1:2, interactive = F, lwd.edge = 2, cutoff = 0.5)
+
+
+network(rcc.shrink, comp = 1:2, interactive = F, lwd.edge = 2, cutoff = 0.5)
+
+
+
+
+
+### CIM plot
+X11()
+cim(rcc.opt, comp = 1:2, xlab = "KOIDs", ylab = "Metabolites")
+
+X11()
+cim(rcc.shrink, comp = 1:2, xlab = "KOIDs", ylab = "Metabolites")
+
+```
+
 
 ### Pairwise PLS
 ```{r}
