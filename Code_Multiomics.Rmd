@@ -51,13 +51,13 @@ meta <- meta[,-11]
 #load('crds.use.Rdata')
 
 # Combine data into list
-#data <- list(KO = KO, metabolomics = metab)
+data <- list(KO = KO, metabolomics = metab)
 
 
-y = meta$Substrate
+Y = meta$Substrate
 ```
 
-### Initial Analysis
+### RCC - Initial Analysis
 ```{r}
 X11()
 imgCor(KO, metab)
@@ -69,14 +69,14 @@ grid1 <- seq(0.001, 0.2, length = 10)
 grid2 <- seq(0.001, 0.2, length = 10)
 
 # Run RCC to optimize
-tune_rcc <- tune.rcc(KO, metab, grid1 = grid1, grid2 = grid2, validation = "loo")
+#tune_rcc <- tune.rcc(KO, metab, grid1 = grid1, grid2 = grid2, validation = "loo")
 
 # Pull out optimal lambda values
-optl1 <- tune_rcc$opt.lambda1
-optl2 <- tune_rcc$opt.lambda2
+#optl1 <- tune_rcc$opt.lambda1
+#optl2 <- tune_rcc$opt.lambda2
 
 # Save optimized rCCA
-rcc.opt <- rcc(KO, metab, method = "ridge", lambda1 = optl1, lambda2 = optl2)
+#rcc.opt <- rcc(KO, metab, method = "ridge", lambda1 = optl1, lambda2 = optl2)
 
 
 
@@ -151,4 +151,15 @@ design = matrix(0.1, ncol = length(data), nrow = length(data),
 diag(design) <- 0
 
 basic.diablo.model <- block.splsda(X = data, Y = y, ncomp = 5, design = design)
+
+final.diablo.model <- block.splsda(X = data, Y = Y, design = design)
+
+### Plot
+plotDiablo(final.diablo.model, ncomp = 1)
+plotIndiv(final.diablo.model, legend = T)
+plotArrow(final.diablo.model, legend = T)
+plotVar(final.diablo.model, style = 'graphics', legend = T)
+circosPlot(final.diablo.model, cutoff = 0.7, line = TRUE, size.labels = 2)
+#network(final.diablo.model, cutoff = 0.4)
+plotLoadings(final.diablo.model, comp = 2, contrib = 'max', method = 'median')
 ```
