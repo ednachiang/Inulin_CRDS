@@ -228,58 +228,6 @@ load('crds.use.Rdata')
 
 meta <- data.frame(sample_data(phy.rem))
 
-
-### Prepare CRDS data
-meta.crds <- read.csv('metadata.csv')
-
-# Add metadata
-crds.use[, colnames(meta.crds)[3:ncol(meta.crds)]] <- NA
-for(i in 1:nrow(crds.use)){
-  meta.crds.row <- which(meta.crds$ID == crds.use$ID[i])
-  crds.use[i, 7:ncol(crds.use)] <- meta.crds[meta.crds.row, 3:ncol(meta.crds)]
-}
-
-# Calculate square root of AUC
-crds.use$AUC <- as.numeric(crds.use$AUC)
-minAUC <- min(crds.use$AUC)
-crds.use$AUC_sqrt <- crds.use$AUC + (minAUC * -1)
-crds.use$AUC_sqrt <- sqrt(crds.use$AUC_sqrt)
-
-# Convert to numeric
-crds.use$AvgD <- as.numeric(crds.use$AvgD)
-crds.use$MaxD <- as.numeric(crds.use$MaxD)
-crds.use$MaxSlope <- as.numeric(crds.use$MaxSlope)
-crds.use$AUC <- as.numeric(crds.use$AUC)
-crds.use$AUC_sqrt <- as.numeric(crds.use$AUC_sqrt)
-crds.use$Baseline <- as.numeric(crds.use$Baseline)
-
-
-# Order categorical variables
-crds.use$Season <- ordered(crds.use$Season, levels = c("Summer", "Winter", "Spring"))
-crds.use$Sex <- ordered(crds.use$Sex, levels = c("Female", "Male"))
-crds.use$Antibiotics <- ordered(crds.use$Antibiotics, levels = c("No", "Yes"))
-crds.use$Substrate <- ordered(crds.use$Substrate, levels = c("Inulin", "Saline"))
-crds.use$Diet <- ordered(crds.use$Diet, levels = c("1", "2"))
-
-# Remove outliers
-crds.rem <- crds.use[-which(crds.use$ID == "S23"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "S37"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "S60"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "W20"),]
-  # This is due to odd meta.crdsgenome
-crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
-
-# Add CRDS metrics to 16S metadata
-meta <- meta[-which(meta$ID == "S11"),]
-for (j in 1:nrow(meta)){
-  useRow <- which(crds.use$ID == meta$ID[j])
-  meta$Baseline[j] <- crds.use$Baseline[useRow]
-  meta$AUC_sqrt[j] <- crds.use$AUC_sqrt[useRow]
-  meta$AvgD[j] <- crds.use$AvgD[useRow]
-  meta$MaxD[j] <- crds.use$MaxD[useRow]
-  meta$MaxSlope[j] <- crds.use$MaxSlope[useRow]
-}
 ```
 
 
