@@ -20,17 +20,11 @@ library(pwr)
 library(tidyr)
 library(vegan)
 library(miLineage)
-library(pwr)
-library(effsize)
 library(equivalence)
-#source('scripts/import_crds.R')
-#source('scripts/bin_crds.R')
 source('scripts/misc.R')
-#source('scripts/calc_delta_metrics.R')
 source('scripts/simper_pretty.R')
 source('scripts/R_krusk.R')
 source('scripts/removeTaxa.R')
-#source('scripts/kaijuCreatePhyseq.R')
 theme_set(theme_bw())
 set.seed(1)
 ```
@@ -230,8 +224,62 @@ load("16S/physeq/phy.summer.content.RData")
 load("16S/physeq/phy.summer.mucosa.RData")
 load("16S/physeq/phy.winter.content.RData")
 load("16S/physeq/phy.spring.content.RData")
+load('crds.use.Rdata')
 
 meta <- data.frame(sample_data(phy.rem))
+
+
+### Prepare CRDS data
+meta.crds <- read.csv('metadata.csv')
+
+# Add metadata
+crds.use[, colnames(meta.crds)[3:ncol(meta.crds)]] <- NA
+for(i in 1:nrow(crds.use)){
+  meta.crds.row <- which(meta.crds$ID == crds.use$ID[i])
+  crds.use[i, 7:ncol(crds.use)] <- meta.crds[meta.crds.row, 3:ncol(meta.crds)]
+}
+
+# Calculate square root of AUC
+crds.use$AUC <- as.numeric(crds.use$AUC)
+minAUC <- min(crds.use$AUC)
+crds.use$AUC_sqrt <- crds.use$AUC + (minAUC * -1)
+crds.use$AUC_sqrt <- sqrt(crds.use$AUC_sqrt)
+
+# Convert to numeric
+crds.use$AvgD <- as.numeric(crds.use$AvgD)
+crds.use$MaxD <- as.numeric(crds.use$MaxD)
+crds.use$MaxSlope <- as.numeric(crds.use$MaxSlope)
+crds.use$AUC <- as.numeric(crds.use$AUC)
+crds.use$AUC_sqrt <- as.numeric(crds.use$AUC_sqrt)
+crds.use$Baseline <- as.numeric(crds.use$Baseline)
+
+
+# Order categorical variables
+crds.use$Season <- ordered(crds.use$Season, levels = c("Summer", "Winter", "Spring"))
+crds.use$Sex <- ordered(crds.use$Sex, levels = c("Female", "Male"))
+crds.use$Antibiotics <- ordered(crds.use$Antibiotics, levels = c("No", "Yes"))
+crds.use$Substrate <- ordered(crds.use$Substrate, levels = c("Inulin", "Saline"))
+crds.use$Diet <- ordered(crds.use$Diet, levels = c("1", "2"))
+
+# Remove outliers
+crds.rem <- crds.use[-which(crds.use$ID == "S23"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "S37"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "S60"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "W20"),]
+  # This is due to odd meta.crdsgenome
+crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
+
+# Add CRDS metrics to 16S metadata
+meta <- meta[-which(meta$ID == "S11"),]
+for (j in 1:nrow(meta)){
+  useRow <- which(crds.use$ID == meta$ID[j])
+  meta$Baseline[j] <- crds.use$Baseline[useRow]
+  meta$AUC_sqrt[j] <- crds.use$AUC_sqrt[useRow]
+  meta$AvgD[j] <- crds.use$AvgD[useRow]
+  meta$MaxD[j] <- crds.use$MaxD[useRow]
+  meta$MaxSlope[j] <- crds.use$MaxSlope[useRow]
+}
 ```
 
 
@@ -254,9 +302,9 @@ tax.muc <- as.matrix(tax.muc)
                     
 
 ### Format metadata
-meta.con <- data.frame(sample_data(phy.c.rem))
-meta.muc <- data.frame(sample_data(phy.m.rem))
-delta.c <- meta.con[,28:32]
+meta.con <- meta[which(meta$Source == "Content"),]
+meta.muc <- meta[which(meta$Source == "Mucosa"),]
+delta.c <- meta.con[,24:33]
 delta.c$BodyMass <- as.numeric(meta.con$BodyMass)
 delta.c$DNAyield <- meta.con$DNAyield
 delta.c$Baseline <- as.numeric(delta.c$Baseline)
@@ -268,7 +316,7 @@ delta.c$BodyMass <- as.numeric(delta.c$BodyMass)
 delta.c$DNAyield <- as.numeric(delta.c$DNAyield)
 delta.c <- as.matrix(delta.c)
 
-delta.m <- meta.muc[,28:32]
+delta.m <- meta.muc[,24:33]
 delta.m$BodyMass <- meta.muc$BodyMass
 delta.m$DNAyield <- meta.muc$DNAyield
 delta.m$BodyMass <- as.numeric(meta.muc$BodyMass)
