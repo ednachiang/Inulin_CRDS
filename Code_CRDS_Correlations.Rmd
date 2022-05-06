@@ -11,11 +11,6 @@ library(ggplot2)
 library(plyr)
 library(dplyr)
 library(grid)
-library(MESS)
-library(pgirmess)
-library(Bolstad2)
-library(phyloseq)
-library(psych)
 library(car)
 source('scripts/misc.R')
 set.seed(1)
@@ -1811,4 +1806,16 @@ p.adjust(c(0.8616, 0.6949, 0.3991, 0.5399, 0.4686, 0.7622, 0.5222, 0.4297, 0.728
 
 p.adjust(c(0.5756, 0.6959, 0.5854, 0.3231, 0.8018, 0.9493, 0.9096, 0.6674, 0.6854, 0.7554, 0.9127), "BH")
   # 0.9493 0.9493 0.9493 0.9493 0.9493 0.9493 0.9493 0.9493 0.9493 0.9493 0.9493
+```
+
+
+### Misc
+```{r}
+res <- resid(lm(Num_IBA ~ RPKG, rpkg.dates.p))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+cor.test(crds.inu.noabx$MaxD, crds.inu.noabx$MaxSlope, method = "pearson")
+
 ```
