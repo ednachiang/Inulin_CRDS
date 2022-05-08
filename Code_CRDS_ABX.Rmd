@@ -228,19 +228,7 @@ b2 <- two.boot(sample1 = crds.inu.w$AUC_sqrt[which(crds.inu.w$Antibiotics == "No
          sample2 = crds.inu.w$AUC_sqrt[which(crds.inu.w$Antibiotics == "Yes")],
          FUN = var, R = 9999)
 boot.ci(b2, conf = 0.95, type = "bca")
-  # 88.8, 335.7 
-
-
-
-
-
-
-
-colnames(boot.df) <- c("AUC_sqrt", "Antibiotics")
-abc.ci(boot.df, leveneTest, y = boot.df$AUC_sqrt, group = boot.df$Antibiotics, center = "median")
-
-abc.ci(boot.df, var, strata = boot.df$Antibiotics)
-
+  # CI = 36.6, 320.0 
 wilcox.test(AUC_sqrt ~ Antibiotics, crds.inu.w, conf.int = T)
   # p = 0.1282
   # CI = -1.113459 29.793857
@@ -255,8 +243,10 @@ shapiro.test(res)
   # Normal
 var.test(AUC_sqrt ~ Antibiotics, crds.inu.p)
   # p = 0.0004868
-wilcox.test(AUC_sqrt ~ Antibiotics, crds.inu.p)
+  # CI = 5.669726 192.031177
+wilcox.test(AUC_sqrt ~ Antibiotics, crds.inu.p, conf.int = T)
   # p = 0.001166
+  # CI = 17.20083 65.01636
 
 
 
@@ -273,8 +263,10 @@ shapiro.test(res)
   # Normal
 var.test(AUC_sqrt ~ Antibiotics, crds.sal.s)
   # p = 0.03738
-wilcox.test(AUC_sqrt ~ Antibiotics, crds.sal.s)
+  # CI = 1.149205 58.690779
+wilcox.test(AUC_sqrt ~ Antibiotics, crds.sal.s, conf.int = T)
   # p = 0.02597
+  # CI = 0.06659934 0.67741637
 
 # Winter
 res <- resid(lm(AUC_sqrt ~ Antibiotics, crds.sal.w))
@@ -286,8 +278,14 @@ shapiro.test(res)
   # Not Normal
 fligner.test(AUC_sqrt ~ Antibiotics, crds.sal.w)
   # p = 0.7543
-wilcox.test(AUC_sqrt ~ Antibiotics, crds.sal.w)
+b2 <- two.boot(sample1 = crds.sal.w$AUC_sqrt[which(crds.sal.w$Antibiotics == "No")], 
+         sample2 = crds.sal.w$AUC_sqrt[which(crds.sal.w$Antibiotics == "Yes")],
+         FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # CI = -0.0258,  0.2807
+wilcox.test(AUC_sqrt ~ Antibiotics, crds.sal.w, conf.int = T)
   # p = 0.01732
+  # CI = 0.007457873 1.025193703
 
 
 # Spring
@@ -299,8 +297,10 @@ shapiro.test(res)
   # Normal
 var.test(AUC_sqrt ~ Antibiotics, crds.sal.p)
   # p = 0.1693
+  # CI = 0.5358056 22.3856582
 t.test(AUC_sqrt ~ Antibiotics, crds.sal.p)
   # p = 0.7424
+  # CI = -0.1287073  0.1742429
 
 
 # T-test
@@ -337,8 +337,10 @@ shapiro.test(res)
   # Normal
 var.test(AvgD ~ Antibiotics, crds.inu.s)
   # p = 0.0041
-wilcox.test(AvgD ~ Antibiotics, crds.inu.s)
+  # CI = 5.563867 540.982815
+wilcox.test(AvgD ~ Antibiotics, crds.inu.s, conf.int = T)
   # p = 0.006061
+  # CI = 309.6653 1357.8902
 
 
 # Winter
@@ -351,8 +353,14 @@ shapiro.test(res)
   # Not Normal
 fligner.test(AvgD ~ Antibiotics, crds.inu.w)
   # p = 0.01802
-wilcox.test(AvgD ~ Antibiotics, crds.inu.w)
+b2 <- two.boot(sample1 = crds.inu.w$AvgD[which(crds.inu.w$Antibiotics == "No")], 
+         sample2 = crds.inu.w$AvgD[which(crds.inu.w$Antibiotics == "Yes")],
+         FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # CI = 53549, 198550
+wilcox.test(AvgD ~ Antibiotics, crds.inu.w, conf.int = T)
   # p = 0.07284
+  # CI = -10.89069 663.00111
 
 
 # Spring
@@ -364,8 +372,10 @@ shapiro.test(res)
   # Normal
 var.test(AvgD ~ Antibiotics, crds.inu.p)
   # p = 4.256e-06
-wilcox.test(AvgD ~ Antibiotics, crds.inu.p)
+  # CI = 28.52241 966.04159
+wilcox.test(AvgD ~ Antibiotics, crds.inu.p, conf.int = T)
   # p = 0.001166
+  # CI = 170.5644 1640.5277
 
 
 
@@ -382,8 +392,10 @@ shapiro.test(res)
   # Normal
 var.test(AvgD ~ Antibiotics, crds.sal.s)
   # p = 0.6612
+  # CI = 0.1651145 54.7232904
 t.test(AvgD ~ Antibiotics, crds.sal.s)
   # p = 0.1903
+  # CI = -0.827454  2.865676
 
 
 # Winter
@@ -396,8 +408,14 @@ shapiro.test(res)
   # Not Normal
 fligner.test(AvgD ~ Antibiotics, crds.sal.w)
   # p = 0.7543
-wilcox.test(AvgD ~ Antibiotics, crds.sal.w)
+b2 <- two.boot(sample1 = crds.sal.w$AvgD[which(crds.sal.w$Antibiotics == "No")], 
+         sample2 = crds.sal.w$AvgD[which(crds.sal.w$Antibiotics == "Yes")],
+         FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # CI = -1.101, 11.085
+wilcox.test(AvgD ~ Antibiotics, crds.sal.w, conf.int = T)
   # p = 0.01732
+  # CI = 0.0975 6.5905
 
 
 # Spring
@@ -409,8 +427,10 @@ shapiro.test(res)
   # Normal
 var.test(AvgD ~ Antibiotics, crds.sal.p)
   # p = 0.06873
+  # CI = 0.8567316 35.7937721
 t.test(AvgD ~ Antibiotics, crds.sal.p)
   # p = 0.7143
+  # CI = -0.9201003  1.2838701
 
 
 # T-tests
@@ -446,8 +466,10 @@ shapiro.test(res)
   # Normal
 var.test(MaxD ~ Antibiotics, crds.inu.s)
   # p = 0.0004015
-wilcox.test(MaxD ~ Antibiotics, crds.inu.s)
+  # CI = 12.41102 710.81793
+wilcox.test(MaxD ~ Antibiotics, crds.inu.s, conf.int = T)
   # p = 0.002525
+  # CI = 721.1733 2308.7033
 
 # Winter
 res <- resid(lm(MaxD ~ Antibiotics, crds.inu.w))
@@ -459,8 +481,14 @@ shapiro.test(res)
   # Not Normal
 fligner.test(MaxD ~ Antibiotics, crds.inu.w)
   # p = 0.01802
-wilcox.test(MaxD ~ Antibiotics, crds.inu.w)
+b2 <- two.boot(sample1 = crds.inu.w$MaxD[which(crds.inu.w$Antibiotics == "No")], 
+         sample2 = crds.inu.w$MaxD[which(crds.inu.w$Antibiotics == "Yes")],
+         FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # CI = 90982, 347319
+wilcox.test(MaxD ~ Antibiotics, crds.inu.w, conf.int = T)
   # p = 0.07284
+  # CI = -12.9800 968.6667
 
 
 # Spring
@@ -472,8 +500,10 @@ shapiro.test(res)
   # Normal
 var.test(MaxD ~ Antibiotics, crds.inu.p)
   # p = 2.431e-06
-wilcox.test(MaxD ~ Antibiotics, crds.inu.p)
+  # CI = 34.43209 1166.20002
+wilcox.test(MaxD ~ Antibiotics, crds.inu.p, conf.int = T)
   # p = 0.0005828
+  # CI = 848.480 3456.833
 
 
 
@@ -489,8 +519,10 @@ shapiro.test(res)
   # Normal
 var.test(MaxD ~ Antibiotics, crds.sal.s)
   # p = 0.0003736
-wilcox.test(MaxD ~ Antibiotics, crds.sal.s)
+  # CI = 8.337844 425.820155
+wilcox.test(MaxD ~ Antibiotics, crds.sal.s, conf.int = T)
   # p = 0.04113
+  # CI = 0.09333333 13.96333333
 
 
 # Winter
@@ -503,8 +535,14 @@ shapiro.test(res)
   # Not Normal
 fligner.test(MaxD ~ Antibiotics, crds.sal.w)
   # p = 0.2565
-wilcox.test(MaxD ~ Antibiotics, crds.sal.w)
+b2 <- two.boot(sample1 = crds.sal.w$MaxD[which(crds.sal.w$Antibiotics == "No")], 
+         sample2 = crds.sal.w$MaxD[which(crds.sal.w$Antibiotics == "Yes")],
+         FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # CI = -0.76, 90.13
+wilcox.test(MaxD ~ Antibiotics, crds.sal.w, conf.int = T)
   # p = 0.0303
+  # CI = 0.2966667 17.9333333
 
 
 # Spring
@@ -516,8 +554,10 @@ shapiro.test(res)
   # Normal
 var.test(MaxD ~ Antibiotics, crds.sal.p)
   # p = 0.2943
+  # CI = 0.3877639 16.2005582
 t.test(MaxD ~ Antibiotics, crds.sal.p)
   # p = 0.9345
+  # CI = -1.279493  1.380128
 
 
 # T-test
@@ -562,8 +602,14 @@ shapiro.test(res)
   # Not Normal
 fligner.test(MaxSlope ~ Antibiotics, crds.inu.s)
   # p = 0.0361
-wilcox.test(MaxSlope ~ Antibiotics, crds.inu.s)
+b2 <- two.boot(sample1 = crds.inu.s$MaxSlope[which(crds.inu.s$Antibiotics == "No")], 
+         sample2 = crds.inu.s$MaxSlope[which(crds.inu.s$Antibiotics == "Yes")],
+         FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # CI = 149726, 700543
+wilcox.test(MaxSlope ~ Antibiotics, crds.inu.s, conf.int = T)
   # p = 0.002525
+  # CI = 731.5533 2311.8415
 
 
 # Winter
@@ -575,8 +621,10 @@ shapiro.test(res)
   # Normal
 var.test(MaxSlope ~ Antibiotics, crds.inu.w)
   # p = 9.487e-06
-wilcox.test(MaxSlope ~ Antibiotics, crds.inu.w)
+  # CI = 21.77414 737.48061
+wilcox.test(MaxSlope ~ Antibiotics, crds.inu.w, conf.int = T)
   # p = 0.006993
+  # CI = 59.83307 466.38665
 
 
 # Spring
@@ -588,8 +636,10 @@ shapiro.test(res)
   # Normal
 var.test(MaxSlope ~ Antibiotics, crds.inu.p)
   # p = 2.543e-06
-wilcox.test(MaxSlope ~ Antibiotics, crds.inu.p)
+  # CI = 33.91471 1148.67655
+wilcox.test(MaxSlope ~ Antibiotics, crds.inu.p, conf.int = T)
   # p = 0.0005828
+  # CI = 1018.613 2389.035
 
 
 
@@ -607,8 +657,14 @@ shapiro.test(res)
   # Not Normal
 fligner.test(MaxSlope ~ Antibiotics, crds.sal.s)
   # p = 0.2658
-wilcox.test(MaxSlope ~ Antibiotics, crds.sal.s)
+b2 <- two.boot(sample1 = crds.sal.s$MaxSlope[which(crds.sal.s$Antibiotics == "No")], 
+         sample2 = crds.sal.s$MaxSlope[which(crds.sal.s$Antibiotics == "Yes")],
+         FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # CI = -1.06, 131.14
+wilcox.test(MaxSlope ~ Antibiotics, crds.sal.s, conf.int = T)
   # p = 0.6991
+  # CI = -1.920965 18.904308
 
 
 # Winter
@@ -621,8 +677,14 @@ shapiro.test(res)
   # Not Normal
 fligner.test(MaxSlope ~ Antibiotics, crds.sal.w)
   # p = 0.3803
-wilcox.test(MaxSlope ~ Antibiotics, crds.sal.w)
+b2 <- two.boot(sample1 = crds.sal.w$MaxSlope[which(crds.sal.w$Antibiotics == "No")], 
+         sample2 = crds.sal.w$MaxSlope[which(crds.sal.w$Antibiotics == "Yes")],
+         FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # CI = -0.73, 147.28
+wilcox.test(MaxSlope ~ Antibiotics, crds.sal.w, conf.int = T)
   # p = 0.5368
+  # CI = -2.108546 21.361346
 
 
 # Spring
@@ -634,8 +696,10 @@ shapiro.test(res)
   # Normal
 var.test(MaxSlope ~ Antibiotics, crds.sal.p)
   # p = 0.5717
+  # CI = 0.08851358 3.69804812
 t.test(MaxSlope ~ Antibiotics, crds.sal.p)
   # p = 0.7398
+  # CI = -2.664202  1.959665
 
 
 # T-test
@@ -693,8 +757,12 @@ shapiro.test(res)
   # Not Normal
 fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.s)
   # p = 0.02065
-wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.s)
+b2 <- two.boot(sample1 = dna.inu.s$DNA_Yield_.ng.mg.[which(dna.inu.s$Antibiotics == "No Antibiotics")], sample2 = dna.inu.s$DNA_Yield_.ng.mg.[which(dna.inu.s$Antibiotics == "Antibiotics")], FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # CI = 16, 2516
+wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.s, conf.int = T)
   # p = 0.00306
+  # CI = -150.61880  -47.70191
 
 # Winter
 res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.w))
@@ -706,8 +774,12 @@ shapiro.test(res)
   # Not Normal
 fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.w)
   # p = 0.003619
-wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.w)
+b2 <- two.boot(sample1 = dna.inu.w$DNA_Yield_.ng.mg.[which(dna.inu.w$Antibiotics == "No Antibiotics")], sample2 = dna.inu.w$DNA_Yield_.ng.mg.[which(dna.inu.w$Antibiotics == "Antibiotics")], FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # CI = 445, 2681
+wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.w, conf.int = T)
   # p = 0.001166
+  # CI = -172.66179  -77.09414
 
 # Spring
 res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.p))
@@ -719,8 +791,12 @@ shapiro.test(res)
   # Not Normal
 fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.p)
   # p = 0.002404
-wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.p)
+b2 <- two.boot(sample1 = dna.inu.p$DNA_Yield_.ng.mg.[which(dna.inu.p$Antibiotics == "No Antibiotics")], sample2 = dna.inu.p$DNA_Yield_.ng.mg.[which(dna.inu.p$Antibiotics == "Antibiotics")], FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # CI = 1458, 4805
+wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.inu.p, conf.int = T)
   # p = 0.0003108
+  # CI = -204.0673  -80.9147
 
 
 
@@ -737,8 +813,12 @@ shapiro.test(res)
   # Not Normal
 fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.s)
   # p = 0.01166
-wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.s)
+b2 <- two.boot(sample1 = dna.sal.s$DNA_Yield_.ng.mg.[which(dna.sal.s$Antibiotics == "No Antibiotics")], sample2 = dna.sal.s$DNA_Yield_.ng.mg.[which(dna.sal.s$Antibiotics == "Antibiotics")], FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # CI = 553, 4279
+wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.s, conf.int = T)
   # p = 0.00193
+  # CI = -114.06257  -65.46469
 
 # Winter
 res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.w))
@@ -750,8 +830,12 @@ shapiro.test(res)
   # Not Normal
 fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.w)
   # p = 0.06372
-wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.w)
+b2 <- two.boot(sample1 = dna.sal.w$DNA_Yield_.ng.mg.[which(dna.sal.w$Antibiotics == "No Antibiotics")], sample2 = dna.sal.w$DNA_Yield_.ng.mg.[which(dna.sal.w$Antibiotics == "Antibiotics")], FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # CI = 364.7, 1662.1
+wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.w, conf.int = T)
   # p = 0.0005828
+  # CI = -112.78001  -63.19306
 
 # Spring
 res <- resid(lm(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.p))
@@ -763,8 +847,12 @@ shapiro.test(res)
   # Not Normal
 fligner.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.p)
   # p = 0.08886
-wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.p)
+b2 <- two.boot(sample1 = dna.sal.p$DNA_Yield_.ng.mg.[which(dna.sal.p$Antibiotics == "No Antibiotics")], sample2 = dna.sal.p$DNA_Yield_.ng.mg.[which(dna.sal.p$Antibiotics == "Antibiotics")], FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # CI = -1999.7,  2315.4
+wilcox.test(DNA_Yield_.ng.mg. ~ Antibiotics, dna.sal.p, conf.int = T)
   # p = 0.002331
+  # CI = -167.92572  -78.14441
 
 
 
