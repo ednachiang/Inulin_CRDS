@@ -13,6 +13,7 @@ library(dplyr)
 library(grid)
 library(car)
 library(dunn.test)
+library(Rmisc)
 source('scripts/misc.R')
 set.seed(1)
 theme_set(theme_bw())
@@ -291,6 +292,11 @@ leveneTest(AUC_sqrt ~ Season, crds.inu.noabx)
   # p = 0.167
 summary(aov(AUC_sqrt ~ Season, crds.inu.noabx))
   # p = 0.105
+TukeyHSD(aov(AUC_sqrt ~ Season, crds.inu.noabx))
+  # CI
+    # Summer-Winter = -12.65749, -36.778320
+    # Summer-Spring = -34.53070, 14.905108
+    # Spring-Winter = -2.844693, 46.59112
 
 # ABX
 res <- resid(lm(AUC_sqrt ~ Season, crds.inu.abx))
@@ -333,6 +339,15 @@ leveneTest(AUC_sqrt ~ Season, crds.sal.abx)
 summary(aov(AUC_sqrt ~ Season, crds.sal.abx))
   # p = 0.128
 
+
+
+### Variance Adj P
+p.adjust(c(0.167, 0.3323, 0.3271, 0.7997), "BH")
+  # 0.4430667 0.4430667 0.4430667 0.7997000
+
+### ANOVA/KW Adj P
+p.adjust(c(0.105, 0.559, 0.1175, 0.128), "BH")
+  # 0.1706667 0.5590000 0.1706667 0.1706667
 ```
 
 
@@ -462,6 +477,7 @@ leveneTest(AvgD ~ Season, crds.inu.noabx)
   # p = 0.03463
 kruskal.test(AvgD ~ Season, crds.inu.noabx)
   # p = 0.187
+  
 
 # ABX
 res <- resid(lm(AvgD ~ Season, crds.inu.abx))
@@ -507,6 +523,17 @@ TukeyHSD(aov(AvgD ~ Season, crds.sal.abx))
   # Summer-Winter adj p = 0.049383; CI = -2.3343025 - -0.002986351
   # Summer-Spring adj p = 0.1598825; CI = -1.9421614 - 0.280661384
   # Spring-Winter adj p = 0.7334754; CI = -1.503552538 - 0.8277636
+
+
+
+
+### Variance Adj P
+p.adjust(c(0.03463, 0.2714, 0.8126, 0.6339), "BH")
+  # 0.13852 0.54280 0.81260 0.81260
+
+### ANOVA/KW Adj P
+p.adjust(c(0.187, 0.592, 0.05586, 0.0492), "BH")
+  # 0.2493333 0.5920000 0.1117200 0.1117200
 ```
 
 
@@ -689,6 +716,16 @@ TukeyHSD(aov(MaxD ~ Season, crds.sal.abx))
   # Summer-Winter adj p = 0.0769298; CI = -2.443737 - 0.11551526
   # Summer-Spring adj p = 0.0710440; CI = -2.350631 - 0.08952031
   # Winter-Spring adj p = 0.9974069; CI = -1.246071 - -1.31318192
+
+
+
+### Variance Adj P
+p.adjust(c(0.1326, 0.221, 0.2192, 0.981), "BH")
+  # 0.2946667 0.2946667 0.2946667 0.9810000
+
+### ANOVA/KW Adj P
+p.adjust(c(0.0143, 0.938, 0.1765, 0.0447), "BH")
+  # 0.0572000 0.9380000 0.2353333 0.0894000
 ```
 
 
@@ -871,6 +908,16 @@ leveneTest(MaxSlope ~ Season, crds.sal.abx)
   # p = 0.4466
 summary(aov(MaxSlope ~ Season, crds.sal.abx))
   # p = 0.125
+
+
+
+### Variance Adj P
+p.adjust(c(0.1476, 0.2762, 0.5991, 0.4466), "BH")
+  # 0.5524000 0.5524000 0.5991000 0.5954667
+
+### ANOVA/KW Adj P
+p.adjust(c(0.00069, 0.000138, 0.9395, 0.125), "BH")
+  # 0.0013800 0.0005520 0.9395000 0.1666667
 
 
 
