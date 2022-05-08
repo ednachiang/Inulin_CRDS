@@ -12,6 +12,8 @@ library(plyr)
 library(dplyr)
 library(grid)
 library(car)
+library(Rmisc)
+library(confintr)
 source('scripts/misc.R')
 set.seed(1)
 theme_set(theme_bw())
@@ -109,6 +111,8 @@ shapiro.test(res)
 cor.test(crds.inu.abx$Baseline, crds.inu.abx$BodyMass, method = "kendall")
   # p = 0.008264
   # tau = 0.4385965
+ci_cor(crds.inu.abx$Baseline, crds.inu.abx$BodyMass, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # -0.01863354  0.70552147
 
 # Saline No ABX
 res <- resid(lm(Baseline ~ BodyMass, crds.sal.noabx))
@@ -131,8 +135,8 @@ shapiro.test(res)
 cor.test(crds.sal.abx$Baseline, crds.sal.abx$BodyMass, method = "kendall")
   # p = 0.0002925
   # tau = 0.6176471 
-
-
+ci_cor(crds.sal.abx$Baseline, crds.sal.abx$BodyMass, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # 0.3750000 0.8016052
 
 
 
