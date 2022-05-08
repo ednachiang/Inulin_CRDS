@@ -19,10 +19,6 @@ source('scripts/calc_CRDS_metrics.R')
 source('scripts/misc.R')
 set.seed(1)
 theme_set(theme_bw())
-
-### Stats Notes
-# Use 'subset' in kruskal.test
-# Do NOT use 'subset' in kruskalmc or pairwise.wilcox.test; it doesn't work!
 ```
 
 ### Load Data
@@ -64,4 +60,309 @@ crds.norm <- norm.time.crds(crds.bin)
 ```{r}
 crds.use <- calc.CRDS.metrics(crds.norm)
 #save(crds.use, file='crds.use.RData')
+```
+
+
+### Prepare data for individual plots
+```{r}
+# Separate by substrate
+crds.inu <- crds.bin[which(crds.bin$Substrate == "Inulin"),]
+crds.sal <- crds.bin[which(crds.bin$Substrate == "Saline"),]
+
+# Separate by substrate + season
+crds.inu.s <- crds.inu[which(crds.inu$Season == "Summer"),]
+crds.inu.w <- crds.inu[which(crds.inu$Season == "Winter"),]
+crds.inu.p <- crds.inu[which(crds.inu$Season == "Spring"),]
+crds.sal.s <- crds.sal[which(crds.sal$Season == "Summer"),]
+crds.sal.w <- crds.sal[which(crds.sal$Season == "Winter"),]
+crds.sal.p <- crds.sal[which(crds.sal$Season == "Spring"),]
+
+# Separate by substrate + antibiotics
+crds.inu.noabx <- crds.inu[which(crds.inu$Antibiotics == "No"),]
+crds.inu.abx <- crds.inu[which(crds.inu$Antibiotics == "Yes"),]
+crds.sal.noabx <- crds.sal[which(crds.sal$Antibiotics == "No"),]
+crds.sal.abx <- crds.sal[which(crds.sal$Antibiotics == "Yes"),]
+```
+
+### Plot Misc
+```{r}
+## All individuals
+ggplot(crds.bin, aes(x=BinTime, y=Delta, color=ID)) +
+  geom_line() +
+  geom_point()
+
+ggplot(crds.rem, aes(x=BinTime, y=Delta, color=ID)) +
+  geom_line() +
+  geom_point() +
+  facet_grid(Season ~ Antibiotics)
+
+
+
+
+
+ggplot(crds, aes(x=BinTime, y=Delta, color=ID)) +
+  geom_line() +
+  geom_point() +
+  facet_grid(Season ~ Antibiotics) +
+  guides(colour=F, linetype=F)
+  
+
+
+### Split into experimental groups --- INCLUDES OUTLIERS (switch to crds.bin to crds.rem if want to exclude outliers)
+crds.split <- crds.bin %>%
+  group_split(Substrate, Antibiotics, Season) %>%
+  as.data.frame
+
+
+
+### Prepare Individuals - All Inulin and All Saline
+inu.all <- data.frame(crds.split[[1]][[1]])
+inu.all <- rbind(inu.all, data.frame(crds.split[[1]][[2]]))
+inu.all <- rbind(inu.all, data.frame(crds.split[[1]][[3]]))
+inu.all <- rbind(inu.all, data.frame(crds.split[[1]][[4]]))
+inu.all <- rbind(inu.all, data.frame(crds.split[[1]][[5]]))
+inu.all <- rbind(inu.all, data.frame(crds.split[[1]][[6]]))
+
+sal.all <- data.frame(crds.split[[1]][[7]])
+sal.all <- rbind(sal.all, data.frame(crds.split[[1]][[8]]))
+sal.all <- rbind(sal.all, data.frame(crds.split[[1]][[9]]))
+sal.all <- rbind(sal.all, data.frame(crds.split[[1]][[10]]))
+sal.all <- rbind(sal.all, data.frame(crds.split[[1]][[11]]))
+sal.all <- rbind(sal.all, data.frame(crds.split[[1]][[12]]))
+
+
+
+### Plot - Inulin and Saline
+inu.all.plot <- ggplot(inu.all, aes(x=RelTime, y=Delta, color=ID)) +
+  geom_line(aes(linetype=Antibiotics), size=1) +
+  geom_point() +
+  geom_point(size=3, shape=21, aes(color=ID, 
+                                    fill=factor(ifelse(Antibiotics == "Yes", NA, ID)))) +
+  scale_color_manual(values = c("#003300", "#006600", "#009933", "#00cc00", "#339966", "#003300", "#006600", "#009933", "#00cc00", "#339966", "#336600", "#336600", "#669900",
+                                
+                                "#669900", "#ff6600", "#ff9900", "#cc3300", "#ff6600", "#ff9900", "#663300", "#cc3300", "#ffff00", "#663300", "#ffcc00", "#996600", "#ffff00", "#ffcc00", "#996600", "#000066", "#0000ff", "#0066ff", "#333399", "#0000cc", "#000066", "#0000ff", "#0066ff", "#333399", "#0000cc", "#3366cc", "#3366cc", "#00ccff", "#00ccff")) +
+  scale_fill_manual(values=c("#003300", "#006600", "#009933", "#00cc00", "#339966", "#336600", "#669900", "#ff6600", "#ff9900", "#cc3300", "#663300", "#ffff00", "#ffcc00", "#996600", "#000066", "#0000ff", "#0066ff", "#333399", "#0000cc", "#3366cc", "#00ccff"), na.value="white", guide="none") +
+  ggtitle(expression("Inulin"~~delta^13~"C")) +
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression(delta^13~"C"~"(%"[o]~")")) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.title.x=element_text(size=20, 
+                                  margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y=element_text(size=18),
+        axis.text.x=element_text(size=16),
+        axis.text.y=element_text(size=16),
+        plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
+          #top, right, bottom, left
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank())
+
+
+sal.all.plot <- ggplot(sal.all, aes(x=RelTime, y=Delta, color=ID)) +
+  geom_line(aes(linetype=Antibiotics), size=1) +
+  geom_point() +
+  geom_point(size=3, shape=21, aes(color=ID, 
+                                    fill=factor(ifelse(Antibiotics == "Yes", NA, ID)))) +
+  scale_color_manual(values = c("#003300", "#003300", "#006600", "#006600", "#009933", "#00cc00", "#339966", "#336600", "#669900", "#00cc00", "#669900", "#339966", "#336600",
+                                
+                                "#ff6600", "#ff9900", "#ff6600", "#ff9900", "#cc3300", "#cc3300", "#663300", "#663300", "#ffcc00", "#996600", "#ffcc00", "#996600", "#ffff00",
+                                
+                                "#000066", "#0000ff", "#0066ff", "#333399", "#000066", "#0000ff", "#0066ff", "#333399", "#0000cc", "#3366cc", "#00ccff", "#0000cc", "#3366cc", "#00ccff")) +
+  scale_fill_manual(values=c("#003300", "#006600", "#009933", "#00cc00", "#669900", "#339966", "#336600", "#ff6600", "#ff9900", "#cc3300", "#663300", "#ffcc00",
+                             
+                             "#996600", "#000066", "#0000ff", "#0066ff", "#333399", "#0000cc", "#3366cc", "#00ccff"), na.value="white", guide="none") +
+  ggtitle(expression("Saline"~~delta^13~"C")) +
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression(delta^13~"C"~"(%"[o]~")")) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.title.x=element_text(size=20, 
+                                  margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y=element_text(size=18),
+        axis.text.x=element_text(size=16),
+        axis.text.y=element_text(size=16),
+        plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
+          #top, right, bottom, left
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank())
+
+
+
+#tiff("delta.sep.inu.sal.tiff", width = 500, height = 175, units = "mm", res = 600)
+grid.newpage()
+pushViewport(viewport(layout=grid.layout(1,2, widths = c(1.1, 1))))
+
+print(inu.all.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
+grid.text("A", x=unit(0.025, "npc"), y=unit(0.975, "npc"), 
+          vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=30,fontface="bold"))
+
+
+print(sal.all.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
+grid.text("B", x=unit(0.025, "npc"), y=unit(0.975, "npc"),
+          vp=viewport(layout.pos.row=1, layout.pos.col=2), gp=gpar(fontsize=30,fontface="bold"))
+
+#dev.off()
+
+
+
+
+
+
+
+### Plot Individuals - All separated
+for(group in 1:length(crds.split$.)){
+  df <- crds.split[[1]][[group]]
+  print(df)
+  name <- paste0(c(df$Substrate[1], as.character(df$Season[1]), df$Antibiotics[1]),
+                 collapse = ".")
+  plotName <- paste0(c(name, "tiff"), collapse = ".")
+  
+  plot <- ggplot(df, aes(x=RelTime, y=Delta)) +
+    geom_line() + geom_point() +
+    facet_grid(ID ~.) +
+    xlab("Time Since Gavage (hr)") +
+    ylab(expression(delta^13~"C"~"(%"[o]~")")) +
+    theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.title.x=element_text(size=20, 
+                                  margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y=element_text(size=18),
+        axis.text.x=element_text(size=16),
+        axis.text.y=element_text(size=16),
+        plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
+          #top, right, bottom, left
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        strip.background = element_rect(colour="black", fill="white"),
+        strip.text.y = element_text(angle = 0))
+    
+    
+  
+  #tiff(plotName, width = 10, height = 10, units = "in", res = 300)
+  print(plot)
+  #dev.off()
+
+}
+
+
+
+
+
+
+
+
+
+
+## Substrate/ABX
+ggplot(crds.sum, aes(x=BinTime, y=Mean, color=Substrate)) +
+  geom_line(aes(linetype=Antibiotics)) +
+  geom_point() +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE))
+
+## Inulin
+inu.plot <- ggplot(crds.inu, aes(x=BinTime, y=Mean, color=Season)) +
+  geom_line(aes(linetype=Antibiotics), size=1) +
+   geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
+  ggtitle(expression("Inulin"~~delta^13~"C")) +
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
+  xlim(-0.6,4.1) +
+  scale_y_continuous(breaks=c(0, 625, 1250, 1875, 2500), limits=c(-30, 2700)) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.title.x=element_text(size=20, 
+                                  margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y=element_text(size=18),
+        axis.text.x=element_text(size=16),
+        axis.text.y=element_text(size=16),
+        plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
+          #top, right, bottom, left
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank()
+  ) +
+  guides(colour=F, linetype=F)
+
+
+
+## Saline
+sal.plot <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
+  geom_line(aes(linetype=Antibiotics), size=1) +
+  geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
+  ggtitle(expression("Saline"~~delta^13~"C")) +
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.title.x=element_text(size=14),
+        axis.title.y=element_text(size=14),
+        axis.text.x=element_text(size=12),
+        axis.text.y=element_text(size=12),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank()) +
+  guides(colour=F, linetype=F)
+
+
+
+
+## Steal legend
+steal.legend <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
+  geom_line(aes(linetype=Antibiotics), size=1) +
+  geom_point(size=3) +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
+  ggtitle(expression("Saline"~~delta^13~"C")) +
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
+  theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.title.x=element_text(size=14),
+        axis.title.y=element_text(size=14),
+        axis.text.x=element_text(size=12),
+        axis.text.y=element_text(size=12),
+        legend.title = element_text(size=20, face="bold"),
+        legend.text = element_text(size=18)
+        )
+legend <- g_legend(steal.legend)
+
+
+
+
+
+
+### All 3 substrates on same axis
+carb.plot <- ggplot(crds.rem, aes(x=BinTime, y=Mean, color=Season)) +
+  geom_line(aes(linetype=Antibiotics), size=1) +
+   geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
+  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
+  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) + 
+  facet_grid(.~Substrate) +
+  xlab("Time Since Gavage (hr)") +
+  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
+  xlim(-0.6,4.1) +
+  scale_y_continuous(breaks=c(0, 500, 1000, 1500, 2000, 2500), limits=c(-30, 2700)) +
+  theme(axis.text.x = element_text(size=16),
+        axis.text.y = element_text(size=16),
+        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
+        strip.text.x = element_text(size=20, face="bold"),
+        #strip.text.y = element_text(size=14),
+        panel.spacing=unit(1, "lines"),
+        legend.title = element_text(size = 20, face="bold"),
+        legend.text = element_text(size=18),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank(),
+  )
+
+
+
+#tiff("crds.tiff", width = 12.75, height = 3.5, units = "in", res = 300)
+carb.plot
+dev.off()
 ```
