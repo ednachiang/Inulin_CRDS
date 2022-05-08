@@ -11,6 +11,8 @@ library(plyr)
 library(dplyr)
 library(grid)
 library(car)
+library(Rmisc)
+library(boot)
 source('scripts/misc.R')
 set.seed(1)
 theme_set(theme_bw())
@@ -89,9 +91,10 @@ shapiro.test(res)
   # Normal
 var.test(Baseline ~ Antibiotics, crds.inu.s)
   # p = 0.2
+  # CI = 0.4359302 24.9670884
 t.test(Baseline ~ Antibiotics, crds.inu.s)
   # p = 0.06923
-
+  # CI = -0.1321911  2.8733339
 
 # Winter
 res <- resid(lm(Baseline ~ Antibiotics, crds.inu.w))
@@ -102,8 +105,10 @@ shapiro.test(res)
   # Normal
 var.test(Baseline ~ Antibiotics, crds.inu.w)
   # p = 0.7374
+  # CI =  0.129110 4.372901
 t.test(Baseline ~ Antibiotics, crds.inu.w)
   # p = 0.695
+  # CI = -1.1060369  0.7622274
 
 # Spring
 res <- resid(lm(Baseline ~ Antibiotics, crds.inu.p))
@@ -114,8 +119,10 @@ shapiro.test(res)
   # Normal
 var.test(Baseline ~ Antibiotics, crds.inu.p)
   # p = 0.2246
+  # CI = 0.4937591 16.7234051
 t.test(Baseline ~ Antibiotics, crds.inu.p)
   # p = 6.8e-05
+  # CI = 2.693564 5.445484
 
 
 
@@ -131,8 +138,10 @@ shapiro.test(res)
   # Normal
 var.test(Baseline ~ Antibiotics, crds.sal.s)
   # p = 0.0501
+  # CI = 0.9990779 51.0236788
 t.test(Baseline ~ Antibiotics, crds.sal.s)
   # p = 0.1954
+  # CI = -0.627877  2.507877
 
 
 # Winter
@@ -144,8 +153,11 @@ shapiro.test(res)
   # Normal
 var.test(Baseline ~ Antibiotics, crds.sal.w)
   # p = 0.02823
-wilcox.test(Baseline ~ Antibiotics, crds.sal.w)
+  # CI = 1.374395 95.085619
+wilcox.test(Baseline ~ Antibiotics, crds.sal.w, conf.int = T)
   # p = 0.7144
+  # CI = -0.6099616  0.2999635
+boot.ci()
 
 
 # Spring
@@ -157,8 +169,10 @@ shapiro.test(res)
   # Normal
 var.test(Baseline ~ Antibiotics, crds.sal.p)
   # p = 0.784
+  # CI = 0.1879005 7.8503783
 t.test(Baseline ~ Antibiotics, crds.sal.p)
   # p = 0.2762
+  # CI = -1.318519  4.181376
 
 
 # T-test
@@ -194,8 +208,10 @@ shapiro.test(res)
   # Normal
 var.test(AUC_sqrt ~ Antibiotics, crds.inu.s)
   # p = 0.01174
-wilcox.test(AUC_sqrt ~ Antibiotics, crds.inu.s)
+  # CI = 2.195587 125.748160
+wilcox.test(AUC_sqrt ~ Antibiotics, crds.inu.s, conf.int = T)
   # p = 0.002525
+  # CI = 18.43583 40.03339
 
 
 # Winter
@@ -208,8 +224,26 @@ shapiro.test(res)
   # Not Normal
 fligner.test(AUC_sqrt ~ Antibiotics, crds.inu.w)
   # p = 0.01802
-wilcox.test(AUC_sqrt ~ Antibiotics, crds.inu.w)
+b2 <- two.boot(sample1 = crds.inu.w$AUC_sqrt[which(crds.inu.w$Antibiotics == "No")], 
+         sample2 = crds.inu.w$AUC_sqrt[which(crds.inu.w$Antibiotics == "Yes")],
+         FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # 88.8, 335.7 
+
+
+
+
+
+
+
+colnames(boot.df) <- c("AUC_sqrt", "Antibiotics")
+abc.ci(boot.df, leveneTest, y = boot.df$AUC_sqrt, group = boot.df$Antibiotics, center = "median")
+
+abc.ci(boot.df, var, strata = boot.df$Antibiotics)
+
+wilcox.test(AUC_sqrt ~ Antibiotics, crds.inu.w, conf.int = T)
   # p = 0.1282
+  # CI = -1.113459 29.793857
 
 
 # Spring
