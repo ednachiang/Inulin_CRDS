@@ -96,7 +96,7 @@ crds.sal.s.abx <- crds.sal.s[which(crds.sal.s$Antibiotics == "Yes"),]
 crds.sal.p.noabx <- crds.sal.p[which(crds.sal.p$Antibiotics == "No"),]
 #crds.sal.p.abx <- crds.sal.p[which(crds.sal.p$Antibiotics == "Yes"),]
 
-# Separate by substrate + season + antibiotics
+# Separate by substrate + season + antibiotics + diet
 crds.sal.s.abx.1 <- crds.sal.s.abx[which(crds.sal.s.abx$Diet == "1"),]
 crds.sal.s.abx.2 <- crds.sal.s.abx[which(crds.sal.s.abx$Diet == "2"),]
 crds.sal.p.noabx1 <- crds.sal.p.noabx[which(crds.sal.p.noabx$Diet == "1"),]
@@ -114,8 +114,10 @@ shapiro.test(res)
   # Normal
 var.test(Baseline ~ Diet, crds.sal.s.abx)
   # p = 0.3087
+  # CI = 0.1405008 213.7017544
 t.test(Baseline ~ Diet, crds.sal.s.abx)
   # Diet p = 0.9143
+  # CI = -1.782114  1.662114
 
 
 
@@ -128,8 +130,10 @@ shapiro.test(res)
   # Normal
 var.test(Baseline ~ Diet, crds.sal.p.noabx)
   # p = 0.1722
+  # CI = 0.004123699 2.591231036
 t.test(Baseline ~ Diet, crds.sal.p.noabx)
   # Diet p = 0.1306
+  # CI =  -2.059159  8.795826
 
 ```
 
@@ -143,9 +147,11 @@ qqline(res)
 shapiro.test(res)
   # Normal
 var.test(AUC_sqrt ~ Diet, crds.sal.s.abx)
-  # p = 0.3737
+  # p = 0.1852
+  # CI = 0.2511889 382.0583410
 t.test(AUC_sqrt ~ Diet, crds.sal.s.abx)
-  # Diet p = 0.3431
+  # Diet p = 0.268
+  # CI = -0.1345586  0.3064121
 
 
 ### Saline Spring No ABX
@@ -156,9 +162,11 @@ qqline(res)
 shapiro.test(res)
   # Normal
 var.test(AUC_sqrt ~ Diet, crds.sal.p.noabx)
-  # p = 0.5353
+  # p = 0.3769
+  # CI = 0.1139545 71.6061810
 t.test(AUC_sqrt ~ Diet, crds.sal.p.noabx)
-  # Diet p = 0.1822
+  # Diet p = 0.06659
+  # CI =  -0.30517107  0.01512587
 
 ```
 
@@ -173,9 +181,11 @@ qqline(res)
 shapiro.test(res)
   # Normal
 var.test(AvgD ~ Diet, crds.sal.s.abx)
-  # p = 0.4416
+  # p = 0.7124
+  # CI = 0.01418543 21.57603599
 t.test(AvgD ~ Diet, crds.sal.s.abx)
-  # Diet p = 0.1279
+  # p = 0.03003*
+  # CI = 0.3373245 3.7816588
 
   
 
@@ -187,9 +197,11 @@ qqline(res)
 shapiro.test(res)
   # Normal
 var.test(AvgD ~ Diet, crds.sal.p.noabx)
-  # p = 0.4852
+  # p = 0.8107
+  # CI = 0.02061477 12.95381629
 t.test(AvgD ~ Diet, crds.sal.p.noabx)
-  # Diet p = 0.2265
+  # Diet p = 0.1803
+  # CI = -2.9438965  0.7647299
 
 ```
 
@@ -204,9 +216,11 @@ qqline(res)
 shapiro.test(res)
   # Normal
 var.test(MaxD ~ Diet, crds.sal.s.abx)
-  # p = 0.741
+  # p = 0.5284
+  # CI = 0.009205925 14.002211533
 t.test(MaxD ~ Diet, crds.sal.s.abx)
-  # Diet p = 0.1291
+  # Diet p = 0.04545
+  # CI = 0.08752738 4.74478925
 
 
 
@@ -219,9 +233,11 @@ qqline(res)
 shapiro.test(res)
   # Normal
 var.test(MaxD ~ Diet, crds.sal.p.noabx)
-  # p = 0.8439
+  # p = 0.6419
+  # CI = 0.05782592 36.33638334
 t.test(MaxD ~ Diet, crds.sal.p.noabx)
-  # Diet p = 0.01552*
+  # Diet p = 0.01287*
+  # CI = -3.2910880 -0.6283564
 
 ```
 
@@ -235,9 +251,11 @@ qqline(res)
 shapiro.test(res)
   # Normal
 var.test(MaxSlope ~ Diet, crds.sal.s.abx)
-  # p = 0.6804
+  # p = 0.1236
+  # CI = 0.3892262 592.0129772
 t.test(MaxSlope ~ Diet, crds.sal.s.abx)
-  # Diet p = 0.01531
+  # Diet p = 0.04078
+  # CI = 0.2989149 6.0204070
 
 
 
@@ -250,9 +268,11 @@ qqline(res)
 shapiro.test(res)
   # Normal
 var.test(MaxSlope ~ Diet, crds.sal.p.noabx)
-  # p = 0.3409
+  # p = 0.2304
+  # CI = 0.005279595 3.317567710
 t.test(MaxSlope ~ Diet, crds.sal.p.noabx)
-  # Diet p = 0.128
+  # Diet p = 0.9466
+  # CI = -5.984995  5.735285
 
 ```
 
@@ -261,20 +281,20 @@ t.test(MaxSlope ~ Diet, crds.sal.p.noabx)
 ```{r}
 ### Summer Saline ABX
 # T-tests
-p.adjust(c(0.9143, 0.3431, 0.1279, 0.1291, 0.01531), "BH")
-  # 0.9143000 0.4288750 0.2151667 0.2151667 0.0765500
+p.adjust(c(0.9143, 0.268, 0.03003, 0.04545, 0.040788), "BH")
+  # 0.91430 0.33500 0.07575 0.07575 0.07575
 
 # F-tests
-p.adjust(c(0.3087, 0.3737, 0.4416, 0.741, 0.6804), "BH")
-  # 0.736 0.736 0.736 0.741 0.741
+p.adjust(c(0.3087, 0.1852, 0.7124, 0.5284, 0.1236), "BH")
+  # 0.5145 0.4630 0.7124 0.6605 0.4630
 
 
 ### Spring Saline No ABX
-p.adjust(c(0.1306, 0.1822, 0.2265, 0.01552, 0.1995), "BH")
-  # 0.2265 0.2265 0.2265 0.0776 0.2265
+p.adjust(c(0.1306, 0.06659, 0.1803, 0.01287, 0.9466), "BH")
+  # 0.2176667 0.1664750 0.2253750 0.0643500 0.9466000
 
 # F-tests
-p.adjust(c(0.1722, 0.5353, 0.4852, 0.8439, 0.3409), "BH")
-  # 0.669125 0.669125 0.669125 0.843900 0.669125
+p.adjust(c(0.1722, 0.3769, 0.8107, 0.6419, 0.2304), "BH")
+  # 0.5760000 0.6281667 0.8107000 0.8023750 0.5760000
 
 ```
