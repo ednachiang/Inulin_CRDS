@@ -20,29 +20,56 @@ calc.CRDS.metrics <- function(x){
     
     # Pull out average max delta
     maxD_sorted <- sort(curve.df$DeltaNorm[2:nrow(curve.df)], decreasing = T)
-    maxDuse <- mean(maxD_sorted[1:3])
     
     # Calculate average delta
-    trim <- maxD_sorted[-1:-2]
-    trim <- trim[-(length(trim)-1):-length(trim)]
+    if(length(maxD_sorted) > 4){
+      maxDuse <- mean(maxD_sorted[1:3])
+      trim <- maxD_sorted[-1:-2]
+      trim <- trim[-(length(trim)-1):-length(trim)]
       # Take trimmed means --> remove top 2 and bottom 2 measurements
-    meanD <- mean(trim)
+      meanD <- mean(trim)
+    } else{
+      maxDuse <- mean(maxD_sorted)
+      meanD <- mean(maxD_sorted)
+    }
+    
 
     
     # Calculate average maximum slope
     slope = 0
-    for(j in 3:(nrow(curve.df))){
+    if(nrow(curve.df) > 5){
+      for(j in 3:(nrow(curve.df))){
         # Go row-by-row through curve.df
-      rise <- curve.df$DeltaNorm[j] - curve.df$DeltaNorm[j-1]
-      run <- curve.df$RelTime[j] - curve.df$RelTime[j-1]
-      slope <- c(slope, (rise/run) )
+        rise <- curve.df$DeltaNorm[j] - curve.df$DeltaNorm[j-1]
+        run <- curve.df$RelTime[j] - curve.df$RelTime[j-1]
+        slope <- c(slope, (rise/run) )
       }
+    } else{
+      for(l in 2:nrow(curve.df)){
+        #print(x$ID[i])
+        #print(curve.df)
+        rise <- curve.df$DeltaNorm[l] - curve.df$DeltaNorm[l-1]
+        run <- curve.df$RelTime[l] - curve.df$RelTime[l-1]
+        print(rise)
+        print(run)
+        slope <- c(slope, (rise/run) )
+        print(slope)
+      }
+    }
+    
     
     slope <- slope[-1]
       # Remove initial 0
     slopeSort <- sort(slope, decreasing = T)
-    maxSlope <- mean(slopeSort[1:3])
-
+    
+    if(length(slopeSort) > 3){
+      maxSlope <- mean(slopeSort[1:3])
+    } else{
+      maxSlope <- mean(slopeSort)
+      #print(length(slopeSort))
+      #print(maxSlope)
+    }
+    
     
     
     ### Calculate AUC ###
