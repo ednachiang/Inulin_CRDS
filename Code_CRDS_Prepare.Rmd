@@ -212,7 +212,7 @@ grid.text("B", x=unit(0.025, "npc"), y=unit(0.975, "npc"),
 ### Plot Individuals - All separated
 for(group in 1:length(crds.split$.)){
   df <- crds.split[[1]][[group]]
-  print(df)
+  #print(df)
   name <- paste0(c(df$Substrate[1], as.character(df$Season[1]), df$Antibiotics[1]),
                  collapse = ".")
   plotName <- paste0(c(name, "tiff"), collapse = ".")
@@ -228,17 +228,15 @@ for(group in 1:length(crds.split$.)){
         axis.title.y=element_text(size=18),
         axis.text.x=element_text(size=16),
         axis.text.y=element_text(size=16),
-        plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
+        plot.margin = unit(c(0.3, 0.3, 0.3, 0.3), "cm"),
           #top, right, bottom, left
         panel.grid.major.x = element_blank(),
         panel.grid.minor.y = element_blank(),
         panel.grid.minor.x = element_blank(),
         strip.background = element_rect(colour="black", fill="white"),
-        strip.text.y = element_text(angle = 0))
-    
-    
+        strip.text.y = element_text(angle = 0, size = 20))
   
-  #tiff(plotName, width = 10, height = 10, units = "in", res = 300)
+  #tiff(plotName, width = 90, height = 275, units = "mm", res = 300)
   print(plot)
   #dev.off()
 
