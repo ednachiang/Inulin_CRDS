@@ -84,19 +84,52 @@ crds.sal.noabx <- crds.sal[which(crds.sal$Antibiotics == "No"),]
 crds.sal.abx <- crds.sal[which(crds.sal$Antibiotics == "Yes"),]
 ```
 
-### Cor - MaxD & MaxSlope
+### Decide variables
 ```{r}
-res <- resid(lm(Num_IBA ~ RPKG, rpkg.dates.p))
+res <- resid(lm(MaxD ~ MaxSlope, crds.rem))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-cor.test(crds.inu.noabx$MaxD, crds.inu.noabx$MaxSlope, method = "pearson")
-  # p = 9.496e-11
-  # CI = 0.8694993 0.9782406
-  # cor = 0.9460754 
+  # p = 2.133e-09
+  # Not Normal
+cor.test(crds.rem$MaxD, crds.rem$MaxSlope, method = "kendall")
+  # p = < 2.2e-16
+  # tau = 0.722807
+ci_cor(crds.rem$MaxD, crds.rem$MaxSlope, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # 0.5654087 0.8133238 
 
-## Go with MaxSlope because it has more sig comparisons
+
+
+res <- resid(lm(BodyMass ~ BodyTemp, crds.rem))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+cor.test(crds.rem$BodyMass, crds.rem$BodyTemp, method = "pearson")
+  # p = 0.01144
+  # CI = -0.4827085 -0.0676134
+  # cor = -0.2886685
+res <- resid(lm(BodyMass ~ Ketones, crds.rem))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+cor.test(crds.rem$BodyMass, crds.rem$Ketones, method = "pearson")
+  # p = 5.863e-07
+  # CI = -0.7323786 -0.3961947
+  # cor = -0.5892281
+res <- resid(lm(BodyTemp ~ Ketones, crds.rem))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+cor.test(crds.rem$BodyTemp, crds.rem$Ketones, method = "pearson")
+  # p = 0.2677
+  # CI = -0.3820908  0.1117377
+  # cor = -0.1441388
+
+## Go with MaxSlope & BodyMass
 ```
 
 ### Test Baseline
@@ -597,6 +630,21 @@ dates.inu.p <- dates.inu[which(dates.inu$Season == "Spring"),]
 dates.inu.w <- dates.inu[which(dates.inu$Season == "Winter"),]
 dates.sal.p <- dates.sal[which(dates.sal$Season == "Spring"),]
 dates.sal.w <- dates.sal[which(dates.sal$Season == "Winter"),]
+
+# Check variables for cross-correlations
+dates_use_check <- dates_use[which(dates_use$ID != "P19"),]
+dates_use_check <- dates_use_check[which(dates_use_check$ID != "W41"),]
+res <- resid(lm(Days_Hib ~ IBA.Hib, dates_use_check))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Test is borderline
+  # p = 0.06271
+  # Not Normal
+cor.test(dates_use_check$Days_Hib, dates_use_check$IBA.Hib, method = "kendall")
+  # p-value = 1
+  # tau = 0
 
 
 
