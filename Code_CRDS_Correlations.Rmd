@@ -216,6 +216,10 @@ cor.test(crds.sal.abx$BodyMass, crds.sal.abx$Baseline, method = "kendall")
 ci_cor(crds.sal.abx$BodyMass, crds.sal.abx$Baseline, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
   # 0.3658537 0.8095238 
 
+
+
+p.adjust(c(0.0004751, 0.01336, 0.1602, 0.0002925), "BH")
+  # 0.00095020 0.01781333 0.16020000 0.00095020
 ```
 
 
@@ -278,8 +282,8 @@ cor.test(crds.sal.abx$BodyMass, crds.sal.abx$MaxSlope, method = "pearson")
 
 
 
-
-
+p.adjust(c(0.006091, 0.5483, 0.6134, 0.6564), "BH")
+  # 0.024364 0.656400 0.656400 0.656400
 ```
 
 
@@ -427,9 +431,9 @@ ci_cor(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$MaxSlope, method = "kendal
 
 
 
-# BodyMass x baseline, maxslope, DNA yield
-p.adjust(c(0.0004751, 0.01336, 0.1602, 0.0002925, 0.006091, 0.5483, 0.6134, 0.6564, 0.3841, 0.04198, 0.4263, 0.05829), "BH")
-  # 0.0028506 0.0400800 0.2746286 0.0028506 0.0243640 0.6564000 0.6564000 0.6564000 0.5684000 0.1007520 0.5684000 0.1165800
+
+p.adjust(c(0.3841, 0.04198, 0.4263, 0.05829), "BH")
+  # 0.42630 0.11658 0.42630 0.11658
 
 ```
 
@@ -592,6 +596,15 @@ cor.test(dates.sal.p$IBA.Hib, dates.sal.p$Baseline, method = "pearson")
 
 
 
+# Days_Hib ~ Baseline
+p.adjust(c(0.8616, 0.09606, 5.622e-05, 0.172), "BH")
+  # 0.86160000 0.19212000 0.00022488 0.22933333
+
+# IBA.Hib ~ Baseline
+p.adjust(c(0.6949, 0.5982, 0.9251, 0.6928), "BH")
+  # 0.9251 0.9251 0.9251 0.9251
+
+
 
 ### Correlate MaxSlope ### 
 
@@ -695,11 +708,14 @@ cor.test(dates.sal.p$IBA.Hib, dates.sal.p$MaxSlope, method = "pearson")
   # cor = 0.2089396 
 
 
-### Adjust P
-p.adjust(c(0.8616, 0.6949, 0.09606, 0.5982, 5.622e-05, 0.9251, 0.172, 0.6928, 0.3454, 0.4296, 0.7633, 0.6705, 0.3965, 0.9288, 0.4402, 0.7359), "BH")
-  # 0.92880000 0.92880000 0.76848000 0.92880000 0.00089952 0.92880000 0.91733333 0.92880000 0.92880000 0.92880000 0.92880000 0.92880000 0.92880000 0.92880000 0.92880000 0.92880000
 
+# Days_Hib ~ MaxSlope
+p.adjust(c(0.3454, 0.7633, 0.3965, 0.4402), "BH")
+  # 0.5869333 0.7633000 0.5869333 0.5869333
 
+# IBA.Hib ~ MaxSlope
+p.adjust(c(0.4296, 0.6705, 0.9288, 0.7359), "BH")
+  # 0.9288 0.9288 0.9288 0.9288
 
 
 
