@@ -99,6 +99,31 @@ cor.test(crds.rem$MaxD, crds.rem$MaxSlope, method = "kendall")
 ci_cor(crds.rem$MaxD, crds.rem$MaxSlope, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
   # 0.5654087 0.8133238 
 
+res <- resid(lm(Baseline ~ MaxD, crds.rem))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # p = 0.000537
+  # Not Normal
+cor.test(crds.rem$Baseline, crds.rem$MaxD, method = "kendall")
+  # p = 0.3023
+  # tau = -0.08075845 
+ci_cor(crds.rem$Baseline, crds.rem$MaxD, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # -0.25125364  0.08590749 
+
+res <- resid(lm(Baseline ~ MaxSlope, crds.rem))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # p = 0.0005308
+  # Not Normal
+cor.test(crds.rem$Baseline, crds.rem$MaxSlope, method = "kendall")
+  # p = 0.1672
+  # tau = -0.1081461 
+ci_cor(crds.rem$Baseline, crds.rem$MaxSlope, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # -0.26621859  0.04679773 
 
 
 res <- resid(lm(BodyMass ~ BodyTemp, crds.rem))
@@ -129,7 +154,7 @@ cor.test(crds.rem$BodyTemp, crds.rem$Ketones, method = "pearson")
   # CI = -0.3820908  0.1117377
   # cor = -0.1441388
 
-## Go with MaxSlope & BodyMass
+## Go with Baseline, MaxSlope, & BodyMass
 ```
 
 ### Test Baseline
@@ -137,53 +162,59 @@ cor.test(crds.rem$BodyTemp, crds.rem$Ketones, method = "pearson")
 ### Test BodyMass Correlation
 
 # Inulin No ABX
-res <- resid(lm(Baseline ~ BodyMass, crds.inu.noabx))
+res <- resid(lm(BodyMass ~ Baseline, crds.inu.noabx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # Normal
-cor.test(crds.inu.noabx$Baseline, crds.inu.noabx$BodyMass, method = "pearson")
-  # p = 0.0006718
-  # cor = 0.6813544
+  # p = 0.04097
+  # Not Normal
+cor.test(crds.inu.noabx$BodyMass, crds.inu.noabx$Baseline, method = "kendall")
+  # p = 0.0004751
+  # tau = 0.5333333
+ci_cor(crds.inu.abx$BodyMass, crds.inu.abx$Baseline, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # -0.02469136  0.70480694
+
 
 # Inulin ABX
-res <- resid(lm(Baseline ~ BodyMass, crds.inu.abx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # p = 0.01681
-  # Not Normal
-cor.test(crds.inu.abx$Baseline, crds.inu.abx$BodyMass, method = "kendall")
-  # p = 0.008264
-  # tau = 0.4385965
-ci_cor(crds.inu.abx$Baseline, crds.inu.abx$BodyMass, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
-  # -0.01863354  0.70552147
-
-# Saline No ABX
-res <- resid(lm(Baseline ~ BodyMass, crds.sal.noabx))
+res <- resid(lm(BodyMass ~ Baseline, crds.inu.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(crds.sal.noabx$Baseline, crds.sal.noabx$BodyMass, method = "pearson")
-  # p = 0.1602
+cor.test(crds.inu.abx$BodyMass, crds.inu.abx$Baseline, method = "pearson")
+  # p = 0.01336
+  # CI = 0.1367106 0.8067164
+  # cor = 0.5563719 
 
-# Saline ABX
-res <- resid(lm(Baseline ~ BodyMass, crds.sal.abx))
+
+# Saline No ABX
+res <- resid(lm(BodyMass ~ Baseline, crds.sal.noabx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # Test says normal, but residuals are clearly sigmoid.
+  # Normal
+cor.test(crds.sal.noabx$BodyMass, crds.sal.noabx$Baseline, method = "pearson")
+  # p = 0.1602
+  # CI = -0.1399968  0.6853107
+  # cor = 0.3355493 
+
+
+# Saline ABX
+res <- resid(lm(BodyMass ~ Baseline, crds.sal.abx))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Test says normal, but residuals are sigmoid.
   # Not Normal
-cor.test(crds.sal.abx$Baseline, crds.sal.abx$BodyMass, method = "kendall")
+cor.test(crds.sal.abx$BodyMass, crds.sal.abx$Baseline, method = "kendall")
   # p = 0.0002925
   # tau = 0.6176471 
-ci_cor(crds.sal.abx$Baseline, crds.sal.abx$BodyMass, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
-  # 0.3750000 0.8016052
+ci_cor(crds.sal.abx$BodyMass, crds.sal.abx$Baseline, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # 0.3658537 0.8095238 
 
 ```
 
@@ -193,54 +224,60 @@ ci_cor(crds.sal.abx$Baseline, crds.sal.abx$BodyMass, method = "kendall", type = 
 ### Test BodyMass Correlation
 
 # Inulin No ABX
-res <- resid(lm(MaxSlope ~ BodyMass, crds.inu.noabx))
+res <- resid(lm(BodyMass ~ MaxSlope, crds.inu.noabx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.02615
+  # p = 0.0698
   # Not Normal
-cor.test(crds.inu.noabx$MaxSlope, crds.inu.noabx$BodyMass, method = "kendall")
+cor.test(crds.inu.noabx$BodyMass, crds.inu.noabx$MaxSlope, method = "kendall")
   # p = 0.006091
   # tau = 0.4285714
-ci_cor(crds.inu.noabx$MaxSlope, crds.inu.noabx$BodyMass, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
-  # 0.2121212 0.6205128 
+ci_cor(crds.inu.noabx$BodyMass, crds.inu.noabx$MaxSlope, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # 0.1959799 0.6218905 
 
 # Inulin ABX
-res <- resid(lm(MaxSlope ~ BodyMass, crds.inu.abx))
+res <- resid(lm(BodyMass ~ MaxSlope, crds.inu.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
+  # Borderline, but go with Normal
   # Normal
-cor.test(crds.inu.abx$MaxSlope, crds.inu.abx$BodyMass, method = "pearson")
+cor.test(crds.inu.abx$BodyMass, crds.inu.abx$MaxSlope, method = "pearson")
   # p = 0.5483
   # CI = -0.5635368  0.3292449
   # cor = -0.1469384
 
 # Saline No ABX
-res <- resid(lm(MaxSlope ~ BodyMass, crds.sal.noabx))
+res <- resid(lm(BodyMass ~ MaxSlope, crds.sal.noabx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(crds.sal.noabx$MaxSlope, crds.sal.noabx$BodyMass, method = "pearson")
+cor.test(crds.sal.noabx$BodyMass, crds.sal.noabx$MaxSlope, method = "pearson")
   # p = 0.6134
   # CI = -0.5472759  0.3500475
   # cor = -0.1238539
 
 # Saline ABX
-res <- resid(lm(MaxSlope ~ BodyMass, crds.sal.abx))
+res <- resid(lm(BodyMass ~ MaxSlope, crds.sal.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
+  # p = 0.002278
+  # Only not normal because of 2 outliers
   # Normal
-cor.test(crds.sal.abx$MaxSlope, crds.sal.abx$BodyMass, method = "pearson")
+cor.test(crds.sal.abx$BodyMass, crds.sal.abx$MaxSlope, method = "pearson")
   # p = 0.6564
   # CI = -0.5654201  0.3858203
   # cor = -0.1164123
+
+
+
 
 
 ```
@@ -274,25 +311,25 @@ exo_rpkg_inu <- exo_rpkg[1:9,]
 
 
 # Test RPKG - Baseline
-res <- resid(lm(RPKG ~ Baseline, exo_rpkg_inu))
+res <- resid(lm(Baseline ~ RPKG, exo_rpkg_inu))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$Baseline, method = "pearson")
+cor.test(exo_rpkg_inu$Baseline, exo_rpkg_inu$RPKG, method = "pearson")
   # p = 0.9096
   # CI = -0.6385148  0.6882598
   # cor = 0.04446048
 
 # Test RPKG - MaxSlope
-res <- resid(lm(RPKG ~ MaxSlope, exo_rpkg_inu))
+res <- resid(lm(MaxSlope ~ RPKG, exo_rpkg_inu))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$MaxSlope, method = "pearson")
+cor.test(exo_rpkg_inu$MaxSlope, exo_rpkg_inu$RPKG, method = "pearson")
   # p = 0.9127
   # CI = -0.6874511  0.6394231
   # cor = -0.04292835 
@@ -387,6 +424,12 @@ cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$MaxSlope, method = "kend
   # tau = 0.3185965
 ci_cor(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$MaxSlope, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
   # -0.07955287  0.55564849
+
+
+
+# BodyMass x baseline, maxslope, DNA yield
+p.adjust(c(0.0004751, 0.01336, 0.1602, 0.0002925, 0.006091, 0.5483, 0.6134, 0.6564, 0.3841, 0.04198, 0.4263, 0.05829), "BH")
+  # 0.0028506 0.0400800 0.2746286 0.0028506 0.0243640 0.6564000 0.6564000 0.6564000 0.5684000 0.1007520 0.5684000 0.1165800
 
 ```
 
@@ -588,7 +631,7 @@ shapiro.test(res)
   # Normal
 cor.test(dates.inu.p$Days_Hib, dates.inu.p$MaxSlope, method = "pearson")
   # p-value = 0.7633
-  # Ci = -0.9178319  0.8326501
+  # CI = -0.9178319  0.8326501
   # cor = -0.1869628
 
 res <- resid(lm(IBA.Hib ~ MaxSlope, dates.inu.p))
@@ -650,6 +693,14 @@ cor.test(dates.sal.p$IBA.Hib, dates.sal.p$MaxSlope, method = "pearson")
   # p-value = 0.7359
   # CI =  -0.8254998  0.9213618
   # cor = 0.2089396 
+
+
+### Adjust P
+p.adjust(c(0.8616, 0.6949, 0.09606, 0.5982, 5.622e-05, 0.9251, 0.172, 0.6928, 0.3454, 0.4296, 0.7633, 0.6705, 0.3965, 0.9288, 0.4402, 0.7359), "BH")
+  # 0.92880000 0.92880000 0.76848000 0.92880000 0.00089952 0.92880000 0.91733333 0.92880000 0.92880000 0.92880000 0.92880000 0.92880000 0.92880000 0.92880000 0.92880000 0.92880000
+
+
+
 
 
 
@@ -717,11 +768,10 @@ cor.test(rpkg.dates.p$IBA.Hib, rpkg.dates.p$RPKG, method = "pearson")
 
 
 
-```
-
-### Adj P
-```{r}
+p.adjust(c(0.5756, 0.6959, 0.3231, 0.8018), "BH")
+  # 0.8018 0.8018 0.8018 0.8018
 
 ```
+
 
 
