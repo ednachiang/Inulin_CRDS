@@ -47,6 +47,7 @@ norm.time.crds <- function(x){
       lastSlope <- lastDelta / lastTime
       
       select$RelTime[lastRowUse] <- maxInu
+      select$BinTime[lastRowUse] <- maxInu
       select$DeltaNorm[lastRowUse] <- lastSlope * (lastRowUse - (lastRowUse-1))
       select$Delta[lastRowUse] <- lastSlope * ((lastRowUse - lastRowUse-1))
   
@@ -60,7 +61,7 @@ norm.time.crds <- function(x){
       
       
     } else if (select$Substrate[1] == "Saline") {
-      max <- which(select$RelTime > maxInu)
+      max <- which(select$RelTime > maxSal)
       # Subset measurements that happened after the cutoff
       lastRowUse <- max[1]
       # Interpolate cutoff measurement
@@ -73,7 +74,8 @@ norm.time.crds <- function(x){
       lastDelta <- select$Delta[lastRowUse]
       lastSlope <- lastDelta / lastTime
       
-      select$RelTime[lastRowUse] <- maxInu
+      select$RelTime[lastRowUse] <- maxSal
+      select$BinTime[lastRowUse] <- maxSal
       select$DeltaNorm[lastRowUse] <- lastSlope * (lastRowUse - (lastRowUse-1))
       select$Delta[lastRowUse] <- lastSlope * ((lastRowUse - lastRowUse-1))
     

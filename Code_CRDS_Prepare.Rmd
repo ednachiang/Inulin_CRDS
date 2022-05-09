@@ -362,5 +362,5 @@ carb.plot <- ggplot(crds.rem, aes(x=BinTime, y=Mean, color=Season)) +
 
 #tiff("crds.tiff", width = 12.75, height = 3.5, units = "in", res = 300)
 carb.plot
-dev.off()
+#dev.off()
 ```
