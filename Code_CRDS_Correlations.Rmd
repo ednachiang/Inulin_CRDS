@@ -246,7 +246,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.inu.noabx$AUC_sqrt, crds.inu.noabx$BodyMass, method = "pearson")
-  # p = 0.4277
+  # p = 0.4269
+  # CI = -0.2699144  0.5697579
+  # Cor = 0.1831078 
 
 
 # Inulin ABX
@@ -257,7 +259,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.inu.abx$AUC_sqrt, crds.inu.abx$BodyMass, method = "pearson")
-  # p = 0.8798
+  # p = 0.8803
+  # CI = -0.4831350  0.4242931
+  # cor = -0.03705788 
 
 # Saline No ABX
 res <- resid(lm(AUC_sqrt ~ BodyMass, crds.sal.noabx))
@@ -268,7 +272,10 @@ shapiro.test(res)
   # p = 0.03218
   # Not Normal
 cor.test(crds.sal.noabx$AUC_sqrt, crds.sal.noabx$BodyMass, method = "kendall")
-  # p = 0.2983
+  # p = 0.4467
+  # tau = -0.1345029
+ci_cor(crds.sal.noabx$AUC_sqrt, crds.sal.noabx$BodyMass, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # -0.5092025  0.2526649
 
 # Saline ABX
 res <- resid(lm(AUC_sqrt ~ BodyMass, crds.sal.abx))
@@ -278,7 +285,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.sal.abx$AUC_sqrt, crds.sal.abx$BodyMass, method = "pearson")
-  # p = 0.3556
+  # p = 0.8154
+  # CI = -0.5263770  0.4321396
+  # cor = -0.06122117 
 
 
 
@@ -294,8 +303,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.inu.noabx$AUC_sqrt, crds.inu.noabx$BodyTemp, method = "pearson")
-  # p = 0.04429
-  # cor = 0.4430237
+  # p = 0.04432
+  # CI = 0.01393202 0.73424154
+  # cor = 0.4429547
 
 # Inulin ABX
 res <- resid(lm(AUC_sqrt ~ BodyTemp, crds.inu.abx))
@@ -305,7 +315,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.inu.abx$AUC_sqrt, crds.inu.abx$BodyTemp, method = "pearson")
-  # p = 0.7325
+  # p = 0.7319
+  # CI = -0.3847477  0.5185552
+  # cor = 0.08417092
 
 # Saline No ABX
 res <- resid(lm(AUC_sqrt ~ BodyTemp, crds.sal.noabx))
@@ -317,6 +329,9 @@ shapiro.test(res)
   # Not Normal
 cor.test(crds.sal.noabx$AUC_sqrt, crds.sal.noabx$BodyTemp, method = "kendall")
   # p = 0.858
+  # tau = 0.107224
+ci_cor(crds.sal.noabx$AUC_sqrt, crds.sal.noabx$BodyTemp, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # -0.2749094  0.4817398
 
 # Saline ABX
 res <- resid(lm(AUC_sqrt ~ BodyTemp, crds.sal.abx))
@@ -324,10 +339,11 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # Test says normal, but residuals look sigmoid
-  # Not Normal
-cor.test(crds.sal.abx$AUC_sqrt, crds.sal.abx$BodyTemp, method = "kendall")
-  # p = 0.4753
+  # Normal
+cor.test(crds.sal.abx$AUC_sqrt, crds.sal.abx$BodyTemp, method = "pearson")
+  # p = 0.82
+  # CI = -0.5252706  0.4333824
+  # cor = -0.05969759
 
 
 
@@ -343,7 +359,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.inu.noabx$AUC_sqrt, crds.inu.noabx$Ketones, method = "pearson")
-  # p = 0.6474
+  # p = 0.649
+  # CI = -0.5833934  0.3965941
+  # cor = -0.1233638 
 
 # Inulin ABX
 res <- resid(lm(AUC_sqrt ~ Ketones, crds.inu.abx))
@@ -353,7 +371,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.inu.abx$AUC_sqrt, crds.inu.abx$Ketones, method = "pearson")
-  # p = 0.4552
+  # p = 0.4542
+  # CI = -0.3268234  0.6339093
+  # cor = 0.2015317 
 
 # Saline No ABX
 res <- resid(lm(AUC_sqrt ~ Ketones, crds.sal.noabx))
@@ -361,10 +381,11 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # Test says not normal, but it seems to be only due to one outlier
   # Normal
 cor.test(crds.sal.noabx$AUC_sqrt, crds.sal.noabx$Ketones, method = "pearson")
-  # p = 0.3477
+  # p = 0.8227
+  # CI = -0.4640144  0.5574809
+  # cor = 0.06329303
 
 # Saline ABX
 res <- resid(lm(AUC_sqrt ~ Ketones, crds.sal.abx))
@@ -374,7 +395,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.sal.abx$AUC_sqrt, crds.sal.abx$Ketones, method = "pearson")
-  # p = 0.2177
+  # p = 0.1263
+  # CI = -0.1320109  0.7814628
+  # cor = 0.4285879
 
 ```
 
@@ -392,6 +415,8 @@ shapiro.test(res)
   # Normal
 cor.test(crds.inu.noabx$AvgD, crds.inu.noabx$BodyMass, method = "pearson")
   # p = 0.5897
+  # CI = -0.3243124  0.5280786
+  # cor = 0.1248542 
 
 
 # Inulin ABX
@@ -402,7 +427,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.inu.abx$AvgD, crds.inu.abx$BodyMass, method = "pearson")
-  # p = 0.9436
+  # p = 0.9727
+  # CI = -0.4608712  0.4474961
+  # cor = -0.008425739
 
 # Saline No ABX
 res <- resid(lm(AvgD ~ BodyMass, crds.sal.noabx))
@@ -410,10 +437,13 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.0006069
+  # Test says normal but it doesn't look normal
   # Not Normal
 cor.test(crds.sal.noabx$AvgD, crds.sal.noabx$BodyMass, method = "kendall")
-  # p = 0.116
+  # p = 0.05806
+  # tau = -0.3216374
+ci_cor(crds.sal.noabx$AvgD, crds.sal.noabx$BodyMass, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # -0.6542917  0.1012658 
 
 # Saline ABX
 res <- resid(lm(AvgD ~ BodyMass, crds.sal.abx))
@@ -423,7 +453,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.sal.abx$AvgD, crds.sal.abx$BodyMass, method = "pearson")
-  # p = 0.3748
+  # p = 0.5256
+  # CI = -0.5985223  0.3423953
+  # cor = -0.1654831
 
 
 
@@ -440,6 +472,8 @@ shapiro.test(res)
   # Normal
 cor.test(crds.inu.noabx$AvgD, crds.inu.noabx$BodyTemp, method = "pearson")
   # p = 0.05967
+  # CI = -0.01727997  0.71952250
+  # cor = 0.4175213 
 
 # Inulin ABX
 res <- resid(lm(AvgD ~ BodyTemp, crds.inu.abx))
@@ -449,7 +483,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.inu.abx$AvgD, crds.inu.abx$BodyTemp, method = "pearson")
-  # p = 0.8833
+  # p = 0.8631
+  # CI = -0.4198900  0.4872315
+  # cor = 0.04240713
 
 # Saline No ABX
 res <- resid(lm(AvgD ~ BodyTemp, crds.sal.noabx))
@@ -457,10 +493,11 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.0001787
-  # Not Normal
-cor.test(crds.sal.noabx$AvgD, crds.sal.noabx$BodyTemp, method = "kendall")
-  # p = 0.7125
+  # Normal
+cor.test(crds.sal.noabx$AvgD, crds.sal.noabx$BodyTemp, method = "pearson")
+  # p = 0.2371
+  # CI = -0.1944610  0.6544325
+  # cor = 0.2849136
 
 # Saline ABX
 res <- resid(lm(AvgD ~ BodyTemp, crds.sal.abx))
@@ -470,7 +507,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.sal.abx$AvgD, crds.sal.abx$BodyTemp, method = "pearson")
-  # p = 0.5314
+  # p = 0.5093
+  # CI = -0.3364936  0.6027860
+  # cor = 0.1719635
 
 
 
@@ -487,6 +526,8 @@ shapiro.test(res)
   # Normal
 cor.test(crds.inu.noabx$AvgD, crds.inu.noabx$Ketones, method = "pearson")
   # p = 0.722
+  # CI = -0.5652254  0.4191940
+  # cor = -0.09658044 
 
 # Inulin ABX
 res <- resid(lm(AvgD ~ Ketones, crds.inu.abx))
@@ -497,6 +538,8 @@ shapiro.test(res)
   # Normal
 cor.test(crds.inu.abx$AvgD, crds.inu.abx$Ketones, method = "pearson")
   # p = 0.3582
+  # CI = -0.2842788  0.6611542
+  # cor = 0.2461077
 
 # Saline No ABX
 res <- resid(lm(AvgD ~ Ketones, crds.sal.noabx))
@@ -504,10 +547,11 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.001431
-  # Not normal due to an outlier, so go with Normal
+  # Normal
 cor.test(crds.sal.noabx$AvgD, crds.sal.noabx$Ketones, method = "pearson")
-  # p = 0.2854
+  # p = 0.1413
+  # CI = -0.1429867  0.7563424
+  # cor = 0.3984622
 
 # Saline ABX
 res <- resid(lm(AvgD ~ Ketones, crds.sal.abx))
@@ -517,7 +561,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.sal.abx$AvgD, crds.sal.abx$Ketones, method = "pearson")
-  # p = 0.1574
+  # p = 0.09341
+  # CI = -0.08634841  0.79881844
+  # cor = 0.4655606
 
 ```
 
@@ -537,7 +583,9 @@ shapiro.test(res)
   # Not Normal
 cor.test(crds.inu.noabx$MaxD, crds.inu.noabx$BodyMass, method = "kendall")
   # p = 0.06493
-
+  # tau = 0.2952381 
+ci_cor(crds.inu.noabx$MaxD, crds.inu.noabx$BodyMass, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # 0.0800000 0.5175879
 
 # Inulin ABX
 res <- resid(lm(MaxD ~ BodyMass, crds.inu.abx))
@@ -547,7 +595,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.inu.abx$MaxD, crds.inu.abx$BodyMass, method = "pearson")
-  # p = 0.8482
+  # p = 0.9988
+  # CI = -0.4544963  0.4539222
+  # cor = -0.0003616989
 
 # Saline No ABX
 res <- resid(lm(MaxD ~ BodyMass, crds.sal.noabx))
@@ -555,10 +605,11 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.0006069
-  # Not Normal
-cor.test(crds.sal.noabx$MaxD, crds.sal.noabx$BodyMass, method = "kendall")
-  # p = 0.332
+  # Normal
+cor.test(crds.sal.noabx$MaxD, crds.sal.noabx$BodyMass, method = "pearson")
+  # p = 0.09483
+  # CI = -0.71962116  0.07299315
+  # cor = -0.3942884 
 
 # Saline ABX
 res <- resid(lm(MaxD ~ BodyMass, crds.sal.abx))
@@ -566,13 +617,13 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # Test says normal, but data looks skewed left
+  # p = 0.02585
   # Not Normal
 cor.test(crds.sal.abx$MaxD, crds.sal.abx$BodyMass, method = "kendall")
   # p = 0.1089
-
-
-
+  # tau = -0.2941176
+ci_cor(crds.sal.abx$MaxD, crds.sal.abx$BodyMass, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # -0.5968992  0.1544715 
 
 
 ### Test BodyTemp Correlation
@@ -587,6 +638,9 @@ shapiro.test(res)
   # Not Normal
 cor.test(crds.inu.noabx$MaxD, crds.inu.noabx$BodyTemp, method = "kendall")
   # p = 0.1045
+  # tau = 0.2660329
+ci_cor(crds.inu.noabx$MaxD, crds.inu.noabx$BodyTemp, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # -0.1072009  0.5669246
 
 # Inulin ABX
 res <- resid(lm(MaxD ~ BodyTemp, crds.inu.abx))
@@ -596,7 +650,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.inu.abx$MaxD, crds.inu.abx$BodyTemp, method = "pearson")
-  # p = 0.7786
+  # p = 0.8846
+  # CI = -0.4253959  0.4821028
+  # cor = 0.03571397
 
 # Saline No ABX
 res <- resid(lm(MaxD ~ BodyTemp, crds.sal.noabx))
@@ -604,10 +660,11 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 2.356e-05
-  # Not Normal
-cor.test(crds.sal.noabx$MaxD, crds.sal.noabx$BodyTemp, method = "kendall")
-  # p = 0.6418
+  # Normal
+cor.test(crds.sal.noabx$MaxD, crds.sal.noabx$BodyTemp, method = "pearson")
+  # p = 0.1684
+  # CI = -0.1467414  0.6816414
+  # cor = 0.3294245
 
 # Saline ABX
 res <- resid(lm(MaxD ~ BodyTemp, crds.sal.abx))
@@ -617,7 +674,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.sal.abx$MaxD, crds.sal.abx$BodyTemp, method = "pearson")
-  # p = 0.4933
+  # p = 0.5788
+  # CI = -0.3608304  0.5848513
+  # cor = 0.1449539
 
 
 
@@ -634,6 +693,8 @@ shapiro.test(res)
   # Normal
 cor.test(crds.inu.noabx$MaxD, crds.inu.noabx$Ketones, method = "pearson")
   # p = 0.1923
+  # CI = -0.7172618  0.1831208
+  # cor = -0.3437919
 
 # Inulin ABX
 res <- resid(lm(MaxD ~ Ketones, crds.inu.abx))
@@ -644,6 +705,8 @@ shapiro.test(res)
   # Normal
 cor.test(crds.inu.abx$MaxD, crds.inu.abx$Ketones, method = "pearson")
   # p = 0.9001
+  # CI = -0.5210269  0.4695120
+  # cor = -0.03413881
 
 # Saline No ABX
 res <- resid(lm(MaxD ~ Ketones, crds.sal.noabx))
@@ -651,9 +714,11 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # Not normal due to an outlier, so go with Normal
+  # Normal
 cor.test(crds.sal.noabx$MaxD, crds.sal.noabx$Ketones, method = "pearson")
-  # p = 0.4857
+  # p = 0.1928
+  # CI = -0.1911244  0.7343397
+  # cor = 0.3559922
 
 # Saline ABX
 res <- resid(lm(MaxD ~ Ketones, crds.sal.abx))
@@ -663,7 +728,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.sal.abx$MaxD, crds.sal.abx$Ketones, method = "pearson")
-  # p = 0.3552
+  # p = 0.1538
+  # CI = -0.1630006  0.7688198
+  # cor = 0.4023786
 
 ```
 
@@ -685,6 +752,8 @@ shapiro.test(res)
 cor.test(crds.inu.noabx$MaxSlope, crds.inu.noabx$BodyMass, method = "kendall")
   # p = 0.006091
   # tau = 0.4285714
+ci_cor(crds.inu.noabx$MaxSlope, crds.inu.noabx$BodyMass, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # 0.2121212 0.6205128 
 
 # Inulin ABX
 res <- resid(lm(MaxSlope ~ BodyMass, crds.inu.abx))
@@ -694,7 +763,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.inu.abx$MaxSlope, crds.inu.abx$BodyMass, method = "pearson")
-  # p = 0.2926
+  # p = 0.5483
+  # CI = -0.5635368  0.3292449
+  # cor = -0.1469384
 
 # Saline No ABX
 res <- resid(lm(MaxSlope ~ BodyMass, crds.sal.noabx))
@@ -702,10 +773,11 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 3.129e-05
-  # Not Normal
-cor.test(crds.sal.noabx$MaxSlope, crds.sal.noabx$BodyMass, method = "kendall")
-  # p = 0.8903
+  # Normal
+cor.test(crds.sal.noabx$MaxSlope, crds.sal.noabx$BodyMass, method = "pearson")
+  # p = 0.6134
+  # CI = -0.5472759  0.3500475
+  # cor = -0.1238539
 
 # Saline ABX
 res <- resid(lm(MaxSlope ~ BodyMass, crds.sal.abx))
@@ -715,7 +787,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.sal.abx$MaxSlope, crds.sal.abx$BodyMass, method = "pearson")
-  # p = 0.4934
+  # p = 0.6564
+  # CI = -0.5654201  0.3858203
+  # cor = -0.1164123
 
 
 
@@ -733,6 +807,7 @@ shapiro.test(res)
   # Not Normal
 cor.test(crds.inu.noabx$MaxSlope, crds.inu.noabx$BodyTemp, method = "kendall")
   # p = 0.2322
+  # tau = 0.19576
 
 # Inulin ABX
 res <- resid(lm(MaxSlope ~ BodyTemp, crds.inu.abx))
