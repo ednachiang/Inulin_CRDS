@@ -234,340 +234,6 @@ cor.test(crds.sal.abx$Baseline, crds.sal.abx$Ketones, method = "pearson")
 ```
 
 
-### Test AUC_sqrt
-```{r}
-### Test BodyMass Correlation
-
-# Inulin No ABX
-res <- resid(lm(AUC_sqrt ~ BodyMass, crds.inu.noabx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.inu.noabx$AUC_sqrt, crds.inu.noabx$BodyMass, method = "pearson")
-  # p = 0.4269
-  # CI = -0.2699144  0.5697579
-  # Cor = 0.1831078 
-
-
-# Inulin ABX
-res <- resid(lm(AUC_sqrt ~ BodyMass, crds.inu.abx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.inu.abx$AUC_sqrt, crds.inu.abx$BodyMass, method = "pearson")
-  # p = 0.8803
-  # CI = -0.4831350  0.4242931
-  # cor = -0.03705788 
-
-# Saline No ABX
-res <- resid(lm(AUC_sqrt ~ BodyMass, crds.sal.noabx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # p = 0.03218
-  # Not Normal
-cor.test(crds.sal.noabx$AUC_sqrt, crds.sal.noabx$BodyMass, method = "kendall")
-  # p = 0.4467
-  # tau = -0.1345029
-ci_cor(crds.sal.noabx$AUC_sqrt, crds.sal.noabx$BodyMass, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
-  # -0.5092025  0.2526649
-
-# Saline ABX
-res <- resid(lm(AUC_sqrt ~ BodyMass, crds.sal.abx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.sal.abx$AUC_sqrt, crds.sal.abx$BodyMass, method = "pearson")
-  # p = 0.8154
-  # CI = -0.5263770  0.4321396
-  # cor = -0.06122117 
-
-
-
-
-
-### Test BodyTemp Correlation
-
-# Inulin No ABX
-res <- resid(lm(AUC_sqrt ~ BodyTemp, crds.inu.noabx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.inu.noabx$AUC_sqrt, crds.inu.noabx$BodyTemp, method = "pearson")
-  # p = 0.04432
-  # CI = 0.01393202 0.73424154
-  # cor = 0.4429547
-
-# Inulin ABX
-res <- resid(lm(AUC_sqrt ~ BodyTemp, crds.inu.abx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.inu.abx$AUC_sqrt, crds.inu.abx$BodyTemp, method = "pearson")
-  # p = 0.7319
-  # CI = -0.3847477  0.5185552
-  # cor = 0.08417092
-
-# Saline No ABX
-res <- resid(lm(AUC_sqrt ~ BodyTemp, crds.sal.noabx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # p = 0.007584
-  # Not Normal
-cor.test(crds.sal.noabx$AUC_sqrt, crds.sal.noabx$BodyTemp, method = "kendall")
-  # p = 0.858
-  # tau = 0.107224
-ci_cor(crds.sal.noabx$AUC_sqrt, crds.sal.noabx$BodyTemp, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
-  # -0.2749094  0.4817398
-
-# Saline ABX
-res <- resid(lm(AUC_sqrt ~ BodyTemp, crds.sal.abx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.sal.abx$AUC_sqrt, crds.sal.abx$BodyTemp, method = "pearson")
-  # p = 0.82
-  # CI = -0.5252706  0.4333824
-  # cor = -0.05969759
-
-
-
-
-
-### Test Ketones Correlation
-
-# Inulin No ABX
-res <- resid(lm(AUC_sqrt ~ Ketones, crds.inu.noabx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.inu.noabx$AUC_sqrt, crds.inu.noabx$Ketones, method = "pearson")
-  # p = 0.649
-  # CI = -0.5833934  0.3965941
-  # cor = -0.1233638 
-
-# Inulin ABX
-res <- resid(lm(AUC_sqrt ~ Ketones, crds.inu.abx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.inu.abx$AUC_sqrt, crds.inu.abx$Ketones, method = "pearson")
-  # p = 0.4542
-  # CI = -0.3268234  0.6339093
-  # cor = 0.2015317 
-
-# Saline No ABX
-res <- resid(lm(AUC_sqrt ~ Ketones, crds.sal.noabx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.sal.noabx$AUC_sqrt, crds.sal.noabx$Ketones, method = "pearson")
-  # p = 0.8227
-  # CI = -0.4640144  0.5574809
-  # cor = 0.06329303
-
-# Saline ABX
-res <- resid(lm(AUC_sqrt ~ Ketones, crds.sal.abx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.sal.abx$AUC_sqrt, crds.sal.abx$Ketones, method = "pearson")
-  # p = 0.1263
-  # CI = -0.1320109  0.7814628
-  # cor = 0.4285879
-
-```
-
-
-### Test AvgD
-```{r}
-### Test BodyMass Correlation
-
-# Inulin No ABX
-res <- resid(lm(AvgD ~ BodyMass, crds.inu.noabx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.inu.noabx$AvgD, crds.inu.noabx$BodyMass, method = "pearson")
-  # p = 0.5897
-  # CI = -0.3243124  0.5280786
-  # cor = 0.1248542 
-
-
-# Inulin ABX
-res <- resid(lm(AvgD ~ BodyMass, crds.inu.abx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.inu.abx$AvgD, crds.inu.abx$BodyMass, method = "pearson")
-  # p = 0.9727
-  # CI = -0.4608712  0.4474961
-  # cor = -0.008425739
-
-# Saline No ABX
-res <- resid(lm(AvgD ~ BodyMass, crds.sal.noabx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Test says normal but it doesn't look normal
-  # Not Normal
-cor.test(crds.sal.noabx$AvgD, crds.sal.noabx$BodyMass, method = "kendall")
-  # p = 0.05806
-  # tau = -0.3216374
-ci_cor(crds.sal.noabx$AvgD, crds.sal.noabx$BodyMass, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
-  # -0.6542917  0.1012658 
-
-# Saline ABX
-res <- resid(lm(AvgD ~ BodyMass, crds.sal.abx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.sal.abx$AvgD, crds.sal.abx$BodyMass, method = "pearson")
-  # p = 0.5256
-  # CI = -0.5985223  0.3423953
-  # cor = -0.1654831
-
-
-
-
-
-### Test BodyTemp Correlation
-
-# Inulin No ABX
-res <- resid(lm(AvgD ~ BodyTemp, crds.inu.noabx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.inu.noabx$AvgD, crds.inu.noabx$BodyTemp, method = "pearson")
-  # p = 0.05967
-  # CI = -0.01727997  0.71952250
-  # cor = 0.4175213 
-
-# Inulin ABX
-res <- resid(lm(AvgD ~ BodyTemp, crds.inu.abx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.inu.abx$AvgD, crds.inu.abx$BodyTemp, method = "pearson")
-  # p = 0.8631
-  # CI = -0.4198900  0.4872315
-  # cor = 0.04240713
-
-# Saline No ABX
-res <- resid(lm(AvgD ~ BodyTemp, crds.sal.noabx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.sal.noabx$AvgD, crds.sal.noabx$BodyTemp, method = "pearson")
-  # p = 0.2371
-  # CI = -0.1944610  0.6544325
-  # cor = 0.2849136
-
-# Saline ABX
-res <- resid(lm(AvgD ~ BodyTemp, crds.sal.abx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.sal.abx$AvgD, crds.sal.abx$BodyTemp, method = "pearson")
-  # p = 0.5093
-  # CI = -0.3364936  0.6027860
-  # cor = 0.1719635
-
-
-
-
-
-### Test Ketones Correlation
-
-# Inulin No ABX
-res <- resid(lm(AvgD ~ Ketones, crds.inu.noabx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.inu.noabx$AvgD, crds.inu.noabx$Ketones, method = "pearson")
-  # p = 0.722
-  # CI = -0.5652254  0.4191940
-  # cor = -0.09658044 
-
-# Inulin ABX
-res <- resid(lm(AvgD ~ Ketones, crds.inu.abx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.inu.abx$AvgD, crds.inu.abx$Ketones, method = "pearson")
-  # p = 0.3582
-  # CI = -0.2842788  0.6611542
-  # cor = 0.2461077
-
-# Saline No ABX
-res <- resid(lm(AvgD ~ Ketones, crds.sal.noabx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.sal.noabx$AvgD, crds.sal.noabx$Ketones, method = "pearson")
-  # p = 0.1413
-  # CI = -0.1429867  0.7563424
-  # cor = 0.3984622
-
-# Saline ABX
-res <- resid(lm(AvgD ~ Ketones, crds.sal.abx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(crds.sal.abx$AvgD, crds.sal.abx$Ketones, method = "pearson")
-  # p = 0.09341
-  # CI = -0.08634841  0.79881844
-  # cor = 0.4655606
-
-```
-
-
 
 ### Test MaxD
 ```{r}
@@ -817,7 +483,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.inu.abx$MaxSlope, crds.inu.abx$BodyTemp, method = "pearson")
-  # p = 0.7659
+  # p = 0.9296
+  # CI =  -0.4367759  0.4713017
+  # cor = 0.02174795
 
 # Saline No ABX
 res <- resid(lm(MaxSlope ~ BodyTemp, crds.sal.noabx))
@@ -825,10 +493,11 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 5.267e-06
-  # Not Normal
-cor.test(crds.sal.noabx$MaxSlope, crds.sal.noabx$BodyTemp, method = "kendall")
-  # p = 0.1424
+  # Normal
+cor.test(crds.sal.noabx$MaxSlope, crds.sal.noabx$BodyTemp, method = "pearson")
+  # p = 0.197
+  # CI = -0.1682215  0.6696709
+  # cor = 0.3096473
 
 # Saline ABX
 res <- resid(lm(MaxSlope ~ BodyTemp, crds.sal.abx))
@@ -838,7 +507,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.sal.abx$MaxSlope, crds.sal.abx$BodyTemp, method = "pearson")
-  # p = 0.7211
+  # p = 0.921
+  # CI = -0.5004148  0.4603737
+  # cor = -0.02603109
 
 
 
@@ -855,6 +526,8 @@ shapiro.test(res)
   # Normal
 cor.test(crds.inu.noabx$MaxSlope, crds.inu.noabx$Ketones, method = "pearson")
   # p = 0.06079
+  # CI = -0.78744162  0.02252662
+  # cor = -0.4785222 
 
 # Inulin ABX
 res <- resid(lm(MaxSlope ~ Ketones, crds.inu.abx))
@@ -865,6 +538,8 @@ shapiro.test(res)
   # Normal
 cor.test(crds.inu.abx$MaxSlope, crds.inu.abx$Ketones, method = "pearson")
   # p = 0.09455
+  # CI = -0.08082526  0.76418175
+  # cor = 0.4321962 
 
 # Saline No ABX
 res <- resid(lm(MaxSlope ~ Ketones, crds.sal.noabx))
@@ -872,10 +547,11 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # Not normal due to one outlier, but otherwise it looks normal
   # Normal
 cor.test(crds.sal.noabx$MaxSlope, crds.sal.noabx$Ketones, method = "pearson")
-  # p = 0.9383
+  # p = 0.3626
+  # CI = -0.6775746  0.2976777
+  # cor = -0.2531946 
 
 # Saline ABX
 res <- resid(lm(MaxSlope ~ Ketones, crds.sal.abx))
@@ -885,7 +561,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.sal.abx$MaxSlope, crds.sal.abx$Ketones, method = "pearson")
-  # p = 0.9754
+  # p = 0.9939
+  # CI = -0.5289464  0.5322086
+  # cor = 0.002270203
 
 ```
 
@@ -926,6 +604,8 @@ shapiro.test(res)
   # Normal
 cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$Baseline, method = "pearson")
   # p = 0.9096
+  # CI = -0.6385148  0.6882598
+  # cor = 0.04446048
 
 # Test RPKG - AUC_sqrt
 res <- resid(lm(RPKG ~ AUC_sqrt, exo_rpkg_inu))
@@ -936,6 +616,9 @@ shapiro.test(res)
   # Normal
 cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$AUC_sqrt, method = "pearson")
   # p = 0.6674
+  # CI =  -0.7481911  0.5590641
+  # cor = -0.1670994 
+
 
 # Test RPKG - AvgD
 res <- resid(lm(RPKG ~ AvgD, exo_rpkg_inu))
@@ -946,6 +629,9 @@ shapiro.test(res)
   # Normal
 cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$AvgD, method = "pearson")
   # p = 0.6854
+  # CI =  -0.7438889  0.5656978
+  # cor = -0.1576529 
+
 
 # Test RPKG - MaxD
 res <- resid(lm(RPKG ~ MaxD, exo_rpkg_inu))
@@ -956,6 +642,8 @@ shapiro.test(res)
   # Normal
 cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$MaxD, method = "pearson")
   # p = 0.7554
+  # CI = -0.7269830  0.5902212
+  # cor = -0.1215427 
 
 # Test RPKG - MaxSlope
 res <- resid(lm(RPKG ~ MaxSlope, exo_rpkg_inu))
@@ -966,6 +654,8 @@ shapiro.test(res)
   # Normal
 cor.test(exo_rpkg_inu$RPKG, exo_rpkg_inu$MaxSlope, method = "pearson")
   # p = 0.9127
+  # CI = -0.6874511  0.6394231
+  # cor = -0.04292835 
 ```
 
 
@@ -1016,6 +706,8 @@ shapiro.test(res)
   # Normal
 cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$Baseline, method = "pearson")
   # p = 0.3841
+  # CI = -0.5816553  0.2533366
+  # cor = -0.2002499 
 
 res <- resid(lm(DNA_Yield_.ng.mg. ~ Baseline, dna.c.inu.abx))
 hist(res)
@@ -1027,7 +719,8 @@ shapiro.test(res)
 cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$Baseline, method = "kendall")
   # p = 0.04198
   # tau = -0.3421963
-
+ci_cor(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$Baseline, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # -0.6457419  0.1401161 
 
 
 ### Test AUC_sqrt
@@ -1038,19 +731,22 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$AUC_sqrt, method = "pearson")
-  # p = 0.3218
+  # p = 0.3267
+  # CI = -0.2288608  0.5985913
+  # cor = 0.2250612 
 
 res <- resid(lm(DNA_Yield_.ng.mg. ~ AUC_sqrt, dna.c.inu.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.0005922
+  # p = 0.0005985
   # Not Normal
 cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$AUC_sqrt, method = "kendall")
   # p = 0.2618
-
-
+  # tau = 0.188798 
+ci_cor(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$AUC_sqrt, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # CI = -0.1265823  0.4480533 
 
 ### Test AvgD
 res <- resid(lm(DNA_Yield_.ng.mg. ~ AvgD, dna.c.inu.noabx))
@@ -1061,17 +757,21 @@ shapiro.test(res)
   # Normal
 cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$AvgD, method = "pearson")
   # p = 0.2561
+  # CI =  -0.1939760  0.6215154
+  # cor = 0.2594351
 
 res <- resid(lm(DNA_Yield_.ng.mg. ~ AvgD, dna.c.inu.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.001177
+  # p = 0.0005395
   # Not Normal
 cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$AvgD, method = "kendall")
-  # p = 0.6235
-
+  # p = 0.4405
+  # tau = 0.1297986
+ci_cor(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$AvgD, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # -0.2138407  0.4303381
 
 
 ### Test MaxD
@@ -1083,17 +783,21 @@ shapiro.test(res)
   # Normal
 cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$MaxD, method = "pearson")
   # p = 0.2957
+  # CI =  -0.2143355  0.6083040
+  # cor = 0.2395124
 
 res <- resid(lm(DNA_Yield_.ng.mg. ~ MaxD, dna.c.inu.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.002488
+  # p = 0.001553
   # Not Normal
 cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$MaxD, method = "kendall")
   # p = 0.8885
-
+  # tau = 0.02359974 
+ci_cor(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$MaxD, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # -0.3883515  0.3376644 
 
 
 ### Test MaxSlope
@@ -1105,17 +809,22 @@ shapiro.test(res)
   # Normal
 cor.test(dna.c.inu.noabx$DNA_Yield_.ng.mg., dna.c.inu.noabx$MaxSlope, method = "pearson")
   # p = 0.4263
+  # CI = -0.2697019  0.5699128
+  # cor = 0.1833294 
 
 res <- resid(lm(DNA_Yield_.ng.mg. ~ MaxSlope, dna.c.inu.abx))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.00357
+  # p = 0.002416
   # Not Normal
 cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$MaxSlope, method = "kendall")
-  # p = 0.04198
-  # tau = 0.3421963
+  # p = 0.05829
+  # tau = 0.3185965
+ci_cor(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$MaxSlope, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # -0.07955287  0.55564849
+
 ```
 
 
@@ -1173,6 +882,8 @@ shapiro.test(res)
   # Not Normal
 cor.test(dates.inu.w$Days_Hib, dates.inu.w$Baseline, method = "pearson")
   # p-value = 0.8616
+  # CI = -0.7005837  0.6242007
+  # cor = -0.0681881 
 
 res <- resid(lm(IBA.Hib ~ Baseline, dates.inu.w))
 hist(res)
@@ -1182,16 +893,8 @@ shapiro.test(res)
   # Normal
 cor.test(dates.inu.w$IBA.Hib, dates.inu.w$Baseline, method = "pearson")
   # p-value = 0.6949
-
-res <- resid(lm(Num_IBA ~ Baseline, dates.inu.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Data doesn't look normal
-  # Not Normal
-cor.test(dates.inu.w$Num_IBA, dates.inu.w$Baseline, method = "kendall")
-  # p-value = 0.3991
+  # CI = -0.7416104  0.5691438
+  # cor = -0.1526929 
 
 
 # Inulin Spring
@@ -1203,6 +906,8 @@ shapiro.test(res)
   # Normal
 cor.test(dates.inu.p$Days_Hib, dates.inu.p$Baseline, method = "pearson")
   # p-value = 0.09606
+  # CI = -0.2515161  0.9870016
+  # cor = 0.8106333 
 
 res <- resid(lm(IBA.Hib ~ Baseline, dates.inu.p))
 hist(res)
@@ -1212,15 +917,8 @@ shapiro.test(res)
   # Normal
 cor.test(dates.inu.p$IBA.Hib, dates.inu.p$Baseline, method = "pearson")
   # p-value = 0.5982
-
-res <- resid(lm(Num_IBA ~ Baseline, dates.inu.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.inu.p$Num_IBA, dates.inu.p$Baseline, method = "pearson")
-  # p-value = 0.4493
+  # CI = -0.7829395  0.9377288
+  # cor = 0.3211981 
 
 
 # Saline Winter
@@ -1232,6 +930,7 @@ shapiro.test(res)
   # Normal
 cor.test(dates.sal.w$Days_Hib, dates.sal.w$Baseline, method = "pearson")
   # p-value = 5.622e-05
+  # CI = -0.9858039 -0.7568553
   # cor = -0.9390097
 
 res <- resid(lm(IBA.Hib ~ Baseline, dates.sal.w))
@@ -1242,15 +941,9 @@ shapiro.test(res)
   # Normal
 cor.test(dates.sal.w$IBA.Hib, dates.sal.w$Baseline, method = "pearson")
   # p-value = 0.9251
+  # CI = -0.6842065  0.6430302
+  # cor = -0.03681214 
 
-res <- resid(lm(Num_IBA ~ Baseline, dates.sal.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.sal.w$Num_IBA, dates.sal.w$Baseline, method = "pearson")
-  # p-value = 0.1271
 
 
 # Saline Spring
@@ -1262,6 +955,8 @@ shapiro.test(res)
   # Normal
 cor.test(dates.sal.p$Days_Hib, dates.sal.p$Baseline, method = "pearson")
   # p-value = 0.172
+  # CI = -0.3585561  0.9551933
+  # cor = 0.6389266 
 
 res <- resid(lm(IBA.Hib ~ Baseline, dates.sal.p))
 hist(res)
@@ -1271,256 +966,13 @@ shapiro.test(res)
   # Normal
 cor.test(dates.sal.p$IBA.Hib, dates.sal.p$Baseline, method = "pearson")
   # p-value = 0.6928
-
-res <- resid(lm(Num_IBA ~ Baseline, dates.sal.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.sal.p$Num_IBA, dates.sal.p$Baseline, method = "pearson")
-  # p-value = 0.3761
+  # CI = -0.8134565  0.9267202
+  # cor = 0.2437349 
 
 
 
 
-### Correlate AUC_sqrt ### 
 
-# Inulin Winter
-res <- resid(lm(Days_Hib ~ AUC_sqrt, dates.inu.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # p = 0.04767
-  # Not Normal
-cor.test(dates.inu.w$Days_Hib, dates.inu.w$AUC_sqrt, method = "pearson")
-  # p-value = 0.5399
-
-res <- resid(lm(IBA.Hib ~ AUC_sqrt, dates.inu.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.inu.w$IBA.Hib, dates.inu.w$AUC_sqrt, method = "pearson")
-  # p-value = 0.4686
-
-res <- resid(lm(Num_IBA ~ AUC_sqrt, dates.inu.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.inu.w$Num_IBA, dates.inu.w$AUC_sqrt, method = "pearson")
-  # p-value = 0.7622
-
-
-# Inulin Spring
-res <- resid(lm(Days_Hib ~ AUC_sqrt, dates.inu.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.inu.p$Days_Hib, dates.inu.p$AUC_sqrt, method = "pearson")
-  # p-value = 0.4164
-
-res <- resid(lm(IBA.Hib ~ AUC_sqrt, dates.inu.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.inu.p$IBA.Hib, dates.inu.p$AUC_sqrt, method = "pearson")
-  # p-value = 0.5327
-
-res <- resid(lm(Num_IBA ~ AUC_sqrt, dates.inu.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.inu.p$Num_IBA, dates.inu.p$AUC_sqrt, method = "pearson")
-  # p-value = 0.4504
-
-
-# Saline Winter
-res <- resid(lm(Days_Hib ~ AUC_sqrt, dates.sal.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.sal.w$Days_Hib, dates.sal.w$AUC_sqrt, method = "pearson")
-  # p-value = 0.193
-
-res <- resid(lm(IBA.Hib ~ AUC_sqrt, dates.sal.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.sal.w$IBA.Hib, dates.sal.w$AUC_sqrt, method = "pearson")
-  # p-value = 0.5949
-
-res <- resid(lm(Num_IBA ~ AUC_sqrt, dates.sal.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.sal.w$Num_IBA, dates.sal.w$AUC_sqrt, method = "pearson")
-  # p-value = 0.7424
-
-
-# Saline Spring
-res <- resid(lm(Days_Hib ~ AUC_sqrt, dates.sal.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.sal.p$Days_Hib, dates.sal.p$AUC_sqrt, method = "pearson")
-  # p-value = 0.6188
-
-res <- resid(lm(IBA.Hib ~ AUC_sqrt, dates.sal.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.sal.p$IBA.Hib, dates.sal.p$AUC_sqrt, method = "pearson")
-  # p-value = 0.162
-
-res <- resid(lm(Num_IBA ~ AUC_sqrt, dates.sal.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.sal.p$Num_IBA, dates.sal.p$AUC_sqrt, method = "pearson")
-  # p-value = 0.3363
-
-
-
-
-### Correlate AvgD ### 
-
-# Inulin Winter
-res <- resid(lm(Days_Hib ~ AvgD, dates.inu.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.inu.w$Days_Hib, dates.inu.w$AvgD, method = "pearson")
-  # p-value = 0.5222
-
-res <- resid(lm(IBA.Hib ~ AvgD, dates.inu.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.inu.w$IBA.Hib, dates.inu.w$AvgD, method = "pearson")
-  # p-value = 0.4297
-
-res <- resid(lm(Num_IBA ~ AvgD, dates.inu.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.inu.w$Num_IBA, dates.inu.w$AvgD, method = "pearson")
-  # p-value = 0.7281
-
-
-# Inulin Spring
-res <- resid(lm(Days_Hib ~ AvgD, dates.inu.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.inu.p$Days_Hib, dates.inu.p$AvgD, method = "pearson")
-  # p-value = 0.4029
-
-res <- resid(lm(IBA.Hib ~ AvgD, dates.inu.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.inu.p$IBA.Hib, dates.inu.p$AvgD, method = "pearson")
-  # p-value = 0.5284
-
-res <- resid(lm(Num_IBA ~ AvgD, dates.inu.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.inu.p$Num_IBA, dates.inu.p$AvgD, method = "pearson")
-  # p-value = 0.4436
-
-
-# Saline Winter
-res <- resid(lm(Days_Hib ~ AvgD, dates.sal.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.sal.w$Days_Hib, dates.sal.w$AvgD, method = "pearson")
-  # p-value = 0.1841
-
-res <- resid(lm(IBA.Hib ~ AvgD, dates.sal.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.sal.w$IBA.Hib, dates.sal.w$AvgD, method = "pearson")
-  # p-value = 0.6059
-
-res <- resid(lm(Num_IBA ~ AvgD, dates.sal.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.sal.w$Num_IBA, dates.sal.w$AvgD, method = "pearson")
-  # p-value = 0.742
-
-
-# Saline Spring
-res <- resid(lm(Days_Hib ~ AvgD, dates.sal.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.sal.p$Days_Hib, dates.sal.p$AvgD, method = "pearson")
-  # p-value = 0.6049
-
-res <- resid(lm(IBA.Hib ~ AvgD, dates.sal.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.sal.p$IBA.Hib, dates.sal.p$AvgD, method = "pearson")
-  # p-value = 0.0831
-
-res <- resid(lm(Num_IBA ~ AvgD, dates.sal.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.sal.p$Num_IBA, dates.sal.p$AvgD, method = "pearson")
-  # p-value = 0.2111
 
 
 
@@ -1536,6 +988,8 @@ shapiro.test(res)
   # Normal
 cor.test(dates.inu.w$Days_Hib, dates.inu.w$MaxD, method = "pearson")
   # p-value = 0.4531
+  # CI = -0.4654628  0.7990726
+  # cor = 0.2875464 
 
 res <- resid(lm(IBA.Hib ~ MaxD, dates.inu.w))
 hist(res)
@@ -1545,15 +999,9 @@ shapiro.test(res)
   # Normal
 cor.test(dates.inu.w$IBA.Hib, dates.inu.w$MaxD, method = "pearson")
   # p-value = 0.4515
+  # CI = -0.7994647  0.4646120
+  # cor = -0.2885419
 
-res <- resid(lm(Num_IBA ~ MaxD, dates.inu.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.inu.w$Num_IBA, dates.inu.w$MaxD, method = "pearson")
-  # p-value = 0.8128
 
 
 # Inulin Spring
@@ -1565,6 +1013,8 @@ shapiro.test(res)
   # Normal
 cor.test(dates.inu.p$Days_Hib, dates.inu.p$MaxD, method = "pearson")
   # p-value = 0.7036
+  # CI = -0.9253957  0.8165791
+  # cor = -0.2349671 
 
 res <- resid(lm(IBA.Hib ~ MaxD, dates.inu.p))
 hist(res)
@@ -1574,15 +1024,8 @@ shapiro.test(res)
   # Normal
 cor.test(dates.inu.p$IBA.Hib, dates.inu.p$MaxD, method = "pearson")
   # p-value = 0.5327
-
-res <- resid(lm(Num_IBA ~ MaxD, dates.inu.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.inu.p$Num_IBA, dates.inu.p$MaxD, method = "pearson")
-  # p-value = 0.5463
+  # CI = -0.9434008  0.7631471
+  # cor = -0.3646128
 
 
 # Saline Winter
@@ -1594,6 +1037,8 @@ shapiro.test(res)
   # Normal
 cor.test(dates.sal.w$Days_Hib, dates.sal.w$MaxD, method = "pearson")
   # p-value = 0.1624
+  # CI = -0.8422896  0.2473532
+  # cor = -0.4527908
 
 res <- resid(lm(IBA.Hib ~ MaxD, dates.sal.w))
 hist(res)
@@ -1603,15 +1048,8 @@ shapiro.test(res)
   # Normal
 cor.test(dates.sal.w$IBA.Hib, dates.sal.w$MaxD, method = "pearson")
   # p-value = 0.4762
-
-res <- resid(lm(Num_IBA ~ MaxD, dates.sal.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.sal.w$Num_IBA, dates.sal.w$MaxD, method = "pearson")
-  # p-value = 0.8184
+  # CI = -0.5795931  0.7345112
+  # cor = 0.1374271 
 
 
 # Saline Spring
@@ -1622,7 +1060,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(dates.sal.p$Days_Hib, dates.sal.p$MaxD, method = "pearson")
-  # p-value = 0.9127
+  # p-value = 0.38
+  # CI = -0.5761544  0.9226388
+  # cor = 0.4421488
 
 res <- resid(lm(IBA.Hib ~ MaxD, dates.sal.p))
 hist(res)
@@ -1632,16 +1072,8 @@ shapiro.test(res)
   # Normal
 cor.test(dates.sal.p$IBA.Hib, dates.sal.p$MaxD, method = "pearson")
   # p-value = 0.01461
-  # cor = -0.9467961 
-
-res <- resid(lm(Num_IBA ~ MaxD, dates.sal.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.sal.p$Num_IBA, dates.sal.p$MaxD, method = "pearson")
-  # p-value = 0.08477
+  # Ci = -0.9972995 -0.4863357
+  # cor = -0.9576821 
 
 
 
@@ -1660,6 +1092,9 @@ shapiro.test(res)
   # Not Normal
 cor.test(dates.inu.w$Days_Hib, dates.inu.w$MaxSlope, method = "kendall")
   # p-value = 0.3454
+  # tau = 0.2535463
+ci_cor(dates.inu.w$Days_Hib, dates.inu.w$MaxSlope, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # -0.5315096  0.7500000 
 
 res <- resid(lm(IBA.Hib ~ MaxSlope, dates.inu.w))
 hist(res)
@@ -1669,15 +1104,9 @@ shapiro.test(res)
   # Normal
 cor.test(dates.inu.w$IBA.Hib, dates.inu.w$MaxSlope, method = "pearson")
   # p-value = 0.4296
+  # CI = -0.8047344  0.4529456
+  # cor = -0.3020301 
 
-res <- resid(lm(Num_IBA ~ MaxSlope, dates.inu.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.inu.w$Num_IBA, dates.inu.w$MaxSlope, method = "pearson")
-  # p-value = 0.9546
 
 
 # Inulin Spring
@@ -1689,6 +1118,8 @@ shapiro.test(res)
   # Normal
 cor.test(dates.inu.p$Days_Hib, dates.inu.p$MaxSlope, method = "pearson")
   # p-value = 0.7633
+  # Ci = -0.9178319  0.8326501
+  # cor = -0.1869628
 
 res <- resid(lm(IBA.Hib ~ MaxSlope, dates.inu.p))
 hist(res)
@@ -1698,15 +1129,8 @@ shapiro.test(res)
   # Normal
 cor.test(dates.inu.p$IBA.Hib, dates.inu.p$MaxSlope, method = "pearson")
   # p-value = 0.6705
-
-res <- resid(lm(Num_IBA ~ MaxSlope, dates.inu.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.inu.p$Num_IBA, dates.inu.p$MaxSlope, method = "pearson")
-  # p-value = 0.6385
+  # CI = -0.9293996  0.8068176
+  # cor = -0.2618188
 
 
 # Saline Winter
@@ -1717,7 +1141,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(dates.sal.w$Days_Hib, dates.sal.w$MaxSlope, method = "pearson")
-  # p-value = 0.2444
+  # p-value = 0.3965
+  # CI = -0.4046253  0.7827478
+  # cor = 0.3019186 
 
 res <- resid(lm(IBA.Hib ~ MaxSlope, dates.sal.w))
 hist(res)
@@ -1726,16 +1152,10 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(dates.sal.w$IBA.Hib, dates.sal.w$MaxSlope, method = "pearson")
-  # p-value = 0.4055
+  # p-value = 0.9288
+  # CI = -0.6832444  0.6440887
+  # cor = -0.0350077 
 
-res <- resid(lm(Num_IBA ~ MaxSlope, dates.sal.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.sal.w$Num_IBA, dates.sal.w$MaxSlope, method = "pearson")
-  # p-value = 0.8882
 
 
 # Saline Spring
@@ -1746,7 +1166,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(dates.sal.p$Days_Hib, dates.sal.p$MaxSlope, method = "pearson")
-  # p-value = 0.9362
+  # p-value = 0.4402
+  # CI = -0.6142233  0.9133714
+  # cor = 0.3934797 
 
 res <- resid(lm(IBA.Hib ~ MaxSlope, dates.sal.p))
 hist(res)
@@ -1755,16 +1177,10 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(dates.sal.p$IBA.Hib, dates.sal.p$MaxSlope, method = "pearson")
-  # p-value = 0.9958
+  # p-value = 0.7359
+  # CI =  -0.8254998  0.9213618
+  # cor = 0.2089396 
 
-res <- resid(lm(Num_IBA ~ MaxSlope, dates.sal.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-cor.test(dates.sal.p$Num_IBA, dates.sal.p$MaxSlope, method = "pearson")
-  # p-value = 0.8852
 
 
 
@@ -1795,6 +1211,8 @@ qqline(res)
 shapiro.test(res)
 cor.test(rpkg.dates.w$Days_Hib, rpkg.dates.w$RPKG, method = "pearson")
   # p-value = 0.5756
+  # CI = -0.9402272  0.7746305
+  # cor = -0.3400072 
 
 res <- resid(lm(IBA.Hib ~ RPKG, rpkg.dates.w))
 hist(res)
@@ -1803,14 +1221,9 @@ qqline(res)
 shapiro.test(res)
 cor.test(rpkg.dates.w$IBA.Hib, rpkg.dates.w$RPKG, method = "pearson")
   # p-value = 0.6959
+  # CI = -0.9263363  0.8143722
+  # cor = -0.2411816 
 
-res <- resid(lm(Num_IBA ~ RPKG, rpkg.dates.w))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-cor.test(rpkg.dates.w$Num_IBA, rpkg.dates.w$RPKG, method = "pearson")
-  # p-value = 0.5854
 
 res <- resid(lm(Days_Hib ~ RPKG, rpkg.dates.p))
 hist(res)
@@ -1819,6 +1232,8 @@ qqline(res)
 shapiro.test(res)
 cor.test(rpkg.dates.p$Days_Hib, rpkg.dates.p$RPKG, method = "pearson")
   # p-value = 0.3231
+  # CI = -0.5332439  0.9313537
+  # cor = 0.490652 
 
 res <- resid(lm(IBA.Hib ~ RPKG, rpkg.dates.p))
 hist(res)
@@ -1827,64 +1242,16 @@ qqline(res)
 shapiro.test(res)
 cor.test(rpkg.dates.p$IBA.Hib, rpkg.dates.p$RPKG, method = "pearson")
   # p-value = 0.8018
+  # CI = -0.8525207  0.7606957
+  # cor = -0.1329302 
 
-res <- resid(lm(Num_IBA ~ RPKG, rpkg.dates.p))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-cor.test(rpkg.dates.p$Num_IBA, rpkg.dates.p$RPKG, method = "pearson")
-  # p-value = 0.9493
+
 
 ```
 
 ### Adj P
 ```{r}
-p.adjust(c(0.0006718, 0.443, 0.002927, 0.4277, 0.04429, 0.6474, 0.5897, 0.05967, 0.722,
-           0.06493, 0.1045, 0.1923, 0.006091, 0.2322, 0.06079, 0.3841, 0.3218, 0.2561,
-           0.2987, 0.4263, 0.008264, 0.7934, 0.166, 0.8798, 0.7325, 0.4552, 0.9436, 0.8833,
-           0.3582, 0.8482, 0.7786, 0.9001, 0.2926, 0.7659, 0.09455, 0.04198, 0.2618, 0.363,
-           0.8885, 0.04198, 0.1602, 0.5212, 0.0378, 0.2983, 0.858, 0.3477, 0.116, 0.7125,
-           0.2854, 0.332, 0.6418, 0.4857, 0.8903, 0.1424, 0.9383, 0.0002925, 0.05815,
-           0.1171, 0.3556, 0.4753, 0.2177, 0.3748, 0.5766, 0.1574, 0.1089, 0.4933, 0.3552,
-           0.4934, 0.7211, 0.9754), "BH")
-  # 0.02351300 0.71954167 0.06829667 0.71283333 0.34447778 0.85505660 0.80939216
- [8] 0.34962308 0.89956140 0.34962308 0.45538889 0.58526087 0.10659250 0.65016000
-[15] 0.34962308 0.67217500 0.66868421 0.66868421 0.66868421 0.71283333 0.11569600
-[22] 0.92563333 0.52818182 0.94040299 0.89956140 0.71954167 0.95727536 0.94040299
-[29] 0.66868421 0.94040299 0.92376271 0.94040299 0.66868421 0.92376271 0.45538889
-[36] 0.34447778 0.66868421 0.66868421 0.94040299 0.34447778 0.52818182 0.74457143
-[43] 0.34447778 0.66868421 0.94040299 0.66868421 0.45538889 0.89956140 0.66868421
-[50] 0.66868421 0.85505660 0.71954167 0.94040299 0.52463158 0.95727536 0.02047500
-[57] 0.34962308 0.45538889 0.66868421 0.71954167 0.63495833 0.67217500 0.80724000
-[64] 0.52818182 0.45538889 0.71954167 0.66868421 0.71954167 0.89956140 0.97540000
 
-
-
-
-p.adjust(c(0.8616, 0.6949, 0.3991, 0.5399, 0.4686, 0.7622, 0.5222, 0.4297, 0.7281, 0.4531,
-           0.4515, 0.8128, 0.3454, 0.4296, 0.9546, 0.09606, 0.5982, 0.4493, 0.4164, 0.5327,
-           0.4504, 0.4029, 0.5284, 0.4436, 0.7036, 0.5463, 0.5103, 0.7633, 0.6705, 0.6385,
-           5.62E-05, 0.9251, 0.1271, 0.193, 0.5949, 0.7424, 0.1841, 0.6059, 0.742,0.1624,
-           0.4762, 0.8184, 0.2444, 0.4055, 0.8882, 0.172, 0.6928, 0.3761, 0.6188, 0.162,
-           0.3363, 0.6049, 0.0831, 0.2111, 0.9127, 0.01461, 0.08477, 0.9362, 0.9958, 
-           0.8852), "BH")
-  # 0.9684828 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600
- [9] 0.9159600 0.9159600 0.9159600 0.9443077 0.9159600 0.9159600 0.9707797 0.9159600
-[17] 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600
-[25] 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.0033720 0.9684828
-[33] 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600
-[41] 0.9159600 0.9443077 0.9159600 0.9159600 0.9684828 0.9159600 0.9159600 0.9159600
-[49] 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9159600 0.9684828 0.4383000
-[57] 0.9159600 0.9684828 0.9958000 0.9684828
-
-
-
-
-
-
-p.adjust(c(0.5756, 0.6959, 0.5854, 0.3231, 0.8018, 0.9493, 0.9096, 0.6674, 0.6854, 0.7554, 0.9127), "BH")
-  # 0.9493 0.9493 0.9493 0.9493 0.9493 0.9493 0.9493 0.9493 0.9493 0.9493 0.9493
 ```
 
 
@@ -1896,5 +1263,9 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
 cor.test(crds.inu.noabx$MaxD, crds.inu.noabx$MaxSlope, method = "pearson")
+  # p = 9.496e-11
+  # CI = 0.8694993 0.9782406
+  # cor = 0.9460754 
+
 
 ```
