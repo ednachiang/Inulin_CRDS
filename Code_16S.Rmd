@@ -250,7 +250,7 @@ tax.muc <- as.matrix(tax.muc)
 ### Format metadata
 meta.con <- meta[which(meta$Source == "Content"),]
 meta.muc <- meta[which(meta$Source == "Mucosa"),]
-delta.c <- meta.con[,24:35]
+delta.c <- meta.con[,24:33]
 delta.c$BodyMass <- as.numeric(meta.con$BodyMass)
 delta.c$DNAyield <- meta.con$DNAyield
 delta.c$Baseline <- as.numeric(delta.c$Baseline)
@@ -259,7 +259,7 @@ delta.c$BodyMass <- as.numeric(delta.c$BodyMass)
 delta.c$DNAyield <- as.numeric(delta.c$DNAyield)
 delta.c <- as.matrix(delta.c)
 
-delta.m <- meta.muc[,24:35]
+delta.m <- meta.muc[,24:33]
 delta.m$BodyMass <- meta.muc$BodyMass
 delta.m$DNAyield <- meta.muc$DNAyield
 delta.m$BodyMass <- as.numeric(meta.muc$BodyMass)
@@ -271,8 +271,7 @@ delta.m$DNAyield <- as.numeric(delta.m$DNAyield)
 delta.m <- as.matrix(delta.m)
 
 
-delta.use <- delta.c[,-2:-4]
-delta.use <- delta.use[,-3:-4]
+delta.use <- delta.m[,-2:-4]
 delta.use <- delta.use[,-4:-6]
   # Keeping BodyMass, DNAyield, Baseline, and MaxSlope
   # Set MaxSlope as main variable
@@ -293,7 +292,7 @@ all.phy.c <- QCAT_GEE(OTU=otu.c, Tax=tax.con, X=delta.use, X.index = 4, Z=delta.
 
 
 
-all.phy.m <- QCAT_GEE(OTU=otu.m, Tax=tax.muc, X=delta.use, X.index = 2, Z=delta.use, Z.index=2,  fdr.alpha=0.05, n.resample = 999)
+all.phy.m <- QCAT_GEE(OTU=otu.m, Tax=tax.muc, X=delta.use, X.index = 4, Z=delta.use, Z.index=4,  fdr.alpha=0.05, n.resample = 99)
   # No sig
 #save(all.phy.m, file = "miLineage.output.all.phy.m.RData")
 
@@ -315,7 +314,7 @@ tax.con <- as.matrix(tax.con)
 
 ### Format metadata
 meta.con <- data.frame(sample_data(phy.con.sum))
-delta.con.sum <- meta.con[,28:33]
+delta.con.sum <- meta.con[,24:33]
 delta.con.sum$BodyMass <- meta.con$BodyMass
 delta.con.sum$Baseline <- as.numeric(delta.con.sum$Baseline)
 delta.con.sum$AUC_sqrt <- as.numeric(delta.con.sum$AUC_sqrt)
@@ -326,15 +325,19 @@ delta.con.sum$DNAyield <- as.numeric(delta.con.sum$DNAyield)
 delta.con.sum$BodyMass <- as.numeric(delta.con.sum$BodyMass)
 delta.con.sum <- as.matrix(delta.con.sum)
 
-delta.use <- delta.con.sum[,-2:-3]
-delta.use <- delta.use[,-3]
+delta.use <- delta.con.sum[,-2:-4]
+delta.use <- delta.use[,-4:-6]
+  # Keeping BodyMass, DNAyield, Baseline, and MaxSlope
+  # Set MaxSlope as main variable
+delta.use <- matrix(as.numeric(delta.use), ncol = ncol(delta.use))
+
 
 
 ### Format OTU table
 otu.c <- as.matrix(t(data.frame(otu_table(phy.con.sum))))
 
-phy.con.sum.qcat <- QCAT_GEE(OTU=otu.c, Tax=tax.con, X=delta.use, X.index = 2,
-                              Z=delta.con.sum, Z.index=2, fdr.alpha=0.05, n.resample = 999)
+phy.con.sum.qcat <- QCAT_GEE(OTU=otu.c, Tax=tax.con, X=delta.use, X.index = 4,
+                              Z=delta.con.sum, Z.index=4, fdr.alpha=0.05, n.resample = 99)
 #save(phy.con.sum.qcat, file = "miLineage.output.phy.con.sum.RData")
 
 
@@ -352,7 +355,7 @@ tax.con <- as.matrix(tax.con)
 
 ### Format metadata
 meta.con <- data.frame(sample_data(phy.con.noabx.raw))
-delta.con.noabx <- meta.con[,28:33]
+delta.con.noabx <- meta.con[,24:33]
 delta.con.noabx$BodyMass <- meta.con$BodyMass
 delta.con.noabx$Baseline <- as.numeric(delta.con.noabx$Baseline)
 delta.con.noabx$AUC_sqrt <- as.numeric(delta.con.noabx$AUC_sqrt)
@@ -364,15 +367,18 @@ delta.con.noabx$BodyMass <- as.numeric(delta.con.noabx$BodyMass)
 #test <- delta.con.noabx[,-7]
 delta.con.noabx <- as.matrix(delta.con.noabx)
 
-delta.use <- delta.con.noabx[,-2:-3]
-delta.use <- delta.use[,-3]
+delta.use <- delta.con.noabx[,-2:-4]
+delta.use <- delta.use[,-4:-6]
+  # Keeping BodyMass, DNAyield, Baseline, and MaxSlope
+  # Set MaxSlope as main variable
+delta.use <- matrix(as.numeric(delta.use), ncol = ncol(delta.use))
 
 
 
 ### Format OTU table
 otu.c <- as.matrix(t(data.frame(otu_table(phy.con.noabx.raw))))
 
-phy.con.noabx.qcat <- QCAT_GEE(OTU=otu.c, Tax=tax.con, X=delta.use, X.index = 2, Z=delta.use, Z.index=2,  fdr.alpha=0.05, n.resample = 99)
+phy.con.noabx.qcat <- QCAT_GEE(OTU=otu.c, Tax=tax.con, X=delta.use, X.index = 4, Z=delta.use, Z.index=4,  fdr.alpha=0.05, n.resample = 99)
 #save(phy.con.noabx.qcat, file = "miLineage.output.phy.con.noabx.RData")
 
 ```
