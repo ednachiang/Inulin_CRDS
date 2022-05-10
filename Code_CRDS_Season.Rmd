@@ -397,31 +397,8 @@ shapiro.test(res)
   # Normal
 leveneTest(AvgD ~ Season, crds.inu.noabx)
   # p = 0.03463
-leveneTest(AvgD ~ Season, crds.inu.noabx[which(crds.inu.noabx$Season != "Spring"),])
-  # Summer-Winter p = 0.9105
-leveneTest(AvgD ~ Season, crds.inu.noabx[which(crds.inu.noabx$Season != "Winter"),])
-  # Summer-Spring p = 0.05237
-leveneTest(AvgD ~ Season, crds.inu.noabx[which(crds.inu.noabx$Season != "Summer"),])
-  # Summer-Spring p = 0.03176
-p.adjust(c(0.9105, 0.05237, 0.03176), "BH")
-  # 0.910500 0.078555 0.078555
-b2 <- two.boot(sample1 = crds.inu.noabx$AvgD[which(crds.inu.noabx$Season == "Summer")], 
-         sample2 = crds.inu.noabx$AvgD[which(crds.inu.noabx$Season == "Winter")],
-         FUN = var, R = 9999)
-boot.ci(b2, conf = 0.95, type = "bca")
-  # Summer-Winter CI = -105085,  200989
-b2 <- two.boot(sample1 = crds.inu.noabx$AvgD[which(crds.inu.noabx$Season == "Summer")], 
-         sample2 = crds.inu.noabx$AvgD[which(crds.inu.noabx$Season == "Spring")],
-         FUN = var, R = 9999)
-boot.ci(b2, conf = 0.95, type = "bca")
-  # Summer-Spring CI = -645662, -107160
-b2 <- two.boot(sample1 = crds.inu.noabx$AvgD[which(crds.inu.noabx$Season == "Spring")], 
-         sample2 = crds.inu.noabx$AvgD[which(crds.inu.noabx$Season == "Winter")],
-         FUN = var, R = 9999)
-boot.ci(b2, conf = 0.95, type = "bca")
-  # Spring-Winter CI = 189303, 663116
-kruskal.test(AvgD ~ Season, crds.inu.noabx)
-  # p = 0.3096
+summary(aov(AvgD ~ Season, crds.inu.noabx))
+  # p = 0.187
   
 
 # ABX
@@ -463,10 +440,7 @@ leveneTest(AvgD ~ Season, crds.sal.abx)
   # p = 0.2089
 summary(aov(AvgD ~ Season, crds.sal.abx))
   # p = 0.0687
-TukeyHSD(aov(AvgD ~ Season, crds.sal.abx))
-  # Summer-Winter adj p = 0.0643084; CI = -3.034201, 0.08159865
-  # Summer-Spring adj p = 0.2321820; CI = -2.462090, 0.50870913
-  # Spring-Winter adj p = 0.6856179; CI = -2.05751114, 1.058289
+
 
 
 
@@ -476,8 +450,8 @@ p.adjust(c(0.03463, 0.3414, 0.4167, 0.2089), "BH")
   # 0.13852 0.41670 0.41670 0.41670
 
 ### ANOVA/KW Adj P
-p.adjust(c(0.3096, 0.551, 0.17, 0.0687), "BH")
-  # 0.4128 0.5510 0.3400 0.2748
+p.adjust(c(0.187, 0.551, 0.17, 0.0687), "BH")
+  # 0.2493333 0.5510 0.2493333 0.2493333
 ```
 
 
@@ -643,10 +617,6 @@ leveneTest(MaxD ~ Season, crds.sal.noabx)
   # p = 0.4918
 summary(aov(MaxD ~ Season, crds.sal.noabx))
   # p = 0.089
-TukeyHSD(aov(MaxD ~ Season, crds.sal.noabx))
-  # Summer-Winter adj p = 0.0822765, CI = -5.1012946, 0.2753225
-  # Summer-Spring adj p = 0.7414043, CI = -3.3375526, -1.8434852
-  # Spring-Winter adj p = 0.2507518, CI = -4.2564713, 0.9245666
 
 # ABX
 res <- resid(lm(MaxD ~ Season, crds.sal.abx))
@@ -657,29 +627,6 @@ shapiro.test(res)
   # Normal
 leveneTest(MaxD ~ Season, crds.sal.abx)
   # p = 0.08924
-leveneTest(MaxD ~ Season, crds.sal.abx[which(crds.sal.abx$Season != "Spring"),])
-  # Summer - Winter = 0.1856
-leveneTest(MaxD ~ Season, crds.sal.abx[which(crds.sal.abx$Season != "Winter"),])
-  # Summer - Spring = 0.05623
-leveneTest(MaxD ~ Season, crds.sal.abx[which(crds.sal.abx$Season != "Summer"),])
-  # Spring - Winter = 0.4912
-p.adjust(c(0.1856, 0.05623, 0.4912), "BH")
-  # 0.27840 0.16869 0.49120
-b2 <- two.boot(sample1 = crds.sal.abx$MaxD[which(crds.sal.abx$Season == "Summer")], 
-         sample2 = crds.sal.abx$MaxD[which(crds.sal.abx$Season == "Winter")],
-         FUN = var, R = 9999)
-boot.ci(b2, conf = 0.95, type = "bca")
-  # Summer-Winter CI = 0.045,  3.825
-b2 <- two.boot(sample1 = crds.sal.abx$MaxD[which(crds.sal.abx$Season == "Summer")], 
-         sample2 = crds.sal.abx$MaxD[which(crds.sal.abx$Season == "Spring")],
-         FUN = var, R = 9999)
-boot.ci(b2, conf = 0.95, type = "bca")
-  # Summer-Spring CI = 0.523,  4.109
-b2 <- two.boot(sample1 = crds.sal.abx$MaxD[which(crds.sal.abx$Season == "Spring")], 
-         sample2 = crds.sal.abx$MaxD[which(crds.sal.abx$Season == "Winter")],
-         FUN = var, R = 9999)
-boot.ci(b2, conf = 0.95, type = "bca")
-  # Spring-Winter CI = -0.9991,  0.1838
 summary(aov(MaxD ~ Season, crds.sal.abx))
   # p = 0.106
 
