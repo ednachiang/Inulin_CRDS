@@ -76,62 +76,57 @@ divsum$Source[which(divsum$Source == "T")] <- "Mucosa"
 
 
 
-### Prepare CRDS metrics
-load('crds.norm.RData')
-load('crds.use.Rdata')
-crds.meta <- read.csv('metadata.csv')
-crds.use[, colnames(crds.meta)[3:ncol(crds.meta)]] <- NA
-for(i in 1:nrow(crds.use)){
-  crds.meta.row <- which(crds.meta$ID == crds.use$ID[i])
-  crds.use[i, 7:ncol(crds.use)] <- crds.meta[crds.meta.row, 3:ncol(crds.meta)]
-}
-
-# Calculate square root of AUC
-crds.use$AUC <- as.numeric(crds.use$AUC)
-minAUC <- min(crds.use$AUC)
-crds.use$AUC_sqrt <- crds.use$AUC + (minAUC * -1)
-crds.use$AUC_sqrt <- sqrt(crds.use$AUC_sqrt)
-
-# Remove outliers
-crds.rem <- crds.use[-which(crds.use$ID == "S23"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "S37"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "S60"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
-crds.rem <- crds.rem[-which(crds.rem$ID == "W20"),]
-  # This is due to odd crds.metagenome
-crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
-
-# Remove samples w/o CRDS metrics
-divsum <- divsum[-which(divsum$ID == "S11"),]
-divsum <- divsum[-which(divsum$ID == "S60"),]
-divsum <- divsum[-which(divsum$ID == "S37"),]
-  # Since miLineage was not sig, no reason to remove these samples
+# ### Prepare CRDS metrics
+# load('crds.norm.RData')
+# load('crds.use.Rdata')
+# crds.meta <- read.csv('metadata.csv')
+# crds.use[, colnames(crds.meta)[3:ncol(crds.meta)]] <- NA
+# for(i in 1:nrow(crds.use)){
+#   crds.meta.row <- which(crds.meta$ID == crds.use$ID[i])
+#   crds.use[i, 7:ncol(crds.use)] <- crds.meta[crds.meta.row, 3:ncol(crds.meta)]
+# }
+# 
+# # Calculate square root of AUC
+# crds.use$AUC <- as.numeric(crds.use$AUC)
+# minAUC <- min(crds.use$AUC)
+# crds.use$AUC_sqrt <- crds.use$AUC + (minAUC * -1)
+# crds.use$AUC_sqrt <- sqrt(crds.use$AUC_sqrt)
+# 
+# # Remove outliers
+# crds.rem <- crds.use[-which(crds.use$ID == "S23"),]
+# crds.rem <- crds.rem[-which(crds.rem$ID == "S37"),]
+# crds.rem <- crds.rem[-which(crds.rem$ID == "S60"),]
+# crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
+# crds.rem <- crds.rem[-which(crds.rem$ID == "W20"),]
+#   # This is due to odd crds.metagenome
+# crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
+# 
+# # Remove samples w/o CRDS metrics
+# divsum <- divsum[-which(divsum$ID == "S11"),]
+# divsum <- divsum[-which(divsum$ID == "S60"),]
+# divsum <- divsum[-which(divsum$ID == "S37"),]
+#   # Since miLineage was not sig, no reason to remove these samples
 
 
 
 # Fill in metadata
-for(i in 1:nrow(divsum)){
-  #divsum$Individual[i] <- divsum$test[[i]][[2]]
+#for(i in 1:nrow(divsum)){
 
-  #use <- which(meta$ID == divsum$ID[i])
-  #divsum$Source[i] <- divsum$test[[i]][[1]]
-  #divsum[i,18:30] <- meta[use,]
-
-  crdsRow <- which(crds.rem$ID == divsum$ID[i])
-  divsum$Baseline[i] <- crds.rem$Baseline[crdsRow]
-  divsum$AUC_sqrt[i] <- crds.rem$AUC_sqrt[crdsRow]
-  divsum$AvgD[i] <- crds.rem$AvgD[crdsRow]
-  divsum$MaxD[i] <- crds.rem$MaxD[crdsRow]
-  divsum$MaxSlope[i] <- crds.rem$MaxSlope[crdsRow]
-
-  dna.use <- which(dna$Sample == divsum$Sample[i])
-  divsum$DNAyield[i] <- dna$DNA_Yield_.ng.mg.[dna.use]
+  # crdsRow <- which(crds.rem$ID == divsum$ID[i])
+  # divsum$Baseline[i] <- crds.rem$Baseline[crdsRow]
+  # divsum$AUC_sqrt[i] <- crds.rem$AUC_sqrt[crdsRow]
+  # divsum$AvgD[i] <- crds.rem$AvgD[crdsRow]
+  # divsum$MaxD[i] <- crds.rem$MaxD[crdsRow]
+  # divsum$MaxSlope[i] <- crds.rem$MaxSlope[crdsRow]
+  # 
+  # dna.use <- which(dna$Sample == divsum$Sample[i])
+  # divsum$DNAyield[i] <- dna$DNA_Yield_.ng.mg.[dna.use]
 }
 
 
-divsum$Source <- substr(divsum$Source, start = 1, stop = 1)
-divsum$Source[which(divsum$Source == "C")] <- "Content"
-divsum$Source[which(divsum$Source == "M")] <- "Mucosa"
+#divsum$Source <- substr(divsum$Source, start = 1, stop = 1)
+#divsum$Source[which(divsum$Source == "C")] <- "Content"
+#divsum$Source[which(divsum$Source == "M")] <- "Mucosa"
 
 
 
@@ -147,13 +142,13 @@ otu.rem <- list()
 for(j in 1:nrow(otu)){
   empty <- length(which(otu[j,] == 0))
     # Identifies # of samples w/o OTU
-  if(empty > 39){
+  if(empty > 42){
     # If OTU appears in < 3 samples
     otu.rem <- append(otu.rem, j)
       # Create list of OTUs that appear in only 1 sample
   }
 }
-# 1288 OTUs to remove
+# 1251 OTUs to remove
 otu.rem <- otu[-unlist(otu.rem),]
 
 
@@ -186,7 +181,7 @@ phy.spr <- subset_samples(phy.ra, Season == "Spring")
 
 # Separate by Season + Sample Type
 phy.sum.c <- subset_samples(phy.sum, Source == "Content")
-  # 14 samples
+  # 17 samples
 phy.sum.m <- subset_samples(phy.sum, Source == "Mucosa")
   # 15 samples
 phy.win.c <- subset_samples(phy.win, Source == "Content")
