@@ -66,20 +66,17 @@ norm.time.crds <- function(x){
       # Subset measurements that happened after the cutoff
       lastRowUse <- max[1]
       # Interpolate cutoff measurement
-      lastDeltaNorm <- select$DeltaNorm[lastRowUse]
-      # Rise
-      lastTime <- select$RelTime[lastRowUse]
-      # Run
-      lastSlopeNorm <- lastDeltaNorm / lastTime
-      # Rise / Run
-      lastDelta <- select$Delta[lastRowUse]
-      lastSlope <- lastDelta / lastTime
+      lastDeltaNorm1 <- select$DeltaNorm[lastRowUse - 1]
+      lastDeltaNorm2 <- select$DeltaNorm[lastRowUse]
+      lastTime1 <- select$RelTime[lastRowUse-1]
+      lastTime2 <- select$RelTime[lastRowUse]
+      lastSlope <- (lastDeltaNorm2 - lastDeltaNorm1) / (lastTime2 - lastTime1)
       
       select$RelTime[lastRowUse] <- maxSal
       select$BinTime[lastRowUse] <- maxSal
-      select$DeltaNorm[lastRowUse] <- lastSlope * (lastRowUse - (lastRowUse-1))
-      select$Delta[lastRowUse] <- lastSlope * ((lastRowUse - lastRowUse-1))
-    
+      select$DeltaNorm[lastRowUse] <- select$DeltaNorm[lastRowUse-1] + (lastSlope * (maxSal - lastTime1))
+      select$Delta[lastRowUse] <- select$Delta[lastRowUse-1] + (lastSlope * (maxSal - lastTime1))
+      
       if (length(max) > 1){
         select <- select[-max[2:length(max)],]
           # Remove extra measurements after cutoff
