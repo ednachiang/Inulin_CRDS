@@ -56,6 +56,8 @@ norm.time.crds <- function(x){
         # Remove extra measurements after cutoff
       crds.norm <- rbind(crds.norm, select)
       } else {
+        bigBin <- which(select$BinTime > maxInu)
+        select$BinTime[bigBin] <- maxInu
         crds.norm <- rbind(crds.norm, select)
       }
       
@@ -81,9 +83,11 @@ norm.time.crds <- function(x){
     
       if (length(max) > 1){
         select <- select[-max[2:length(max)],]
-        # Remove extra measurements after cutoff
+          # Remove extra measurements after cutoff
         crds.norm <- rbind(crds.norm, select)
       } else {
+        bigBin <- which(select$BinTime > maxSal)
+        select$BinTime[bigBin] <- maxSal
         crds.norm <- rbind(crds.norm, select)
       }
     }
