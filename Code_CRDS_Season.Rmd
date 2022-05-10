@@ -14,6 +14,8 @@ library(grid)
 library(car)
 library(dunn.test)
 library(Rmisc)
+library(boot)
+library(simpleboot)
 source('scripts/misc.R')
 set.seed(1)
 theme_set(theme_bw())
@@ -77,7 +79,7 @@ crds.sal.s <- crds.sal[which(crds.sal$Season == "Summer"),]
 crds.sal.w <- crds.sal[which(crds.sal$Season == "Winter"),]
 crds.sal.p <- crds.sal[which(crds.sal$Season == "Spring"),]
 
-# Separate bu substrate + antibiotics
+# Separate by substrate + antibiotics
 crds.inu.noabx <- crds.inu[which(crds.inu$Antibiotics == "No"),]
 crds.inu.abx <- crds.inu[which(crds.inu$Antibiotics == "Yes"),]
 crds.sal.noabx <- crds.sal[which(crds.sal$Antibiotics == "No"),]
@@ -86,80 +88,6 @@ crds.sal.abx <- crds.sal[which(crds.sal$Antibiotics == "Yes"),]
 
 
 
-### Test baseline
-```{r}
-### Inulin ###
-
-# No ABX
-res <- resid(lm(Baseline ~ Season, crds.inu.noabx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-leveneTest(Baseline ~ Season, crds.inu.noabx)
-  # p = 0.2583
-summary(aov(Baseline ~ Season, crds.inu.noabx))
-  # p = 1.39e-06
-TukeyHSD(aov(Baseline ~ Season, crds.inu.noabx))
-  # Summer-Winter adj p = 0.0000021; CI = 3.2838050 - 6.742862
-  # Summer-Spring adj p = 0.4230985; CI = 0.8609569 - 2.598100
-  # Winter-Spring adj p = 0.0000254; CI = -5.8742902 - -2.415234
-
-# ABX
-res <- resid(lm(Baseline ~ Season, crds.inu.abx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-leveneTest(Baseline ~ Season, crds.inu.abx)
-  # p = 0.9975
-summary(aov(Baseline ~ Season, crds.inu.abx))
-  # p = 1.79e-06
-TukeyHSD(aov(Baseline ~ Season, crds.inu.abx))
-  # Summer-Winter adj p = 0.0000059; CI = 2.229910 - 4.711804
-  # Summer-Spring adj p = 0.0000042; CI = 2.326577 - 4.808471
-  # Winter-Spring adj p = 0.9736710; CI = -1.036158 - 1.229491
-
-
-
-### Saline ###
-
-# No ABX
-res <- resid(lm(Baseline ~ Season, crds.sal.noabx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-leveneTest(Baseline ~ Season, crds.sal.noabx)
-  # p = 0.1286
-summary(aov(Baseline ~ Season, crds.sal.noabx))
-  # p = 0.000362
-TukeyHSD(aov(Baseline ~ Season, crds.sal.noabx))
-  # Summer-Winter adj p = 0.0002443; CI = 2.58160869 - 7.6650580
-  # Summer-Spring adj p = 0.0542860; CI = -0.04069572 - 4.8578386
-  # Winter-Spring adj p = 0.0289141; CI = -5.16402906 - -0.2654948
-
-
-# ABX
-res <- resid(lm(Baseline ~ Season, crds.sal.abx))
-hist(res)
-qqnorm(res)
-qqline(res)
-shapiro.test(res)
-  # Normal
-leveneTest(Baseline ~ Season, crds.sal.abx)
-  # p = 0.004228
-kruskal.test(Baseline ~ Season, crds.sal.abx)
-  # p = 0.01121
-dunn.test(x = crds.sal.abx$Baseline, g = crds.sal.abx$Season, method = "bh", label = T)
-  # Summer-Winter adj p = 0.0071*
-  # Summer-Spring adj p = 0.0193*
-  # Winter-Spring adj p = 0.2427
-
-```
 
 
 ### Plot Baseline
@@ -253,8 +181,8 @@ sal.base.plot <- ggplot(crds.sal, aes(x = Season, y = Baseline, color = SeasonAB
 ### Plot
 
 #png("crds.base.png", width = 200, height = 75, units = "mm", res = 400)
-gricrds.newpage()
-pushViewport(viewport(layout=gricrds.layout(2,3, widths = c(1, 1, 0.3))))
+grid.newpage()
+pushViewport(viewport(layout=grid.layout(2,3, widths = c(1, 1, 0.3))))
 
 print(inu.base.plot, vp=viewport(layout.pos.row=1:2, layout.pos.col=1))
 grid.text("A", x=unit(0.065, "npc"), y=unit(0.93, "npc"), 
@@ -289,14 +217,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 leveneTest(AUC_sqrt ~ Season, crds.inu.noabx)
-  # p = 0.167
+  # p = 0.169
 summary(aov(AUC_sqrt ~ Season, crds.inu.noabx))
   # p = 0.105
-TukeyHSD(aov(AUC_sqrt ~ Season, crds.inu.noabx))
-  # CI
-    # Summer-Winter = -12.65749, -36.778320
-    # Summer-Spring = -34.53070, 14.905108
-    # Spring-Winter = -2.844693, 46.59112
 
 # ABX
 res <- resid(lm(AUC_sqrt ~ Season, crds.inu.abx))
@@ -306,9 +229,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 leveneTest(AUC_sqrt ~ Season, crds.inu.abx)
-  # p = 0.3323
+  # p = 0.3313
 summary(aov(AUC_sqrt ~ Season, crds.inu.abx))
-  # p = 0.559
+  # p = 0.557
 
 
 
@@ -320,12 +243,11 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.02206
-  # Not Normal
-fligner.test(AUC_sqrt ~ Season, crds.sal.noabx)
-  # p = 0.3271
-kruskal.test(AUC_sqrt ~ Season, crds.sal.noabx)
-  # p = 0.1175
+  # Normal
+leveneTest(AUC_sqrt ~ Season, crds.sal.noabx)
+  # p = 0.6215
+summary(aov(AUC_sqrt ~ Season, crds.sal.noabx))
+  # p = 0.27
 
 # ABX
 res <- resid(lm(AUC_sqrt ~ Season, crds.sal.abx))
@@ -335,19 +257,19 @@ qqline(res)
 shapiro.test(res)
   # Normal
 leveneTest(AUC_sqrt ~ Season, crds.sal.abx)
-  # p = 0.7997
+  # p = 0.6322
 summary(aov(AUC_sqrt ~ Season, crds.sal.abx))
-  # p = 0.128
+  # p = 0.519
 
 
 
 ### Variance Adj P
-p.adjust(c(0.167, 0.3323, 0.3271, 0.7997), "BH")
-  # 0.4430667 0.4430667 0.4430667 0.7997000
+p.adjust(c(0.169, 0.3313, 0.6215, 0.6322), "BH")
+  # 0.6322 0.6322 0.6322 0.6322
 
 ### ANOVA/KW Adj P
-p.adjust(c(0.105, 0.559, 0.1175, 0.128), "BH")
-  # 0.1706667 0.5590000 0.1706667 0.1706667
+p.adjust(c(0.105, 0.557, 0.27, 0.519), "BH")
+  # 0.420 0.557 0.540 0.557
 ```
 
 
@@ -475,8 +397,31 @@ shapiro.test(res)
   # Normal
 leveneTest(AvgD ~ Season, crds.inu.noabx)
   # p = 0.03463
+leveneTest(AvgD ~ Season, crds.inu.noabx[which(crds.inu.noabx$Season != "Spring"),])
+  # Summer-Winter p = 0.9105
+leveneTest(AvgD ~ Season, crds.inu.noabx[which(crds.inu.noabx$Season != "Winter"),])
+  # Summer-Spring p = 0.05237
+leveneTest(AvgD ~ Season, crds.inu.noabx[which(crds.inu.noabx$Season != "Summer"),])
+  # Summer-Spring p = 0.03176
+p.adjust(c(0.9105, 0.05237, 0.03176), "BH")
+  # 0.910500 0.078555 0.078555
+b2 <- two.boot(sample1 = crds.inu.noabx$AvgD[which(crds.inu.noabx$Season == "Summer")], 
+         sample2 = crds.inu.noabx$AvgD[which(crds.inu.noabx$Season == "Winter")],
+         FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # Summer-Winter CI = -105085,  200989
+b2 <- two.boot(sample1 = crds.inu.noabx$AvgD[which(crds.inu.noabx$Season == "Summer")], 
+         sample2 = crds.inu.noabx$AvgD[which(crds.inu.noabx$Season == "Spring")],
+         FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # Summer-Spring CI = -645662, -107160
+b2 <- two.boot(sample1 = crds.inu.noabx$AvgD[which(crds.inu.noabx$Season == "Spring")], 
+         sample2 = crds.inu.noabx$AvgD[which(crds.inu.noabx$Season == "Winter")],
+         FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # Spring-Winter CI = 189303, 663116
 kruskal.test(AvgD ~ Season, crds.inu.noabx)
-  # p = 0.187
+  # p = 0.3096
   
 
 # ABX
@@ -487,9 +432,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 leveneTest(AvgD ~ Season, crds.inu.abx)
-  # p = 0.2714
+  # p = 0.3414
 summary(aov(AvgD ~ Season, crds.inu.abx))
-  # p = 0.592
+  # p = 0.551
 
 
 
@@ -501,12 +446,11 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.002128
-  # Not Normal
-fligner.test(AvgD ~ Season, crds.sal.noabx)
-  # p = 0.8126
-kruskal.test(AvgD ~ Season, crds.sal.noabx)
-  # p = 0.05586
+  # Normal
+leveneTest(AvgD ~ Season, crds.sal.noabx)
+  # p = 0.4167
+summary(aov(AvgD ~ Season, crds.sal.noabx))
+  # p = 0.17
 
 # ABX
 res <- resid(lm(AvgD ~ Season, crds.sal.abx))
@@ -516,24 +460,24 @@ qqline(res)
 shapiro.test(res)
   # Normal
 leveneTest(AvgD ~ Season, crds.sal.abx)
-  # p = 0.6339
+  # p = 0.2089
 summary(aov(AvgD ~ Season, crds.sal.abx))
-  # p = 0.0492
+  # p = 0.0687
 TukeyHSD(aov(AvgD ~ Season, crds.sal.abx))
-  # Summer-Winter adj p = 0.049383; CI = -2.3343025 - -0.002986351
-  # Summer-Spring adj p = 0.1598825; CI = -1.9421614 - 0.280661384
-  # Spring-Winter adj p = 0.7334754; CI = -1.503552538 - 0.8277636
+  # Summer-Winter adj p = 0.0643084; CI = -3.034201, 0.08159865
+  # Summer-Spring adj p = 0.2321820; CI = -2.462090, 0.50870913
+  # Spring-Winter adj p = 0.6856179; CI = -2.05751114, 1.058289
 
 
 
 
 ### Variance Adj P
-p.adjust(c(0.03463, 0.2714, 0.8126, 0.6339), "BH")
-  # 0.13852 0.54280 0.81260 0.81260
+p.adjust(c(0.03463, 0.3414, 0.4167, 0.2089), "BH")
+  # 0.13852 0.41670 0.41670 0.41670
 
 ### ANOVA/KW Adj P
-p.adjust(c(0.187, 0.592, 0.05586, 0.0492), "BH")
-  # 0.2493333 0.5920000 0.1117200 0.1117200
+p.adjust(c(0.3096, 0.551, 0.17, 0.0687), "BH")
+  # 0.4128 0.5510 0.3400 0.2748
 ```
 
 
@@ -680,9 +624,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 leveneTest(MaxD ~ Season, crds.inu.abx)
-  # p = 0.221
+  # p = 0.309
 summary(aov(MaxD ~ Season, crds.inu.abx))
-  # p = 0.938
+  # p = 0.994
 
 
 
@@ -694,12 +638,15 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.0007598
-  # Not Normal
-fligner.test(MaxD ~ Season, crds.sal.noabx)
-  # p = 0.2192
-kruskal.test(MaxD ~ Season, crds.sal.noabx)
-  # p = 0.1765
+  # Normal
+leveneTest(MaxD ~ Season, crds.sal.noabx)
+  # p = 0.4918
+summary(aov(MaxD ~ Season, crds.sal.noabx))
+  # p = 0.089
+TukeyHSD(aov(MaxD ~ Season, crds.sal.noabx))
+  # Summer-Winter adj p = 0.0822765, CI = -5.1012946, 0.2753225
+  # Summer-Spring adj p = 0.7414043, CI = -3.3375526, -1.8434852
+  # Spring-Winter adj p = 0.2507518, CI = -4.2564713, 0.9245666
 
 # ABX
 res <- resid(lm(MaxD ~ Season, crds.sal.abx))
@@ -709,23 +656,42 @@ qqline(res)
 shapiro.test(res)
   # Normal
 leveneTest(MaxD ~ Season, crds.sal.abx)
-  # p = 0.981
+  # p = 0.08924
+leveneTest(MaxD ~ Season, crds.sal.abx[which(crds.sal.abx$Season != "Spring"),])
+  # Summer - Winter = 0.1856
+leveneTest(MaxD ~ Season, crds.sal.abx[which(crds.sal.abx$Season != "Winter"),])
+  # Summer - Spring = 0.05623
+leveneTest(MaxD ~ Season, crds.sal.abx[which(crds.sal.abx$Season != "Summer"),])
+  # Spring - Winter = 0.4912
+p.adjust(c(0.1856, 0.05623, 0.4912), "BH")
+  # 0.27840 0.16869 0.49120
+b2 <- two.boot(sample1 = crds.sal.abx$MaxD[which(crds.sal.abx$Season == "Summer")], 
+         sample2 = crds.sal.abx$MaxD[which(crds.sal.abx$Season == "Winter")],
+         FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # Summer-Winter CI = 0.045,  3.825
+b2 <- two.boot(sample1 = crds.sal.abx$MaxD[which(crds.sal.abx$Season == "Summer")], 
+         sample2 = crds.sal.abx$MaxD[which(crds.sal.abx$Season == "Spring")],
+         FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # Summer-Spring CI = 0.523,  4.109
+b2 <- two.boot(sample1 = crds.sal.abx$MaxD[which(crds.sal.abx$Season == "Spring")], 
+         sample2 = crds.sal.abx$MaxD[which(crds.sal.abx$Season == "Winter")],
+         FUN = var, R = 9999)
+boot.ci(b2, conf = 0.95, type = "bca")
+  # Spring-Winter CI = -0.9991,  0.1838
 summary(aov(MaxD ~ Season, crds.sal.abx))
-  # p = 0.0447
-TukeyHSD(aov(MaxD ~ Season, crds.sal.abx))
-  # Summer-Winter adj p = 0.0769298; CI = -2.443737 - 0.11551526
-  # Summer-Spring adj p = 0.0710440; CI = -2.350631 - 0.08952031
-  # Winter-Spring adj p = 0.9974069; CI = -1.246071 - -1.31318192
+  # p = 0.106
 
 
 
 ### Variance Adj P
-p.adjust(c(0.1326, 0.221, 0.2192, 0.981), "BH")
-  # 0.2946667 0.2946667 0.2946667 0.9810000
+p.adjust(c(0.1326, 0.309, 0.4918, 0.08924), "BH")
+  # 0.2652 0.4120 0.4918 0.2652
 
 ### ANOVA/KW Adj P
-p.adjust(c(0.0143, 0.938, 0.1765, 0.0447), "BH")
-  # 0.0572000 0.9380000 0.2353333 0.0894000
+p.adjust(c(0.0143, 0.994, 0.089, 0.106), "BH")
+  # 0.0572000 0.9940000 0.1413333 0.1413333
 ```
 
 
@@ -860,7 +826,7 @@ summary(aov(MaxSlope ~ Season, crds.inu.noabx))
 TukeyHSD(aov(MaxSlope ~ Season, crds.inu.noabx))
   # Summer-Winter adj p = 0.0127626; CI = 201.5148 - 1760.3792
   # Summer-Spring adj p = 0.3590466; CI = -1208.7012 - 350.1633
-  # Winter-Spring adj p = 0.0005968; CI = -2189.6482 - -630.7837
+  # Spring-Winter adj p = 0.0005968; CI = 630.7837 - 2189.6482
 
 
 
@@ -872,13 +838,13 @@ qqline(res)
 shapiro.test(res)
   # Normal
 leveneTest(MaxSlope ~ Season, crds.inu.abx)
-  # p = 0.2762
+  # p = 0.1861
 summary(aov(MaxSlope ~ Season, crds.inu.abx))
-  # p = 0.000138
+  # p = 0.000574
 TukeyHSD(aov(MaxSlope ~ Season, crds.inu.abx))
-  # Summer-Winter adj p = 0.0001732; CI = -193.16212 - -67.87171
-  # Summer-Spring adj p = 0.0006726; CI = -176.64258 - -51.35217
-  # Winter-Spring adj p = 0.7406549; CI = -40.66745 - -73.70653
+  # Summer-Winter adj p = 0.0006236; CI = -161.45568, -47.52180
+  # Summer-Spring adj p = 0.0028911; CI = -144.93614, -31.00226
+  # Spring-Winter adj p = 0.6965862; CI =  -68.52300,  35.48392
 
 
 
@@ -890,12 +856,12 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.0001102
-  # Not Normal
-fligner.test(MaxSlope ~ Season, crds.sal.noabx)
-  # p = 0.5991
-kruskal.test(MaxSlope ~ Season, crds.sal.noabx)
-  # p = 0.9395
+  # Test says not normal, but it's only because of 2 outliers
+  # Normal
+leveneTest(MaxSlope ~ Season, crds.sal.noabx)
+  # p = 0.2406
+summary(aov(MaxSlope ~ Season, crds.sal.noabx))
+  # p = 0.71
 
 # ABX
 res <- resid(lm(MaxSlope ~ Season, crds.sal.abx))
@@ -905,19 +871,19 @@ qqline(res)
 shapiro.test(res)
   # Normal
 leveneTest(MaxSlope ~ Season, crds.sal.abx)
-  # p = 0.4466
+  # p = 0.3917
 summary(aov(MaxSlope ~ Season, crds.sal.abx))
-  # p = 0.125
+  # p = 0.415
 
 
 
 ### Variance Adj P
-p.adjust(c(0.1476, 0.2762, 0.5991, 0.4466), "BH")
-  # 0.5524000 0.5524000 0.5991000 0.5954667
+p.adjust(c(0.1476, 0.1861, 0.2406, 0.3917), "BH")
+  # 0.3208 0.3208 0.3208 0.3917
 
 ### ANOVA/KW Adj P
-p.adjust(c(0.00069, 0.000138, 0.9395, 0.125), "BH")
-  # 0.0013800 0.0005520 0.9395000 0.1666667
+p.adjust(c(0.00069, 0.000574, 0.71, 0.415), "BH")
+  # 0.00138 0.00138 0.71000 0.5533333
 
 
 
@@ -935,9 +901,10 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-cor.test(crds.inu.p.noabx$MaxSlope, crds.inu.p.noabx$Day, method = "kendall")
-  # p-value = 0.5619
-  # tau = -0.2380952
+cor.test(crds.inu.p.noabx$MaxSlope, crds.inu.p.noabx$Day, method = "pearson")
+  # p-value = 0.4681
+  # CI = -0.8678027  0.5620692
+  # cor = -0.3311587 
 ```
 
 
@@ -1057,12 +1024,36 @@ grid.draw(abx.legend)
 
 
 
+### Prepare data for Delta curve plots
+```{r}
+crds.sum <- crds.norm %>%
+  group_by(Substrate, Antibiotics, Season, BinTime) %>%
+  summarize(Y_Mean = mean(DeltaNorm),
+            Y_SD = sd(DeltaNorm),
+            Y_SE = se(DeltaNorm),
+            X_Mean = mean(RelTime),
+            X_SD = sd(RelTime),
+            X_SE = se(RelTime),
+            SampSize = n())
+  # X_Mean is different from BinTime because BinTime was calculated with ABX and non-ABX combined
+    # BinTime was calculated this way to make sure datapoints for all individuals will align together on x-axis. If datapoints are misaligned that can be confusing for the audience. So binning was done this way for the clearest visualization.
+    # X_Mean is calculated for ABX and non-ABX separately, so there will be some variation
+crds.sum$Season <- ordered(crds.sum$Season, levels=c("Summer", "Winter", "Spring"))
 
+
+# Prepare data
+inu.all <- crds.sum[which(crds.sum$Substrate == "Inulin"),]
+sal.all <- crds.sum[which(crds.sum$Substrate == "Saline"),]
+```
 
 
 
 ### Plot Delta Curves
 ```{r}
+
+
+
+
 # Steal Season legend
 season.legend <- g_legend(ggplot(inu.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
                          geom_line(aes(linetype=Antibiotics), size=1) +
@@ -1114,11 +1105,13 @@ inu.delta.plot <- ggplot(inu.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
   scale_fill_manual(values=c("#E69F00", "#0072B2", "#00bf8b"), na.value="white", guide="none") +
   geom_errorbar(aes(ymin = Y_Mean-Y_SD, ymax = Y_Mean+Y_SD), 
                 width=0.125, position=position_dodge(0.1)) +
+  geom_errorbarh(aes(xmin = X_Mean-X_SD, xmax = X_Mean+X_SD),
+                 position = position_dodge(0.1)) +
   ggtitle(expression("Inulin"~~delta^13~"C")) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  xlim(-0.6,4.1) +
-  scale_y_continuous(breaks=c(0, 780, 1560, 2340, 3120, 3900), limits=c(-30, 3900)) +
+  xlim(-0.3,4.5) +
+  scale_y_continuous(breaks=c(-780, 0, 780, 1560, 2340, 3120, 3900), limits=c(-780, 3900)) +
   theme(plot.title=element_text(hjust=0.5, size=20),
         axis.title.x=element_text(size=20, 
                                   margin=margin(t=10, r=0, b=0, l=0)),
@@ -1241,180 +1234,4 @@ var.test(IBA.Hib ~ Season, dates_use)
 t.test(IBA.Hib ~ Season, dates_use)
   # p = 0.3313
 
-```
-
-
-
-### Plot Misc
-```{r}
-## All individuals
-ggplot(crds.bin, aes(x=BinTime, y=Delta, color=ID)) +
-  geom_line() +
-  geom_point()
-
-ggplot(crds.rem, aes(x=BinTime, y=Delta, color=ID)) +
-  geom_line() +
-  geom_point() +
-  facet_grid(Season ~ Antibiotics)
-
-
-
-
-
-ggplot(crds, aes(x=BinTime, y=Delta, color=ID)) +
-  geom_line() +
-  geom_point() +
-  facet_grid(Season ~ Antibiotics) +
-  guides(colour=F, linetype=F)
-  
-
-
-### Split into experimental groups --- INCLUDES OUTLIERS (switch to crds.bin to crds.rem if want to exclude outliers)
-crds.split <- crds.bin %>%
-  group_split(Substrate, Antibiotics, Season) %>%
-  as.data.frame
-
-
-### Plot
-for(group in 1:length(crds.split$.)){
-  df <- crds.split[[1]][[group]]
-  print(df)
-  name <- paste0(c(df$Substrate[1], as.character(df$Season[1]), df$Antibiotics[1]),
-                 collapse = ".")
-  plotName <- paste0(c(name, "tiff"), collapse = ".")
-  
-  plot <- ggplot(df, aes(x=RelTime, y=Delta, color=ID)) +
-  geom_line() +
-  geom_point() +
-  facet_grid(ID ~.)
-  
-  #tiff(plotName, width = 10, height = 10, units = "in", res = 300)
-  print(plot)
-  #dev.off()
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-## Substrate/ABX
-ggplot(crds.sum, aes(x=BinTime, y=Mean, color=Substrate)) +
-  geom_line(aes(linetype=Antibiotics)) +
-  geom_point() +
-  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE))
-
-## Inulin
-inu.plot <- ggplot(inu.all, aes(x=BinTime, y=Mean, color=Season)) +
-  geom_line(aes(linetype=Antibiotics), size=1) +
-   geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
-  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
-  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
-  ggtitle(expression("Inulin"~~delta^13~"C")) +
-  xlab("Time Since Gavage (hr)") +
-  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  xlim(-0.6,4.1) +
-  scale_y_continuous(breaks=c(0, 625, 1250, 1875, 2500), limits=c(-30, 2700)) +
-  theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.title.x=element_text(size=20, 
-                                  margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y=element_text(size=18),
-        axis.text.x=element_text(size=16),
-        axis.text.y=element_text(size=16),
-        plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
-          #top, right, bottom, left
-        panel.grid.major.x = element_blank(),
-        panel.grid.minor.y = element_blank(),
-        panel.grid.minor.x = element_blank()
-  ) +
-  guides(colour=F, linetype=F)
-
-
-
-## Saline
-sal.plot <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
-  geom_line(aes(linetype=Antibiotics), size=1) +
-  geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
-  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
-  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
-  ggtitle(expression("Saline"~~delta^13~"C")) +
-  xlab("Time Since Gavage (hr)") +
-  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.title.x=element_text(size=14),
-        axis.title.y=element_text(size=14),
-        axis.text.x=element_text(size=12),
-        axis.text.y=element_text(size=12),
-        panel.grid.major.x = element_blank(),
-        panel.grid.minor.y = element_blank(),
-        panel.grid.minor.x = element_blank()) +
-  guides(colour=F, linetype=F)
-
-
-
-
-## Steal legend
-steal.legend <- ggplot(sal.all, aes(x=BinTime, y=Mean, color=Season)) +
-  geom_line(aes(linetype=Antibiotics), size=1) +
-  geom_point(size=3) +
-  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) +
-  ggtitle(expression("Saline"~~delta^13~"C")) +
-  xlab("Time Since Gavage (hr)") +
-  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.title.x=element_text(size=14),
-        axis.title.y=element_text(size=14),
-        axis.text.x=element_text(size=12),
-        axis.text.y=element_text(size=12),
-        legend.title = element_text(size=20, face="bold"),
-        legend.text = element_text(size=18)
-        )
-legend <- g_legend(steal.legend)
-
-
-
-
-
-
-### All 3 substrates on same axis
-carb.plot <- ggplot(crds.rem, aes(x=BinTime, y=Mean, color=Season)) +
-  geom_line(aes(linetype=Antibiotics), size=1) +
-   geom_point(size=3, shape=21, aes(color=Season, fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
-  scale_color_manual(name="Season", values=c("darkgoldenrod2", "dodgerblue3", "green3")) +
-  scale_fill_manual(values=c("darkgoldenrod2", "dodgerblue3", "green3"), na.value="white", guide="none") +
-  geom_errorbar(aes(ymin = Mean-SE, ymax = Mean+SE), width=0.125, position=position_dodge(0.1)) + 
-  facet_grid(.~Substrate) +
-  xlab("Time Since Gavage (hr)") +
-  ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  xlim(-0.6,4.1) +
-  scale_y_continuous(breaks=c(0, 500, 1000, 1500, 2000, 2500), limits=c(-30, 2700)) +
-  theme(axis.text.x = element_text(size=16),
-        axis.text.y = element_text(size=16),
-        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=, l=0)),
-        strip.text.x = element_text(size=20, face="bold"),
-        #strip.text.y = element_text(size=14),
-        panel.spacing=unit(1, "lines"),
-        legend.title = element_text(size = 20, face="bold"),
-        legend.text = element_text(size=18),
-        panel.grid.major.x = element_blank(),
-        panel.grid.minor.y = element_blank(),
-        panel.grid.minor.x = element_blank(),
-  )
-
-
-
-#tiff("crds.tiff", width = 12.75, height = 3.5, units = "in", res = 300)
-carb.plot
-dev.off()
 ```
