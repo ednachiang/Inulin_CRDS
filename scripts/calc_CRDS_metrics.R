@@ -46,14 +46,9 @@ calc.CRDS.metrics <- function(x){
       }
     } else{
       for(l in 2:nrow(curve.df)){
-        #print(x$ID[i])
-        #print(curve.df)
         rise <- curve.df$DeltaNorm[l] - curve.df$DeltaNorm[l-1]
         run <- curve.df$RelTime[l] - curve.df$RelTime[l-1]
-        print(rise)
-        print(run)
         slope <- c(slope, (rise/run) )
-        print(slope)
       }
     }
     
@@ -66,8 +61,6 @@ calc.CRDS.metrics <- function(x){
       maxSlope <- mean(slopeSort[1:3])
     } else{
       maxSlope <- mean(slopeSort)
-      #print(length(slopeSort))
-      #print(maxSlope)
     }
     
     
