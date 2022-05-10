@@ -45,6 +45,7 @@ p28 <- which(crds$ID == "P28")
 crds$RelTime[p28[1]] <- p28.avgT
 crds$Delta[p28[1]] <- p28.avgD
 ```
+
 ### Bin RelTime
 ```{r}
 crds.bin <- bin.crds(crds)
