@@ -182,3 +182,96 @@ ggplot(base.sal.w, aes(x = Antibiotics, y = Delta, fill = Antibiotics)) +
 ggplot(base.sal.p, aes(x = Antibiotics, y = Delta, fill = Antibiotics)) +
   geom_boxplot()
 ```
+
+
+### Plot baseline
+```{r}
+### Prepare data for plotting
+crds.rem$SeasonABX <- interaction(crds.rem$Season, crds.rem$Antibiotics)
+crds.rem$SeasonABX <- ordered(crds.rem$SeasonABX, levels=c("Summer.No", "Summer.Yes", "Winter.No", "Winter.Yes", "Spring.No", "Spring.Yes"))
+
+#tiff("crds.baseline.tiff", width = 4, height = 3, units = "in", res = 600)
+ggplot(crds.rem, aes(x = Season, y = Baseline, color = SeasonABX,
+                                    fill = SeasonABX)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+               position = position_dodge(0.7), stackratio = 0.5) +
+  scale_color_manual(values = c("#c98b00", "#E69F00", "#004166", "#006299", "#00966d",
+                                "#00bf8b")) +
+  scale_fill_manual(values = c("#E69F00", "white", "#006299", "white", "#00bf8b",
+                               "white")) +
+  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ylab(expression("Baseline"~~delta^13~"C"~"(%"[o]~")")) +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(face="bold", size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(face="bold", size=10),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(hjust = 0.5, size = 12, face = "bold"),
+        legend.position = "none")
+#dev.off()
+
+```
+
+
+### Prepare DNA yield
+```{r}
+ Load data
+dna <- read.csv('dna.csv')
+dna.c <- dna[which(grepl("CC", dna$Sample) == T),]
+
+# Remove outliers
+dna.c <- dna.c[-which(dna.c$Squirrel == "S23"),]
+dna.c <- dna.c[-which(dna.c$Squirrel == "S37"),]
+dna.c <- dna.c[-which(dna.c$Squirrel == "S60"),]
+dna.c <- dna.c[-which(dna.c$Squirrel == "W43"),]
+dna.c <- dna.c[-which(dna.c$Squirrel == "W20"),]
+  # This is due to odd metagenome
+dna.c <- dna.c[-which(dna.c$Squirrel == "W50"),]
+dna.c <- dna.c[-which(dna.c$Squirrel == "P20"),]
+  # ABX didn't work
+
+dna.c$Metabolism <- "a"
+dna.c$Metabolism[which(dna.c$Season == "Winter")] <- "Hibernation"
+dna.c$Metabolism[which(dna.c$Season != "Winter")] <- "Active"
+dna.c$Metabolism <- ordered(dna.c$Metabolism, levels = c("Active", "Hibernation"))
+dna.c$Season <- ordered(dna.c$Season, levels = c("Summer", "Winter", "Spring"))
+dna.s <- dna.c[which(dna.c$Season == "Summer"),]
+dna.w <- dna.c[which(dna.c$Season == "Winter"),]
+dna.p <- dna.c[which(dna.c$Season == "Spring"),]
+dna.inu.s <- dna.s[which(dna.s$Substrate == "Inulin"),]
+dna.inu.w <- dna.w[which(dna.w$Substrate == "Inulin"),]
+dna.inu.p <- dna.p[which(dna.p$Substrate == "Inulin"),]
+dna.sal.s <- dna.s[which(dna.s$Substrate == "Saline"),]
+dna.sal.w <- dna.w[which(dna.w$Substrate == "Saline"),]
+dna.sal.p <- dna.p[which(dna.p$Substrate == "Saline"),]
+
+```
+
+### Find DNA yield outliers
+```{r}
+# Inulin
+ggplot(dna.inu.s[which(dna.inu.s$Antibiotics == "Antibiotics"),],
+       aes(x = Antibiotics, y = DNA_Yield_.ng.mg., fill = Antibiotics)) +
+  geom_boxplot()
+  # 1 outlier
+ggplot(dna.inu.w[which(dna.inu.w$Antibiotics == "Antibiotics"),],
+       aes(x = Antibiotics, y = DNA_Yield_.ng.mg., fill = Antibiotics)) +
+  geom_boxplot()
+ggplot(dna.inu.p[which(dna.inu.p$Antibiotics == "Antibiotics"),], aes(x = Antibiotics, y = DNA_Yield_.ng.mg., fill = Antibiotics)) +
+  geom_boxplot()
+  # 1 outlier
+
+# Saline
+ggplot(dna.sal.s[which(dna.sal.s$Antibiotics == "Antibiotics"),], 
+       aes(x = Antibiotics, y = DNA_Yield_.ng.mg., fill = Antibiotics)) +
+  geom_boxplot()
+ggplot(dna.sal.w[which(dna.sal.w$Antibiotics == "Antibiotics"),], 
+       aes(x = Antibiotics, y = DNA_Yield_.ng.mg., fill = Antibiotics)) +
+  geom_boxplot()
+ggplot(dna.sal.p[which(dna.sal.p$Antibiotics == "Antibiotics"),], aes(x = Antibiotics, y = DNA_Yield_.ng.mg., fill = Antibiotics)) +
+  geom_boxplot()
+  # 1 outlier
+```
