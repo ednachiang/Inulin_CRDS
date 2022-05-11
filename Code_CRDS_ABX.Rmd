@@ -848,7 +848,7 @@ ggplot(dna.c, aes(x = Season, y = X.DNA._.ng.uL., color = SeasonABX, fill = Seas
 # Inulin AUC
 abx.inu.auc.plot <- ggplot(crds.inu, aes(x = Season, y = AUC_sqrt, color = SeasonABX,
                                     fill = SeasonABX)) +
-  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 3,
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 2.5,
                position = position_dodge(0.7), stackratio = 0.5) +
   scale_color_manual(values = c("#c98b00", "#E69F00", "#004166", "#006299", "#00966d",
                                 "#00bf8b")) +
@@ -865,7 +865,7 @@ abx.inu.auc.plot <- ggplot(crds.inu, aes(x = Season, y = AUC_sqrt, color = Seaso
         axis.title.y = element_text(size=11),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
-        plot.title = element_text(hjust = 0.5, size = 11, face = "bold"),
+        plot.title = element_text(hjust = 0.5, size = 11),
         legend.position = "none")
 
 
@@ -889,7 +889,7 @@ abx.sal.auc.plot <- ggplot(crds.sal, aes(x = Season, y = AUC_sqrt, color = Seaso
         axis.title.y = element_text(size=11),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
-        plot.title = element_text(hjust = 0.5, size = 11, face = "bold"),
+        plot.title = element_text(hjust = 0.5, size = 11),
         legend.position = "none")
 
 
@@ -904,8 +904,8 @@ abx.inu.avgD.plot <- ggplot(crds.inu, aes(x = Season, y = AvgD, color = SeasonAB
                                "white")) +
   stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
                color = "black", position = position_dodge(0.7), size = 0.5) +
-  ggtitle("Inulin")  + 
-  ylab(expression("AvgD"~~delta^13~"C"~"(%"[o]~")")) +
+  ggtitle(expression("Inulin Average"~~delta^13~"C"))  + 
+  ylab(expression("Average"~~delta^13~"C"~"(%"[o]~")")) +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
@@ -913,7 +913,7 @@ abx.inu.avgD.plot <- ggplot(crds.inu, aes(x = Season, y = AvgD, color = SeasonAB
         axis.title.y = element_text(size=11),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
-        plot.title = element_text(hjust = 0.5, size = 11, face = "bold"),
+        plot.title = element_text(hjust = 0.5, size = 11),
         legend.position = "none")
 
 
@@ -928,8 +928,8 @@ abx.sal.avgD.plot <- ggplot(crds.sal, aes(x = Season, y = AvgD, color = SeasonAB
                                "white")) +
   stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
                color = "black", position = position_dodge(0.7), size = 0.5) +
-  ggtitle("Saline")  + 
-  ylab(expression("AvgD"~~delta^13~"C"~"(%"[o]~")")) +
+  ggtitle(expression("Saline Average"~~delta^13~"C"))  + 
+  ylab(expression("Average"~~delta^13~"C"~"(%"[o]~")")) +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
@@ -937,7 +937,7 @@ abx.sal.avgD.plot <- ggplot(crds.sal, aes(x = Season, y = AvgD, color = SeasonAB
         axis.title.y = element_text(size=11),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
-        plot.title = element_text(hjust = 0.5, size = 11, face = "bold"),
+        plot.title = element_text(hjust = 0.5, size = 11),
         legend.position = "none")
 
 
@@ -954,8 +954,8 @@ abx.inu.maxD.plot <- ggplot(crds.inu, aes(x = Season, y = MaxD, color = SeasonAB
                                "white")) +
   stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
                color = "black", position = position_dodge(0.7), size = 0.5) +
-  ggtitle("Inulin")  + 
-  ylab(expression("MaxD"~~delta^13~"C"~"(%"[o]~")")) +
+  ggtitle(expression("Inulin Maximum"~~delta^13~"C"))  + 
+  ylab(expression("Maximum"~~delta^13~"C"~"(%"[o]~")")) +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
@@ -963,7 +963,7 @@ abx.inu.maxD.plot <- ggplot(crds.inu, aes(x = Season, y = MaxD, color = SeasonAB
         axis.title.y = element_text(size=11),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
-        plot.title = element_text(hjust = 0.5, size = 11, face = "bold"),
+        plot.title = element_text(hjust = 0.5, size = 11),
         legend.position = "none")
 
 
@@ -978,8 +978,8 @@ abx.sal.maxD.plot <- ggplot(crds.sal, aes(x = Season, y = MaxD, color = SeasonAB
                                "white")) +
   stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
                color = "black", position = position_dodge(0.7), size = 0.5) +
-  ggtitle("Saline")  + 
-  ylab(expression("MaxD"~~delta^13~"C"~"(%"[o]~")")) +
+  ggtitle(expression("Saline Maximum"~~delta^13~"C"))  + 
+  ylab(expression("Maximum"~~delta^13~"C"~"(%"[o]~")")) +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
@@ -987,7 +987,7 @@ abx.sal.maxD.plot <- ggplot(crds.sal, aes(x = Season, y = MaxD, color = SeasonAB
         axis.title.y = element_text(size=11),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
-        plot.title = element_text(hjust = 0.5, size = 11, face = "bold"),
+        plot.title = element_text(hjust = 0.5, size = 11),
         legend.position = "none")
 
 
@@ -1013,7 +1013,7 @@ abx.inu.maxSlope.plot <- ggplot(crds.inu, aes(x = Season, y = MaxSlope, color = 
         axis.title.y = element_text(size=11),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
-        plot.title = element_text(hjust = 0.5, size = 11, face = "bold"),
+        plot.title = element_text(hjust = 0.5, size = 11),
         legend.position = "none")
 
 
@@ -1037,7 +1037,7 @@ abx.sal.maxSlope.plot <- ggplot(crds.sal, aes(x = Season, y = MaxSlope, color = 
         axis.title.y = element_text(size=11),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
-        plot.title = element_text(hjust = 0.5, size = 11, face = "bold"),
+        plot.title = element_text(hjust = 0.5, size = 11),
         legend.position = "none")
 
 
@@ -1070,7 +1070,7 @@ abx.sal.maxSlope.plot <- ggplot(crds.sal, aes(x = Season, y = MaxSlope, color = 
 
 ### Save plots
 ```{r}
-#tiff("abx.delta.metrics.tiff", width = 6, height = 9, units = "in", res = 600)
+tiff("abx.delta.metrics.tiff", width = 6, height = 9, units = "in", res = 600)
 grid.newpage()
 pushViewport(viewport(layout=grid.layout(4,2, widths = c(1, 1))))
 
@@ -1117,7 +1117,7 @@ grid.text("H", x=unit(0.063, "npc"), y=unit(1, "npc"),
 #grid.draw(season.legend)
 #abx.legend$vp <- viewport(layout.pos.row=1:4, layout.pos.col=3)
 #grid.draw(abx.legend)
-#dev.off()
+dev.off()
 ```
 
 
