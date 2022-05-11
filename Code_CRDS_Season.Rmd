@@ -998,90 +998,44 @@ sal.all <- crds.sum[which(crds.sum$Substrate == "Saline"),]
 ### Plot Delta Curves
 ```{r}
 
-
-
-
-# Steal Season legend
-season.legend <- g_legend(ggplot(inu.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
-                         geom_line(aes(linetype=Antibiotics), size=1) +
-                         geom_point(size=3, shape=21, aes(color=Season, 
-                                    fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
-                         scale_color_manual(values = c("#E69F00", "#0072B2", "#00bf8b")) +
-                         scale_fill_manual(values=c("#E69F00", "#0072B2", "#00bf8b"),
-                                           na.value="white") +
-                         theme(plot.title=element_text(hjust=0.5, size=20),
-                               axis.title.x=element_text(size=20, 
-                                  margin=margin(t=10, r=0, b=0, l=0)),
-                               axis.title.y=element_text(size=18),
-                               axis.text.x=element_text(size=16),
-                               axis.text.y=element_text(size=16),
-                               plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
-                                  #top, right, bottom, left
-                               panel.grid.major.x = element_blank(),
-                               panel.grid.minor.y = element_blank(),
-                               panel.grid.minor.x = element_blank())
-                         )
-# Steal ABX legend
-abx.legend <- g_legend(ggplot(inu.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
-                         geom_line(aes(linetype=Antibiotics), size=1) +
-                         geom_point(size=3, shape=21, aes(color=Season, 
-                                    fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
-                         scale_color_manual(values = c("#E69F00", "#0072B2", "#00bf8b")) +
-                         scale_fill_manual(values=c("#E69F00", "#0072B2", "#00bf8b"),
-                                           na.value="white") +
-                         theme(plot.title=element_text(hjust=0.5, size=20),
-                               axis.title.x=element_text(size=20, 
-                                  margin=margin(t=10, r=0, b=0, l=0)),
-                               axis.title.y=element_text(size=18),
-                               axis.text.x=element_text(size=16),
-                               axis.text.y=element_text(size=16),
-                               plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
-                                  #top, right, bottom, left
-                               panel.grid.major.x = element_blank(),
-                               panel.grid.minor.y = element_blank(),
-                               panel.grid.minor.x = element_blank())
-                       )
-
-
 ### Inulin
-inu.delta.plot <- ggplot(inu.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
-   geom_line(aes(linetype=Antibiotics), size=1) +
+inu.delta.plot <- ggplot(inu.all, aes(x=X_Mean, y=Y_Mean, color=Season)) +
+   geom_line(aes(linetype=Antibiotics), size=1, show.legend = F) +
    geom_point(size=3, shape=21, aes(color=Season, 
-                                    fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
+                                    fill=factor(ifelse(Antibiotics == "Yes", NA, Season))), show.legend = F) +
   scale_color_manual(values = c("#E69F00", "#0072B2", "#00bf8b"), guide = "none") +
   scale_fill_manual(values=c("#E69F00", "#0072B2", "#00bf8b"), na.value="white", guide="none") +
-  geom_errorbar(aes(ymin = Y_Mean-Y_SD, ymax = Y_Mean+Y_SD), 
-                width=0.125, position=position_dodge(0.1)) +
-  geom_errorbarh(aes(xmin = X_Mean-X_SD, xmax = X_Mean+X_SD),
-                 position = position_dodge(0.1)) +
+  geom_errorbar(aes(ymin = Y_Mean-Y_SD, ymax = Y_Mean+Y_SD), width = 0.09,
+                position = "dodge") +
+  geom_errorbarh(aes(xmin = X_Mean-X_SD, xmax = X_Mean+X_SD), height = 125,
+                 position = "dodge") +
   ggtitle(expression("Inulin"~~delta^13~"C")) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
-  xlim(-0.3,4.5) +
+  xlim(-0.3,4.15) +
   scale_y_continuous(breaks=c(-780, 0, 780, 1560, 2340, 3120, 3900), limits=c(-780, 3900)) +
-  theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.title.x=element_text(size=20, 
-                                  margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y=element_text(size=18),
-        axis.text.x=element_text(size=16),
-        axis.text.y=element_text(size=16),
-        plot.margin = unit(c(0, 0.3, 0.3, 0.3), "cm"),
-          #top, right, bottom, left
+    theme(plot.title=element_text(hjust=0.5, size=20),
+        axis.title.x=element_text(size=14),
+        axis.title.y=element_text(size=14),
+        axis.text.x=element_text(size=12),
+        axis.text.y=element_text(size=12),
         panel.grid.major.x = element_blank(),
         panel.grid.minor.y = element_blank(),
         panel.grid.minor.x = element_blank())
 
 
 ## Saline
-sal.delta.plot <- ggplot(sal.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
+sal.delta.plot <- ggplot(sal.all, aes(x=X_Mean, y=Y_Mean, color=Season)) +
   geom_line(aes(linetype=Antibiotics), size=1) +
   geom_point(size=3, shape=21, aes(color=Season, 
-                                   fill=factor(ifelse(Antibiotics == "Yes", NA, Season)))) +
-  scale_color_manual(values = c("#E69F00", "#0072B2", "#00bf8b"), guide = "none") +
-  scale_fill_manual(values=c("#E69F00", "#0072B2", "#00bf8b"), na.value="white", guide="none") +
-  geom_errorbar(aes(ymin = Y_Mean-Y_SD, ymax = Y_Mean+Y_SD), width=0.125,
-                position=position_dodge(0.1)) +
-  scale_y_continuous(breaks=c(-30.0, -24.8, -19.6, -14.4, -9.2, -4.0), limits=c(-30, -4)) +
+                                   fill=factor(ifelse(Antibiotics == "Yes", NA, Season))), show.legend = F) +
+  scale_color_manual(values = c("#E69F00", "#0072B2", "#00bf8b")) +
+  scale_fill_manual(values=c("#E69F00", "#0072B2", "#00bf8b"), na.value="white") +
+  geom_errorbar(aes(ymin = Y_Mean-Y_SD, ymax = Y_Mean+Y_SD), width = 0.05,
+                position = "dodge") +
+  geom_errorbarh(aes(xmin = X_Mean-X_SD, xmax = X_Mean+X_SD), height = 0.75,
+                 position = "dodge") +
+  scale_y_continuous(breaks=c(-15, -10, -5, 0, 5, 10), limits=c(-19, 7.4)) +
   ggtitle(expression("Saline"~~delta^13~"C")) +
   xlab("Time Since Gavage (hr)") +
   ylab(expression("Mean"~~delta^13~"C"~"(%"[o]~")")) +
@@ -1092,7 +1046,30 @@ sal.delta.plot <- ggplot(sal.all, aes(x=BinTime, y=Y_Mean, color=Season)) +
         axis.text.y=element_text(size=12),
         panel.grid.major.x = element_blank(),
         panel.grid.minor.y = element_blank(),
-        panel.grid.minor.x = element_blank())
+        panel.grid.minor.x = element_blank(),
+        legend.title=element_text(size=12, face = "bold"),
+        legend.text=element_text(size=12))
+
+
+
+
+
+
+tiff("delta.curves.tiff", width = 300, height = 125, units = "mm", res = 600)
+grid.newpage()
+pushViewport(viewport(layout=grid.layout(1,2, widths = c(1, 1.2))))
+
+print(inu.delta.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
+grid.text("A", x=unit(0.065, "npc"), y=unit(0.93, "npc"), 
+          vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=20,fontface="bold"))
+
+
+print(sal.delta.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
+grid.text("B", x=unit(0.065, "npc"), y=unit(0.93, "npc"),
+          vp=viewport(layout.pos.row=1, layout.pos.col=2), gp=gpar(fontsize=20,fontface="bold"))
+
+dev.off()
+
 
 
 
