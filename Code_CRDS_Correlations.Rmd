@@ -440,6 +440,106 @@ p.adjust(c(0.3841, 0.09472, 0.3974, 0.04829), "BH")
 ```
 
 
+
+
+
+### Combine % microbial * DNA yield
+```{r}
+### Load taxonomic classification
+load("kaiju/all_shortreads/use/physeq/phylum.RData")
+
+
+### Calculate % microbial
+phy.microbial <- subset_taxa(physeq, ta1 != "Viruses")
+phy.microbial <- subset_taxa(phy.microbial, ta1 != "Unclassified")
+microbe.ra <- data.frame(matrix(nrow = 18, ncol = 1))
+colnames(microbe.ra) <- "%_Microbial"
+microbe.otu <- data.frame(otu_table(phy.microbial))
+rownames(microbe.ra) <- colnames(microbe.otu)
+
+for(i in 1:ncol(microbe.otu)) {
+  sum.microbe <- sum(microbe.otu[,i])
+  microbe.ra[i,] <- sum.microbe
+}
+
+### Prep DNA yield
+dna.c.noabx <- dna.con[which(dna.con$Antibiotics == "No Antibiotics"),]
+
+### Load % Host DNA from Short Reads
+host.dna <- read.csv('hostDNA_shortreads.csv')
+colnames(host.dna) <- c("Sample", "%_Host")
+
+
+### Combine % microbial and DNA yield
+microbe.ra$Squirrel <- substr(rownames(microbe.ra),3,5)
+microbe.ra$Host_Percentage <- (host.dna$`%_Host` / 100)
+microbe.ra$DNAyield <- NA
+microbe.ra$Season <- NA
+#microbe.ra$Metabolism <- NA
+microbe.ra <- microbe.ra[which(microbe.ra$Squirrel != "W20"),]
+
+for(j in 1:nrow(microbe.ra)){
+  row <- which(dna.c.noabx$Squirrel == microbe.ra$Squirrel[j])
+  microbe.ra$DNAyield[j] <- dna.c.noabx$DNA_Yield_.ng.mg.[row]
+  microbe.ra$Season[j] <- as.character(dna.c.noabx$Season[row])
+  #microbe.ra$Metabolism[j] <- as.character(dna.c.noabx$Metabolism[row])
+  rpkg_id <- substr(exo_rpkg$Sample, 3, 5)
+  row2 <- which(rpkg_id == microbe.ra$Squirrel[j])
+  microbe.ra$Baseline[j] <- exo_rpkg$Baseline[row2]
+  microbe.ra$MaxSlope[j] <- exo_rpkg$MaxSlope[row2]
+}
+microbe.ra$Season <- ordered(microbe.ra$Season, c("Summer", "Winter", "Spring"))
+#microbe.ra$Metabolism <- ordered(microbe.ra$Metabolism, c("Active", "Hibernation"))
+
+microbe.ra$NonHost_DNA_Yield <- (1 - microbe.ra$Host_Percentage) * microbe.ra$DNAyield
+
+microbe.ra$Microbial_DNA_Yield <- (microbe.ra$`%_Microbial` / 100) * microbe.ra$NonHost_DNA_Yield
+
+
+```
+
+### Test microbial DNA yield
+```{r}
+# Test Microbial DNA Yield ~ Baseline
+res <- resid(lm(Microbial_DNA_Yield ~ Baseline, microbe.ra))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # p = 0.726
+  # Normal
+cor.test(microbe.ra$Microbial_DNA_Yield, microbe.ra$Baseline,  method = "pearson")
+  # p = 0.4938
+  # CI = -0.6068735  0.3307656
+  # cor = -0.1782114
+
+
+
+# Test Microbial DNA Yield ~ MaxSlope
+res <- resid(lm(Microbial_DNA_Yield ~ MaxSlope, microbe.ra))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Normal
+cor.test(microbe.ra$Microbial_DNA_Yield, microbe.ra$MaxSlope, method = "pearson")
+  # p =  0.1426
+  # CI = -0.1334229  0.7227705
+  # cor = 0.3710147
+
+
+
+
+
+### Adjust p for all Inulin MetaG tests
+p.adjust(c(1, 0.9149, 0.4938, 0.1426), "BH")
+  # Baseline ~ RPKG = 1.0000 
+  # MaxSlope ~ RPKG = 1.0000
+  # Microbial DNA Yield ~ Baseline = 0.9876 
+  # Microbial DNA Yield ~ MaxSlope = 0.5704
+
+```
+
 ### Hib Dates
 ```{r}
 ### Load data ###
@@ -795,6 +895,5 @@ p.adjust(c(0.5756, 0.6959, 0.3231, 0.8018), "BH")
   # 0.8018 0.8018 0.8018 0.8018
 
 ```
-
 
 
