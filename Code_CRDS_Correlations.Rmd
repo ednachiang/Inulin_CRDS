@@ -64,6 +64,9 @@ crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "W20"),]
   # This is due to odd metagenome
 crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "P20"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "P22"),]
+
 
 # Separate by substrate
 crds.inu <- crds.rem[which(crds.rem$Substrate == "Inulin"),]
@@ -91,39 +94,34 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 8.294e-08
+  # p = 1.481e-07
   # Not Normal
 cor.test(crds.rem$MaxD, crds.rem$MaxSlope, method = "kendall")
   # p = < 2.2e-16
-  # tau = 0.7361404 
-ci_cor(crds.rem$MaxD, crds.rem$MaxSlope, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
-  # 0.5826348 0.8325647 
+  # tau = 0.7378749
 
 res <- resid(lm(Baseline ~ MaxD, crds.rem))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.0004944
+  # p = 0.0008238
   # Not Normal
 cor.test(crds.rem$Baseline, crds.rem$MaxD, method = "kendall")
-  # p = 0.462
-  # tau = -0.05758428 
-ci_cor(crds.rem$Baseline, crds.rem$MaxD, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
-  # -0.2158163  0.1013887
+  # p = 0.4694
+  # tau = -0.05742869
+
 
 res <- resid(lm(Baseline ~ MaxSlope, crds.rem))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.0004392
+  # p = 0.0007673
   # Not Normal
 cor.test(crds.rem$Baseline, crds.rem$MaxSlope, method = "kendall")
-  # p = 0.2584
-  # tau = -0.08848317
-ci_cor(crds.rem$Baseline, crds.rem$MaxSlope, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
-  # -0.24582049  0.06379012 
+  # p = 0.2728
+  # tau = -0.08706931
 
 
 res <- resid(lm(BodyMass ~ BodyTemp, crds.rem))
@@ -132,27 +130,24 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
 cor.test(crds.rem$BodyMass, crds.rem$BodyTemp, method = "pearson")
-  # p = 0.01144
-  # CI = -0.4827085 -0.0676134
-  # cor = -0.2886685
+  # p = 0.0199
+  # cor = -0.2701917
 res <- resid(lm(BodyMass ~ Ketones, crds.rem))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
 cor.test(crds.rem$BodyMass, crds.rem$Ketones, method = "pearson")
-  # p = 5.863e-07
-  # CI = -0.7323786 -0.3961947
-  # cor = -0.5892281
+  # p = 8.288e-08
+  # cor = -0.6313116
 res <- resid(lm(BodyTemp ~ Ketones, crds.rem))
 hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
 cor.test(crds.rem$BodyTemp, crds.rem$Ketones, method = "pearson")
-  # p = 0.2677
-  # CI = -0.3820908  0.1117377
-  # cor = -0.1441388
+  # p = 0.2755
+  # cor = -0.1443226
 
 ## Go with Baseline, MaxSlope, & BodyMass
 ```
@@ -184,9 +179,9 @@ qqline(res)
 shapiro.test(res)
   # Normal
 cor.test(crds.inu.abx$BodyMass, crds.inu.abx$Baseline, method = "pearson")
-  # p = 0.01336
-  # CI = 0.1367106 0.8067164
-  # cor = 0.5563719 
+  # p = 0.02593
+  # CI = 0.07432002 0.79562589
+  # cor = 0.5230417
 
 
 # Saline No ABX
@@ -208,18 +203,18 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # Test says normal, but residuals are sigmoid.
+  # Test says normal, but residuals are sigmoid/skewed
   # Not Normal
 cor.test(crds.sal.abx$BodyMass, crds.sal.abx$Baseline, method = "kendall")
-  # p = 0.0002925
-  # tau = 0.6176471 
+  # p = 0.001143
+  # tau = 0.5833333 
 ci_cor(crds.sal.abx$BodyMass, crds.sal.abx$Baseline, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
-  # 0.3658537 0.8095238 
+  # 0.3153153 0.7818182
 
 
 
-p.adjust(c(0.0004751, 0.01336, 0.1602, 0.0002925), "BH")
-  # 0.00095020 0.01781333 0.16020000 0.00095020
+p.adjust(c(0.0004751, 0.02593, 0.1602, 0.001143), "BH")
+  # 0.00190040 0.03457333 0.16020000 0.00228600
 ```
 
 
@@ -247,13 +242,13 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.04836
+  # p = 0.02883
   # Not normal
 cor.test(crds.inu.abx$BodyMass, crds.inu.abx$MaxSlope, method = "kendall")
-  # p = 0.836
-  # tau = -0.04093567
+  # p = 0.7652
+  # tau = -0.05882353 
 ci_cor(crds.inu.abx$BodyMass, crds.inu.abx$MaxSlope, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
-  # -0.3500000  0.3664596
+  # -0.3943662  0.3750000
 
 # Saline No ABX
 res <- resid(lm(BodyMass ~ MaxSlope, crds.sal.noabx))
@@ -273,18 +268,18 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.00184
+  # p = 0.00343
   # Only not normal because of 2 outliers
   # Normal
 cor.test(crds.sal.abx$BodyMass, crds.sal.abx$MaxSlope, method = "pearson")
-  # p = 0.3738
-  # CI = -0.6401081  0.2814793
-  # cor = -0.2303268
+  # p = 0.4084
+  # CI = -0.6466189  0.3074495
+  # cor = -0.2221057
 
 
 
-p.adjust(c(0.007431, 0.836, 0.9934, 0.3738), "BH")
-  # 0.029724 0.993400 0.993400 0.747600
+p.adjust(c(0.007431, 0.7652, 0.9934, 0.00343), "BH")
+  #  0.014862 0.993400 0.993400 0.013720
 ```
 
 
@@ -321,11 +316,13 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # Normal
-cor.test(exo_rpkg_inu$Baseline, exo_rpkg_inu$RPKG, method = "pearson")
-  # p = 0.9096
-  # CI = -0.6385148  0.6882598
-  # cor = 0.04446048
+  # Test says normal, but doesn't look like it to me
+cor.test(exo_rpkg_inu$Baseline, exo_rpkg_inu$RPKG, method = "kendall")
+  # p = 1
+  # tau = 0
+ci_cor(exo_rpkg_inu$Baseline, exo_rpkg_inu$RPKG, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
+  # -0.7333333  0.5000000
+
 
 # Test RPKG - MaxSlope
 res <- resid(lm(MaxSlope ~ RPKG, exo_rpkg_inu))
@@ -351,12 +348,16 @@ dna <- dna[-which(dna$Squirrel == "S37"),]
 dna <- dna[-which(dna$Squirrel == "S60"),]
 dna <- dna[-which(dna$Squirrel == "W43"),]
 dna <- dna[-which(dna$Squirrel == "W20"),]
-#dna <- dna[-which(dna$Squirrel == "W53"),]
-dna <- dna[-which(dna$Squirrel == "P04"),]
-dna <- dna[-which(dna$Squirrel == "S11"),]
-dna <- dna[-which(dna$Squirrel == "S40"),]
+  # This is due to odd metagenome
 dna <- dna[-which(dna$Squirrel == "W50"),]
+dna <- dna[-which(dna$Squirrel == "P20"),]
+dna <- dna[-which(dna$Squirrel == "P22"),]
 dna.con <- dna[which(substr(dna$Sample,2,2) == "C"),]
+
+# Remove samples w/o crds data
+dna.con <- dna.con[-which(dna.con$Squirrel == "P04"),]
+dna.con <- dna.con[-which(dna.con$Squirrel == "S11"),]
+dna.con <- dna.con[-which(dna.con$Squirrel == "S40"),]
 
 
 ### Add in delta metrics
@@ -396,13 +397,13 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.03934
+  # p = 0.01664
   # Not Normal
 cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$Baseline, method = "kendall")
-  # p = 0.04198
-  # tau = -0.3421963
+  # p = 0.09472
+  # tau = -0.2904433
 ci_cor(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$Baseline, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
-  # -0.6457419  0.1401161 
+  # -0.6275368  0.1882204
 
 
 ### Test MaxSlope
@@ -422,19 +423,19 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p = 0.00228
+  # p = 0.009944
   # Not Normal
 cor.test(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$MaxSlope, method = "kendall")
-  # p = 0.07956
-  # tau = 0.2949968 
+  # p = 0.04829
+  # tau = 0.3432511 
 ci_cor(dna.c.inu.abx$DNA_Yield_.ng.mg., dna.c.inu.abx$MaxSlope, method = "kendall", type = c("bootstrap"), R = 9999, boot_type = "bca")
-  # -0.09104645  0.51581509 
+  # -0.02717427  0.55331674 
 
 
 
 
-p.adjust(c(0.3841, 0.04198, 0.3974, 0.07956), "BH")
-  # 0.39740 0.15912 0.39740 0.15912
+p.adjust(c(0.3841, 0.09472, 0.3974, 0.04829), "BH")
+  # 0.39740 0.18944 0.39740 0.18944
 
 ```
 
@@ -452,7 +453,12 @@ rownames(dates_use) <- 1:nrow(dates_use)
 dates_use <- dates_use[-33:-40,]
 dates_use <- dates_use[-3,]
   # Remove outlier P04
+#dates_use <- dates_use[-which(dates_use$ID == "W43"),]
 dates_use <- dates_use[-which(dates_use$ID == "W20"),]
+  # This is due to odd metagenome
+#dates_use <- dates_use[-which(dates_use$ID == "W50"),]
+#dates_use <- dates_use[-which(dates_use$ID == "P20"),]
+#dates_use <- dates_use[-which(dates_use$ID == "P22"),]
 
 
 
