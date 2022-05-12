@@ -1,0 +1,71 @@
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = Baseline ~ Season + Diet + Antibiotics + Substrate + Season * Diet + Season * Antibiotics + Antibiotics * Sex, data = crds.rem)
+
+$Season
+                   diff       lwr       upr p adj
+Winter-Summer -4.495083 -5.237370 -3.752796     0
+Spring-Summer -2.288017 -3.030304 -1.545730     0
+Spring-Winter  2.207067  1.472393  2.941740     0
+
+$Diet
+         diff       lwr       upr p adj
+2-1 -1.518712 -2.033617 -1.003806 2e-07
+
+$Antibiotics
+            diff      lwr        upr     p adj
+Yes-No -0.852143 -1.35653 -0.3477563 0.0012693
+
+$Substrate
+                  diff         lwr       upr     p adj
+Saline-Inulin 0.415748 -0.08771403 0.9192101 0.1038556
+
+$Sex
+                  diff       lwr       upr     p adj
+Male-Female 0.08987009 -0.413592 0.5933321 0.7224346
+
+$`Season:Diet`
+                         diff        lwr        upr     p adj
+Winter:1-Summer:1 -4.66644777 -5.7651485 -3.5677471 0.0000000
+Spring:1-Summer:1 -0.71862249 -1.9813425  0.5440975 0.5540920
+Summer:2-Summer:1 -0.75705313 -2.0982765  0.5841702 0.5629487
+Winter:2-Summer:1 -5.13532482 -6.6718892 -3.5987604 0.0000000
+Spring:2-Summer:1 -4.02806731 -5.2101605 -2.8459741 0.0000000
+Spring:1-Winter:1  3.94782527  2.7426510  5.1529995 0.0000000
+Summer:2-Winter:1  3.90939463  2.6222026  5.1965866 0.0000000
+Winter:2-Winter:1 -0.46887705 -1.9585123  1.0207582 0.9384037
+Spring:2-Winter:1  0.63838045 -0.4820335  1.7587944 0.5528276
+Summer:2-Spring:1 -0.03843064 -1.4681795  1.3913183 0.9999995
+Winter:2-Spring:1 -4.41670233 -6.0311161 -2.8022885 0.0000000
+Spring:2-Spring:1 -3.30944482 -4.5911024 -2.0277872 0.0000000
+Winter:2-Summer:2 -4.37827169 -6.0548009 -2.7017425 0.0000000
+Spring:2-Summer:2 -3.27101418 -4.6300816 -1.9119467 0.0000000
+Spring:2-Winter:2  1.10725751 -0.4449069  2.6594219 0.3019599
+
+$`Season:Antibiotics`
+                             diff        lwr          upr     p adj
+Winter:No-Summer:No   -5.01006738 -6.2577545 -3.762380259 0.0000000
+Spring:No-Summer:No   -2.27686369 -3.5020681 -1.051659263 0.0000127
+Summer:Yes-Summer:No  -1.21089044 -2.5140571  0.092276253 0.0831605
+Winter:Yes-Summer:No  -5.09341614 -6.3668315 -3.820000812 0.0000000
+Spring:Yes-Summer:No  -3.56355557 -4.8667223 -2.260388879 0.0000000
+Spring:No-Winter:No    2.73320369  1.5079993  3.958408113 0.0000002
+Summer:Yes-Winter:No   3.79917694  2.4960102  5.102343630 0.0000000
+Winter:Yes-Winter:No  -0.08334877 -1.3567641  1.190066565 0.9999616
+Spring:Yes-Winter:No   1.44651181  0.1433451  2.749678497 0.0211227
+Summer:Yes-Spring:No   1.06597325 -0.2156843  2.347630839 0.1568149
+Winter:Yes-Spring:No  -2.81655245 -4.0679474 -1.565157491 0.0000001
+Spring:Yes-Spring:No  -1.28669188 -2.5683495 -0.005034293 0.0485552
+Winter:Yes-Summer:Yes -3.88252570 -5.2103461 -2.554705350 0.0000000
+Spring:Yes-Summer:Yes -2.35266513 -3.7090440 -0.996286235 0.0000492
+Spring:Yes-Winter:Yes  1.52986057  0.2020402  2.857680926 0.0148673
+
+$`Antibiotics:Sex`
+                           diff         lwr        upr     p adj
+Yes:Female-No:Female -0.3731004 -1.28799693  0.5417961 0.7049498
+No:Male-No:Female     0.5408156 -0.36340624  1.4450375 0.3979175
+Yes:Male-No:Female   -0.8469497 -1.85283302  0.1589336 0.1283524
+No:Male-Yes:Female    0.9139161  0.02164103  1.8061911 0.0427064
+Yes:Male-Yes:Female  -0.4738493 -1.46900694  0.5213084 0.5933726
+Yes:Male-No:Male     -1.3877653 -2.37311825 -0.4024124 0.0023905

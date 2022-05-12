@@ -63,6 +63,8 @@ crds.rem <- crds.rem[-which(crds.rem$ID == "W43"),]
 crds.rem <- crds.rem[-which(crds.rem$ID == "W20"),]
   # This is due to odd metagenome
 crds.rem <- crds.rem[-which(crds.rem$ID == "W50"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "P20"),]
+crds.rem <- crds.rem[-which(crds.rem$ID == "P22"),]
 
 
 # Separate by substrate
@@ -95,69 +97,19 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # p-value = 0.5284
+  # p-value = 0.5647
   # Normal
 summary(aov(Baseline ~ Season + Diet + Antibiotics + Substrate + Season*Diet + Season*Antibiotics + Antibiotics*Sex, crds.rem))
   # Season p < 2e-16
-  # Diet p = 1.12e-08
-  # Antibiotics p = 0.000358
-  # Substrate = 0.082294
-  # Sex = 0.503941
-  # Season:Diet = 1.28e-05
-  # Season:Antibiotics = 0.052905
-  # Antibiotics:Sex = 0.040027
+  # Diet p = 6.86e-08
+  # Antibiotics p = 0.000968
+  # Substrate = 0.103008
+  # Sex = 0.710210
+  # Season:Diet = 3.05e-05
+  # Season:Antibiotics = 0.062482
+  # Antibiotics:Sex = 0.028783
 TukeyHSD(aov(Baseline ~ Season + Diet + Antibiotics + Substrate + Season*Diet + Season*Antibiotics + Antibiotics*Sex, crds.rem), conf.level = 0.95)
-  # Season
-    # Summer-Winter adj p = 0, CI = 3.757269 - 5.232897
-    # Summer-Spring adj p = 0, CI = 1.748950 - 3.197562
-    # Spring-Winter adj p = 7e-07, CI = 1.305231 - 2.738423
-  # Diet
-    # 1-2 adj p = 0, CI = 1.068405 - 2.071874
-  # Antibiotics
-    # No-Yes adj p = 0.0005154, CI = 0.4104679 - 1.398133
-  # Substrate
-    # Inulin-Saline adj p = 0.0830163, CI = -0.9291451 - 0.05852041
-  # Sex
-    # Female-Male adj p = 0.5204363, CI = -0.6547183 - 0.3346663
-  # Season:Diet
-    # Summer:1-Winter:1 adj p = 0, CI = 3.5868458 - 5.7705237
-    # Summer:1-Spring:1 adj p = 0.4817443, CI = -0.4918827 - 2.0177852
-    # Summer:1-Summer:2 adj p = 0.4966403, CI = -0.5331201 - 2.1325738
-    # Summer:1-Winter:2 adj p = 0, CI = 3.6362841 - 6.6902201
-    # Summer:1-Spring:2 adj p = 0, CI = 3.0190674 - 5.2912685
-    # Spring:1-Winter:1 adj p = 0, CI = 2.7180859 - 5.1133810
-    # Summer:2-Winter:1 adj p = 0, CI = 2.5998049 - 5.1581109
-    # Winter:1-Winter:2 adj p = 0.9282411, CI = -0.9957646 - 1.9648994
-    # Spring:2-Winter:1 adj p = 0.7064592, CI = -1.5961192 - 0.5490856
-    # Summer:2-Spring:1 adj p = 0.9999996, CI = -1.4575952 - 1.3840440
-    # Spring:1-Winter:2 adj p = 0, CI = 2.7959696 - 6.0046321
-    # Spring:1-Spring:2 adj p = 0, CI = 2.1540843 - 4.6303491
-    # Summer:2-Winter:2 adj p = 0, CI = 2.6974666 - 6.0295839
-    # Summer:2-Spring:2 adj p = 0, CI = 2.0383061 - 4.6725762
-    # Spring:2-Winter:2 adj p = 0.3781155, CI = -0.5051888 - 2.5213571
-  # Season:Antibiotics
-    # Summer:No-Winter:No adj p = 0, CI = 3.76444322 - 6.24423299
-    # Summer:No-Spring:No adj p = 0.0000031, CI = 1.9104995 - 3.62615516
-    # Summer:No-Summer:Yes adj p = 0.0658636, CI = -0.04870372 - 2.54135222
-    # Summer:No-Winter:Yes adj p = 0, CI = 3.86799480 - 6.39891964
-    # Summer:No-Spring:Yes adj p = 0, CI = 2.48939308 - 4.96918285
-    # Spring:No-Winter:No adj p = 0.0000005, CI = 1.37818295 - 3.81328816
-    # Summer:Yes-Winter:No adj p = 0, CI = 2.46298588 - 5.05304183
-    # Winter:No-Winter:Yes adj p = 0.9996598, CI = -1.13634330 - 1.39458153
-    # Spring:Yes-Winter:No adj p = 0.0403404, CI = 0.03515526 - 2.51494503
-    # Summer:Yes-Spring:No adj p = 0.0933025, CI = -0.11137490 - 2.43593150
-    # Spring:No-Winter:Yes adj p = 0.0000003, CI = 1.48127510 - 3.96843424
-    # Spring:No-Spring:Yes adj p = 0.0258917, CI = 0.10313281 - 2.53823802
-    # Summer:Yes-Winter:Yes adj p = 0, CI = 2.56760531 - 5.20666063
-    # Summer:Yes-Spring:Yes adj p = 0.0000062, CI = 1.18793574 - 3.77799168
-    # Spring:Yes-Winter:Yes adj p =0.0211397, CI = 0.13870684 - 2.66963167
-  # Antibiotics:Sex
-    # No:Female-Yes:Female adj p = 0.5288121, CI = -0.4306366 - 1.3472318
-    # No:Female-No:Male adj p = 0.3148323, CI = -1.4894694 - 0.3079084
-    # No:Female-Yes:Male adj p = 0.1543947, CI = -0.1921196 - 1.8073370
-    # Yes:Female-No:Male adj p = 0.0113547, CI = -1.9150007 - 0.1831555
-    # Yes:Female-Yes:Male adj p = 0.7782444, CI = -0.6210686 - 1.3196909
-    # No:Male-Yes:Male adj p = 0.0020091, CI = 0.4190657 - 2.3777128
+
 
 ```
 
