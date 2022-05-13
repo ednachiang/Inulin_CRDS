@@ -14,9 +14,6 @@ library(grid)
 library(car)
 library(dunn.test)
 library(Rmisc)
-library(boot)
-library(simpleboot)
-library(misty)
 source('scripts/misc.R')
 set.seed(1)
 theme_set(theme_bw())
@@ -102,10 +99,6 @@ hist(res)
 qqnorm(res)
 qqline(res)
 shapiro.test(res)
-  # Normal
-leveneTest(AUC_sqrt ~ Season, crds.inu.noabx)
-  # p = 0.1853
-var.ci(crds.inu.noabx$AUC_sqrt, crds.inu.noabx$Season)
 summary(aov(AUC_sqrt ~ Season, crds.inu.noabx))
   # p = 0.0919
 TukeyHSD(aov(AUC_sqrt ~ Season, crds.inu.noabx))
@@ -118,9 +111,6 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-leveneTest(AUC_sqrt ~ Season, crds.inu.abx)
-  # p = 0.248
-var.ci(crds.inu.abx$AUC_sqrt, crds.inu.abx$Season)
 summary(aov(AUC_sqrt ~ Season, crds.inu.abx))
   # p = 0.568
 TukeyHSD(aov(AUC_sqrt ~ Season, crds.inu.abx))
@@ -136,9 +126,6 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-leveneTest(AUC_sqrt ~ Season, crds.sal.noabx)
-  # p = 0.708
-var.ci(crds.sal.noabx$AUC_sqrt, crds.sal.noabx$Season)
 summary(aov(AUC_sqrt ~ Season, crds.sal.noabx))
   # p = 0.146
 TukeyHSD(aov(AUC_sqrt ~ Season, crds.sal.noabx))
@@ -151,17 +138,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-leveneTest(AUC_sqrt ~ Season, crds.sal.abx)
-  # p = 0.2885
-var.ci(crds.sal.abx$AUC_sqrt, crds.sal.abx$Season)
 summary(aov(AUC_sqrt ~ Season, crds.sal.abx))
   # p = 0.434
 TukeyHSD(aov(AUC_sqrt ~ Season, crds.sal.abx))
 
 
-### Variance Adj P
-p.adjust(c(0.1853, 0.248, 0.708, 0.2885), "BH")
-  # 0.3846667 0.3846667 0.7080000 0.3846667
 
 ### ANOVA/KW Adj P
 p.adjust(c(0.0919, 0.568, 0.146, 0.434), "BH")
@@ -292,9 +273,6 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-leveneTest(AvgD ~ Season, crds.inu.noabx)
-  # p = 0.07392
-var.ci(crds.inu.noabx$AvgD, crds.inu.noabx$Season)
 summary(aov(AvgD ~ Season, crds.inu.noabx))
   # p = 0.133
 TukeyHSD(aov(AvgD ~ Season, crds.inu.noabx))
@@ -307,9 +285,6 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-leveneTest(AvgD ~ Season, crds.inu.abx)
-  # p = 0.3443
-var.ci(crds.inu.abx$AvgD, crds.inu.abx$Season)
 summary(aov(AvgD ~ Season, crds.inu.abx))
   # p = 0.593
 TukeyHSD(aov(AvgD ~ Season, crds.inu.noabx))
@@ -325,9 +300,6 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-leveneTest(AvgD ~ Season, crds.sal.noabx)
-  # p = 0.2501
-var.ci(crds.sal.noabx$AvgD, crds.sal.noabx$Season)
 summary(aov(AvgD ~ Season, crds.sal.noabx))
   # p = 0.154
 TukeyHSD(aov(AvgD ~ Season, crds.sal.noabx))
@@ -340,9 +312,6 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-leveneTest(AvgD ~ Season, crds.sal.abx)
-  # p = 0.3653
-var.ci(crds.sal.abx$AvgD, crds.sal.abx$Season)
 summary(aov(AvgD ~ Season, crds.sal.abx))
   # p = 0.195
 TukeyHSD(aov(AvgD ~ Season, crds.sal.abx))
@@ -350,10 +319,6 @@ TukeyHSD(aov(AvgD ~ Season, crds.sal.abx))
 
 
 
-
-### Variance Adj P
-p.adjust(c(0.07392, 0.3443, 0.2501, 0.3653), "BH")
-  # 0.133, 0.593, 0.154, 0.195
 
 ### ANOVA/KW Adj P
 p.adjust(c(0.133, 0.593, 0.154, 0.195), "BH")
@@ -485,9 +450,6 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-leveneTest(MaxD ~ Season, crds.inu.noabx)
-  # p = 0.1128
-var.ci(crds.inu.noabx$MaxD, crds.inu.noabx$Season)
 summary(aov(MaxD ~ Season, crds.inu.noabx))
   # p = 0.00765
 TukeyHSD(aov(MaxD ~ Season, crds.inu.noabx))
@@ -501,9 +463,6 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-leveneTest(MaxD ~ Season, crds.inu.abx)
-  # p = 0.2858
-var.ci(crds.inu.abx$MaxD, crds.inu.abx$Season)
 summary(aov(MaxD ~ Season, crds.inu.abx))
   # p = 0.991
 TukeyHSD(aov(MaxD ~ Season, crds.inu.abx))
@@ -519,9 +478,6 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-leveneTest(MaxD ~ Season, crds.sal.noabx)
-  # p = 0.5581
-var.ci(crds.sal.noabx$MaxD, crds.sal.noabx$Season)
 summary(aov(MaxD ~ Season, crds.sal.noabx))
   # p = 0.191
 TukeyHSD(aov(MaxD ~ Season, crds.sal.noabx))
@@ -535,17 +491,11 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-leveneTest(MaxD ~ Season, crds.sal.abx)
-  # p = 0.3404
-var.ci(crds.sal.abx$MaxD, crds.sal.abx$Season)
 summary(aov(MaxD ~ Season, crds.sal.abx))
   # p = 0.191
 TukeyHSD(aov(MaxD ~ Season, crds.sal.abx))
 
 
-### Variance Adj P
-p.adjust(c(0.1128, 0.2858, 0.5581, 0.3404), "BH")
-  # 0.4512000 0.4538667 0.5581000 0.4538667
 
 ### ANOVA/KW Adj P
 p.adjust(c(0.00765, 0.991, 0.191, 0.191), "BH")
@@ -677,9 +627,6 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-leveneTest(MaxSlope ~ Season, crds.inu.noabx)
-  # p = 0.1685
-var.ci(crds.inu.noabx$MaxSlope, crds.inu.noabx$Season)
 summary(aov(MaxSlope ~ Season, crds.inu.noabx))
   # p = 0.000286
 TukeyHSD(aov(MaxSlope ~ Season, crds.inu.noabx))
@@ -693,9 +640,6 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-leveneTest(MaxSlope ~ Season, crds.inu.abx)
-  # p = 0.003141
-var.ci(crds.inu.abx$MaxSlope, crds.inu.abx$Season)
 summary(aov(MaxSlope ~ Season, crds.inu.abx))
   # p = 0.00123
 TukeyHSD(aov(MaxSlope ~ Season, crds.inu.abx))
@@ -713,9 +657,6 @@ qqline(res)
 shapiro.test(res)
   # Test says not normal, but I disagree
   # Normal
-leveneTest(MaxSlope ~ Season, crds.sal.noabx)
-  # p = 0.208
-var.ci(crds.sal.noabx$MaxSlope, crds.sal.noabx$Season)
 summary(aov(MaxSlope ~ Season, crds.sal.noabx))
   # p = 0.64
 TukeyHSD(aov(MaxSlope ~ Season, crds.sal.noabx))
@@ -728,17 +669,10 @@ qqnorm(res)
 qqline(res)
 shapiro.test(res)
   # Normal
-leveneTest(MaxSlope ~ Season, crds.sal.abx)
-  # p = 0.3131
-var.ci(crds.sal.abx$MaxSlope, crds.sal.abx$Season)
 summary(aov(MaxSlope ~ Season, crds.sal.abx))
   # p = 0.217
 TukeyHSD(aov(MaxSlope ~ Season, crds.sal.abx))
 
-
-### Variance Adj P
-p.adjust(c(0.1685, 0.003141, 0.208, 0.3131), "BH")
-  # 0.2773333 0.0125640 0.2773333 0.3131000
 
 ### ANOVA/KW Adj P
 p.adjust(c(0.000286, 0.00123, 0.64, 0.217), "BH")
