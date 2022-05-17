@@ -37,16 +37,34 @@ metab <- metab[,-7]
   # Remove mannose --> no Inulin ABX squirrels
 metab <- metab[,-9]
   # Remove uracil --> no Inulin ABX squirrels
+
+# Remove outliers
+#metab <- metab[-which(substr(rownames(metab),3,5) == "S23"),]
+  # Not in data
+metab <- metab[-which(substr(rownames(metab),3,5) == "S37"),]
+metab <- metab[-which(substr(rownames(metab),3,5) == "S60"),]
+
+# Split up data
 metab.noabx <- metab[which(metab$Antibiotics == "No"),]
 metab.abx <- metab[which(metab$Antibiotics == "Yes"),]
 metab.inu <- metab[which(metab$Substrate == "Inulin"),]
 metab.sal <- metab[which(metab$Substrate == "Saline"),]
 
-# Remove bad columns
+# Remove bad columns (n < 3 for groups)
 metab.abx <- metab.abx[,-8]
   # Remove propionate because no inulin ABX
+metab.abx <- metab.abx[,-7]
+  # Remove phenylalanine because inulin abx n = 2
+metab.abx <- metab.abx[,-5]
+  # Remove glutamate because inulin abx n = 2
 metab.inu <- metab.inu[,-8]
   # Remove propionate because no inulin ABX
+metab.inu <- metab.inu[,-7]
+  # Remove phenylalanine because inulin abx n = 2
+metab.inu <- metab.inu[,-5]
+  # Remove glutamate because inulin abx n = 2
+
+
 
 
 # Load metadata
@@ -109,19 +127,19 @@ metab$SubstrateABX <- ordered(metab$SubstrateABX, levels = c("Inulin.No", "Inuli
 ### Acetate
 acetate.plot <- ggplot(metab, aes(x = Substrate, y = Acetate, color = SubstrateABX,
                                     fill = SubstrateABX)) +
-  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 2.5,
-               position = position_dodge(0.7), stackratio = 0.5) +
-  scale_color_manual(values = c("gray25", "#000000", "gray70", "gray70")) +
-  scale_fill_manual(values = c("gray25", "white", "gray50", "white")) +
-  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.5) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 3,
+               position = position_dodge(0.8), stackratio = 0.7) +
+  scale_color_manual(values = c("gray20", "gray20", "gray40", "gray40")) +
+  scale_fill_manual(values = c("gray45", "white", "gray70", "white")) +
+  stat_summary(fun.data = "mean_se", geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.65) +
   ggtitle("Acetate")  + 
-  ylab("Acetate abundance per mg content") +
+  ylab("Acetate per mg content") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
-        axis.title.x = element_text(size=11, margin = margin(t = 7.5)),
-        axis.title.y = element_text(size=11),
+        axis.title.x = element_text(size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(size=10),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
         plot.title = element_text(hjust = 0.5, size = 11),
@@ -130,19 +148,19 @@ acetate.plot <- ggplot(metab, aes(x = Substrate, y = Acetate, color = SubstrateA
 ### Butyrate
 butyrate.plot <- ggplot(metab, aes(x = Substrate, y = Butyrate, color = SubstrateABX,
                                     fill = SubstrateABX)) +
-  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 2.5,
-               position = position_dodge(0.7), stackratio = 0.5) +
-  scale_color_manual(values = c("gray25", "#000000", "gray70", "gray70")) +
-  scale_fill_manual(values = c("gray25", "white", "gray50", "white")) +
-  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.5) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 3,
+               position = position_dodge(0.8), stackratio = 0.7) +
+  scale_color_manual(values = c("gray20", "gray20", "gray40", "gray40")) +
+  scale_fill_manual(values = c("gray45", "white", "gray70", "white")) +
+  stat_summary(fun.data = "mean_se", geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.65) +
   ggtitle("Butyrate")  + 
-  ylab("Butyrate abundance per mg content") +
+  ylab("Butyrate per mg content") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
-        axis.title.x = element_text(size=11, margin = margin(t = 7.5)),
-        axis.title.y = element_text(size=11),
+        axis.title.x = element_text(size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(size=10),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
         plot.title = element_text(hjust = 0.5, size = 11),
@@ -151,19 +169,19 @@ butyrate.plot <- ggplot(metab, aes(x = Substrate, y = Butyrate, color = Substrat
 ### Fructose
 fructose.plot <- ggplot(metab, aes(x = Substrate, y = Fructose, color = SubstrateABX,
                                     fill = SubstrateABX)) +
-  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 2.5,
-               position = position_dodge(0.7), stackratio = 0.5) +
-  scale_color_manual(values = c("gray25", "#000000", "gray70", "gray70")) +
-  scale_fill_manual(values = c("gray25", "white", "gray50", "white")) +
-  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.5) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 3,
+               position = position_dodge(0.8), stackratio = 0.7) +
+  scale_color_manual(values = c("gray20", "gray20", "gray40", "gray40")) +
+  scale_fill_manual(values = c("gray45", "white", "gray70", "white")) +
+  stat_summary(fun.data = "mean_se", geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.65) +
   ggtitle("Fructose")  + 
-  ylab("Fructose abundance per mg content") +
+  ylab("Fructose per mg content") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
-        axis.title.x = element_text(size=11, margin = margin(t = 7.5)),
-        axis.title.y = element_text(size=11),
+        axis.title.x = element_text(size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(size=10),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
         plot.title = element_text(hjust = 0.5, size = 11),
@@ -172,19 +190,19 @@ fructose.plot <- ggplot(metab, aes(x = Substrate, y = Fructose, color = Substrat
 ### Glucose
 glucose.plot <- ggplot(metab, aes(x = Substrate, y = Glucose, color = SubstrateABX,
                                     fill = SubstrateABX)) +
-  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 2.5,
-               position = position_dodge(0.7), stackratio = 0.5) +
-  scale_color_manual(values = c("gray25", "#000000", "gray70", "gray70")) +
-  scale_fill_manual(values = c("gray25", "white", "gray50", "white")) +
-  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.5) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 3,
+               position = position_dodge(0.8), stackratio = 0.7) +
+  scale_color_manual(values = c("gray20", "gray20", "gray40", "gray40")) +
+  scale_fill_manual(values = c("gray45", "white", "gray70", "white")) +
+  stat_summary(fun.data = "mean_se", geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.65) +
   ggtitle("Glucose")  + 
-  ylab("Glucose abundance per mg content") +
+  ylab("Glucose per mg content") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
-        axis.title.x = element_text(size=11, margin = margin(t = 7.5)),
-        axis.title.y = element_text(size=11),
+        axis.title.x = element_text(size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(size=10),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
         plot.title = element_text(hjust = 0.5, size = 11),
@@ -193,19 +211,19 @@ glucose.plot <- ggplot(metab, aes(x = Substrate, y = Glucose, color = SubstrateA
 ### Glutamate
 glutamate.plot <- ggplot(metab, aes(x = Substrate, y = Glutamate, color = SubstrateABX,
                                     fill = SubstrateABX)) +
-  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 2.5,
-               position = position_dodge(0.7), stackratio = 0.5) +
-  scale_color_manual(values = c("gray25", "#000000", "gray70", "gray70")) +
-  scale_fill_manual(values = c("gray25", "white", "gray50", "white")) +
-  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.5) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 3,
+               position = position_dodge(0.8), stackratio = 0.7) +
+  scale_color_manual(values = c("gray20", "gray20", "gray40", "gray40")) +
+  scale_fill_manual(values = c("gray45", "white", "gray70", "white")) +
+  stat_summary(fun.data = "mean_se", geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.65) +
   ggtitle("Glutamate")  + 
-  ylab("Glutamate abundance per mg content") +
+  ylab("Glutamate per mg content") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
-        axis.title.x = element_text(size=11, margin = margin(t = 7.5)),
-        axis.title.y = element_text(size=11),
+        axis.title.x = element_text(size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(size=10),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
         plot.title = element_text(hjust = 0.5, size = 11),
@@ -214,61 +232,41 @@ glutamate.plot <- ggplot(metab, aes(x = Substrate, y = Glutamate, color = Substr
 ### Lactate
 lactate.plot <- ggplot(metab, aes(x = Substrate, y = Lactate, color = SubstrateABX,
                                     fill = SubstrateABX)) +
-  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 2.5,
-               position = position_dodge(0.7), stackratio = 0.5) +
-  scale_color_manual(values = c("gray25", "#000000", "gray70", "gray70")) +
-  scale_fill_manual(values = c("gray25", "white", "gray50", "white")) +
-  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.5) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 3,
+               position = position_dodge(0.8), stackratio = 0.7) +
+  scale_color_manual(values = c("gray20", "gray20", "gray40", "gray40")) +
+  scale_fill_manual(values = c("gray45", "white", "gray70", "white")) +
+  stat_summary(fun.data = "mean_se", geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.65) +
   ggtitle("Lactate")  + 
-  ylab("Lactate abundance per mg content") +
+  ylab("Lactate per mg content") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
-        axis.title.x = element_text(size=11, margin = margin(t = 7.5)),
-        axis.title.y = element_text(size=11),
+        axis.title.x = element_text(size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(size=10),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
         plot.title = element_text(hjust = 0.5, size = 11),
         legend.position = "none")
 
-### Mannose
-mannose.plot <- ggplot(metab, aes(x = Substrate, y = Mannose, color = SubstrateABX,
-                                    fill = SubstrateABX)) +
-  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 2.5,
-               position = position_dodge(0.7), stackratio = 0.5) +
-  scale_color_manual(values = c("gray25", "#000000", "gray70", "gray70")) +
-  scale_fill_manual(values = c("gray25", "white", "gray50", "white")) +
-  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.5) +
-  ggtitle("Mannose")  + 
-  ylab("Mannose abundance per mg content") +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        strip.background = element_blank(),
-        axis.title.x = element_text(size=11, margin = margin(t = 7.5)),
-        axis.title.y = element_text(size=11),
-        axis.text.x = element_text(size=10),
-        axis.text.y = element_text(size=10),
-        plot.title = element_text(hjust = 0.5, size = 11),
-        legend.position = "none")
 
 ### Phenylalanine
 phenylalanine.plot <- ggplot(metab, aes(x = Substrate, y = Phenylalanine, color = SubstrateABX,
                                     fill = SubstrateABX)) +
-  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 2.5,
-               position = position_dodge(0.7), stackratio = 0.5) +
-  scale_color_manual(values = c("gray25", "#000000", "gray70", "gray70")) +
-  scale_fill_manual(values = c("gray25", "white", "gray50", "white")) +
-  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.5) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 3,
+               position = position_dodge(0.8), stackratio = 0.7) +
+  scale_color_manual(values = c("gray20", "gray20", "gray40", "gray40")) +
+  scale_fill_manual(values = c("gray45", "white", "gray70", "white")) +
+  stat_summary(fun.data = "mean_se", geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.65) +
   ggtitle("Phenylalanine")  + 
-  ylab("Phenylalanine abundance per mg content") +
+  ylab("Phenylalanine per mg content") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
-        axis.title.x = element_text(size=11, margin = margin(t = 7.5)),
-        axis.title.y = element_text(size=11),
+        axis.title.x = element_text(size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(size=10),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
         plot.title = element_text(hjust = 0.5, size = 11),
@@ -277,44 +275,24 @@ phenylalanine.plot <- ggplot(metab, aes(x = Substrate, y = Phenylalanine, color 
 ### Propionate
 propionate.plot <- ggplot(metab, aes(x = Substrate, y = Propionate, color = SubstrateABX,
                                     fill = SubstrateABX)) +
-  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 2.5,
-               position = position_dodge(0.7), stackratio = 0.5) +
-  scale_color_manual(values = c("gray25", "#000000", "gray70", "gray70")) +
-  scale_fill_manual(values = c("gray25", "white", "gray50", "white")) +
-  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.5) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 3,
+               position = position_dodge(0.8), stackratio = 0.7) +
+  scale_color_manual(values = c("gray20", "gray40", "gray40")) +
+  scale_fill_manual(values = c("gray45", "gray70", "white")) +
+  stat_summary(fun.data = "mean_se", geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.65) +
   ggtitle("Propionate")  + 
-  ylab("Propionate abundance per mg content") +
+  ylab("Propionate per mg content") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         strip.background = element_blank(),
-        axis.title.x = element_text(size=11, margin = margin(t = 7.5)),
-        axis.title.y = element_text(size=11),
+        axis.title.x = element_text(size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(size=10),
         axis.text.x = element_text(size=10),
         axis.text.y = element_text(size=10),
         plot.title = element_text(hjust = 0.5, size = 11),
         legend.position = "none")
 
-### Uracil
-#uracil.plot <- ggplot(metab, aes(x = Substrate, y = Uracil, color = SubstrateABX,
-                                    fill = SubstrateABX)) +
-  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 2.5,
-               position = position_dodge(0.7), stackratio = 0.5) +
-  scale_color_manual(values = c("gray25", "#000000", "gray70", "gray70")) +
-  scale_fill_manual(values = c("gray25", "white", "gray50", "white")) +
-  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.5) +
-  ggtitle("Uracil")  + 
-  ylab("Uracil abundance per mg content") +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        strip.background = element_blank(),
-        axis.title.x = element_text(size=11, margin = margin(t = 7.5)),
-        axis.title.y = element_text(size=11),
-        axis.text.x = element_text(size=10),
-        axis.text.y = element_text(size=10),
-        plot.title = element_text(hjust = 0.5, size = 11),
-        legend.position = "none")
 ```
 
 
