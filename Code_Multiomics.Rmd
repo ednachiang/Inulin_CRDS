@@ -24,6 +24,7 @@ library(pwr)
 library(effsize)
 library(equivalence)
 library(mixOmics)
+library(metagMisc)
 source('scripts/misc.R')
 theme_set(theme_bw())
 set.seed(1)
@@ -33,19 +34,29 @@ set.seed(1)
 ### Load Data
 ```{r}
 # Load KEGG table
-KO <- read.table('KEGG/KOtable.txt', header = T, row.names = 1)
+KO <- read.table('KEGG/KOtable_norm.tab', header = T, row.names = 1)
 KO <- t(KO)
-KO <- KO[,1:25]
+seasonRem <- which(substr(rownames(KO), 1,1) != "S")
+KO <- KO[-seasonRem,]
+#KO <- KO[,1:25]
 
 # Load metabolomic data
-metab <- read.csv('metabolomics/metabolomics.csv', row.names = 1)
+metab <- read.csv('metabolomics/metabolomics_use.csv', row.names = 1)
 metab <- t(metab)
+metabUse <- c()
+for(i in 1:nrow(KO)){
+  useRow <- which(substr(rownames(metab),3,5) == rownames(KO)[i])
+  metabUse <- c(metabUse, useRow)
+}
+metab <- metab[metabUse,]
 
 # Load metadata
 meta <- read.csv('metadata_metag.csv', row.names = 2)
 row.names(meta) <- substr(rownames(meta),3,5)
 meta <- meta[-7:-18,]
+  # Remove Winter and Spring samples
 meta <- meta[,-11]
+  # Remove Ketones because NA
 
 # Load CRDS data
 #load('crds.use.Rdata')
@@ -54,7 +65,11 @@ meta <- meta[,-11]
 data <- list(KO = KO, metabolomics = metab)
 
 
-Y = meta$Substrate
+### Pull out just Inulin squirrels
+metab.inu <- metab[which(substr(rownames(metab),1,1) == "I"),]
+KO.inu <- KO[1:3,]
+
+
 ```
 
 ### RCC - Initial Analysis
@@ -144,13 +159,17 @@ plotVar(pls1, cutoff = 0.5, title = "KO vs. Metabolomics", style = 'graphics')
 cor(pls1$variates$X, pls1$variates$Y)
 ```
 
-### DIABLO Model
+### ONLY FOR SEASONAL COMPARISON - DIABLO Model
 ```{r}
+# X = data (KO and metabolomics)
+# Y = season
+
+
 design = matrix(0.1, ncol = length(data), nrow = length(data),
                 dimnames = list(names(data), names(data)))
 diag(design) <- 0
 
-basic.diablo.model <- block.splsda(X = data, Y = y, ncomp = 5, design = design)
+basic.diablo.model <- block.splsda(X = data, Y = Y, ncomp = 5, design = design)
 
 final.diablo.model <- block.splsda(X = data, Y = Y, design = design)
 
