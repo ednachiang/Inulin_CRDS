@@ -1,0 +1,74 @@
+---
+title: "Multiomics"
+author: "Edna Chiang"
+date: "4/27/2022"
+output: html_document
+---
+
+### Load Libraries
+```{r}
+library(ape)
+library(dplyr)
+library(dunn.test)
+library(effsize)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(phyloseq)
+library(picante)
+library(pwr)
+library(tidyr)
+library(vegan)
+library(pwr)
+library(effsize)
+library(equivalence)
+library(mixOmics)
+source('scripts/misc.R')
+theme_set(theme_bw())
+set.seed(1)
+```
+
+
+### Load Data
+```{r}
+# Load metabolomic data
+metab <- read.csv('metabolomics/metabolomics_use.csv', row.names = 1)
+metab <- data.frame(t(metab))
+metab$Substrate <- rep(NA, nrow(metab))
+metab$Substrate <- substr(rownames(metab),1,1)
+metab <- metab[,-6]
+metab <- metab[,-7]
+metab <- metab[,-8]
+
+
+# Load metadata
+meta <- read.csv('metadata.csv')
+
+```
+
+
+### Test Substrate
+```{r}
+# Summer
+res <- resid(lm(Acetate ~ Substrate, metab))
+hist(res)
+qqnorm(res)
+qqline(res)
+shapiro.test(res)
+  # Normal
+wilcox.test(Acetate ~ Substrate, metab, conf.int = T)
+wilcox.test(Butyrate ~ Substrate, metab, conf.int = T)
+wilcox.test(Fructose ~ Substrate, metab, conf.int = T)
+wilcox.test(Glucose ~ Substrate, metab, conf.int = T)
+wilcox.test(Glutamate ~ Substrate, metab, conf.int = T)
+wilcox.test(Mannose ~ Substrate, metab, conf.int = T)
+wilcox.test(Propionate ~ Substrate, metab, conf.int = T)
+
+
+
+for(i in 1:(ncol(metab)-1)){
+  use <- colnames(metab)[i]
+  test <- wilcox.test(use ~ Substrate, metab, conf.int = T)
+  print(test$p.value)
+}
+```
