@@ -33,16 +33,20 @@ metab <- data.frame(t(metab))
 for(i in 1:(ncol(metab) - 2)){
   metab[,i] <- as.numeric(metab[,i])
 }
+metab <- metab[,-7]
+  # Remove mannose --> no Inulin ABX squirrels
+metab <- metab[,-9]
+  # Remove uracil --> no Inulin ABX squirrels
 metab.noabx <- metab[which(metab$Antibiotics == "No"),]
 metab.abx <- metab[which(metab$Antibiotics == "Yes"),]
 metab.inu <- metab[which(metab$Substrate == "Inulin"),]
 metab.sal <- metab[which(metab$Substrate == "Saline"),]
 
 # Remove bad columns
-metab.abx <- metab.abx[,-7]
-metab.abx <- metab.abx[,-8:-9]
-metab.inu <- metab.inu[,-10]
-metab.inu <- metab.inu[,-7]
+metab.abx <- metab.abx[,-8]
+  # Remove propionate because no inulin ABX
+metab.inu <- metab.inu[,-8]
+  # Remove propionate because no inulin ABX
 
 
 # Load metadata
