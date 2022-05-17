@@ -123,9 +123,14 @@ metab.sal.output$AdjP <- p.adjust(metab.sal.output$`P-value`, "BH")
 metab$SubstrateABX <- interaction(metab$Substrate, metab$Antibiotics)
 metab$SubstrateABX <- ordered(metab$SubstrateABX, levels = c("Inulin.No", "Inulin.Yes", "Saline.No", "Saline.Yes"))
 
+# Drop groups with n < 3
+metabplot <- metab
+metabplot$Glutamate[which(metabplot$SubstrateABX == "Inulin.Yes")] <- NA
+metabplot$Phenylalanine[which(metabplot$SubstrateABX == "Inulin.Yes")] <- NA
+
 
 ### Acetate
-acetate.plot <- ggplot(metab, aes(x = Substrate, y = Acetate, color = SubstrateABX,
+acetate.plot <- ggplot(metabplot, aes(x = Substrate, y = Acetate, color = SubstrateABX,
                                     fill = SubstrateABX)) +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 3,
                position = position_dodge(0.8), stackratio = 0.7) +
@@ -146,7 +151,7 @@ acetate.plot <- ggplot(metab, aes(x = Substrate, y = Acetate, color = SubstrateA
         legend.position = "none")
 
 ### Butyrate
-butyrate.plot <- ggplot(metab, aes(x = Substrate, y = Butyrate, color = SubstrateABX,
+butyrate.plot <- ggplot(metabplot, aes(x = Substrate, y = Butyrate, color = SubstrateABX,
                                     fill = SubstrateABX)) +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 3,
                position = position_dodge(0.8), stackratio = 0.7) +
@@ -167,7 +172,7 @@ butyrate.plot <- ggplot(metab, aes(x = Substrate, y = Butyrate, color = Substrat
         legend.position = "none")
 
 ### Fructose
-fructose.plot <- ggplot(metab, aes(x = Substrate, y = Fructose, color = SubstrateABX,
+fructose.plot <- ggplot(metabplot, aes(x = Substrate, y = Fructose, color = SubstrateABX,
                                     fill = SubstrateABX)) +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 3,
                position = position_dodge(0.8), stackratio = 0.7) +
@@ -188,7 +193,7 @@ fructose.plot <- ggplot(metab, aes(x = Substrate, y = Fructose, color = Substrat
         legend.position = "none")
 
 ### Glucose
-glucose.plot <- ggplot(metab, aes(x = Substrate, y = Glucose, color = SubstrateABX,
+glucose.plot <- ggplot(metabplot, aes(x = Substrate, y = Glucose, color = SubstrateABX,
                                     fill = SubstrateABX)) +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 3,
                position = position_dodge(0.8), stackratio = 0.7) +
@@ -209,12 +214,12 @@ glucose.plot <- ggplot(metab, aes(x = Substrate, y = Glucose, color = SubstrateA
         legend.position = "none")
 
 ### Glutamate
-glutamate.plot <- ggplot(metab, aes(x = Substrate, y = Glutamate, color = SubstrateABX,
+glutamate.plot <- ggplot(metabplot, aes(x = Substrate, y = Glutamate, color = SubstrateABX,
                                     fill = SubstrateABX)) +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 3,
                position = position_dodge(0.8), stackratio = 0.7) +
-  scale_color_manual(values = c("gray20", "gray20", "gray40", "gray40")) +
-  scale_fill_manual(values = c("gray45", "white", "gray70", "white")) +
+  scale_color_manual(values = c("gray20", "gray40", "gray40")) +
+  scale_fill_manual(values = c("gray45", "gray70", "white")) +
   stat_summary(fun.data = "mean_se", geom = "pointrange",
                color = "black", position = position_dodge(0.7), size = 0.65) +
   ggtitle("Glutamate")  + 
@@ -230,7 +235,7 @@ glutamate.plot <- ggplot(metab, aes(x = Substrate, y = Glutamate, color = Substr
         legend.position = "none")
 
 ### Lactate
-lactate.plot <- ggplot(metab, aes(x = Substrate, y = Lactate, color = SubstrateABX,
+lactate.plot <- ggplot(metabplot, aes(x = Substrate, y = Lactate, color = SubstrateABX,
                                     fill = SubstrateABX)) +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 3,
                position = position_dodge(0.8), stackratio = 0.7) +
@@ -252,12 +257,12 @@ lactate.plot <- ggplot(metab, aes(x = Substrate, y = Lactate, color = SubstrateA
 
 
 ### Phenylalanine
-phenylalanine.plot <- ggplot(metab, aes(x = Substrate, y = Phenylalanine, color = SubstrateABX,
+phenylalanine.plot <- ggplot(metabplot, aes(x = Substrate, y = Phenylalanine, color = SubstrateABX,
                                     fill = SubstrateABX)) +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 3,
                position = position_dodge(0.8), stackratio = 0.7) +
-  scale_color_manual(values = c("gray20", "gray20", "gray40", "gray40")) +
-  scale_fill_manual(values = c("gray45", "white", "gray70", "white")) +
+  scale_color_manual(values = c("gray20", "gray40", "gray40")) +
+  scale_fill_manual(values = c("gray45", "gray70", "white")) +
   stat_summary(fun.data = "mean_se", geom = "pointrange",
                color = "black", position = position_dodge(0.7), size = 0.65) +
   ggtitle("Phenylalanine")  + 
@@ -273,7 +278,7 @@ phenylalanine.plot <- ggplot(metab, aes(x = Substrate, y = Phenylalanine, color 
         legend.position = "none")
 
 ### Propionate
-propionate.plot <- ggplot(metab, aes(x = Substrate, y = Propionate, color = SubstrateABX,
+propionate.plot <- ggplot(metabplot, aes(x = Substrate, y = Propionate, color = SubstrateABX,
                                     fill = SubstrateABX)) +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 3,
                position = position_dodge(0.8), stackratio = 0.7) +
@@ -303,40 +308,40 @@ grid.newpage()
 pushViewport(viewport(layout=grid.layout(4,2, widths = c(1, 1))))
 
 print(acetate.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
-grid.text("A", x=unit(0.063, "npc"), y=unit(0.95, "npc"), 
+grid.text("A", x=unit(0.05, "npc"), y=unit(0.97, "npc"), 
           vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=14,fontface="bold"))
 
 print(butyrate.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
-grid.text("B", x=unit(0.063, "npc"), y=unit(0.95, "npc"),
+grid.text("B", x=unit(0.05, "npc"), y=unit(0.97, "npc"),
           vp=viewport(layout.pos.row=1, layout.pos.col=2), gp=gpar(fontsize=14,fontface="bold"))
 
 
 print(fructose.plot, vp=viewport(layout.pos.row=2, layout.pos.col=1))
-grid.text("C", x=unit(0.063, "npc"), y=unit(0.95, "npc"), 
+grid.text("C", x=unit(0.05, "npc"), y=unit(0.97, "npc"), 
           vp=viewport(layout.pos.row=2, layout.pos.col=1), gp=gpar(fontsize=14,fontface="bold"))
 
 print(glucose.plot, vp=viewport(layout.pos.row=2, layout.pos.col=2))
-grid.text("D", x=unit(0.063, "npc"), y=unit(0.95, "npc"), 
+grid.text("D", x=unit(0.05, "npc"), y=unit(0.97, "npc"), 
           vp=viewport(layout.pos.row=2, layout.pos.col=2), gp=gpar(fontsize=14,fontface="bold"))
 
 
 
 print(glutamate.plot, vp=viewport(layout.pos.row=3, layout.pos.col=1))
-grid.text("E", x=unit(0.063, "npc"), y=unit(0.95, "npc"), 
+grid.text("E", x=unit(0.05, "npc"), y=unit(0.97, "npc"), 
           vp=viewport(layout.pos.row=3, layout.pos.col=1), gp=gpar(fontsize=14,fontface="bold"))
 
 print(lactate.plot, vp=viewport(layout.pos.row=3, layout.pos.col=2))
-grid.text("F", x=unit(0.063, "npc"), y=unit(0.95, "npc"), 
+grid.text("F", x=unit(0.05, "npc"), y=unit(0.97, "npc"), 
           vp=viewport(layout.pos.row=3, layout.pos.col=2), gp=gpar(fontsize=14,fontface="bold"))
 
 
 
 print(phenylalanine.plot, vp=viewport(layout.pos.row=4, layout.pos.col=1))
-grid.text("G", x=unit(0.063, "npc"), y=unit(1, "npc"), 
+grid.text("G", x=unit(0.05, "npc"), y=unit(1.02, "npc"), 
           vp=viewport(layout.pos.row=4, layout.pos.col=1), gp=gpar(fontsize=14,fontface="bold"))
 
 print(propionate.plot, vp=viewport(layout.pos.row=4, layout.pos.col=2))
-grid.text("H", x=unit(0.063, "npc"), y=unit(1, "npc"), 
+grid.text("H", x=unit(0.05, "npc"), y=unit(1.02, "npc"), 
           vp=viewport(layout.pos.row=4, layout.pos.col=2), gp=gpar(fontsize=14,fontface="bold"))
 
 
