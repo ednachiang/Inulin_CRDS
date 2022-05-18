@@ -10,7 +10,6 @@ output: html_document
 library(ape)
 library(dplyr)
 library(dunn.test)
-library(effsize)
 library(ggplot2)
 library(grid)
 library(gridExtra)
@@ -19,15 +18,48 @@ library(picante)
 library(pwr)
 library(tidyr)
 library(vegan)
-library(miLineage)
-library(pwr)
-library(effsize)
-library(equivalence)
 library(mixOmics)
 library(metagMisc)
+library(compositions)
 source('scripts/misc.R')
 theme_set(theme_bw())
 set.seed(1)
+```
+
+### Convert "OTU" table to biom format
+```{r}
+test <- read.csv('scripts/test/output/I-P01_otu_table.tsv', sep = "\t")
+test1 <- test
+test1$OTU <- 1:nrow(test1)
+test1 <- test1[,-2:-8]
+colnames(test1) <- c("I.S07", "OTU")
+rownames(test1) <- test1$OTU
+test1 <- data.frame(test1[,-2])
+colnames(test1) <- "I.S07"
+test1$S.S07 <- test1[,1]
+test1$W.S07 <- test1[,1]
+#test <- test[,-1]
+#test$OTU <- 1:nrow(test)
+
+metatest <- meta[2,]
+rownames(metatest) <- "I.S07"
+#test$OTU <- paste(test[,2], test[,3], test[,4], test[,5], test[,6], test[,7], test[,8])
+#test <- test[,-2:-8]
+#test$OTU <- 1:nrow(test)
+biom1 <- make_biom(test1, id = "test")
+write_biom(biom1, biom_file = 'test_otu.biom')
+
+metabTest <- metab[1:3,]
+rownames(metabTest) <- colnames(test1)
+metabTest <- t(metabTest)
+test2 <- make_biom(metabTest)
+write_biom(test2, biom_file = 'test_metab.biom')
+```
+
+### Test mmvec output
+```{r}
+ranks <- read.table('multi-omics/test_ranks.txt', sep = "\t", header = T, row.names = 1)
+ranks_use <- clrInv(ranks)
 ```
 
 
@@ -49,6 +81,11 @@ for(i in 1:nrow(KO)){
   metabUse <- c(metabUse, useRow)
 }
 metab <- metab[metabUse,]
+metab <- metab[, (-(ncol(metab)-1) : -ncol(metab) )]
+metab <- data.frame(metab)
+for(j in 1:ncol(metab)){
+  metab[,j] <- as.numeric(metab[,j])
+}
 
 # Load metadata
 meta <- read.csv('metadata_metag.csv', row.names = 2)
@@ -68,6 +105,7 @@ data <- list(KO = KO, metabolomics = metab)
 ### Pull out just Inulin squirrels
 metab.inu <- metab[which(substr(rownames(metab),1,1) == "I"),]
 KO.inu <- KO[1:3,]
+data.inu <- list(KO = KO.inu, metabolomics = metab.inu)
 
 
 ```
@@ -147,14 +185,43 @@ cim(rcc.shrink, comp = 1:2, xlab = "KOIDs", ylab = "Metabolites")
 ```
 
 
+### Preliminary analysis (pre-sPLS)
+```{r}
+# http://mixomics.org/case-studies/spls-liver-toxicity-case-study/
+
+# How many components to use?
+pca.ko <- pca(KO[,1:67], ncomp = 6, center = TRUE, scale = TRUE)
+  # Selected first 67 to test because they don't have NA's
+pca.metab <- pca(metab, ncomp = 6, center = TRUE, scale = TRUE)
+plot(pca.ko)
+  # Component 1
+  # Not much of an elbow
+plot(pca.metab)
+  # Component 1
+
+# Assess clustering of samples
+plotIndiv(pca.ko, comp = c(1, 2))
+plotIndiv(pca.metab, comp = c(1, 2))
+
+```
 ### Pairwise PLS
 ```{r}
-list.keepX = c(25,25)
-list.keepY = c(10,10)
-pls1 <- spls(data[["KO"]], data[["metabolomics"]], keepX = list.keepX, keepY = list.keepY)
+# Current n is too small to perf or tune spls
+# http://mixomics.org/case-studies/spls-liver-toxicity-case-study/
+
+
+pls1 <- spls(data[["KO"]][,1:67], data[["metabolomics"]])
+
+
+
+
+#list.keepX = c(25,25)
+#list.keepY = c(10,10)
+#pls1 <- spls(data.inu[["KO"]], data.inu[["metabolomics"]], keepX = list.keepX, keepY = list.keepY)
 
 plotVar(pls1, cutoff = 0.5, title = "KO vs. Metabolomics", style = 'graphics')
-
+plotIndiv(pls1, group = meta$Substrate, legend = T)
+plotArrow(pls1, group = meta$Substrate)
 # Calculate correlation of KO and metabolomics
 cor(pls1$variates$X, pls1$variates$Y)
 ```
