@@ -17,8 +17,7 @@ kaiju_to_OTU_table <- function(x,y) {
     inputPath <- paste(x, list.files(x)[i], sep = "")
     print(inputPath)
     input <- read.table(inputPath, sep = "\t", header = T)
-    print(head(input))
-    
+
     weirdo <- which(input$Domain == "cannot be assigned to a (non-viral) phylum")
     unclass <- which(input$Domain == "unclassified")[1]
     input$reads[unclass] <- input$reads[unclass] + input$reads[weirdo]
@@ -367,6 +366,7 @@ kaiju_to_OTU_table <- function(x,y) {
     
     ########### Go through Classes (w/o Phylum classification) ########### 
     allCla <- unique(noPhy$Class)
+    allCla <- na.omit(allCla)
     for(cla in 1:length(allCla)){
       # Go class-by-class
       
@@ -411,11 +411,12 @@ kaiju_to_OTU_table <- function(x,y) {
     
     ###########  Go through Orders (w/o Phylum or Class classifications) ########### 
     allOrd <- unique(noPhy$Order)
+    allOrd <- na.omit(allOrd)
     for(ord in 1:length(allOrd)){
       # Go order-by-order
       
       ordMatch <- noPhy[which(noPhy$Order == allOrd[ord]),]
-      if(sum(is.na(ordMatch$Class)) > 0){
+      if(sum(is.na(ordMatch[,4])) == nrow(ordMatch)){
         # Only use Orders that lack both Phylum and Class classifications
         for(m in 1:nrow(ordMatch)){
           # Go row-by-row
@@ -423,116 +424,100 @@ kaiju_to_OTU_table <- function(x,y) {
             # First appearance of Order
             # Subtracts from Unclassified
             output$reads[rowUnclass] <- (output$reads[rowUnclass] - ordMatch$reads[m])
-          } else if(sum(is.na(ordMatch[m,])) == 4){
-            # Subtract this Family from Order
-            ammend <- ordMatch[m,5]
-            ammendRow <- which(ordMatch[,5] == ammend)[1]
-            ordMatch$reads[ammendRow] <- (ordMatch$reads[ammendRow] - ordMatch$reads[m])
-          } else if(sum(is.na(ordMatch[m,])) == 3){
-            # Subtract this Genus from Family
-            ammend <- ordMatch[m,6]
-            ammendRow <- which(ordMatch[,6] == ammend)[1]
-            ordMatch$reads[ammendRow] <- (ordMatch$reads[ammendRow] - ordMatch$reads[m])
-          } else if(sum(is.na(ordMatch[m,])) == 2){
-            # Subtract this Species from Genus
-            ammend <- ordMatch[m,6]
-            ammendRow <- which(ordMatch[,6] == ammend)[1]
-            ordMatch$reads[ammendRow] <- (ordMatch$reads[ammendRow] - ordMatch$reads[m])
           } else {
-            print(allOrd[ord])
-            print(ordMatch)
+              filled <- which(is.na(ordMatch[1,]) == F)
+              last <- filled[(length(filled))]
+              secondLast <- filled[ (length(filled)-1)]
+              
+              ammend <- ordMatch[n,secondLast]
+              ammendRow <- which(ordMatch[,secondLast] == ammend)[1]
+              ordMatch$reads[ammendRow] <- ordMatch$reads[ammendRow] - ordMatch$reads[n]
           }
         } 
+        output <- rbind(output, ordMatch)
       }  # Ends good order-by-order for loop
     
+
+      
     } # Ends order-by-order for loop
       
     
     ###########  Go through Families (w/o Phylum, Class, and Order classifications) ########### 
     allFam <- unique(noPhy$Family)
+    allFam <- na.omit(allFam)
     for(fam in 1:length(allFam)){
       # family-by-family
       
       famMatch <- noPhy[which(noPhy$Family == allFam[fam]),]
-      if(sum(is.na(famMatch$Order)) > 0){
+      if(sum(is.na(famMatch[,4:5])) == (2*nrow(famMatch))){
           # Only use Families that lack Phylum, Class, and Order classifications
         for(n in 1:nrow(famMatch)){
           if(sum(is.na(famMatch[n,])) == 5){
             # First appearance of Family
             # Subtract from Unclassified
-            output$reads[rowUnclass] <- (output$reads[rowUnclass] - ordMatch$reads[n])
-          } else if(sum(is.na(famMatch[n,])) == 4){
-            # Subtract this Genus from Family
-            ammend <- famMatch[n,6]
-            ammendRow <- which(famMatch[,6] == ammend)[1]
-            famMatch$reads[ammendRow] <- (famMatch$reads[ammendRow] - famMatch$reads[n])
-          } else if(sum(is.na(famMatch[n,])) == 3){
-            # Subtract this Species from Genus
-            ammend <- famMatch[n,7]
-            ammendRow <- which(famMatch[,7] == ammend)[1]
-            famMatch$reads[ammendRow] <- (famMatch$reads[ammendRow] - famMatch$reads[n])
+            output$reads[rowUnclass] <- (output$reads[rowUnclass] - famMatch$reads[n])
           } else{
-            print(allFam[fam])
-            print(famMatch)
-            }
-          } # End of family row-by-row for loop
-        }  # End of good family-by-family for loop
-      
-      output <- rbind(output, famMatch)
-      
+            filled <- which(is.na(famMatch[1,]) == F)
+            last <- filled[(length(filled))]
+            secondLast <- filled[ (length(filled)-1)]
+            
+            ammend <- famMatch[n,secondLast]
+            ammendRow <- which(famMatch[,secondLast] == ammend)[1]
+            famMatch$reads[ammendRow] <- famMatch$reads[ammendRow] - famMatch$reads[n]
+          }
+        } # End of family row-by-row for loop
+        output <- rbind(output, famMatch)
+        
+      }  # End of good family-by-family for loop
+    
     } # End of family-by-family for loop
   
     
     
     ###########  Go through Genera (w/o Phylum, Class, Order, and Family classifications) ########### 
     allGen <- unique(noPhy$Genus)
+    allGen <- na.omit(allGen)
     for(gen in 1:length(allGen)){
       # genus-by-genus
       
       genMatch <- noPhy[which(noPhy$Genus == allGen[gen]),]
-      if(sum(is.na(genMatch$Family)) > 0){
+      if(sum(is.na(genMatch[,4:6])) == (3*nrow(genMatch))){
         # Only use general that lack phylum, class, order, and family classifications
         for(o in 1:nrow(genMatch)){
           if(sum(is.na(genMatch[o,])) == 5){
             # First appearance of Genus
             # Subtract from unclassified
-            output$reads[rowUnclass] <- (output$reads[rowUnclass] - famMatch$reads[o])
-          } else if(sum(is.na(genMatch[o,])) == 4){
-            # Subtract this Species from Genus
-            ammend <- genMatch[o,7]
-            ammendRow <- which(genMatch[,7] == ammend)[1]
-            genMatch$reads[ammendRow] <- (genMatch$reads[ammendRow] - genMatch$reads[o])
+            output$reads[rowUnclass] <- (output$reads[rowUnclass] - genMatch$reads[o])
           } else{
-            print(allGen[gen])
-            print(genMatch)
+            filled <- which(is.na(genMatch[1,]) == F)
+            last <- filled[(length(filled))]
+            secondLast <- filled[ (length(filled)-1)]
+            
+            ammend <- genMatch[n,secondLast]
+            ammendRow <- which(genMatch[,secondLast] == ammend)[1]
+            genMatch$reads[ammendRow] <- genMatch$reads[ammendRow] - genMatch$reads[n]
           }
         } # End of genus row-by-row for loop
-        
+        output <- rbind(output, genMatch)
       } # End of good genus-by-genus for loop
-      
-      output <- rbind(output, genMatch)
-      
-    } # End of genus-by-genus for loop
+    }  # End of genus-by-genus for loop
 
     
     
     
     ###########  Go through Species (w/o Phylum, Class, Order, Family, and Genus classifications) ########### 
     allSpe <- unique(noPhy$Species)
+    allSpe <- na.omit(allSpe)
     for(spe in 1:length(allSpe)){
       # species-by-species
       
       speMatch <- noPhy[which(noPhy$Species == allSpe[spe]),]
-      if(sum(is.na(speMatch)) == 5){
+      if(sum(is.na(speMatch[,4:7])) == (4*nrow(speMatch))){
         # Double check that no other taxa levels are classified
         # Subtract from unclassified
         output$reads[rowUnclass] <- (output$reads[rowUnclass] - speMatch$reads)
-      } else{
-        #print(allSpe[spe])
-        #print(speMatch)
-      }
-      
-      output <- rbind(output, speMatch)
+        output <- rbind(output, speMatch)
+      } # End of good species-by-species for loop 
       
     } # End of species-by-species for loop
     

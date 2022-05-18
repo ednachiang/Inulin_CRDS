@@ -1,5 +1,5 @@
 "reads"	"Domain"	"Phylum"	"Class"	"Order"	"Family"	"Genus"	"Species"
-23170128	"unclassified"	NA	NA	NA	NA	NA	NA
+23169700	"unclassified"	NA	NA	NA	NA	NA	NA
 1865	"Viruses"	NA	NA	NA	NA	NA	NA
 408471	"Bacteria"	"Firmicutes"	NA	NA	NA	NA	NA
 20555	"Bacteria"	"Firmicutes"	"Clostridia"	NA	NA	NA	NA
@@ -18137,225 +18137,58 @@
 1	"Eukaryota"	NA	"Dictyochophyceae"	"Dictyochales"	NA	"Dictyocha"	"Dictyocha speculum"
 1	"Eukaryota"	NA	"Polycystinea"	"Collodaria"	"Sphaerozoidae"	NA	NA
 1	"Eukaryota"	NA	"Polycystinea"	"Nassellaria"	"Plagiacanthidae"	"Lithomelissa"	"Lithomelissa setosa"
+-3733	"Bacteria"	NA	NA	"Haloplasmatales"	NA	NA	NA
 1027	"Bacteria"	NA	NA	"Haloplasmatales"	"Haloplasmataceae"	NA	NA
 952	"Bacteria"	NA	NA	"Haloplasmatales"	"Haloplasmataceae"	"Haloplasma"	NA
 75	"Bacteria"	NA	NA	"Haloplasmatales"	"Haloplasmataceae"	"Inordinaticella"	NA
 952	"Bacteria"	NA	NA	"Haloplasmatales"	"Haloplasmataceae"	"Haloplasma"	"Haloplasma contractile"
 75	"Bacteria"	NA	NA	"Haloplasmatales"	"Haloplasmataceae"	"Inordinaticella"	"Inordinaticella fortuita"
-73	"Eukaryota"	NA	"Bigyra"	"Opalinata"	"Blastocystidae"	NA	NA
-73	"Eukaryota"	NA	"Bigyra"	"Opalinata"	"Blastocystidae"	"Blastocystis"	NA
-36	"Eukaryota"	NA	"Bigyra"	"Opalinata"	"Blastocystidae"	"Blastocystis"	"Blastocystis sp. subtype 4"
-25	"Eukaryota"	NA	"Bigyra"	"Opalinata"	"Blastocystidae"	"Blastocystis"	"Blastocystis hominis"
-9	"Eukaryota"	NA	"Bigyra"	"Opalinata"	"Blastocystidae"	"Blastocystis"	"Blastocystis sp. subtype 1"
-56	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	NA	NA
-40	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Aphanomyces"	NA
-3	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Achlya"	NA
-3	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Thraustotheca"	NA
-2	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Saprolegnia"	NA
-29	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Aphanomyces"	"Aphanomyces euteiches"
-5	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Aphanomyces"	"Aphanomyces invadans"
-3	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Thraustotheca"	"Thraustotheca clavata"
-3	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Achlya"	"Achlya hypogyna"
-50	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	NA	NA
-34	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Phytophthora"	NA
-2	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Bremia"	NA
-1	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Nothophytophthora"	NA
-24	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Phytophthora"	"Phytophthora sojae"
-2	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Bremia"	"Bremia lactucae"
-2	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Phytophthora"	"Phytophthora fragariae"
-1	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Phytophthora"	"Phytophthora boehmeriae"
-1	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Phytophthora"	"Phytophthora niederhauserii"
-1	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Nothophytophthora"	"Nothophytophthora sp. Chile5"
-33	"Eukaryota"	NA	"Cryptophyceae"	"Pyrenomonadales"	"Geminigeraceae"	NA	NA
-24	"Eukaryota"	NA	"Cryptophyceae"	"Pyrenomonadales"	"Geminigeraceae"	"Guillardia"	NA
-7	"Eukaryota"	NA	"Cryptophyceae"	"Pyrenomonadales"	"Geminigeraceae"	"Teleaulax"	NA
-2	"Eukaryota"	NA	"Cryptophyceae"	"Pyrenomonadales"	"Geminigeraceae"	"Proteomonas"	NA
-24	"Eukaryota"	NA	"Cryptophyceae"	"Pyrenomonadales"	"Geminigeraceae"	"Guillardia"	"Guillardia theta"
-7	"Eukaryota"	NA	"Cryptophyceae"	"Pyrenomonadales"	"Geminigeraceae"	"Teleaulax"	"Teleaulax amphioxeia"
-1	"Eukaryota"	NA	"Cryptophyceae"	"Pyrenomonadales"	"Geminigeraceae"	"Proteomonas"	"Proteomonas sulcata"
-27	"Eukaryota"	NA	"Choanoflagellata"	"Craspedida"	"Salpingoecidae"	NA	NA
-14	"Eukaryota"	NA	"Choanoflagellata"	"Craspedida"	"Salpingoecidae"	"Monosiga"	NA
-13	"Eukaryota"	NA	"Choanoflagellata"	"Craspedida"	"Salpingoecidae"	"Salpingoeca"	NA
-14	"Eukaryota"	NA	"Choanoflagellata"	"Craspedida"	"Salpingoecidae"	"Monosiga"	"Monosiga brevicollis"
-13	"Eukaryota"	NA	"Choanoflagellata"	"Craspedida"	"Salpingoecidae"	"Salpingoeca"	"Salpingoeca rosetta"
-25	"Eukaryota"	NA	"Dinophyceae"	"Suessiales"	"Symbiodiniaceae"	NA	NA
-25	"Eukaryota"	NA	"Dinophyceae"	"Suessiales"	"Symbiodiniaceae"	"Symbiodinium"	NA
-25	"Eukaryota"	NA	"Dinophyceae"	"Suessiales"	"Symbiodiniaceae"	"Symbiodinium"	"Symbiodinium microadriaticum"
-22	"Eukaryota"	NA	NA	NA	"Vitrellaceae"	"Vitrella"	"Vitrella brassicaformis"
-21	"Eukaryota"	NA	NA	NA	"Apusomonadidae"	"Thecamonas"	"Thecamonas trahens"
-20	"Eukaryota"	NA	"Oomycota"	"Pythiales"	"Pythiaceae"	NA	NA
-17	"Eukaryota"	NA	"Oomycota"	"Pythiales"	"Pythiaceae"	"Pythium"	NA
-1	"Eukaryota"	NA	"Oomycota"	"Pythiales"	"Pythiaceae"	"Globisporangium"	NA
-14	"Eukaryota"	NA	"Oomycota"	"Pythiales"	"Pythiaceae"	"Pythium"	"Pythium oligandrum"
-2	"Eukaryota"	NA	"Oomycota"	"Pythiales"	"Pythiaceae"	"Pythium"	"Pythium brassicum"
-1	"Eukaryota"	NA	"Oomycota"	"Pythiales"	"Pythiaceae"	"Globisporangium"	"Globisporangium splendens"
-1	"Eukaryota"	NA	"Oomycota"	"Pythiales"	"Pythiaceae"	"Pythium"	"Pythium insidiosum"
-12	"Eukaryota"	NA	"Glaucocystophyceae"	NA	"Cyanophoraceae"	"Cyanophora"	"Cyanophora paradoxa"
-13	"Eukaryota"	NA	"Bigyra"	"Bicosoecida"	"Cafeteriaceae"	NA	NA
-13	"Eukaryota"	NA	"Bigyra"	"Bicosoecida"	"Cafeteriaceae"	"Cafeteria"	NA
-13	"Eukaryota"	NA	"Bigyra"	"Bicosoecida"	"Cafeteriaceae"	"Cafeteria"	"Cafeteria roenbergensis"
-11	"Eukaryota"	NA	"Bigyra"	"Thraustochytrida"	"Thraustochytriaceae"	NA	NA
-9	"Eukaryota"	NA	"Bigyra"	"Thraustochytrida"	"Thraustochytriaceae"	"Hondaea"	NA
-2	"Eukaryota"	NA	"Bigyra"	"Thraustochytrida"	"Thraustochytriaceae"	"Thraustochytrium"	NA
-9	"Eukaryota"	NA	"Bigyra"	"Thraustochytrida"	"Thraustochytriaceae"	"Hondaea"	"Hondaea fermentalgiana"
-2	"Eukaryota"	NA	"Bigyra"	"Thraustochytrida"	"Thraustochytriaceae"	"Thraustochytrium"	"Thraustochytrium sp. LLF1b"
-11	"Eukaryota"	NA	"Eustigmatophyceae"	"Eustigmatales"	"Monodopsidaceae"	NA	NA
-1	"Eukaryota"	NA	"Eustigmatophyceae"	"Eustigmatales"	"Monodopsidaceae"	"Microchloropsis"	NA
-1	"Eukaryota"	NA	"Eustigmatophyceae"	"Eustigmatales"	"Monodopsidaceae"	"Microchloropsis"	"Microchloropsis salina"
-8	"Eukaryota"	NA	"Phaeophyceae"	"Ectocarpales"	"Ectocarpaceae"	NA	NA
-8	"Eukaryota"	NA	"Phaeophyceae"	"Ectocarpales"	"Ectocarpaceae"	"Ectocarpus"	NA
-1	"Eukaryota"	NA	"Phaeophyceae"	"Ectocarpales"	"Ectocarpaceae"	"Ectocarpus"	"Ectocarpus siliculosus"
-8	"Eukaryota"	NA	"Oomycota"	"Albuginales"	"Albuginaceae"	NA	NA
-8	"Eukaryota"	NA	"Oomycota"	"Albuginales"	"Albuginaceae"	"Albugo"	NA
-3	"Eukaryota"	NA	"Oomycota"	"Albuginales"	"Albuginaceae"	"Albugo"	"Albugo laibachii"
-1	"Eukaryota"	NA	"Oomycota"	"Albuginales"	"Albuginaceae"	"Albugo"	"Albugo candida"
+-30	"Eukaryota"	NA	NA	"Jakobida"	NA	NA	NA
 5	"Eukaryota"	NA	NA	"Jakobida"	"Jakobidae"	NA	NA
-5	"Eukaryota"	NA	NA	"Jakobida"	"Jakobidae"	"Jakoba"	NA
-5	"Eukaryota"	NA	NA	"Jakobida"	"Jakobidae"	"Jakoba"	"Jakoba libera"
 4	"Eukaryota"	NA	NA	"Jakobida"	"Andaluciidae"	NA	NA
-4	"Eukaryota"	NA	NA	"Jakobida"	"Andaluciidae"	"Andalucia"	NA
-4	"Eukaryota"	NA	NA	"Jakobida"	"Andaluciidae"	"Andalucia"	"Andalucia godoyi"
 4	"Eukaryota"	NA	NA	"Jakobida"	"Stygiellidae"	NA	NA
+5	"Eukaryota"	NA	NA	"Jakobida"	"Jakobidae"	"Jakoba"	NA
+4	"Eukaryota"	NA	NA	"Jakobida"	"Andaluciidae"	"Andalucia"	NA
 4	"Eukaryota"	NA	NA	"Jakobida"	"Stygiellidae"	"Stygiella"	NA
+1	"Eukaryota"	NA	NA	"Jakobida"	NA	"Ophirina"	NA
+5	"Eukaryota"	NA	NA	"Jakobida"	"Jakobidae"	"Jakoba"	"Jakoba libera"
+4	"Eukaryota"	NA	NA	"Jakobida"	"Andaluciidae"	"Andalucia"	"Andalucia godoyi"
 4	"Eukaryota"	NA	NA	"Jakobida"	"Stygiellidae"	"Stygiella"	"Stygiella incarcerata"
-4	"Bacteria"	NA	NA	NA	"Candidatus Chazhemtobacteraceae"	"Candidatus Chazhemtobacterium"	"Candidatus Chazhemtobacterium aquaticus"
-2	"Eukaryota"	NA	"Cryptophyceae"	"Cryptomonadales"	"Cryptomonadaceae"	NA	NA
-2	"Eukaryota"	NA	"Cryptophyceae"	"Cryptomonadales"	"Cryptomonadaceae"	"Cryptomonas"	NA
-1	"Eukaryota"	NA	"Cryptophyceae"	"Cryptomonadales"	"Cryptomonadaceae"	"Cryptomonas"	"Cryptomonas paramecium"
-1	"Eukaryota"	NA	"Cryptophyceae"	"Cryptomonadales"	"Cryptomonadaceae"	"Cryptomonas"	"Cryptomonas sp. SAG 977-2f"
-2	"Eukaryota"	NA	"Dinophyceae"	"Prorocentrales"	"Prorocentraceae"	NA	NA
-2	"Eukaryota"	NA	"Dinophyceae"	"Prorocentrales"	"Prorocentraceae"	"Prorocentrum"	NA
-2	"Eukaryota"	NA	"Dinophyceae"	"Prorocentrales"	"Prorocentraceae"	"Prorocentrum"	"Prorocentrum minimum"
-2	"Eukaryota"	NA	"Dinophyceae"	"Gymnodiniales"	"Kareniaceae"	NA	NA
-2	"Eukaryota"	NA	"Dinophyceae"	"Gymnodiniales"	"Kareniaceae"	"Karenia"	NA
-2	"Eukaryota"	NA	"Dinophyceae"	"Gymnodiniales"	"Kareniaceae"	"Karenia"	"Karenia brevis"
-1	"Eukaryota"	NA	"Phaeophyceae"	"Fucales"	"Fucaceae"	NA	NA
-1	"Eukaryota"	NA	"Phaeophyceae"	"Fucales"	"Fucaceae"	"Ascophyllum"	NA
-1	"Eukaryota"	NA	"Phaeophyceae"	"Fucales"	"Fucaceae"	"Ascophyllum"	"Ascophyllum nodosum"
-1	"Eukaryota"	NA	"Phaeophyceae"	"Fucales"	"Sargassaceae"	NA	NA
-1	"Eukaryota"	NA	"Dinophyceae"	"Dinophysiales"	"Dinophysiaceae"	NA	NA
-1	"Eukaryota"	NA	"Dinophyceae"	"Dinophysiales"	"Dinophysiaceae"	"Dinophysis"	NA
-1	"Eukaryota"	NA	"Dinophyceae"	"Dinophysiales"	"Dinophysiaceae"	"Dinophysis"	"Dinophysis caudata"
-1	"Eukaryota"	NA	"Polycystinea"	"Collodaria"	"Sphaerozoidae"	NA	NA
-1	"Eukaryota"	NA	NA	NA	"Malawimonadidae"	"Malawimonas"	"Malawimonas jakobiformis"
-1	"Eukaryota"	NA	"Cryptophyceae"	"Cryptomonadales"	"Hemiselmidaceae"	NA	NA
-1	"Eukaryota"	NA	"Cryptophyceae"	"Cryptomonadales"	"Hemiselmidaceae"	"Hemiselmis"	NA
-1	"Eukaryota"	NA	"Cryptophyceae"	"Cryptomonadales"	"Hemiselmidaceae"	"Hemiselmis"	"Hemiselmis andersenii"
-1	"Eukaryota"	NA	"Polycystinea"	"Nassellaria"	"Plagiacanthidae"	NA	NA
-1	"Eukaryota"	NA	"Polycystinea"	"Nassellaria"	"Plagiacanthidae"	"Lithomelissa"	NA
-1	"Eukaryota"	NA	"Polycystinea"	"Nassellaria"	"Plagiacanthidae"	"Lithomelissa"	"Lithomelissa setosa"
+1	"Eukaryota"	NA	NA	"Jakobida"	NA	"Ophirina"	"Ophirina amphinema"
+-2	"Eukaryota"	NA	NA	"Colponemida"	NA	NA	NA
 1	"Eukaryota"	NA	NA	"Colponemida"	"Acavomonidia"	NA	NA
 1	"Eukaryota"	NA	NA	"Colponemida"	"Acavomonidia"	"Acavomonas"	NA
 1	"Eukaryota"	NA	NA	"Colponemida"	"Acavomonidia"	"Acavomonas"	"Acavomonas peruviana"
-952	"Bacteria"	NA	NA	"Haloplasmatales"	"Haloplasmataceae"	"Haloplasma"	NA
-952	"Bacteria"	NA	NA	"Haloplasmatales"	"Haloplasmataceae"	"Haloplasma"	"Haloplasma contractile"
-135	"Bacteria"	NA	NA	NA	NA	"Isachenkonia"	"Isachenkonia alkalipeptolytica"
-113	"Bacteria"	NA	NA	NA	NA	"Candidatus Vecturithrix"	"Candidatus Vecturithrix granuli"
-76	"Bacteria"	NA	NA	NA	NA	"Candidatus Moduliflexus"	"Candidatus Moduliflexus flocculans"
-75	"Bacteria"	NA	NA	"Haloplasmatales"	"Haloplasmataceae"	"Inordinaticella"	NA
-75	"Bacteria"	NA	NA	"Haloplasmatales"	"Haloplasmataceae"	"Inordinaticella"	"Inordinaticella fortuita"
-73	"Eukaryota"	NA	"Bigyra"	"Opalinata"	"Blastocystidae"	"Blastocystis"	NA
-36	"Eukaryota"	NA	"Bigyra"	"Opalinata"	"Blastocystidae"	"Blastocystis"	"Blastocystis sp. subtype 4"
-25	"Eukaryota"	NA	"Bigyra"	"Opalinata"	"Blastocystidae"	"Blastocystis"	"Blastocystis hominis"
-9	"Eukaryota"	NA	"Bigyra"	"Opalinata"	"Blastocystidae"	"Blastocystis"	"Blastocystis sp. subtype 1"
-40	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Aphanomyces"	NA
-29	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Aphanomyces"	"Aphanomyces euteiches"
-5	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Aphanomyces"	"Aphanomyces invadans"
-34	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Phytophthora"	NA
-24	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Phytophthora"	"Phytophthora sojae"
-2	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Phytophthora"	"Phytophthora fragariae"
-1	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Phytophthora"	"Phytophthora boehmeriae"
-1	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Phytophthora"	"Phytophthora niederhauserii"
-33	"Bacteria"	NA	NA	NA	NA	"Vampirococcus"	"Vampirococcus sp. LiM"
-26	"Eukaryota"	NA	"Pelagophyceae"	"Pelagomonadales"	NA	"Aureococcus"	NA
-26	"Eukaryota"	NA	"Pelagophyceae"	"Pelagomonadales"	NA	"Aureococcus"	"Aureococcus anophagefferens"
-25	"Eukaryota"	NA	"Dinophyceae"	"Suessiales"	"Symbiodiniaceae"	"Symbiodinium"	NA
-25	"Eukaryota"	NA	"Dinophyceae"	"Suessiales"	"Symbiodiniaceae"	"Symbiodinium"	"Symbiodinium microadriaticum"
-24	"Eukaryota"	NA	"Cryptophyceae"	"Pyrenomonadales"	"Geminigeraceae"	"Guillardia"	NA
-24	"Eukaryota"	NA	"Cryptophyceae"	"Pyrenomonadales"	"Geminigeraceae"	"Guillardia"	"Guillardia theta"
+-22	"Eukaryota"	NA	NA	NA	"Vitrellaceae"	NA	NA
 22	"Eukaryota"	NA	NA	NA	"Vitrellaceae"	"Vitrella"	NA
 22	"Eukaryota"	NA	NA	NA	"Vitrellaceae"	"Vitrella"	"Vitrella brassicaformis"
+-21	"Eukaryota"	NA	NA	NA	"Apusomonadidae"	NA	NA
 21	"Eukaryota"	NA	NA	NA	"Apusomonadidae"	"Thecamonas"	NA
 21	"Eukaryota"	NA	NA	NA	"Apusomonadidae"	"Thecamonas"	"Thecamonas trahens"
-18	"Bacteria"	NA	NA	NA	NA	"Thermobaculum"	"Thermobaculum terrenum"
-17	"Eukaryota"	NA	"Oomycota"	"Pythiales"	"Pythiaceae"	"Pythium"	NA
-14	"Eukaryota"	NA	"Oomycota"	"Pythiales"	"Pythiaceae"	"Pythium"	"Pythium oligandrum"
-2	"Eukaryota"	NA	"Oomycota"	"Pythiales"	"Pythiaceae"	"Pythium"	"Pythium brassicum"
-1	"Eukaryota"	NA	"Oomycota"	"Pythiales"	"Pythiaceae"	"Pythium"	"Pythium insidiosum"
-14	"Eukaryota"	NA	"Choanoflagellata"	"Craspedida"	"Salpingoecidae"	"Monosiga"	NA
-14	"Eukaryota"	NA	"Choanoflagellata"	"Craspedida"	"Salpingoecidae"	"Monosiga"	"Monosiga brevicollis"
-13	"Eukaryota"	NA	"Glaucocystophyceae"	NA	"Cyanophoraceae"	"Cyanophora"	NA
-12	"Eukaryota"	NA	"Glaucocystophyceae"	NA	"Cyanophoraceae"	"Cyanophora"	"Cyanophora paradoxa"
-13	"Eukaryota"	NA	"Bigyra"	"Bicosoecida"	"Cafeteriaceae"	"Cafeteria"	NA
-13	"Eukaryota"	NA	"Bigyra"	"Bicosoecida"	"Cafeteriaceae"	"Cafeteria"	"Cafeteria roenbergensis"
-13	"Eukaryota"	NA	"Choanoflagellata"	"Craspedida"	"Salpingoecidae"	"Salpingoeca"	NA
-13	"Eukaryota"	NA	"Choanoflagellata"	"Craspedida"	"Salpingoecidae"	"Salpingoeca"	"Salpingoeca rosetta"
-9	"Eukaryota"	NA	"Bigyra"	"Thraustochytrida"	"Thraustochytriaceae"	"Hondaea"	NA
-9	"Eukaryota"	NA	"Bigyra"	"Thraustochytrida"	"Thraustochytriaceae"	"Hondaea"	"Hondaea fermentalgiana"
-8	"Eukaryota"	NA	"Phaeophyceae"	"Ectocarpales"	"Ectocarpaceae"	"Ectocarpus"	NA
-1	"Eukaryota"	NA	"Phaeophyceae"	"Ectocarpales"	"Ectocarpaceae"	"Ectocarpus"	"Ectocarpus siliculosus"
-8	"Eukaryota"	NA	"Oomycota"	"Albuginales"	"Albuginaceae"	"Albugo"	NA
-3	"Eukaryota"	NA	"Oomycota"	"Albuginales"	"Albuginaceae"	"Albugo"	"Albugo laibachii"
-1	"Eukaryota"	NA	"Oomycota"	"Albuginales"	"Albuginaceae"	"Albugo"	"Albugo candida"
-8	"Bacteria"	NA	NA	NA	NA	"Vermiphilus"	"Vermiphilus pyriformis"
-7	"Eukaryota"	NA	"Cryptophyceae"	"Pyrenomonadales"	"Geminigeraceae"	"Teleaulax"	NA
-7	"Eukaryota"	NA	"Cryptophyceae"	"Pyrenomonadales"	"Geminigeraceae"	"Teleaulax"	"Teleaulax amphioxeia"
-5	"Eukaryota"	NA	NA	"Jakobida"	"Jakobidae"	"Jakoba"	NA
-5	"Eukaryota"	NA	NA	"Jakobida"	"Jakobidae"	"Jakoba"	"Jakoba libera"
-4	"Eukaryota"	NA	"Dinophyceae"	"Gonyaulacales"	NA	"Lingulodinium"	NA
-4	"Eukaryota"	NA	"Dinophyceae"	"Gonyaulacales"	NA	"Lingulodinium"	"Lingulodinium polyedra"
-4	"Eukaryota"	NA	NA	"Jakobida"	"Andaluciidae"	"Andalucia"	NA
-4	"Eukaryota"	NA	NA	"Jakobida"	"Andaluciidae"	"Andalucia"	"Andalucia godoyi"
-4	"Eukaryota"	NA	NA	"Jakobida"	"Stygiellidae"	"Stygiella"	NA
-4	"Eukaryota"	NA	NA	"Jakobida"	"Stygiellidae"	"Stygiella"	"Stygiella incarcerata"
-4	"Bacteria"	NA	NA	NA	NA	"Candidatus Aegiribacteria"	"Candidatus Aegiribacteria bacterium MLS_C"
+-4	"Bacteria"	NA	NA	NA	"Candidatus Chazhemtobacteraceae"	NA	NA
 4	"Bacteria"	NA	NA	NA	"Candidatus Chazhemtobacteraceae"	"Candidatus Chazhemtobacterium"	NA
 4	"Bacteria"	NA	NA	NA	"Candidatus Chazhemtobacteraceae"	"Candidatus Chazhemtobacterium"	"Candidatus Chazhemtobacterium aquaticus"
-3	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Achlya"	NA
-3	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Achlya"	"Achlya hypogyna"
-3	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Thraustotheca"	NA
-3	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Thraustotheca"	"Thraustotheca clavata"
-2	"Eukaryota"	NA	"Dinophyceae"	"Prorocentrales"	"Prorocentraceae"	"Prorocentrum"	NA
-2	"Eukaryota"	NA	"Dinophyceae"	"Prorocentrales"	"Prorocentraceae"	"Prorocentrum"	"Prorocentrum minimum"
-2	"Eukaryota"	NA	"Cryptophyceae"	"Cryptomonadales"	"Cryptomonadaceae"	"Cryptomonas"	NA
-1	"Eukaryota"	NA	"Cryptophyceae"	"Cryptomonadales"	"Cryptomonadaceae"	"Cryptomonas"	"Cryptomonas paramecium"
-1	"Eukaryota"	NA	"Cryptophyceae"	"Cryptomonadales"	"Cryptomonadaceae"	"Cryptomonas"	"Cryptomonas sp. SAG 977-2f"
-2	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Saprolegnia"	NA
-2	"Eukaryota"	NA	"Bigyra"	"Thraustochytrida"	"Thraustochytriaceae"	"Thraustochytrium"	NA
-2	"Eukaryota"	NA	"Bigyra"	"Thraustochytrida"	"Thraustochytriaceae"	"Thraustochytrium"	"Thraustochytrium sp. LLF1b"
-2	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Bremia"	NA
-2	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Bremia"	"Bremia lactucae"
-2	"Eukaryota"	NA	"Dictyochophyceae"	"Pedinellales"	NA	"Pseudopedinella"	NA
-2	"Eukaryota"	NA	"Dictyochophyceae"	"Pedinellales"	NA	"Pseudopedinella"	"Pseudopedinella elastica"
-2	"Eukaryota"	NA	"Pelagophyceae"	"Pelagomonadales"	NA	"Aureoumbra"	NA
-2	"Eukaryota"	NA	"Pelagophyceae"	"Pelagomonadales"	NA	"Aureoumbra"	"Aureoumbra lagunensis"
-2	"Eukaryota"	NA	"Cryptophyceae"	"Pyrenomonadales"	"Geminigeraceae"	"Proteomonas"	NA
-1	"Eukaryota"	NA	"Cryptophyceae"	"Pyrenomonadales"	"Geminigeraceae"	"Proteomonas"	"Proteomonas sulcata"
-2	"Eukaryota"	NA	"Dinophyceae"	"Gymnodiniales"	"Kareniaceae"	"Karenia"	NA
-2	"Eukaryota"	NA	"Dinophyceae"	"Gymnodiniales"	"Kareniaceae"	"Karenia"	"Karenia brevis"
-1	"Eukaryota"	NA	"Dictyochophyceae"	"Dictyochales"	NA	"Dictyocha"	NA
-1	"Eukaryota"	NA	"Dictyochophyceae"	"Dictyochales"	NA	"Dictyocha"	"Dictyocha speculum"
-1	"Eukaryota"	NA	"Dinophyceae"	"Dinophysiales"	"Dinophysiaceae"	"Dinophysis"	NA
-1	"Eukaryota"	NA	"Dinophyceae"	"Dinophysiales"	"Dinophysiaceae"	"Dinophysis"	"Dinophysis caudata"
-1	"Eukaryota"	NA	"Phaeophyceae"	"Fucales"	"Fucaceae"	"Ascophyllum"	NA
-1	"Eukaryota"	NA	"Phaeophyceae"	"Fucales"	"Fucaceae"	"Ascophyllum"	"Ascophyllum nodosum"
-1	"Eukaryota"	NA	"Cryptophyceae"	"Cryptomonadales"	"Hemiselmidaceae"	"Hemiselmis"	NA
-1	"Eukaryota"	NA	"Cryptophyceae"	"Cryptomonadales"	"Hemiselmidaceae"	"Hemiselmis"	"Hemiselmis andersenii"
+-1	"Eukaryota"	NA	NA	NA	"Malawimonadidae"	NA	NA
 1	"Eukaryota"	NA	NA	NA	"Malawimonadidae"	"Malawimonas"	NA
 1	"Eukaryota"	NA	NA	NA	"Malawimonadidae"	"Malawimonas"	"Malawimonas jakobiformis"
-1	"Eukaryota"	NA	"Polycystinea"	"Nassellaria"	"Plagiacanthidae"	"Lithomelissa"	NA
-1	"Eukaryota"	NA	"Polycystinea"	"Nassellaria"	"Plagiacanthidae"	"Lithomelissa"	"Lithomelissa setosa"
+135	"Bacteria"	NA	NA	NA	NA	"Isachenkonia"	NA
+135	"Bacteria"	NA	NA	NA	NA	"Isachenkonia"	"Isachenkonia alkalipeptolytica"
+113	"Bacteria"	NA	NA	NA	NA	"Candidatus Vecturithrix"	NA
+113	"Bacteria"	NA	NA	NA	NA	"Candidatus Vecturithrix"	"Candidatus Vecturithrix granuli"
+76	"Bacteria"	NA	NA	NA	NA	"Candidatus Moduliflexus"	NA
+76	"Bacteria"	NA	NA	NA	NA	"Candidatus Moduliflexus"	"Candidatus Moduliflexus flocculans"
+33	"Bacteria"	NA	NA	NA	NA	"Vampirococcus"	NA
+33	"Bacteria"	NA	NA	NA	NA	"Vampirococcus"	"Vampirococcus sp. LiM"
+18	"Bacteria"	NA	NA	NA	NA	"Thermobaculum"	NA
+18	"Bacteria"	NA	NA	NA	NA	"Thermobaculum"	"Thermobaculum terrenum"
+8	"Bacteria"	NA	NA	NA	NA	"Vermiphilus"	NA
+8	"Bacteria"	NA	NA	NA	NA	"Vermiphilus"	"Vermiphilus pyriformis"
+4	"Bacteria"	NA	NA	NA	NA	"Candidatus Aegiribacteria"	NA
+4	"Bacteria"	NA	NA	NA	NA	"Candidatus Aegiribacteria"	"Candidatus Aegiribacteria bacterium MLS_C"
+1	"Eukaryota"	NA	NA	NA	NA	"Palpitomonas"	NA
 1	"Eukaryota"	NA	NA	NA	NA	"Palpitomonas"	"Palpitomonas bilix"
-1	"Eukaryota"	NA	"Oomycota"	"Pythiales"	"Pythiaceae"	"Globisporangium"	NA
-1	"Eukaryota"	NA	"Oomycota"	"Pythiales"	"Pythiaceae"	"Globisporangium"	"Globisporangium splendens"
-1	"Eukaryota"	NA	NA	"Colponemida"	"Acavomonidia"	"Acavomonas"	NA
-1	"Eukaryota"	NA	NA	"Colponemida"	"Acavomonidia"	"Acavomonas"	"Acavomonas peruviana"
-1	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Nothophytophthora"	NA
-1	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Nothophytophthora"	"Nothophytophthora sp. Chile5"
-1	"Eukaryota"	NA	"Eustigmatophyceae"	"Eustigmatales"	"Monodopsidaceae"	"Microchloropsis"	NA
-1	"Eukaryota"	NA	"Eustigmatophyceae"	"Eustigmatales"	"Monodopsidaceae"	"Microchloropsis"	"Microchloropsis salina"
+1	"Bacteria"	NA	NA	NA	NA	"Natronospirillum"	NA
 1	"Bacteria"	NA	NA	NA	NA	"Natronospirillum"	"Natronospirillum operossus"
-1	"Eukaryota"	NA	NA	"Jakobida"	NA	"Ophirina"	"Ophirina amphinema"
 218789	"Bacteria"	NA	NA	NA	NA	NA	"bacterium 1XD8-76"
 150533	"Bacteria"	NA	NA	NA	NA	NA	"bacterium D16-29"
 92362	"Bacteria"	NA	NA	NA	NA	NA	"bacterium 1xD42-67"
@@ -18373,7 +18206,6 @@
 12480	"Bacteria"	NA	NA	NA	NA	NA	"bacterium 1XD42-54"
 1868	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1529"
 1717	"Bacteria"	NA	NA	NA	NA	NA	"bacterium 1XD42-1"
-952	"Bacteria"	NA	NA	"Haloplasmatales"	"Haloplasmataceae"	"Haloplasma"	"Haloplasma contractile"
 849	"Bacteria"	NA	NA	NA	NA	NA	"bacterium P201"
 765	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig4"
 765	"Bacteria"	NA	NA	NA	NA	NA	"bacterium c-19"
@@ -18403,10 +18235,8 @@
 137	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contigcl_1556"
 136	"Bacteria"	NA	NA	NA	NA	NA	"Patescibacteria group bacterium"
 136	"Bacteria"	NA	NA	NA	NA	NA	"bacterium D16-63"
-135	"Bacteria"	NA	NA	NA	NA	"Isachenkonia"	"Isachenkonia alkalipeptolytica"
 126	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1500"
 113	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium fosmid pJB23D10"
-113	"Bacteria"	NA	NA	NA	NA	"Candidatus Vecturithrix"	"Candidatus Vecturithrix granuli"
 111	"Bacteria"	NA	NA	NA	NA	NA	"uncultured murine large bowel bacterium BAC 14"
 100	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1762"
 93	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig140"
@@ -18419,8 +18249,6 @@
 79	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig783"
 77	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1763"
 77	"Bacteria"	NA	NA	NA	NA	NA	"candidate division TA06 bacterium"
-76	"Bacteria"	NA	NA	NA	NA	"Candidatus Moduliflexus"	"Candidatus Moduliflexus flocculans"
-75	"Bacteria"	NA	NA	"Haloplasmatales"	"Haloplasmataceae"	"Inordinaticella"	"Inordinaticella fortuita"
 72	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1450"
 70	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig115"
 70	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1777_n_1791_cl"
@@ -18448,43 +18276,33 @@
 39	"Bacteria"	NA	NA	NA	NA	NA	"bacterium D16-56"
 37	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contigcl_6"
 37	"Bacteria"	NA	NA	NA	NA	NA	"Terrabacteria group bacterium ANGP1"
-36	"Eukaryota"	NA	"Bigyra"	"Opalinata"	"Blastocystidae"	"Blastocystis"	"Blastocystis sp. subtype 4"
 36	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contigcl_1787"
 36	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Ad_010_C07"
 36	"Archaea"	NA	NA	NA	NA	NA	"archaeon"
 35	"Bacteria"	NA	NA	NA	NA	NA	"bacterium HR18"
 34	"Bacteria"	NA	NA	NA	NA	NA	"bacterium 42_11"
 33	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig87"
-33	"Bacteria"	NA	NA	NA	NA	"Vampirococcus"	"Vampirococcus sp. LiM"
 31	"Bacteria"	NA	NA	NA	NA	NA	"uncultured murine large bowel bacterium BAC 54B"
 31	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1771_n_1784_cl"
 31	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Ad_136_J17_contig2"
 30	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contigcl_1771"
 30	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium fosmid pJB69A5"
 30	"Bacteria"	NA	NA	NA	NA	NA	"bacterium 1XD42-76"
-29	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Aphanomyces"	"Aphanomyces euteiches"
 28	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium LAB20"
 28	"Bacteria"	NA	NA	NA	NA	NA	"bacterium TMED15"
-26	"Eukaryota"	NA	"Pelagophyceae"	"Pelagomonadales"	NA	"Aureococcus"	"Aureococcus anophagefferens"
 26	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contigcl_1774"
 26	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Lq_007_G03"
-25	"Eukaryota"	NA	"Dinophyceae"	"Suessiales"	"Symbiodiniaceae"	"Symbiodinium"	"Symbiodinium microadriaticum"
-25	"Eukaryota"	NA	"Bigyra"	"Opalinata"	"Blastocystidae"	"Blastocystis"	"Blastocystis hominis"
 25	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig13"
 25	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1495"
 25	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig52"
 25	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contigcl_1748"
 25	"Bacteria"	NA	NA	NA	NA	NA	"Candidatus Saganbacteria bacterium CG08_land_8_20_14_0_20_45_16"
 25	"Bacteria"	NA	NA	NA	NA	NA	"bacterium HR16"
-24	"Eukaryota"	NA	"Cryptophyceae"	"Pyrenomonadales"	"Geminigeraceae"	"Guillardia"	"Guillardia theta"
-24	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Phytophthora"	"Phytophthora sojae"
 24	"Bacteria"	NA	NA	NA	NA	NA	"Bacteroidetes/Chlorobi group bacterium ChocPot_Mid"
 23	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium fosmid pJB65E1"
-22	"Eukaryota"	NA	NA	NA	"Vitrellaceae"	"Vitrella"	"Vitrella brassicaformis"
 22	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig19"
 22	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contigcl_1523"
 22	"Bacteria"	NA	NA	NA	NA	NA	"bacterium HR28"
-21	"Eukaryota"	NA	NA	NA	"Apusomonadidae"	"Thecamonas"	"Thecamonas trahens"
 21	"Bacteria"	NA	NA	NA	NA	NA	"candidate division TA06 bacterium DG_26"
 21	"Bacteria"	NA	NA	NA	NA	NA	"bacterium HR30"
 20	"Bacteria"	NA	NA	NA	NA	NA	"bacterium BRH_c32"
@@ -18496,7 +18314,6 @@
 19	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Ad_091_F22_contig1"
 19	"Bacteria"	NA	NA	NA	NA	NA	"Parcubacteria group bacterium GW2011_GWA2_44_12"
 19	"Bacteria"	NA	NA	NA	NA	NA	"candidate division GN15 bacterium"
-18	"Bacteria"	NA	NA	NA	NA	"Thermobaculum"	"Thermobaculum terrenum"
 18	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium 125003-E23"
 18	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1756"
 17	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig16"
@@ -18511,14 +18328,10 @@
 15	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1761"
 15	"Bacteria"	NA	NA	NA	NA	NA	"bacterium HR33"
 15	"Bacteria"	NA	NA	NA	NA	NA	"bacterium HR36"
-14	"Eukaryota"	NA	"Oomycota"	"Pythiales"	"Pythiaceae"	"Pythium"	"Pythium oligandrum"
-14	"Eukaryota"	NA	"Choanoflagellata"	"Craspedida"	"Salpingoecidae"	"Monosiga"	"Monosiga brevicollis"
 14	"Bacteria"	NA	NA	NA	NA	NA	"uncultured murine large bowel bacterium BAC 31B"
 14	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium CSL12"
 14	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Ad_091_F22_contig2"
 14	"Bacteria"	NA	NA	NA	NA	NA	"bacterium SM23_31"
-13	"Eukaryota"	NA	"Bigyra"	"Bicosoecida"	"Cafeteriaceae"	"Cafeteria"	"Cafeteria roenbergensis"
-13	"Eukaryota"	NA	"Choanoflagellata"	"Craspedida"	"Salpingoecidae"	"Salpingoeca"	"Salpingoeca rosetta"
 13	"Bacteria"	NA	NA	NA	NA	NA	"bacterium JKG1"
 13	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig137"
 13	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1514"
@@ -18528,7 +18341,6 @@
 13	"Bacteria"	NA	NA	NA	NA	NA	"candidate division KSB1 bacterium 4484_87"
 13	"Bacteria"	NA	NA	NA	NA	NA	"bacterium BMS3Abin04"
 13	"Bacteria"	NA	NA	NA	NA	NA	"bacterium HR23"
-12	"Eukaryota"	NA	"Glaucocystophyceae"	NA	"Cyanophoraceae"	"Cyanophora"	"Cyanophora paradoxa"
 12	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium 5E7"
 12	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium 4h09"
 12	"Bacteria"	NA	NA	NA	NA	NA	"bacterium A52C2"
@@ -18551,12 +18363,10 @@
 10	"Bacteria"	NA	NA	NA	NA	NA	"Candidatus Dependentiae bacterium (ex Spumella elongata CCAP 955/1)"
 10	"Bacteria"	NA	NA	NA	NA	NA	"bacterium BCRC 81127"
 10	"Bacteria"	NA	NA	NA	NA	NA	"Candidatus Saganbacteria bacterium"
-9	"Eukaryota"	NA	"Bigyra"	"Opalinata"	"Blastocystidae"	"Blastocystis"	"Blastocystis sp. subtype 1"
 9	"Bacteria"	NA	NA	NA	NA	NA	"sulfate-reducing bacterium enrichment culture clone FFSMW1-F"
 9	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig2"
 9	"Bacteria"	NA	NA	NA	NA	NA	"bacterium BMS3Abin03"
 9	"Bacteria"	NA	NA	NA	NA	NA	"bacterium MnTg02"
-9	"Eukaryota"	NA	"Bigyra"	"Thraustochytrida"	"Thraustochytriaceae"	"Hondaea"	"Hondaea fermentalgiana"
 8	"Bacteria"	NA	NA	NA	NA	NA	"uncultured nitrogen-fixing bacterium"
 8	"Bacteria"	NA	NA	NA	NA	NA	"uncultured sulfate-reducing bacterium"
 8	"Archaea"	NA	NA	NA	NA	NA	"uncultured archaeon GZfos18C8"
@@ -18570,13 +18380,11 @@
 8	"Bacteria"	NA	NA	NA	NA	NA	"candidate division WS6 bacterium OLB21"
 8	"Bacteria"	NA	NA	NA	NA	NA	"Parcubacteria group bacterium GW2011_GWC1_39_29"
 8	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Csd4"
-8	"Bacteria"	NA	NA	NA	NA	"Vermiphilus"	"Vermiphilus pyriformis"
 8	"Bacteria"	NA	NA	NA	NA	NA	"candidate division WOR-1 bacterium RIFOXYB2_FULL_37_13"
 8	"Bacteria"	NA	NA	NA	NA	NA	"bacterium K02(2017)"
 8	"Bacteria"	NA	NA	NA	NA	NA	"bacterium M21"
 8	"Bacteria"	NA	NA	NA	NA	NA	"bacterium HR10"
 8	"Bacteria"	NA	NA	NA	NA	NA	"bacterium HR35"
-7	"Eukaryota"	NA	"Cryptophyceae"	"Pyrenomonadales"	"Geminigeraceae"	"Teleaulax"	"Teleaulax amphioxeia"
 7	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig14"
 7	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1584b"
 7	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contigcl_22"
@@ -18602,8 +18410,6 @@
 6	"Bacteria"	NA	NA	NA	NA	NA	"bacterium SCN 62-11"
 6	"Bacteria"	NA	NA	NA	NA	NA	"candidate division NPL-UPA2 bacterium Unc8"
 6	"Bacteria"	NA	NA	NA	NA	NA	"bacterium (Candidatus Torokbacteria) CG_4_10_14_0_2_um_filter_35_8"
-5	"Eukaryota"	NA	NA	"Jakobida"	"Jakobidae"	"Jakoba"	"Jakoba libera"
-5	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Aphanomyces"	"Aphanomyces invadans"
 5	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1578"
 5	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1759"
 5	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig224"
@@ -18621,9 +18427,7 @@
 5	"Bacteria"	NA	NA	NA	NA	NA	"Parcubacteria group bacterium LiPW_30"
 5	"Bacteria"	NA	NA	NA	NA	NA	"bacterium D16-34"
 5	"Bacteria"	NA	NA	NA	NA	NA	"bacterium BCRC 81129"
-4	"Eukaryota"	NA	"Dinophyceae"	"Gonyaulacales"	NA	"Lingulodinium"	"Lingulodinium polyedra"
 4	"Bacteria"	NA	NA	NA	NA	NA	"human intestinal bacterium PUE"
-4	"Eukaryota"	NA	NA	"Jakobida"	"Andaluciidae"	"Andalucia"	"Andalucia godoyi"
 4	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium SRF2"
 4	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium A1Q1_fos_4"
 4	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1480"
@@ -18642,8 +18446,6 @@
 4	"Bacteria"	NA	NA	NA	NA	NA	"candidate division TM6 bacterium GW2011_GWF2_43_87"
 4	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium 25H09"
 4	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium 33g20"
-4	"Eukaryota"	NA	NA	"Jakobida"	"Stygiellidae"	"Stygiella"	"Stygiella incarcerata"
-4	"Bacteria"	NA	NA	NA	NA	"Candidatus Aegiribacteria"	"Candidatus Aegiribacteria bacterium MLS_C"
 4	"Bacteria"	NA	NA	NA	NA	NA	"candidate division WOR-1 bacterium RIFOXYB2_FULL_48_7"
 4	"Bacteria"	NA	NA	NA	NA	NA	"bacterium TMED277"
 4	"Bacteria"	NA	NA	NA	NA	NA	"bacterium TMED88"
@@ -18654,12 +18456,8 @@
 4	"Bacteria"	NA	NA	NA	NA	NA	"bacterium 1xD42-11"
 4	"Bacteria"	NA	NA	NA	NA	NA	"Bacteroidetes/Chlorobi group bacterium Naka2016"
 4	"Archaea"	NA	NA	NA	NA	NA	"anaerobic archaeon MK-D1"
-4	"Bacteria"	NA	NA	NA	"Candidatus Chazhemtobacteraceae"	"Candidatus Chazhemtobacterium"	"Candidatus Chazhemtobacterium aquaticus"
-3	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Thraustotheca"	"Thraustotheca clavata"
-3	"Eukaryota"	NA	"Oomycota"	"Albuginales"	"Albuginaceae"	"Albugo"	"Albugo laibachii"
 3	"Bacteria"	NA	NA	NA	NA	NA	"Bathymodiolus heckerae thiotrophic gill symbiont"
 3	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium r_09"
-3	"Eukaryota"	NA	"Oomycota"	"Saprolegniales"	"Saprolegniaceae"	"Achlya"	"Achlya hypogyna"
 3	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium 405006-B04"
 3	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1586"
 3	"Archaea"	NA	NA	NA	NA	NA	"uncultured archaeon A07HB70"
@@ -18683,13 +18481,6 @@
 3	"Bacteria"	NA	NA	NA	NA	NA	"bacterium HR12"
 3	"Bacteria"	NA	NA	NA	NA	NA	"bacterium HR34"
 3	"Bacteria"	NA	NA	NA	NA	NA	"bacterium HR39"
-2	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Bremia"	"Bremia lactucae"
-2	"Eukaryota"	NA	"Dictyochophyceae"	"Pedinellales"	NA	"Pseudopedinella"	"Pseudopedinella elastica"
-2	"Eukaryota"	NA	"Dinophyceae"	"Prorocentrales"	"Prorocentraceae"	"Prorocentrum"	"Prorocentrum minimum"
-2	"Eukaryota"	NA	"Pelagophyceae"	"Pelagomonadales"	NA	"Aureoumbra"	"Aureoumbra lagunensis"
-2	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Phytophthora"	"Phytophthora fragariae"
-2	"Eukaryota"	NA	"Dinophyceae"	"Gymnodiniales"	"Kareniaceae"	"Karenia"	"Karenia brevis"
-2	"Eukaryota"	NA	"Bigyra"	"Thraustochytrida"	"Thraustochytriaceae"	"Thraustochytrium"	"Thraustochytrium sp. LLF1b"
 2	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1477"
 2	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1532b"
 2	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1552"
@@ -18704,7 +18495,6 @@
 2	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium DCM001Kan16"
 2	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium fosmid pJB102C1"
 2	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium fosmid pJB77G10"
-2	"Eukaryota"	NA	"Oomycota"	"Pythiales"	"Pythiaceae"	"Pythium"	"Pythium brassicum"
 2	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Ad_139_A06_contig2"
 2	"Archaea"	NA	NA	NA	NA	NA	"archaeon GW2011_AR15"
 2	"Bacteria"	NA	NA	NA	NA	NA	"Parcubacteria group bacterium GW2011_GWA2_49_9"
@@ -18743,29 +18533,13 @@
 2	"Bacteria"	NA	NA	NA	NA	NA	"bacterium HR19"
 2	"Bacteria"	NA	NA	NA	NA	NA	"bacterium HR22"
 2	"Bacteria"	NA	NA	NA	NA	NA	"bacterium DOLZORAL124_64_63"
-1	"Eukaryota"	NA	"Phaeophyceae"	"Ectocarpales"	"Ectocarpaceae"	"Ectocarpus"	"Ectocarpus siliculosus"
-1	"Eukaryota"	NA	"Cryptophyceae"	"Cryptomonadales"	"Cryptomonadaceae"	"Cryptomonas"	"Cryptomonas paramecium"
-1	"Eukaryota"	NA	"Dictyochophyceae"	"Dictyochales"	NA	"Dictyocha"	"Dictyocha speculum"
-1	"Eukaryota"	NA	"Phaeophyceae"	"Fucales"	"Fucaceae"	"Ascophyllum"	"Ascophyllum nodosum"
-1	"Eukaryota"	NA	"Oomycota"	"Albuginales"	"Albuginaceae"	"Albugo"	"Albugo candida"
-1	"Eukaryota"	NA	"Cryptophyceae"	"Pyrenomonadales"	"Geminigeraceae"	"Proteomonas"	"Proteomonas sulcata"
-1	"Eukaryota"	NA	"Oomycota"	"Pythiales"	"Pythiaceae"	"Globisporangium"	"Globisporangium splendens"
-1	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Phytophthora"	"Phytophthora boehmeriae"
-1	"Eukaryota"	NA	"Oomycota"	"Pythiales"	"Pythiaceae"	"Pythium"	"Pythium insidiosum"
-1	"Eukaryota"	NA	NA	NA	"Malawimonadidae"	"Malawimonas"	"Malawimonas jakobiformis"
-1	"Eukaryota"	NA	"Dinophyceae"	"Dinophysiales"	"Dinophysiaceae"	"Dinophysis"	"Dinophysis caudata"
 1	"Bacteria"	NA	NA	NA	NA	NA	"uncultured soil bacterium"
 1	"Bacteria"	NA	NA	NA	NA	NA	"uncultured environmental landfill bacterium"
 1	"Bacteria"	NA	NA	NA	NA	NA	"uncultured marine bacterium 440"
 1	"Bacteria"	NA	NA	NA	NA	NA	"uncultured marine bacterium 583"
-1	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Phytophthora"	"Phytophthora niederhauserii"
-1	"Eukaryota"	NA	"Cryptophyceae"	"Cryptomonadales"	"Cryptomonadaceae"	"Cryptomonas"	"Cryptomonas sp. SAG 977-2f"
 1	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium BAC17H8"
 1	"Bacteria"	NA	NA	NA	NA	NA	"uncultured marine bacterium EB0_49D07"
-1	"Eukaryota"	NA	"Cryptophyceae"	"Cryptomonadales"	"Hemiselmidaceae"	"Hemiselmis"	"Hemiselmis andersenii"
-1	"Eukaryota"	NA	NA	NA	NA	"Palpitomonas"	"Palpitomonas bilix"
 1	"Bacteria"	NA	NA	NA	NA	NA	"uncultured nuHF2 cluster bacterium HF0770_42C12"
-1	"Eukaryota"	NA	"Polycystinea"	"Nassellaria"	"Plagiacanthidae"	"Lithomelissa"	"Lithomelissa setosa"
 1	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium r_02"
 1	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium r_07"
 1	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contig1491"
@@ -18779,7 +18553,6 @@
 1	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium Contigcl_1769"
 1	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium contig00113(2014)"
 1	"Bacteria"	NA	NA	NA	NA	NA	"uncultured bacterium fosmid pJB89E1"
-1	"Eukaryota"	NA	NA	"Colponemida"	"Acavomonidia"	"Acavomonas"	"Acavomonas peruviana"
 1	"Archaea"	NA	NA	NA	NA	NA	"archaeon GW2011_AR10"
 1	"Bacteria"	NA	NA	NA	NA	NA	"Microgenomates group bacterium GW2011_GWA1_Microgenomates_45_10"
 1	"Bacteria"	NA	NA	NA	NA	NA	"Parcubacteria group bacterium GW2011_GWA2_38_13b"
@@ -18837,13 +18610,8 @@
 1	"Bacteria"	NA	NA	NA	NA	NA	"bacterium HR37"
 1	"Archaea"	NA	NA	NA	NA	NA	"archaeon HR02"
 1	"Bacteria"	NA	NA	NA	NA	NA	"bacterium MnTg03"
-1	"Eukaryota"	NA	NA	"Jakobida"	NA	"Ophirina"	"Ophirina amphinema"
 1	"Bacteria"	NA	NA	NA	NA	NA	"bacterium 1XD42-94"
-1	"Eukaryota"	NA	"Oomycota"	"Peronosporales"	"Peronosporaceae"	"Nothophytophthora"	"Nothophytophthora sp. Chile5"
-1	"Eukaryota"	NA	"Eustigmatophyceae"	NA	NA	NA	"Eustigmatophyceae sp. Mont 10/10-1w"
 1	"Bacteria"	NA	NA	NA	NA	NA	"bacterium AMD01"
 1	"Bacteria"	NA	NA	NA	NA	NA	"bacterium AMD02"
-1	"Eukaryota"	NA	"Eustigmatophyceae"	"Eustigmatales"	"Monodopsidaceae"	"Microchloropsis"	"Microchloropsis salina"
-1	"Bacteria"	NA	NA	NA	NA	"Natronospirillum"	"Natronospirillum operossus"
 1	"Bacteria"	NA	NA	NA	NA	NA	"bacterium M00.F.Ca.ET.168.01.1.1"
 1	"Bacteria"	NA	NA	NA	NA	NA	"bacterium SGD-2"
