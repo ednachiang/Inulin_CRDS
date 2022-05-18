@@ -2,9 +2,6 @@
 # y = Output directory
 # USE ' ' AROUND X and Y!!!
 
-x = 'scripts/test/kaiju/'
-y = 'scripts/test/output/'
-
 library(plyr)
 library(dplyr)
 library(tidyr)
@@ -18,7 +15,9 @@ kaiju_to_OTU_table <- function(x,y) {
   for(i in 1:n){
     
     inputPath <- paste(x, list.files(x)[i], sep = "")
+    print(inputPath)
     input <- read.table(inputPath, sep = "\t", header = T)
+    print(head(input))
     
     weirdo <- which(input$Domain == "cannot be assigned to a (non-viral) phylum")
     unclass <- which(input$Domain == "unclassified")[1]

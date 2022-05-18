@@ -22,8 +22,16 @@ library(mixOmics)
 library(metagMisc)
 library(compositions)
 source('scripts/misc.R')
+source('scripts/kaijuCreateTable.R')
+source('scripts/kaiju_to_OTU_table.R')
 theme_set(theme_bw())
 set.seed(1)
+```
+
+### Prepare Data - DON'T RUN!!!
+```{r}
+#kaijuCreateTable('kaiju/all_shortreads/pre-processed/output/', 'kaiju/all_shortreads/kaijuCreateTable_output/')
+kaiju_to_OTU_table('kaiju/all_shortreads/kaijuCreateTable_output/', 'kaiju/all_shortreads/kaiju_to_OTU_table_output/')
 ```
 
 ### Convert "OTU" table to biom format

@@ -18,9 +18,9 @@ kaijuCreateTable <- function(x,y) {
   for(i in 1:n){
     
     sampFiles <- which(filePrefix == samps[i])
-    
     use <- grep("phylum", list.files(x)[sampFiles])
-    path <- paste(x, list.files(x)[use], sep = "")
+    useuse <- which(list.files(x) == list.files(x)[sampFiles][use])
+    path <- paste(x, list.files(x)[useuse], sep = "")
     phylum <- read.table(path, sep = "\t", header = T)
     phylum <- phylum[,-1:-2]
     phylum <- phylum[,-2]
@@ -29,7 +29,8 @@ kaijuCreateTable <- function(x,y) {
     
     
     use <- grep("class", list.files(x)[sampFiles])
-    path <- paste(x, list.files(x)[use], sep = "")
+    useuse <- which(list.files(x) == list.files(x)[sampFiles][use])
+    path <- paste(x, list.files(x)[useuse], sep = "")
     class <- read.table(path, sep = "\t", header = T)
     class <- class[,-1:-2]
     class <- class[,-2]
@@ -37,7 +38,8 @@ kaijuCreateTable <- function(x,y) {
     class <- class[,-ncol(class)]
       
     use <- grep("order", list.files(x)[sampFiles])
-    path <- paste(x, list.files(x)[use], sep = "")
+    useuse <- which(list.files(x) == list.files(x)[sampFiles][use])
+    path <- paste(x, list.files(x)[useuse], sep = "")
     order <- read.table(path, sep = "\t", header = T)
     order <- order[,-1:-2]
     order <- order[,-2]
@@ -45,7 +47,8 @@ kaijuCreateTable <- function(x,y) {
     order <- order[,-ncol(order)]
     
     use <- grep("family", list.files(x)[sampFiles])
-    path <- paste(x, list.files(x)[use], sep = "")
+    useuse <- which(list.files(x) == list.files(x)[sampFiles][use])
+    path <- paste(x, list.files(x)[useuse], sep = "")
     family <- read.table(path, sep = "\t", header = T)
     family <- family[,-1:-2]
     family <- family[,-2]
@@ -53,7 +56,8 @@ kaijuCreateTable <- function(x,y) {
     family <- family[,-ncol(family)]
 
     use <- grep("genus", list.files(x)[sampFiles])
-    path <- paste(x, list.files(x)[use], sep = "")
+    useuse <- which(list.files(x) == list.files(x)[sampFiles][use])
+    path <- paste(x, list.files(x)[useuse], sep = "")
     genus <- read.table(path, sep = "\t", header = T)
     genus <- genus[,-1:-2]
     genus <- genus[,-2]
@@ -61,7 +65,8 @@ kaijuCreateTable <- function(x,y) {
     genus <- genus[,-ncol(genus)]
 
     use <- grep("species", list.files(x)[sampFiles])
-    path <- paste(x, list.files(x)[use], sep = "")
+    useuse <- which(list.files(x) == list.files(x)[sampFiles][use])
+    path <- paste(x, list.files(x)[useuse], sep = "")
     species <- read.table(path, sep = "\t", header = T, quote = "\"")
     species <- species[,-1:-2]
     species <- species[,-2]
