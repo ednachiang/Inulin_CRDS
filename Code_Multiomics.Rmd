@@ -24,14 +24,85 @@ library(compositions)
 source('scripts/misc.R')
 source('scripts/kaijuCreateTable.R')
 source('scripts/kaiju_to_OTU_table.R')
+source('scripts/kaijuCreateBigOTUtable.R')
 theme_set(theme_bw())
 set.seed(1)
 ```
 
 ### Prepare Data - DON'T RUN!!!
 ```{r}
+### Prepare kaiju output --> "OTU" table
 #kaijuCreateTable('kaiju/all_shortreads/pre-processed/output/', 'kaiju/all_shortreads/kaijuCreateTable_output/')
-kaiju_to_OTU_table('kaiju/all_shortreads/kaijuCreateTable_output/', 'kaiju/all_shortreads/kaiju_to_OTU_table_output/')
+#kaiju_to_OTU_table('kaiju/all_shortreads/kaijuCreateTable_output/', 'kaiju/all_shortreads/kaiju_to_OTU_table_output/')
+#kaiju_big_OTU_table('kaiju/all_shortreads/kaiju_to_OTU_table_output/', 'kaiju/all_shortreads/bigOTU.txt')
+
+# Create final kaiju "OTU" table
+OTU <- read.table('kaiju/all_shortreads/bigOTU.txt', sep = "\t", header = T)
+OTU.dup <- OTU[which(duplicated(OTU$OTU) == T),]
+rownames(OTU) <- OTU$OTU
+OTU <- OTU[,-2]
+#write.table(OTU, 'kaiju/all_shortreads/OTU_use.txt')
+
+# Create OTU biom files
+OTU <- read.table('kaiju/all_shortreads/OTU_use.txt', sep = "\t", header = T)
+OTU.sum <- OTU[,-1:-3]
+OTU.sum <- OTU.sum[,-4:-9]
+OTU.sum <- OTU.sum[,-7:-9]
+OTU.sum.rem <- list()
+for(i in 1:nrow(OTU.sum)){
+  if(length(which(OTU.sum[i,] == 0) > 3)){
+    OTU.sum.rem <- c(OTU.sum.rem, i)
+  }
+}
+# Remove 8805 taxa
+OTU.sum.rem <- as.numeric(OTU.sum.rem)
+OTU.sum <- OTU.sum[-OTU.sum.rem,]
+rownames(OTU.sum) <- 1:nrow(OTU.sum)
+OTU.sum.biom <- make_biom(OTU.sum, id = "AllSummer")
+#write_biom(OTU.sum.biom, biom_file = 'OTU.sum.biom')
+
+OTU.inu <- OTU.sum[,1:3]
+#OTU.inu.rem <- list()
+#for(j in 1:nrow(OTU.inu)){
+#  if(length(which(OTU.inu[j,] == 0) > 0)){
+#    OTU.inu.rem <- c(OTU.inu.rem, j)
+#  }
+#}
+# No taxa to remove
+OTU.inu.biom <- make_biom(OTU.inu, id = "InulinSummer")
+#write_biom(OTU.inu.biom, biom_file = 'OTU.inu.biom')
+
+
+
+
+
+# Load KEGG table
+KO <- read.table('KEGG/KOtable_norm.tab', header = T, row.names = 1)
+KO <- t(KO)
+seasonRem <- which(substr(rownames(KO), 1,1) != "S")
+KO <- KO[-seasonRem,]
+#KO <- KO[,1:25]
+
+
+# Load metabolomic data
+metab <- read.csv('metabolomics/metabolomics_use.csv', row.names = 1)
+metab <- t(metab)
+metabUse <- c()
+for(i in 1:nrow(KO)){
+  useRow <- which(substr(rownames(metab),3,5) == rownames(KO)[i])
+  metabUse <- c(metabUse, useRow)
+}
+metab <- metab[metabUse,]
+metab <- metab[, (-(ncol(metab)-1) : -ncol(metab) )]
+metab <- data.frame(metab)
+for(j in 1:ncol(metab)){
+  metab[,j] <- as.numeric(metab[,j])
+}
+metab.all.biom <- make_biom(t(metab))
+metab.inu.biom <- make_biom(t(metab[1:3,]))
+#write_biom(metab.all.biom, biom_file = 'metab.sum.biom')
+#write_biom(metab.inu.biom, biom_file = 'metab.inu.biom')
+
 ```
 
 ### Convert "OTU" table to biom format
