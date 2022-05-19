@@ -20,7 +20,7 @@ kaiju_big_OTU_table <- function(x,y) {
       inputPath <- paste(x, list.files(x)[i], sep = "")
       print(inputPath)
       input <- read.table(inputPath, sep = "\t", header = T)
-      input$OTU <- paste(input[,2], input[,3], input[,4], input[,5], input[,6], input[,7], input[,8], sep = "-")
+      input$OTU <- paste(input[,2], input[,3], input[,4], input[,5], input[,6], input[,7], input[,8], sep = ".")
       input <- input[,-2:-8]
       output <- input
       colnames(output) <- c(filePrefix[i], "OTU")
