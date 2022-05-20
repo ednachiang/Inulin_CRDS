@@ -245,27 +245,32 @@ prob.phy <- merge_phyloseq(prob.otu, prob.taxa)
 
 ### Plot co-occurrence probability heatmap
 ```{r}
-prob.hm <- plot_heatmap(prob.phy, sample.order = c("Acetate", "Butyrate", "Propionate", "Lactate", "Fructose", "Glucose", "Mannose", "Phenylalanine", "Glutamate", "Uracil"), taxa.label = "Taxon", taxa.order = c(11374, 11196, 10921, 10288, 9870, 8661, 8648, 7825, 7696, 7673, 7453, 7272, 6325, 5273, 4791, 4498, 4018, 3982, 3765, 3750, 3625, 2069, 1896, 1779, 1768, 1652, 1187, 1006, 8)) +
+#tiff("multi-omics_hm.tiff", width=6.5, height=8, units="in", res=600)
+plot_heatmap(prob.phy, sample.order = c("Acetate", "Butyrate", "Propionate", "Lactate", "Fructose", "Glucose", "Mannose", "Phenylalanine", "Glutamate", "Uracil"), taxa.label = "Taxon", taxa.order = c(11374, 11196, 10921, 10288, 9870, 8661, 8648, 7825, 7696, 7673, 7453, 7272, 6325, 5273, 4791, 4498, 4018, 3982, 3765, 3750, 3625, 2069, 1896, 1779, 1768, 1652, 1187, 1006, 8)) +
   geom_tile(colour="gray40") +
-  scale_y_discrete(labels=c("candidate division TA06 bacterium B3_TA06", "bacterium D16-36", "Candidatus Falkowbacteria bacterium CG10_big_fil_rev_8_21_14_0_10_43_11", "Lentisphaerae bacterium GWF2_49_21", "Candidatus Methanomethylophilus", "Akkermansia sp. BIOML-A41", "Akkermansia sp. KLE1797", "Xenophilus sp. L33", "Extensimonas vulgaris", "Vibrio lentus", "Solimonas terrae", "Magnetospira sp. QH-2", "Chromobacterium", "Psychroflexus salarius", "Sphingobacterium detergens", "Prevotella sp. BCRC 81118", "Spirosoma", "Bacteroides", "Thalassobacillus cyri", "Bacillus hwajinpoensis", "Virgibacillus sp. 7505", "Pelotomaculum sp. PtaU1.Bin035", "Dorea sp. BIOML-A1", "Butyricicoccus sp. AF35-5AC", "Clostridium sp. ND2", "Lachnoanaerobaculum orale", "Eubacterium sp. BL-380-WT-2B", "Butyrivibrio sp. WCE2006", "Clostridiales")) +
+  scale_y_discrete(labels=c("candidate division TA06 bacterium B3_TA06", "\nbacterium D16-36", "Candidatus Falkowbacteria bacterium\nCG10_big_fil_rev_8_21_14_0_10_43_11", "Lentisphaerae bacterium GWF2_49_21", "Candidatus Methanomethylophilus", "Akkermansia sp. BIOML-A41", "Akkermansia sp. KLE1797", "Xenophilus sp. L33", "Extensimonas vulgaris", "Vibrio lentus", "Solimonas terrae", "Magnetospira sp. QH-2", "Chromobacterium", "Psychroflexus salarius", "Sphingobacterium detergens", "Prevotella sp. BCRC 81118", "Spirosoma", "Bacteroides", "Thalassobacillus cyri", "Bacillus hwajinpoensis", "Virgibacillus sp. 7505", "Pelotomaculum sp. PtaU1.Bin035", "Dorea sp. BIOML-A1", "Butyricicoccus sp. AF35-5AC", "Clostridium sp. ND2", "Lachnoanaerobaculum orale", "Eubacterium sp. BL-380-WT-2B", "Butyrivibrio sp. WCE2006", "Clostridiales")) +
   xlab("Metabolite") + ylab("Taxon") +
-  scale_fill_gradientn(name="Co-occurence Probability",
+  scale_fill_gradientn(name="Co-occurence\nProbability",
                        colours = c("#3232FF", "#6464FF", "#9696FF", "#E1E1FF", "#FFFFFF", "#FFE1E1", "#FFC8C8", "#FF6464", "#EA0000", "#C90000"),
-                       limits = c(-2.0, 2.7), breaks = c(-2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5, 2.0, 2.5),
-                       labels = c("-2.0", "-1.5", "-1.0", "-0.5", "0.0", "0.5", "1.0", "1.5", "2.0", "2.5"))
-
-
-#c("candidate division TA06 bacterium B3_TA06", "bacterium D16-36", "Candidatus Falkowbacteria bacterium CG10_big_fil_rev_8_21_14_0_10_43_11", "Lentisphaerae bacterium GWF2_49_21", "Candidatus Methanomethylophilus", "Akkermansia sp. BIOML-A41", "Akkermansia sp. KLE1797", "Xenophilus sp. L33", "Extensimonas vulgaris", "Vibrio lentus", "Solimonas terrae", "Magnetospira sp. QH-2", "Chromobacterium", "Psychroflexus salarius", "Sphingobacterium detergens", "Prevotella sp. BCRC 81118", "Spirosoma", "Bacteroides", "Thalassobacillus cyri", "Bacillus hwajinpoensis", "Virgibacillus sp. 7505", "Pelotomaculum sp. PtaU1.Bin035", "Dorea sp. BIOML-A1", "Butyricicoccus sp. AF35-5AC", "Clostridium sp. ND2", "Lachnoanaerobaculum orale", "Eubacterium sp. BL-380-WT-2B", "Butyrivibrio sp. WCE2006", "Clostridiales")
-
-
-
-
-
-
-
-
-
-
+                       limits = c(-2.0, 2.7),
+                       breaks = c(-2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5, 2.0, 2.5),
+                       labels = c("-2.0", "-1.5", "-1.0", "-0.5", "0.0", "0.5", "1.0", "1.5", "2.0", "2.5")) +
+  theme(axis.text.x = element_text(size=10, angle=40, hjust=1, vjust=1.15),
+        axis.text.y = element_text(size=9),
+        axis.ticks.x = element_blank(),
+        axis.ticks.y = element_blank(),
+        panel.border=element_blank(),
+        axis.title.x = element_text(size=12, face = "bold"),
+        axis.title.y = element_text(size=12, face = "bold"),
+        legend.title = element_text(size=10, face = "bold"),
+        legend.text = element_text(size=10),
+        plot.margin = margin(t=0, r=0, b=0, l=0)) +
+  guides(fill = guide_colorbar(barheight = unit(4,"in"),
+                               frame.colour="black",
+                               frame.linewidth=1))
+  
+  
+#dev.off()
 
 ```
 
