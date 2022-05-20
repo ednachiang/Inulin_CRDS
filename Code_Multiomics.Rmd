@@ -44,7 +44,7 @@ OTU <- OTU[,-2]
 #write.table(OTU, 'kaiju/all_shortreads/OTU_use.txt')
 
 # Create OTU biom files
-OTU <- read.table('kaiju/all_shortreads/OTU_use.txt', sep = "\t", header = T)
+OTU <- read.table('kaiju/all_shortreads/OTU_use.txt', sep = " ", header = T)
 OTU.sum <- OTU[,-1:-3]
 OTU.sum <- OTU.sum[,-4:-9]
 OTU.sum <- OTU.sum[,-7:-9]
@@ -103,29 +103,157 @@ metab.inu.biom <- make_biom(t(metab[1:3,]))
 #write_biom(metab.all.biom, biom_file = 'metab.sum.biom')
 #write_biom(metab.inu.biom, biom_file = 'metab.inu.biom')
 
+
+# Load metadata
+meta <- read.csv('metadata_metag.csv', row.names = 2)
+row.names(meta) <- substr(rownames(meta),3,5)
+meta <- meta[-7:-18,]
+  # Remove Winter and Spring samples
+meta <- meta[,-11]
+  # Remove Ketones because NA
+meta.inu <- meta[which(meta$Substrate == "Inulin"),]
+
+
+### Create physeq object
+otu.inu <- otu_table(OTU.inu, taxa_are_rows = T)
+inu.tax <- rownames(OTU.sum)
+inu.tax.split <- strsplit(inu.tax, split = expression("*"), fixed = T)
+inu.tax <- data.frame(inu.tax)
+inu.tax$Domain <- NA
+inu.tax$Phylum <- NA
+inu.tax$Class <- NA
+inu.tax$Order <- NA
+inu.tax$Family <- NA
+inu.tax$Genus <- NA
+inu.tax$Species <- NA
+
+for(m in 1:length(inu.tax.split)){
+  entry <- inu.tax.split[[m]]
+  inu.tax$Domain[m] <- entry[1]
+  inu.tax$Phylum[m] <- entry[2]
+  inu.tax$Class[m] <- entry[3]
+  inu.tax$Order[m] <- entry[4]
+  inu.tax$Family[m] <- entry[5]
+  inu.tax$Genus[m] <- entry[6]
+  inu.tax$Species[m] <- entry[7]
+}
+
+OTU.sum <- OTU[,-1:-3]
+OTU.sum <- OTU.sum[,-4:-9]
+OTU.sum <- OTU.sum[,-7:-9]
+OTU.sum.rem <- list()
+for(i in 1:nrow(OTU.sum)){
+  if(length(which(OTU.sum[i,] == 0) > 3)){
+    OTU.sum.rem <- c(OTU.sum.rem, i)
+  }
+}
+# Remove 8805 taxa
+OTU.sum.rem <- as.numeric(OTU.sum.rem)
+OTU.sum <- OTU.sum[-OTU.sum.rem,]
+OTU.sum$ID <- 1:nrow(OTU.sum)
+
+inu.tax$ID <- NA
+for(n in 1:nrow(inu.tax)){
+  match <- which(rownames(OTU.sum) == inu.tax[n,1])
+  inu.tax$ID[n] <- OTU.sum$ID[match]
+}
+tax.inu <- tax_table(inu.tax)
+taxa_names(tax.inu) <- taxa_names(otu.inu)
+
+samp.inu <- sample_data(meta.inu)
+sample_names(samp.inu) <- sample_names(otu.inu)
+inu.phy <- merge_phyloseq(otu.inu, tax.inu, samp.inu)
+#save(inu.phy, file = 'multi-omics/inulin.phyloseq.RData')
 ```
 
 
 ### Test mmvec output
 ```{r}
+### Summer
 sum.ranks <- read.table('multi-omics/mmvec_summer/latent_dim_3_input_prior_1.00_output_prior_1.00_beta1_0.90_beta2_0.95_ranks.txt', sep = "\t", header = T, row.names = 1)
 sum.ranks.use <- clrInv(sum.ranks)
+
+
+### Inulin
+inu.ranks <- read.table('multi-omics/mmvec_inulin/latent_dim_3_input_prior_1.00_output_prior_1.00_beta1_0.90_beta2_0.95_ranks.txt', sep = "\t", header = T, row.names = 1)
+inu.ranks.use <- clrInv(inu.ranks)
+inu.microbe.ord <- read.table('multi-omics/mmvec_inulin/inu_ord_microbes.txt', sep = "\t", header = F, row.names = 1)
+inu.metab.ord <- read.table('multi-omics/mmvec_inulin/inu_ord_metab.txt', sep = "\t", header = F, row.names = 1)
+
 ```
 
 ### Pull out top co-occurence probabilities
 ```{r}
-coprob <- data.frame(matrix(nrow = , ncol = ))
-for(m in 1:nrow(sum.ranks.use)){
-  top10 <- sort(sum.ranks.use[m,], decreasing = T)[1:10]
-  bot10 <- sort(sum.ranks.use[m,], decreasing = F)[1:10]
+top.prob <- data.frame(matrix(nrow = nrow(inu.ranks.use), ncol = 11))
+for(o in 1:nrow(inu.ranks.use)){
+  top <- sort(abs(inu.ranks.use[o,]), decreasing = T)[1:10]
+  names <- rownames(as.matrix(top))
+  if(length(which(names == "X1")) == 1){
+    top <- sort(abs(inu.ranks.use[o,]), decreasing = T)[1:11]
+    unclass <- which(names == "X1")
+    top <- top[-unclass]
+    names <- rownames(as.matrix(top))
+  }
+  top.prob[o,1] <- rownames(inu.ranks.use)[o]
+  top.prob[o, 2:11] <- names
+}
+
+top.unique <- list()
+for(p in 2:ncol(top.prob)){
+  topTax <- as.character(unique(top.prob[p,2:11]))
+  top.unique <- as.character(append(top.unique, topTax))
+  top.unique <- unique(top.unique)
+}
+top.unique <- na.omit(top.unique)
+
+prob.use <- data.frame(matrix(nrow = nrow(inu.ranks.use), ncol = length(top.unique)))
+rownames(prob.use) <- rownames(inu.ranks.use)
+colnames(prob.use) <- top.unique
+for(q in 1:length(top.unique)){
+  match <- which(colnames(inu.ranks.use) == top.unique[q])
+  prob.use[,q] <- as.numeric(inu.ranks.use[,match])
 }
 
 
 
+### Make phyloseq object
+colnames(prob.use) <- substr(colnames(prob.use),2,10)
+prob.otu <- otu_table(t(prob.use), taxa_are_rows = T)
+load('multi-omics/inulin.phyloseq.RData')
+prob.phy <- merge_phyloseq(prob.otu, tax_table(inu.phy))
+#save(prob.phy, file = 'multi-omics/probability.phyloseq.RData')
 
-ace.top <- sort(sum.ranks.use[1,], decreasing = T)[1:10]
-ace.bot <- sort(sum.ranks.use[1,], decreasing = F)[1:10]
+# Save taxa names
+prob.taxa <- data.frame(tax_table(prob.phy))
+#write.table(prob.taxa, 'multi-omics/top_taxa.txt', sep = "\t")
+rename <- prob.taxa$ta8
+rename[2] <- "Unclassified"
+rename[15] <- "Marinoscillum"
+rename[19] <- "Myxococcaceae"
+rename[21] <- "Chromobacterium"
+rename[27] <- "Spirosoma"
+prob.taxa$Name <- rename
+prob.taxa <- tax_table(prob.taxa)
+taxa_names(prob.taxa) <- taxa_names(prob.otu)
+prob.phy <- merge_phyloseq(prob.otu, prob.taxa)
+#save(prob.phy, file = 'multi-omics/probability.phyloseq.RData')
+
+# OTU table = prob.use
+# Samples = metabolites
+# Taxa = taxa
+# 
+
 ```
+
+### Plot co-occurrence probability heatmap
+```{r}
+prob.hm <- plot_heatmap(prob.phy, sample.order = c("Acetate", "Butyrate", "Propionate", "Lactate", "Fructose", "Glucose", "Mannose", "Phenylalanine", "Glutamate", "Uracil"), taxa.label = "ta10") +
+  geom_tile(colour="gray40") +
+  xlab("Metabolite") + ylab("Taxon") +
+  scale_fill_gradientn(name=expression("Transformed co-occurrence probability"),
+                       colours = c("#FFFFFF", "#FDF8F3", "#f9e7d7", "#f6c6a9", "#f49c74", "#d9444f", "#7b1c59", "#2e1438", "#000000"))
+```
+
 
 
 ### Load Data
