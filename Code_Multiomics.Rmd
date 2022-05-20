@@ -21,6 +21,9 @@ library(vegan)
 library(mixOmics)
 library(metagMisc)
 library(compositions)
+library(biomformat)
+library(ggbiplot)
+library(stringr)
 source('scripts/misc.R')
 source('scripts/kaijuCreateTable.R')
 source('scripts/kaiju_to_OTU_table.R')
@@ -37,10 +40,10 @@ set.seed(1)
 #kaiju_big_OTU_table('kaiju/all_shortreads/kaiju_to_OTU_table_output/', 'kaiju/all_shortreads/bigOTU.txt')
 
 # Create final kaiju "OTU" table
-OTU <- read.table('kaiju/all_shortreads/bigOTU.txt', sep = "\t", header = T)
-OTU.dup <- OTU[which(duplicated(OTU$OTU) == T),]
-rownames(OTU) <- OTU$OTU
-OTU <- OTU[,-2]
+#OTU <- read.table('kaiju/all_shortreads/bigOTU.txt', sep = "\t", header = T)
+#OTU.dup <- OTU[which(duplicated(OTU$OTU) == T),]
+#rownames(OTU) <- OTU$OTU
+#OTU <- OTU[,-2]
 #write.table(OTU, 'kaiju/all_shortreads/OTU_use.txt')
 
 # Create OTU biom files
@@ -49,6 +52,7 @@ OTU.sum <- OTU[,-1:-3]
 OTU.sum <- OTU.sum[,-4:-9]
 OTU.sum <- OTU.sum[,-7:-9]
 OTU.sum.rem <- list()
+# Remove taxa found in < 3 samples
 for(i in 1:nrow(OTU.sum)){
   if(length(which(OTU.sum[i,] == 0) > 3)){
     OTU.sum.rem <- c(OTU.sum.rem, i)
@@ -57,6 +61,19 @@ for(i in 1:nrow(OTU.sum)){
 # Remove 8805 taxa
 OTU.sum.rem <- as.numeric(OTU.sum.rem)
 OTU.sum <- OTU.sum[-OTU.sum.rem,]
+# Remove taxa with < 10 reads
+OTU.sum.rem10 <- list()
+for(i in 1:nrow(OTU.sum)){
+  if(sum(OTU.sum[i,]) < 11){
+    OTU.sum.rem10 <- c(OTU.sum.rem10, i)
+  }
+}
+# Remove 30 taxa
+OTU.sum.rem10 <- as.numeric(OTU.sum.rem10)
+OTU.sum <- OTU.sum[-OTU.sum.rem10,]
+OTU.sum <- OTU.sum[-1,]
+  # Remove unclassified
+#write.csv(OTU.sum, file = 'multi-omics/OTU.summer.rem.csv')
 rownames(OTU.sum) <- 1:nrow(OTU.sum)
 OTU.sum.biom <- make_biom(OTU.sum, id = "AllSummer")
 #write_biom(OTU.sum.biom, biom_file = 'OTU.sum.biom')
@@ -115,6 +132,32 @@ meta.inu <- meta[which(meta$Substrate == "Inulin"),]
 
 
 ### Create physeq object
+OTU <- read.table('kaiju/all_shortreads/OTU_use.txt', sep = " ", header = T)
+OTU.sum <- OTU[,-1:-3]
+OTU.sum <- OTU.sum[,-4:-9]
+OTU.sum <- OTU.sum[,-7:-9]
+OTU.sum.rem <- list()
+# Remove taxa found in < 3 samples
+for(i in 1:nrow(OTU.sum)){
+  if(length(which(OTU.sum[i,] == 0) > 3)){
+    OTU.sum.rem <- c(OTU.sum.rem, i)
+  }
+}
+# Remove 8805 taxa
+OTU.sum.rem <- as.numeric(OTU.sum.rem)
+OTU.sum <- OTU.sum[-OTU.sum.rem,]
+# Remove taxa with < 10 reads
+OTU.sum.rem10 <- list()
+for(i in 1:nrow(OTU.sum)){
+  if(sum(OTU.sum[i,]) < 11){
+    OTU.sum.rem10 <- c(OTU.sum.rem10, i)
+  }
+}
+# Remove 30 taxa
+OTU.sum.rem10 <- as.numeric(OTU.sum.rem10)
+OTU.sum <- OTU.sum[-OTU.sum.rem10,]
+OTU.sum <- OTU.sum[-1,]
+OTU.inu <- OTU.sum[,1:3]
 otu.inu <- otu_table(OTU.inu, taxa_are_rows = T)
 inu.tax <- rownames(OTU.sum)
 inu.tax.split <- strsplit(inu.tax, split = expression("*"), fixed = T)
@@ -138,20 +181,7 @@ for(m in 1:length(inu.tax.split)){
   inu.tax$Species[m] <- entry[7]
 }
 
-OTU.sum <- OTU[,-1:-3]
-OTU.sum <- OTU.sum[,-4:-9]
-OTU.sum <- OTU.sum[,-7:-9]
-OTU.sum.rem <- list()
-for(i in 1:nrow(OTU.sum)){
-  if(length(which(OTU.sum[i,] == 0) > 3)){
-    OTU.sum.rem <- c(OTU.sum.rem, i)
-  }
-}
-# Remove 8805 taxa
-OTU.sum.rem <- as.numeric(OTU.sum.rem)
-OTU.sum <- OTU.sum[-OTU.sum.rem,]
-OTU.sum$ID <- 1:nrow(OTU.sum)
-
+OTU.sum$ID <- c(1:nrow(OTU.sum))
 inu.tax$ID <- NA
 for(n in 1:nrow(inu.tax)){
   match <- which(rownames(OTU.sum) == inu.tax[n,1])
@@ -180,6 +210,7 @@ inu.ranks <- read.table('multi-omics/mmvec_inulin/latent_dim_3_input_prior_1.00_
 inu.microbe.ord <- read.table('multi-omics/mmvec_inulin/inu_ord_microbes.txt', sep = "\t", header = F, row.names = 1)
 inu.metab.ord <- read.table('multi-omics/mmvec_inulin/inu_ord_metab.txt', sep = "\t", header = F, row.names = 1)
 
+inu.ord <- read.table('multi-omics/mmvec_inulin/latent_dim_3_input_prior_1.00_output_prior_1.00_beta1_0.90_beta2_0.95_ordination.txt', sep = "\t")
 ```
 
 ### Pull out top co-occurence probabilities
@@ -188,12 +219,6 @@ top.prob <- data.frame(matrix(nrow = nrow(inu.ranks), ncol = 11))
 for(o in 1:nrow(inu.ranks)){
   top <- sort(abs(inu.ranks[o,]), decreasing = T)[1:10]
   names <- colnames(top)
-  if(length(which(names == "X1")) == 1){
-    top <- sort(abs(inu.ranks[o,]), decreasing = T)[1:11]
-    unclass <- which(names == "X1")
-    top <- top[,-unclass]
-    names <- colnames(top)
-  }
   top.prob[o,1] <- rownames(inu.ranks)[o]
   top.prob[o, 2:11] <- names
 }
@@ -220,18 +245,30 @@ for(q in 1:length(top.unique)){
 colnames(prob.use) <- substr(colnames(prob.use),2,10)
 prob.otu <- otu_table(t(prob.use), taxa_are_rows = T)
 load('multi-omics/inulin.phyloseq.RData')
-prob.phy <- merge_phyloseq(prob.otu, tax_table(inu.phy))
+inu.tax.table <- data.frame(tax_table(inu.phy))
+rownames(inu.tax.table) <- inu.tax.table$ta9
+numID <- inu.tax.table$ta9
+numID <- str_replace_all(numID, pattern = " ", replacement = "")
+inu.tax.table <- tax_table(inu.tax.table)
+taxa_names(inu.tax.table) <- numID
+prob.phy <- merge_phyloseq(prob.otu, inu.tax.table)
+#save(prob.phy, file = 'multi-omics/mmvec_inulin/top_prob_taxa_phy.RData')
 
 
 # Save taxa names
 prob.taxa <- data.frame(tax_table(prob.phy))
-#write.table(prob.taxa, 'multi-omics/top_taxa.txt', sep = "\t")
+#write.table(prob.taxa, file = 'multi-omics/mmvec_inulin/top_prob_taxa.txt', sep = "\t")
 rename <- prob.taxa$ta8
-rename[13] <- "Chromobacterium"
-rename[19] <- "Spirosoma"
-rename[23] <- "Bacteroides"
-rename[24] <- "Candidatus Methanomethylophilus"
-rename[27] <- "Clostridiales"
+rename[1] <- "Flavonifractor"
+rename[9] <- "Micrococcales"
+rename[11] <- "Ruminococcaceae"
+rename[12] <- "Muribaculaceae"
+rename[17] <- "Bacteroidales"
+rename[18] <- "Clostridiales"
+rename[22] <- "Salinivirgaceae"
+rename[25] <- "Lactobacillus"
+rename[27] <- "Prevotella"
+rename[28] <- "Bacteroides"
 prob.taxa$Name <- rename
 prob.taxa <- tax_table(prob.taxa)
 taxa_names(prob.taxa) <- taxa_names(prob.otu)
@@ -239,22 +276,18 @@ colnames(prob.taxa) <- c("Full", "Domain", "Phylum", "Class", "Order", "Family",
 prob.phy <- merge_phyloseq(prob.otu, prob.taxa)
 #save(prob.phy, file = 'multi-omics/probability.phyloseq.RData')
 
-#prob.phy <- subset_taxa(prob.phy, ID == 1187 | ID == 1652 | ID == 1768 | ID == 1779 | ID == 3037 | ID == 3625 | ID == 3750 | ID == 4018 | ID == 4036 | ID == 4259 | ID == 4498 | ID == 5273 | ID == 6065 | ID == 6079 | ID == 6171 | ID == 6325 | ID == 7272 | ID == 7453 | ID == 7696 | ID == 7825 | ID == 8307 | ID == 8648 | ID == 8661 | ID == 8786 | ID == 10288 | ID == 10921 | ID == 11196 | ID == 11374)
-
 ```
 
 ### Plot co-occurrence probability heatmap
 ```{r}
-#tiff("multi-omics_hm.tiff", width=6.5, height=8, units="in", res=600)
-plot_heatmap(prob.phy, sample.order = c("Acetate", "Butyrate", "Propionate", "Lactate", "Fructose", "Glucose", "Mannose", "Phenylalanine", "Glutamate", "Uracil"), taxa.label = "Taxon", taxa.order = c(11374, 11196, 10921, 10288, 9870, 8661, 8648, 7825, 7696, 7673, 7453, 7272, 6325, 5273, 4791, 4498, 4018, 3982, 3765, 3750, 3625, 2069, 1896, 1779, 1768, 1652, 1187, 1006, 8)) +
+tiff("multi-omics_hm.tiff", width=6.5, height=6.25, units="in", res=600)
+plot_heatmap(prob.phy, sample.order = c("Acetate", "Butyrate", "Propionate", "Lactate", "Fructose", "Glucose", "Mannose", "Phenylalanine", "Glutamate", "Uracil"), taxa.label = "Taxon", taxa.order = c(10936, 10918, 10415, 9902, 9662, 8671, 8479, 8193, 7370, 6012, 5062, 5033, 4486, 3978, 3977, 3974, 3956, 3949, 3517, 2849, 2517, 2408, 1985, 1982, 1315, 59, 57, 15, 7)) +
   geom_tile(colour="gray40") +
-  scale_y_discrete(labels=c("candidate division TA06 bacterium B3_TA06", "\nbacterium D16-36", "Candidatus Falkowbacteria bacterium\nCG10_big_fil_rev_8_21_14_0_10_43_11", "Lentisphaerae bacterium GWF2_49_21", "Candidatus Methanomethylophilus", "Akkermansia sp. BIOML-A41", "Akkermansia sp. KLE1797", "Xenophilus sp. L33", "Extensimonas vulgaris", "Vibrio lentus", "Solimonas terrae", "Magnetospira sp. QH-2", "Chromobacterium", "Psychroflexus salarius", "Sphingobacterium detergens", "Prevotella sp. BCRC 81118", "Spirosoma", "Bacteroides", "Thalassobacillus cyri", "Bacillus hwajinpoensis", "Virgibacillus sp. 7505", "Pelotomaculum sp. PtaU1.Bin035", "Dorea sp. BIOML-A1", "Butyricicoccus sp. AF35-5AC", "Clostridium sp. ND2", "Lachnoanaerobaculum orale", "Eubacterium sp. BL-380-WT-2B", "Butyrivibrio sp. WCE2006", "Clostridiales")) +
+  scale_y_discrete(labels=c("Candidatus Buchananbacteria bacterium RBG_13_39_9", "candidate division BRC1 bacterium HGW-BRC1-1", "Ignavibacteria bacterium GWF2_33_9", "Candidatus Methanoperedens nitroreducens", "HGW-Chloroflexi-5", "Micrococcales", "Jannaschia faecimaris", "Trabulsiella odontotermitis", "Oceanibaculum indicum", "Larkinella knui", "Chitinophaga barathri", "Flavobacterium sp. xlx-214", "Williamwhitmania taraxaci", "Bacteroides", "Prevotella", "Salinivirgaceae", "Muribaculaceae","Bacteroidales", "Coprobacillus sp. AM23-2", "Gracilibacillus halophilus", "Aneurinibacillus danicus", "Paenibacillus phocaensis", "Lachnospiraceae bacterium FD2005", "Clostridium paradoxum", "Halobacillus kuroshimensis", "Lactobacillus", "Flavonifractor", "Ruminococcaceae", "Clostridiales")) +
   xlab("Metabolite") + ylab("Taxon") +
   scale_fill_gradientn(name="Co-occurence\nProbability",
-                       colours = c("#3232FF", "#6464FF", "#9696FF", "#E1E1FF", "#FFFFFF", "#FFE1E1", "#FFC8C8", "#FF6464", "#EA0000", "#C90000"),
-                       limits = c(-2.0, 2.7),
-                       breaks = c(-2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5, 2.0, 2.5),
-                       labels = c("-2.0", "-1.5", "-1.0", "-0.5", "0.0", "0.5", "1.0", "1.5", "2.0", "2.5")) +
+                       colours = c("#3232FF", "#6464FF", "#9696FF", "#E1E1FF", "#FFFFFF", "#FFE1E1", "#FFC8C8", "#FF6464", "#EA0000", "#C90000"), 
+                       limits = c(-2.31, 2.61), breaks = c(-2.00, -1.50, -1.00, -0.50, 0.00, 0.50, 1.00, 1.50, 2.00, 2.50)) +
   theme(axis.text.x = element_text(size=10, angle=40, hjust=1, vjust=1.15),
         axis.text.y = element_text(size=9),
         axis.ticks.x = element_blank(),
@@ -270,10 +303,16 @@ plot_heatmap(prob.phy, sample.order = c("Acetate", "Butyrate", "Propionate", "La
                                frame.linewidth=1))
   
   
-#dev.off()
+dev.off()
+
 
 ```
 
+### Biplot
+```{r}
+biplot(x = inu.microbe.ord[2:100,1:2], y = inu.metab.ord[,1:2], xlab = "Comp.1 (70.03%)",
+       ylab = "Comp.2 (29.92%)", xlim = c(-0.93, 0.30), ylim = c(-0.30, 0.30)) 
+```
 
 
 ### Load Data
