@@ -7,18 +7,8 @@ output: html_document
 
 ### Load Libraries
 ```{r}
-library(ape)
-library(dplyr)
-library(dunn.test)
-library(effsize)
 library(ggplot2)
 library(grid)
-library(gridExtra)
-library(phyloseq)
-library(picante)
-library(pwr)
-library(tidyr)
-library(vegan)
 source('scripts/misc.R')
 theme_set(theme_bw())
 set.seed(1)
