@@ -1,0 +1,264 @@
+---
+title: "Code_KEGG"
+author: "Edna Chiang"
+date: "5/21/2022"
+output: html_document
+---
+
+### Load Libraries
+```{r}
+library(ape)
+library(dplyr)
+library(dunn.test)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(phyloseq)
+library(picante)
+library(pwr)
+library(tidyr)
+library(vegan)
+source('scripts/misc.R')
+theme_set(theme_bw())
+set.seed(1)
+```
+
+### Create physeq object - DON'T RUN!!!
+```{r}
+# Load KEGG table
+KO <- read.table('KEGG/KOtable_norm.tab', header = T, row.names = 1)
+KO.otu <- otu_table(KO, taxa_are_rows = T)
+
+# Load metadata
+meta <- read.csv('metadata_metag.csv', row.names = 2)
+row.names(meta) <- substr(rownames(meta),3,5)
+meta <- meta[,-11]
+#meta.samp <- sample_data(meta)
+
+# Load KOID classification
+KO.class <- read.table('KEGG/KOID_classification.txt', header = T, colClasses = "character")
+KO.tax <- tax_table(KO.class)
+rownames(KO.tax) <- KO.class$D
+#taxa_names(KO.tax) <- KO.class$D
+
+# Create physeq object
+#ko.phy <- merge_phyloseq(KO.otu, meta.samp)
+
+# Remove KOIDs that appear in < 3 samples
+ko.rem <- list()
+for(i in 1:nrow(KO)){
+  empty <- length(which(KO[i,] == 0))
+    # Identifies # of samples w/o KOID
+  if(empty > 15){
+    # If KOID appears < 3 samples
+    ko.rem <- append(ko.rem, i)
+      # Create list of KOIDs that appear in < 3 samples
+  }
+}
+# Remove 1511 KOIDs
+ko.rem.row <- as.numeric(ko.rem)
+  # Convert list to numeric
+KO.rem <- KO[-ko.rem.row,]
+  # Remove CAZymes that appear in < 3 samples
+  # 6 CAZymes
+  # GT52, GT89, CE5, GH121, GT44, GT61
+
+reorder <- sort(colnames(KO.rem))
+KO.rem <- data.frame(KO.rem[,reorder])
+which(colnames(KO.rem) == "W20")
+KO.rem <- KO.rem[,-13]
+KO.otu <- otu_table(KO.rem, taxa_are_rows = T)
+which(rownames(meta) == "W20")
+meta <- meta[reorder,]
+meta <- meta[-13,]
+meta.samp <- sample_data(meta)
+
+#save(KO.rem, file = 'KEGG/LevelD_data.txt')
+
+#ko.phy <- merge_phyloseq(KO.otu, meta.samp)
+```
+
+
+
+
+
+
+### Prepare Level C data
+```{r}
+pw.kw <- data.frame(matrix(nrow = 1, ncol = 17))
+colnames(pw.kw) <- colnames(KO.rem)
+pw.unique <- unique(KO.class$C)
+
+for(k in 1:length(pw.unique)){
+  koidUse <- KO.class$D[which(KO.class$C == pw.unique[k])]
+  pw.count <- data.frame(matrix(nrow = 1, ncol = ncol(KO.rem),
+                                data = rep(0, ncol(KO.rem))))
+  colnames(pw.count) <- colnames(KO.rem)
+  
+  for(l in 1:length(koidUse)){
+    
+    present <- KO.rem[which(rownames(KO.rem) == koidUse[l]),]
+    
+    if(nrow(present) == 0){
+      print(c(koidUse[l], "NA"))
+    } else if(nrow(present) > 0){
+      
+      pw.count <- rbind(pw.count, present)
+      rownames(pw.count)[nrow(pw.count)] <- rownames(KO.rem)[which(rownames(KO.rem) == koidUse[l])]
+    }
+  }
+    
+  pw.kw[k,] <- colSums(pw.count)
+  rownames(pw.kw)[k] <- as.character(pw.unique[k])
+}
+
+pw.kw <- pw.kw[-which(rowSums(pw.kw) == 0),]
+
+
+#save(pw.kw, file = 'KEGG/LevelC_data.txt')
+```
+
+### Level C Test
+```{r}
+### Season
+pw.kw.use <- data.frame(t(pw.kw))
+pw.kw.use$Season <- meta$Season
+pw.output <- data.frame(matrix(nrow = ncol(pw.kw.use), ncol = 2))
+colnames(pw.output) <- c("Pathway", "P")
+
+for(m in 1: (ncol(pw.kw.use)-1) ){
+  kw <- kruskal.test(pw.kw.use[,m] ~ Season, pw.kw.use)
+  pw.output$Pathway[m] <- colnames(pw.kw.use)[m]
+  pw.output$P[m] <- kw$p.value
+}
+pw.output <- pw.output[-nrow(pw.output),]
+pw.output$AdjP <- p.adjust(pw.output$P, "BH")
+
+#save(pw.output, file = 'KEGG/LevelC_Kruskal-Wallis.txt')
+
+### Metabolism
+pw.wc.use <- data.frame(t(pw.kw))
+pw.wc.use$Metabolism <- meta$Metabolism
+pw.wc.output <- data.frame(matrix(nrow = ncol(pw.wc.use), ncol = 2))
+colnames(pw.wc.output) <- c("Pathway", "P")
+
+for(m in 1: (ncol(pw.wc.use)-1) ){
+  wc <- wilcox.test(pw.wc.use[,m] ~ Metabolism, pw.wc.use)
+  pw.wc.output$Pathway[m] <- colnames(pw.wc.use)[m]
+  pw.wc.output$P[m] <- wc$p.value
+}
+pw.wc.output <- pw.wc.output[-nrow(pw.wc.output),]
+pw.wc.output$AdjP <- p.adjust(pw.wc.output$P, "BH")
+
+#save(pw.wc.output, file = 'KEGG/LevelC_Wilcoxon.txt')
+```
+
+
+
+
+### Prepare Level B data
+```{r}
+B.kw <- data.frame(matrix(nrow = 1, ncol = 17))
+colnames(B.kw) <- colnames(KO.rem)
+B.unique <- unique(KO.class$B)
+
+for(n in 1:length(B.unique)){
+  pwUse <- KO.class$C[which(KO.class$B == B.unique[n])]
+  pwUseUnique <- unique(pwUse)
+  B.count <- data.frame(matrix(nrow = 1, ncol = ncol(pw.kw),
+                                data = rep(0, ncol(pw.kw))))
+  colnames(B.count) <- colnames(pw.kw)
+  
+  for(o in 1:length(pwUseUnique)){
+    
+    present <- pw.kw[which(rownames(pw.kw) == pwUseUnique[o]),]
+    
+    if(nrow(present) == 0){
+      #print(c(koidUse[l], "NA"))
+    } else if(nrow(present) > 0){
+      
+      B.count <- rbind(B.count, present)
+      rownames(B.count)[nrow(B.count)] <- rownames(pw.kw)[which(rownames(pw.kw) == pwUseUnique[o])]
+    }
+  }
+    
+  B.kw[n,] <- colSums(B.count)
+  rownames(B.kw)[n] <- as.character(B.unique[n])
+}
+
+B.kw <- B.kw[-which(rowSums(B.kw) == 0),]
+
+
+#save(B.kw, file = 'KEGG/LevelB_data.txt')
+```
+
+
+
+### Level B Tests
+```{r}
+### Season
+B.kw.use <- data.frame(t(B.kw))
+B.kw.use$Season <- meta$Season
+B.output <- data.frame(matrix(nrow = ncol(B.kw.use), ncol = 2))
+colnames(B.output) <- c("Pathway", "P")
+
+for(m in 1: (ncol(B.kw.use)-1) ){
+  kw <- kruskal.test(B.kw.use[,m] ~ Season, B.kw.use)
+  B.output$Pathway[m] <- colnames(B.kw.use)[m]
+  B.output$P[m] <- kw$p.value
+}
+B.output <- B.output[-nrow(B.output),]
+B.output$AdjP <- p.adjust(B.output$P, "BH")
+#save(B.output, file = 'KEGG/LevelB_Kruskal-Wallis.txt')
+
+### Metabolism
+B.wc.use <- data.frame(t(B.kw))
+B.wc.use$Metabolism <- meta$Metabolism
+B.wc.output <- data.frame(matrix(nrow = ncol(B.wc.use), ncol = 2))
+colnames(B.wc.output) <- c("Pathway", "P")
+
+for(m in 1: (ncol(B.wc.use)-1) ){
+  wc <- wilcox.test(B.wc.use[,m] ~ Metabolism, B.wc.use)
+  B.wc.output$Pathway[m] <- colnames(B.wc.use)[m]
+  B.wc.output$P[m] <- wc$p.value
+}
+B.wc.output <- B.wc.output[-nrow(B.wc.output),]
+B.wc.output$AdjP <- p.adjust(B.wc.output$P, "BH")
+#save(B.wc.output, file = 'KEGG/LevelB_Wilcoxon.txt')
+```
+
+
+### Level D Tests
+```{r}
+### Season
+KO.kw <- data.frame(t(KO.rem))
+KO.kw$Season <- meta$Season
+koid.kw <- data.frame(matrix(nrow = ncol(KO.kw), ncol = 2))
+colnames(koid.kw) <- c("KOID", "P")
+
+
+for(j in 1: (ncol(KO.kw)-1) ){
+  kw <- kruskal.test(KO.kw[,j] ~ Season, KO.kw)
+  koid.kw$KOID[j] <- colnames(KO.kw)[j]
+  koid.kw$P[j] <- kw$p.value
+}
+koid.kw$AdjP <- p.adjust(koid.kw$P, "BH")
+#save(koid.kw, file = 'KEGG/LevelD_Kruskal-Wallis.txt')
+
+
+### Metabolism
+KO.wc.use <- data.frame(t(KO.rem))
+KO.wc.use$Metabolism <- meta$Metabolism
+KO.wc.output <- data.frame(matrix(nrow = ncol(KO.wc.use), ncol = 2))
+colnames(KO.wc.output) <- c("Pathway", "P")
+
+for(m in 1: (ncol(KO.wc.use)-1) ){
+  wc <- wilcox.test(KO.wc.use[,m] ~ Metabolism, KO.wc.use)
+  KO.wc.output$Pathway[m] <- colnames(KO.wc.use)[m]
+  KO.wc.output$P[m] <- wc$p.value
+}
+KO.wc.output <- KO.wc.output[-nrow(KO.wc.output),]
+KO.wc.output$AdjP <- p.adjust(KO.wc.output$P, "BH")
+
+#save(KO.wc.output, file = 'KEGG/LevelD_Wilcoxon.txt')
+```
