@@ -887,7 +887,7 @@ abx.sal.maxSlope.plot <- ggplot(crds.sal, aes(x = Season, y = MaxSlope, color = 
 
 ### Save plots
 ```{r}
-tiff("abx.delta.metrics.tiff", width = 6, height = 9, units = "in", res = 600)
+tiff("delta.metrics.tiff", width = 6, height = 9, units = "in", res = 600)
 grid.newpage()
 pushViewport(viewport(layout=grid.layout(4,2, widths = c(1, 1))))
 
@@ -896,33 +896,33 @@ grid.text("A", x=unit(0.063, "npc"), y=unit(0.95, "npc"),
           vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=14,fontface="bold"))
 
 print(abx.sal.auc.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
-grid.text("E", x=unit(0.063, "npc"), y=unit(0.95, "npc"),
+grid.text("B", x=unit(0.063, "npc"), y=unit(0.95, "npc"),
           vp=viewport(layout.pos.row=1, layout.pos.col=2), gp=gpar(fontsize=14,fontface="bold"))
 
 
 
 print(abx.inu.avgD.plot, vp=viewport(layout.pos.row=2, layout.pos.col=1))
-grid.text("B", x=unit(0.063, "npc"), y=unit(0.95, "npc"), 
+grid.text("C", x=unit(0.063, "npc"), y=unit(0.95, "npc"), 
           vp=viewport(layout.pos.row=2, layout.pos.col=1), gp=gpar(fontsize=14,fontface="bold"))
 
 print(abx.sal.avgD.plot, vp=viewport(layout.pos.row=2, layout.pos.col=2))
-grid.text("F", x=unit(0.063, "npc"), y=unit(0.95, "npc"), 
+grid.text("D", x=unit(0.063, "npc"), y=unit(0.95, "npc"), 
           vp=viewport(layout.pos.row=2, layout.pos.col=2), gp=gpar(fontsize=14,fontface="bold"))
 
 
 
 print(abx.inu.maxD.plot, vp=viewport(layout.pos.row=3, layout.pos.col=1))
-grid.text("C", x=unit(0.063, "npc"), y=unit(0.95, "npc"), 
+grid.text("E", x=unit(0.063, "npc"), y=unit(0.95, "npc"), 
           vp=viewport(layout.pos.row=3, layout.pos.col=1), gp=gpar(fontsize=14,fontface="bold"))
 
 print(abx.sal.maxD.plot, vp=viewport(layout.pos.row=3, layout.pos.col=2))
-grid.text("G", x=unit(0.063, "npc"), y=unit(0.95, "npc"), 
+grid.text("F", x=unit(0.063, "npc"), y=unit(0.95, "npc"), 
           vp=viewport(layout.pos.row=3, layout.pos.col=2), gp=gpar(fontsize=14,fontface="bold"))
 
 
 
 print(abx.inu.maxSlope.plot, vp=viewport(layout.pos.row=4, layout.pos.col=1))
-grid.text("D", x=unit(0.063, "npc"), y=unit(1, "npc"), 
+grid.text("G", x=unit(0.063, "npc"), y=unit(1, "npc"), 
           vp=viewport(layout.pos.row=4, layout.pos.col=1), gp=gpar(fontsize=14,fontface="bold"))
 
 print(abx.sal.maxSlope.plot, vp=viewport(layout.pos.row=4, layout.pos.col=2))
