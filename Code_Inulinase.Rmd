@@ -11,21 +11,14 @@ library(ggplot2)
 library(plyr)
 library(dplyr)
 library(grid)
-#library(MESS)
-#library(pgirmess)
-#library(Bolstad2)
 library(phyloseq)
 library(vegan)
-#library(miLineage)
 #library(psych)
 library(car)
 library(reshape2)
 library(pwr)
 library(effsize)
-#source('scripts/import_crds.R')
-#source('scripts/bin_crds.R')
 source('scripts/misc.R')
-#source('scripts/calc_delta_metrics.R')
 source('scripts/simper_pretty.R')
 source('scripts/R_krusk.R')
 source('scripts/removeTaxa.R')
@@ -86,23 +79,23 @@ summary(aov(Genome_Equivalents ~ Season, data = ags))
 
 ### Plot - AGS
 ```{r}
-#tiff("inulinase.ags.tiff", width = 175, height = 105, units = "mm", res = 400)
+#tiff("averageGenomeSize.tiff", width = 4, height = 3, units = "in", res = 600)
 ggplot(ags, aes(x = Season, y = AGS_kb, fill = Season)) +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5, stackratio = 1.15) +
   scale_fill_manual(values = c("#E69F00", "#0072B2", "#00bf8b")) +
-  scale_y_continuous(limits = c(2690, 4000), breaks = c(2690, 2952, 3214, 3476, 3738, 4000)) +
-  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
+  scale_y_continuous(limits = c(2620, 4000), breaks = c(2690, 2952, 3214, 3476, 3738, 4000)) +
+  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
                position = position_dodge(0.7), size = 0.75,
                show.legend = F) +
   ylab("Average Genome Size (kb)") +
     theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.text.x = element_text(size=12),
-        axis.text.y = element_text(size=12),
-        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        axis.title.x = element_text(size=12, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=12, margin=margin(t=0, r=10, b=0, l=0)),
         panel.spacing=unit(1, "lines"),
-        legend.title = element_text(size = 18, face="bold"),
-        legend.text = element_text(size=16),
+        legend.title = element_text(size = 12, face="bold"),
+        legend.text = element_text(size=10),
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()
   ) 
@@ -217,8 +210,8 @@ season.legend <- g_legend(ggplot(exo_rpkg, aes(x=Season, y=RPKG, fill=Season)) +
                             geom_dotplot(binaxis='y', stackdir='center', dotsize = 1.5) +
                             scale_fill_manual(name="Season",
                                               values=c("#E69F00", "#0072B2", "#00bf8b")) +
-                            theme(legend.title = element_text(size = 18, face="bold"),
-                                  legend.text = element_text(size=16),
+                            theme(legend.title = element_text(size = 10, face="bold"),
+                                  legend.text = element_text(size=10),
                                   panel.grid.major = element_blank(),
                                   panel.grid.minor = element_blank()
                                   )
@@ -235,23 +228,23 @@ rpkg.plot <- ggplot(exo_rpkg, aes(x=Season, y=RPKG, fill=Season)) +
   ylab("Exo-inulinase reads per\nkilobase per genome equivalent") +
   scale_y_continuous(breaks=c(0.00, 0.142, 0.284, 0.426, 0.568, 0.710),
                      limits=c(0.000, 0.710)) +
-  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.75,
+  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5,
                show.legend = F) +
-  theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.text.x = element_text(size=14),
-        axis.text.y = element_text(size=14),
-        axis.title.x = element_text(size=18, margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y = element_text(size=18, margin=margin(t=0, r=10, b=0, l=0)),
-        strip.text.x = element_text(size=18),
-        strip.text.y = element_text(size=12),
+  theme(plot.title=element_text(hjust=0.5, size=12),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        axis.title.x = element_text(size=10, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=10, margin=margin(t=0, r=10, b=0, l=0)),
+        strip.text.x = element_text(size=10),
+        strip.text.y = element_text(size=10),
         panel.spacing=unit(1, "lines"),
-        legend.title = element_text(size = 16, face="bold"),
-        legend.text = element_text(size=14),
+        legend.title = element_text(size = 10, face="bold"),
+        legend.text = element_text(size=10),
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         legend.position = "none") +
-  geom_text(data = rpkg.ann, aes(label=lab), x=c(2,0,0), y=c(0.71, 0, 0), size=5, color="black")
+  geom_text(data = rpkg.ann, aes(label=lab), x=c(2,0,0), y=c(0.71, 0, 0), size=4, color="black")
 
 
 
@@ -260,23 +253,23 @@ microbeDNA.plot <- ggplot(microbe.ra, aes(x=Season, y=Microbial_DNA_Yield, fill=
   geom_dotplot(binaxis='y', stackdir='center', dotsize = 1.5) +
   scale_fill_manual(name="Season", values=c("#E69F00", "#0072B2", "#00bf8b")) +
   ylab("Microbial DNA Yield\n(ng / mg cecal content)") +
-  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.75,
+  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5,
                show.legend = F) +
-  theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.text.x = element_text(size=14),
-        axis.text.y = element_text(size=14),
-        axis.title.x = element_text(size=18, margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y = element_text(size=18, margin=margin(t=0, r=10, b=0, l=0)),
-        strip.text.x = element_text(size=18),
-        strip.text.y = element_text(size=12),
+  theme(plot.title=element_text(hjust=0.5, size=12),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        axis.title.x = element_text(size=10, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=10, margin=margin(t=0, r=10, b=0, l=0)),
+        strip.text.x = element_text(size=10),
+        strip.text.y = element_text(size=10),
         panel.spacing=unit(1, "lines"),
-        legend.title = element_text(size = 16, face="bold"),
-        legend.text = element_text(size=14),
+        legend.title = element_text(size = 10, face="bold"),
+        legend.text = element_text(size=10),
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         legend.position = "none") +
-  geom_text(data = rpkg.ann, aes(label=lab), x=c(2,0,0), y=c(78, 0, 0), size=5, color="black")
+  geom_text(data = rpkg.ann, aes(label=lab), x=c(2,0,0), y=c(78, 0, 0), size=4, color="black")
 
 
 ```
@@ -284,21 +277,21 @@ microbeDNA.plot <- ggplot(microbe.ra, aes(x=Season, y=Microbial_DNA_Yield, fill=
 
 ### Plot - RPKG + Microbial DNA Yield
 ```{r}
-#png("rpkg.microbeDNA.png", width = 300, height = 110, units = "mm", res = 400)
+tiff("rpkg.microbeDNA.tiff", width = 6.5, height = 2.6, units = "in", res = 600)
 grid.newpage()
-pushViewport(viewport(layout=grid.layout(1,3, widths = c(1,1, 0.25))))
+pushViewport(viewport(layout=grid.layout(1,3, widths = c(1.1,1, 0.35))))
 
 print(rpkg.plot, vp=viewport(layout.pos.row=1, layout.pos.col=1))
-grid.text("A", x=unit(0.03, "npc"), y=unit(0.96, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=26,fontface="bold"))
+grid.text("A", x=unit(0.03, "npc"), y=unit(0.96, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=14,fontface="bold"))
 
 
 print(microbeDNA.plot, vp=viewport(layout.pos.row=1, layout.pos.col=2))
-grid.text("B", x=unit(0.03, "npc"), y=unit(0.96, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=2), gp=gpar(fontsize=26,fontface="bold"))
+grid.text("B", x=unit(0.03, "npc"), y=unit(0.96, "npc"), vp=viewport(layout.pos.row=1, layout.pos.col=2), gp=gpar(fontsize=14,fontface="bold"))
 
 
 season.legend$vp <- viewport(layout.pos.row=1, layout.pos.col=3)
 grid.draw(season.legend)
-#dev.off()
+dev.off()
 ```
 
 

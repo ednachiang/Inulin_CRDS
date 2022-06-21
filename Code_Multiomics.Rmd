@@ -115,6 +115,9 @@ metab <- data.frame(metab)
 for(l in 1:ncol(metab)){
   metab[,l] <- as.numeric(metab[,l])
 }
+# Remove unused metabolites
+metab <- metab[,-5]
+metab <- metab[,-6:-9]
 metab.all.biom <- make_biom(t(metab))
 metab.inu.biom <- make_biom(t(metab[1:3,]))
 #write_biom(metab.all.biom, biom_file = 'metab.sum.biom')
@@ -259,16 +262,11 @@ prob.phy <- merge_phyloseq(prob.otu, inu.tax.table)
 prob.taxa <- data.frame(tax_table(prob.phy))
 #write.table(prob.taxa, file = 'multi-omics/mmvec_inulin/top_prob_taxa.txt', sep = "\t")
 rename <- prob.taxa$ta8
-rename[1] <- "Flavonifractor"
-rename[9] <- "Micrococcales"
-rename[11] <- "Ruminococcaceae"
-rename[12] <- "Muribaculaceae"
-rename[17] <- "Bacteroidales"
-rename[18] <- "Clostridiales"
-rename[22] <- "Salinivirgaceae"
-rename[25] <- "Lactobacillus"
-rename[27] <- "Prevotella"
-rename[28] <- "Bacteroides"
+rename[12] <- "Kribbella"
+rename[15] <- "Bacteroidales"
+rename[17] <- "Prevotella"
+rename[18] <- "Flavonifractor"
+rename[22] <- "Clostridiales"
 prob.taxa$Name <- rename
 prob.taxa <- tax_table(prob.taxa)
 taxa_names(prob.taxa) <- taxa_names(prob.otu)
@@ -280,14 +278,16 @@ prob.phy <- merge_phyloseq(prob.otu, prob.taxa)
 
 ### Plot co-occurrence probability heatmap
 ```{r}
+# Colors taken from RColorBrewer Palette = RdBu
+
 tiff("multi-omics_hm.tiff", width=6.5, height=6.25, units="in", res=600)
-plot_heatmap(prob.phy, sample.order = c("Acetate", "Butyrate", "Propionate", "Lactate", "Fructose", "Glucose", "Mannose", "Phenylalanine", "Glutamate", "Uracil"), taxa.label = "Taxon", taxa.order = c(10936, 10918, 10415, 9902, 9662, 8671, 8479, 8193, 7370, 6012, 5062, 5033, 4486, 3978, 3977, 3974, 3956, 3949, 3517, 2849, 2517, 2408, 1985, 1982, 1315, 59, 57, 15, 7)) +
+plot_heatmap(prob.phy, sample.order = c("Fructose", "Glucose", "Acetate", "Butyrate", "Lactate"), taxa.label = "Taxon", taxa.order = c(10981, 10817, 10263, 9494, 9168, 8863, 8742, 8467, 7637, 7628, 7199, 5761, 5381, 5145, 4681, 3977, 3949, 1959, 937, 565, 57, 7)) +
   geom_tile(colour="gray40") +
-  scale_y_discrete(labels=c("Candidatus Buchananbacteria bacterium RBG_13_39_9", "candidate division BRC1 bacterium HGW-BRC1-1", "Ignavibacteria bacterium GWF2_33_9", "Candidatus Methanoperedens nitroreducens", "HGW-Chloroflexi-5", "Micrococcales", "Jannaschia faecimaris", "Trabulsiella odontotermitis", "Oceanibaculum indicum", "Larkinella knui", "Chitinophaga barathri", "Flavobacterium sp. xlx-214", "Williamwhitmania taraxaci", "Bacteroides", "Prevotella", "Salinivirgaceae", "Muribaculaceae","Bacteroidales", "Coprobacillus sp. AM23-2", "Gracilibacillus halophilus", "Aneurinibacillus danicus", "Paenibacillus phocaensis", "Lachnospiraceae bacterium FD2005", "Clostridium paradoxum", "Halobacillus kuroshimensis", "Lactobacillus", "Flavonifractor", "Ruminococcaceae", "Clostridiales")) +
+  scale_y_discrete(labels=c("Candidatus Wallbacteria bacterium HGW-Wallbacteria-1", "Thermodesulfobacteriales bacterium", "Lentisphaerae bacterium GWF2_49_21", "Spiroplasma taiwanense", "Glycomyces xiaoerkulensis", "Raoultibacter timonensis", "Kribbella", "Francisella uliginis", "Rhodobacteraceae bacterium RKSG542", "Marinicauda sp. WD6-1", "Zymomonas mobilis", "Flavobacteriales bacterium 34_180_T64", "Niastella populi", "Prevotella sp. HMSC069G02", "Pseudarcicella hirudinis", "Prevotella", "Bacteroidales", "Peptoniphilus sp. ING2-D1G", "Butyrivibrio sp. M55", "Butyrivibrio sp. AE3009", "Flavonifractor", "Clostridiales")) +
   xlab("Metabolite") + ylab("Taxon") +
   scale_fill_gradientn(name="Co-occurence\nProbability",
-                       colours = c("#3232FF", "#6464FF", "#9696FF", "#E1E1FF", "#FFFFFF", "#FFE1E1", "#FFC8C8", "#FF6464", "#EA0000", "#C90000"), 
-                       limits = c(-2.31, 2.61), breaks = c(-2.00, -1.50, -1.00, -0.50, 0.00, 0.50, 1.00, 1.50, 2.00, 2.50)) +
+                       colours = c("#053061", "#2166ac", "#4393c3", "#92c5de", "#d1e5f0", "#f7f7f7", "#fddbc7", "#f4a582", "#d6604d", "#b2182b", "#67001f"), 
+                       limits = c(-3, 3), breaks = c(-3, -2, -1, 0, 1, 2, 3)) +
   theme(axis.text.x = element_text(size=10, angle=40, hjust=1, vjust=1.15),
         axis.text.y = element_text(size=9),
         axis.ticks.x = element_blank(),
