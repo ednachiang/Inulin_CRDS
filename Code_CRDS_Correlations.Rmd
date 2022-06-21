@@ -12,7 +12,6 @@ library(plyr)
 library(dplyr)
 library(grid)
 library(car)
-library(Rmisc)
 library(confintr)
 source('scripts/misc.R')
 set.seed(1)
@@ -897,3 +896,69 @@ p.adjust(c(0.5756, 0.6959, 0.3231, 0.8018), "BH")
 ```
 
 
+
+### Test Sex
+```{r}
+### Body Mass ###
+
+#summary(aov(BodyMass ~ Season + Diet + Season*Antibiotics*Substrate*Sex, crds.rem))
+#TukeyHSD(aov(BodyMass ~ Season + Diet + Season*Antibiotics*Substrate*Sex, crds.rem), conf.level = 0.95)
+
+# Separate by season
+crds.s <- crds.rem[which(crds.rem$Season == "Summer"),]
+crds.w <- crds.rem[which(crds.rem$Season == "Winter"),]
+crds.p <- crds.rem[which(crds.rem$Season == "Spring"),]
+
+# No ABX
+t.test(BodyMass ~ Sex, crds.s[which(crds.s$Antibiotics == "No"),])
+  # p = 0.1478
+t.test(BodyMass ~ Sex, crds.w[which(crds.w$Antibiotics == "No"),])
+  # p = 0.02876
+t.test(BodyMass ~ Sex, crds.p[which(crds.p$Antibiotics == "No"),])
+  # p = 0.003547
+
+# ABX
+t.test(BodyMass ~ Sex, crds.s[which(crds.s$Antibiotics == "Yes"),])
+  # p = 0.6437
+t.test(BodyMass ~ Sex, crds.w[which(crds.w$Antibiotics == "Yes"),])
+  # p = 0.1732
+t.test(BodyMass ~ Sex, crds.p[which(crds.p$Antibiotics == "Yes"),])
+  # p = 0.8766
+
+p.adjust(c(0.1478, 0.02876, 0.003547, 0.6437, 0.1732, 0.8766), method = "BH")
+  # Summer No ABX - 0.259800
+  # Winter No ABX - 0.086280~
+  # Spring No ABX - 0.021282*
+  # Summer ABX - 0.772440
+  # Winter ABX - 0.259800
+  # Spring ABX - 0.876600
+
+
+
+### Hib Dates ###
+# Separate by season
+dates.w <- dates_use[which(dates_use$Season == "Winter"),]
+dates.p <- dates_use[which(dates_use$Season == "Spring"),]
+
+# No ABX - Days in Hib
+t.test(Days_Hib ~ Sex, dates.w[which(dates.w$Antibiotics == "No"),])
+  # p = 0.1322
+t.test(Days_Hib ~ Sex, dates.p[which(dates.p$Antibiotics == "No"),])
+  # p = 0.2661
+
+# No ABX - IBA:Hib
+t.test(IBA.Hib ~ Sex, dates.w[which(dates.w$Antibiotics == "No"),])
+  # p = 0.2314
+t.test(IBA.Hib ~ Sex, dates.p[which(dates.p$Antibiotics == "No"),])
+  # p = 0.6083
+
+# ABX - Days in Hib
+t.test(Days_Hib ~ Sex, dates.w[which(dates.w$Antibiotics == "Yes"),])
+  # p = 0.7635
+#t.test(Days_Hib ~ Sex, dates.p[which(dates.p$Antibiotics == "Yes"),])
+  # Not enough samples
+
+# ABX - IBA:Hib
+t.test(IBA.Hib ~ Sex, dates.w[which(dates.w$Antibiotics == "Yes"),])
+  # p = 0.3131
+```
