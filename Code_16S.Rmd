@@ -7,20 +7,14 @@ output: html_document
 
 ### Load Libraries
 ```{r}
-library(ape)
 library(dplyr)
-library(dunn.test)
-library(effsize)
 library(ggplot2)
-library(grid)
-library(gridExtra)
 library(phyloseq)
-library(picante)
-library(pwr)
 library(tidyr)
-library(vegan)
 library(miLineage)
 library(equivalence)
+library(vegan)
+library(grid)
 source('scripts/misc.R')
 source('scripts/simper_pretty.R')
 source('scripts/R_krusk.R')
@@ -460,7 +454,9 @@ phy.win.c.abx.rem <- merge_phyloseq(otu_table(otu.win.c.abx.otu.rem, taxa_are_ro
 ### Test ABX S vs. W
 ```{r}
 # Create physeq object
-abx.use <- merge_phyloseq(phy.sum.c.abx.rem, phy.win.c.abx.rem)
+phy.sum.c.abx <- subset_samples(phy.sum.c, Antibiotics == "Yes")
+phy.win.c.abx <- subset_samples(phy.win.c, Antibiotics == "Yes")
+abx.use <- merge_phyloseq(phy.sum.c.abx, phy.win.c.abx)
 
 
 ##### Bray-Curtis tests
@@ -468,19 +464,19 @@ bray.abx <- phyloseq::distance(physeq = abx.use, method = "bray")
 beta.tax <- betadisper(d = bray.abx, group = data.frame(sample_data(abx.use))$Season)
 p <- permutest(beta.tax)
 p$tab
-  # p-value = 0.654
+  # p-value = 0.637
 adonis(bray.abx ~ Season, data=data.frame(sample_data(abx.use)), permutations = 9999)
-  # p-value = 0.1429
+  # p-value = 
 
 
 ##### SIMPER
-simper.pretty(data.frame(otu_table(abx.use)),
+#simper.pretty(data.frame(otu_table(abx.use)),
               data.frame(sample_data(abx.use)),
               c("Season"),
               perc_cutoff=0.5, low_cutoff='y', low_val=0.01,
               output_name='abx')
-group.simper <- read.csv("abx_clean_simper.csv")
-kruskal.pretty(data.frame(otu_table(abx.use)),
+#group.simper <- read.csv("abx_clean_simper.csv")
+#kruskal.pretty(data.frame(otu_table(abx.use)),
                data.frame(sample_data(abx.use)),
                csv = group.simper,
                c("Season"),
@@ -706,13 +702,14 @@ ggplot(phy.c.abx.top.df, aes(x=Season, y=Abundance, fill=Season)) +
         panel.grid.minor = element_blank()
   ) 
 ```
+
+
 ### Alpha Div
 ```{r}
 adiv.c <- data.frame(sample_data(phy.c))
 adiv.c.noabx <- adiv.c[which(adiv.c$Antibiotics == "No"),]
 adiv.c.noabx.act <- adiv.c.noabx[which(adiv.c.noabx$Season != "Winter"),]
   # Removing lone Winter sample left
-
 
 ### Chao ###
 hist(adiv.c.noabx.act$chao, breaks=10)
@@ -728,8 +725,6 @@ t.test(chao ~ Season, adiv.c.noabx.act)
 var.test(chao ~ Season, adiv.c.noabx.act)
   # p-value = 0.6088
 
-
-
 ### Shannon ###
 hist(adiv.c.noabx.act$shannon, breaks=10)
 qqnorm(adiv.c.noabx.act$shannon)
@@ -744,8 +739,6 @@ wilcox.test(shannon ~ Season, adiv.c.noabx.act)
 fligner.test(shannon ~ Season, adiv.c.noabx.act)
   # p-value = 0.4269
 
-
-
 ### Inverse Simpson ###
 hist(adiv.c.noabx.act$invsimpson, breaks=10)
 qqnorm(adiv.c.noabx.act$invsimpson)
@@ -759,6 +752,419 @@ t.test(invsimpson ~ Season, adiv.c.noabx.act)
 
 var.test(invsimpson ~ Season, adiv.c.noabx.act)
   # p-value = 0.2264
+
+
+
+
+
+
+
+
+
+
+
+##### Test sex - Summer Content No ABX
+adiv.c <- data.frame(sample_data(phy.c))
+adiv.c.noabx <- adiv.c[which(adiv.c$Antibiotics == "No"),]
+adiv.sum.c.noabx <- adiv.c.noabx[which(adiv.c.noabx$Season == "Summer"),]
+
+### Chao ###
+hist(adiv.sum.c.noabx$chao, breaks=10)
+qqnorm(adiv.sum.c.noabx$chao)
+qqline(adiv.sum.c.noabx$chao)
+shapiro.test(adiv.sum.c.noabx$chao)
+  # p-value = 0.3446
+  # Normal
+t.test(chao ~ Sex, adiv.sum.c.noabx)
+  # p-value = 0.2104
+var.test(chao ~ Sex, adiv.sum.c.noabx)
+  # p-value = 0.7828
+
+alpha.ann <- data.frame(lab = c("ns", " "), Sex = factor(c("Female", "Male")))
+
+adiv.sum.c.noabx.chao <- ggplot(adiv.sum.c.noabx, aes(x = Sex, y = chao, 
+                                                      color = Sex, fill = Sex)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+               position = position_dodge(0.8), stackratio = 0.7) +
+  scale_color_manual(values=c("gray20", "gray40")) +
+  scale_fill_manual(values=c("gray45", "gray70")) +
+  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ggtitle("Summer Content")  +
+  ylab("Chao Richness") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(size=10),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(hjust = 0.5, size = 10),
+        legend.position = "none") +
+  geom_text(data = alpha.ann, aes(label=lab), x=c(1.5, 0), y = c(740,0), 
+            size = 3, color = "black")
+
+### Shannon ###
+hist(adiv.sum.c.noabx$shannon, breaks=10)
+qqnorm(adiv.sum.c.noabx$shannon)
+qqline(adiv.sum.c.noabx$shannon)
+shapiro.test(adiv.sum.c.noabx$shannon)
+  # p-value = 0.04317
+  # Not Normal
+wilcox.test(shannon ~ Sex, adiv.sum.c.noabx)
+  # p-value = 0.4807
+fligner.test(shannon ~ Sex, adiv.sum.c.noabx)
+  # p-value = 0.622
+
+adiv.sum.c.noabx.shannon <- ggplot(adiv.sum.c.noabx, aes(x = Sex, y = shannon, 
+                                                      color = Sex, fill = Sex)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+               position = position_dodge(0.8), stackratio = 0.7) +
+  scale_color_manual(values=c("gray20", "gray40")) +
+  scale_fill_manual(values=c("gray45", "gray70")) +
+  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ggtitle("Summer Content")  +
+  ylab("Shannon's Diversity") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(size=10),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(hjust = 0.5, size = 10),
+        legend.position = "none") +
+  geom_text(data = alpha.ann, aes(label=lab), x=c(1.5, 0), y = c(4.85,0), 
+            size = 3, color = "black")
+
+### Inverse Simpson ###
+hist(adiv.sum.c.noabx$invsimpson, breaks=10)
+qqnorm(adiv.sum.c.noabx$invsimpson)
+qqline(adiv.sum.c.noabx$invsimpson)
+shapiro.test(adiv.sum.c.noabx$invsimpson)
+  # p-value = 0.03654
+  # Not Normal
+
+wilcox.test(invsimpson ~ Sex, adiv.sum.c.noabx)
+  # p-value = 0.4807
+
+fligner.test(invsimpson ~ Sex, adiv.sum.c.noabx)
+  # p-value = 0.7904
+
+adiv.sum.c.noabx.invsimpson <- ggplot(adiv.sum.c.noabx, aes(x = Sex, y = invsimpson, 
+                                                      color = Sex, fill = Sex)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+               position = position_dodge(0.8), stackratio = 0.7) +
+  scale_color_manual(values=c("gray20", "gray40")) +
+  scale_fill_manual(values=c("gray45", "gray70")) +
+  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ggtitle("Summer Content")  +
+  ylab("Inverse Simpson") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(size=10),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(hjust = 0.5, size = 10),
+        legend.position = "none") +
+  geom_text(data = alpha.ann, aes(label=lab), x=c(1.5, 0), y = c(56,0), 
+            size = 3, color = "black")
+
+
+
+
+
+
+
+
+
+
+
+##### Test sex - Summer Mucosa No ABX
+adiv.m <- data.frame(sample_data(phy.m))
+adiv.m.noabx <- adiv.m[which(adiv.m$Antibiotics == "No"),]
+adiv.sum.m.noabx <- adiv.m.noabx[which(adiv.m.noabx$Season == "Summer"),]
+
+### Chao ###
+hist(adiv.sum.m.noabx$chao, breaks=10)
+qqnorm(adiv.sum.m.noabx$chao)
+qqline(adiv.sum.m.noabx$chao)
+shapiro.test(adiv.sum.m.noabx$chao)
+  # p-value = 0.3415
+  # Normal
+t.test(chao ~ Sex, adiv.sum.m.noabx)
+  # p-value = 0.3205
+var.test(chao ~ Sex, adiv.sum.m.noabx)
+  # p-value = 0.8046
+
+adiv.sum.m.noabx.chao <- ggplot(adiv.sum.m.noabx, aes(x = Sex, y = chao, 
+                                                      color = Sex, fill = Sex)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+               position = position_dodge(0.8), stackratio = 0.7) +
+  scale_color_manual(values=c("gray20", "gray40")) +
+  scale_fill_manual(values=c("gray45", "gray70")) +
+  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ggtitle("Summer Mucosa")  +
+  ylab("Chao Richness") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(size=10),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(hjust = 0.5, size = 10),
+        legend.position = "none") +
+  geom_text(data = alpha.ann, aes(label=lab), x=c(1.5, 0), y = c(1270,0), 
+            size = 3, color = "black")
+
+### Shannon ###
+hist(adiv.sum.m.noabx$shannon, breaks=10)
+qqnorm(adiv.sum.m.noabx$shannon)
+qqline(adiv.sum.m.noabx$shannon)
+shapiro.test(adiv.sum.m.noabx$shannon)
+  # p-value = 0.1816
+  # Normal
+t.test(shannon ~ Sex, adiv.sum.m.noabx)
+  # p-value = 0.2474
+var.test(shannon ~ Sex, adiv.sum.m.noabx)
+  # p-value = 0.7996
+
+adiv.sum.m.noabx.shannon <- ggplot(adiv.sum.c.noabx, aes(x = Sex, y = shannon, 
+                                                      color = Sex, fill = Sex)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+               position = position_dodge(0.8), stackratio = 0.7) +
+  scale_color_manual(values=c("gray20", "gray40")) +
+  scale_fill_manual(values=c("gray45", "gray70")) +
+  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ggtitle("Summer Mucosa")  +
+  ylab("Shannon's Diversity") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(size=10),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(hjust = 0.5, size = 10),
+        legend.position = "none") +
+  geom_text(data = alpha.ann, aes(label=lab), x=c(1.5, 0), y = c(4.85,0), 
+            size = 3, color = "black")
+
+### Inverse Simpson ###
+hist(adiv.sum.m.noabx$invsimpson, breaks=10)
+qqnorm(adiv.sum.m.noabx$invsimpson)
+qqline(adiv.sum.m.noabx$invsimpson)
+shapiro.test(adiv.sum.m.noabx$invsimpson)
+  # p-value = 0.1167
+  # Normal
+t.test(invsimpson ~ Sex, adiv.sum.m.noabx)
+  # p-value = 0.1042
+var.test(invsimpson ~ Sex, adiv.sum.m.noabx)
+  # p-value = 0.09894
+
+adiv.sum.m.noabx.invsimpson <- ggplot(adiv.sum.m.noabx, aes(x = Sex, y = invsimpson, 
+                                                      color = Sex, fill = Sex)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+               position = position_dodge(0.8), stackratio = 0.7) +
+  scale_color_manual(values=c("gray20", "gray40")) +
+  scale_fill_manual(values=c("gray45", "gray70")) +
+  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.5) +
+  ggtitle("Summer Mucosa")  +
+  ylab("Inverse Simpson") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        axis.title.x = element_text(size=10, margin = margin(t = 7.5)),
+        axis.title.y = element_text(size=10),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(hjust = 0.5, size = 10),
+        legend.position = "none") +
+  geom_text(data = alpha.ann, aes(label=lab), x=c(1.5, 0), y = c(60,0), 
+            size = 3, color = "black")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##### Test Substrate - Summer Content No ABX
+#adiv.c <- data.frame(sample_data(phy.c))
+#adiv.c.noabx <- adiv.c[which(adiv.c$Antibiotics == "No"),]
+#adiv.sum.c.noabx <- adiv.c.noabx[which(adiv.c.noabx$Season == "Summer"),]
+
+### Chao ###
+t.test(chao ~ Substrate, adiv.sum.c.noabx)
+  # p-value = 0.6695
+var.test(chao ~ Substrate, adiv.sum.c.noabx)
+  # p-value = 0.6694
+
+### Shannon ###
+t.test(shannon ~ Substrate, adiv.sum.c.noabx)
+  # p-value = 0.9689
+var.test(shannon ~ Substrate, adiv.sum.c.noabx)
+  # p-value = 0.9203
+
+### Inverse Simpson ###
+t.test(invsimpson ~ Substrate, adiv.sum.c.noabx)
+  # p-value = 0.7465
+var.test(invsimpson ~ Substrate, adiv.sum.c.noabx)
+  # p-value = 0.9013
+
+
+##### Test Substrate - Summer Mucosa No ABX
+#adiv.m <- data.frame(sample_data(phy.m))
+#adiv.m.noabx <- adiv.m[which(adiv.m$Antibiotics == "No"),]
+#adiv.sum.m.noabx <- adiv.m.noabx[which(adiv.m.noabx$Season == "Summer"),]
+
+### Chao ###
+t.test(chao ~ Substrate, adiv.sum.m.noabx)
+  # p-value = 0.433
+var.test(chao ~ Substrate, adiv.sum.m.noabx)
+  # p-value = 0.918
+
+### Shannon ###
+t.test(shannon ~ Substrate, adiv.sum.m.noabx)
+  # p-value = 0.6132
+var.test(shannon ~ Substrate, adiv.sum.m.noabx)
+  # p-value = 0.3147
+
+### Inverse Simpson ###
+t.test(invsimpson ~ Substrate, adiv.sum.m.noabx)
+  # p-value = 0.8516
+var.test(invsimpson ~ Substrate, adiv.sum.m.noabx)
+  # p-value = 0.9025
+
+
+
+
+
+
+
+
+
+
+
+##### Test Substrate - Summer Content No ABX Female
+adiv.sum.c.noabx.f <- adiv.sum.c.noabx[which(adiv.sum.c.noabx$Sex == "Female"),]
+
+### Chao ###
+t.test(chao ~ Substrate, adiv.sum.c.noabx.f)
+  # p-value = 0.4709
+var.test(chao ~ Substrate, adiv.sum.c.noabx.f)
+  # p-value = 0.6354
+
+### Shannon ###
+t.test(shannon ~ Substrate, adiv.sum.c.noabx.f)
+  # p-value = 0.7478
+var.test(shannon ~ Substrate, adiv.sum.c.noabx.f)
+  # p-value = 0.7422
+
+### Inverse Simpson ###
+t.test(invsimpson ~ Substrate, adiv.sum.c.noabx.f)
+  # p-value = 0.7741
+var.test(invsimpson ~ Substrate, adiv.sum.c.noabx.f)
+  # p-value = 0.3255
+
+
+
+##### Test Substrate - Summer Content No ABX Female
+adiv.sum.c.noabx.m <- adiv.sum.c.noabx[which(adiv.sum.c.noabx$Sex == "Male"),]
+
+### Chao ###
+t.test(chao ~ Substrate, adiv.sum.c.noabx.m)
+  # p-value = 0.8129
+var.test(chao ~ Substrate, adiv.sum.c.noabx.m)
+  # p-value = 0.4415
+
+### Shannon ###
+t.test(shannon ~ Substrate, adiv.sum.c.noabx.m)
+  # p-value = 0.6176
+var.test(shannon ~ Substrate, adiv.sum.c.noabx.m)
+  # p-value = 0.27
+
+### Inverse Simpson ###
+t.test(invsimpson ~ Substrate, adiv.sum.c.noabx.m)
+  # p-value = 0.8976
+var.test(invsimpson ~ Substrate, adiv.sum.c.noabx.m)
+  # p-value = 0.568
+
+
+
+
+
+
+
+
+
+
+
+
+##### Test Substrate - Summer Mucosa No ABX Female
+adiv.sum.m.noabx.f <- adiv.sum.m.noabx[which(adiv.sum.m.noabx$Sex == "Female"),]
+
+### Chao ###
+t.test(chao ~ Substrate, adiv.sum.m.noabx.f)
+  # p-value = 0.4618
+var.test(chao ~ Substrate, adiv.sum.m.noabx.f)
+  # p-value = 0.4235
+
+### Shannon ###
+t.test(shannon ~ Substrate, adiv.sum.m.noabx.f)
+  # p-value = 0.8139
+var.test(shannon ~ Substrate, adiv.sum.m.noabx.f)
+  # p-value = 0.3792
+
+### Inverse Simpson ###
+t.test(invsimpson ~ Substrate, adiv.sum.m.noabx.f)
+  # p-value = 0.9709
+var.test(invsimpson ~ Substrate, adiv.sum.m.noabx.f)
+  # p-value = 0.5077
+
+
+
+##### Test Substrate - Summer Content No ABX Female
+adiv.sum.m.noabx.m <- adiv.sum.m.noabx[which(adiv.sum.m.noabx$Sex == "Male"),]
+
+### Chao ###
+t.test(chao ~ Substrate, adiv.sum.m.noabx.m)
+  # p-value = 0.7734
+var.test(chao ~ Substrate, adiv.sum.m.noabx.m)
+  # p-value = 0.6332
+
+### Shannon ###
+t.test(shannon ~ Substrate, adiv.sum.m.noabx.m)
+  # p-value = 0.6827
+var.test(shannon ~ Substrate, adiv.sum.m.noabx.m)
+  # p-value = 0.4836
+
+### Inverse Simpson ###
+t.test(invsimpson ~ Substrate, adiv.sum.m.noabx.m)
+  # p-value = 0.8244
+var.test(invsimpson ~ Substrate, adiv.sum.m.noabx.m)
+  # p-value = 0.8869
+
 ```
 ### Beta Div
 ```{r}
@@ -774,10 +1180,238 @@ bray <- phyloseq::distance(physeq = phy.act.noabx, method = "bray")
 beta.tax <- betadisper(d = bray, group = sampdf$Season)
 p <- permutest(beta.tax)
 p$tab
-  # p-value = 0.803
+  # p-value = 0.676
 adonis(bray ~ Season, data=sampdf, permutations = 9999)
   # p-value = 0.1385
 
+
+
+
+
+
+
+
+# Steal Season legend
+season.legend <- g_legend(plot_ordination(phy.sum.m.noabx, 
+                                   ordination = bray.pcoa.sum.m.noabx, color = "Sex",
+                                   title = "Bray-Curtis Dissimilarity") +
+                            scale_color_manual(values=c("gray45", "gray70")) +
+                            geom_point(size=2.5) +
+                            theme(legend.title = element_text(size=10),
+                                  legend.text = element_text(size=10),
+                                  legend.box.margin=margin(0,0,0,-10)))
+
+
+
+
+
+
+
+
+
+### Test sex in summer content no abx ###
+phy.sum.c.noabx <- subset_samples(phy.sum.c, Antibiotics == "No")
+
+# Test
+sampdf <- data.frame(sample_data(phy.sum.c.noabx))
+bray.pcoa.sum.c.noabx <- phyloseq::distance(physeq = phy.sum.c.noabx, method = "bray")
+beta.tax <- betadisper(d = bray.pcoa.sum.c.noabx, group = sampdf$Sex)
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.848
+adonis2(bray.pcoa.sum.c.noabx ~ Sex, data= sampdf, permutations = 9999)
+  # p-value = 0.0564
+
+# Plot
+bray.pcoa.sum.c.noabx <- ordinate(physeq=phy.sum.c.noabx, method="PCoA", distance="bray")
+
+sum.c.noabx.ord <- plot_ordination(phy.sum.c.noabx, 
+                                   ordination = bray.pcoa.sum.c.noabx, color = "Sex",
+                                   title = "Bray-Curtis Dissimilarity") +
+  scale_color_manual(values=c("gray45", "gray70")) +
+  geom_point(size=2.5) +
+  ggtitle("Summer Content") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x = element_text(size=10),
+        axis.title.y = element_text(size=10),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        #legend.title = element_text(size=10),
+        #legend.text = element_text(size=10),
+        plot.title = element_text(size=10, hjust = 0.5),
+        #legend.box.margin=margin(0,0,0,-10)
+        legend.position = "none")
+
+
+
+
+
+
+
+### Test sex in summer mucosa no abx ###
+phy.sum.m.noabx <- subset_samples(phy.sum.m, Antibiotics == "No")
+
+# Test
+sampdf <- data.frame(sample_data(phy.sum.m.noabx))
+bray.pcoa.sum.m.noabx <- phyloseq::distance(physeq = phy.sum.m.noabx, method = "bray")
+beta.tax <- betadisper(d = bray.pcoa.sum.m.noabx, group = sampdf$Sex)
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.706
+adonis2(bray.pcoa.sum.m.noabx ~ Sex, data= sampdf, permutations = 9999)
+  # p-value = 0.206
+
+
+# Plot
+bray.pcoa.sum.m.noabx <- ordinate(physeq=phy.sum.m.noabx, method="PCoA", distance="bray")
+
+sum.m.noabx.ord <- plot_ordination(phy.sum.m.noabx, 
+                                   ordination = bray.pcoa.sum.m.noabx, color = "Sex",
+                                   title = "Bray-Curtis Dissimilarity") +
+  scale_color_manual(values=c("gray45", "gray70")) +
+  geom_point(size=2.5) +
+  ggtitle("Summer Mucosa") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x = element_text(size=10),
+        axis.title.y = element_text(size=10),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+         #legend.title = element_text(size=10),
+        #legend.text = element_text(size=10),
+        plot.title = element_text(size=10, hjust = 0.5),
+        #legend.box.margin=margin(0,0,0,-10)
+        legend.position = "none")
+
+
+
+
+
+
+
+
+
+
+
+### Test substrate in summer content no abx female ###
+phy.sum.c.noabx.f <- subset_samples(phy.sum.c.noabx, Sex == "Female")
+
+# Test
+sampdf <- data.frame(sample_data(phy.sum.c.noabx.f))
+bray.pcoa.sum.c.noabx.f <- phyloseq::distance(physeq = phy.sum.c.noabx.f, method = "bray")
+beta.tax <- betadisper(d = bray.pcoa.sum.c.noabx.f, group = sampdf$Substrate)
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.469
+adonis2(bray.pcoa.sum.c.noabx.f ~ Substrate, data= sampdf, permutations = 9999)
+  # p-value = 0.9135
+
+
+### Test substrate in summer content no abx male ###
+phy.sum.c.noabx.m <- subset_samples(phy.sum.c.noabx, Sex == "Male")
+
+# Test
+sampdf <- data.frame(sample_data(phy.sum.c.noabx.m))
+bray.pcoa.sum.c.noabx.m <- phyloseq::distance(physeq = phy.sum.c.noabx.m, method = "bray")
+beta.tax <- betadisper(d = bray.pcoa.sum.c.noabx.m, group = sampdf$Substrate)
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.6013889
+adonis2(bray.pcoa.sum.c.noabx.m ~ Substrate, data= sampdf, permutations = 9999)
+  # p-value = 0.6
+
+
+
+
+### Test substrate in summer mucosa no abx female ###
+phy.sum.m.noabx.f <- subset_samples(phy.sum.m.noabx, Sex == "Female")
+
+# Test
+sampdf <- data.frame(sample_data(phy.sum.m.noabx.f))
+bray.pcoa.sum.m.noabx.f <- phyloseq::distance(physeq = phy.sum.m.noabx.f, method = "bray")
+beta.tax <- betadisper(d = bray.pcoa.sum.m.noabx.f, group = sampdf$Substrate)
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.9013889
+adonis2(bray.pcoa.sum.m.noabx.f ~ Substrate, data= sampdf, permutations = 9999)
+  # p-value = 0.8
+
+
+### Test substrate in summer content no abx male ###
+phy.sum.m.noabx.m <- subset_samples(phy.sum.m.noabx, Sex == "Male")
+
+# Test
+sampdf <- data.frame(sample_data(phy.sum.m.noabx.m))
+bray.pcoa.sum.m.noabx.m <- phyloseq::distance(physeq = phy.sum.m.noabx.m, method = "bray")
+beta.tax <- betadisper(d = bray.pcoa.sum.m.noabx.m, group = sampdf$Substrate)
+p <- permutest(beta.tax)
+p$tab
+  # p-value = 0.6013889
+adonis2(bray.pcoa.sum.m.noabx.m ~ Substrate, data= sampdf, permutations = 9999)
+  # p-value = 1
+
+
+```
+
+### Plot Sex PCoA
+```{r}
+tiff("16S.sex.tiff", width = 6.5, height = 9, units = "in", res = 600)
+grid.newpage()
+pushViewport(viewport(layout=grid.layout(3,7, widths = c(1, 1, 1, 1, 1, 1, 1))))
+
+print(adiv.sum.c.noabx.chao, vp=viewport(layout.pos.row=1, layout.pos.col=1:2))
+grid.text("A", x=unit(0.1, "npc"), y=unit(0.97, "npc"), 
+          vp=viewport(layout.pos.row=1, layout.pos.col=1), gp=gpar(fontsize=14,fontface="bold"))
+
+print(adiv.sum.c.noabx.shannon, vp=viewport(layout.pos.row=1, layout.pos.col=3:4))
+grid.text("B", x=unit(0.15, "npc"), y=unit(0.97, "npc"),
+          vp=viewport(layout.pos.row=1, layout.pos.col=3), gp=gpar(fontsize=14,fontface="bold"))
+
+print(adiv.sum.c.noabx.invsimpson, vp=viewport(layout.pos.row=1, layout.pos.col=5:6))
+grid.text("C", x=unit(0.15, "npc"), y=unit(0.97, "npc"), 
+          vp=viewport(layout.pos.row=1, layout.pos.col=5), gp=gpar(fontsize=14,fontface="bold"))
+
+
+
+
+
+print(adiv.sum.m.noabx.chao, vp=viewport(layout.pos.row=2, layout.pos.col=1:2))
+grid.text("D", x=unit(0.1, "npc"), y=unit(0.97, "npc"), 
+          vp=viewport(layout.pos.row=2, layout.pos.col=1), gp=gpar(fontsize=14,fontface="bold"))
+
+print(adiv.sum.m.noabx.shannon, vp=viewport(layout.pos.row=2, layout.pos.col=3:4))
+grid.text("E", x=unit(0.15, "npc"), y=unit(0.97, "npc"), 
+          vp=viewport(layout.pos.row=2, layout.pos.col=3), gp=gpar(fontsize=14,fontface="bold"))
+
+print(adiv.sum.m.noabx.invsimpson, vp=viewport(layout.pos.row=2, layout.pos.col=5:6))
+grid.text("F", x=unit(0.15, "npc"), y=unit(0.97, "npc"), 
+          vp=viewport(layout.pos.row=2, layout.pos.col=5), gp=gpar(fontsize=14,fontface="bold"))
+
+
+
+
+print(sum.c.noabx.ord, vp=viewport(layout.pos.row=3, layout.pos.col=1:3))
+grid.text("G", x=unit(0.1, "npc"), y=unit(0.97, "npc"), 
+          vp=viewport(layout.pos.row=3, layout.pos.col=1), gp=gpar(fontsize=14,fontface="bold"))
+grid.text("PERMANOVA P = 0.06", x=unit(1.45, "npc"), y=unit(0.87, "npc"), 
+          vp=viewport(layout.pos.row=3, layout.pos.col=1), gp=gpar(fontsize=10))
+grid.text("betadisper P = 0.85", x=unit(1.32, "npc"), y=unit(0.82, "npc"), 
+          vp=viewport(layout.pos.row=3, layout.pos.col=1), gp=gpar(fontsize=10))
+
+print(sum.m.noabx.ord, vp=viewport(layout.pos.row=3, layout.pos.col=4:6))
+grid.text("H", x=unit(0.15, "npc"), y=unit(0.97, "npc"), 
+          vp=viewport(layout.pos.row=3, layout.pos.col=4), gp=gpar(fontsize=14,fontface="bold"))
+grid.text("PERMANOVA P = 0.21", x=unit(1.45, "npc"), y=unit(0.87, "npc"), 
+          vp=viewport(layout.pos.row=3, layout.pos.col=4), gp=gpar(fontsize=10))
+grid.text("betadisper P = 0.71", x=unit(1.32, "npc"), y=unit(0.82, "npc"), 
+          vp=viewport(layout.pos.row=3, layout.pos.col=4), gp=gpar(fontsize=10))
+
+
+
+season.legend$vp <- viewport(layout.pos.row=2, layout.pos.col=7)
+grid.draw(season.legend)
+dev.off()
 ```
 
 ### Test Diet
