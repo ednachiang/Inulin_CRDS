@@ -11,19 +11,11 @@ library(ggplot2)
 library(plyr)
 library(dplyr)
 library(grid)
-#library(MESS)
-#library(pgirmess)
-#library(Bolstad2)
 library(phyloseq)
 library(vegan)
-#library(miLineage)
-#library(psych)
 library(car)
 library(reshape2)
-#source('scripts/import_crds.R')
-#source('scripts/bin_crds.R')
 source('scripts/misc.R')
-#source('scripts/calc_delta_metrics.R')
 source('scripts/simper_pretty.R')
 source('scripts/R_krusk.R')
 source('scripts/removeTaxa.R')
@@ -207,6 +199,17 @@ dna.c$Metabolism[which(dna.c$Season != "Winter")] <- "Active"
 dna.c$Metabolism <- ordered(dna.c$Metabolism, levels = c("Active", "Hibernation"))
 dna.c$Season <- ordered(dna.c$Season, levels = c("Summer", "Winter", "Spring"))
 
+# Remove outliers
+dna.c <- dna.c[-which(dna.c$Squirrel == "S23"),]
+dna.c <- dna.c[-which(dna.c$Squirrel == "S37"),]
+dna.c <- dna.c[-which(dna.c$Squirrel == "S60"),]
+dna.c <- dna.c[-which(dna.c$Squirrel == "W43"),]
+dna.c <- dna.c[-which(dna.c$Squirrel == "W20"),]
+  # This is due to odd metagenome
+dna.c <- dna.c[-which(dna.c$Squirrel == "W50"),]
+dna.c <- dna.c[-which(dna.c$Squirrel == "P20"),]
+dna.c <- dna.c[-which(dna.c$Squirrel == "P22"),]
+
 dna.c.noabx <- dna.c[which(dna.c$Antibiotics == "No Antibiotics"),]
 
 
@@ -231,32 +234,43 @@ t.test(formula = DNA_Yield_.ng.mg. ~ Metabolism, data = dna.c.noabx)
 ```
 
 
+
 ### Plot - DNA Yield
 ```{r}
-#tiff("dna_yield.noabx.tiff", width = 175, height = 100, units = "mm", res = 400)
-ggplot(dna.c.noabx, aes(x=Season, y=DNA_Yield_.ng.mg., fill=Season)) +
-  geom_dotplot(binaxis='y', stackdir='center', dotsize = 1.5) +
-  scale_fill_manual(name="Season", values=c("#E69F00", "#0072B2", "#00bf8b")) +
+#dna.c$SeasonABX <- interaction(dna.c$Season, dna.c$Antibiotics)
+#dna.c$SeasonABX <- ordered(dna.c$SeasonABX, levels=c("Summer.No Antibiotics", "Summer.Antibiotics", "Winter.No Antibiotics", "Winter.Antibiotics", "Spring.No Antibiotics", "Spring.Antibiotics"))
+
+
+
+tiff("dna_yield.tiff", width = 5, height = 2.5, units = "in", res = 600)
+ggplot(dna.c, aes(x=Season, y=DNA_Yield_.ng.mg., colour = SeasonABX, fill = SeasonABX)) +
+  facet_grid( . ~ Substrate) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 1.5,
+               position = position_dodge(0.7), stackratio = 0.5) +
+  scale_color_manual(values = c("#c98b00", "#E69F00", "#004166", "#006299", "#00966d",
+                                "#00bf8b")) +
+  scale_fill_manual(values = c("#E69F00", "white", "#006299", "white", "#00bf8b",
+                               "white")) +
   ylab("DNA Yield\n(ng/mg cecal content)") +
-  scale_y_continuous(breaks=c(33.0, 66.4, 99.8, 133.2, 166.6, 200.0),
-                     limits=c(33, 206)) +
-  stat_summary(fun.data = "mean_se", fun.args = list(mult = 1), geom = "pointrange",
-               color = "black", position = position_dodge(0.7), size = 0.75,
+  scale_y_continuous(breaks=c(0.0, 51.5, 103, 154.5, 206),
+                     limits=c(-3, 206)) +
+  stat_summary(fun.data = "mean_cl_normal", geom = "pointrange",
+               color = "black", position = position_dodge(0.7), size = 0.4,
                show.legend = F) +
-  theme(plot.title=element_text(hjust=0.5, size=20),
-        axis.text.x = element_text(size=14),
-        axis.text.y = element_text(size=14),
-        axis.title.x = element_text(size=20, margin=margin(t=10, r=0, b=0, l=0)),
-        axis.title.y = element_text(size=20, margin=margin(t=0, r=10, b=0, l=0)),
-        strip.text.x = element_text(size=20),
-        strip.text.y = element_text(size=14),
+  theme(plot.title=element_text(hjust=0.5, size=12),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        axis.title.x = element_text(size=10, margin=margin(t=10, r=0, b=0, l=0)),
+        axis.title.y = element_text(size=10, margin=margin(t=0, r=10, b=0, l=0)),
+        strip.text.x = element_text(size=11, face = "bold"),
+        strip.text.y = element_text(size=10),
+        strip.background = element_blank(),
         panel.spacing=unit(1, "lines"),
-        legend.title = element_text(size = 18, face="bold"),
-        legend.text = element_text(size=16),
         panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()
+        panel.grid.minor = element_blank(),
+        legend.position = "None"
   ) 
-#dev.off()
+dev.off()
 ```
 
 
